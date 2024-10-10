@@ -10,9 +10,15 @@ export default defineNuxtConfig({
 
   css: [join(currentDir, './assets/main.css')],
 
-  i18n: {
-    vueI18n: './i18n.config.ts',
-  },
-
   modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxtjs/color-mode', '@nuxtjs/i18n'],
+
+  i18n: {
+    strategy: 'no_prefix',
+    defaultLocale: navigator?.language,
+    langDir: './locales',
+    locales: [
+      { code: 'nl', file: 'nl.json' },
+      { code: 'en', file: 'en.json' },
+    ],
+  },
 });

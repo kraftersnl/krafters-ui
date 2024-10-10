@@ -14,6 +14,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@iconify-json/heroicons-solid": "latest",
     "@nuxtjs/color-mode": "latest",
     "@nuxt/eslint": "latest",
     "@nuxt/icon": "latest",
