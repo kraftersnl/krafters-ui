@@ -12,16 +12,16 @@
     "lint": "eslint .",
     "format": "prettier . --write"
   },
-  "dependencies": {
-    "@nuxt/icon": "latest"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@nuxtjs/color-mode": "latest",
     "@nuxt/eslint": "latest",
-    "@nuxtjs/color-mode": "^3.5.1",
+    "@nuxt/icon": "latest",
+    "@nuxtjs/i18n": "latest",
     "eslint": "latest",
     "nuxt": "latest",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.2",
+    "prettier": "latest",
+    "typescript": "latest",
     "vue": "latest"
   }
 }

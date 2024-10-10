@@ -1,0 +1,66 @@
+<script setup lang="ts">
+const { locale, setLocale } = useI18n();
+
+const prefersDutch = computed(() => locale.value.startsWith('nl'));
+const prefersEnglish = computed(() => locale.value.startsWith('en'));
+
+watch(
+  () => locale,
+  () => {
+    useHead({
+      htmlAttrs: {
+        lang: prefersDutch.value ? 'nl' : 'en',
+      },
+    });
+  },
+);
+</script>
+
+<template>
+  <div class="language-select">
+    <h3>{{ $t('lang.heading') }}</h3>
+    <div class="button-group">
+      <button :aria-current="prefersEnglish" @click="setLocale('en')">
+        {{ $t('lang.en') }}
+      </button>
+
+      <button :aria-current="prefersDutch" @click="setLocale('nl')">
+        {{ $t('lang.nl') }}
+      </button>
+    </div>
+  </div>
+</template>
+
+<style>
+.language-select {
+  padding-inline: 1rem;
+  padding-block: 0 1rem;
+
+  h3 {
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    color: var(--color-grey-text);
+  }
+
+  button {
+    background-color: transparent;
+    border: 1px solid var(--color-grey-bg);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: var(--font-size-xs);
+    padding-block: 0.25rem;
+    padding-inline: 0.5rem;
+    width: calc(50% - 0.5rem);
+    color: var(--color-grey-text);
+
+    &:hover {
+      color: var(--color-text);
+    }
+
+    &[aria-current='true'] {
+      color: var(--color-text);
+      background-color: var(--color-grey-bg);
+    }
+  }
+}
+</style>

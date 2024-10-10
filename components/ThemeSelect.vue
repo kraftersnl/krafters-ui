@@ -1,7 +1,7 @@
 <template>
   <div class="theme-select">
     <fieldset class="color-theme-fieldset">
-      <legend>Theme</legend>
+      <legend>{{ $t('theme.heading') }}</legend>
 
       <ul role="list" class="theme-options-list">
         <li class="color-theme-option">
@@ -15,7 +15,7 @@
 
           <label for="color-theme-light">
             <Icon name="heroicons-solid:sun" />
-            <span>Light</span>
+            <span>{{ $t('theme.light') }}</span>
           </label>
         </li>
 
@@ -30,7 +30,7 @@
 
           <label for="color-theme-dark">
             <Icon name="heroicons-solid:moon" />
-            <span>Dark</span>
+            <span>{{ $t('theme.dark') }}</span>
           </label>
         </li>
 
@@ -44,7 +44,7 @@
           />
           <label for="color-theme-system">
             <Icon name="heroicons-solid:desktop-computer" />
-            <span>System</span>
+            <span>{{ $t('theme.system') }}</span>
           </label>
         </li>
       </ul>

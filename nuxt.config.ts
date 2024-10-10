@@ -10,5 +10,9 @@ export default defineNuxtConfig({
 
   css: [join(currentDir, './assets/main.css')],
 
-  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxtjs/color-mode'],
+  i18n: {
+    vueI18n: './i18n.config.ts',
+  },
+
+  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxtjs/color-mode', '@nuxtjs/i18n'],
 });

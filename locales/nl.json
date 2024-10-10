@@ -1,0 +1,62 @@
+{
+  "general": {
+    "attachment": "Bijlage | Bijlagen",
+    "cancel": "Annuleren",
+    "create": "Aanmaken",
+    "delete": "Verwijderen",
+    "description": "Beschrijving",
+    "details": "Details",
+    "download": "Download",
+    "edit": "Bewerken",
+    "edit-details": "Bewerken",
+    "email": "E-mailadres",
+    "file": "Bestand",
+    "general": "Algemeen",
+    "home": "Home",
+    "image": "Afbeelding",
+    "key": "Kenmerk",
+    "language": "Taal",
+    "level": "Niveau",
+    "name": "Naam",
+    "password": "Wachtwoord",
+    "project": "Project",
+    "review": "Controle",
+    "save": "Opslaan",
+    "search": "zoeken",
+    "show": "Openen",
+    "sign-in": "Inloggen",
+    "sign-out": "Uitloggen",
+    "sign-out-confirm": "Weet je zeker dat je wilt uitloggen?",
+    "solution": "Oplossing",
+    "status": "Status",
+    "subject": "Onderwerp",
+    "summary": "Samenvatting",
+    "title": "Titel",
+    "type": "Type",
+    "upload": "Uploaden",
+    "upload-file": "Bestand uploaden",
+    "upload-image": "Afbeelding uploaden",
+    "user-profile": "Gebruikersprofiel",
+    "version": "Versie"
+  },
+  "lang": {
+    "en": "Engels",
+    "heading": "Taal",
+    "nl": "Nederlands"
+  },
+  "pagination": {
+    "first-page": "Eerste pagina",
+    "last-page": "Laatste pagina",
+    "next-page": "Volgende pagina",
+    "of": "van",
+    "page": "pagina",
+    "per-page": "items per pagina",
+    "prev-page": "Vorige pagina"
+  },
+  "theme": {
+    "dark": "Donker",
+    "heading": "Thema",
+    "light": "Licht",
+    "system": "Systeem"
+  }
+}
