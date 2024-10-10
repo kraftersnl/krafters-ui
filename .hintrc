@@ -1,0 +1,16 @@
+{
+  "extends": ["development"],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "text-size-adjust: none",
+          "text-wrap: balance",
+          "text-wrap: pretty"
+        ]
+      }
+    ]
+  },
+  "browserslist": ["defaults", "not ie 11"]
+}
