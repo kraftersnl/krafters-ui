@@ -6,6 +6,12 @@
     "skip-to-main-content": "Spring naar hoofcontent",
     "user-menu": "Open gebruikersmenu"
   },
+  "files": {
+    "browse": "Selecteer bestand",
+    "no-file-selected": "Geen bestand geselecteerd.",
+    "or-drop-file": "of sleep een bestand",
+    "too-big": "Bestandsgrootte is groter dan {size}"
+  },
   "form-errors": {
     "not-filled-in": "{item} is niet ingevuld",
     "required": "Vereist"
@@ -38,7 +44,6 @@
     "sign-in": "Inloggen",
     "sign-out": "Uitloggen",
     "sign-out-confirm": "Weet je zeker dat je wilt uitloggen?",
-    "solution": "Oplossing",
     "status": "Status",
     "subject": "Onderwerp",
     "summary": "Samenvatting",
@@ -47,6 +52,7 @@
     "upload": "Uploaden",
     "upload-file": "Bestand uploaden",
     "upload-image": "Afbeelding uploaden",
+    "url": "URL | URLs",
     "user-profile": "Gebruikersprofiel",
     "version": "Versie"
   },

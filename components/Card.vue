@@ -15,14 +15,11 @@
   border: 1px solid var(--color-grey-bg);
   border-radius: var(--radius-md);
 
+  h1,
   h2,
   h3,
   h4 {
     margin-block-start: 0;
-  }
-
-  :last-child {
-    margin-block-end: 0;
   }
 }
 </style>

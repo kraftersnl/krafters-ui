@@ -101,7 +101,6 @@ const emit = defineEmits(['submit']);
 .invalid {
   select,
   textarea,
-  input[type='file'],
   input[type='search'],
   input[type='number'],
   input[type='text'],

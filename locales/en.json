@@ -6,6 +6,12 @@
     "skip-to-main-content": "Skip to main content",
     "user-menu": "User menu"
   },
+  "files": {
+    "browse": "Browse files",
+    "no-file-selected": "No file selected.",
+    "or-drop-file": "or drop a file here",
+    "too-big": "File size is bigger then {size}"
+  },
   "form-errors": {
     "not-filled-in": "{item} is not filled in",
     "required": "Required"
@@ -38,7 +44,6 @@
     "sign-in": "Sign in",
     "sign-out": "Sign out",
     "sign-out-confirm": "Are you sure you want to sign out?",
-    "solution": "Solution",
     "status": "Status",
     "subject": "Subject",
     "summary": "Summary",

@@ -1,22 +1,32 @@
 <script setup lang="ts">
-const props = defineProps<{
-  modelValue?: File;
-  label: string;
-  name?: string;
-  accept?: string;
-  required?: boolean;
-  disabled?: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    modelValue?: File;
+    label: string;
+    name?: string;
+    accept?: string;
+    required?: boolean;
+    disabled?: boolean;
+    maxFileSize?: number;
+  }>(),
+  {
+    modelValue: undefined,
+    name: undefined,
+    accept: undefined,
+    maxFileSize: 5000,
+  },
+);
+
+const { t } = useI18n();
 
 const id = useId();
 const imagePreview = ref<string>();
 const dragover = ref(false);
-const maxFileSize = 5000;
 
 const validity = computed(() => {
   if (!props.modelValue) {
     return false;
-  } else if (props.modelValue.size / 1024 > maxFileSize) {
+  } else if (props.modelValue.size / 1024 > props.maxFileSize) {
     return false;
   }
   return true;
@@ -32,11 +42,11 @@ function handleDragLeave() {
 
 const errorMessage = computed(() => {
   if (props.modelValue) {
-    if (props.modelValue.size / 1024 > maxFileSize) {
-      return 'Bestand is groter dan 5MB';
+    if (props.modelValue.size / 1024 > props.maxFileSize) {
+      return t('files.too-big', { size: props.maxFileSize / 1000 + 'MB' });
     }
   }
-  return props.label + ' is niet toegevoegd';
+  return t('form-errors.not-filled-in', { item: props.label });
 });
 
 async function handleInput(event: Event) {
@@ -94,8 +104,8 @@ const emit = defineEmits(['update:model-value']);
         <Icon name="heroicons-solid:cloud-upload" />
 
         <label :for="id" class="file-input-label">
-          <span class="browse">Browse files</span>
-          <span class="drop">or drop a file here</span>
+          <span class="browse">{{ $t('files.browse') }}</span>
+          <span class="drop">{{ $t('files.or-drop-file') }}</span>
 
           <Ellipsis class="file-name">{{
             modelValue?.name || $t('files.no-file-selected')
@@ -223,4 +233,13 @@ const emit = defineEmits(['update:model-value']);
     }
   }
 }
+
+/* .file-input-wrapper:has(.invalid) {
+  .file-input-button {
+    border-color: var(--color-red);
+  }
+  .error-wrapper .error {
+    display: flex;
+  }
+} */
 </style>
