@@ -12,12 +12,14 @@
     "lint": "eslint .",
     "format": "prettier . --write"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@vuepic/vue-datepicker": "latest"
+  },
   "devDependencies": {
     "@iconify-json/heroicons-solid": "latest",
-    "@nuxtjs/color-mode": "latest",
     "@nuxt/eslint": "latest",
     "@nuxt/icon": "latest",
+    "@nuxtjs/color-mode": "latest",
     "@nuxtjs/i18n": "latest",
     "eslint": "latest",
     "nuxt": "latest",

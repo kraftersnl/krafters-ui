@@ -4,6 +4,7 @@ withDefaults(
     label?: string;
     icon?: string;
     to?: string;
+    href?: string;
     target?: string;
     variant?: 'primary' | 'secondary' | 'ghost' | 'danger' | 'link' | 'menu';
     size?: 'sm' | 'md' | 'lg' | 'xl';
@@ -198,6 +199,7 @@ withDefaults(
 }
 
 .button-variant--link {
+  display: inline-block;
   height: auto;
   padding-inline: 0;
   justify-content: start;
@@ -209,7 +211,9 @@ withDefaults(
   text-underline-offset: 0.2rem;
 
   .iconify {
-    margin-top: 0.15em;
+    font-size: inherit;
+    margin-left: 0.35rem;
+    vertical-align: middle;
   }
 
   &:focus-visible {

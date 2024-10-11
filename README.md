@@ -7,7 +7,7 @@ Accessible component library for Nuxt 3.
 Make sure to install the dependencies:
 
 ```bash
-npm install
+npm i
 ```
 
 ## Working on your layer
@@ -31,7 +31,7 @@ npm publish --access public
 Once done, your users will only have to run:
 
 ```bash
-npm install --save @krafters/ui
+npm i --save @krafters/ui
 ```
 
 Then add the dependency to their `extends` in `nuxt.config`:

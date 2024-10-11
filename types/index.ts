@@ -1,3 +1,10 @@
 declare global {
-  type NumberType = Ref<number | string>;
+  type ChipColor =
+    | 'default'
+    | 'accent'
+    | 'blue'
+    | 'green'
+    | 'red'
+    | 'orange'
+    | 'yellow';
 }
