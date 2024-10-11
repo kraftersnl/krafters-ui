@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: 'no_prefix',
-    defaultLocale: navigator?.language,
+    defaultLocale: typeof window !== 'undefined' ? navigator?.language : 'en',
     langDir: './locales',
     locales: [
       { code: 'nl', file: 'nl.json' },
