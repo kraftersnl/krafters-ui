@@ -1,4 +1,15 @@
 {
+  "aria": {
+    "main-content": "Hoofdcontent",
+    "main-nav": "Hoofdnavigatie",
+    "opens-new-window": "opent in nieuw venster",
+    "skip-to-main-content": "Spring naar hoofcontent",
+    "user-menu": "Open gebruikersmenu"
+  },
+  "form-errors": {
+    "not-filled-in": "{item} is niet ingevuld",
+    "required": "Vereist"
+  },
   "general": {
     "attachment": "Bijlage | Bijlagen",
     "cancel": "Annuleren",

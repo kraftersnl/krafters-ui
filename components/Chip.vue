@@ -1,18 +1,27 @@
 <script setup lang="ts">
-defineProps<{
-  label?: string;
-  icon?: string;
-  color?: ChipColor;
-}>();
+withDefaults(
+  defineProps<{
+    label?: string;
+    icon?: string;
+    color?: ChipColor;
+    size?: 'sm' | 'md' | 'lg';
+  }>(),
+  {
+    label: undefined,
+    icon: undefined,
+    color: undefined,
+    size: 'md',
+  },
+);
 </script>
 
 <template>
-  <div :class="`chip chip-color--${color}`">
+  <div :class="`chip chip-color--${color} chip-size--${size}`">
     <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
 
-    <span v-if="label" class="chip-text">{{ label }}</span>
-
     <slot />
+
+    <span v-if="label" class="chip-text">{{ label }}</span>
   </div>
 </template>
 
@@ -21,17 +30,33 @@ defineProps<{
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  padding-block: 0.125rem;
-  padding-inline: 0.4rem;
+  margin-inline: 0.35rem;
   border-radius: var(--radius-sm);
   background-color: var(--color-grey-bg);
   font-weight: 500;
-  font-size: var(--font-size-xs);
   font-variant-numeric: tabular-nums;
 
   .chip-text::first-letter {
     text-transform: uppercase;
   }
+}
+
+.chip-size--sm {
+  font-size: var(--font-size-xxs);
+  padding-inline: 0.25rem;
+  padding-block: 0.125rem;
+}
+
+.chip-size--md {
+  font-size: var(--font-size-xs);
+  padding-inline: 0.25rem;
+  padding-block: 0.125rem;
+}
+
+.chip-size--lg {
+  font-size: var(--font-size-md);
+  padding-inline: 0.5rem;
+  padding-block: 0.25rem;
 }
 
 .chip-color--accent {

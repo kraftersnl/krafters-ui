@@ -1,4 +1,15 @@
 {
+  "aria": {
+    "main-content": "Main content",
+    "main-nav": "Main navigation",
+    "opens-new-window": "opens in new window",
+    "skip-to-main-content": "Skip to main content",
+    "user-menu": "User menu"
+  },
+  "form-errors": {
+    "not-filled-in": "{item} is not filled in",
+    "required": "Required"
+  },
   "general": {
     "attachment": "Attachment | Attachments",
     "cancel": "Cancel",
