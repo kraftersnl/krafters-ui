@@ -67,6 +67,7 @@ const emit = defineEmits(['submit']);
 
   label {
     display: inline-flex;
+    gap: 0.35rem;
     min-height: 1.25rem;
     align-items: center;
     font-size: var(--font-size-xs);

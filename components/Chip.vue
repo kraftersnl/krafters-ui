@@ -30,7 +30,6 @@ withDefaults(
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  margin-inline: 0.35rem;
   border-radius: var(--radius-sm);
   background-color: var(--color-grey-bg);
   font-weight: 500;
