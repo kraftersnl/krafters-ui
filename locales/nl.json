@@ -19,6 +19,7 @@
   "general": {
     "attachment": "Bijlage | Bijlagen",
     "cancel": "Annuleren",
+    "collapse": "Inklappen",
     "create": "Aanmaken",
     "delete": "Verwijderen",
     "description": "Beschrijving",
@@ -27,6 +28,7 @@
     "edit": "Bewerken",
     "edit-details": "Bewerken",
     "email": "E-mailadres",
+    "expand": "Expand",
     "feedback": "Feedback",
     "file": "Bestand",
     "general": "Algemeen",

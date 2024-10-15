@@ -19,6 +19,7 @@
   "general": {
     "attachment": "Attachment | Attachments",
     "cancel": "Cancel",
+    "collapse": "Collapse",
     "create": "Create",
     "delete": "Delete",
     "description": "Description",
@@ -27,6 +28,7 @@
     "edit": "Edit",
     "edit-details": "Edit details",
     "email": "Email",
+    "expand": "Expand",
     "feedback": "Feedback",
     "file": "File",
     "general": "General",
