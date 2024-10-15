@@ -54,10 +54,7 @@ body:has(.dialog[open]) {
   width: calc(100vw - var(--app-inline-padding));
   border: none;
   border-radius: var(--radius-lg);
-
-  &:last-child {
-    padding-block-end: 2rem;
-  }
+  padding-block-end: 2rem;
 
   &::backdrop {
     background-color: rgb(0 0 0 / 65%);
