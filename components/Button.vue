@@ -223,6 +223,11 @@ withDefaults(
   &:not(:disabled):hover {
     color: var(--color-green);
   }
+
+  &[aria-current='page'] {
+    text-decoration: none;
+    color: var(--color-green);
+  }
 }
 
 .button-variant--menu {

@@ -99,6 +99,7 @@ const emit = defineEmits(['update:modelValue']);
         v-show="tab.value === activeTab"
         :id="tab.value"
         :aria-labelledby="`tab-${tab.value}`"
+        tabindex="0"
         role="tabpanel"
         class="tabpanel"
       >
