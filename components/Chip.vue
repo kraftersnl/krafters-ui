@@ -48,7 +48,7 @@ withDefaults(
 
 .chip-size--md {
   font-size: var(--font-size-xs);
-  padding-inline: 0.25rem;
+  padding-inline: 0.35rem;
   padding-block: 0.125rem;
 }
 
@@ -62,22 +62,27 @@ withDefaults(
   color: var(--color-accent-text);
   background-color: var(--color-accent-bg);
 }
+
 .chip-color--blue {
   color: var(--color-blue-text);
   background-color: var(--color-blue-bg);
 }
+
 .chip-color--green {
   color: var(--color-green-text);
   background-color: var(--color-green-bg);
 }
+
 .chip-color--orange {
   color: var(--color-orange-text);
   background-color: var(--color-orange-bg);
 }
+
 .chip-color--red {
   color: var(--color-red-text);
   background-color: var(--color-red-bg);
 }
+
 .chip-color--yellow {
   color: var(--color-yellow-text);
   background-color: var(--color-yellow-bg);

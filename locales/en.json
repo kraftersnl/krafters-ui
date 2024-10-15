@@ -27,6 +27,7 @@
     "edit": "Edit",
     "edit-details": "Edit details",
     "email": "Email",
+    "feedback": "Feedback",
     "file": "File",
     "general": "General",
     "home": "Home",
@@ -37,6 +38,8 @@
     "name": "Name",
     "password": "Password",
     "project": "Project",
+    "report": "Report",
+    "result": "Result | Results",
     "review": "Review",
     "save": "Save",
     "search": "search",
@@ -55,11 +58,6 @@
     "url": "URL | URLs",
     "user-profile": "User Profile",
     "version": "Version"
-  },
-  "lang": {
-    "en": "English",
-    "heading": "Language",
-    "nl": "Dutch"
   },
   "pagination": {
     "first-page": "First page",

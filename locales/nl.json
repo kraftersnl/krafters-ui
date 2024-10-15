@@ -27,6 +27,7 @@
     "edit": "Bewerken",
     "edit-details": "Bewerken",
     "email": "E-mailadres",
+    "feedback": "Feedback",
     "file": "Bestand",
     "general": "Algemeen",
     "home": "Home",
@@ -37,6 +38,8 @@
     "name": "Naam",
     "password": "Wachtwoord",
     "project": "Project",
+    "report": "Rapport | Rapporten",
+    "result": "Resultaat | Resultaten",
     "review": "Controle",
     "save": "Opslaan",
     "search": "zoeken",
@@ -55,11 +58,6 @@
     "url": "URL | URLs",
     "user-profile": "Gebruikersprofiel",
     "version": "Versie"
-  },
-  "lang": {
-    "en": "Engels",
-    "heading": "Taal",
-    "nl": "Nederlands"
   },
   "pagination": {
     "first-page": "Eerste pagina",

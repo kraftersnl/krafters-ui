@@ -1,3 +1,3 @@
-export const kebabToSpace = (c: string) => (
-  (c = c.replaceAll('-', ' ')), c.toLowerCase()
+export const kebabToSpace = (c?: string) => (
+  (c = c ? c.replaceAll('-', ' ') : c), c?.toLowerCase()
 );

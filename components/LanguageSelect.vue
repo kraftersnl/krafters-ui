@@ -18,14 +18,14 @@ watch(
 
 <template>
   <div class="language-select">
-    <h3>{{ $t('lang.heading') }}</h3>
+    <h3>{{ $t('general.language') }}</h3>
     <div class="button-group">
-      <button :aria-current="prefersEnglish" @click="setLocale('en')">
-        {{ $t('lang.en') }}
+      <button lang="en" :aria-current="prefersEnglish" @click="setLocale('en')">
+        English
       </button>
 
-      <button :aria-current="prefersDutch" @click="setLocale('nl')">
-        {{ $t('lang.nl') }}
+      <button lang="nl" :aria-current="prefersDutch" @click="setLocale('nl')">
+        Nederlands
       </button>
     </div>
   </div>

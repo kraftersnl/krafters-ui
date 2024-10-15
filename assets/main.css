@@ -173,7 +173,8 @@ h3,
 h4,
 button,
 input,
-label {
+label,
+legend {
   line-height: 1.2;
 }
 
@@ -357,7 +358,7 @@ table {
 
   th,
   td {
-    padding: 0.35rem 0.5rem;
+    padding: 0.5rem;
     border-width: 1px 0;
     border-style: solid;
     border-color: var(--color-grey-bg);
