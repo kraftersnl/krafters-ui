@@ -53,6 +53,7 @@
     "subject": "Subject",
     "summary": "Summary",
     "title": "Title",
+    "total": "Total",
     "type": "Type",
     "upload": "Upload",
     "upload-file": "Upload file",
@@ -60,6 +61,9 @@
     "url": "URL | URLs",
     "user-profile": "User Profile",
     "version": "Version"
+  },
+  "meter": {
+    "value-of-max": "{value} of {max}"
   },
   "pagination": {
     "first-page": "First page",

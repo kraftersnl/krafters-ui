@@ -53,6 +53,7 @@
     "subject": "Onderwerp",
     "summary": "Samenvatting",
     "title": "Titel",
+    "total": "Totaal",
     "type": "Type",
     "upload": "Uploaden",
     "upload-file": "Bestand uploaden",
@@ -60,6 +61,9 @@
     "url": "URL | URLs",
     "user-profile": "Gebruikersprofiel",
     "version": "Versie"
+  },
+  "meter": {
+    "value-of-max": "{value} van {max}"
   },
   "pagination": {
     "first-page": "Eerste pagina",
