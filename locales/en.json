@@ -31,7 +31,7 @@
     "expand": "Expand",
     "feedback": "Feedback",
     "file": "File",
-    "general": "General",
+    "heading": "General",
     "home": "Home",
     "image": "Image",
     "key": "Key",
@@ -59,7 +59,6 @@
     "upload-file": "Upload file",
     "upload-image": "Upload image",
     "url": "URL | URLs",
-    "user-profile": "User Profile",
     "version": "Version"
   },
   "meter": {

@@ -61,7 +61,7 @@ const emit = defineEmits(['submit']);
 }
 
 .form-field-wrapper {
-  display: grid;
+  display: inline-grid;
   align-items: center;
   align-content: start;
 

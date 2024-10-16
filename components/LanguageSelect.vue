@@ -33,7 +33,6 @@ watch(
 
 <style>
 .language-select {
-  padding-inline: 1rem;
   padding-block: 0 1rem;
 
   h3 {

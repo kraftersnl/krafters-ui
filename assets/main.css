@@ -101,9 +101,6 @@
   --color-accent-text: var(--color-purple-text);
   --focus-color: var(--color-black);
 
-  --app-max-width: 1280px;
-  --app-padding-inline: 1.5rem;
-
   /* Animation design tokens */
   @media (prefers-reduced-motion: no-preference) {
     --duration-sm: 0.15s;

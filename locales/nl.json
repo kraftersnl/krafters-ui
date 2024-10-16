@@ -31,7 +31,7 @@
     "expand": "Expand",
     "feedback": "Feedback",
     "file": "Bestand",
-    "general": "Algemeen",
+    "heading": "Algemeen",
     "home": "Home",
     "image": "Afbeelding",
     "key": "Kenmerk",
@@ -59,7 +59,6 @@
     "upload-file": "Bestand uploaden",
     "upload-image": "Afbeelding uploaden",
     "url": "URL | URLs",
-    "user-profile": "Gebruikersprofiel",
     "version": "Versie"
   },
   "meter": {

@@ -6,7 +6,14 @@ withDefaults(
     to?: string;
     href?: string;
     target?: string;
-    variant?: 'primary' | 'secondary' | 'ghost' | 'danger' | 'link' | 'menu';
+    variant?:
+      | 'primary'
+      | 'secondary'
+      | 'ghost'
+      | 'danger'
+      | 'link'
+      | 'step'
+      | 'menu';
     size?: 'sm' | 'md' | 'lg' | 'xl';
     hideLabel?: boolean;
     loading?: boolean;
@@ -112,6 +119,10 @@ withDefaults(
 .button-size--sm {
   height: 2rem;
   padding-inline: 0.75rem;
+
+  .iconify {
+    font-size: 1rem;
+  }
 }
 
 .button-size--md {
@@ -225,8 +236,36 @@ withDefaults(
   }
 
   &[aria-current='page'] {
-    text-decoration: none;
     color: var(--color-green);
+  }
+}
+
+.button-variant--step {
+  height: 1.65rem;
+  padding-inline: 0.35rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  background-color: var(--color-green-bg);
+  color: var(--color-green-text);
+
+  .iconify {
+    font-size: inherit;
+    margin-left: 0.35rem;
+    vertical-align: middle;
+  }
+
+  &:focus-visible {
+    text-decoration: none;
+  }
+
+  &:not(:disabled):hover {
+    /* color: var(--color-green); */
+  }
+
+  &[aria-current='page'] {
+    background-color: var(--color-green);
+    color: var(--color-white);
   }
 }
 
