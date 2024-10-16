@@ -66,10 +66,9 @@ body:has(.dialog[open]) {
   }
 
   .dialog-header {
-    padding-block: 2rem;
+    padding-block: 2rem 1rem;
     padding-inline: 2rem;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
   }
 
