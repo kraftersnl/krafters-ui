@@ -9,8 +9,8 @@
   "datepicker": {
     "input": "Datepicker input",
     "selectText": "Select",
-    "closeText": "Close",
-    "clearInput": "Clear",
+    "cancelText": "Close",
+    "clearInput": "Clear date",
     "nowButtonLabel": "Now",
     "toggleOverlay": "Pick date",
     "calendarWrap": "Calendar",

@@ -9,8 +9,8 @@
   "datepicker": {
     "input": "Datumveld",
     "selectText": "Selecteren",
-    "closeText": "Sluiten",
-    "clearInput": "Wissen",
+    "cancelText": "Sluiten",
+    "clearInput": "Wis datum",
     "nowButtonLabel": "Nu",
     "toggleOverlay": "Kies datum",
     "calendarWrap": "Kalender",
