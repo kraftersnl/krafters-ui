@@ -9,6 +9,7 @@ const props = defineProps<{
   autocomplete?: string;
   pattern?: string;
   placeholder?: string;
+  maxlength?: number;
   hideLabel?: boolean;
   min?: number | string;
   max?: number | string;
@@ -69,6 +70,7 @@ const emit = defineEmits(['update:modelValue']);
       :required="required"
       :disabled="disabled"
       :placeholder="placeholder"
+      :maxlength="maxlength"
       :aria-describedby="required ? `error-${id}` : undefined"
       @input="handleInput"
     />

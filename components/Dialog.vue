@@ -4,6 +4,7 @@ defineProps<{ label?: string }>();
 const id = useId();
 
 const dialogElement = ref<HTMLDialogElement>();
+const isVisible = ref(false);
 
 function handleDialogClick(event: MouseEvent) {
   const target = event.target as HTMLDialogElement;
@@ -15,15 +16,18 @@ function handleDialogClick(event: MouseEvent) {
 
 function openDialog() {
   dialogElement.value?.showModal();
+  isVisible.value = true;
 }
 
 function closeDialog() {
   dialogElement.value?.close();
+  isVisible.value = false;
 }
 
 defineExpose({
   openDialog,
   closeDialog,
+  isVisible,
 });
 </script>
 
@@ -34,19 +38,21 @@ defineExpose({
     class="dialog"
     @click="handleDialogClick"
   >
-    <header class="dialog-header">
-      <h1 :id="id">{{ label }}</h1>
-    </header>
+    <FocusLoop>
+      <header class="dialog-header">
+        <h1 :id="id">{{ label }}</h1>
+      </header>
 
-    <div v-if="$slots.default" class="dialog-content">
-      <slot name="default" v-bind="{ closeDialog }" />
-    </div>
+      <div v-if="$slots.default" class="dialog-content">
+        <slot name="default" v-bind="{ closeDialog }" />
+      </div>
 
-    <div v-if="$slots.buttons" class="dialog-buttons">
-      <Button :label="$t('general.cancel')" @click="closeDialog" />
+      <div v-if="$slots.buttons" class="dialog-buttons">
+        <Button :label="$t('general.cancel')" @click="closeDialog" />
 
-      <slot name="buttons" v-bind="{ closeDialog }" />
-    </div>
+        <slot name="buttons" v-bind="{ closeDialog }" />
+      </div>
+    </FocusLoop>
   </dialog>
 </template>
 
