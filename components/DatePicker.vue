@@ -55,6 +55,7 @@ const emit = defineEmits(['update:modelValue']);
       :id="id"
       v-model="computedModel"
       v-bind="$attrs"
+      auto-apply
       :utc="utc"
       :enable-time-picker="enableTimePicker"
       :uid="id"
@@ -64,7 +65,25 @@ const emit = defineEmits(['update:modelValue']);
       :month-change-on-scroll="monthChangeOnScroll"
       :action-row="{ showSelect, showCancel, showNow, showPreview }"
       :dark="$colorMode?.value === 'dark'"
-      auto-apply
+      :locale="$i18n.locale"
+      :select-text="$t('datepicker.selectText')"
+      :cancel-text="$t('datepicker.cancelText')"
+      :now-button-label="$t('datepicker.nowButtonLabel')"
+      :aria-labels="{
+        input: $t('datepicker.input'),
+        clearInput: $t('datepicker.clearInput'),
+        toggleOverlay: $t('datepicker.toggleOverlay'),
+        calendarWrap: $t('datepicker.calendarWrap'),
+        calendarDays: $t('datepicker.calendarDays'),
+        openTimePicker: $t('datepicker.openTimePicker'),
+        closeTimePicker: $t('datepicker.closeTimePicker'),
+        openYearsOverlay: $t('datepicker.openYearsOverlay'),
+        openMonthsOverlay: $t('datepicker.openMonthsOverlay'),
+        nextMonth: $t('datepicker.nextMonth'),
+        prevMonth: $t('datepicker.prevMonth'),
+        nextYear: $t('datepicker.nextYear'),
+        prevYear: $t('datepicker.prevYear'),
+      }"
       class="cardan-datepicker"
     >
       <template #input-icon>

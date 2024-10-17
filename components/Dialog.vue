@@ -1,6 +1,8 @@
 <script setup lang="ts">
 defineProps<{ label?: string }>();
 
+const id = useId();
+
 const dialogElement = ref<HTMLDialogElement>();
 
 function handleDialogClick(event: MouseEvent) {
@@ -26,9 +28,14 @@ defineExpose({
 </script>
 
 <template>
-  <dialog ref="dialogElement" class="dialog" @click="handleDialogClick">
+  <dialog
+    ref="dialogElement"
+    :aria-labelledby="id"
+    class="dialog"
+    @click="handleDialogClick"
+  >
     <header class="dialog-header">
-      <h1>{{ label }}</h1>
+      <h1 :id="id">{{ label }}</h1>
     </header>
 
     <div v-if="$slots.default" class="dialog-content">

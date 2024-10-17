@@ -6,6 +6,24 @@
     "skip-to-main-content": "Spring naar hoofcontent",
     "user-menu": "Open gebruikersmenu"
   },
+  "datepicker": {
+    "input": "Datumveld",
+    "selectText": "Selecteren",
+    "closeText": "Sluiten",
+    "clearInput": "Wissen",
+    "nowButtonLabel": "Nu",
+    "toggleOverlay": "Kies datum",
+    "calendarWrap": "Kalender",
+    "calendarDays": "Kalenderdagen",
+    "openTimePicker": "Kies tijd",
+    "closeTimePicker": "Kies datum",
+    "openYearsOverlay": "Kies jaar",
+    "openMonthsOverlay": "Kies maand",
+    "nextMonth": "Volgende maand",
+    "prevMonth": "Vorige maand",
+    "nextYear": "Volgend jaar",
+    "prevYear": "Vorig jaar"
+  },
   "files": {
     "browse": "Selecteer bestand",
     "no-file-selected": "Geen bestand geselecteerd.",

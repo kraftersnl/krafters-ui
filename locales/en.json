@@ -6,6 +6,24 @@
     "skip-to-main-content": "Skip to main content",
     "user-menu": "User menu"
   },
+  "datepicker": {
+    "input": "Datepicker input",
+    "selectText": "Select",
+    "closeText": "Close",
+    "clearInput": "Clear",
+    "nowButtonLabel": "Now",
+    "toggleOverlay": "Pick date",
+    "calendarWrap": "Calendar",
+    "calendarDays": "Calendar days",
+    "openTimePicker": "Pick time",
+    "closeTimePicker": "Pick date",
+    "openYearsOverlay": "Pick year",
+    "openMonthsOverlay": "Pick month",
+    "nextMonth": "Next month",
+    "prevMonth": "Previous month",
+    "nextYear": "Next year",
+    "prevYear": "Previous year"
+  },
   "files": {
     "browse": "Browse files",
     "no-file-selected": "No file selected.",
