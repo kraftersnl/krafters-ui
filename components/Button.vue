@@ -242,10 +242,10 @@ withDefaults(
 }
 
 .button-variant--step {
-  height: 1.65rem;
-  padding-inline: 0.35rem;
+  height: 2rem;
+  padding-inline: 0.5rem;
   border-radius: var(--radius-sm);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: 500;
   background-color: var(--color-accent-bg);
   color: var(--color-accent-text);
