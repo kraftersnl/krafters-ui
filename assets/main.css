@@ -112,6 +112,28 @@
   }
 }
 
+.font-size-xxl {
+  font-size: var(--font-size-xxl);
+}
+.font-size-xl {
+  font-size: var(--font-size-xl);
+}
+.font-size-lg {
+  font-size: var(--font-size-lg);
+}
+.font-size-mg {
+  font-size: var(--font-size-md);
+}
+.font-size-sm {
+  font-size: var(--font-size-sm);
+}
+.font-size-xs {
+  font-size: var(--font-size-xs);
+}
+.font-size-xxs {
+  font-size: var(--font-size-xxs);
+}
+
 /* CSS Reset */
 *,
 *::after,

@@ -232,11 +232,12 @@ withDefaults(
   }
 
   &:not(:disabled):hover {
-    color: var(--color-green);
+    color: var(--color-accent);
   }
 
   &[aria-current='page'] {
-    color: var(--color-green);
+    color: var(--color-accent);
+    text-decoration: none;
   }
 }
 
@@ -246,8 +247,8 @@ withDefaults(
   border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
   font-weight: 500;
-  background-color: var(--color-green-bg);
-  color: var(--color-green-text);
+  background-color: var(--color-accent-bg);
+  color: var(--color-accent-text);
 
   .iconify {
     font-size: inherit;
@@ -264,7 +265,7 @@ withDefaults(
   }
 
   &[aria-current='page'] {
-    background-color: var(--color-green);
+    background-color: var(--color-accent);
     color: var(--color-white);
   }
 }
