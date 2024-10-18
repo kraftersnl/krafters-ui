@@ -36,7 +36,7 @@ function resizeTextarea() {
     elementRef.value.style.height = 'auto';
 
     const height = elementRef.value.scrollHeight;
-    elementRef.value.style.height = `${height}px`;
+    elementRef.value.style.height = `${height + 2}px`;
   }
 }
 
