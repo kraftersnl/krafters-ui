@@ -9,7 +9,7 @@ withDefaults(
 
 <template>
   <span
-    :class="`ellipsis ellipsis-variant--${lines ? 'clamp' : 'nowrap'}`"
+    :class="`ellipsis ellipsis-variant--${lines === 1 || lines === undefined ? 'nowrap' : 'clamp'}`"
     :style="`--webkit-line-clamp: ${lines}`"
   >
     <slot />
