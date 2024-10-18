@@ -295,6 +295,7 @@ select,
 input[type='search'],
 input[type='number'],
 input[type='text'],
+input[type='number'],
 input[type='email'],
 input[type='tel'],
 input[type='url'],
@@ -307,6 +308,7 @@ select,
 input[type='search'],
 input[type='number'],
 input[type='text'],
+input[type='number'],
 input[type='email'],
 input[type='tel'],
 input[type='url'],
@@ -342,6 +344,7 @@ code {
 }
 
 kbd {
+  font-family: system-ui;
   background-color: var(--color-white);
   border-radius: var(--radius-sm);
   padding-inline: 0.5rem;

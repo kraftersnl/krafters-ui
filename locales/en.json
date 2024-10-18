@@ -56,6 +56,7 @@
     "key": "Key",
     "language": "Language",
     "level": "Level",
+    "modify": "Modify",
     "name": "Name",
     "password": "Password",
     "project": "Project",

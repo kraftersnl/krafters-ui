@@ -46,14 +46,21 @@ withDefaults(
   >
     <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
 
-    <span :class="`button-text ${hideLabel ? 'visuallyhidden' : ''}`">{{
-      label
-    }}</span>
+    <span
+      v-if="label"
+      :class="`button-text ${hideLabel ? 'visuallyhidden' : ''}`"
+    >
+      {{ label }}
+    </span>
 
     <template v-if="target === '_blank'">
       <Icon name="heroicons-solid:external-link" />
       <span class="visuallyhidden">({{ $t('aria.opens-new-window') }})</span>
     </template>
+
+    <span v-if="$slots.default">
+      <slot />
+    </span>
   </NuxtLink>
 
   <button
@@ -61,16 +68,22 @@ withDefaults(
     :type="type"
     :class="`
       button
-      button-variant--${variant}
       button-size--${size}
-      ${hideLabel ? 'button--icon-only' : ''}
+      button-variant--${variant}
       ${loading ? 'button--loading' : ''}
+      ${hideLabel ? 'button--icon-only' : ''}
     `"
   >
     <Icon v-if="loading" name="heroicons-solid:refresh" />
     <Icon v-else-if="icon" :name="'heroicons-solid:' + icon" />
 
-    <span :class="hideLabel ? 'visuallyhidden' : ''">{{ label }}</span>
+    <span v-if="label" :class="hideLabel ? 'visuallyhidden' : ''">
+      {{ label }}
+    </span>
+
+    <span v-if="$slots.default">
+      <slot />
+    </span>
   </button>
 </template>
 
