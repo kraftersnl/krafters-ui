@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import type { RouteLocationRaw } from 'vue-router';
+
 withDefaults(
   defineProps<{
     label?: string;
     icon?: string;
-    to?: string;
+    to?: RouteLocationRaw;
     href?: string;
     target?: string;
     variant?:

@@ -74,6 +74,8 @@
 }
 
 .color-theme-option {
+  flex-grow: 1;
+
   input[type='radio'] {
     position: absolute;
     z-index: -1;

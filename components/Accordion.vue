@@ -127,6 +127,7 @@ const emit = defineEmits(['update:modelValue']);
   padding-inline: 0;
   background: transparent;
   border: none;
+  text-align: left;
   border-radius: var(--radius-xs);
   width: 100%;
   display: flex;

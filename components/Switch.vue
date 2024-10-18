@@ -53,6 +53,7 @@ const emit = defineEmits(['update:modelValue']);
   font: inherit;
   cursor: pointer;
   border: none;
+  padding-inline: 0;
   border-radius: var(--radius-lg);
   outline: 2px solid transparent;
   transition:
