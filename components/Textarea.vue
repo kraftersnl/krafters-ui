@@ -7,6 +7,7 @@ const props = withDefaults(
     required?: boolean;
     placeholder?: string;
     id?: string;
+    autoresize?: boolean;
   }>(),
   {
     label: undefined,
@@ -16,8 +17,11 @@ const props = withDefaults(
   },
 );
 
+const textareaInput = ref('');
+
 function handleInput(event: Event) {
   const target = event.target as HTMLTextAreaElement;
+  textareaInput.value = target.value;
   emit('update:modelValue', target.value);
 }
 
@@ -26,6 +30,26 @@ const elementRef = ref<HTMLTextAreaElement>();
 function focusElement() {
   elementRef.value?.focus();
 }
+
+function resizeTextarea() {
+  if (props.autoresize && elementRef.value) {
+    elementRef.value.style.height = 'auto';
+
+    const height = elementRef.value.scrollHeight;
+    elementRef.value.style.height = `${height}px`;
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', resizeTextarea);
+  resizeTextarea();
+});
+
+watch(textareaInput, () => {
+  resizeTextarea();
+});
+
+onUnmounted(() => window.removeEventListener('resize', resizeTextarea));
 
 defineExpose({
   focusElement,
@@ -52,6 +76,7 @@ const emit = defineEmits(['update:modelValue']);
       :placeholder="placeholder"
       :required="required"
       :name="name"
+      :class="autoresize ? 'autoresize' : ''"
       :aria-describedby="required ? `error-${id}` : undefined"
       @input="handleInput"
     />
@@ -75,6 +100,15 @@ const emit = defineEmits(['update:modelValue']);
 .form-field-wrapper.textarea {
   textarea {
     background-color: var(--color-input-bg);
+    min-height: 8rem;
+
+    &.autoresize {
+      min-height: 0;
+      max-height: none;
+      height: auto;
+      overflow: hidden;
+      resize: none;
+    }
   }
 }
 </style>

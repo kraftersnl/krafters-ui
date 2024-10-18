@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineProps<{ label?: string }>();
+defineProps<{
+  label?: string;
+}>();
 
 const id = useId();
 
@@ -41,6 +43,16 @@ defineExpose({
     <FocusLoop>
       <header class="dialog-header">
         <h1 :id="id">{{ label }}</h1>
+
+        <Button
+          icon="x"
+          size="sm"
+          variant="ghost"
+          :label="$t('general.close')"
+          hide-label
+          class="close-button"
+          @click="closeDialog"
+        />
       </header>
 
       <div v-if="$slots.default" class="dialog-content">
@@ -83,6 +95,12 @@ body:has(.dialog[open]) {
     padding-inline: 2rem;
     display: flex;
     align-items: center;
+
+    .close-button {
+      position: absolute;
+      right: 0.75rem;
+      top: 0.75rem;
+    }
   }
 
   .dialog-content {

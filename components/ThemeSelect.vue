@@ -59,6 +59,7 @@
 
 .color-theme-fieldset {
   legend {
+    width: 100%;
     font-size: var(--font-size-xs);
     font-weight: 400;
     color: var(--color-grey-text);

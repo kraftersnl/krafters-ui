@@ -5,7 +5,7 @@ const isOpen = ref(false);
 
 <template>
   <ThemeSelect />
-  <!-- <LanguageSelect /> -->
+  <LanguageSelect />
 
   <Accordion v-model="isOpen" arrow>
     <template #trigger>Accordion Trigger</template>

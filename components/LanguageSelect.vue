@@ -50,7 +50,6 @@ watch(
     font-size: var(--font-size-xs);
     padding-block: 0.25rem;
     padding-inline: 0.5rem;
-    width: calc(50% - 0.5rem);
     color: var(--color-grey-text);
 
     &:hover {

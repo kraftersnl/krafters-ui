@@ -37,6 +37,7 @@
   "general": {
     "attachment": "Attachment | Attachments",
     "cancel": "Cancel",
+    "close": "Close",
     "collapse": "Collapse",
     "create": "Create",
     "delete": "Delete",

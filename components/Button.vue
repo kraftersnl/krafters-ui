@@ -241,35 +241,6 @@ withDefaults(
   }
 }
 
-.button-variant--step {
-  height: 2rem;
-  padding-inline: 0.5rem;
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  background-color: var(--color-accent-bg);
-  color: var(--color-accent-text);
-
-  .iconify {
-    font-size: inherit;
-    margin-left: 0.35rem;
-    vertical-align: middle;
-  }
-
-  &:focus-visible {
-    text-decoration: none;
-  }
-
-  &:not(:disabled):hover {
-    /* color: var(--color-green); */
-  }
-
-  &[aria-current='page'] {
-    background-color: var(--color-accent);
-    color: var(--color-white);
-  }
-}
-
 .button-variant--menu {
   width: 100%;
   font-weight: 500;
