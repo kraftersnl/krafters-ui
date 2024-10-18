@@ -101,6 +101,7 @@ const emit = defineEmits(['update:modelValue']);
   textarea {
     background-color: var(--color-input-bg);
     min-height: 6rem;
+    padding-inline-end: 1.5rem;
 
     &.autoresize {
       height: auto;
