@@ -3,14 +3,14 @@ withDefaults(
   defineProps<{
     lines?: number;
   }>(),
-  { lines: 1 },
+  { lines: undefined },
 );
 </script>
 
 <template>
   <span
-    :class="`ellipsis ellipsis-variant--${lines === 1 || lines === undefined ? 'nowrap' : 'clamp'}`"
-    :style="`--webkit-line-clamp: ${lines}`"
+    class="ellipsis ellipsis-variant--clamp"
+    :style="`--webkit-line-clamp: ${lines ?? 1}`"
   >
     <slot />
   </span>
@@ -22,16 +22,10 @@ withDefaults(
   display: block;
 }
 
-.ellipsis-variant--nowrap {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 .ellipsis-variant--clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   line-clamp: var(--webkit-line-clamp);
   -webkit-line-clamp: var(--webkit-line-clamp);
-  /* word-break: break-word; */
 }
 </style>
