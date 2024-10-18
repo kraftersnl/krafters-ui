@@ -100,13 +100,11 @@ const emit = defineEmits(['update:modelValue']);
 .form-field-wrapper.textarea {
   textarea {
     background-color: var(--color-input-bg);
-    min-height: 8rem;
+    min-height: 6rem;
 
     &.autoresize {
-      min-height: 0;
-      max-height: none;
       height: auto;
-      overflow: hidden;
+      overflow: auto;
       resize: none;
     }
   }
