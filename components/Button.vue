@@ -263,9 +263,16 @@ withDefaults(
   justify-content: space-between;
   background-color: transparent;
   text-underline-offset: 0.35rem;
+  gap: 1rem;
 
   .iconify {
     opacity: 65%;
+  }
+
+  &:disabled {
+    opacity: 1;
+    color: var(--color-grey-bg);
+    background-color: var(--color-grey-bg);
   }
 
   &[aria-current='page'] {

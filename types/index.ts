@@ -22,12 +22,30 @@ declare global {
     label?: string;
     icon?: string;
     to?: string;
+    disabled?: boolean;
     divider?: boolean;
     onClick?: () => void;
   };
 
   type DialogComponent = InstanceType<typeof Dialog>;
   type TextareaComponent = InstanceType<typeof Textarea>;
+
+  type PopperPlacement =
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
 
   type DatePickerAriaLabels = {
     toggleOverlay?: string;

@@ -2,6 +2,12 @@
 defineProps<{
   list: MenuItem[];
 }>();
+
+function handleClick(item?: MenuItem) {
+  emit('click', item);
+}
+
+const emit = defineEmits(['click']);
 </script>
 
 <template>
@@ -16,9 +22,10 @@ defineProps<{
           :label="item.label"
           :to="item.to"
           :icon="item.icon"
+          :disabled="item.disabled"
           size="xl"
           variant="menu"
-          @click="item.onClick"
+          @click="handleClick(item)"
         />
 
         <hr v-if="item.divider" />
@@ -29,8 +36,12 @@ defineProps<{
 
 <style>
 .menu-list {
+  min-width: 180px;
+
   .button {
+    background-color: var(--color-white);
     border-radius: 0;
+    outline-offset: -2px;
   }
 
   .menu-list-item:last-of-type {

@@ -13,16 +13,17 @@
     "format": "prettier . --write"
   },
   "devDependencies": {
+    "@iconify-json/heroicons-solid": "latest",
+    "@nuxt/eslint": "latest",
     "@nuxt/icon": "latest",
     "@nuxtjs/color-mode": "latest",
     "@nuxtjs/i18n": "latest",
-    "@iconify-json/heroicons-solid": "latest",
-    "@nuxt/eslint": "latest",
     "@vuepic/vue-datepicker": "latest",
     "eslint": "latest",
     "nuxt": "latest",
     "prettier": "latest",
     "typescript": "latest",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-tippy": "latest"
   }
 }

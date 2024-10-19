@@ -34,6 +34,10 @@
     "not-filled-in": "{item} is niet ingevuld",
     "required": "Vereist"
   },
+  "filters": {
+    "heading": "Filter | Filters",
+    "reset-all": "Reset alle filters"
+  },
   "general": {
     "attachment": "Bijlage | Bijlagen",
     "cancel": "Annuleren",
@@ -50,7 +54,6 @@
     "expand": "Expand",
     "feedback": "Feedback",
     "file": "Bestand",
-    "filters": "Filter | Filters",
     "heading": "Algemeen",
     "home": "Home",
     "image": "Afbeelding",
@@ -72,6 +75,7 @@
     "sign-out-confirm": "Weet je zeker dat je wilt uitloggen?",
     "status": "Status",
     "subject": "Onderwerp",
+    "submit": "Insturen",
     "summary": "Samenvatting",
     "title": "Titel",
     "total": "Totaal",

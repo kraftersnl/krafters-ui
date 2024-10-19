@@ -145,6 +145,7 @@ const emit = defineEmits(['update:modelValue']);
   .accordion-arrow {
     position: absolute;
     right: 0;
+    top: 0;
     transition: rotate var(--duration-sm);
   }
 }

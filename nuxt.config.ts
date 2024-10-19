@@ -10,7 +10,7 @@ export default defineNuxtConfig({
 
   css: [join(currentDir, './assets/main.css')],
 
-  modules: ['@nuxt/icon', '@nuxtjs/color-mode', '@nuxtjs/i18n'],
+  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxtjs/color-mode', '@nuxtjs/i18n'],
 
   i18n: {
     strategy: 'no_prefix',
