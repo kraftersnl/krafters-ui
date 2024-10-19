@@ -47,7 +47,7 @@
   --color-black: #000000;
   --color-text: #161616;
   --color-grey-text: #6e6e6e;
-  --color-grey-graphic: #8f8f8f;
+  --color-grey-graphic: #8c8c8c;
   --color-grey-bg: #e6e6e6;
 
   --color-purple: #582e6b;
@@ -290,6 +290,7 @@ textarea {
   resize: vertical;
 }
 
+input[type='radio'],
 input[type='checkbox'],
 select {
   cursor: pointer;

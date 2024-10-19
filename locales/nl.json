@@ -39,6 +39,7 @@
     "reset-all": "Reset alle filters"
   },
   "general": {
+    "actions": "Acties",
     "attachment": "Bijlage | Bijlagen",
     "cancel": "Annuleren",
     "close": "Sluiten",

@@ -39,6 +39,7 @@
     "reset-all": "Reset all filters"
   },
   "general": {
+    "actions": "Actions",
     "attachment": "Attachment | Attachments",
     "cancel": "Cancel",
     "close": "Close",

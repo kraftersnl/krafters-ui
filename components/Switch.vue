@@ -65,7 +65,7 @@ const emit = defineEmits(['update:modelValue']);
   .switch {
     padding-block: 3px;
     padding-inline: 3px;
-    background-color: var(--color-grey-bg);
+    background-color: var(--color-grey-graphic);
     width: 40px;
     height: 22px;
     border-radius: var(--radius-full);
@@ -94,10 +94,6 @@ const emit = defineEmits(['update:modelValue']);
   &:disabled {
     pointer-events: none;
     opacity: 0.35;
-  }
-
-  &:hover .switch {
-    background-color: var(--color-grey-bg);
   }
 
   &:focus-visible {

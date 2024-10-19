@@ -14,7 +14,8 @@ withDefaults(
       | 'ghost'
       | 'danger'
       | 'link'
-      | 'step'
+      | 'green'
+      | 'blue'
       | 'menu';
     size?: 'sm' | 'md' | 'lg' | 'xl';
     hideLabel?: boolean;
@@ -191,6 +192,32 @@ withDefaults(
       in srgb,
       var(--color-red) 85%,
       var(--color-black)
+    );
+  }
+}
+.button-variant--green {
+  color: var(--color-white);
+  background-color: var(--color-green);
+  white-space: nowrap;
+
+  &:not(:disabled):hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-green) 85%,
+      var(--color-black)
+    );
+  }
+}
+.button-variant--blue {
+  color: var(--color-white);
+  background-color: var(--color-blue-text);
+  white-space: nowrap;
+
+  &:not(:disabled):hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-blue-text) 85%,
+      var(--color-white)
     );
   }
 }

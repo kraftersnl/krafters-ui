@@ -42,7 +42,7 @@ withDefaults(
 
 .chip-size--sm {
   font-size: var(--font-size-xxs);
-  padding-inline: 0.25rem;
+  padding-inline: 0.35rem;
   padding-block: 0.125rem;
 }
 

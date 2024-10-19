@@ -49,7 +49,8 @@ const emit = defineEmits(['update:modelValue']);
 <style>
 .checkboxes-wrapper {
   legend {
-    margin-bottom: 0.5rem;
+    font-size: var(--font-size-lg);
+    margin-bottom: 1rem;
   }
 
   .checkbox-list {
