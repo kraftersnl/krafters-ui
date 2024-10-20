@@ -33,7 +33,7 @@
 
   --color-blue: #0000ff;
   --color-blue-bg: #000080;
-  --color-blue-text: #ccccff;
+  --color-blue-text: #b3b3ff;
 
   --color-input-bg: #23232a;
   --color-select-bg: #23232a;
@@ -41,8 +41,8 @@
 
 .light-mode {
   --color-scheme: light;
-  --color-bg: #ffffff;
-  --color-card-bg: #f5f5f5;
+  --color-bg: #f5f5f5;
+  --color-card-bg: #ffffff;
   --color-white: #ffffff;
   --color-black: #000000;
   --color-text: #161616;
@@ -215,7 +215,7 @@ p {
 }
 
 dl {
-  margin-block: 0.5rem;
+  margin-block: 0;
 }
 
 ul,

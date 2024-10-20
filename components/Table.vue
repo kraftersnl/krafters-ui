@@ -13,7 +13,7 @@
   overflow: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   padding-block-end: 1rem;
-  margin-block: 1rem;
+  margin-block-start: 1rem;
   padding-inline: 1px;
   font-size: var(--font-size-sm);
 
