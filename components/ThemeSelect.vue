@@ -89,12 +89,12 @@
       padding-inline: 0.5rem 0.65rem;
       min-width: 75px;
       justify-content: center;
-      border: 1px solid var(--color-grey-bg);
+      border: 1px solid var(--color-accent-bg);
       border-radius: var(--radius-md);
-      color: var(--color-grey-text);
+      color: var(--color-accent-text);
 
       &:hover {
-        color: var(--color-text);
+        color: var(--color-accent);
       }
     }
 
@@ -108,8 +108,8 @@
 
     &:checked {
       + label {
-        color: var(--color-text);
-        background-color: var(--color-grey-bg);
+        color: var(--color-accent);
+        background-color: var(--color-accent-bg);
 
         .iconify {
           color: var(--color-accent);

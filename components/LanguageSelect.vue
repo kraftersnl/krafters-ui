@@ -44,21 +44,21 @@ watch(
 
   button {
     background-color: transparent;
-    border: 1px solid var(--color-grey-bg);
+    border: 1px solid var(--color-accent-bg);
     border-radius: var(--radius-sm);
     font-weight: 500;
     font-size: var(--font-size-xs);
     padding-block: 0.25rem;
     padding-inline: 0.5rem;
-    color: var(--color-grey-text);
+    color: var(--color-accent-text);
 
     &:hover {
-      color: var(--color-text);
+      color: var(--color-accent);
     }
 
     &[aria-current='true'] {
-      color: var(--color-text);
-      background-color: var(--color-grey-bg);
+      color: var(--color-accent);
+      background-color: var(--color-accent-bg);
     }
   }
 }

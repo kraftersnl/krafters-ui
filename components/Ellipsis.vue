@@ -27,5 +27,6 @@ withDefaults(
   -webkit-box-orient: vertical;
   line-clamp: var(--webkit-line-clamp);
   -webkit-line-clamp: var(--webkit-line-clamp);
+  hyphens: none;
 }
 </style>

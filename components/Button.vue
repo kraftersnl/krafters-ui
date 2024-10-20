@@ -308,7 +308,8 @@ withDefaults(
   }
 
   &:not(:disabled):hover {
-    background-color: var(--color-grey-bg);
+    color: var(--color-accent);
+    background-color: var(--color-accent-bg);
   }
 }
 
