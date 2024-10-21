@@ -90,6 +90,10 @@
   "meter": {
     "value-of-max": "{value} van {max}"
   },
+  "multiselect": {
+    "items-selected": "{count} items geselecteerd",
+    "pages-selected": "{count} pagina's geselecteerd"
+  },
   "pagination": {
     "first-page": "Eerste pagina",
     "last-page": "Laatste pagina",

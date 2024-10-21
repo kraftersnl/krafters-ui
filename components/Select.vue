@@ -11,6 +11,7 @@ const props = withDefaults(
     disabledKey?: string;
     required?: boolean;
     disabled?: boolean;
+    multiple?: boolean;
     hideLabel?: boolean;
   }>(),
   {
@@ -35,7 +36,7 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div class="form-field-wrapper select">
+  <div class="form-field-wrapper">
     <label :for="id" :class="hideLabel ? 'visuallyhidden' : ''">
       <span>{{ label }}</span>
 
@@ -45,53 +46,54 @@ const emit = defineEmits(['update:modelValue']);
       </Chip>
     </label>
 
-    <div class="select">
-      <select
-        :id="id"
-        ref="elementRef"
-        :value="modelValue"
-        :name="name"
-        :disabled="disabled"
-        :required="required"
-        @change="handleChange"
-      >
-        <option v-if="placeholder" disabled value="">
-          {{ placeholder }}
+    <select
+      :id="id"
+      ref="elementRef"
+      :value="modelValue"
+      :name="name"
+      :disabled="disabled"
+      :required="required"
+      :multiple="multiple"
+      :aria-describedby="required ? `error-${id}` : undefined"
+      class="select"
+      @change="handleChange"
+    >
+      <option v-if="placeholder" disabled value="">
+        {{ placeholder }}
+      </option>
+
+      <slot v-if="$slots.default" />
+
+      <template v-else>
+        <option
+          v-for="option in options"
+          :key="option[props.valueKey] + '-' + id"
+          :value="option[props.valueKey]"
+          :disabled="option[props.disabledKey]"
+        >
+          {{ option[props.labelKey] }}
         </option>
+      </template>
+    </select>
 
-        <slot v-if="$slots.default" />
+    <div
+      v-if="required"
+      :id="`error-${id}`"
+      class="error-wrapper"
+      aria-live="polite"
+    >
+      <div class="error">
+        <Icon name="heroicons-solid:exclamation" />
 
-        <template v-else>
-          <option
-            v-for="option in options"
-            :key="option[props.valueKey] + '-' + id"
-            :value="option[props.valueKey]"
-            :disabled="option[props.disabledKey]"
-          >
-            {{ option[props.labelKey] }}
-          </option>
-        </template>
-      </select>
-
-      <div
-        v-if="required"
-        :id="`error-${id}`"
-        class="error-wrapper"
-        aria-live="polite"
-      >
-        <div class="error">
-          <Icon name="heroicons-solid:exclamation" />
-
-          <span>{{ $t('form-errors.not-filled-in', { item: label }) }}</span>
-        </div>
+        <span>{{ $t('form-errors.not-filled-in', { item: label }) }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <style>
-.form-field-wrapper.select {
-  select {
+.form-field-wrapper {
+  .select {
     background-color: var(--color-select-bg);
   }
 }

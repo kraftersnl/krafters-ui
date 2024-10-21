@@ -88,6 +88,10 @@
     "url": "URL | URLs",
     "version": "Version"
   },
+  "multiselect": {
+    "items-selected": "{count} items selected",
+    "pages-selected": "{count} pages selected"
+  },
   "meter": {
     "value-of-max": "{value} of {max}"
   },

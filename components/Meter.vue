@@ -53,9 +53,9 @@ const props = withDefaults(
     border-radius: var(--radius-full);
     overflow: hidden;
     display: block;
-    margin-bottom: 1em;
+    margin-block-end: 1em;
     width: 100%;
-    margin-top: 0.25rem;
+    margin-block-start: 0.25rem;
 
     &::after {
       content: '';

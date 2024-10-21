@@ -59,7 +59,7 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div class="form-field-wrapper textarea">
+  <div class="form-field-wrapper textarea-wrapper">
     <label v-if="label" :for="props.id">
       <span>{{ label }}</span>
 
@@ -76,8 +76,8 @@ const emit = defineEmits(['update:modelValue']);
       :placeholder="placeholder"
       :required="required"
       :name="name"
-      :class="autoresize ? 'autoresize' : ''"
       :aria-describedby="required ? `error-${id}` : undefined"
+      :class="`textarea ${autoresize ? 'autoresize' : ''}`"
       @input="handleInput"
     />
 
@@ -97,8 +97,8 @@ const emit = defineEmits(['update:modelValue']);
 </template>
 
 <style>
-.form-field-wrapper.textarea {
-  textarea {
+.textarea-wrapper {
+  .textarea {
     background-color: var(--color-input-bg);
     min-height: 6rem;
     padding-inline-end: 1.5rem;

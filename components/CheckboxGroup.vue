@@ -50,13 +50,13 @@ const emit = defineEmits(['update:modelValue']);
 .checkboxes-wrapper {
   legend {
     font-size: var(--font-size-lg);
-    margin-bottom: 1rem;
+    margin-block-end: 1rem;
   }
 
   .checkbox-list {
     display: grid;
     gap: 0.25rem;
-    margin-bottom: 1rem;
+    margin-block-end: 1rem;
   }
 }
 </style>

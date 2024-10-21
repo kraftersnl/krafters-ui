@@ -11,6 +11,7 @@ const props = defineProps<{
   placeholder?: string;
   maxlength?: number;
   hideLabel?: boolean;
+  showInvalid?: boolean;
   min?: number | string;
   max?: number | string;
 }>();
@@ -49,7 +50,7 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div class="form-field-wrapper input">
+  <div class="form-field-wrapper">
     <label :for="id" :class="hideLabel ? 'visuallyhidden' : ''">
       <span>{{ label }}</span>
 
@@ -72,6 +73,7 @@ const emit = defineEmits(['update:modelValue']);
       :placeholder="placeholder"
       :maxlength="maxlength"
       :aria-describedby="required ? `error-${id}` : undefined"
+      class="input"
       @input="handleInput"
     />
 
@@ -91,8 +93,8 @@ const emit = defineEmits(['update:modelValue']);
 </template>
 
 <style>
-.form-field-wrapper.input {
-  input {
+.form-field-wrapper {
+  .input {
     background-color: var(--color-input-bg);
   }
 }

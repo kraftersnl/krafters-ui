@@ -126,22 +126,22 @@ const emit = defineEmits(['click', 'update:modelValue']);
 
 .tippy-box[data-theme~='krafters'][data-placement^='top']
   > .tippy-arrow::before {
-  border-top-color: var(--color-card2-bg);
+  border-block-start-color: var(--color-card2-bg);
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='bottom']
   > .tippy-arrow:before {
-  border-bottom-color: var(--color-card2-bg);
+  border-block-end-color: var(--color-card2-bg);
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='left']
   > .tippy-arrow::before {
-  border-left-color: var(--color-card2-bg);
+  border-inline-start-color: var(--color-card2-bg);
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='right']
   > .tippy-arrow::before {
-  border-right-color: var(--color-card2-bg);
+  border-inline-end-color: var(--color-card2-bg);
 }
 
 .tippy-box[data-theme~='krafters'] > .tippy-backdrop {

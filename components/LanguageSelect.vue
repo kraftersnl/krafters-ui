@@ -33,13 +33,11 @@ watch(
 
 <style>
 .language-select {
-  padding-block: 1rem;
-
   h3 {
     font-size: var(--font-size-xs);
     font-weight: 400;
     color: var(--color-grey-text);
-    margin-bottom: 0.5rem;
+    margin-block-end: 0.5rem;
   }
 
   button {
