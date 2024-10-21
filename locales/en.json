@@ -44,6 +44,7 @@
     "cancel": "Cancel",
     "close": "Close",
     "collapse": "Collapse",
+    "clear": "Clear",
     "create": "Create",
     "delete": "Delete",
     "description": "Description",
@@ -89,8 +90,8 @@
     "version": "Version"
   },
   "multiselect": {
-    "items-selected": "{count} items selected",
-    "pages-selected": "{count} pages selected"
+    "items-selected": "items selected",
+    "pages-selected": "pages selected"
   },
   "meter": {
     "value-of-max": "{value} of {max}"

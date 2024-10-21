@@ -38,6 +38,7 @@ const emit = defineEmits(['submit']);
   --col-width-33: calc(33.333% - calc(var(--column-gap) / 3 * 2));
   --col-width-50: calc(50% - calc(var(--column-gap) / 2));
   --col-width-67: calc(66.666% - calc(var(--column-gap) / 3));
+  --col-width-75: calc(75% - calc(var(--column-gap) / 4));
 
   display: flex;
   flex-wrap: wrap;
@@ -55,8 +56,11 @@ const emit = defineEmits(['submit']);
   }
 
   .button {
-    flex-basis: 8rem;
     flex-grow: 0;
+
+    &[type='submit'] {
+      flex-basis: 8rem;
+    }
   }
 }
 </style>

@@ -27,6 +27,7 @@ const emit = defineEmits(['update:model-value', 'submit']);
       type="submit"
       :label="$t('general.search')"
       icon="search"
+      size="lg"
       hide-label
     />
   </Form>
