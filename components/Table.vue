@@ -17,6 +17,9 @@
   padding-inline: 1px;
   font-size: var(--font-size-sm);
 
+  tbody tr:hover {
+    background-color: var(--color-card-bg);
+  }
   th {
     &::first-letter {
       text-transform: capitalize;

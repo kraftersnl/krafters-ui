@@ -121,10 +121,14 @@ const emit = defineEmits(['update:page', 'update:per-page']);
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 2rem;
   align-items: center;
-  justify-content: space-between;
-  margin-block-start: var(--size-4xs);
+  margin-block-start: 1rem;
+  justify-content: center;
+
+  @media (min-width: 640px) {
+    justify-content: space-between;
+  }
 
   .pagination-nav {
     display: flex;
@@ -169,10 +173,10 @@ const emit = defineEmits(['update:page', 'update:per-page']);
   .pagination-page-size {
     display: flex;
     align-items: center;
-    gap: var(--size-4xs);
+    gap: 0.5rem;
 
-    .select-container select {
-      font-size: var(--font-size-xxs);
+    .select {
+      font-size: var(--font-size-sm);
     }
   }
 }
