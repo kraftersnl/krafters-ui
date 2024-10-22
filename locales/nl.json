@@ -96,11 +96,12 @@
     "pages-selected": "{count} pagina's geselecteerd"
   },
   "pagination": {
+    "current-page": "pagina",
     "first-page": "Eerste pagina",
+    "heading": "Paginering",
     "last-page": "Laatste pagina",
     "next-page": "Volgende pagina",
     "of": "van",
-    "page": "pagina",
     "per-page": "items per pagina",
     "prev-page": "Vorige pagina"
   },

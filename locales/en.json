@@ -97,11 +97,12 @@
     "value-of-max": "{value} of {max}"
   },
   "pagination": {
+    "current-page": "page",
     "first-page": "First page",
+    "heading": "Pagination",
     "last-page": "Last page",
     "next-page": "Next page",
     "of": "of",
-    "page": "page",
     "per-page": "items per page",
     "prev-page": "Previous page"
   },

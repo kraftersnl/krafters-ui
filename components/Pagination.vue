@@ -50,7 +50,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
 
 <template>
   <div class="pagination-wrapper">
-    <div class="pagination-nav">
+    <nav class="pagination-nav" :aria-label="$t('pagination.heading')">
       <Button
         icon="chevron-double-left"
         :label="$t('pagination.first-page')"
@@ -74,7 +74,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
           v-model.number="currentPage"
           type="number"
           input-mode="numeric"
-          :label="$t('pagination.page')"
+          :label="$t('pagination.current-page')"
           :min="1"
           :max="lastPage"
           :disabled="loading"
@@ -101,7 +101,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         :disabled="loading || page >= lastPage || lastPage <= 1"
         @click.stop="goToPage(lastPage)"
       />
-    </div>
+    </nav>
 
     <div class="pagination-page-size">
       <Select
