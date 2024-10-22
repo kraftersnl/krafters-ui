@@ -53,7 +53,6 @@ const props = withDefaults(
     border-radius: var(--radius-full);
     overflow: hidden;
     display: block;
-    margin-block-end: 1em;
     width: 100%;
     margin-block-start: 0.25rem;
 

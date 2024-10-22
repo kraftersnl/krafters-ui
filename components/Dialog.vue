@@ -1,9 +1,14 @@
 <script setup lang="ts">
-defineProps<{
-  label?: string;
-}>();
-
-const id = useId();
+withDefaults(
+  defineProps<{
+    label?: string;
+    id?: string;
+  }>(),
+  {
+    label: undefined,
+    id: () => useId(),
+  },
+);
 
 const dialogElement = ref<HTMLDialogElement>();
 const isVisible = ref(false);
@@ -42,7 +47,9 @@ defineExpose({
   >
     <FocusLoop>
       <header class="dialog-header">
-        <h1 :id="id">{{ label }}</h1>
+        <h1 v-if="label" :id="id">{{ label }}</h1>
+
+        <slot name="header" v-bind="{ closeDialog }" />
 
         <Button
           icon="x"

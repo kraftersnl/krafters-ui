@@ -14,12 +14,14 @@
   -ms-overflow-style: -ms-autohiding-scrollbar;
   padding-block-end: 1rem;
   margin-block-start: 1rem;
-  padding-inline: 1px;
+  margin-inline: -1rem;
+  padding-inline: calc(1rem);
   font-size: var(--font-size-sm);
 
   tbody tr:hover {
     background-color: var(--color-card-bg);
   }
+
   th {
     &::first-letter {
       text-transform: capitalize;
