@@ -63,7 +63,10 @@ const emit = defineEmits(['update:modelValue']);
       krafters-multiselect
     `"
   >
-    <label :for="id" :class="hideLabel ? 'visuallyhidden' : ''">
+    <label
+      :for="id"
+      :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
+    >
       <span>{{ label }}</span>
       <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
         <span class="visuallyhidden">,</span>

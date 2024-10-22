@@ -4,7 +4,9 @@ const props = withDefaults(
     modelValue: string | undefined;
     label?: string;
     name?: string;
+    hideLabel?: boolean;
     required?: boolean;
+    disabled?: boolean;
     placeholder?: string;
     id?: string;
     autoresize?: boolean;
@@ -60,7 +62,11 @@ const emit = defineEmits(['update:modelValue']);
 
 <template>
   <div class="form-field-wrapper textarea-wrapper">
-    <label v-if="label" :for="props.id">
+    <label
+      v-if="label"
+      :for="props.id"
+      :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
+    >
       <span>{{ label }}</span>
 
       <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
@@ -72,12 +78,12 @@ const emit = defineEmits(['update:modelValue']);
     <textarea
       :id="id"
       ref="elementRef"
+      :class="`textarea ${autoresize ? 'autoresize' : ''}`"
       :value="modelValue"
       :placeholder="placeholder"
       :required="required"
       :name="name"
       :aria-describedby="required ? `error-${id}` : undefined"
-      :class="`textarea ${autoresize ? 'autoresize' : ''}`"
       @input="handleInput"
     />
 
@@ -106,7 +112,6 @@ const emit = defineEmits(['update:modelValue']);
     &.autoresize {
       height: auto;
       overflow: auto;
-      resize: none;
     }
   }
 }

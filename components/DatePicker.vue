@@ -158,7 +158,7 @@ const emit = defineEmits(['update:modelValue']);
 }
 
 .dp__input {
-  min-height: 2.25rem;
+  min-height: 2.5rem;
   background-color: var(--color-select-bg);
 }
 

@@ -25,6 +25,7 @@ const emit = defineEmits(['update:model-value', 'submit']);
 
     <Button
       type="submit"
+      variant="primary"
       :label="$t('general.search')"
       icon="search"
       size="lg"
@@ -42,7 +43,6 @@ const emit = defineEmits(['update:model-value', 'submit']);
 
   .button {
     border-radius: var(--radius-sm);
-    border: 1px solid var(--color-grey-graphic);
   }
 }
 </style>

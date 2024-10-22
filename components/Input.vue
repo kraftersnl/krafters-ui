@@ -51,7 +51,10 @@ const emit = defineEmits(['update:modelValue']);
 
 <template>
   <div class="form-field-wrapper">
-    <label :for="id" :class="hideLabel ? 'visuallyhidden' : ''">
+    <label
+      :for="id"
+      :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
+    >
       <span>{{ label }}</span>
 
       <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
@@ -62,6 +65,7 @@ const emit = defineEmits(['update:modelValue']);
 
     <input
       :id="id"
+      class="input"
       :value="modelValue"
       :name="name"
       :type="type || 'text'"
@@ -73,7 +77,6 @@ const emit = defineEmits(['update:modelValue']);
       :placeholder="placeholder"
       :maxlength="maxlength"
       :aria-describedby="required ? `error-${id}` : undefined"
-      class="input"
       @input="handleInput"
     />
 
