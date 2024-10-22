@@ -69,8 +69,8 @@ defineExpose({
 </template>
 
 <style>
+/* disable background scrolling */
 body:has(.dialog[open]) {
-  /* disable background scrolling */
   overflow: hidden;
 }
 

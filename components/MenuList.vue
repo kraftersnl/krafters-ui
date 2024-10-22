@@ -5,6 +5,10 @@ defineProps<{
 
 function handleClick(item?: MenuItem) {
   emit('click', item);
+
+  if (item?.onClick) {
+    item.onClick();
+  }
 }
 
 const emit = defineEmits(['click']);
@@ -36,7 +40,7 @@ const emit = defineEmits(['click']);
 
 <style>
 .menu-list {
-  min-width: 180px;
+  min-width: 200px;
 
   .button {
     background-color: var(--color-white);

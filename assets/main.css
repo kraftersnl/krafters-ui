@@ -2,14 +2,16 @@
 
 .dark-mode {
   --color-scheme: dark;
-  --color-bg: #1c1320;
-  --color-card-bg: #120817;
   --color-white: #120817;
   --color-black: #ffffff;
   --color-text: #ffffff;
   --color-grey-text: #8f8f8f;
   --color-grey-graphic: #707070;
   --color-grey-bg: #37293d;
+
+  --color-bg: #1c1320;
+  --color-card-bg: #120817;
+  --color-card-border: var(--color-grey-bg);
 
   --color-purple: #c18cd9;
   --color-purple-bg: #362a3c;
@@ -37,18 +39,22 @@
 
   --color-input-bg: #23232a;
   --color-select-bg: #23232a;
+
+  --shadow-color: 282deg 42% 2%;
 }
 
 .light-mode {
   --color-scheme: light;
-  --color-bg: #f5f5f5;
-  --color-card-bg: #ffffff;
   --color-white: #ffffff;
   --color-black: #000000;
   --color-text: #161616;
   --color-grey-text: #6e6e6e;
   --color-grey-graphic: #8c8c8c;
   --color-grey-bg: #e6e6e6;
+
+  --color-bg: #f7f2f9;
+  --color-card-bg: #ffffff;
+  --color-card-border: transparent;
 
   --color-purple: #582e6b;
   --color-purple-bg: #e7e1ea;
@@ -76,6 +82,8 @@
 
   --color-input-bg: #ffffff;
   --color-select-bg: #eeeef1;
+
+  --shadow-color: 277deg 8% 60%;
 }
 
 :root {
@@ -100,6 +108,21 @@
   --color-accent-bg: var(--color-purple-bg);
   --color-accent-text: var(--color-purple-text);
   --focus-color: var(--color-black);
+
+  /* Shadow design token */
+  --shadow-1: 0.3px 0.3px 0.6px hsl(var(--shadow-color) / 0),
+    1.3px 1.3px 2.8px hsl(var(--shadow-color) / 0.52);
+  --shadow-2: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.18),
+    0.9px 1.7px 2.4px -0.5px hsl(var(--shadow-color) / 0.22),
+    1.9px 3.9px 5.4px -1.1px hsl(var(--shadow-color) / 0.27),
+    4.4px 8.8px 12.3px -1.6px hsl(var(--shadow-color) / 0.31);
+  --shadow-3: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.19),
+    1.6px 3.3px 4.6px -0.3px hsl(var(--shadow-color) / 0.22),
+    3px 6px 8.4px -0.5px hsl(var(--shadow-color) / 0.24),
+    4.9px 9.8px 13.7px -0.8px hsl(var(--shadow-color) / 0.27),
+    7.8px 15.6px 21.8px -1.1px hsl(var(--shadow-color) / 0.3),
+    12.2px 24.5px 34.3px -1.4px hsl(var(--shadow-color) / 0.33),
+    18.8px 37.5px 52.5px -1.6px hsl(var(--shadow-color) / 0.35);
 
   /* Animation design tokens */
   @media (prefers-reduced-motion: no-preference) {

@@ -23,7 +23,7 @@ const props = withDefaults(
     label: undefined,
     list: () => [],
     icon: 'dots-horizontal',
-    placement: 'auto',
+    placement: 'auto-start',
     interactive: true,
     trigger: 'click',
     hideOnClick: true,
@@ -102,7 +102,8 @@ const emit = defineEmits(['click', 'update:modelValue']);
 <style>
 .tippy-box {
   font: var(--font-body-xs);
-  /* border-radius: var(--radius-md); */
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-2);
 
   .menu-list-item:first-of-type {
     .button {
@@ -112,43 +113,42 @@ const emit = defineEmits(['click', 'update:modelValue']);
 }
 
 .tippy-content {
+  outline: 1px solid var(--color-card-border);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-grey-bg);
   padding: 0;
 }
 
 .tippy-box[data-theme~='krafters'] {
   color: var(--color-text);
-  background-color: var(--color-card2-bg);
-  box-shadow: var(--tooltip-shadow);
-  border: 1px solid var(--color-card2-border);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='top']
   > .tippy-arrow::before {
-  border-block-start-color: var(--color-card2-bg);
+  border-block-start-color: var(--color-card-bg);
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='bottom']
   > .tippy-arrow:before {
-  border-block-end-color: var(--color-card2-bg);
+  border-block-end-color: var(--color-card-bg);
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='left']
   > .tippy-arrow::before {
-  border-inline-start-color: var(--color-card2-bg);
+  border-inline-start-color: var(--color-card-bg);
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='right']
   > .tippy-arrow::before {
-  border-inline-end-color: var(--color-card2-bg);
+  border-inline-end-color: var(--color-card-bg);
 }
 
 .tippy-box[data-theme~='krafters'] > .tippy-backdrop {
-  background-color: var(--color-card2-bg);
+  background-color: var(--color-card-bg);
 }
 
 .tippy-box[data-theme~='krafters'] > .tippy-svg-arrow {
-  fill: var(--color-card2-bg);
+  fill: var(--color-card-bg);
 }
 </style>
