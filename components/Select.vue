@@ -11,6 +11,7 @@ const props = withDefaults(
     disabledKey?: string;
     required?: boolean;
     disabled?: boolean;
+    autofocus?: boolean;
     multiple?: boolean;
     hideLabel?: boolean;
   }>(),
@@ -55,8 +56,9 @@ const emit = defineEmits(['update:modelValue']);
       class="select"
       :value="modelValue"
       :name="name"
-      :disabled="disabled"
       :required="required"
+      :disabled="disabled"
+      :autofocus="autofocus"
       :multiple="multiple"
       :aria-describedby="required ? `error-${id}` : undefined"
       @change="handleChange"

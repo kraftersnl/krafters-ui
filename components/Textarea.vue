@@ -7,6 +7,7 @@ const props = withDefaults(
     hideLabel?: boolean;
     required?: boolean;
     disabled?: boolean;
+    autofocus?: boolean;
     placeholder?: string;
     id?: string;
     autoresize?: boolean;
@@ -82,6 +83,7 @@ const emit = defineEmits(['update:modelValue']);
       :value="modelValue"
       :placeholder="placeholder"
       :required="required"
+      :autofocus="autofocus"
       :name="name"
       :aria-describedby="required ? `error-${id}` : undefined"
       @input="handleInput"

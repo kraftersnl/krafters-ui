@@ -7,10 +7,12 @@ const props = withDefaults(
     name?: string;
     required?: boolean;
     disabled?: boolean;
+    autofocus?: boolean;
     type?: string;
     autocomplete?: string;
     pattern?: string;
     placeholder?: string;
+    minlength?: number;
     maxlength?: number;
     hideLabel?: boolean;
     showInvalid?: boolean;
@@ -25,6 +27,7 @@ const props = withDefaults(
     autocomplete: undefined,
     pattern: undefined,
     placeholder: undefined,
+    minlength: undefined,
     maxlength: undefined,
     min: undefined,
     max: undefined,
@@ -91,7 +94,9 @@ const emit = defineEmits(['update:modelValue']);
       :pattern="inputPattern"
       :required="required"
       :disabled="disabled"
+      :autofocus="autofocus"
       :placeholder="placeholder"
+      :minlength="minlength"
       :maxlength="maxlength"
       :min="min"
       :max="max"
