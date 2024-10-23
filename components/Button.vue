@@ -58,7 +58,7 @@ withDefaults(
     </span>
 
     <template v-if="!download && target === '_blank'">
-      <Icon name="heroicons-solid:external-link" />
+      <Icon name="heroicons-solid:external-link" class="external-link" />
       <span class="visuallyhidden">({{ $t('aria.opens-new-window') }})</span>
     </template>
 
@@ -266,8 +266,12 @@ withDefaults(
 
   .iconify {
     font-size: inherit;
-    margin-left: 0.35rem;
+    margin-inline-end: 0.35rem;
     vertical-align: middle;
+
+    &.external-link {
+      margin-inline-start: 0.35rem;
+    }
   }
 
   &:focus-visible {
