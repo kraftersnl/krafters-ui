@@ -297,11 +297,9 @@ hr {
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
   text-align: left;
   font-variant-numeric: tabular-nums;
-  font-size: var(--font-size-sm);
 
   th {
     font-weight: 600;
