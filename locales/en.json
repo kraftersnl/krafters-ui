@@ -32,7 +32,7 @@
   },
   "form-errors": {
     "not-filled-in": "{item} is not filled in",
-    "required": "Required"
+    "required": "required"
   },
   "filters": {
     "heading": "Filter | Filters",

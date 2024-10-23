@@ -34,10 +34,6 @@ withDefaults(
   background-color: var(--color-grey-bg);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-
-  .chip-text::first-letter {
-    text-transform: uppercase;
-  }
 }
 
 .chip-size--sm {

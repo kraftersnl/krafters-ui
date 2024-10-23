@@ -1,5 +1,6 @@
 import type Dialog from '../components/Dialog.vue';
 import type Textarea from '../components/Textarea.vue';
+import type Input from '../components/Input.vue';
 
 declare global {
   type ChipColor =
@@ -29,6 +30,7 @@ declare global {
 
   type DialogComponent = InstanceType<typeof Dialog>;
   type TextareaComponent = InstanceType<typeof Textarea>;
+  type InputComponent = InstanceType<typeof Input>;
 
   type PopperPlacement =
     | 'auto'

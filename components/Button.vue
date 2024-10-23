@@ -20,6 +20,7 @@ withDefaults(
     size?: 'sm' | 'md' | 'lg' | 'xl';
     hideLabel?: boolean;
     loading?: boolean;
+    download?: boolean;
     type?: 'button' | 'submit' | 'reset';
   }>(),
   {
@@ -56,7 +57,7 @@ withDefaults(
       {{ label }}
     </span>
 
-    <template v-if="target === '_blank'">
+    <template v-if="!download && target === '_blank'">
       <Icon name="heroicons-solid:external-link" />
       <span class="visuallyhidden">({{ $t('aria.opens-new-window') }})</span>
     </template>

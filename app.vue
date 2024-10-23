@@ -1,26 +1,19 @@
 <script setup lang="ts">
-const list: MenuItem[] = [
+const selection = ref([]);
+
+const list = [
   {
-    id: 'edit',
-    label: 'Edit finding',
-    icon: 'pencil',
+    id: 1,
+    name: 'First item',
+  },
+  {
+    id: 2,
+    name: 'Second item',
   },
 
   {
-    id: 'upload',
-    label: 'Upload file',
-    icon: 'cloud-upload',
-  },
-  {
-    id: 'comment',
-    label: 'Add comment',
-    icon: 'chat-bubble-bottom-center-text',
-    divider: true,
-  },
-  {
-    id: 'delete',
-    label: 'Delete',
-    icon: 'trash',
+    id: 3,
+    name: 'Third item',
   },
 ];
 </script>
@@ -28,8 +21,19 @@ const list: MenuItem[] = [
 <template>
   <ThemeSelect />
   <LanguageSelect />
+  <br /><br />
 
-  <Popover :list="list" @click="(e) => console.log(e)" />
+  <Form>
+    <MultiSelect
+      v-model="selection"
+      required
+      searchable
+      :options="list"
+      value-key="id"
+      label-key="name"
+      label="MultiSelect Label"
+    />
+  </Form>
 
   <!-- <Accordion v-model="isOpen" arrow>
     <template #trigger>Accordion Trigger</template>
@@ -53,6 +57,7 @@ const list: MenuItem[] = [
 body {
   margin: 2rem;
 }
+
 .accordion-wrapper {
   max-width: 240px;
 }

@@ -32,7 +32,7 @@
   },
   "form-errors": {
     "not-filled-in": "{item} is niet ingevuld",
-    "required": "Vereist"
+    "required": "vereist"
   },
   "filters": {
     "heading": "Filter | Filters",

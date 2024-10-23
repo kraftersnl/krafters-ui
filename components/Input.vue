@@ -1,22 +1,35 @@
 <script setup lang="ts">
-const props = defineProps<{
-  modelValue?: string | number | undefined;
-  label: string;
-  name?: string;
-  required?: boolean;
-  disabled?: boolean;
-  type?: string;
-  autocomplete?: string;
-  pattern?: string;
-  placeholder?: string;
-  maxlength?: number;
-  hideLabel?: boolean;
-  showInvalid?: boolean;
-  min?: number | string;
-  max?: number | string;
-}>();
-
-const id = useId();
+const props = withDefaults(
+  defineProps<{
+    modelValue?: string | number | undefined;
+    label: string;
+    id?: string;
+    name?: string;
+    required?: boolean;
+    disabled?: boolean;
+    type?: string;
+    autocomplete?: string;
+    pattern?: string;
+    placeholder?: string;
+    maxlength?: number;
+    hideLabel?: boolean;
+    showInvalid?: boolean;
+    min?: number | string;
+    max?: number | string;
+  }>(),
+  {
+    modelValue: undefined,
+    id: () => useId(),
+    name: undefined,
+    type: 'text',
+    autocomplete: undefined,
+    pattern: undefined,
+    placeholder: undefined,
+    maxlength: undefined,
+    min: undefined,
+    max: undefined,
+  },
+);
 
 const inputMode = computed(() => {
   if (props.type === 'email') return 'email';
@@ -50,10 +63,13 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div class="form-field-wrapper">
+  <div :class="`form-field-wrapper ${showInvalid ? 'show-invalid' : ''}`">
     <label
       :for="id"
-      :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
+      :class="`
+        ${hideLabel ? 'visuallyhidden' : ''}
+        ${disabled ? 'disabled' : ''}
+      `"
     >
       <span>{{ label }}</span>
 
@@ -65,6 +81,7 @@ const emit = defineEmits(['update:modelValue']);
 
     <input
       :id="id"
+      ref="elementRef"
       class="input"
       :value="modelValue"
       :name="name"
@@ -76,6 +93,8 @@ const emit = defineEmits(['update:modelValue']);
       :disabled="disabled"
       :placeholder="placeholder"
       :maxlength="maxlength"
+      :min="min"
+      :max="max"
       :aria-describedby="required ? `error-${id}` : undefined"
       @input="handleInput"
     />
