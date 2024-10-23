@@ -45,12 +45,22 @@ const computedModel = computed({
   set: (value) => emit('update:modelValue', value),
 });
 
+const msRef = ref();
+
 function formatMultipleLabels(values) {
   if (values.length === 1) {
     return values[0][props.labelKey];
   }
   return `${values.length} ${props.itemsSelectedLabel || t('multiselect.items-selected')}`;
 }
+
+function selectAll() {
+  msRef.value?.selectAll();
+}
+
+defineExpose({
+  selectAll,
+});
 
 const emit = defineEmits(['update:modelValue']);
 // https://github.com/vueform/multiselect#events
@@ -77,6 +87,7 @@ const emit = defineEmits(['update:modelValue']);
     <Multiselect
       v-bind="$attrs"
       :id="id"
+      ref="msRef"
       v-model="computedModel"
       :locale="$i18n.locale"
       :hide-selected="hideSelected"
