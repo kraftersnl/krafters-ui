@@ -20,6 +20,7 @@ const props = withDefaults(
 const { t } = useI18n();
 
 const id = useId();
+const fileInputRef = ref<HTMLInputElement>();
 const imagePreview = ref<string>();
 const dragover = ref(false);
 
@@ -66,6 +67,9 @@ watch(
   () => {
     if (!props.modelValue) {
       imagePreview.value = undefined;
+      if (fileInputRef.value?.value) {
+        fileInputRef.value.value = '';
+      }
     }
   },
 );
@@ -78,6 +82,7 @@ const emit = defineEmits(['update:model-value']);
     <div class="file-input" :style="`background-image: url(${imagePreview})`">
       <input
         :id="id"
+        ref="fileInputRef"
         :name="name"
         :required="required"
         :accept="accept"
