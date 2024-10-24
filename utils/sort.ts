@@ -1,17 +1,21 @@
-/* eslint-disable no-prototype-builtins */
-export function compareValues(key: string, order = 'asc') {
-  return function innerSort(a: any, b: any) {
-    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
+export function sort(arr: any, prop: string) {
+  const key = prop.split('.');
+  const len = key.length;
 
-    const varA = typeof a[key] === 'string' ? a[key].toUpperCase() : a[key];
-    const varB = typeof b[key] === 'string' ? b[key].toUpperCase() : b[key];
-
-    let comparison = 0;
-    if (varA > varB) {
-      comparison = 1;
-    } else if (varA < varB) {
-      comparison = -1;
+  arr?.sort(function (a: any, b: any) {
+    let i = 0;
+    while (i < len) {
+      a = a[key[i]];
+      b = b[key[i]];
+      i++;
     }
-    return order === 'desc' ? comparison * -1 : comparison;
-  };
+    if (a < b) {
+      return -1;
+    } else if (a > b) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  return arr;
 }
