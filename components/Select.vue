@@ -6,6 +6,7 @@ const props = withDefaults(
     name?: string;
     options?: any[];
     placeholder?: string;
+    size?: 'sm' | 'md' | 'lg';
     valueKey?: string;
     labelKey?: string;
     disabledKey?: string;
@@ -20,6 +21,7 @@ const props = withDefaults(
     name: undefined,
     options: undefined,
     placeholder: undefined,
+    size: 'md',
     valueKey: 'value',
     labelKey: 'label',
     disabledKey: 'disabled',
@@ -37,7 +39,7 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div class="form-field-wrapper">
+  <div :class="`form-field-wrapper select-size--${size}`">
     <label
       :for="id"
       :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
@@ -101,5 +103,20 @@ const emit = defineEmits(['update:modelValue']);
   .select {
     background-color: var(--color-select-bg);
   }
+}
+
+.select-size--sm .select {
+  height: 2rem;
+  padding-inline: 0.5rem;
+}
+
+.select-size--md .select {
+  height: 2.25rem;
+  padding-inline: 0.5rem;
+}
+
+.select-size--lg .select {
+  height: 2.5rem;
+  padding-inline: 0.65rem;
 }
 </style>

@@ -183,7 +183,7 @@ const emit = defineEmits(['update:modelValue']);
 
 :root {
   /* --ms-font-size: 1rem; */
-  --ms-line-height: 1.25;
+  --ms-line-height: 1.125;
   --ms-bg: var(--color-select-bg);
   --ms-bg-disabled: var(--color-white);
   --ms-border-color: var(--color-grey-graphic);
@@ -259,6 +259,10 @@ const emit = defineEmits(['update:modelValue']);
   --ms-option-px: 0.75rem;
 
   --ms-empty-color: #4B5563; */
+}
+
+.multiselect-wrapper {
+  min-height: 0;
 }
 
 .multiselect-caret {

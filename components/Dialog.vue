@@ -86,7 +86,7 @@ body:has(.dialog[open]) {
   width: calc(100vw - var(--app-inline-padding));
   border: none;
   border-radius: var(--radius-lg);
-  padding-block-end: 2rem;
+  padding-block-end: 1.5rem;
 
   &::backdrop {
     background-color: rgb(0 0 0 / 65%);
@@ -98,7 +98,7 @@ body:has(.dialog[open]) {
   }
 
   .dialog-header {
-    padding-block: 2rem 1.5rem;
+    padding-block: 1.5rem;
     padding-inline: 2rem;
     display: flex;
     align-items: center;

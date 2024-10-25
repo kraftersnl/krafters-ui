@@ -408,12 +408,6 @@ input {
   }
 
   .select,
-  .input {
-    height: 2.5rem;
-    padding-inline: 0.5rem;
-  }
-
-  .select,
   .input,
   .textarea {
     font-family: system-ui, sans-serif;

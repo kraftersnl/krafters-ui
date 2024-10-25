@@ -12,6 +12,7 @@ const props = withDefaults(
     autocomplete?: string;
     pattern?: string;
     placeholder?: string;
+    size?: 'sm' | 'md' | 'lg';
     minlength?: number;
     maxlength?: number;
     hideLabel?: boolean;
@@ -27,6 +28,7 @@ const props = withDefaults(
     autocomplete: undefined,
     pattern: undefined,
     placeholder: undefined,
+    size: 'md',
     minlength: undefined,
     maxlength: undefined,
     min: undefined,
@@ -66,7 +68,9 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div :class="`form-field-wrapper ${showInvalid ? 'show-invalid' : ''}`">
+  <div
+    :class="`form-field-wrapper input-size--${size} ${showInvalid ? 'show-invalid' : ''}`"
+  >
     <label
       :for="id"
       :class="`
@@ -124,5 +128,20 @@ const emit = defineEmits(['update:modelValue']);
   .input {
     background-color: var(--color-input-bg);
   }
+}
+
+.input-size--sm .input {
+  height: 2rem;
+  padding-inline: 0.5rem;
+}
+
+.input-size--md .input {
+  height: 2.25rem;
+  padding-inline: 0.5rem;
+}
+
+.input-size--lg .input {
+  height: 2.5rem;
+  padding-inline: 0.65rem;
 }
 </style>
