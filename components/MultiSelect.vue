@@ -45,7 +45,7 @@ const computedModel = computed({
   set: (value) => emit('update:modelValue', value),
 });
 
-const msRef = ref();
+const msTemplateRef = useTemplateRef('multiselect');
 
 function formatMultipleLabels(values) {
   if (values.length === 1) {
@@ -55,7 +55,7 @@ function formatMultipleLabels(values) {
 }
 
 function selectAll() {
-  msRef.value?.selectAll();
+  msTemplateRef.value?.selectAll();
 }
 
 defineExpose({
@@ -87,7 +87,7 @@ const emit = defineEmits(['update:modelValue']);
     <Multiselect
       v-bind="$attrs"
       :id="id"
-      ref="msRef"
+      ref="multiselect"
       v-model="computedModel"
       :locale="$i18n.locale"
       :hide-selected="hideSelected"
@@ -100,7 +100,7 @@ const emit = defineEmits(['update:modelValue']);
       :label="labelKey"
       :value-prop="valueKey"
       :disabled-prop="disabledKey"
-      :aria-describedby="required ? `error-${id}` : undefined"
+      :aria-describedby="id && required ? `error-${id}` : undefined"
       :multiple-label="formatMultipleLabels"
     >
       <!-- https://github.com/vueform/multiselect#slots -->
@@ -166,7 +166,7 @@ const emit = defineEmits(['update:modelValue']);
 
     <div
       v-if="required"
-      :id="`error-${id}`"
+      :id="id ? `error-${id}` : undefined"
       class="error-wrapper"
       aria-live="polite"
     >

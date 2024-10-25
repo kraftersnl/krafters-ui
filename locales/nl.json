@@ -2,6 +2,7 @@
   "aria": {
     "main-content": "Hoofdcontent",
     "main-nav": "Hoofdnavigatie",
+    "open-menu": "open menu",
     "opens-new-window": "opent in nieuw venster",
     "skip-to-main-content": "Spring naar hoofcontent",
     "user-menu": "Open gebruikersmenu"
@@ -62,6 +63,7 @@
     "key": "Kenmerk",
     "language": "Taal",
     "level": "Niveau",
+    "menu": "Menu",
     "modify": "Aanpassen",
     "name": "Naam",
     "password": "Wachtwoord",

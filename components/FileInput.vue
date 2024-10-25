@@ -4,6 +4,7 @@ const props = withDefaults(
     modelValue?: File;
     label: string;
     name?: string;
+    id?: string;
     accept?: string;
     required?: boolean;
     disabled?: boolean;
@@ -12,6 +13,7 @@ const props = withDefaults(
   {
     modelValue: undefined,
     name: undefined,
+    id: () => useId(),
     accept: undefined,
     maxFileSize: 5000,
   },
@@ -19,7 +21,6 @@ const props = withDefaults(
 
 const { t } = useI18n();
 
-const id = useId();
 const fileInputRef = ref<HTMLInputElement>();
 const imagePreview = ref<string>();
 const dragover = ref(false);
@@ -80,6 +81,7 @@ const emit = defineEmits(['update:model-value']);
 <template>
   <div class="file-input-wrapper">
     <div class="file-input" :style="`background-image: url(${imagePreview})`">
+      <label class="visuallyhidden" :for="id">Upload</label>
       <input
         :id="id"
         ref="fileInputRef"
@@ -87,7 +89,7 @@ const emit = defineEmits(['update:model-value']);
         :required="required"
         :accept="accept"
         :class="`${validity ? 'valid' : 'invalid'}`"
-        :aria-describedby="required ? `error-${id}` : undefined"
+        :aria-describedby="id && !validity ? `error-${id}` : undefined"
         type="file"
         @dragover="handleDragOver"
         @dragleave="handleDragLeave"
@@ -108,7 +110,7 @@ const emit = defineEmits(['update:model-value']);
       >
         <Icon name="heroicons-solid:cloud-upload" />
 
-        <label :for="id" class="file-input-label">
+        <span class="file-input-label">
           <span class="browse">{{ $t('files.browse') }}</span>
           <span class="drop">{{ $t('files.or-drop-file') }}</span>
 
@@ -121,13 +123,13 @@ const emit = defineEmits(['update:model-value']);
               ? `(${formatFileSize(modelValue.size)})`
               : `(max. ${maxFileSize / 1000} MB)`
           }}</span>
-        </label>
+        </span>
       </button>
     </div>
 
     <div
       v-if="!validity"
-      :id="`error-${id}`"
+      :id="id ? `error-${id}` : undefined"
       class="error-wrapper"
       aria-live="polite"
     >

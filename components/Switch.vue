@@ -30,9 +30,9 @@ const emit = defineEmits(['update:modelValue']);
     :value="String(computedModel)"
     @click="handleClick"
   >
-    <div class="switch">
+    <span class="switch">
       <span class="switch-thumb" role="presentation" />
-    </div>
+    </span>
 
     <span class="switch-label">
       {{ label }}

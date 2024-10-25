@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const selection = ref([]);
+const selection = ref();
 
 const list = [
   {
@@ -19,9 +19,13 @@ const list = [
 </script>
 
 <template>
+  <h1>Playground</h1>
+
   <ThemeSelect />
   <LanguageSelect />
   <br /><br />
+
+  <Search />
 
   <Form>
     <MultiSelect

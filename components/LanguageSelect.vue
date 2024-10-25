@@ -18,13 +18,23 @@ watch(
 
 <template>
   <div class="language-select">
-    <h3>{{ $t('general.language') }}</h3>
+    <h2>{{ $t('general.language') }}</h2>
     <div class="button-group">
-      <button lang="en" :aria-current="prefersEnglish" @click="setLocale('en')">
+      <button
+        type="button"
+        lang="en"
+        :aria-current="prefersEnglish"
+        @click="setLocale('en')"
+      >
         English
       </button>
 
-      <button lang="nl" :aria-current="prefersDutch" @click="setLocale('nl')">
+      <button
+        type="button"
+        lang="nl"
+        :aria-current="prefersDutch"
+        @click="setLocale('nl')"
+      >
         Nederlands
       </button>
     </div>
@@ -33,7 +43,7 @@ watch(
 
 <style>
 .language-select {
-  h3 {
+  h2 {
     font-size: var(--font-size-xs);
     font-weight: 400;
     color: var(--color-grey-text);

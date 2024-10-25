@@ -109,10 +109,10 @@ function handleFocusEnd() {
 
 <template>
   <div v-if="isVisible" ref="focusLoopContainerRef" class="vue-focus-loop">
-    <div :tabindex="getTabindex" aria-hidden="true" @focus="handleFocusStart" />
+    <div :tabindex="getTabindex" @focus="handleFocusStart" />
     <div ref="focusLoopContentRef">
       <slot />
     </div>
-    <div :tabindex="getTabindex" aria-hidden="true" @focus="handleFocusEnd" />
+    <div :tabindex="getTabindex" @focus="handleFocusEnd" />
   </div>
 </template>

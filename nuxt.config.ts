@@ -10,7 +10,28 @@ export default defineNuxtConfig({
 
   css: [join(currentDir, './assets/main.css')],
 
-  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxtjs/color-mode', '@nuxtjs/i18n'],
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxtjs/color-mode',
+    '@nuxtjs/i18n',
+    '@nuxtjs/html-validator',
+    '@vueuse/nuxt',
+  ],
+
+  htmlValidator: {
+    usePrettier: true,
+    options: {
+      rules: {
+        'no-redundant-role': 'off',
+        'no-implicit-input-type': 'off',
+        'heading-level': 'off',
+        'unique-landmark': 'off',
+        'prefer-native-element': 'off',
+        'no-missing-references': 'off',
+      },
+    },
+  },
 
   i18n: {
     strategy: 'no_prefix',

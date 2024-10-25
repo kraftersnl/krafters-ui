@@ -5,6 +5,7 @@ withDefaults(
     icon?: string;
     color?: ChipColor;
     size?: 'sm' | 'md' | 'lg';
+    capitalize?: boolean;
   }>(),
   {
     label: undefined,
@@ -16,13 +17,20 @@ withDefaults(
 </script>
 
 <template>
-  <div :class="`chip chip-color--${color} chip-size--${size}`">
+  <span
+    :class="`
+      chip
+      chip-color--${color}
+      chip-size--${size}
+      ${capitalize ? 'chip--capitalize' : ''}
+    `"
+  >
     <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
 
     <slot />
 
     <span v-if="label" class="chip-text">{{ label }}</span>
-  </div>
+  </span>
 </template>
 
 <style>
@@ -34,6 +42,10 @@ withDefaults(
   background-color: var(--color-grey-bg);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+}
+
+.chip--capitalize .chip-text::first-letter {
+  text-transform: capitalize;
 }
 
 .chip-size--sm {

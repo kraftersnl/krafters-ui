@@ -10,7 +10,7 @@ withDefaults(
   },
 );
 
-const dialogElement = ref<HTMLDialogElement>();
+const dialogTemplateRef = useTemplateRef<HTMLDialogElement>('dialog');
 const isVisible = ref(false);
 
 function handleDialogClick(event: MouseEvent) {
@@ -22,12 +22,12 @@ function handleDialogClick(event: MouseEvent) {
 }
 
 function openDialog() {
-  dialogElement.value?.showModal();
+  dialogTemplateRef.value?.showModal();
   isVisible.value = true;
 }
 
 function closeDialog() {
-  dialogElement.value?.close();
+  dialogTemplateRef.value?.close();
   isVisible.value = false;
 }
 
@@ -40,13 +40,13 @@ defineExpose({
 
 <template>
   <dialog
-    ref="dialogElement"
+    ref="dialog"
     :aria-labelledby="id"
     class="dialog"
     @click="handleDialogClick"
   >
     <FocusLoop>
-      <header class="dialog-header">
+      <div class="dialog-header">
         <h1 v-if="label" :id="id">{{ label }}</h1>
 
         <slot name="header" v-bind="{ closeDialog }" />
@@ -60,7 +60,7 @@ defineExpose({
           class="close-button"
           @click="closeDialog"
         />
-      </header>
+      </div>
 
       <div v-if="$slots.default" class="dialog-content">
         <slot name="default" v-bind="{ closeDialog }" />

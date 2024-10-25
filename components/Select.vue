@@ -62,7 +62,7 @@ const emit = defineEmits(['update:modelValue']);
       :disabled="disabled"
       :autofocus="autofocus"
       :multiple="multiple"
-      :aria-describedby="required ? `error-${id}` : undefined"
+      :aria-describedby="id && required ? `error-${id}` : undefined"
       @change="handleChange"
     >
       <option v-if="placeholder" disabled value="">
@@ -85,7 +85,7 @@ const emit = defineEmits(['update:modelValue']);
 
     <div
       v-if="required"
-      :id="`error-${id}`"
+      :id="id ? `error-${id}` : undefined"
       class="error-wrapper"
       aria-live="polite"
     >

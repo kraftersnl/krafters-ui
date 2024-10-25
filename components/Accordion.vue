@@ -66,6 +66,7 @@ const emit = defineEmits(['update:modelValue']);
       @click.stop="toggleAccordion"
     >
       <slot v-if="$slots.trigger" name="trigger" />
+      <span v-else class="visuallyhidden">{{ $t('general.expand') }}</span>
 
       <Icon
         v-if="arrow"

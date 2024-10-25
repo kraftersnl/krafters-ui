@@ -17,7 +17,8 @@ const emit = defineEmits(['update:model-value', 'submit']);
     <Input
       v-model="searchTerm"
       type="search"
-      :placeholder="$t('general.search')"
+      size="lg"
+      :placeholder="placeholder || 'test'"
       :label="$t('general.search')"
       hide-label
       @update:model-value="emit('update:model-value', $event)"

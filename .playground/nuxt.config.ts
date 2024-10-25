@@ -4,4 +4,13 @@ export default defineNuxtConfig({
   devServer: {
     port: 3001,
   },
+
+  app: {
+    head: {
+      title: 'Krafters UI',
+      htmlAttrs: {
+        lang: 'en',
+      },
+    },
+  },
 });

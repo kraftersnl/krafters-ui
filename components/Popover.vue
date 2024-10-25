@@ -7,6 +7,7 @@ const props = withDefaults(
   defineProps<{
     modelValue?: string;
     label?: string;
+    navAriaLabel?: string;
     list?: MenuItem[];
     icon?: string;
     placement?: PopperPlacement;
@@ -21,6 +22,7 @@ const props = withDefaults(
   {
     modelValue: undefined,
     label: undefined,
+    navAriaLabel: undefined,
     list: () => [],
     icon: 'dots-horizontal',
     placement: 'auto-start',
@@ -64,6 +66,7 @@ const emit = defineEmits(['click', 'update:modelValue']);
     }"
     theme="krafters"
     animation="shift-away"
+    tag="div"
     content-tag="div"
     content-class="popover-content"
     class="popover-wrapper"
@@ -72,7 +75,7 @@ const emit = defineEmits(['click', 'update:modelValue']);
     <template #default>
       <Button
         v-if="!$slots.trigger"
-        :label="label"
+        :label="label || $t('aria.open-menu')"
         hide-label
         :icon="icon"
         :disabled="disabled"
@@ -90,6 +93,7 @@ const emit = defineEmits(['click', 'update:modelValue']);
         <MenuList
           v-model="activeItem"
           :list="list"
+          :aria-label="navAriaLabel || $t('general.menu')"
           @click="handleMenuClick($event, hide)"
         />
 

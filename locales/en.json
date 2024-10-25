@@ -2,6 +2,7 @@
   "aria": {
     "main-content": "Main content",
     "main-nav": "Main navigation",
+    "open-menu": "open menu",
     "opens-new-window": "opens in new window",
     "skip-to-main-content": "Skip to main content",
     "user-menu": "User menu"
@@ -63,6 +64,7 @@
     "key": "Key",
     "language": "Language",
     "level": "Level",
+    "menu": "Menu",
     "modify": "Modify",
     "name": "Name",
     "password": "Password",

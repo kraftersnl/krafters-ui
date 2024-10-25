@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   list: MenuItem[];
+  ariaLabel?: string;
 }>();
 
 function handleClick(item?: MenuItem) {
@@ -15,7 +16,7 @@ const emit = defineEmits(['click']);
 </script>
 
 <template>
-  <nav>
+  <nav :aria-label="ariaLabel">
     <ul role="list" class="menu-list">
       <li
         v-for="item in list"

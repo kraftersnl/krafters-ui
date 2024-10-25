@@ -104,13 +104,13 @@ const emit = defineEmits(['update:modelValue']);
       :maxlength="maxlength"
       :min="min"
       :max="max"
-      :aria-describedby="required ? `error-${id}` : undefined"
+      :aria-describedby="id && required ? `error-${id}` : undefined"
       @input="handleInput"
     />
 
     <div
       v-if="required"
-      :id="`error-${id}`"
+      :id="id ? `error-${id}` : undefined"
       class="error-wrapper"
       aria-live="polite"
     >
