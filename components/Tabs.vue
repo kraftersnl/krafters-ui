@@ -24,7 +24,7 @@ function handlePrevTab(tab: TabOption) {
     prevIndex = currentIndex - 1;
   }
 
-  const prevTab: HTMLButtonElement | undefined = tabElements.value[prevIndex];
+  const prevTab = tabElements.value[prevIndex];
   prevTab?.focus();
   prevTab?.click();
 }
@@ -41,7 +41,7 @@ function handleNextTab(tab: TabOption) {
     nextIndex = currentIndex + 1;
   }
 
-  const nextTab: HTMLButtonElement | undefined = tabElements.value[nextIndex];
+  const nextTab = tabElements.value[nextIndex];
   nextTab?.focus();
   nextTab?.click();
 }
@@ -50,7 +50,7 @@ const activeTab = computed({
   get: () => props.modelValue,
   set: (value) => {
     navigateTo({ query: { tab: value }, replace: true });
-    emit('update:modelValue', value);
+    emit('update:model-value', value);
   },
 });
 
@@ -61,7 +61,7 @@ function setActiveTab(tab: TabOption) {
 defineExpose({
   setActiveTab,
 });
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:model-value']);
 </script>
 
 <template>
@@ -113,8 +113,6 @@ const emit = defineEmits(['update:modelValue']);
 
 <style>
 .tabs-wrapper {
-  text-align: center;
-
   .tabpanel {
     text-align: left;
   }

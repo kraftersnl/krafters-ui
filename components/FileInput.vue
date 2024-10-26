@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import compressor from 'compressorjs';
+
 const props = withDefaults(
   defineProps<{
     modelValue?: File;
@@ -9,6 +11,10 @@ const props = withDefaults(
     required?: boolean;
     disabled?: boolean;
     maxFileSize?: number;
+    convertSize?: number;
+    quality?: number;
+    maxWidth?: number;
+    maxHeight?: number;
   }>(),
   {
     modelValue: undefined,
@@ -16,6 +22,10 @@ const props = withDefaults(
     id: () => useId(),
     accept: undefined,
     maxFileSize: 5000,
+    convertSize: 500000,
+    quality: 0.9,
+    maxWidth: 1920,
+    maxHeight: 1920,
   },
 );
 
@@ -53,13 +63,26 @@ const errorMessage = computed(() => {
 
 async function handleInput(event: Event) {
   const target = event.target as HTMLInputElement;
+  if (!target.files?.length) return;
 
-  if (target.files?.length) {
-    emit('update:model-value', target.files[0]);
+  const file = target.files[0];
 
-    if (target.files[0].type.includes('image')) {
-      imagePreview.value = URL.createObjectURL(target.files[0]);
-    }
+  if (target.files[0].type.includes('image')) {
+    new compressor(file, {
+      quality: props.quality,
+      maxWidth: props.maxWidth,
+      maxHeight: props.maxHeight,
+      convertSize: props.convertSize,
+      success(result: File) {
+        const compressedFile = new File([result], result.name, {
+          type: result.type,
+        });
+        emit('update:model-value', compressedFile);
+        imagePreview.value = URL.createObjectURL(compressedFile);
+      },
+    });
+  } else {
+    emit('update:model-value', file);
   }
 }
 
@@ -114,9 +137,9 @@ const emit = defineEmits(['update:model-value']);
           <span class="browse">{{ $t('files.browse') }}</span>
           <span class="drop">{{ $t('files.or-drop-file') }}</span>
 
-          <Ellipsis class="file-name">{{
-            modelValue?.name || $t('files.no-file-selected')
-          }}</Ellipsis>
+          <Ellipsis class="file-name">
+            {{ modelValue?.name || $t('files.no-file-selected') }}
+          </Ellipsis>
 
           <span class="file-size">{{
             modelValue

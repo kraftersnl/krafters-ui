@@ -236,19 +236,19 @@ const emit = defineEmits(['update:modelValue']);
   --ms-group-label-color-pointed: var(--color-text);
   --ms-group-label-bg-disabled: var(--color-grey-bg);
   --ms-group-label-color-disabled: var(--color-grey-graphic);
-  --ms-group-label-bg-selected: #059669;
-  --ms-group-label-color-selected: #ffffff;
-  --ms-group-label-bg-selected-pointed: #0c9e70;
+  --ms-group-label-bg-selected: var(--color-green-bg);
+  --ms-group-label-color-selected: var(--color-green-text);
+  --ms-group-label-bg-selected-pointed: var(--color-green);
   --ms-group-label-color-selected-pointed: #ffffff;
-  --ms-group-label-bg-selected-disabled: #75cfb1;
-  --ms-group-label-color-selected-disabled: #d1fae5;
+  /* --ms-group-label-bg-selected-disabled: #75cfb1; */
+  /* --ms-group-label-color-selected-disabled: #d1fae5; */
 
   /* --ms-option-font-size: 1rem; */
   /* --ms-option-line-height: 1.375; */
   --ms-option-bg-pointed: var(--color-grey-bg);
   --ms-option-color-pointed: var(--color-text);
-  --ms-option-bg-selected: var(--color-accent-bg);
-  --ms-option-color-selected: var(--color-accent);
+  --ms-option-bg-selected: var(--color-green-bg);
+  --ms-option-color-selected: var(--color-green-text);
   --ms-option-bg-disabled: var(--color-grey-bg);
   --ms-option-color-disabled: var(--color-grey-graphic);
   --ms-option-bg-selected-pointed: var(--color-accent-bg);
@@ -308,12 +308,6 @@ const emit = defineEmits(['update:modelValue']);
 
 .multiselect.is-active.is-open {
   box-shadow: none;
-}
-
-.multiselect-dropdown {
-  /* transform: translateY(calc(100% + 1px));
-  left: -2px;
-  right: -2px; */
 }
 
 .invalid .krafters-multiselect:has(:invalid) {
