@@ -5,8 +5,8 @@
   --color-white: #120817;
   --color-black: #ffffff;
   --color-text: #ffffff;
-  --color-grey-text: #8f8f8f;
-  --color-grey-graphic: #707070;
+  --color-grey-text: #aa91b6;
+  --color-grey-graphic: #84738c;
   --color-grey-bg: #37293d;
 
   --color-bg: #1c1320;
@@ -48,8 +48,8 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-text: #161616;
-  --color-grey-text: #6e6e6e;
-  --color-grey-graphic: #8c8c8c;
+  --color-grey-text: #666666;
+  --color-grey-graphic: #808080;
   --color-grey-bg: #e6e6e6;
 
   --color-bg: #f6f4f7;
@@ -303,7 +303,9 @@ table {
 
   th {
     font-weight: 600;
-    white-space: nowrap;
+  }
+
+  thead th {
     color: var(--color-grey-text);
   }
 
@@ -418,10 +420,6 @@ input {
     }
 
     &::placeholder {
-      color: var(--color-grey-graphic);
-    }
-    &::-moz-placeholder {
-      opacity: 1;
       color: var(--color-grey-graphic);
     }
   }

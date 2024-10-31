@@ -49,7 +49,7 @@ function handleNextTab(tab: TabOption) {
 const activeTab = computed({
   get: () => props.modelValue,
   set: (value) => {
-    navigateTo({ query: { tab: value }, replace: true });
+    // navigateTo({ query: { tab: value }, replace: true });
     emit('update:model-value', value);
   },
 });
@@ -124,8 +124,9 @@ const emit = defineEmits(['update:model-value']);
   align-items: center;
   gap: 1.5rem;
   margin-block: 1rem;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-grey-bg);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-1);
   border-radius: var(--radius-md);
   padding-block: 0.5rem 0.65rem;
   padding-inline: 1rem;
@@ -134,7 +135,8 @@ const emit = defineEmits(['update:model-value']);
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
-    font: var(--font-title-xs);
+    /* font-size: var(--font-size-sm); */
+    font-weight: 500;
     background: transparent;
     border: none;
     display: flex;

@@ -19,12 +19,12 @@ withDefaults(
 
 <style>
 .table-wrapper {
-  width: 100%;
+  width: calc(100% + 2rem);
+  margin-inline: -1rem;
+  padding-inline: 1rem;
+  padding-block-end: 1rem;
   overflow-x: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  padding-block-end: 1rem;
-  margin-inline: -1rem;
-  padding-inline: calc(1rem);
 
   table {
     width: 100%;

@@ -37,6 +37,7 @@ withDefaults(
 .chip {
   display: inline-flex;
   align-items: center;
+  vertical-align: middle;
   gap: 0.25rem;
   border-radius: var(--radius-sm);
   background-color: var(--color-grey-bg);
