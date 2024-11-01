@@ -2,9 +2,11 @@
 withDefaults(
   defineProps<{
     size?: 'xs' | 'sm' | 'md';
+    ariaLabel?: string;
   }>(),
   {
     size: 'sm',
+    ariaLabel: undefined,
   },
 );
 </script>
@@ -12,6 +14,8 @@ withDefaults(
 <template>
   <div :class="`table-wrapper table-size--${size}`">
     <table>
+      <caption v-if="ariaLabel" class="visuallyhidden" v-text="ariaLabel" />
+
       <slot />
     </table>
   </div>

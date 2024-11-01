@@ -1,7 +1,9 @@
 <script setup lang="ts">
-withDefaults(
+const { locale } = useI18n();
+
+const props = withDefaults(
   defineProps<{
-    label?: string;
+    label?: string | number;
     icon?: string;
     color?: ChipColor;
     size?: 'sm' | 'md' | 'lg';
@@ -13,6 +15,12 @@ withDefaults(
     color: undefined,
     size: 'md',
   },
+);
+
+const formattedLabel = computed(() =>
+  typeof props.label === 'number'
+    ? props.label.toLocaleString(locale.value)
+    : props.label,
 );
 </script>
 
@@ -29,7 +37,9 @@ withDefaults(
 
     <slot />
 
-    <span v-if="label" class="chip-text">{{ label }}</span>
+    <span v-if="label !== undefined" class="chip-text">{{
+      formattedLabel
+    }}</span>
   </span>
 </template>
 
