@@ -5,7 +5,7 @@ const prefersDutch = computed(() => locale.value.startsWith('nl'));
 const prefersEnglish = computed(() => locale.value.startsWith('en'));
 
 watch(
-  () => locale,
+  () => locale.value,
   () => {
     useHead({
       htmlAttrs: {
