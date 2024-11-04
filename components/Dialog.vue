@@ -45,7 +45,7 @@ defineExpose({
     class="dialog"
     @click="handleDialogClick"
   >
-    <FocusLoop>
+    <FocusLoop :is-visible="isVisible">
       <div class="dialog-header">
         <h1 v-if="label" :id="id">{{ label }}</h1>
 

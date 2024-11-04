@@ -87,7 +87,7 @@ const emit = defineEmits(['click', 'update:modelValue']);
     </template>
 
     <template #content="{ hide }">
-      <FocusLoop @keyup.esc="hide">
+      <FocusLoop :is-visible="modelValue" @keyup.esc="hide">
         <slot name="default" />
 
         <MenuList
