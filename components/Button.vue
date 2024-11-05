@@ -17,7 +17,7 @@ withDefaults(
       | 'green'
       | 'blue'
       | 'menu';
-    size?: 'sm' | 'md' | 'lg' | 'xl';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     hideLabel?: boolean;
     loading?: boolean;
     download?: boolean;
@@ -133,6 +133,15 @@ withDefaults(
     .iconify {
       animation: rotate var(--duration-xl) linear infinite;
     }
+  }
+}
+
+.button-size--xs {
+  height: 1.5rem;
+  padding-inline: 0.25rem;
+
+  .iconify {
+    font-size: 1rem;
   }
 }
 
