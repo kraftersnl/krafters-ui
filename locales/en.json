@@ -42,6 +42,7 @@
   "general": {
     "actions": "Actions",
     "attachment": "Attachment | Attachments",
+    "back": "Back",
     "cancel": "Cancel",
     "close": "Close",
     "collapse": "Collapse",
@@ -70,9 +71,12 @@
     "level": "Level",
     "menu": "Menu",
     "modify": "Modify",
+    "move-down": "Move down",
+    "move-up": "Move up",
     "name": "Name",
     "order": "Order",
     "password": "Password",
+    "priority": "Priority",
     "project": "Project",
     "report": "Report",
     "result": "Result | Results",
@@ -98,12 +102,12 @@
     "url": "URL | URLs",
     "version": "Version"
   },
+  "meter": {
+    "value-of-max": "{value} of {max}"
+  },
   "multiselect": {
     "items-selected": "items selected",
     "pages-selected": "pages selected"
-  },
-  "meter": {
-    "value-of-max": "{value} of {max}"
   },
   "pagination": {
     "current-page": "page",

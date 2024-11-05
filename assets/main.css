@@ -272,11 +272,12 @@ ol > li::marker {
 }
 
 code {
+  display: block;
   font-family: monospace;
   font-size: 0.9em;
-  background-color: var(--color-grey-bg);
-  padding: 0.15rem 0.25rem;
-  border-radius: var(--radius-xs);
+  background-color: var(--color-bg);
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-sm);
   white-space: pre-wrap;
 }
 

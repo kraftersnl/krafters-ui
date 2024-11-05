@@ -47,6 +47,9 @@ withDefaults(
       button-variant--${variant}
       ${hideLabel ? 'button--icon-only' : ''}
     `"
+    :title="
+      !download && target === '_blank' ? $t('aria.opens-new-window') : undefined
+    "
   >
     <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
 
@@ -59,7 +62,7 @@ withDefaults(
 
     <template v-if="!download && target === '_blank'">
       <Icon name="heroicons-solid:external-link" class="external-link" />
-      <span class="visuallyhidden">({{ $t('aria.opens-new-window') }})</span>
+      <!-- <span class="visuallyhidden">({{ $t('aria.opens-new-window') }})</span> -->
     </template>
 
     <span v-if="$slots.default">
@@ -99,7 +102,7 @@ withDefaults(
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--font-size-sm);
   border: 1px solid transparent;
   border-radius: var(--radius-md);
@@ -135,7 +138,7 @@ withDefaults(
 
 .button-size--sm {
   height: 2rem;
-  padding-inline: 0.75rem;
+  padding-inline: 0.5rem;
 
   .iconify {
     font-size: 1rem;
