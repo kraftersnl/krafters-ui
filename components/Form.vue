@@ -47,12 +47,8 @@ const emit = defineEmits(['submit']);
   container-type: inline-size;
 
   > * {
-    flex-basis: 100%;
+    flex-basis: var(--col-width, 100%);
     flex-grow: 1;
-
-    @container (min-width: 400px) {
-      flex-basis: var(--col-width, 100%);
-    }
   }
 
   .button {

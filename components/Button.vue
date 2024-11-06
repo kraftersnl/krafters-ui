@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { RouteLocationRaw } from 'vue-router';
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     label?: string;
     icon?: string;
+    iconLib?: string;
     to?: RouteLocationRaw;
     href?: string;
     target?: string;
@@ -26,6 +27,7 @@ withDefaults(
   {
     label: undefined,
     icon: undefined,
+    iconLib: 'heroicons-solid',
     to: undefined,
     href: undefined,
     target: undefined,
@@ -34,6 +36,8 @@ withDefaults(
     type: 'button',
   },
 );
+
+const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
 </script>
 
 <template>
@@ -51,7 +55,7 @@ withDefaults(
       !download && target === '_blank' ? $t('aria.opens-new-window') : undefined
     "
   >
-    <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
+    <Icon v-if="icon" :name="computedIcon" />
 
     <span
       v-if="label"
@@ -82,7 +86,7 @@ withDefaults(
     `"
   >
     <Icon v-if="loading" name="heroicons-solid:refresh" />
-    <Icon v-else-if="icon" :name="'heroicons-solid:' + icon" />
+    <Icon v-else-if="icon" :name="computedIcon" />
 
     <span v-if="label" :class="hideLabel ? 'visuallyhidden' : ''">
       {{ label }}
