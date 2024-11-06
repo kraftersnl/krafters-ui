@@ -333,6 +333,12 @@ table {
   }
 }
 
+.table-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 button {
   cursor: pointer;
   font: inherit;

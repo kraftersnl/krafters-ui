@@ -55,6 +55,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         icon="chevron-double-left"
         :label="$t('pagination.first-page')"
         hide-label
+        size="sm"
         variant="ghost"
         :disabled="loading || page === 1"
         @click.stop="goToPage(1)"
@@ -64,6 +65,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         icon="chevron-left"
         :label="$t('pagination.prev-page')"
         hide-label
+        size="sm"
         class="prev-page-button"
         :disabled="loading || page <= 1 || lastPage <= 1"
         @click.stop="goToPage(currentPage - 1)"
@@ -79,6 +81,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
           :max="lastPage"
           :disabled="loading"
           hide-label
+          size="sm"
           class="pagination-input"
         />
         <span>{{ $t('pagination.of') }} {{ lastPage }}</span>
@@ -88,6 +91,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         icon="chevron-right"
         :label="$t('pagination.next-page')"
         hide-label
+        size="sm"
         class="next-page-button"
         :disabled="loading || page >= lastPage || lastPage <= 1"
         @click.stop="goToPage(currentPage + 1)"
@@ -97,6 +101,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         icon="chevron-double-right"
         :label="$t('pagination.last-page')"
         hide-label
+        size="sm"
         variant="ghost"
         :disabled="loading || page >= lastPage || lastPage <= 1"
         @click.stop="goToPage(lastPage)"
@@ -110,6 +115,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         :label="$t('pagination.per-page')"
         :disabled="loading"
         hide-label
+        size="sm"
       />
     </div>
   </div>

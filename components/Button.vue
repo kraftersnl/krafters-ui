@@ -66,7 +66,6 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
 
     <template v-if="!download && target === '_blank'">
       <Icon name="heroicons-solid:external-link" class="external-link" />
-      <!-- <span class="visuallyhidden">({{ $t('aria.opens-new-window') }})</span> -->
     </template>
 
     <span v-if="$slots.default">
