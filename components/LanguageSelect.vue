@@ -18,55 +18,96 @@ watch(
 
 <template>
   <div class="language-select">
-    <h2>{{ $t('general.language') }}</h2>
-    <div class="button-group">
-      <button
-        type="button"
-        lang="en"
-        :aria-current="prefersEnglish"
-        @click="setLocale('en')"
-      >
-        English
-      </button>
+    <fieldset class="language-fieldset">
+      <legend>{{ $t('general.language') }}</legend>
 
-      <button
-        type="button"
-        lang="nl"
-        :aria-current="prefersDutch"
-        @click="setLocale('nl')"
-      >
-        Nederlands
-      </button>
-    </div>
+      <ul role="list" class="language-options-list">
+        <li class="language-option">
+          <input
+            id="language-option-english"
+            v-model="$i18n.locale"
+            name="i18n"
+            value="en"
+            type="radio"
+          />
+          <label for="language-option-english" lang="en"> English </label>
+        </li>
+
+        <li class="language-option">
+          <input
+            id="language-option-dutch"
+            v-model="$i18n.locale"
+            name="i18n"
+            value="nl"
+            type="radio"
+          />
+          <label for="language-option-dutch" lang="nl"> Nederlands </label>
+        </li>
+      </ul>
+    </fieldset>
   </div>
 </template>
 
 <style>
-.language-select {
-  h2 {
+.language-fieldset {
+  legend {
+    width: 100%;
     font-size: var(--font-size-xs);
     font-weight: 400;
     color: var(--color-grey-text);
     margin-block-end: 0.5rem;
   }
+}
 
-  button {
-    background-color: transparent;
-    border: 1px solid var(--color-accent-bg);
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-    font-size: var(--font-size-xs);
-    padding-block: 0.25rem;
-    padding-inline: 0.5rem;
-    color: var(--color-accent-text);
+.language-options-list {
+  width: 100%;
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
 
-    &:hover {
-      color: var(--color-accent);
+.language-option {
+  flex-grow: 1;
+
+  input[type='radio'] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    + label {
+      font-size: var(--font-size-xs);
+      display: flex;
+      align-items: center;
+      padding-block: 0.35rem;
+      padding-inline: 0.5rem 0.65rem;
+      min-width: 75px;
+      justify-content: center;
+      border: 1px solid var(--color-accent-bg);
+      border-radius: var(--radius-md);
+      color: var(--color-accent-text);
+
+      &:hover {
+        color: var(--color-accent);
+      }
     }
 
-    &[aria-current='true'] {
-      color: var(--color-accent);
-      background-color: var(--color-accent-bg);
+    &:focus-visible {
+      + label {
+        outline: 2px solid var(--focus-color);
+        outline-offset: 2px;
+        border-radius: var(--radius-xs);
+      }
+    }
+
+    &:checked {
+      + label {
+        color: var(--color-accent);
+        background-color: var(--color-accent-bg);
+
+        .iconify {
+          color: var(--color-accent);
+        }
+      }
     }
   }
 }
