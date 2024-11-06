@@ -135,7 +135,7 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
     opacity: 35%;
 
     .iconify {
-      animation: rotate var(--duration-xl) linear infinite;
+      animation: var(--animation-rotate);
     }
   }
 }

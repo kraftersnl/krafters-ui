@@ -131,6 +131,8 @@
     18.8px 37.5px 52.5px -1.6px hsl(var(--shadow-color) / 0.35);
 
   /* Animation design tokens */
+  --animation-rotate: rotate var(--duration-xl) linear infinite;
+
   @media (prefers-reduced-motion: no-preference) {
     --duration-sm: 0.15s;
     --duration-md: 0.35s;
@@ -347,7 +349,6 @@ button {
 }
 
 .button-group {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -479,7 +480,7 @@ input {
 /* Animations */
 @keyframes rotate {
   to {
-    transform: rotate(1turn);
+    rotate: 1turn;
   }
 }
 

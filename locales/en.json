@@ -70,6 +70,7 @@
     "key": "Key",
     "language": "Language",
     "level": "Level",
+    "loading": "Loading",
     "menu": "Menu",
     "modify": "Modify",
     "move-down": "Move down",

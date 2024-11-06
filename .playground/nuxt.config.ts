@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   extends: ['..'],
 
   devServer: {
-    port: 3001,
+    port: 3003,
   },
 
   app: {
