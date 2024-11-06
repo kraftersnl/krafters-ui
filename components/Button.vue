@@ -196,15 +196,15 @@ withDefaults(
 }
 
 .button-variant--danger {
-  color: var(--color-white);
-  background-color: var(--color-red);
+  color: var(--color-red-text);
+  background-color: var(--color-red-bg);
   white-space: nowrap;
 
   &:not(:disabled):hover {
     background-color: color-mix(
       in srgb,
-      var(--color-red) 85%,
-      var(--color-black)
+      var(--color-red-bg) 90%,
+      var(--color-white)
     );
   }
 }
