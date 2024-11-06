@@ -464,7 +464,6 @@ input {
 }
 
 .visuallyhidden {
-  position: absolute;
   z-index: -1;
   width: 1px;
   height: 1px;
