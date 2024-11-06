@@ -37,10 +37,12 @@
   },
   "filters": {
     "heading": "Filter | Filters",
+    "reset": "Reset filters",
     "reset-all": "Reset alle filters"
   },
   "general": {
     "actions": "Acties",
+    "apply": "Toepassen",
     "attachment": "Bijlage | Bijlagen",
     "back": "Terug",
     "cancel": "Annuleren",
@@ -62,7 +64,6 @@
     "expand": "Expand",
     "feedback": "Feedback",
     "file": "Bestand",
-    "filters": "Filter | Filters",
     "heading": "Algemeen",
     "home": "Home",
     "image": "Afbeelding",
@@ -79,6 +80,7 @@
     "priority": "Prioriteit",
     "project": "Project",
     "report": "Rapport | Rapporten",
+    "reset": "Resetten",
     "result": "Resultaat | Resultaten",
     "review": "Controle",
     "save": "Opslaan",

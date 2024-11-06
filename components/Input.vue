@@ -19,6 +19,8 @@ const props = withDefaults(
     showInvalid?: boolean;
     min?: number | string;
     max?: number | string;
+    instruction?: string;
+    errorMessage?: string;
   }>(),
   {
     modelValue: undefined,
@@ -33,6 +35,8 @@ const props = withDefaults(
     maxlength: undefined,
     min: undefined,
     max: undefined,
+    instruction: undefined,
+    errorMessage: undefined,
   },
 );
 
@@ -104,12 +108,19 @@ const emit = defineEmits(['update:modelValue']);
       :maxlength="maxlength"
       :min="min"
       :max="max"
-      :aria-describedby="id && required ? `error-${id}` : undefined"
+      :aria-describedby="`
+        ${instruction ? `instruction-${id}` : undefined}
+        ${id && (required || min || max) ? `error-${id}` : undefined}
+      `"
       @input="handleInput"
     />
 
+    <p v-if="instruction" :class="`instruction-${id}`">
+      {{ instruction }}
+    </p>
+
     <div
-      v-if="required"
+      v-if="required || min || max"
       :id="id ? `error-${id}` : undefined"
       class="error-wrapper"
       aria-live="polite"
@@ -117,7 +128,9 @@ const emit = defineEmits(['update:modelValue']);
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
 
-        <span>{{ $t('form-errors.not-filled-in', { item: label }) }}</span>
+        <span>
+          {{ errorMessage || $t('form-errors.not-filled-in', { item: label }) }}
+        </span>
       </div>
     </div>
   </div>
@@ -127,6 +140,12 @@ const emit = defineEmits(['update:modelValue']);
 .form-field-wrapper {
   .input {
     background-color: var(--color-input-bg);
+  }
+
+  [class*='instruction'] {
+    margin-top: 0.5rem;
+    font-size: var(--font-size-xs);
+    color: var(--color-grey-text);
   }
 }
 

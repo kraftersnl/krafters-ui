@@ -37,10 +37,12 @@
   },
   "filters": {
     "heading": "Filter | Filters",
+    "reset": "Reset filters",
     "reset-all": "Reset all filters"
   },
   "general": {
     "actions": "Actions",
+    "apply": "Apply",
     "attachment": "Attachment | Attachments",
     "back": "Back",
     "cancel": "Cancel",
@@ -62,7 +64,6 @@
     "expand": "Expand",
     "feedback": "Feedback",
     "file": "File",
-    "filters": "Filter | Filters",
     "heading": "General",
     "home": "Home",
     "image": "Image",
@@ -79,6 +80,7 @@
     "priority": "Priority",
     "project": "Project",
     "report": "Report",
+    "reset": "Reset",
     "result": "Result | Results",
     "review": "Review",
     "save": "Save",

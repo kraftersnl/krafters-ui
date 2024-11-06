@@ -11,12 +11,16 @@ const props = withDefaults(
     placeholder?: string;
     id?: string;
     autoresize?: boolean;
+    instruction?: string;
+    errorMessage?: string;
   }>(),
   {
     label: undefined,
     name: undefined,
     placeholder: undefined,
     id: () => useId(),
+    instruction: undefined,
+    errorMessage: undefined,
   },
 );
 
@@ -85,9 +89,16 @@ const emit = defineEmits(['update:modelValue']);
       :required="required"
       :autofocus="autofocus"
       :name="name"
-      :aria-describedby="id && required ? `error-${id}` : undefined"
+      :aria-describedby="`
+        ${instruction ? `instruction-${id}` : undefined}
+        ${id && required ? `error-${id}` : undefined}
+      `"
       @input="handleInput"
     />
+
+    <p v-if="instruction" :class="`instruction-${id}`">
+      {{ instruction }}
+    </p>
 
     <div
       v-if="required"
@@ -98,7 +109,9 @@ const emit = defineEmits(['update:modelValue']);
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
 
-        <span>{{ $t('form-errors.not-filled-in', { item: label }) }}</span>
+        <span>
+          {{ errorMessage || $t('form-errors.not-filled-in', { item: label }) }}
+        </span>
       </div>
     </div>
   </div>

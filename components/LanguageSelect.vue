@@ -60,7 +60,6 @@ watch(
 }
 
 .language-options-list {
-  width: 100%;
   display: inline-flex;
   gap: 0.5rem;
   justify-content: space-between;

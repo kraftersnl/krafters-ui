@@ -15,6 +15,8 @@ const props = withDefaults(
     autofocus?: boolean;
     multiple?: boolean;
     hideLabel?: boolean;
+    instruction?: string;
+    errorMessage?: string;
   }>(),
   {
     modelValue: undefined,
@@ -25,6 +27,8 @@ const props = withDefaults(
     valueKey: 'value',
     labelKey: 'label',
     disabledKey: 'disabled',
+    instruction: undefined,
+    errorMessage: undefined,
   },
 );
 
@@ -62,7 +66,10 @@ const emit = defineEmits(['update:modelValue']);
       :disabled="disabled"
       :autofocus="autofocus"
       :multiple="multiple"
-      :aria-describedby="id && required ? `error-${id}` : undefined"
+      :aria-describedby="`
+        ${instruction ? `instruction-${id}` : undefined}
+        ${id && required ? `error-${id}` : undefined}
+      `"
       @change="handleChange"
     >
       <option v-if="placeholder" disabled value="">
@@ -83,6 +90,10 @@ const emit = defineEmits(['update:modelValue']);
       </template>
     </select>
 
+    <p v-if="instruction" :class="`instruction-${id}`">
+      {{ instruction }}
+    </p>
+
     <div
       v-if="required"
       :id="id ? `error-${id}` : undefined"
@@ -92,7 +103,9 @@ const emit = defineEmits(['update:modelValue']);
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
 
-        <span>{{ $t('form-errors.not-filled-in', { item: label }) }}</span>
+        <span>
+          {{ errorMessage || $t('form-errors.not-filled-in', { item: label }) }}
+        </span>
       </div>
     </div>
   </div>
