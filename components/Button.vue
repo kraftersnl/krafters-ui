@@ -142,18 +142,20 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
 .button-size--xs {
   height: 1.5rem;
   padding-inline: 0.25rem;
+  font-size: var(--font-size-xs);
 
   .iconify {
-    font-size: 1rem;
+    font-size: var(--font-size-xs);
   }
 }
 
 .button-size--sm {
   height: 2rem;
   padding-inline: 0.5rem;
+  font-size: var(--font-size-xs);
 
   .iconify {
-    font-size: 1rem;
+    font-size: var(--font-size-sm);
   }
 }
 
@@ -162,7 +164,7 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
   padding-inline: 0.75rem;
 
   .iconify {
-    font-size: 1rem;
+    font-size: var(--font-size-md);
   }
 }
 
@@ -171,7 +173,7 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
   padding-inline: 1rem;
 
   .iconify {
-    font-size: 1rem;
+    font-size: var(--font-size-lg);
   }
 }
 
@@ -180,7 +182,7 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
   padding-inline: 1rem;
 
   .iconify {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
   }
 }
 
