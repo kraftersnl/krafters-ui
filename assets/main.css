@@ -485,23 +485,18 @@ input {
 }
 
 /* Tippy classes for Popover and Tooltip components */
-
-.tippy-box {
-  font: var(--font-body-xs);
-  border-radius: var(--radius-md) !important;
-  box-shadow: var(--shadow-2);
-}
-
-.tippy-content {
-  outline: 1px solid var(--color-card-border);
-  border-radius: var(--radius-md);
-  padding: 0;
-}
-
 .tippy-box[data-theme~='krafters'] {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-2);
   color: var(--color-text);
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-card-border);
+}
+
+[data-theme~='krafters'] .tippy-content {
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-md);
+  padding: 0;
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='top']

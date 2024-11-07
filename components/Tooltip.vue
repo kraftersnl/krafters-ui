@@ -85,15 +85,19 @@ function closeTooltip() {
   padding-inline: 1.35rem;
 }
 
-.tooltip-wrapper {
-  display: inline-block;
+.krafters-tooltip-wrapper {
+  height: 1.25rem;
+  vertical-align: middle;
+
+  .tooltip-wrapper {
+    height: 1.25rem;
+  }
 }
 
 .tooltip-trigger-button {
   border: none;
   background: transparent;
   padding: 0;
-  vertical-align: middle;
   height: 1.25rem;
   color: var(--color-grey-text);
   transition: color var(--duration-sm);
