@@ -105,54 +105,10 @@ const emit = defineEmits(['click', 'update:modelValue']);
 
 <style>
 .tippy-box {
-  font: var(--font-body-xs);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-2);
-
   .menu-list-item:first-of-type {
     .button {
       border-radius: var(--radius-md) var(--radius-md) 0 0;
     }
   }
-}
-
-.tippy-content {
-  outline: 1px solid var(--color-card-border);
-  border-radius: var(--radius-md);
-  padding: 0;
-}
-
-.tippy-box[data-theme~='krafters'] {
-  color: var(--color-text);
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-card-border);
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='top']
-  > .tippy-arrow::before {
-  border-block-start-color: var(--color-card-bg);
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='bottom']
-  > .tippy-arrow:before {
-  border-block-end-color: var(--color-card-bg);
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='left']
-  > .tippy-arrow::before {
-  border-inline-start-color: var(--color-card-bg);
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='right']
-  > .tippy-arrow::before {
-  border-inline-end-color: var(--color-card-bg);
-}
-
-.tippy-box[data-theme~='krafters'] > .tippy-backdrop {
-  background-color: var(--color-card-bg);
-}
-
-.tippy-box[data-theme~='krafters'] > .tippy-svg-arrow {
-  fill: var(--color-card-bg);
 }
 </style>
