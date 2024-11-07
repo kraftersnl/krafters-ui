@@ -7,6 +7,7 @@ const props = withDefaults(
     name?: string;
     valueKey?: string;
     labelKey?: string;
+    hideLegend?: boolean;
   }>(),
   {
     name: undefined,
@@ -29,7 +30,9 @@ const emit = defineEmits(['update:modelValue']);
   <div class="checkboxes-wrapper">
     <template v-if="options?.length">
       <fieldset>
-        <legend>{{ label }}</legend>
+        <legend :Class="`${hideLegend ? 'visuallyhidden' : ''}`">
+          {{ label }}
+        </legend>
 
         <ul role="list" class="checkbox-list">
           <li v-for="option in options" :key="'checkbox-' + option.value">
