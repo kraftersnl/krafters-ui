@@ -40,16 +40,19 @@ const emit = defineEmits(['update:modelValue']);
 
 <style>
 .checkbox-wrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
 
   label {
+    padding-inline-start: 0.5rem;
     font-size: var(--font-size-sm);
   }
 
   input[type='checkbox'] {
     margin: 0;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
   }
 }
 </style>
