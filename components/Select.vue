@@ -17,6 +17,7 @@ const props = withDefaults(
     hideLabel?: boolean;
     instruction?: string;
     errorMessage?: string;
+    color?: BaseColor;
   }>(),
   {
     modelValue: undefined,
@@ -29,6 +30,7 @@ const props = withDefaults(
     disabledKey: 'disabled',
     instruction: undefined,
     errorMessage: undefined,
+    color: undefined,
   },
 );
 
@@ -43,10 +45,19 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div :class="`form-field-wrapper select-size--${size}`">
+  <div
+    :class="`
+      form-field-wrapper
+      select-size--${size}
+      ${color ? `select-color--${color}` : ''}
+    `"
+  >
     <label
       :for="id"
-      :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
+      :class="`
+        ${hideLabel ? 'visuallyhidden' : ''}
+        ${disabled ? 'disabled' : ''}
+      `"
     >
       <span>{{ label }}</span>
 
@@ -114,6 +125,7 @@ const emit = defineEmits(['update:modelValue']);
 <style>
 .form-field-wrapper {
   .select {
+    accent-color: var(--color-text);
     background-color: var(--color-select-bg);
   }
 }
@@ -131,5 +143,26 @@ const emit = defineEmits(['update:modelValue']);
 .select-size--lg .select {
   height: 2.5rem;
   padding-inline: 0.65rem;
+}
+
+.select-color--green .select {
+  color: var(--color-green-text);
+  accent-color: var(--color-green-text);
+  border-color: var(--color-green);
+  background-color: var(--color-green-bg);
+}
+
+.select-color--orange .select {
+  color: var(--color-orange-text);
+  accent-color: var(--color-orange-text);
+  border-color: var(--color-orange);
+  background-color: var(--color-orange-bg);
+}
+
+.select-color--red .select {
+  color: var(--color-red-text);
+  accent-color: var(--color-red-text);
+  border-color: var(--color-red);
+  background-color: var(--color-red-bg);
 }
 </style>

@@ -1,15 +1,12 @@
 <script setup lang="ts">
-const { locale, setLocale } = useI18n();
-
-const prefersDutch = computed(() => locale.value.startsWith('nl'));
-const prefersEnglish = computed(() => locale.value.startsWith('en'));
+const { locale } = useI18n();
 
 watch(
   () => locale.value,
   () => {
     useHead({
       htmlAttrs: {
-        lang: prefersDutch.value ? 'nl' : 'en',
+        lang: locale.value.startsWith('nl') ? 'nl' : 'en',
       },
     });
   },

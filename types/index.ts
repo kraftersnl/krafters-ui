@@ -3,7 +3,7 @@ import type Textarea from '../components/Textarea.vue';
 import type Input from '../components/Input.vue';
 
 declare global {
-  type ChipColor =
+  type BaseColor =
     | 'default'
     | 'accent'
     | 'blue'

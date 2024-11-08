@@ -5,7 +5,7 @@ const props = withDefaults(
   defineProps<{
     label?: string | number;
     icon?: string;
-    color?: ChipColor;
+    color?: BaseColor;
     size?: 'sm' | 'md' | 'lg';
     capitalize?: boolean;
   }>(),

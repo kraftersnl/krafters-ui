@@ -26,6 +26,72 @@ const list = [
     <LanguageSelect />
     <br />
 
+    <Select
+      v-model="selection"
+      label="Select"
+      :options="list"
+      label-key="name"
+      value-key="id"
+    />
+
+    <Tooltip>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+        architecto eligendi deserunt dicta similique enim, quibusdam officiis
+        quos quis quisquam amet doloribus explicabo iste nisi perferendis ut non
+        distinctio numquam.
+      </div>
+    </Tooltip>
+
+    <!-- <Popover>
+      <template #content>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quidem
+        sequi autem eum dolore cupiditate blanditiis ipsam. Assumenda quas
+        incidunt doloribus ad, dicta, aliquam pariatur quisquam quos iusto ipsam
+        eum.
+      </template>
+    </Popover> -->
+
+    <!-- <Table>
+      <thead>
+        <tr>
+          <th>Header column A</th>
+          <th>Header column B</th>
+          <th>Header column C</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+            repudiandae praesentium, eius, numquam blanditiis enim ullam dolorem
+            dicta et magnam reiciendis quisquam rerum ab repellat voluptatem!
+            Dolores voluptatibus molestias ad.
+          </td>
+          <td>Lorem ipsum dolor sit amet</td>
+          <td>
+            Eligendi repudiandae praesentium, eius, numquam blanditiis enim
+            ullam dolorem dicta et magnam reiciendis quisquam rerum ab repellat
+            voluptatem! Dolores voluptatibus molestias ad.
+          </td>
+        </tr>
+      </tbody>
+    </Table> -->
+
+    <!-- <Details>
+      <template #summary>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa impedit,
+        maiores inventore at quaerat suscipit obcaecati amet minus iste
+        voluptate ex eveniet debitis animi fugit nulla et placeat modi? Nemo!
+      </template>
+      <template #default>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa impedit,
+        maiores inventore at quaerat suscipit obcaecati amet minus iste
+        voluptate ex eveniet debitis animi fugit nulla et placeat modi? Nemo!
+      </template>
+    </Details> -->
+
     <!-- <Accordion v-model="isOpen" arrow>
       <template #trigger>Accordion Trigger</template>
 
@@ -37,7 +103,7 @@ const list = [
       </template>
     </Accordion> -->
 
-    <Form>
+    <!-- <Form>
       <MultiSelect
         v-model="selection"
         required
@@ -47,19 +113,19 @@ const list = [
         label-key="name"
         label="MultiSelect Label"
       />
-      <!-- <Input required label="Input" /> -->
+
+      <Input required label="Input" />
 
       <FileInput v-model="file" required name="file" label="File Upload" />
 
       <Button type="submit" label="Submit" />
-    </Form>
+    </Form> -->
   </div>
 </template>
 
 <style>
 .playground {
   margin: 2rem;
-  max-width: 600px;
 
   > * {
     margin-block: 1rem;
