@@ -84,7 +84,7 @@ body:has(.dialog[open]) {
 .dialog {
   padding: 0;
   width: calc(100vw - var(--app-inline-padding));
-  border: none;
+  border: 1px solid var(--color-card-border);
   border-radius: var(--radius-lg);
   padding-block-end: 1.5rem;
 
