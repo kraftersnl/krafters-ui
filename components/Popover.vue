@@ -12,7 +12,6 @@ const props = withDefaults(
     icon?: string;
     placement?: PopperPlacement;
     disabled?: boolean;
-    loading?: boolean;
     interactive?: boolean;
     arrow?: boolean;
     trigger?: string;
@@ -49,6 +48,18 @@ function closeTooltip() {
     .forEach((el) => el._tippy?.hide());
 }
 
+function focusTrigger() {
+  popoverTrigger.value?.focus();
+}
+
+const enableFocusLoop = ref(false);
+const popoverTrigger = ref<HTMLButtonElement>();
+
+defineExpose({
+  popoverTrigger,
+  focusTrigger,
+});
+
 const emit = defineEmits(['click', 'update:modelValue']);
 </script>
 
@@ -70,24 +81,32 @@ const emit = defineEmits(['click', 'update:modelValue']);
     content-tag="div"
     content-class="popover-content"
     class="popover-wrapper"
+    @show="enableFocusLoop = true"
+    @hide="
+      () => {
+        enableFocusLoop = false;
+        focusTrigger();
+      }
+    "
     @keyup.esc="closeTooltip"
   >
     <template #default>
-      <Button
+      <button
         v-if="!$slots.trigger"
-        :label="label || $t('aria.open-menu')"
-        hide-label
-        :icon="icon"
+        ref="popoverTrigger"
+        type="button"
         :disabled="disabled"
-        :loading="loading"
         class="popover-trigger"
-      />
+      >
+        <Icon :name="'heroicons-solid:' + icon" />
+        <span class="visuallyhidden">{{ label || $t('aria.open-menu') }}</span>
+      </button>
 
       <slot v-else name="trigger" />
     </template>
 
     <template #content="{ hide }">
-      <FocusLoop :is-visible="modelValue" @keyup.esc="hide">
+      <FocusLoop :is-visible="enableFocusLoop" @keyup.esc="hide">
         <slot name="default" />
 
         <MenuList
@@ -109,6 +128,38 @@ const emit = defineEmits(['click', 'update:modelValue']);
     .button {
       border-radius: var(--radius-md) var(--radius-md) 0 0;
     }
+  }
+}
+
+.popover-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  background-color: var(--color-grey-bg);
+  aspect-ratio: 1;
+  height: 2rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  transition-property: color, background-color, opacity;
+  transition-duration: var(--duration-sm);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
+  .iconify {
+    font-size: var(--font-size-sm);
+  }
+
+  &:focus-visible {
+    outline-color: var(--focus-color);
+  }
+
+  &:not(:disabled):hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-grey-bg) 95%,
+      var(--color-black)
+    );
   }
 }
 </style>
