@@ -5,6 +5,7 @@
     "open-menu": "open menu",
     "opens-new-window": "opent in nieuw venster",
     "skip-to-main-content": "Spring naar hoofcontent",
+    "skip-to-side-content": "Spring naar zijbalk",
     "user-menu": "Open gebruikersmenu"
   },
   "datepicker": {
@@ -121,6 +122,9 @@
     "of": "van",
     "per-page": "items per pagina",
     "prev-page": "Vorige pagina"
+  },
+  "select": {
+    "no-options": "Geen opties"
   },
   "theme": {
     "dark": "Donker",

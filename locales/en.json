@@ -5,6 +5,7 @@
     "open-menu": "open menu",
     "opens-new-window": "opens in new window",
     "skip-to-main-content": "Skip to main content",
+    "skip-to-side-content": "Skip to sidebar",
     "user-menu": "User menu"
   },
   "datepicker": {
@@ -121,6 +122,9 @@
     "of": "of",
     "per-page": "items per page",
     "prev-page": "Previous page"
+  },
+  "select": {
+    "no-options": "No options"
   },
   "theme": {
     "dark": "Dark",

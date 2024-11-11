@@ -15,6 +15,7 @@ const props = withDefaults(
     autofocus?: boolean;
     multiple?: boolean;
     hideLabel?: boolean;
+    noOptionsLabel?: string;
     instruction?: string;
     errorMessage?: string;
     color?: BaseColor;
@@ -28,6 +29,7 @@ const props = withDefaults(
     valueKey: 'value',
     labelKey: 'label',
     disabledKey: 'disabled',
+    noOptionsLabel: 'select.no-options',
     instruction: undefined,
     errorMessage: undefined,
     color: undefined,
@@ -73,6 +75,7 @@ const emit = defineEmits(['update:modelValue']);
       class="select"
       :value="modelValue"
       :name="name"
+      :placeholder="placeholder"
       :required="required"
       :disabled="disabled"
       :autofocus="autofocus"
@@ -83,11 +86,17 @@ const emit = defineEmits(['update:modelValue']);
       `"
       @change="handleChange"
     >
-      <option v-if="placeholder" disabled value="">
+      <option v-if="placeholder" hidden value="">
         {{ placeholder }}
       </option>
 
       <slot v-if="$slots.default" />
+
+      <template v-else-if="!options?.length">
+        <option value="" disabled selected>
+          {{ $t(noOptionsLabel) }}
+        </option>
+      </template>
 
       <template v-else>
         <option
