@@ -87,7 +87,10 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
     <Icon v-if="loading" name="heroicons-solid:refresh" />
     <Icon v-else-if="icon" :name="computedIcon" />
 
-    <span v-if="label" :class="hideLabel ? 'visuallyhidden' : ''">
+    <span
+      v-if="label"
+      :class="`button-text ${hideLabel ? 'visuallyhidden' : ''}`"
+    >
       {{ label }}
     </span>
 
@@ -276,7 +279,7 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
   justify-content: start;
   align-items: start;
   border-radius: var(--radius-xs);
-  font-weight: 500;
+  font-weight: 400;
   background-color: transparent;
   text-decoration: underline;
   text-underline-offset: 0.2rem;
@@ -284,6 +287,7 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
   .iconify {
     font-size: inherit;
     margin-inline-end: 0.35rem;
+    margin-block-end: 0.2em;
     vertical-align: middle;
 
     &.external-link {

@@ -93,7 +93,7 @@ const emit = defineEmits(['update:modelValue']);
       <slot v-if="$slots.default" />
 
       <template v-else-if="!options?.length">
-        <option value="" disabled selected>
+        <option selected disabled value="">
           {{ $t(noOptionsLabel) }}
         </option>
       </template>

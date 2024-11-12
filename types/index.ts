@@ -1,6 +1,8 @@
 import type Dialog from '../components/Dialog.vue';
 import type Textarea from '../components/Textarea.vue';
 import type Input from '../components/Input.vue';
+import type Button from '../components/Button.vue';
+import type Popover from '../components/Popover.vue';
 
 declare global {
   type BaseColor =
@@ -31,6 +33,8 @@ declare global {
   type DialogComponent = InstanceType<typeof Dialog>;
   type TextareaComponent = InstanceType<typeof Textarea>;
   type InputComponent = InstanceType<typeof Input>;
+  type ButtonComponent = InstanceType<typeof Button>;
+  type PopoverComponent = InstanceType<typeof Popover>;
 
   type PopperPlacement =
     | 'auto'
