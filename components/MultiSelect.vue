@@ -100,7 +100,7 @@ const emit = defineEmits(['update:modelValue']);
       :label="labelKey"
       :value-prop="valueKey"
       :disabled-prop="disabledKey"
-      :aria-describedby="id && required ? `error-${id}` : undefined"
+      :aria-describedby="id && required ? `error-${id}` : ''"
       :multiple-label="formatMultipleLabels"
     >
       <!-- https://github.com/vueform/multiselect#slots -->

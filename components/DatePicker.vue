@@ -69,7 +69,7 @@ const emit = defineEmits(['update:modelValue']);
       :select-text="$t('datepicker.selectText')"
       :cancel-text="$t('datepicker.cancelText')"
       :now-button-label="$t('datepicker.nowButtonLabel')"
-      :aria-describedby="id && required ? `error-${id}` : undefined"
+      :aria-describedby="id && required ? `error-${id}` : ''"
       :aria-labels="{
         input: $t('datepicker.input'),
         clearInput: $t('datepicker.clearInput'),

@@ -109,8 +109,8 @@ const emit = defineEmits(['update:modelValue']);
       :min="min"
       :max="max"
       :aria-describedby="`
-        ${instruction ? `instruction-${id}` : undefined}
-        ${id && (required || min || max) ? `error-${id}` : undefined}
+        ${instruction ? `instruction-${id}` : ''}
+        ${id && (required || min || max) ? `error-${id}` : ''}
       `"
       @input="handleInput"
     />

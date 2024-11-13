@@ -81,8 +81,8 @@ const emit = defineEmits(['update:modelValue']);
       :autofocus="autofocus"
       :multiple="multiple"
       :aria-describedby="`
-        ${instruction ? `instruction-${id}` : undefined}
-        ${id && required ? `error-${id}` : undefined}
+        ${instruction ? `instruction-${id}` : ''}
+        ${id && required ? `error-${id}` : ''}
       `"
       @change="handleChange"
     >

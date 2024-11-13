@@ -3,36 +3,37 @@ const props = withDefaults(
   defineProps<{
     modelValue: string | undefined;
     label?: string;
+    placeholder?: string;
+    id?: string;
     name?: string;
+    pattern?: string;
+    instruction?: string;
+    errorMessage?: string;
     hideLabel?: boolean;
     required?: boolean;
     disabled?: boolean;
     autofocus?: boolean;
-    placeholder?: string;
-    id?: string;
     autoresize?: boolean;
-    instruction?: string;
-    errorMessage?: string;
   }>(),
   {
     label: undefined,
-    name: undefined,
     placeholder: undefined,
     id: () => useId(),
+    name: undefined,
+    pattern: undefined,
     instruction: undefined,
     errorMessage: undefined,
   },
 );
 
 const textareaInput = ref('');
+const elementRef = useTemplateRef<HTMLTextAreaElement>('elementRef');
 
 function handleInput(event: Event) {
   const target = event.target as HTMLTextAreaElement;
   textareaInput.value = target.value;
   emit('update:modelValue', target.value);
 }
-
-const elementRef = ref<HTMLTextAreaElement>();
 
 function focusElement() {
   elementRef.value?.focus();
@@ -87,11 +88,12 @@ const emit = defineEmits(['update:modelValue']);
       :value="modelValue"
       :placeholder="placeholder"
       :required="required"
+      :pattern="pattern"
       :autofocus="autofocus"
       :name="name"
       :aria-describedby="`
-        ${instruction ? `instruction-${id}` : undefined}
-        ${id && required ? `error-${id}` : undefined}
+        ${instruction ? `instruction-${id}` : ''}
+        ${id && required ? `error-${id}` : ''}
       `"
       @input="handleInput"
     />
