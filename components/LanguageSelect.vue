@@ -1,16 +1,11 @@
 <script setup lang="ts">
-const { locale } = useI18n();
+import type { Locale } from '#i18n';
+const { locale, setLocale } = useI18n();
 
-watch(
-  () => locale.value,
-  () => {
-    useHead({
-      htmlAttrs: {
-        lang: locale.value.startsWith('nl') ? 'nl' : 'en',
-      },
-    });
-  },
-);
+const userLang = computed({
+  get: () => locale.value,
+  set: (value: Locale) => setLocale(value),
+});
 </script>
 
 <template>
@@ -22,7 +17,7 @@ watch(
         <li class="language-option">
           <input
             id="language-option-english"
-            v-model="$i18n.locale"
+            v-model="userLang"
             name="i18n"
             value="en"
             type="radio"
@@ -33,7 +28,7 @@ watch(
         <li class="language-option">
           <input
             id="language-option-dutch"
-            v-model="$i18n.locale"
+            v-model="userLang"
             name="i18n"
             value="nl"
             type="radio"

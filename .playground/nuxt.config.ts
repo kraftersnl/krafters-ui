@@ -8,9 +8,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Krafters UI',
-      htmlAttrs: {
-        lang: 'en',
-      },
     },
   },
 });

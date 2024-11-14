@@ -547,6 +547,11 @@ input {
   }
 }
 
+.md-editor-toolbar-item svg.md-editor-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .md-editor,
 .md-editor-preview.krafters-theme {
   --md-color: var(--color-text) !important;

@@ -103,6 +103,10 @@ const emit = defineEmits(['update:model-value']);
   border-radius: var(--radius-sm);
 }
 
+.md-editor-content {
+  min-height: 10rem;
+}
+
 .invalid {
   .textarea {
     &:invalid {

@@ -8,6 +8,8 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  pages: true,
+
   css: [join(currentDir, './assets/main.css')],
 
   modules: [
@@ -35,12 +37,12 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: 'no_prefix',
-    defaultLocale: typeof window !== 'undefined' ? navigator?.language : 'en',
-    langDir: './locales',
+    defaultLocale: 'en',
+    langDir: '../locales',
     locales: [
-      { code: 'nl', file: 'nl.json' },
-      { code: 'en', file: 'en.json' },
+      { code: 'en', language: 'en', file: 'en.json' },
+      { code: 'nl', language: 'nl', file: 'nl.json' },
     ],
-    vueI18n: 'i18n.config.ts',
+    vueI18n: './i18n.config.ts',
   },
 });

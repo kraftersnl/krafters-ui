@@ -1,139 +1,56 @@
 <script setup lang="ts">
-const file = ref<File>();
-const selection = ref();
-const content = ref(
-  'Dit voorbeeld van _silly example_{lang=en} duurde langer om te verzinnen dan de plugin installeren.',
-);
-const isOpen = ref(false);
-
-const list = [
-  {
-    id: 1,
-    name: 'First item',
-  },
-  {
-    id: 2,
-    name: 'Second item',
-  },
-  {
-    id: 3,
-    name: 'Third item',
-  },
-];
+const head = useLocaleHead();
 </script>
 
 <template>
-  <div class="playground">
-    <h1 class="visuallyhidden">Playground</h1>
-    <ThemeSelect />
-    <LanguageSelect />
-    <br />
+  <Html :lang="head.htmlAttrs?.lang">
+    <header>
+      <nav>
+        <ul role="list">
+          <li>
+            <NuxtLink to="/">Home</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/test">Different page</NuxtLink>
+          </li>
+        </ul>
+      </nav>
 
-    <MarkdownEditor v-model="content" />
+      <ThemeSelect />
+      <LanguageSelect />
+    </header>
+    <main>
+      <h1 class="visuallyhidden">Playground</h1>
 
-    <!-- <Select
-      v-model="selection"
-      label="Select"
-      :options="list"
-      label-key="name"
-      value-key="id"
-    /> -->
-
-    <!-- <Tooltip>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-        architecto eligendi deserunt dicta similique enim, quibusdam officiis
-        quos quis quisquam amet doloribus explicabo iste nisi perferendis ut non
-        distinctio numquam.
-      </div>
-    </Tooltip> -->
-
-    <!-- <Popover>
-      <template #content>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quidem
-        sequi autem eum dolore cupiditate blanditiis ipsam. Assumenda quas
-        incidunt doloribus ad, dicta, aliquam pariatur quisquam quos iusto ipsam
-        eum.
-      </template>
-    </Popover> -->
-
-    <!-- <Table>
-      <thead>
-        <tr>
-          <th>Header column A</th>
-          <th>Header column B</th>
-          <th>Header column C</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-            repudiandae praesentium, eius, numquam blanditiis enim ullam dolorem
-            dicta et magnam reiciendis quisquam rerum ab repellat voluptatem!
-            Dolores voluptatibus molestias ad.
-          </td>
-          <td>Lorem ipsum dolor sit amet</td>
-          <td>
-            Eligendi repudiandae praesentium, eius, numquam blanditiis enim
-            ullam dolorem dicta et magnam reiciendis quisquam rerum ab repellat
-            voluptatem! Dolores voluptatibus molestias ad.
-          </td>
-        </tr>
-      </tbody>
-    </Table> -->
-
-    <!-- <Details>
-      <template #summary>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa impedit,
-        maiores inventore at quaerat suscipit obcaecati amet minus iste
-        voluptate ex eveniet debitis animi fugit nulla et placeat modi? Nemo!
-      </template>
-      <template #default>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa impedit,
-        maiores inventore at quaerat suscipit obcaecati amet minus iste
-        voluptate ex eveniet debitis animi fugit nulla et placeat modi? Nemo!
-      </template>
-    </Details> -->
-
-    <!-- <Accordion v-model="isOpen" arrow>
-      <template #trigger>Accordion Trigger</template>
-
-      <template #content>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa omnis id
-        odio! Esse veritatis modi quaerat non praesentium, voluptatibus
-        repudiandae quae quos autem doloribus ad perspiciatis eos recusandae
-        sapiente nisi.
-      </template>
-    </Accordion> -->
-
-    <!-- <Form>
-      <MultiSelect
-        v-model="selection"
-        required
-        searchable
-        :options="list"
-        value-key="id"
-        label-key="name"
-        label="MultiSelect Label"
-      />
-
-      <Input required label="Input" />
-
-      <FileInput v-model="file" required name="file" label="File Upload" />
-
-      <Button type="submit" label="Submit" />
-    </Form> -->
-  </div>
+      <NuxtPage class="playground" />
+    </main>
+  </Html>
 </template>
 
 <style>
-.playground {
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 2rem;
 
-  > * {
-    margin-block: 1rem;
+  nav {
+    ul {
+      display: inline-flex;
+      gap: 1rem;
+      margin-block-end: 1rem;
+    }
+
+    a {
+      &.router-link-active {
+        color: var(--color-accent);
+        text-decoration: none;
+      }
+    }
   }
+}
+
+main {
+  margin: 2rem;
 }
 </style>
