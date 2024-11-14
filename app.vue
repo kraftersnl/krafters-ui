@@ -1,22 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppHeader from './AppHeader.vue';
+</script>
 
 <template>
-  <div>
-    <header>
-      <nav>
-        <ul role="list">
-          <li>
-            <NuxtLink to="/">Home</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/test">Different page</NuxtLink>
-          </li>
-        </ul>
-      </nav>
+  <AppHeader>
+    <nav>
+      <ul role="list">
+        <li>
+          <NuxtLink to="/">Home</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/test">Different page</NuxtLink>
+        </li>
+      </ul>
+    </nav>
+  </AppHeader>
 
-      <ThemeSelect />
-      <LanguageSelect />
-    </header>
+  <div class="app-layout">
     <main>
       <h1 class="visuallyhidden">Playground</h1>
 
@@ -26,17 +26,21 @@
 </template>
 
 <style>
-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 2rem;
+:root {
+  --app-padding-inline: 2rem;
+}
 
+.app-layout {
+  padding: 2rem;
+}
+
+.app-header {
   nav {
     ul {
+      height: 100%;
       display: inline-flex;
+      align-items: center;
       gap: 1rem;
-      margin-block-end: 1rem;
     }
 
     a {
@@ -46,9 +50,5 @@ header {
       }
     }
   }
-}
-
-main {
-  margin: 2rem;
 }
 </style>

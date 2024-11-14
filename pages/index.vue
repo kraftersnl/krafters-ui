@@ -1,10 +1,11 @@
 <script setup lang="ts">
+const isOpen = ref(false);
 const file = ref<File>();
 const selection = ref();
+
 const content = ref(
   'Dit voorbeeld van _silly example_{lang=en} duurde langer om te verzinnen dan de plugin installeren.',
 );
-const isOpen = ref(false);
 
 const list = [
   {

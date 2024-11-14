@@ -2,8 +2,8 @@
 import { MdEditor, config } from 'md-editor-v3';
 import { attrs } from '@mdit/plugin-attrs';
 import { toolbars, footers } from '~/utils/markdown';
-import 'md-editor-v3/lib/style.css';
 import { targetBlankExtension } from './extensions';
+import 'md-editor-v3/lib/style.css';
 
 config({
   markdownItConfig(md) {
@@ -116,10 +116,6 @@ const emit = defineEmits(['update:model-value']);
   }
 
   .markdown-editor:has(:invalid) {
-    .md-editor {
-      /* --md-border-color: var(--color-red) !important; */
-    }
-
     .error-wrapper .error {
       display: flex;
     }
