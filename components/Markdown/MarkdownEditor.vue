@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { MdEditor, config } from 'md-editor-v3';
 import { attrs } from '@mdit/plugin-attrs';
-import { toolbars, footers } from '~/utils/markdown';
-import { targetBlankExtension } from './extensions';
+import { italicBoldExtension, targetBlankExtension } from './extensions';
 import 'md-editor-v3/lib/style.css';
 
 config({
   markdownItConfig(md) {
-    md.use(attrs);
+    md.use(italicBoldExtension);
     md.use(targetBlankExtension);
+    md.use(attrs);
   },
 });
 

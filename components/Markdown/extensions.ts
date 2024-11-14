@@ -1,4 +1,6 @@
-export function targetBlankExtension(md) {
+import type MarkdownIt from 'markdown-it';
+
+export function targetBlankExtension(md: MarkdownIt) {
   const defaultRender =
     md.renderer.rules.link_open ||
     function (tokens, idx, options, env, self) {
@@ -11,9 +13,39 @@ export function targetBlankExtension(md) {
     if (aIndex < 0) {
       tokens[idx].attrPush(['target', '_blank']);
     } else {
-      tokens[idx].attrs[aIndex][1] = '_blank';
+      tokens[idx].attrs![aIndex][1] = '_blank';
     }
 
     return defaultRender(tokens, idx, options, env, self);
+  };
+}
+
+export function italicBoldExtension(md: MarkdownIt) {
+  md.renderer.rules.em_open = function (tokens, idx, options, env, self) {
+    if (tokens[idx].type === 'em_open') {
+      tokens[idx].tag = 'i';
+    }
+    return self.renderToken(tokens, idx, options);
+  };
+
+  md.renderer.rules.em_close = function (tokens, idx, options, env, self) {
+    if (tokens[idx].type === 'em_close') {
+      tokens[idx].tag = 'i';
+    }
+    return self.renderToken(tokens, idx, options);
+  };
+
+  md.renderer.rules.strong_open = function (tokens, idx, options, env, self) {
+    if (tokens[idx].type === 'strong_open') {
+      tokens[idx].tag = 'b';
+    }
+    return self.renderToken(tokens, idx, options);
+  };
+
+  md.renderer.rules.strong_close = function (tokens, idx, options, env, self) {
+    if (tokens[idx].type === 'strong_close') {
+      tokens[idx].tag = 'b';
+    }
+    return self.renderToken(tokens, idx, options);
   };
 }
