@@ -19,7 +19,7 @@
     "@nuxt/icon": "latest",
     "@nuxtjs/color-mode": "latest",
     "@nuxtjs/html-validator": "latest",
-    "@nuxtjs/i18n": "latest",
+    "@nuxtjs/i18n": "^8.5.6",
     "@vueform/multiselect": "latest",
     "@vuepic/vue-datepicker": "latest",
     "@vueuse/nuxt": "latest",

@@ -10,6 +10,15 @@ export default defineNuxtConfig({
 
   pages: true,
 
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: typeof window !== 'undefined' ? navigator?.language : 'en',
+        style: 'background-color: #000',
+      },
+    },
+  },
+
   css: [join(currentDir, './assets/main.css')],
 
   modules: [
@@ -38,7 +47,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'en',
-    langDir: '../locales',
+    langDir: './locales',
     locales: [
       { code: 'en', language: 'en', file: 'en.json' },
       { code: 'nl', language: 'nl', file: 'nl.json' },

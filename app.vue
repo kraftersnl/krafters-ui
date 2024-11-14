@@ -1,9 +1,7 @@
-<script setup lang="ts">
-const head = useLocaleHead();
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Html :lang="head.htmlAttrs?.lang">
+  <div>
     <header>
       <nav>
         <ul role="list">
@@ -24,7 +22,7 @@ const head = useLocaleHead();
 
       <NuxtPage class="playground" />
     </main>
-  </Html>
+  </div>
 </template>
 
 <style>

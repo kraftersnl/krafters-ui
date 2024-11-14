@@ -6,6 +6,25 @@ const userLang = computed({
   get: () => locale.value,
   set: (value: Locale) => setLocale(value),
 });
+
+onMounted(() => {
+  useHead({
+    htmlAttrs: {
+      lang: locale.value?.startsWith('nl') ? 'nl' : 'en',
+    },
+  });
+});
+
+watch(
+  () => locale.value,
+  () => {
+    useHead({
+      htmlAttrs: {
+        lang: locale.value?.startsWith('nl') ? 'nl' : 'en',
+      },
+    });
+  },
+);
 </script>
 
 <template>
