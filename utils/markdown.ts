@@ -1,0 +1,43 @@
+import type { ToolbarNames, Footers } from 'md-editor-v3';
+
+export const footers: Footers[] = [
+  // 'markdownTotal',
+  // '=',
+  // 'scrollSwitch',
+];
+
+export const toolbars: ToolbarNames[] = [
+  'bold',
+  // 'underline',
+  'italic',
+  // 'strikeThrough',
+  '-',
+  // 'title',
+  // 'sub',
+  // 'sup',
+  'quote',
+  'unorderedList',
+  'orderedList',
+  // 'task',
+  '-',
+  'codeRow',
+  'code',
+  // 'link',
+  // 'image',
+  // 'table',
+  // 'mermaid',
+  // 'katex',
+  '-',
+  'revoke',
+  'next',
+  // 'save',
+  '=',
+  // 'prettier',
+  'pageFullscreen',
+  // 'fullscreen',
+  'preview',
+  // 'previewOnly',
+  // 'htmlPreview',
+  // 'catalog',
+  // 'github',
+];

@@ -1,4 +1,13 @@
 <script setup lang="ts">
+const props = withDefaults(
+  defineProps<{
+    focusFn?: CallableFunction;
+  }>(),
+  {
+    focusFn: undefined,
+  },
+);
+
 const validity = ref(true);
 
 function handleSubmit(event: Event) {
@@ -9,9 +18,13 @@ function handleSubmit(event: Event) {
     const data = new FormData(target);
     emit('submit', data);
   } else {
-    const firstInvalidElement: HTMLElement | null =
-      target.querySelector(':invalid');
-    firstInvalidElement?.focus();
+    if (props.focusFn) {
+      props.focusFn();
+    } else {
+      const firstInvalidElement: HTMLElement | null =
+        target.querySelector(':invalid');
+      firstInvalidElement?.focus();
+    }
   }
 }
 

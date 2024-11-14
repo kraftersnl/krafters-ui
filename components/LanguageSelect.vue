@@ -27,7 +27,7 @@ watch(
             value="en"
             type="radio"
           />
-          <label for="language-option-english" lang="en"> English </label>
+          <label for="language-option-english" lang="en">English</label>
         </li>
 
         <li class="language-option">
@@ -38,7 +38,7 @@ watch(
             value="nl"
             type="radio"
           />
-          <label for="language-option-dutch" lang="nl"> Nederlands </label>
+          <label for="language-option-dutch" lang="nl">Nederlands</label>
         </li>
       </ul>
     </fieldset>

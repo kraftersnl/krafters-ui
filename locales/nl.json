@@ -42,6 +42,7 @@
     "reset-all": "Reset alle filters"
   },
   "general": {
+    "about": "Over",
     "actions": "Acties",
     "apply": "Toepassen",
     "attachment": "Bijlage | Bijlagen",
@@ -68,6 +69,7 @@
     "heading": "Algemeen",
     "home": "Home",
     "init": "Initialiseren",
+    "introduction": "Inleiding",
     "image": "Afbeelding",
     "key": "Kenmerk",
     "language": "Taal",

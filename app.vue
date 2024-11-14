@@ -1,6 +1,9 @@
 <script setup lang="ts">
 const file = ref<File>();
 const selection = ref();
+const content = ref(
+  'Dit voorbeeld van _silly example_{lang=en} duurde langer om te verzinnen dan de plugin installeren.',
+);
 const isOpen = ref(false);
 
 const list = [
@@ -26,22 +29,24 @@ const list = [
     <LanguageSelect />
     <br />
 
-    <Select
+    <MarkdownEditor v-model="content" />
+
+    <!-- <Select
       v-model="selection"
       label="Select"
       :options="list"
       label-key="name"
       value-key="id"
-    />
+    /> -->
 
-    <Tooltip>
+    <!-- <Tooltip>
       <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
         architecto eligendi deserunt dicta similique enim, quibusdam officiis
         quos quis quisquam amet doloribus explicabo iste nisi perferendis ut non
         distinctio numquam.
       </div>
-    </Tooltip>
+    </Tooltip> -->
 
     <!-- <Popover>
       <template #content>

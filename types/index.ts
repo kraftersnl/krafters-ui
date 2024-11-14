@@ -1,4 +1,5 @@
 import type Dialog from '../components/Dialog.vue';
+import type Form from '../components/Form.vue';
 import type Textarea from '../components/Textarea.vue';
 import type Input from '../components/Input.vue';
 import type Button from '../components/Button.vue';
@@ -31,6 +32,7 @@ declare global {
   };
 
   type DialogComponent = InstanceType<typeof Dialog>;
+  type FormComponent = InstanceType<typeof Form>;
   type TextareaComponent = InstanceType<typeof Textarea>;
   type InputComponent = InstanceType<typeof Input>;
   type ButtonComponent = InstanceType<typeof Button>;

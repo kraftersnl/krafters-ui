@@ -242,7 +242,6 @@ h6 {
 p {
   text-wrap: pretty;
   white-space: pre-line;
-  max-width: 65ch;
 }
 
 dl {
@@ -397,7 +396,8 @@ input {
   align-items: center;
   align-content: start;
 
-  label {
+  label,
+  .label {
     display: inline-flex;
     gap: 0.35rem;
     min-height: 1.25rem;
@@ -525,6 +525,57 @@ input {
 
 .tippy-box[data-theme~='krafters'] > .tippy-svg-arrow {
   fill: var(--color-card-bg);
+}
+
+/* Markdown Editor/Preview classes */
+.md-editor-preview {
+  word-break: break-word !important;
+}
+
+.default-theme {
+  ol,
+  ul {
+    margin: 0 !important;
+    > li {
+      margin: 0 !important;
+
+      > ul,
+      > ol {
+        margin-block-end: 0.5rem !important;
+      }
+    }
+  }
+}
+
+.md-editor,
+.md-editor-preview.krafters-theme {
+  --md-color: var(--color-text) !important;
+  --md-bk-color: var(--color-input-bg) !important;
+  --md-bk-color-outstand: var(--color-grey-bg) !important;
+  --md-border-color: var(--color-grey-graphic) !important;
+  --md-border-active-color: var(--focus-color) !important;
+
+  font-size: var(--font-size-md);
+
+  a {
+    --md-theme-link-color: var(--color-text);
+    --md-theme-link-hover-color: var(--color-accent);
+
+    text-decoration: underline;
+    transition-duration: var(--duration-sm);
+  }
+
+  code {
+    line-height: 1.5;
+    --md-theme-code-inline-color: var(--color-accent-text);
+    --md-theme-code-inline-bg-color: var(--color-accent-bg);
+  }
+
+  blockquote {
+    --md-theme-quote-color: var(--color-text);
+    --md-theme-quote-bg-color: var(--color-accent-bg);
+    --md-theme-quote-border: 5px solid var(--color-accent);
+  }
 }
 
 /* Animations */
