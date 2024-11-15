@@ -1,10 +1,20 @@
 <script setup lang="ts">
-import { MdPreview } from 'md-editor-v3';
+import { MdPreview, config } from 'md-editor-v3';
+import { attrs } from '@mdit/plugin-attrs';
+import { italicExtension, targetBlankExtension } from './extensions';
 import 'md-editor-v3/lib/style.css';
 
 const props = defineProps<{
   content?: string;
 }>();
+
+config({
+  markdownItConfig(md) {
+    md.use(targetBlankExtension);
+    md.use(italicExtension);
+    md.use(attrs);
+  },
+});
 </script>
 
 <template>

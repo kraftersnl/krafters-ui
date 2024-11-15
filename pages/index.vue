@@ -25,7 +25,7 @@ const list = [
 
 <template>
   <div>
-    <MarkdownEditor v-model="content" />
+    <MarkdownPreview :content="content" />
 
     <!-- <Select
       v-model="selection"

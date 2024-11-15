@@ -20,7 +20,7 @@ export function targetBlankExtension(md: MarkdownIt) {
   };
 }
 
-export function italicBoldExtension(md: MarkdownIt) {
+export function italicExtension(md: MarkdownIt) {
   md.renderer.rules.em_open = function (tokens, idx, options, env, self) {
     if (tokens[idx].type === 'em_open') {
       tokens[idx].tag = 'i';
@@ -31,20 +31,6 @@ export function italicBoldExtension(md: MarkdownIt) {
   md.renderer.rules.em_close = function (tokens, idx, options, env, self) {
     if (tokens[idx].type === 'em_close') {
       tokens[idx].tag = 'i';
-    }
-    return self.renderToken(tokens, idx, options);
-  };
-
-  md.renderer.rules.strong_open = function (tokens, idx, options, env, self) {
-    if (tokens[idx].type === 'strong_open') {
-      tokens[idx].tag = 'b';
-    }
-    return self.renderToken(tokens, idx, options);
-  };
-
-  md.renderer.rules.strong_close = function (tokens, idx, options, env, self) {
-    if (tokens[idx].type === 'strong_close') {
-      tokens[idx].tag = 'b';
     }
     return self.renderToken(tokens, idx, options);
   };
