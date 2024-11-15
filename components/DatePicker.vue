@@ -11,6 +11,7 @@ const props = withDefaults(
     required?: boolean;
     disabled?: boolean;
     utc?: boolean;
+    textInput?: boolean;
     enableTimePicker?: boolean;
     showSelect?: boolean;
     showCancel?: boolean;
@@ -22,6 +23,7 @@ const props = withDefaults(
   {
     modelValue: undefined,
     format: 'yyyy-MM-dd',
+    textInput: undefined,
     utc: false,
     enableTimePicker: false,
     showSelect: true,
@@ -56,6 +58,7 @@ const emit = defineEmits(['update:modelValue']);
       v-model="computedModel"
       v-bind="$attrs"
       auto-apply
+      :text-input="textInput"
       :utc="utc"
       :enable-time-picker="enableTimePicker"
       :uid="id"

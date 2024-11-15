@@ -211,6 +211,7 @@ svg {
 a {
   color: currentColor;
   outline-offset: 4px;
+  text-underline-offset: 0.2em;
 
   &:focus-visible {
     outline: 2px solid var(--focus-color);
@@ -306,12 +307,13 @@ table {
   text-align: left;
   font-variant-numeric: tabular-nums;
 
-  th {
+  thead th {
     font-weight: 600;
+    color: var(--color-grey-text);
   }
 
-  thead th {
-    color: var(--color-grey-text);
+  tbody th {
+    font-weight: 500;
   }
 
   th,
@@ -392,6 +394,7 @@ input {
 }
 
 .form-field-wrapper {
+  position: relative;
   display: inline-grid;
   align-items: center;
   align-content: start;

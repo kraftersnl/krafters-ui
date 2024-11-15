@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Tippy } from 'vue-tippy';
+import { Tippy, type TippyComponent } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-toward.css';
 
@@ -28,12 +28,12 @@ withDefaults(
   },
 );
 
-const tooltipWrapper = ref<HTMLElement>();
+const tooltipWrapper = useTemplateRef<HTMLElement>('tooltipWrapper');
 
 function closeTooltip() {
   document
     .querySelectorAll('[data-tippy-root]')
-    .forEach((el) => el._tippy?.hide());
+    .forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
 }
 </script>
 
@@ -55,7 +55,7 @@ function closeTooltip() {
       content-tag="div"
       content-class="krafters-tooltip-content"
       class="tooltip-wrapper"
-      :append-to="interactive ? tooltipWrapper : undefined"
+      :append-to="interactive && tooltipWrapper ? tooltipWrapper : undefined"
       @keyup.esc="closeTooltip"
     >
       <template #default>

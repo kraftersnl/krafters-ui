@@ -12,6 +12,7 @@ const props = withDefaults(
     autocomplete?: string;
     pattern?: string;
     placeholder?: string;
+    icon?: string;
     size?: 'sm' | 'md' | 'lg';
     minlength?: number;
     maxlength?: number;
@@ -30,6 +31,7 @@ const props = withDefaults(
     autocomplete: undefined,
     pattern: undefined,
     placeholder: undefined,
+    icon: undefined,
     size: 'md',
     minlength: undefined,
     maxlength: undefined,
@@ -115,6 +117,8 @@ const emit = defineEmits(['update:modelValue']);
       @input="handleInput"
     />
 
+    <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
+
     <p v-if="instruction" :class="`instruction-${id}`">
       {{ instruction }}
     </p>
@@ -140,6 +144,16 @@ const emit = defineEmits(['update:modelValue']);
 .form-field-wrapper {
   .input {
     background-color: var(--color-input-bg);
+
+    &:has(+ .iconify) {
+      padding-inline-start: 1.75rem;
+    }
+
+    + .iconify {
+      position: absolute;
+      left: 0.5rem;
+      color: var(--color-grey-text);
+    }
   }
 
   [class*='instruction'] {
@@ -152,15 +166,27 @@ const emit = defineEmits(['update:modelValue']);
 .input-size--sm .input {
   height: 2rem;
   padding-inline: 0.5rem;
+
+  + .iconify {
+    bottom: 0.5em;
+  }
 }
 
 .input-size--md .input {
   height: 2.25rem;
   padding-inline: 0.5rem;
+
+  + .iconify {
+    bottom: 0.6em;
+  }
 }
 
 .input-size--lg .input {
   height: 2.5rem;
   padding-inline: 0.65rem;
+
+  + .iconify {
+    bottom: 0.7em;
+  }
 }
 </style>

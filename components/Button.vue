@@ -38,6 +38,12 @@ const props = withDefaults(
 );
 
 const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
+
+function handleClick() {
+  emit('click');
+}
+
+const emit = defineEmits(['click']);
 </script>
 
 <template>
@@ -83,6 +89,7 @@ const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
       ${loading ? 'button--loading' : ''}
       ${hideLabel ? 'button--icon-only' : ''}
     `"
+    @click="handleClick"
   >
     <Icon v-if="loading" name="heroicons-solid:refresh" />
     <Icon v-else-if="icon" :name="computedIcon" />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Tippy } from 'vue-tippy';
+import { Tippy, type TippyComponent } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
@@ -13,6 +13,7 @@ const props = withDefaults(
     placement?: PopperPlacement;
     disabled?: boolean;
     interactive?: boolean;
+    appendTo: boolean;
     arrow?: boolean;
     trigger?: string;
     hideOnClick?: boolean | 'toggle';
@@ -26,6 +27,7 @@ const props = withDefaults(
     icon: 'dots-horizontal',
     placement: 'auto-start',
     interactive: true,
+    appendTo: undefined,
     trigger: 'click',
     hideOnClick: true,
     maxWidth: undefined,
@@ -42,10 +44,10 @@ function handleMenuClick(item: string, hide: CallableFunction) {
   hide();
 }
 
-function closeTooltip() {
+function closePopover() {
   document
     .querySelectorAll('[data-tippy-root]')
-    .forEach((el) => el._tippy?.hide());
+    .forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
 }
 
 function focusTrigger() {
@@ -53,7 +55,7 @@ function focusTrigger() {
 }
 
 const enableFocusLoop = ref(false);
-const popoverTrigger = ref<HTMLButtonElement>();
+const popoverTrigger = useTemplateRef<HTMLButtonElement>('popoverTrigger');
 
 defineExpose({
   popoverTrigger,
@@ -88,7 +90,7 @@ const emit = defineEmits(['click', 'update:modelValue']);
         focusTrigger();
       }
     "
-    @keyup.esc="closeTooltip"
+    @keyup.esc="closePopover"
   >
     <template #default>
       <button

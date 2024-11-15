@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const menuContent = ref<HTMLElement>();
-const menuTrigger = ref<HTMLElement>();
+const menuContent = useTemplateRef<HTMLElement>('menuContent');
+const menuTrigger = useTemplateRef<HTMLElement>('menuTrigger');
 
 const showMenu = ref(false);
 

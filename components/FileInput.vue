@@ -31,7 +31,7 @@ const props = withDefaults(
 
 const { t } = useI18n();
 
-const fileInputRef = ref<HTMLInputElement>();
+const fileInputRef = useTemplateRef<HTMLInputElement>('fileInputRef');
 const imagePreview = ref<string>();
 const dragover = ref(false);
 

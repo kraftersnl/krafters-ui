@@ -18,8 +18,10 @@ const props = withDefaults(
   },
 );
 
-const accordionContentWrapper = ref<HTMLElement>();
-const accordionContent = ref<HTMLElement>();
+const accordionContentWrapper = useTemplateRef<HTMLElement>(
+  'accordionContentWrapper',
+);
+const accordionContent = useTemplateRef<HTMLElement>('accordionContent');
 
 function toggleAccordion() {
   emit('update:modelValue', !isExpanded.value);
