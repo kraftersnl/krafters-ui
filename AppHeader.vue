@@ -5,7 +5,18 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
 <template>
   <header class="app-header">
     <div class="app-header-content">
-      <slot />
+      <div class="logo">Krafters UI</div>
+
+      <nav>
+        <ul role="list">
+          <li>
+            <NuxtLink to="/">Home</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/test">Different page</NuxtLink>
+          </li>
+        </ul>
+      </nav>
 
       <AppHeaderMenu />
     </div>
@@ -25,6 +36,25 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
     z-index: 2;
     top: 0;
   }
+
+  nav {
+    ul {
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    a {
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+
+      &.router-link-active {
+        color: var(--color-accent);
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .app-header-content {
@@ -42,7 +72,13 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
     flex-wrap: nowrap;
     gap: 2rem;
     align-items: center;
-    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: var(--font-size-xs);
+    /* font-weight: 700; */
+    color: var(--color-accent-text);
+    margin-inline-end: 1.5rem;
   }
 }
 </style>

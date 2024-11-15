@@ -6,8 +6,8 @@ import 'md-editor-v3/lib/style.css';
 
 config({
   markdownItConfig(md) {
-    md.use(italicExtension);
     md.use(targetBlankExtension);
+    md.use(italicExtension);
     md.use(attrs);
   },
 });

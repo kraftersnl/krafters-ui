@@ -50,7 +50,6 @@ const formattedLabel = computed(() =>
   vertical-align: middle;
   gap: 0.25rem;
   border-radius: var(--radius-sm);
-  color: var(--color-grey-text);
   background-color: var(--color-grey-bg);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
@@ -79,7 +78,7 @@ const formattedLabel = computed(() =>
 }
 
 .chip-color--accent {
-  color: var(--color-accent-text);
+  color: var(--color-accent);
   background-color: var(--color-accent-bg);
 }
 

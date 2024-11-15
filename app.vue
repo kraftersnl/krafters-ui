@@ -3,18 +3,7 @@ import AppHeader from './AppHeader.vue';
 </script>
 
 <template>
-  <AppHeader>
-    <nav>
-      <ul role="list">
-        <li>
-          <NuxtLink to="/">Home</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/test">Different page</NuxtLink>
-        </li>
-      </ul>
-    </nav>
-  </AppHeader>
+  <AppHeader />
 
   <div class="app-layout">
     <main>
@@ -32,23 +21,5 @@ import AppHeader from './AppHeader.vue';
 
 .app-layout {
   padding: 2rem;
-}
-
-.app-header {
-  nav {
-    ul {
-      height: 100%;
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    a {
-      &.router-link-active {
-        color: var(--color-accent);
-        text-decoration: none;
-      }
-    }
-  }
 }
 </style>
