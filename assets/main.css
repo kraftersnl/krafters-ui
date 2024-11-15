@@ -373,6 +373,10 @@ label:not(.disabled) {
   font-weight: 500;
 }
 
+address {
+  font-style: normal;
+}
+
 fieldset {
   border: none;
   padding: 0;

@@ -13,7 +13,7 @@ const props = withDefaults(
     placement?: PopperPlacement;
     disabled?: boolean;
     interactive?: boolean;
-    appendTo: boolean;
+    appendTo?: boolean;
     arrow?: boolean;
     trigger?: string;
     hideOnClick?: boolean | 'toggle';
