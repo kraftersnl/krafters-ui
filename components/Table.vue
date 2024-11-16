@@ -47,11 +47,39 @@ withDefaults(
 
 .table-size--xs {
   font-size: var(--font-size-xs);
+
+  th,
+  td {
+    padding-block: 0.25rem;
+    padding-inline: 0.35rem;
+  }
 }
+
 .table-size--sm {
   font-size: var(--font-size-sm);
+
+  thead {
+    font-size: var(--font-size-xs);
+  }
+
+  th,
+  td {
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+  }
 }
+
 .table-size--md {
   font-size: var(--font-size-md);
+
+  thead {
+    font-size: var(--font-size-sm);
+  }
+
+  th,
+  td {
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+  }
 }
 </style>

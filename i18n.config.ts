@@ -14,7 +14,7 @@ const datetimeFormats = (): DefineDateTimeFormat => ({
   numeric: {
     day: '2-digit',
     month: '2-digit',
-    year: 'numeric',
+    year: '2-digit',
   },
   datetime: {
     day: '2-digit',

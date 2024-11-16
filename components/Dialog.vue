@@ -90,7 +90,7 @@ body:has(.dialog[open]) {
   padding-block-end: 1.5rem;
 
   &::backdrop {
-    background-color: rgb(0 0 0 / 75%);
+    background-color: rgb(0 0 0 / 50%);
   }
 
   h1 {
