@@ -119,23 +119,19 @@ const emit = defineEmits(['update:model-value']);
 }
 
 .tabs-list {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1.5rem;
-  margin-block: 1rem;
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-card-border);
-  box-shadow: var(--shadow-1);
-  border-radius: var(--radius-md);
-  padding-block: 0.5rem 0.65rem;
-  padding-inline: 1rem;
+  border-bottom: 1px solid var(--color-grey-bg);
+  padding-block-end: 0.5rem;
+  margin-block-end: 1.5rem;
 
   .tab {
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
-    /* font-size: var(--font-size-sm); */
+    font-size: var(--font-size-sm);
     font-weight: 500;
     background: transparent;
     border: none;
@@ -160,7 +156,7 @@ const emit = defineEmits(['update:model-value']);
     &[aria-selected='true'] {
       color: var(--color-green);
       text-decoration: underline;
-      text-underline-offset: 0.35rem;
+      text-underline-offset: 0.95rem;
     }
 
     &:focus-visible {

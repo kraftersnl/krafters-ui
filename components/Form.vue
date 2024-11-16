@@ -43,7 +43,8 @@ const emit = defineEmits(['submit']);
 </template>
 
 <style>
-.form {
+.form,
+.form-content {
   --row-gap: 1rem;
   --column-gap: 0.5rem;
   --col-width-auto: auto;

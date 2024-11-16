@@ -107,6 +107,11 @@ const emit = defineEmits(['update:model-value']);
   min-height: 10rem;
 }
 
+.md-editor .cm-editor,
+.md-editor-preview {
+  font-size: var(--font-size-sm);
+}
+
 .invalid {
   .textarea {
     &:invalid {
