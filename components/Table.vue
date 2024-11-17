@@ -50,7 +50,7 @@ withDefaults(
 
   th,
   td {
-    padding-block: 0.25rem;
+    padding-block: 0.4rem;
     padding-inline: 0.35rem;
   }
 }

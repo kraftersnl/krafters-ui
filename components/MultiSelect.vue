@@ -80,7 +80,6 @@ const emit = defineEmits(['update:modelValue']);
       <span>{{ label }}</span>
       <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
         <span class="visuallyhidden">,</span>
-        <wbr class="visuallyhidden" />
       </Chip>
     </label>
 

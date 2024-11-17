@@ -85,9 +85,15 @@ body:has(.dialog[open]) {
   padding: 0;
   width: calc(100vw - var(--app-inline-padding));
   background-color: var(--color-card-bg);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-lg);
+  border: none;
   padding-block-end: 1.5rem;
+  min-height: 100dvh;
+
+  @media (min-width: 480px) {
+    min-height: auto;
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+  }
 
   &::backdrop {
     background-color: rgb(0 0 0 / 50%);
