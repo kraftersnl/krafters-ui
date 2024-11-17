@@ -208,6 +208,10 @@ svg {
   object-fit: cover;
 }
 
+blockquote {
+  margin: 0;
+}
+
 a {
   color: currentColor;
   outline-offset: 4px;
