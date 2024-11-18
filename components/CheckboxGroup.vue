@@ -7,12 +7,14 @@ const props = withDefaults(
     name?: string;
     valueKey?: string;
     labelKey?: string;
+    titleKey?: string;
     hideLegend?: boolean;
   }>(),
   {
     name: undefined,
     valueKey: 'value',
     labelKey: 'label',
+    titleKey: undefined,
   },
 );
 
@@ -40,6 +42,7 @@ const emit = defineEmits(['update:modelValue']);
               v-model="computedModel"
               :value="option[props.valueKey]"
               :label="option[props.labelKey]"
+              :title="titleKey ? option[props.titleKey] : undefined"
               :name="id"
             />
           </li>

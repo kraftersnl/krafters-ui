@@ -10,7 +10,9 @@ const props = withDefaults(
     navAriaLabel?: string;
     list?: MenuItem[];
     icon?: string;
+    iconLib?: string;
     placement?: PopperPlacement;
+    hideLabel?: boolean;
     disabled?: boolean;
     interactive?: boolean;
     appendTo?: boolean;
@@ -25,6 +27,7 @@ const props = withDefaults(
     navAriaLabel: undefined,
     list: () => [],
     icon: 'dots-horizontal',
+    iconLib: 'heroicons-solid',
     placement: 'auto-start',
     interactive: true,
     appendTo: undefined,
@@ -82,7 +85,7 @@ const emit = defineEmits(['click', 'update:modelValue']);
     tag="div"
     content-tag="div"
     content-class="popover-content"
-    class="popover-wrapper"
+    :class="`popover-wrapper ${hideLabel ? 'popover--icon-only' : ''}`"
     @show="enableFocusLoop = true"
     @hide="
       () => {
@@ -100,8 +103,10 @@ const emit = defineEmits(['click', 'update:modelValue']);
         :disabled="disabled"
         class="popover-trigger"
       >
-        <Icon :name="'heroicons-solid:' + icon" />
-        <span class="visuallyhidden">{{ label || $t('aria.open-menu') }}</span>
+        <Icon :name="iconLib + ':' + icon" />
+        <span :class="hideLabel ? 'visuallyhidden' : undefined">
+          {{ label || $t('aria.open-menu') }}
+        </span>
       </button>
 
       <slot v-else name="trigger" />
@@ -135,14 +140,17 @@ const emit = defineEmits(['click', 'update:modelValue']);
 
 .popover-trigger {
   display: inline-flex;
+  gap: 0.25rem;
   align-items: center;
   justify-content: center;
   color: var(--color-text);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  padding-inline: 0.5rem;
   background-color: var(--color-grey-bg);
-  aspect-ratio: 1;
   height: 2rem;
   border: 1px solid transparent;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   transition-property: color, background-color, opacity;
   transition-duration: var(--duration-sm);
   outline: 2px solid transparent;
@@ -163,5 +171,10 @@ const emit = defineEmits(['click', 'update:modelValue']);
       var(--color-black)
     );
   }
+}
+
+.popover--icon-only {
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
 }
 </style>

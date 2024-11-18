@@ -323,7 +323,7 @@ const emit = defineEmits(['click']);
   gap: 1rem;
 
   .iconify {
-    opacity: 65%;
+    color: var(--color-grey-graphic);
   }
 
   &:disabled {
@@ -340,6 +340,10 @@ const emit = defineEmits(['click']);
   &:not(:disabled):hover {
     color: var(--color-accent);
     background-color: var(--color-accent-bg);
+
+    .iconify {
+      color: var(--color-accent-text);
+    }
   }
 }
 

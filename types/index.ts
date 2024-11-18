@@ -25,6 +25,7 @@ declare global {
     id: string;
     label?: string;
     icon?: string;
+    iconLib?: string;
     to?: string;
     disabled?: boolean;
     divider?: boolean;

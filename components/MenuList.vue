@@ -27,6 +27,7 @@ const emit = defineEmits(['click']);
           :label="item.label"
           :to="item.to"
           :icon="item.icon"
+          :icon-lib="item.iconLib"
           :disabled="item.disabled"
           size="xl"
           variant="menu"

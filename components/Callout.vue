@@ -25,10 +25,11 @@ const computedIcon = computed(() => {
 
 <style>
 .callout-wrapper {
+  display: inline-block;
   padding-inline: 1rem;
   padding-block: 0.75rem;
-  border-left: 0.25rem solid transparent;
-  margin-block: 1rem;
+  border-left: 0.35rem solid transparent;
+  border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
 }
 

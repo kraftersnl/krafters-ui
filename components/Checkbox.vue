@@ -2,6 +2,7 @@
 const props = defineProps<{
   modelValue?: boolean | (string | number)[];
   label: string;
+  title?: string;
   name?: string;
   value?: string | number;
   required?: boolean;
@@ -27,7 +28,7 @@ const emit = defineEmits(['update:modelValue']);
       :value="value"
     />
 
-    <label :for="id">
+    <label :for="id" :title="title">
       <span>{{ label }}</span>
 
       <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
