@@ -10,14 +10,15 @@ const props = withDefaults(
 
 const validity = ref(true);
 
-function handleSubmit(event: Event) {
+function handleSubmit(event: SubmitEvent) {
   const target = event.target as HTMLFormElement;
-  validity.value = target.checkValidity();
+  validity.value = target?.checkValidity();
 
   if (validity.value) {
     const data = new FormData(target);
-    emit('submit', data);
+    emit('submit', data, event);
   } else {
+    emit('invalid', event);
     if (props.focusFn) {
       props.focusFn();
     } else {
@@ -28,7 +29,10 @@ function handleSubmit(event: Event) {
   }
 }
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits<{
+  submit: [data: FormData, event: SubmitEvent];
+  invalid: [event: SubmitEvent];
+}>();
 </script>
 
 <template>
