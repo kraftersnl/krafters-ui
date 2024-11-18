@@ -280,26 +280,23 @@ const emit = defineEmits(['click']);
 }
 
 .button-variant--link {
-  display: inline-block;
+  display: inline;
+  font-size: inherit;
+  font-weight: 400;
   height: auto;
   padding-inline: 0;
   justify-content: start;
   align-items: start;
   border-radius: var(--radius-xs);
-  font-weight: 400;
   background-color: transparent;
   text-decoration: underline;
-  text-underline-offset: 0.2rem;
 
   .iconify {
     font-size: inherit;
-    margin-inline-end: 0.35rem;
+    margin-inline-end: 0;
     margin-block-end: 0.2em;
     vertical-align: middle;
-
-    &.external-link {
-      margin-inline-start: 0.35rem;
-    }
+    margin-inline-start: 0.25em;
   }
 
   &:focus-visible {
