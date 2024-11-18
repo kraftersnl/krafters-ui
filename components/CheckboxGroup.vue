@@ -58,7 +58,7 @@ const emit = defineEmits(['update:modelValue']);
 
   .checkbox-list {
     display: grid;
-    gap: 0.25rem;
+    gap: 0.5rem;
     margin-block-end: 1rem;
   }
 }
