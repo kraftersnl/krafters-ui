@@ -11,6 +11,7 @@ const props = withDefaults(
     list?: MenuItem[];
     icon?: string;
     iconLib?: string;
+    size?: 'sm' | 'md' | 'lg';
     placement?: PopperPlacement;
     hideLabel?: boolean;
     disabled?: boolean;
@@ -28,6 +29,7 @@ const props = withDefaults(
     list: () => [],
     icon: 'dots-horizontal',
     iconLib: 'heroicons-solid',
+    size: 'sm',
     placement: 'auto-start',
     interactive: true,
     appendTo: undefined,
@@ -101,7 +103,7 @@ const emit = defineEmits(['click', 'update:modelValue']);
         ref="popoverTrigger"
         type="button"
         :disabled="disabled"
-        class="popover-trigger"
+        :class="`popover-trigger popover-trigger-size--${size}`"
       >
         <Icon :name="iconLib + ':' + icon" />
         <span :class="hideLabel ? 'visuallyhidden' : undefined">
@@ -148,17 +150,12 @@ const emit = defineEmits(['click', 'update:modelValue']);
   white-space: nowrap;
   padding-inline: 0.5rem;
   background-color: var(--color-grey-bg);
-  height: 2rem;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   transition-property: color, background-color, opacity;
   transition-duration: var(--duration-sm);
   outline: 2px solid transparent;
   outline-offset: 2px;
-
-  .iconify {
-    font-size: var(--font-size-sm);
-  }
 
   &:focus-visible {
     outline-color: var(--focus-color);
@@ -170,6 +167,30 @@ const emit = defineEmits(['click', 'update:modelValue']);
       var(--color-grey-bg) 95%,
       var(--color-black)
     );
+  }
+}
+
+.popover-trigger-size--sm {
+  height: 2rem;
+
+  .iconify {
+    font-size: var(--font-size-sm);
+  }
+}
+
+.popover-trigger-size--md {
+  height: 2.25rem;
+
+  .iconify {
+    font-size: var(--font-size-md);
+  }
+}
+
+.popover-trigger-size--lg {
+  height: 2.5rem;
+
+  .iconify {
+    font-size: var(--font-size-lg);
   }
 }
 

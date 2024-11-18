@@ -19,6 +19,7 @@ const props = withDefaults(
       | 'blue'
       | 'menu';
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    radius?: 'xs' | 'sm' | 'md' | 'lg' | 'full';
     hideLabel?: boolean;
     loading?: boolean;
     download?: boolean;
@@ -33,6 +34,7 @@ const props = withDefaults(
     target: undefined,
     variant: 'secondary',
     size: 'md',
+    radius: 'md',
     type: 'button',
   },
 );
@@ -57,6 +59,7 @@ const emit = defineEmits(['click']);
       button-variant--${variant}
       ${hideLabel ? 'button--icon-only' : ''}
     `"
+    :style="`--radius: var(--radius-${radius})`"
     :title="
       !download && target === '_blank' ? $t('aria.opens-new-window') : undefined
     "
@@ -89,6 +92,7 @@ const emit = defineEmits(['click']);
       ${loading ? 'button--loading' : ''}
       ${hideLabel ? 'button--icon-only' : ''}
     `"
+    :style="`--radius: var(--radius-${radius})`"
     @click="handleClick"
   >
     <Icon v-if="loading" name="heroicons-solid:refresh" />
@@ -109,6 +113,7 @@ const emit = defineEmits(['click']);
 
 <style>
 .button {
+  border-radius: var(--radius);
   -webkit-tap-highlight-color: transparent;
   position: relative;
   display: inline-flex;
@@ -118,7 +123,6 @@ const emit = defineEmits(['click']);
   font-weight: 500;
   font-size: var(--font-size-sm);
   border: 1px solid transparent;
-  border-radius: var(--radius-md);
   transition-property: color, background-color, opacity;
   transition-duration: var(--duration-sm);
   text-decoration: none;
@@ -280,6 +284,7 @@ const emit = defineEmits(['click']);
 }
 
 .button-variant--link {
+  --radius: var(--radius-xs);
   display: inline;
   font-size: inherit;
   font-weight: 400;
@@ -287,7 +292,6 @@ const emit = defineEmits(['click']);
   padding-inline: 0;
   justify-content: start;
   align-items: start;
-  border-radius: var(--radius-xs);
   background-color: transparent;
   text-decoration: underline;
 
