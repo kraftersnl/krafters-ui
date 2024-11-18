@@ -350,6 +350,5 @@ const emit = defineEmits(['click']);
 .button--icon-only {
   aspect-ratio: 1;
   padding: 0;
-  border-radius: var(--radius-full);
 }
 </style>
