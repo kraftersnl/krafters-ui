@@ -157,7 +157,7 @@ function handleInput(event: Event) {
   }
 
   [class*='instruction'] {
-    margin-block-start: 0.25rem;
+    margin-block: 0.25rem;
     font-size: var(--font-size-xs);
     color: var(--color-grey-text);
   }

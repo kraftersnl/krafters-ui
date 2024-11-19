@@ -84,17 +84,16 @@ function handleChange(event: Event) {
       `"
       @change="handleChange"
     >
-      <option v-if="placeholder" hidden :value="placeholderValue">
+      <template v-if="!options?.length">
+        <option selected disabled :value="placeholderValue">
+          {{ $t(noOptionsLabel) }}
+        </option>
+      </template>
+      <option v-else-if="placeholder" hidden :value="placeholderValue">
         {{ placeholder }}
       </option>
 
       <slot v-if="$slots.default" />
-
-      <template v-else-if="!options?.length">
-        <option selected disabled value="">
-          {{ $t(noOptionsLabel) }}
-        </option>
-      </template>
 
       <template v-else>
         <option
