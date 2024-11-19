@@ -85,6 +85,7 @@ defineExpose({
       v-model="model"
       :class="`textarea ${autoresize ? 'autoresize' : ''}`"
       :placeholder="placeholder"
+      :disabled="disabled"
       :required="required"
       :pattern="pattern"
       :autofocus="autofocus"

@@ -7,19 +7,21 @@ defineProps<{
   name?: string;
   value?: string | number;
   required?: boolean;
+  disabled?: disabled;
 }>();
 
 const id = useId();
 </script>
 
 <template>
-  <div class="checkbox-wrapper">
+  <div :class="`checkbox-wrapper ${disabled ? 'disabled' : ''}`">
     <input
       :id="id"
       v-model="model"
       type="checkbox"
       :name="name"
       :value="value"
+      :disabled="disabled"
     />
 
     <label :for="id" :title="title">
@@ -35,6 +37,10 @@ const id = useId();
 <style>
 .checkbox-wrapper {
   display: inline-flex;
+
+  &.disabled {
+    opacity: 0.35;
+  }
 
   label {
     padding-inline-start: 0.5rem;
