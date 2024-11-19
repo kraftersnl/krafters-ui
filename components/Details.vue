@@ -27,7 +27,6 @@ defineProps<{
 }
 
 .details-content {
-  padding-block-start: 1rem;
-  padding-inline: 1.25rem;
+  padding-inline-start: 1.25rem;
 }
 </style>
