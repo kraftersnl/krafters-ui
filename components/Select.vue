@@ -151,6 +151,13 @@ function handleChange(event: Event) {
   padding-inline: 0.65rem;
 }
 
+.select-color--blue .select {
+  color: var(--color-blue-text);
+  accent-color: var(--color-blue-text);
+  border-color: var(--color-blue);
+  background-color: var(--color-blue-bg);
+}
+
 .select-color--green .select {
   color: var(--color-green-text);
   accent-color: var(--color-green-text);
