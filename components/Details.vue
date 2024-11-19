@@ -21,12 +21,12 @@ defineProps<{
 .details-wrapper {
   .summary {
     cursor: pointer;
-    margin-inline-start: 1.25rem;
+    margin-inline-start: 1rem;
     list-style-position: outside;
   }
 }
 
 .details-content {
-  padding-inline-start: 1.25rem;
+  padding-inline-start: 1rem;
 }
 </style>

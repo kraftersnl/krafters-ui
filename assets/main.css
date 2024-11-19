@@ -450,13 +450,23 @@ input {
     border: 1px solid var(--color-grey-graphic);
     border-radius: var(--radius-sm);
 
-    &:focus {
+    &::placeholder {
+      color: var(--color-grey-graphic);
+    }
+  }
+
+  .select {
+    &:focus-visible {
       outline: 1px solid var(--focus-color);
       border-color: var(--focus-color);
     }
+  }
 
-    &::placeholder {
-      color: var(--color-grey-graphic);
+  .input,
+  .textarea {
+    &:focus {
+      outline: 1px solid var(--focus-color);
+      border-color: var(--focus-color);
     }
   }
 }
