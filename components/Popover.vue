@@ -3,9 +3,10 @@ import { Tippy, type TippyComponent } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
-const props = withDefaults(
+const activeItem = defineModel<string>();
+
+withDefaults(
   defineProps<{
-    modelValue?: string;
     label?: string;
     navAriaLabel?: string;
     list?: MenuItem[];
@@ -23,7 +24,6 @@ const props = withDefaults(
     maxWidth?: number | 'none';
   }>(),
   {
-    modelValue: undefined,
     label: undefined,
     navAriaLabel: undefined,
     list: () => [],
@@ -38,11 +38,6 @@ const props = withDefaults(
     maxWidth: undefined,
   },
 );
-
-const activeItem = computed({
-  get: () => props.modelValue || '',
-  set: (value) => emit('update:modelValue', value),
-});
 
 function handleMenuClick(item: string, hide: CallableFunction) {
   emit('click', item);
@@ -67,7 +62,7 @@ defineExpose({
   focusTrigger,
 });
 
-const emit = defineEmits(['click', 'update:modelValue']);
+const emit = defineEmits(['click']);
 </script>
 
 <template>

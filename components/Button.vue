@@ -334,6 +334,10 @@ const emit = defineEmits(['click']);
     opacity: 1;
     color: var(--color-grey-bg);
     background-color: var(--color-grey-bg);
+
+    .iconify {
+      opacity: 0.35;
+    }
   }
 
   &[aria-current='page'] {

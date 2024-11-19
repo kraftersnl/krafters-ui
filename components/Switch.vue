@@ -1,6 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  modelValue?: boolean;
+const model = defineModel<boolean>();
+
+defineProps<{
   label: string;
   name?: string;
   value?: string;
@@ -9,15 +10,9 @@ const props = defineProps<{
 
 const id = useId();
 
-const computedModel = computed({
-  get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value),
-});
-
 function handleClick() {
-  computedModel.value = !props.modelValue;
+  model.value = !model.value;
 }
-const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
@@ -26,8 +21,8 @@ const emit = defineEmits(['update:modelValue']);
     type="button"
     role="switch"
     class="switch-wrapper"
-    :aria-checked="computedModel"
-    :value="String(computedModel)"
+    :aria-checked="model"
+    :value="String(model)"
     @click="handleClick"
   >
     <span class="switch">

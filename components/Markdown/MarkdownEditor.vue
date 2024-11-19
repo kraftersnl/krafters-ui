@@ -12,9 +12,10 @@ config({
   },
 });
 
-const props = withDefaults(
+const content = defineModel<string>();
+
+withDefaults(
   defineProps<{
-    modelValue?: string;
     label?: string;
     placeholder?: string;
     id?: string;
@@ -22,18 +23,12 @@ const props = withDefaults(
     required?: boolean;
   }>(),
   {
-    modelValue: undefined,
     label: undefined,
     placeholder: undefined,
     errorMessage: undefined,
     id: () => useId(),
   },
 );
-
-const content = computed({
-  get: () => props.modelValue,
-  set: (value: string) => emit('update:model-value', value),
-});
 
 const markdownEditor = useTemplateRef<HTMLDivElement>('markdownEditor');
 
@@ -44,8 +39,6 @@ function focusEditor() {
 defineExpose({
   focusEditor,
 });
-
-const emit = defineEmits(['update:model-value']);
 </script>
 
 <template>
@@ -112,18 +105,16 @@ const emit = defineEmits(['update:model-value']);
   font-size: var(--font-size-sm);
 }
 
-.invalid {
-  .textarea {
-    &:invalid {
-      border-color: var(--color-red);
-      outline: 1px solid var(--color-red);
-    }
+.textarea {
+  &:user-invalid {
+    border-color: var(--color-red);
+    outline: 1px solid var(--color-red);
   }
+}
 
-  .markdown-editor:has(:invalid) {
-    .error-wrapper .error {
-      display: flex;
-    }
+.markdown-editor:has(:user-invalid) {
+  .error-wrapper .error {
+    display: flex;
   }
 }
 </style>

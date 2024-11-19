@@ -1,7 +1,8 @@
 <script setup lang="ts">
+const model = defineModel<string | number>();
+
 const props = withDefaults(
   defineProps<{
-    modelValue: string | undefined;
     label?: string;
     placeholder?: string;
     id?: string;
@@ -32,7 +33,7 @@ const elementRef = useTemplateRef<HTMLTextAreaElement>('elementRef');
 function handleInput(event: Event) {
   const target = event.target as HTMLTextAreaElement;
   textareaInput.value = target.value;
-  emit('update:modelValue', target.value);
+  model.value = target.value;
 }
 
 function focusElement() {
@@ -62,8 +63,6 @@ onUnmounted(() => window.removeEventListener('resize', resizeTextarea));
 defineExpose({
   focusElement,
 });
-
-const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
@@ -83,8 +82,8 @@ const emit = defineEmits(['update:modelValue']);
     <textarea
       :id="id"
       ref="elementRef"
+      v-model="model"
       :class="`textarea ${autoresize ? 'autoresize' : ''}`"
-      :value="modelValue"
       :placeholder="placeholder"
       :required="required"
       :pattern="pattern"

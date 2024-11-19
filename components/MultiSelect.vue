@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import Multiselect from '@vueform/multiselect';
+import type MultiselectProps from '@vueform/multiselect';
 
 const { t } = useI18n();
+
+const model = defineModel<MultiselectProps['modelValue']>();
 
 // https://github.com/vueform/multiselect#basic-props
 const props = withDefaults(
   defineProps<{
-    modelValue: unknown;
     mode?: 'single' | 'multiple' | 'tags';
     id?: string;
     label: string;
@@ -40,11 +41,6 @@ const props = withDefaults(
   },
 );
 
-const computedModel = computed({
-  get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value),
-});
-
 const msTemplateRef = useTemplateRef('multiselect');
 
 function formatMultipleLabels(values) {
@@ -62,7 +58,6 @@ defineExpose({
   selectAll,
 });
 
-const emit = defineEmits(['update:modelValue']);
 // https://github.com/vueform/multiselect#events
 </script>
 
@@ -87,7 +82,7 @@ const emit = defineEmits(['update:modelValue']);
       v-bind="$attrs"
       :id="id"
       ref="multiselect"
-      v-model="computedModel"
+      v-model="model"
       :locale="$i18n.locale"
       :hide-selected="hideSelected"
       :close-on-select="closeOnSelect"

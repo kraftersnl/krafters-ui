@@ -33,7 +33,7 @@
     "too-big": "Bestandsgrootte is groter dan {size}"
   },
   "form-errors": {
-    "not-filled-in": "{item} is niet ingevuld",
+    "not-filled-in": "{item} ontbreekt",
     "required": "vereist"
   },
   "filters": {

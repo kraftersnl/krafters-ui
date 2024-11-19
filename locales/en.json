@@ -33,7 +33,7 @@
     "too-big": "File size is bigger then {size}"
   },
   "form-errors": {
-    "not-filled-in": "{item} is not filled in",
+    "not-filled-in": "{item} is missing",
     "required": "required"
   },
   "filters": {

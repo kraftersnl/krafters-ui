@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import VueDatePicker from '@vuepic/vue-datepicker';
+import type { ModelValue } from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 
+const model = defineModel<ModelValue>();
+
 // https://vue3datepicker.com/props/modes/
-const props = withDefaults(
+withDefaults(
   defineProps<{
-    modelValue?: string | Date;
     label: string;
     format?: string | ((date: Date) => string) | ((dates: Date[]) => string);
     required?: boolean;
@@ -21,7 +23,6 @@ const props = withDefaults(
     monthChangeOnScroll?: boolean;
   }>(),
   {
-    modelValue: undefined,
     format: 'yyyy-MM-dd',
     textInput: undefined,
     utc: false,
@@ -33,13 +34,6 @@ const props = withDefaults(
 );
 
 const id = useId();
-
-const computedModel = computed({
-  get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value),
-});
-
-const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
@@ -54,7 +48,7 @@ const emit = defineEmits(['update:modelValue']);
 
     <VueDatePicker
       :id="id"
-      v-model="computedModel"
+      v-model="model"
       v-bind="$attrs"
       auto-apply
       :text-input="textInput"

@@ -1,7 +1,8 @@
 <script setup lang="ts">
+const model = defineModel<string>();
+
 const props = withDefaults(
   defineProps<{
-    modelValue: string;
     tabs: TabOption[];
     ariaLabel?: string;
   }>(),
@@ -47,11 +48,8 @@ function handleNextTab(tab: TabOption) {
 }
 
 const activeTab = computed({
-  get: () => props.modelValue,
-  set: (value) => {
-    // navigateTo({ query: { tab: value }, replace: true });
-    emit('update:model-value', value);
-  },
+  get: () => model.value,
+  set: (value) => (model.value = value),
 });
 
 function setActiveTab(tab: TabOption) {
@@ -61,7 +59,6 @@ function setActiveTab(tab: TabOption) {
 defineExpose({
   setActiveTab,
 });
-const emit = defineEmits(['update:model-value']);
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-const props = defineProps<{
-  modelValue?: boolean | (string | number)[];
+const model = defineModel<boolean | (string | number)[]>();
+
+defineProps<{
   label: string;
   title?: string;
   name?: string;
@@ -9,20 +10,13 @@ const props = defineProps<{
 }>();
 
 const id = useId();
-
-const computedModel = computed({
-  get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value),
-});
-
-const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
   <div class="checkbox-wrapper">
     <input
       :id="id"
-      v-model="computedModel"
+      v-model="model"
       type="checkbox"
       :name="name"
       :value="value"

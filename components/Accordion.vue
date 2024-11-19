@@ -1,7 +1,8 @@
 <script setup lang="ts">
-const props = withDefaults(
+const isExpanded = defineModel<boolean>();
+
+withDefaults(
   defineProps<{
-    modelValue: boolean;
     minHeight?: number;
     id?: string;
     ariaLabel?: string;
@@ -24,13 +25,8 @@ const accordionContentWrapper = useTemplateRef<HTMLElement>(
 const accordionContent = useTemplateRef<HTMLElement>('accordionContent');
 
 function toggleAccordion() {
-  emit('update:modelValue', !isExpanded.value);
+  isExpanded.value = !isExpanded.value;
 }
-
-const isExpanded = computed({
-  get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value),
-});
 
 function handleTransitionRun(event: TransitionEvent) {
   if (event.propertyName === 'grid-template-rows' && !isExpanded.value) {
@@ -51,8 +47,6 @@ onMounted(() => {
 });
 
 defineExpose({ toggleAccordion });
-
-const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>

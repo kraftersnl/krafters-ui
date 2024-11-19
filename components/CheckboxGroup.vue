@@ -1,7 +1,8 @@
 <script setup lang="ts">
-const props = withDefaults(
+const model = defineModel<(string | number)[]>();
+
+withDefaults(
   defineProps<{
-    modelValue: (string | number)[];
     options: any[];
     label: string;
     name?: string;
@@ -19,30 +20,23 @@ const props = withDefaults(
 );
 
 const id = useId();
-
-const computedModel = computed({
-  get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value),
-});
-
-const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
   <div class="checkboxes-wrapper">
     <template v-if="options?.length">
       <fieldset>
-        <legend :Class="`${hideLegend ? 'visuallyhidden' : ''}`">
+        <legend :class="`${hideLegend ? 'visuallyhidden' : ''}`">
           {{ label }}
         </legend>
 
         <ul role="list" class="checkbox-list">
           <li v-for="option in options" :key="'checkbox-' + option.value">
             <Checkbox
-              v-model="computedModel"
-              :value="option[props.valueKey]"
-              :label="option[props.labelKey]"
-              :title="titleKey ? option[props.titleKey] : undefined"
+              v-model="model"
+              :value="option[valueKey]"
+              :label="option[labelKey]"
+              :title="titleKey ? option[titleKey] : undefined"
               :name="id"
             />
           </li>

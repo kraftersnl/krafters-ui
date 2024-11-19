@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import compressor from 'compressorjs';
 
+const model = defineModel<File>();
+
 const props = withDefaults(
   defineProps<{
-    modelValue?: File;
     label: string;
     name?: string;
     id?: string;
@@ -17,7 +18,6 @@ const props = withDefaults(
     maxHeight?: number;
   }>(),
   {
-    modelValue: undefined,
     name: undefined,
     id: () => useId(),
     accept: undefined,
@@ -36,9 +36,9 @@ const imagePreview = ref<string>();
 const dragover = ref(false);
 
 const validity = computed(() => {
-  if (!props.modelValue) {
+  if (!model.value) {
     return false;
-  } else if (props.modelValue.size / 1024 > props.maxFileSize) {
+  } else if (model.value.size / 1024 > props.maxFileSize) {
     return false;
   }
   return true;
@@ -53,8 +53,8 @@ function handleDragLeave() {
 }
 
 const errorMessage = computed(() => {
-  if (props.modelValue) {
-    if (props.modelValue.size / 1024 > props.maxFileSize) {
+  if (model.value) {
+    if (model.value.size / 1024 > props.maxFileSize) {
       return t('files.too-big', { size: props.maxFileSize / 1000 + 'MB' });
     }
   }
@@ -82,14 +82,14 @@ async function handleInput(event: Event) {
       },
     });
   } else {
-    emit('update:model-value', file);
+    model.value = file;
   }
 }
 
 watch(
-  () => props.modelValue,
+  () => model.value,
   () => {
-    if (!props.modelValue) {
+    if (!model.value) {
       imagePreview.value = undefined;
       if (fileInputRef.value?.value) {
         fileInputRef.value.value = '';
@@ -127,7 +127,7 @@ const emit = defineEmits(['update:model-value']);
         :class="`
           file-input-button
           ${imagePreview ? 'has-image-preview' : ''}
-          ${modelValue ? 'has-file' : ''}
+          ${model ? 'has-file' : ''}
           ${dragover ? 'dragover' : ''}
         `"
       >
@@ -138,12 +138,12 @@ const emit = defineEmits(['update:model-value']);
           <span class="drop">{{ $t('files.or-drop-file') }}</span>
 
           <Ellipsis class="file-name">
-            {{ modelValue?.name || $t('files.no-file-selected') }}
+            {{ model?.name || $t('files.no-file-selected') }}
           </Ellipsis>
 
           <span class="file-size">{{
-            modelValue
-              ? `(${formatFileSize(modelValue.size)})`
+            model
+              ? `(${formatFileSize(model.size)})`
               : `(max. ${maxFileSize / 1000} MB)`
           }}</span>
         </span>

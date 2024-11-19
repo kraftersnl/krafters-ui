@@ -1,11 +1,13 @@
 <script setup lang="ts">
+const model = defineModel<string | number>();
+
 const props = withDefaults(
   defineProps<{
-    modelValue?: string | number | undefined;
     label: string;
     name?: string;
     options?: any[];
     placeholder?: string;
+    placeholderValue?: string | number;
     size?: 'sm' | 'md' | 'lg';
     valueKey?: string;
     labelKey?: string;
@@ -21,10 +23,10 @@ const props = withDefaults(
     color?: BaseColor;
   }>(),
   {
-    modelValue: undefined,
     name: undefined,
     options: undefined,
     placeholder: undefined,
+    placeholderValue: '',
     size: 'md',
     valueKey: 'value',
     labelKey: 'label',
@@ -40,10 +42,8 @@ const id = useId();
 
 function handleChange(event: Event) {
   const target = event.target as HTMLSelectElement;
-  emit('update:modelValue', target.value);
+  model.value = target.value;
 }
-
-const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
@@ -71,10 +71,9 @@ const emit = defineEmits(['update:modelValue']);
     <select
       :id="id"
       ref="elementRef"
+      v-model="model"
       class="select"
-      :value="modelValue"
       :name="name"
-      :placeholder="placeholder"
       :required="required"
       :disabled="disabled"
       :autofocus="autofocus"
@@ -85,7 +84,7 @@ const emit = defineEmits(['update:modelValue']);
       `"
       @change="handleChange"
     >
-      <option v-if="placeholder" hidden value="">
+      <option v-if="placeholder" hidden :value="placeholderValue">
         {{ placeholder }}
       </option>
 

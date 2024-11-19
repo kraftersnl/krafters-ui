@@ -1,10 +1,12 @@
 <script setup lang="ts">
+const model = defineModel<string | number>();
+
 const props = withDefaults(
   defineProps<{
-    modelValue?: string | number | undefined;
     label: string;
     id?: string;
     name?: string;
+    title?: string;
     required?: boolean;
     disabled?: boolean;
     autofocus?: boolean;
@@ -24,9 +26,9 @@ const props = withDefaults(
     errorMessage?: string;
   }>(),
   {
-    modelValue: undefined,
     id: () => useId(),
     name: undefined,
+    title: undefined,
     type: 'text',
     autocomplete: undefined,
     pattern: undefined,
@@ -67,10 +69,8 @@ function handleInput(event: Event) {
       return;
     }
   }
-  emit('update:modelValue', target.value);
+  model.value = target.value;
 }
-
-const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
@@ -94,9 +94,10 @@ const emit = defineEmits(['update:modelValue']);
     <input
       :id="id"
       ref="elementRef"
+      v-model="model"
       class="input"
-      :value="modelValue"
       :name="name"
+      :title="title"
       :type="type || 'text'"
       :autocomplete="autocomplete"
       :inputmode="inputMode"
@@ -118,10 +119,6 @@ const emit = defineEmits(['update:modelValue']);
 
     <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
 
-    <p v-if="instruction" :class="`instruction-${id}`">
-      {{ instruction }}
-    </p>
-
     <div
       v-if="required || min || max"
       :id="id ? `error-${id}` : undefined"
@@ -136,6 +133,10 @@ const emit = defineEmits(['update:modelValue']);
         </span>
       </div>
     </div>
+
+    <p v-if="instruction" :class="`instruction-${id}`">
+      {{ instruction }}
+    </p>
   </div>
 </template>
 
@@ -156,7 +157,7 @@ const emit = defineEmits(['update:modelValue']);
   }
 
   [class*='instruction'] {
-    margin-top: 0.5rem;
+    margin-block-start: 0.25rem;
     font-size: var(--font-size-xs);
     color: var(--color-grey-text);
   }
