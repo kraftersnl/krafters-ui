@@ -12,11 +12,12 @@ const props = withDefaults(
     valueKey?: string;
     labelKey?: string;
     disabledKey?: string;
+    hideLabel?: boolean;
+    showInvalid?: boolean;
     required?: boolean;
     disabled?: boolean;
     autofocus?: boolean;
     multiple?: boolean;
-    hideLabel?: boolean;
     noOptionsLabel?: string;
     instruction?: string;
     errorMessage?: string;
@@ -52,6 +53,7 @@ function handleChange(event: Event) {
       form-field-wrapper
       select-size--${size}
       ${color ? `select-color--${color}` : ''}
+      ${showInvalid ? 'show-invalid' : ''}
     `"
   >
     <label

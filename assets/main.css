@@ -472,14 +472,16 @@ input {
   }
 }
 
-.select,
-.textarea,
-.input {
-  &:user-invalid {
-    border-color: var(--color-red);
+.show-invalid {
+  .select,
+  .textarea,
+  .input {
+    &:invalid {
+      border-color: var(--color-red);
 
-    + .error-wrapper .error {
-      display: flex;
+      + .error-wrapper .error {
+        display: flex;
+      }
     }
   }
 }

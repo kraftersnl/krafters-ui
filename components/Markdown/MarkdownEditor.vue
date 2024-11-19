@@ -105,14 +105,7 @@ defineExpose({
   font-size: var(--font-size-sm);
 }
 
-.textarea {
-  &:user-invalid {
-    border-color: var(--color-red);
-    outline: 1px solid var(--color-red);
-  }
-}
-
-.markdown-editor:has(:user-invalid) {
+.show-invalid .markdown-editor:has(:invalid) {
   .error-wrapper .error {
     display: flex;
   }

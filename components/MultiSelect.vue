@@ -66,6 +66,7 @@ defineExpose({
     :class="`
       form-field-wrapper
       krafters-multiselect
+      ${showInvalid ? 'show-invalid' : ''}
     `"
   >
     <label
@@ -304,7 +305,7 @@ defineExpose({
   box-shadow: none;
 }
 
-.invalid .krafters-multiselect:has(:invalid) {
+.show-invalid .krafters-multiselect:has(:invalid) {
   .error-wrapper .error {
     display: flex;
   }

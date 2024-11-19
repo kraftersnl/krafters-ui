@@ -2,6 +2,7 @@
 const props = withDefaults(
   defineProps<{
     focusFn?: CallableFunction;
+    showInvalid?: boolean;
   }>(),
   {
     focusFn: undefined,
@@ -10,7 +11,7 @@ const props = withDefaults(
 
 const validity = ref(true);
 
-function handleSubmit(event: SubmitEvent) {
+function handleSubmit(event: Event) {
   const target = event.target as HTMLFormElement;
   validity.value = target?.checkValidity();
 
@@ -30,14 +31,14 @@ function handleSubmit(event: SubmitEvent) {
 }
 
 const emit = defineEmits<{
-  submit: [data: FormData, event: SubmitEvent];
-  invalid: [event: SubmitEvent];
+  submit: [data: FormData, event: Event];
+  invalid: [event: Event];
 }>();
 </script>
 
 <template>
   <form
-    :class="`form ${!validity ? 'invalid' : 'valid'}`"
+    :class="`form ${showInvalid ? 'show-invalid' : ''} ${!validity ? 'show-invalid' : 'show-valid'}`"
     novalidate
     action="."
     @submit.prevent="handleSubmit"

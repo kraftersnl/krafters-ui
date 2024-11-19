@@ -177,7 +177,7 @@ const id = useId();
   padding: 6px;
 }
 
-.invalid {
+.show-invalid {
   .dp__input {
     &:invalid {
       border-color: var(--color-red);

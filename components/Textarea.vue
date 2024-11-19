@@ -10,6 +10,7 @@ const props = withDefaults(
     pattern?: string;
     instruction?: string;
     errorMessage?: string;
+    showInvalid?: boolean;
     hideLabel?: boolean;
     required?: boolean;
     disabled?: boolean;
@@ -66,7 +67,9 @@ defineExpose({
 </script>
 
 <template>
-  <div class="form-field-wrapper textarea-wrapper">
+  <div
+    :class="`form-field-wrapper textarea-wrapper ${showInvalid ? 'show-invalid' : ''}`"
+  >
     <label
       v-if="label"
       :for="props.id"
