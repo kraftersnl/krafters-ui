@@ -2,17 +2,21 @@
 withDefaults(
   defineProps<{
     size?: 'xs' | 'sm' | 'md';
+    fontSize?: 'xs' | 'sm' | 'md';
     ariaLabel?: string;
   }>(),
   {
     size: 'sm',
+    fontSize: 'sm',
     ariaLabel: undefined,
   },
 );
 </script>
 
 <template>
-  <div :class="`table-wrapper table-size--${size}`">
+  <div
+    :class="`table-wrapper table-size--${size} table-font-size--${fontSize}`"
+  >
     <table>
       <caption v-if="ariaLabel" class="visuallyhidden" v-text="ariaLabel" />
 
@@ -45,9 +49,31 @@ withDefaults(
   }
 }
 
-.table-size--xs {
+.table-font-size--xs {
   font-size: var(--font-size-xs);
+  thead {
+    font-size: var(--font-size-xxs);
+  }
+}
 
+.table-font-size--sm {
+  font-size: var(--font-size-sm);
+  thead {
+    font-size: var(--font-size-xs);
+  }
+}
+
+.table-font-size--md {
+  font-size: var(--font-size-md);
+  thead {
+    font-size: var(--font-size-sm);
+  }
+}
+
+.table-size--xs {
+  tbody tr {
+    min-height: 2rem;
+  }
   th,
   td {
     padding-block: 0.5rem;
@@ -56,12 +82,9 @@ withDefaults(
 }
 
 .table-size--sm {
-  font-size: var(--font-size-sm);
-
-  thead {
-    font-size: var(--font-size-xs);
+  tbody tr {
+    height: 2.5rem;
   }
-
   th,
   td {
     padding-block: 0.5rem;
@@ -70,15 +93,12 @@ withDefaults(
 }
 
 .table-size--md {
-  font-size: var(--font-size-md);
-
-  thead {
-    font-size: var(--font-size-sm);
+  tbody tr {
+    height: 3rem;
   }
-
   th,
   td {
-    padding-block: 0.5rem;
+    padding-block: 0.45rem;
     padding-inline: 0.5rem;
   }
 }
