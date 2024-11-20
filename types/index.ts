@@ -29,6 +29,8 @@ declare global {
     to?: string;
     disabled?: boolean;
     divider?: boolean;
+    external?: boolean;
+    target?: string;
     onClick?: () => void;
   };
 
