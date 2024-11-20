@@ -101,6 +101,8 @@
 
 <style>
 .logo-cardan {
+  flex-shrink: 0;
+
   path,
   circle {
     fill: currentColor;
