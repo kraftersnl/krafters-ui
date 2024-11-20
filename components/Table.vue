@@ -76,7 +76,7 @@ withDefaults(
   }
   th,
   td {
-    padding-block: 0.35rem;
+    padding-block: 0.4rem;
     padding-inline: 0.35rem;
   }
 }
@@ -87,7 +87,7 @@ withDefaults(
   }
   th,
   td {
-    padding-block: 0.4rem;
+    padding-block: 0.5rem;
     padding-inline: 0.5rem;
   }
 }
@@ -98,7 +98,7 @@ withDefaults(
   }
   th,
   td {
-    padding-block: 0.45rem;
+    padding-block: 0.6rem;
     padding-inline: 0.5rem;
   }
 }
