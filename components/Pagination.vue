@@ -40,7 +40,6 @@ const computedPageSizes = computed(() => {
 function goToPage(pageNumber: number) {
   if (currentPage.value === pageNumber) return;
   if (currentPage.value < 1) return;
-  if (currentPage.value > props.lastPage) return;
 
   currentPage.value = pageNumber;
 }
@@ -67,8 +66,8 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         hide-label
         size="sm"
         class="prev-page-button"
-        :disabled="loading || page <= 1 || lastPage <= 1"
-        @click.stop="goToPage(currentPage - 1)"
+        :disabled="loading || page <= 1"
+        @click="goToPage(currentPage - 1)"
       />
 
       <div :class="`current-page-wrapper ${loading ? 'disabled' : ''}`">
