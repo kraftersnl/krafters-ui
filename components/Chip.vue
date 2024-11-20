@@ -5,11 +5,13 @@ const props = withDefaults(
   defineProps<{
     label?: string | number;
     icon?: string;
+    variant?: 'flat' | 'outline';
     color?: BaseColor;
     size?: 'sm' | 'md' | 'lg';
     capitalize?: boolean;
   }>(),
   {
+    variant: 'flat',
     label: undefined,
     icon: undefined,
     color: undefined,
@@ -28,6 +30,7 @@ const formattedLabel = computed(() =>
   <span
     :class="`
       chip
+      chip-variant--${variant}
       chip-color--${color}
       chip-size--${size}
       ${capitalize ? 'chip--capitalize' : ''}
@@ -50,13 +53,21 @@ const formattedLabel = computed(() =>
   vertical-align: middle;
   gap: 0.25rem;
   border-radius: var(--radius-sm);
-  background-color: var(--color-grey-bg);
+  border: 1px solid transparent;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
 
 .chip--capitalize .chip-text::first-letter {
   text-transform: capitalize;
+}
+
+.chip-variant--flat {
+  background-color: var(--color-grey-bg);
+}
+
+.chip-variant--outline {
+  border-color: var(--color-grey-bg);
 }
 
 .chip-size--sm {
