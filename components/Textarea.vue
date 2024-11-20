@@ -8,6 +8,7 @@ const props = withDefaults(
     id?: string;
     name?: string;
     pattern?: string;
+    ariaDescribedby?: string;
     instruction?: string;
     errorMessage?: string;
     showInvalid?: boolean;
@@ -23,6 +24,7 @@ const props = withDefaults(
     id: () => useId(),
     name: undefined,
     pattern: undefined,
+    ariaDescribedby: undefined,
     instruction: undefined,
     errorMessage: undefined,
   },
@@ -94,6 +96,7 @@ defineExpose({
       :autofocus="autofocus"
       :name="name"
       :aria-describedby="`
+        ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}
         ${id && required ? `error-${id}` : ''}
       `"

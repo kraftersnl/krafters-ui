@@ -22,6 +22,7 @@ const props = withDefaults(
     showInvalid?: boolean;
     min?: number | string;
     max?: number | string;
+    ariaDescribedby?: string;
     instruction?: string;
     errorMessage?: string;
   }>(),
@@ -39,6 +40,7 @@ const props = withDefaults(
     maxlength: undefined,
     min: undefined,
     max: undefined,
+    ariaDescribedby: undefined,
     instruction: undefined,
     errorMessage: undefined,
   },
@@ -111,6 +113,7 @@ function handleInput(event: Event) {
       :min="min"
       :max="max"
       :aria-describedby="`
+        ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}
         ${id && (required || min || max) ? `error-${id}` : ''}
       `"

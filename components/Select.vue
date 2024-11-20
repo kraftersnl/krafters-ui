@@ -19,6 +19,7 @@ const props = withDefaults(
     autofocus?: boolean;
     multiple?: boolean;
     noOptionsLabel?: string;
+    ariaDescribedby?: string;
     instruction?: string;
     errorMessage?: string;
     color?: BaseColor;
@@ -33,6 +34,7 @@ const props = withDefaults(
     labelKey: 'label',
     disabledKey: 'disabled',
     noOptionsLabel: 'select.no-options',
+    ariaDescribedby: undefined,
     instruction: undefined,
     errorMessage: undefined,
     color: undefined,
@@ -81,6 +83,7 @@ function handleChange(event: Event) {
       :autofocus="autofocus"
       :multiple="multiple"
       :aria-describedby="`
+        ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}
         ${id && required ? `error-${id}` : ''}
       `"
