@@ -555,6 +555,10 @@ input {
 /* Markdown Editor/Preview classes */
 .md-editor-preview {
   word-break: break-word !important;
+
+  p {
+    white-space: normal;
+  }
 }
 
 .default-theme {

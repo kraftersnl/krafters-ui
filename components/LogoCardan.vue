@@ -5,6 +5,7 @@
     class="logo-cardan"
     width="160"
     height="40"
+    lang="nl"
     aria-label="Cardan voor iedereen"
   >
     <g class="voor-iedereen">
