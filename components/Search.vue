@@ -24,6 +24,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
         v-model="searchTerm"
         type="search"
         size="lg"
+        icon="search"
         :placeholder="placeholder"
         :label="$t('general.search')"
         hide-label
@@ -31,6 +32,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
       />
 
       <Button
+        v-if="searchTerm"
         type="reset"
         :label="$t('general.reset')"
         hide-label
