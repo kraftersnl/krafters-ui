@@ -88,7 +88,6 @@
     "open": "Open",
     "order": "Order",
     "pages": "{n} page | {n} pages",
-    "password": "Password",
     "prefs": "Preferences",
     "priority": "Priority",
     "project": "Project",
@@ -127,6 +126,10 @@
   "multiselect": {
     "items-selected": "items selected",
     "pages-selected": "pages selected"
+  },
+  "password": {
+    "heading": "Password",
+    "show": "Show password"
   },
   "pagination": {
     "current-page": "page",

@@ -88,7 +88,6 @@
     "open": "Openen",
     "order": "Volgorde",
     "pages": "{n} page | {n} pages",
-    "password": "Wachtwoord",
     "prefs": "Voorkeuren",
     "priority": "Prioriteit",
     "project": "Project",
@@ -127,6 +126,10 @@
   "multiselect": {
     "items-selected": "{count} items geselecteerd",
     "pages-selected": "{count} pagina's geselecteerd"
+  },
+  "password": {
+    "heading": "Wachtwoord",
+    "show": "Toon wachtwoord"
   },
   "pagination": {
     "current-page": "pagina",
