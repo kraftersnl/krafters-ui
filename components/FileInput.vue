@@ -67,7 +67,7 @@ async function handleInput(event: Event) {
 
   const file = target.files[0];
 
-  if (target.files[0].type.includes('image')) {
+  if (file.type.includes('image') && !file.type.includes('gif')) {
     new compressor(file, {
       quality: props.quality,
       maxWidth: props.maxWidth,
@@ -83,6 +83,7 @@ async function handleInput(event: Event) {
     });
   } else {
     model.value = file;
+    imagePreview.value = URL.createObjectURL(file);
   }
 }
 
@@ -103,8 +104,11 @@ const emit = defineEmits(['update:model-value']);
 
 <template>
   <div class="file-input-wrapper">
-    <div class="file-input" :style="`background-image: url(${imagePreview})`">
-      <label class="visuallyhidden" :for="id">Upload</label>
+    <label :for="id" class="file-input-label">
+      {{ $t('files.browse') }}
+    </label>
+
+    <div class="file-input">
       <input
         :id="id"
         ref="fileInputRef"
@@ -124,6 +128,7 @@ const emit = defineEmits(['update:model-value']);
         tabindex="-1"
         type="button"
         :disabled="disabled"
+        :style="`background-image: url(${imagePreview})`"
         :class="`
           file-input-button
           ${imagePreview ? 'has-image-preview' : ''}
@@ -131,23 +136,17 @@ const emit = defineEmits(['update:model-value']);
           ${dragover ? 'dragover' : ''}
         `"
       >
-        <Icon name="heroicons-solid:cloud-upload" />
-
-        <span class="file-input-label">
-          <span class="browse">{{ $t('files.browse') }}</span>
-          <span class="drop">{{ $t('files.or-drop-file') }}</span>
-
-          <Ellipsis class="file-name">
-            {{ model?.name || $t('files.no-file-selected') }}
-          </Ellipsis>
-
-          <span class="file-size">{{
-            model
-              ? `(${formatFileSize(model.size)})`
-              : `(max. ${maxFileSize / 1000} MB)`
-          }}</span>
-        </span>
+        <Icon name="heroicons-solid:document-add" />
       </button>
+    </div>
+
+    <div class="file-preview">
+      {{ model?.name || $t('files.no-file-selected') }}
+      <span class="file-size">{{
+        model
+          ? `(${formatFileSize(model.size)})`
+          : `(max. ${maxFileSize / 1000} MB)`
+      }}</span>
     </div>
 
     <div
@@ -167,55 +166,41 @@ const emit = defineEmits(['update:model-value']);
 
 <style>
 .file-input-wrapper {
-  .preview-image {
-    position: absolute;
+  label {
+    font-size: var(--font-size-sm);
+    font-weight: 400;
   }
 }
 
 .file-input-button {
   position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  display: grid;
+  place-content: center;
   width: 100%;
-  padding-block: 1.5rem;
-  padding-inline: 0.5rem;
-  color: var(--color-accent);
+  height: 12rem;
+  color: var(--color-grey-graphic);
   border-color: var(--color-grey-graphic);
   border-style: dashed;
   border-radius: var(--radius-md);
-  background-color: var(--color-white);
+  max-width: 320px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-color: transparent;
   outline: 3px solid transparent;
 
   .iconify {
-    font-size: 2rem;
-  }
-
-  .browse {
-    padding-inline: 0.65rem;
-    padding-block: 0.35rem;
-    border-radius: var(--radius-full);
-    background-color: var(--color-accent);
-    color: var(--color-white);
-    justify-self: center;
-  }
-
-  .drop {
-    margin-block: 0.25rem 1.25rem;
-  }
-
-  .file-name,
-  .file-size {
-    opacity: 80%;
-    font-weight: 500;
-    white-space: pre;
+    font-size: 3rem;
   }
 
   &.has-image-preview {
-    background-color: rgb(0 0 0 / 50%);
     color: white;
+    border: none;
+    border-radius: var(--radius-xs);
+
+    .iconify {
+      display: none;
+    }
   }
 
   &.dragover {
@@ -225,20 +210,16 @@ const emit = defineEmits(['update:model-value']);
   }
 }
 
-.file-input-label {
+.file-preview {
+  margin-block: 0.25rem;
   font-size: var(--font-size-xs);
-  font-weight: 400;
-  margin-block-start: 0.5rem;
-  display: grid;
-  gap: 0.25rem;
+  color: var(--color-grey-text);
+  white-space: pre;
 }
 
 .file-input {
+  padding-block-start: 0.25rem;
   position: relative;
-  max-width: 320px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 
   input[type='file'] {
     -webkit-tap-highlight-color: transparent;
@@ -253,6 +234,7 @@ const emit = defineEmits(['update:model-value']);
     height: 100%;
 
     &:hover + .file-input-button {
+      color: var(--color-accent);
       border-color: var(--color-accent);
     }
 
