@@ -105,7 +105,7 @@ const emit = defineEmits(['update:model-value']);
 <template>
   <div class="file-input-wrapper">
     <label :for="id" class="file-input-label">
-      {{ $t('files.browse') }}
+      {{ $t('files.browse') }} (max. {{ maxFileSize / 1000 }} MB)
     </label>
 
     <div class="file-input">
@@ -128,7 +128,6 @@ const emit = defineEmits(['update:model-value']);
         tabindex="-1"
         type="button"
         :disabled="disabled"
-        :style="`background-image: url(${imagePreview})`"
         :class="`
           file-input-button
           ${imagePreview ? 'has-image-preview' : ''}
@@ -137,16 +136,15 @@ const emit = defineEmits(['update:model-value']);
         `"
       >
         <Icon name="heroicons-solid:document-add" />
+        <img v-if="imagePreview" :src="imagePreview" />
       </button>
     </div>
 
-    <div class="file-preview">
-      {{ model?.name || $t('files.no-file-selected') }}
-      <span class="file-size">{{
-        model
-          ? `(${formatFileSize(model.size)})`
-          : `(max. ${maxFileSize / 1000} MB)`
-      }}</span>
+    <div v-if="model" class="file-preview" :aria-describedby="id">
+      <span class="file-name">
+        {{ model.name }}
+      </span>
+      <span class="file-size"> ({{ formatFileSize(model.size) }}) </span>
     </div>
 
     <div
@@ -174,22 +172,18 @@ const emit = defineEmits(['update:model-value']);
 
 .file-input-button {
   position: relative;
-  display: grid;
-  place-content: center;
-  width: 100%;
-  height: 12rem;
+  padding: 0;
+  height: 8rem;
   color: var(--color-grey-graphic);
   border-color: var(--color-grey-graphic);
   border-style: dashed;
   border-radius: var(--radius-md);
   max-width: 320px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left;
   background-color: transparent;
   outline: 3px solid transparent;
 
   .iconify {
+    margin-inline: 4rem;
     font-size: 3rem;
   }
 
