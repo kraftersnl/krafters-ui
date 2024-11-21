@@ -297,10 +297,9 @@ const emit = defineEmits(['click']);
 
   .iconify {
     font-size: inherit;
-    margin-inline-end: 0;
-    margin-block-end: 0.2em;
+    margin-block-end: 0.1rem;
     vertical-align: middle;
-    margin-inline-start: 0.25em;
+    margin-inline-start: 0.1rem;
   }
 
   &:focus-visible {
