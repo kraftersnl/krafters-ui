@@ -130,7 +130,12 @@
     "pages-selected": "{count} pagina's geselecteerd"
   },
   "password": {
+    "confirm": "Herhaal nieuwe wachtwoord",
+    "current": "Huidig wachtwoord",
+    "edit": "Wachtwoord wijzigen",
     "heading": "Wachtwoord",
+    "new": "Nieuw wachtwoord",
+    "save": "Wachtwoord opslaan",
     "show": "Toon wachtwoord"
   },
   "pagination": {

@@ -130,7 +130,12 @@
     "pages-selected": "pages selected"
   },
   "password": {
+    "confirm": "Confirm new password",
+    "current": "Current password",
+    "edit": "Update password",
     "heading": "Password",
+    "new": "New password",
+    "save": "Save password",
     "show": "Show password"
   },
   "pagination": {
