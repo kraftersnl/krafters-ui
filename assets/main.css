@@ -200,6 +200,12 @@ body {
   overflow-wrap: word-break;
 }
 
+img {
+  word-break: break-all;
+  font-style: italic;
+  font-size: var(--font-size-xs);
+}
+
 img,
 picture,
 svg {
