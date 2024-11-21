@@ -2,6 +2,7 @@ import type Dialog from '../components/Dialog.vue';
 import type Form from '../components/Form.vue';
 import type Textarea from '../components/Textarea.vue';
 import type Input from '../components/Input.vue';
+import type FileInput from '../components/FileInput.vue';
 import type Button from '../components/Button.vue';
 import type Popover from '../components/Popover.vue';
 
@@ -38,6 +39,7 @@ declare global {
   type FormComponent = InstanceType<typeof Form>;
   type TextareaComponent = InstanceType<typeof Textarea>;
   type InputComponent = InstanceType<typeof Input>;
+  type FileInputComponent = InstanceType<typeof FileInput>;
   type ButtonComponent = InstanceType<typeof Button>;
   type PopoverComponent = InstanceType<typeof Popover>;
 

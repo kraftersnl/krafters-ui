@@ -36,12 +36,28 @@ const imagePreview = ref<string>();
 const dragover = ref(false);
 
 const validity = computed(() => {
-  if (!model.value) {
-    return false;
-  } else if (model.value.size / 1024 > props.maxFileSize) {
-    return false;
+  if (model.value) {
+    if (!props.required) {
+      return false;
+    } else if (model.value.size / 1024 > props.maxFileSize) {
+      return false;
+    }
+    return true;
   }
   return true;
+});
+
+defineExpose({
+  validity,
+});
+
+const errorMessage = computed(() => {
+  if (model.value) {
+    if (model.value.size / 1024 > props.maxFileSize) {
+      return t('files.too-big', { size: props.maxFileSize / 1000 + ' MB' });
+    }
+  }
+  return t('form-errors.not-filled-in', { item: props.label });
 });
 
 function handleDragOver() {
@@ -51,15 +67,6 @@ function handleDragOver() {
 function handleDragLeave() {
   dragover.value = false;
 }
-
-const errorMessage = computed(() => {
-  if (model.value) {
-    if (model.value.size / 1024 > props.maxFileSize) {
-      return t('files.too-big', { size: props.maxFileSize / 1000 + 'MB' });
-    }
-  }
-  return t('form-errors.not-filled-in', { item: props.label });
-});
 
 async function handleInput(event: Event) {
   const target = event.target as HTMLInputElement;
@@ -247,7 +254,7 @@ const emit = defineEmits(['update:model-value']);
   }
 }
 
-.file-input-wrapper:has(.invalid) {
+.file-input-wrapper:has(.show-invalid) {
   .file-input-button {
     border-color: var(--color-red);
   }
