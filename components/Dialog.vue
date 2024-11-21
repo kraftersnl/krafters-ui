@@ -1,12 +1,14 @@
 <script setup lang="ts">
-withDefaults(
+const props = withDefaults(
   defineProps<{
     label?: string;
     id?: string;
+    clickOutside?: boolean;
   }>(),
   {
     label: undefined,
     id: () => useId(),
+    clickOutside: true,
   },
 );
 
@@ -14,6 +16,8 @@ const dialogTemplateRef = useTemplateRef<HTMLDialogElement>('dialog');
 const isVisible = ref(false);
 
 function handleDialogClick(event: MouseEvent) {
+  if (!props.clickOutside) return;
+
   const target = event.target as HTMLDialogElement;
 
   if (target.nodeName === 'DIALOG') {
