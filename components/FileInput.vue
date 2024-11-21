@@ -67,6 +67,10 @@ async function handleInput(event: Event) {
 
   const file = target.files[0];
 
+  if (file.type.includes('image')) {
+    imagePreview.value = URL.createObjectURL(file);
+  }
+
   if (file.type.includes('image') && !file.type.includes('gif')) {
     new compressor(file, {
       quality: props.quality,
@@ -78,12 +82,10 @@ async function handleInput(event: Event) {
           type: result.type,
         });
         emit('update:model-value', compressedFile);
-        imagePreview.value = URL.createObjectURL(compressedFile);
       },
     });
   } else {
     model.value = file;
-    imagePreview.value = URL.createObjectURL(file);
   }
 }
 
@@ -115,7 +117,7 @@ const emit = defineEmits(['update:model-value']);
         :name="name"
         :required="required"
         :accept="accept"
-        :class="`${validity ? 'valid' : 'invalid'}`"
+        :class="`${validity ? 'show-valid' : 'show-invalid'}`"
         :aria-describedby="id && !validity ? `error-${id}` : ''"
         type="file"
         @dragover="handleDragOver"
@@ -127,6 +129,7 @@ const emit = defineEmits(['update:model-value']);
       <button
         tabindex="-1"
         type="button"
+        :aria-labelledby="id"
         :disabled="disabled"
         :class="`
           file-input-button
@@ -135,16 +138,18 @@ const emit = defineEmits(['update:model-value']);
           ${dragover ? 'dragover' : ''}
         `"
       >
-        <Icon name="heroicons-solid:document-add" />
-        <img v-if="imagePreview" :src="imagePreview" />
+        <Icon :name="fileTypeIcon(model)" />
+        <img
+          v-if="imagePreview"
+          :src="imagePreview"
+          :alt="$t('files.example', { file: model?.name })"
+        />
       </button>
     </div>
 
     <div v-if="model" class="file-preview" :aria-describedby="id">
-      <span class="file-name">
-        {{ model.name }}
-      </span>
-      <span class="file-size"> ({{ formatFileSize(model.size) }}) </span>
+      <span class="file-name">{{ model.name }}</span>
+      <span class="file-size"> ({{ formatFileSize(model.size) }})</span>
     </div>
 
     <div
@@ -164,6 +169,7 @@ const emit = defineEmits(['update:model-value']);
 
 <style>
 .file-input-wrapper {
+  max-width: 100%;
   label {
     font-size: var(--font-size-sm);
     font-weight: 400;
@@ -172,6 +178,7 @@ const emit = defineEmits(['update:model-value']);
 
 .file-input-button {
   position: relative;
+  width: 100%;
   padding: 0;
   height: 8rem;
   color: var(--color-grey-graphic);
@@ -183,7 +190,7 @@ const emit = defineEmits(['update:model-value']);
   outline: 3px solid transparent;
 
   .iconify {
-    margin-inline: 4rem;
+    margin-inline: 6rem;
     font-size: 3rem;
   }
 
@@ -205,10 +212,10 @@ const emit = defineEmits(['update:model-value']);
 }
 
 .file-preview {
+  word-break: break-all;
   margin-block: 0.25rem;
   font-size: var(--font-size-xs);
   color: var(--color-grey-text);
-  white-space: pre;
 }
 
 .file-input {
@@ -240,12 +247,12 @@ const emit = defineEmits(['update:model-value']);
   }
 }
 
-/* .file-input-wrapper:has(.invalid) {
+.file-input-wrapper:has(.invalid) {
   .file-input-button {
     border-color: var(--color-red);
   }
   .error-wrapper .error {
     display: flex;
   }
-} */
+}
 </style>

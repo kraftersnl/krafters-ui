@@ -9,5 +9,5 @@ export function pascalToSpace(word?: string) {
 
 export async function copyText(text?: string) {
   if (!text) return;
-  return await navigator.clipboard.writeText(text);
+  return await navigator?.clipboard?.writeText(text);
 }

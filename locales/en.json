@@ -28,8 +28,10 @@
   },
   "files": {
     "browse": "Browse files",
+    "example": "Example of {file}",
     "no-file-selected": "No file selected.",
     "or-drop-file": "or drop a file here",
+    "thumb": "Thumbnail of {file}",
     "too-big": "File size is bigger then {size}"
   },
   "form-errors": {

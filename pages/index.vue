@@ -104,8 +104,8 @@ const list = [
       </template>
     </Accordion> -->
 
-    <!-- <Form>
-      <MultiSelect
+    <Form @submit="(e) => console.log(e)">
+      <!-- <MultiSelect
         v-model="selection"
         required
         searchable
@@ -113,13 +113,13 @@ const list = [
         value-key="id"
         label-key="name"
         label="MultiSelect Label"
-      />
+      /> -->
 
-      <Input required label="Input" />
+      <!-- <Input required label="Input" /> -->
 
       <FileInput v-model="file" required name="file" label="File Upload" />
 
       <Button type="submit" label="Submit" />
-    </Form> -->
+    </Form>
   </div>
 </template>
