@@ -4,23 +4,6 @@ import { dirname, join } from 'path';
 const currentDir = dirname(fileURLToPath(import.meta.url));
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-10-10',
-
-  devtools: { enabled: true },
-
-  pages: true,
-
-  app: {
-    head: {
-      htmlAttrs: {
-        lang: typeof window !== 'undefined' ? navigator?.language : 'en',
-        style: 'background-color: #000',
-      },
-    },
-  },
-
-  css: [join(currentDir, './assets/main.css')],
-
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
@@ -46,12 +29,33 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: 'no_prefix',
-    defaultLocale: 'en',
-    langDir: './locales',
+    defaultLocale: 'nl',
+    langDir: '../locales',
     locales: [
       { code: 'en', language: 'en', file: 'en.json' },
       { code: 'nl', language: 'nl', file: 'nl.json' },
     ],
     vueI18n: './i18n.config.ts',
+  },
+
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: typeof window !== 'undefined' ? navigator?.language : 'en',
+        style: 'background-color: #000',
+      },
+    },
+  },
+
+  css: [join(currentDir, './assets/main.css')],
+
+  pages: true,
+
+  devtools: { enabled: true },
+
+  compatibilityDate: '2024-10-10',
+
+  future: {
+    compatibilityVersion: 4,
   },
 });
