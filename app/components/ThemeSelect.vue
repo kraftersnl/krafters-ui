@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const colorMode = useColorMode();
+</script>
+
 <template>
   <div class="theme-select">
     <fieldset class="color-theme-fieldset">
@@ -7,7 +11,7 @@
         <li class="color-theme-option">
           <input
             id="color-theme-light"
-            v-model="$colorMode.preference"
+            v-model="colorMode.preference"
             name="color-theme"
             value="light"
             type="radio"
@@ -22,7 +26,7 @@
         <li class="color-theme-option">
           <input
             id="color-theme-dark"
-            v-model="$colorMode.preference"
+            v-model="colorMode.preference"
             name="color-theme"
             value="dark"
             type="radio"
@@ -37,7 +41,7 @@
         <li class="color-theme-option">
           <input
             id="color-theme-system"
-            v-model="$colorMode.preference"
+            v-model="colorMode.preference"
             name="color-theme"
             value="system"
             type="radio"
