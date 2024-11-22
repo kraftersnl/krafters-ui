@@ -1,10 +1,10 @@
-import type Dialog from '../app/components/Dialog.vue';
-import type Form from '../app/components/Form.vue';
-import type Textarea from '../app/components/Textarea.vue';
-import type Input from '../app/components/Input.vue';
-import type FileInput from '../app/components/FileInput.vue';
-import type Button from '../app/components/Button.vue';
-import type Popover from '../app/components/Popover.vue';
+import type Dialog from '../components/Dialog.vue';
+import type Form from '../components/Form.vue';
+import type Textarea from '../components/Textarea.vue';
+import type Input from '../components/Input.vue';
+import type FileInput from '../components/FileInput.vue';
+import type Button from '../components/Button.vue';
+import type Popover from '../components/Popover.vue';
 
 declare global {
   type BaseColor =
