@@ -192,7 +192,6 @@ const emit = defineEmits(['update:model-value']);
   border-color: var(--color-grey-graphic);
   border-style: dashed;
   border-radius: var(--radius-md);
-  max-width: 320px;
   background-color: transparent;
   outline: 3px solid transparent;
 
@@ -226,6 +225,7 @@ const emit = defineEmits(['update:model-value']);
 }
 
 .file-input {
+  max-width: 320px;
   padding-block-start: 0.25rem;
   position: relative;
 
