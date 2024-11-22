@@ -14,32 +14,30 @@ const focusableElementsSelector = [
 
 let ariaHiddenElements: Element[] = [];
 
-const props = withDefaults(
-  defineProps<{
-    disabled?: boolean;
-    isVisible?: boolean;
-    autoFocus?: boolean;
-  }>(),
-  {
-    isVisible: true,
-    autoFocus: true,
-  },
-);
+const {
+  disabled,
+  isVisible = false,
+  autoFocus = true,
+} = defineProps<{
+  disabled?: boolean;
+  isVisible?: boolean;
+  autoFocus?: boolean;
+}>();
 
 const focusLoopContainerRef = ref<InstanceType<any>>(null);
 const focusLoopContentRef = ref<InstanceType<any>>(null);
 const alreadyFocused = ref(false);
-const getTabindex = computed(() => (props.disabled ? '-1' : '0'));
+const getTabindex = computed(() => (disabled ? '-1' : '0'));
 
-watch([() => props.disabled, () => props.isVisible], init);
+watch([() => disabled, () => isVisible], init);
 
 onMounted(init);
 
 function init() {
   nextTick(() => {
-    const active = props.isVisible && !props.disabled;
-    if (!props.disabled) {
-      focusFirst(active && props.autoFocus);
+    const active = isVisible && !disabled;
+    if (!disabled) {
+      focusFirst(active && autoFocus);
     }
     lockForSwipeScreenReader(active);
     if (!active) {
@@ -78,7 +76,7 @@ function lockForSwipeScreenReader(active: boolean = true) {
 function focusFirst(isAutoFocus: boolean) {
   if (isAutoFocus) {
     const elements = getFocusableElements();
-    if (elements.length) setTimeout(() => elements[0].focus(), 200);
+    if (elements.length) setTimeout(() => elements[0]?.focus(), 200);
   }
 }
 
@@ -95,14 +93,14 @@ function handleFocusStart() {
   if (elements.length) {
     const index = alreadyFocused.value ? elements.length - 1 : 0;
     alreadyFocused.value = true;
-    elements[index].focus();
+    elements[index]?.focus();
   }
 }
 
 function handleFocusEnd() {
   const elements: HTMLElement[] = getFocusableElements();
   if (elements.length) {
-    elements[0].focus();
+    elements[0]?.focus();
   }
 }
 </script>
