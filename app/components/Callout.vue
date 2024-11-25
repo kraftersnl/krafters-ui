@@ -18,10 +18,11 @@ const computedIcon = computed(() => {
 <template>
   <div :class="`callout-wrapper callout-color--${color}`">
     <div class="callout-content">
-      <slot v-if="$slots.tooltip" name="tooltip" />
-      <Icon v-else :name="'heroicons-solid:' + computedIcon" />
+      <Icon :name="'heroicons-solid:' + computedIcon" />
 
       <span v-if="content">{{ content }}</span>
+
+      <slot v-if="$slots.tooltip" name="tooltip" />
       <slot />
     </div>
   </div>
@@ -40,7 +41,7 @@ const computedIcon = computed(() => {
 .callout-content {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
 
   .iconify {
     font-size: 1rem;
