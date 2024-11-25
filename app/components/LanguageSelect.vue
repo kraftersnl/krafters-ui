@@ -1,30 +1,12 @@
 <script setup lang="ts">
 import type { Locale } from '#i18n';
+
 const { locale, setLocale } = useI18n();
 
 const userLang = computed({
   get: () => locale.value,
   set: (value: Locale) => setLocale(value),
 });
-
-onMounted(() => {
-  useHead({
-    htmlAttrs: {
-      lang: locale.value?.startsWith('nl') ? 'nl' : 'en',
-    },
-  });
-});
-
-watch(
-  () => locale.value,
-  () => {
-    useHead({
-      htmlAttrs: {
-        lang: locale.value?.startsWith('nl') ? 'nl' : 'en',
-      },
-    });
-  },
-);
 </script>
 
 <template>
