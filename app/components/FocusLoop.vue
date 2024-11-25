@@ -78,8 +78,8 @@ function focusFirst(isAutoFocus: boolean) {
 
   setTimeout(() => {
     const elements = Array.from(getFocusableElements());
-    const autofocusElements = elements?.find((x) => x?.autofocus === true);
-    if (autofocusElements) autofocusElements?.focus();
+    const autofocusElement = elements?.find((x) => x?.autofocus === true);
+    if (autofocusElement) autofocusElement?.focus();
     else if (elements.length) elements[0]?.focus();
   }, 200);
 }
