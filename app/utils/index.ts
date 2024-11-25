@@ -11,3 +11,12 @@ export async function copyText(text?: string) {
   if (!text) return;
   return await navigator?.clipboard?.writeText(text);
 }
+
+export function isValidUrl(url?: string): boolean {
+  try {
+    return !!url && Boolean(new URL(url));
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
