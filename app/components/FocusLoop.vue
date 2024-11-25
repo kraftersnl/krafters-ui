@@ -74,18 +74,20 @@ function lockForSwipeScreenReader(active: boolean = true) {
 }
 
 function focusFirst(isAutoFocus: boolean) {
-  if (isAutoFocus) {
-    const elements = getFocusableElements();
-    if (elements.length) setTimeout(() => elements[0]?.focus(), 200);
-  }
+  if (!isAutoFocus) return;
+
+  setTimeout(() => {
+    const elements = Array.from(getFocusableElements());
+    const autofocusElements = elements?.find((x) => x?.autofocus === true);
+    if (autofocusElements) autofocusElements?.focus();
+    else if (elements.length) elements[0]?.focus();
+  }, 200);
 }
 
 function getFocusableElements(): HTMLElement[] {
-  const focusableElements = focusLoopContentRef.value?.querySelectorAll(
-    focusableElementsSelector,
+  return (
+    focusLoopContentRef.value?.querySelectorAll(focusableElementsSelector) ?? []
   );
-  if (focusableElements?.length) return focusableElements;
-  return [];
 }
 
 function handleFocusStart() {

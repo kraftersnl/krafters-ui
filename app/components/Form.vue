@@ -1,13 +1,9 @@
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    focusFn?: CallableFunction;
-    showInvalid?: boolean;
-  }>(),
-  {
-    focusFn: undefined,
-  },
-);
+const { focusFn, autofocusFn, showInvalid } = defineProps<{
+  focusFn?: CallableFunction;
+  autofocusFn?: CallableFunction;
+  showInvalid?: boolean;
+}>();
 
 const validity = ref(true);
 
@@ -20,15 +16,20 @@ function handleSubmit(event: Event) {
     emit('submit', data, event);
   } else {
     emit('invalid', event);
-    if (props.focusFn) {
-      props.focusFn();
-    } else {
+    if (focusFn) focusFn();
+    else {
       const firstInvalidElement: HTMLElement | null =
         target.querySelector(':invalid');
       firstInvalidElement?.focus();
     }
   }
 }
+
+onMounted(() => {
+  setTimeout(() => {
+    if (autofocusFn) autofocusFn();
+  }, 200);
+});
 
 const emit = defineEmits<{
   submit: [data: FormData, event: Event];
