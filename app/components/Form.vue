@@ -26,9 +26,7 @@ function handleSubmit(event: Event) {
 }
 
 onMounted(() => {
-  setTimeout(() => {
-    if (autofocusFn) autofocusFn();
-  }, 200);
+  if (autofocusFn) autofocusFn();
 });
 
 const emit = defineEmits<{
