@@ -2,6 +2,7 @@
 const { color = 'blue', icon } = defineProps<{
   color?: 'blue' | 'green' | 'red' | 'orange';
   icon?: string;
+  content?: string;
 }>();
 
 const computedIcon = computed(() => {
@@ -17,7 +18,10 @@ const computedIcon = computed(() => {
 <template>
   <div :class="`callout-wrapper callout-color--${color}`">
     <div class="callout-content">
-      <Icon :name="'heroicons-solid:' + computedIcon" />
+      <slot v-if="$slots.tooltip" name="tooltip" />
+      <Icon v-else :name="'heroicons-solid:' + computedIcon" />
+
+      <span v-if="content">{{ content }}</span>
       <slot />
     </div>
   </div>
@@ -48,23 +52,39 @@ const computedIcon = computed(() => {
   border-color: var(--color-blue);
   color: var(--color-blue-text);
   background-color: var(--color-blue-bg);
+
+  .tooltip-trigger-button {
+    color: var(--color-blue-text);
+  }
 }
 
 .callout-color--green {
   border-color: var(--color-green);
   color: var(--color-green-text);
   background-color: var(--color-green-bg);
+
+  .tooltip-trigger-button {
+    color: var(--color-green-text);
+  }
 }
 
 .callout-color--orange {
   border-color: var(--color-orange);
   color: var(--color-orange-text);
   background-color: var(--color-orange-bg);
+
+  .tooltip-trigger-button {
+    color: var(--color-orange-text);
+  }
 }
 
 .callout-color--red {
   border-color: var(--color-red);
   color: var(--color-red-text);
   background-color: var(--color-red-bg);
+
+  .tooltip-trigger-button {
+    color: var(--color-red-text);
+  }
 }
 </style>

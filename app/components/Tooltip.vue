@@ -100,10 +100,15 @@ function closeTooltip() {
   padding: 0;
   height: 1.25rem;
   color: var(--color-grey-text);
-  transition: color var(--duration-sm);
+  transition:
+    color var(--duration-sm),
+    scale var(--duration-sm);
 
   &:hover {
     color: var(--color-text);
+    &:hover {
+      scale: 1.15;
+    }
   }
 
   .iconify {
