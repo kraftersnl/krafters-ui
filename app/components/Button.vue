@@ -155,7 +155,7 @@ const emit = defineEmits(['click']);
 
 .button-size--xs {
   height: 1.5rem;
-  padding-inline: 0.25rem;
+  padding-inline: 0.35rem;
   font-size: var(--font-size-xs);
 
   .iconify {
