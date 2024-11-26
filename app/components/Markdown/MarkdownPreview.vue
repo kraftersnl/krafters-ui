@@ -8,6 +8,8 @@ const props = defineProps<{
   content?: string;
 }>();
 
+const { locale } = useI18n();
+
 config({
   markdownItConfig(md) {
     md.use(targetBlankExtension);
@@ -21,6 +23,7 @@ config({
   <ClientOnly>
     <MdPreview
       v-bind="props"
+      :language="locale"
       :model-value="content"
       :theme="$colorMode.value === 'light' ? 'light' : 'dark'"
       preview-theme="krafters"
