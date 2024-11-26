@@ -1,8 +1,10 @@
 {
   "aria": {
+    "logo-cardan": "Cardan voor iedereen",
     "main-content": "Hoofdcontent",
     "main-nav": "Hoofdnavigatie",
     "open-menu": "open menu",
+    "opens-larger-view": "opent grotere weergave",
     "opens-new-window": "opent in nieuw venster",
     "skip-to-main-content": "Spring naar hoofcontent",
     "skip-to-side-content": "Spring naar zijbalk",

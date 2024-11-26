@@ -1,8 +1,10 @@
 {
   "aria": {
+    "logo-cardan": "Cardan for all",
     "main-content": "Main content",
     "main-nav": "Main navigation",
     "open-menu": "open menu",
+    "opens-larger-view": "opens larger view",
     "opens-new-window": "opens in new window",
     "skip-to-main-content": "Skip to main content",
     "skip-to-side-content": "Skip to sidebar",
