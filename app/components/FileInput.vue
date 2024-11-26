@@ -74,16 +74,18 @@ async function handleInput(event: Event) {
 
   const file = target.files[0];
 
-  if (file.type.includes('image')) {
+  imagePreview.value = undefined;
+  if (file?.type.includes('image')) {
     imagePreview.value = URL.createObjectURL(file);
   }
 
-  if (file.type.includes('image') && !file.type.includes('gif')) {
+  if (file?.type.includes('image') && !file.type.includes('gif')) {
     new compressor(file, {
       quality: props.quality,
       maxWidth: props.maxWidth,
       maxHeight: props.maxHeight,
       convertSize: props.convertSize,
+
       success(result: File) {
         const compressedFile = new File([result], result.name, {
           type: result.type,
