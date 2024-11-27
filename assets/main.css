@@ -108,6 +108,7 @@
   --font-size-sm: 0.9rem;
   --font-size-xs: 0.8rem;
   --font-size-xxs: 0.7rem;
+  --font-size-xxxs: 0.6rem;
 
   /* Utility design tokens */
   --color-accent: var(--color-purple);

@@ -7,7 +7,7 @@ const props = withDefaults(
     icon?: string;
     variant?: 'flat' | 'outline';
     color?: BaseColor;
-    size?: 'sm' | 'md' | 'lg';
+    size?: 'xs' | 'sm' | 'md' | 'lg';
     capitalize?: boolean;
   }>(),
   {
@@ -68,6 +68,13 @@ const formattedLabel = computed(() =>
 
 .chip-variant--outline {
   border-color: var(--color-grey-bg);
+}
+
+.chip-size--xs {
+  font-size: var(--font-size-xxxs);
+  padding-inline: 0.2rem;
+  padding-block: 0.03125rem;
+  gap: 0.125rem;
 }
 
 .chip-size--sm {
