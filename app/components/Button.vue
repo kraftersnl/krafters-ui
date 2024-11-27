@@ -61,7 +61,7 @@ const emit = defineEmits(['click']);
     `"
     :style="`--radius: var(--radius-${radius})`"
     :title="
-      !download && target === '_blank' ? $t('aria.opens-new-window') : undefined
+      !download && target === '_blank' ? $t('aria.open-new-window') : undefined
     "
   >
     <Icon v-if="icon" :name="computedIcon" />
