@@ -2,7 +2,7 @@
 const model = defineModel<boolean | (string | number)[]>();
 
 defineProps<{
-  label: string;
+  label?: string;
   title?: string;
   name?: string;
   value?: string | number;
@@ -25,12 +25,16 @@ const id = useId();
     />
 
     <label :for="id" :title="title">
-      <span>{{ label }}</span>
+      <slot name="label" />
+
+      <span v-if="label">{{ label }}</span>
 
       <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
         <span class="visuallyhidden">,</span>
       </Chip>
     </label>
+
+    <slot name="default" />
   </div>
 </template>
 
@@ -49,6 +53,7 @@ const id = useId();
 
   input[type='checkbox'] {
     margin: 0;
+    margin-top: 2px;
     cursor: pointer;
     width: 1rem;
     height: 1rem;

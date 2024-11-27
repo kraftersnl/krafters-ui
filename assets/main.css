@@ -383,7 +383,7 @@ button {
   gap: 0.5rem;
 
   > .button {
-    flex-grow: 1 !important;
+    flex-grow: 1;
   }
 }
 
