@@ -333,7 +333,7 @@ const emit = defineEmits(['click']);
   justify-content: space-between;
   background-color: transparent;
   text-underline-offset: 0.35rem;
-  gap: 1rem;
+  gap: 1.5rem;
 
   .iconify {
     color: var(--color-grey-graphic);
