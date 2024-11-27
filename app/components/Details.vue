@@ -23,6 +23,12 @@ defineProps<{
     cursor: pointer;
     margin-inline-start: 1rem;
     list-style-position: outside;
+
+    &:focus-visible {
+      outline-offset: 2px;
+      border-radius: var(--radius-xs);
+      outline: 1px dotted var(--focus-color);
+    }
   }
 }
 
