@@ -41,11 +41,10 @@ const computedIcon = computed(() => {
 .callout-content {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.35rem;
 
   .iconify {
     font-size: 1rem;
-    /* vertical-align: middle; */
   }
 }
 
