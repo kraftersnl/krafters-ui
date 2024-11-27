@@ -9,6 +9,7 @@ const props = withDefaults(
     name?: string;
     id?: string;
     accept?: string;
+    showInvalid?: boolean;
     required?: boolean;
     disabled?: boolean;
     maxFileSize?: number;
@@ -34,18 +35,7 @@ const { t } = useI18n();
 const fileInputRef = useTemplateRef<HTMLInputElement>('fileInputRef');
 const imagePreview = ref<string>();
 const dragover = ref(false);
-
-const validity = computed(() => {
-  if (model.value) {
-    if (!props.required) {
-      return false;
-    } else if (model.value.size / 1024 > props.maxFileSize) {
-      return false;
-    }
-    return true;
-  }
-  return true;
-});
+const validity = ref(true);
 
 defineExpose({
   validity,
@@ -73,13 +63,25 @@ async function handleInput(event: Event) {
   if (!target.files?.length) return;
 
   const file = target.files[0];
+  // console.log(file?.type);
 
   imagePreview.value = undefined;
-  if (file?.type.includes('image')) {
+
+  if (!file) return;
+
+  if (file.size / 1024 > props.maxFileSize) {
+    validity.value = false;
+  } else if (file && props.required) {
+    validity.value = !!file;
+  } else {
+    validity.value = true;
+  }
+
+  if (file?.type?.includes('image')) {
     imagePreview.value = URL.createObjectURL(file);
   }
 
-  if (file?.type.includes('image') && !file.type.includes('gif')) {
+  if (file?.type?.includes('image') && !file?.type?.includes('gif')) {
     new compressor(file, {
       quality: props.quality,
       maxWidth: props.maxWidth,
@@ -90,12 +92,17 @@ async function handleInput(event: Event) {
         const compressedFile = new File([result], result.name, {
           type: result.type,
         });
-        emit('update:model-value', compressedFile);
+        model.value = compressedFile;
       },
     });
   } else {
     model.value = file;
   }
+}
+
+function removeFile() {
+  model.value = undefined;
+  imagePreview.value = undefined;
 }
 
 watch(
@@ -109,8 +116,6 @@ watch(
     }
   },
 );
-
-const emit = defineEmits(['update:model-value']);
 </script>
 
 <template>
@@ -126,8 +131,8 @@ const emit = defineEmits(['update:model-value']);
         :name="name"
         :required="required"
         :accept="accept"
-        :class="`${validity ? 'show-valid' : 'show-invalid'}`"
         :aria-describedby="id && !validity ? `error-${id}` : ''"
+        :class="`${showInvalid && !validity ? 'show-invalid' : ''}`"
         type="file"
         @dragover="handleDragOver"
         @dragleave="handleDragLeave"
@@ -159,6 +164,15 @@ const emit = defineEmits(['update:model-value']);
     <div v-if="model" class="file-preview" :aria-describedby="id">
       <span class="file-name">{{ model.name }}</span>
       <span class="file-size"> ({{ formatFileSize(model.size) }})</span>
+      <Button
+        :label="$t('general.delete')"
+        hide-label
+        icon="x"
+        variant="danger"
+        radius="full"
+        size="xxs"
+        @click="removeFile"
+      />
     </div>
 
     <div
@@ -179,10 +193,6 @@ const emit = defineEmits(['update:model-value']);
 <style>
 .file-input-wrapper {
   max-width: 100%;
-  label {
-    font-size: var(--font-size-sm);
-    font-weight: 400;
-  }
 }
 
 .file-input-button {
@@ -224,11 +234,15 @@ const emit = defineEmits(['update:model-value']);
   margin-block: 0.25rem;
   font-size: var(--font-size-xs);
   color: var(--color-grey-text);
+
+  .button {
+    vertical-align: middle;
+    margin-inline-start: 0.25rem;
+  }
 }
 
 .file-input {
   max-width: 320px;
-  padding-block-start: 0.25rem;
   position: relative;
 
   input[type='file'] {

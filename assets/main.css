@@ -256,6 +256,11 @@ h6 {
   hyphens: auto;
 }
 
+b,
+strong {
+  font-weight: 600;
+}
+
 p {
   text-wrap: pretty;
   white-space: pre-line;
@@ -412,7 +417,7 @@ textarea {
 input {
   background-color: transparent;
 }
-
+.file-input-wrapper,
 .form-field-wrapper {
   position: relative;
   display: inline-grid;
@@ -483,7 +488,7 @@ input {
     align-items: center;
     gap: 0.25rem;
     color: var(--color-red);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-xxs);
     padding-block-start: 0.25rem;
   }
 }

@@ -18,7 +18,7 @@ const props = withDefaults(
       | 'green'
       | 'blue'
       | 'menu';
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     radius?: 'xs' | 'sm' | 'md' | 'lg' | 'full';
     hideLabel?: boolean;
     loading?: boolean;
@@ -150,6 +150,16 @@ const emit = defineEmits(['click']);
     .iconify {
       animation: var(--animation-rotate);
     }
+  }
+}
+
+.button-size--xxs {
+  height: 1.25rem;
+  padding-inline: 0.25rem;
+  font-size: var(--font-size-xxs);
+
+  .iconify {
+    font-size: var(--font-size-xxs);
   }
 }
 

@@ -4,7 +4,7 @@ export function formatFileSize(size: number) {
 }
 
 export function getFileExtension(filename?: string) {
-  return filename?.split('.').pop();
+  return filename?.split('.')?.pop();
 }
 
 export function fileTypeIcon(file?: File) {
@@ -22,8 +22,10 @@ export function fileTypeIcon(file?: File) {
   if (file?.type.includes('json')) return 'vscode-icons:file-type-json';
   if (file?.type.includes('pdf')) return 'vscode-icons:file-type-pdf2';
   if (file?.type.includes('text/plain')) return 'vscode-icons:file-type-text';
-  if (file?.type.includes('word')) return 'vscode-icons:file-type-word';
-  if (file?.type.includes('excel')) return 'vscode-icons:file-type-excel';
+  if (file?.type.includes('word') || file?.type.includes('opendocument.text'))
+    return 'vscode-icons:file-type-word';
+  if (file?.type.includes('excel') || file?.type.includes('spreadsheet'))
+    return 'vscode-icons:file-type-excel';
   if (file?.type.includes('powerpoint') || file?.type.includes('presentation'))
     return 'vscode-icons:file-type-powerpoint';
   if (file?.type.includes('illustrator')) return 'vscode-icons:file-type-ai';
