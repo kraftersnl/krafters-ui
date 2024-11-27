@@ -62,14 +62,7 @@ const formattedLabel = computed(() =>
   text-transform: capitalize;
 }
 
-.chip-variant--flat {
-  background-color: var(--color-grey-bg);
-}
-
-.chip-variant--outline {
-  border-color: var(--color-grey-bg);
-}
-
+/* Chip sizes */
 .chip-size--xs {
   font-size: var(--font-size-xxxs);
   padding-inline: 0.2rem;
@@ -95,33 +88,76 @@ const formattedLabel = computed(() =>
   padding-block: 0.25rem;
 }
 
-.chip-color--accent {
+/* Flat Chip */
+.chip-variant--flat {
+  background-color: var(--color-grey-bg);
+}
+
+.chip-variant--flat.chip-color--accent {
   color: var(--color-accent);
   background-color: var(--color-accent-bg);
 }
 
-.chip-color--blue {
+.chip-variant--flat.chip-color--blue {
   color: var(--color-blue-text);
   background-color: var(--color-blue-bg);
 }
 
-.chip-color--green {
+.chip-variant--flat.chip-color--green {
   color: var(--color-green-text);
   background-color: var(--color-green-bg);
 }
 
-.chip-color--orange {
+.chip-variant--flat.chip-color--orange {
   color: var(--color-orange-text);
   background-color: var(--color-orange-bg);
 }
 
-.chip-color--red {
+.chip-variant--flat.chip-color--red {
   color: var(--color-red-text);
   background-color: var(--color-red-bg);
 }
 
-.chip-color--yellow {
+.chip-variant--flat.chip-color--yellow {
   color: var(--color-yellow-text);
   background-color: var(--color-yellow-bg);
+}
+
+/* Outline Chip */
+
+.chip-variant--outline {
+  color: var(--color-grey-text);
+  border-color: var(--color-grey-graphic);
+  background-color: var(--color-white);
+}
+
+.chip-variant--outline.chip-color--accent {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.chip-variant--outline.chip-color--blue {
+  color: var(--color-blue-text);
+  border-color: var(--color-blue);
+}
+
+.chip-variant--outline.chip-color--green {
+  color: var(--color-green-text);
+  border-color: var(--color-green);
+}
+
+.chip-variant--outline.chip-color--orange {
+  color: var(--color-orange-text);
+  border-color: var(--color-orange);
+}
+
+.chip-variant--outline.chip-color--red {
+  color: var(--color-red-text);
+  border-color: var(--color-red);
+}
+
+.chip-variant--outline.chip-color--yellow {
+  color: var(--color-yellow-text);
+  border-color: var(--color-yellow);
 }
 </style>
