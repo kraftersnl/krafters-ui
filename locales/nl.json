@@ -6,7 +6,7 @@
     "open-menu": "open menu",
     "open-larger-view": "open grotere weergave",
     "open-new-window": "open in nieuw venster",
-    "skip-to-main-content": "Spring naar hoofcontent",
+    "skip-to-main-content": "Spring naar hoofdcontent",
     "skip-to-side-content": "Spring naar zijbalk",
     "user-menu": "Open gebruikersmenu"
   },
@@ -85,6 +85,7 @@
     "key": "Kenmerk",
     "language": "Taal",
     "level": "Niveau",
+    "links": "Link | Links",
     "loading": "Laden",
     "menu": "Menu",
     "modify": "Aanpassen",
