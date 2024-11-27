@@ -612,6 +612,7 @@ input {
   }
 
   code {
+    font-size: 0.9em;
     line-height: 1.5;
     --md-theme-code-inline-color: var(--color-accent-text);
     --md-theme-code-inline-bg-color: var(--color-accent-bg);
