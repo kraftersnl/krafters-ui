@@ -187,6 +187,7 @@ const emit = defineEmits(['update:model-value']);
 
 .file-input-button {
   position: relative;
+  min-height: 8rem;
   width: 100%;
   padding: 0;
   color: var(--color-grey-graphic);
