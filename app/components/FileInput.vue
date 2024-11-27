@@ -189,7 +189,6 @@ const emit = defineEmits(['update:model-value']);
   position: relative;
   width: 100%;
   padding: 0;
-  height: 8rem;
   color: var(--color-grey-graphic);
   border-color: var(--color-grey-graphic);
   border-style: dashed;
