@@ -273,6 +273,7 @@ dl {
 
 ul,
 ol {
+  list-style-position: outside;
   padding-inline-start: 1rem;
   margin-block: 0;
 
@@ -570,6 +571,12 @@ input {
 
   p {
     white-space: normal;
+  }
+
+  ol,
+  ul {
+    list-style-position: outside !important;
+    padding-inline-start: 1rem !important;
   }
 }
 
