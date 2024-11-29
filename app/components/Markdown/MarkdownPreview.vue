@@ -16,6 +16,17 @@ config({
     md.use(italicExtension);
     md.use(attrs);
   },
+  editorExtensions: {
+    highlight: {
+      css: {
+        atom: {
+          light:
+            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css',
+          dark: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css',
+        },
+      },
+    },
+  },
 });
 </script>
 

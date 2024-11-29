@@ -10,25 +10,38 @@ config({
     md.use(italicExtension);
     md.use(attrs);
   },
+  editorExtensions: {
+    highlight: {
+      css: {
+        atom: {
+          light:
+            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css',
+          dark: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css',
+        },
+      },
+    },
+  },
 });
+
+const { locale } = useI18n();
 
 const content = defineModel<string>();
 
-withDefaults(
-  defineProps<{
-    label?: string;
-    placeholder?: string;
-    id?: string;
-    errorMessage?: string;
-    required?: boolean;
-  }>(),
-  {
-    label: undefined,
-    placeholder: undefined,
-    errorMessage: undefined,
-    id: () => useId(),
-  },
-);
+const {
+  label,
+  placeholder,
+  id = useId(),
+  preview = false,
+  required,
+  errorMessage,
+} = defineProps<{
+  label?: string;
+  placeholder?: string;
+  id?: string;
+  preview?: boolean;
+  required?: boolean;
+  errorMessage?: string;
+}>();
 
 const markdownEditor = useTemplateRef<HTMLDivElement>('markdownEditor');
 
@@ -49,9 +62,9 @@ defineExpose({
       <MdEditor
         ref="markdownEditor"
         v-model.trim="content"
-        language="en-US'"
+        :language="locale"
         no-upload-img
-        :preview="false"
+        :preview="preview"
         :footers="footers"
         :toolbars="toolbars"
         :placeholder="placeholder"
