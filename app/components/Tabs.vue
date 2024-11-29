@@ -4,9 +4,13 @@ const model = defineModel<string>();
 const props = withDefaults(
   defineProps<{
     tabs: TabOption[];
+    size?: 'xs' | 'sm' | 'md';
+    variant?: 'default' | 'minimal';
     ariaLabel?: string;
   }>(),
   {
+    size: 'sm',
+    variant: 'default',
     ariaLabel: undefined,
   },
 );
@@ -62,7 +66,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="tabs-wrapper">
+  <div :class="`tabs-wrapper tabs-variant--${variant} tabs-size--${size}`">
     <div
       class="tabs-list"
       role="tablist"
@@ -96,7 +100,7 @@ defineExpose({
         v-show="tab.value === activeTab"
         :id="tab.value"
         :aria-labelledby="`tab-${tab.value}`"
-        tabindex="0"
+        tabindex="-1"
         role="tabpanel"
         class="tabpanel"
       >
@@ -109,26 +113,15 @@ defineExpose({
 </template>
 
 <style>
-.tabs-wrapper {
-  .tabpanel {
-    text-align: left;
-  }
-}
-
 .tabs-list {
-  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.5rem;
-  border-bottom: 1px solid var(--color-grey-bg);
-  padding-block-end: 0.5rem;
   margin-block-end: 1.5rem;
 
   .tab {
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
-    font-size: var(--font-size-sm);
     font-weight: 500;
     background: transparent;
     border: none;
@@ -137,10 +130,10 @@ defineExpose({
     align-items: center;
     justify-content: center;
     white-space: nowrap;
-    color: var(--color-grey-text);
     padding-inline: 0;
-    border-radius: var(--radius-xs);
-    outline: 2px solid transparent;
+    padding-block-end: 0.65rem;
+    border-block-end: 2px solid var(--color-grey-bg);
+    outline-color: transparent;
     transition-property: color, background-color, box-shadow, outline-color,
       outline-offset;
     transition-duration: var(--duration-s);
@@ -148,24 +141,65 @@ defineExpose({
 
     &:hover {
       color: var(--color-text);
+      border-color: var(--color-grey-graphic);
     }
 
     &[aria-selected='true'] {
       color: var(--color-green);
-      text-decoration: underline;
-      text-underline-offset: 0.95rem;
-    }
-
-    &:focus-visible {
-      text-decoration: none;
-      outline-offset: 2px;
-      outline: 2px solid var(--focus-color);
+      border-color: var(--color-green);
     }
 
     &:disabled {
       pointer-events: none;
       opacity: 0.35;
     }
+  }
+
+  &:has(:focus-visible) {
+    outline-offset: 0.5rem;
+    outline: 2px solid var(--focus-color);
+    border-radius: var(--radius-xs);
+  }
+}
+
+/* Tabs variants */
+.tabs-variant--default {
+  .tabs-list {
+    display: flex;
+    border-block-end: 1px solid var(--color-grey-bg);
+  }
+
+  .tab {
+    border-width: 1px;
+    margin-block-end: -0.0625rem;
+  }
+}
+
+.tabs-variant--minimal {
+  .tabs-list {
+    display: inline-flex;
+  }
+}
+
+/* Tabs sizes */
+.tabs-size--xs {
+  .tabs-list {
+    font-size: var(--font-size-xs);
+    gap: 1.5rem;
+  }
+}
+
+.tabs-size--sm {
+  .tabs-list {
+    font-size: var(--font-size-sm);
+    gap: 2rem;
+  }
+}
+
+.tabs-size--md {
+  .tabs-list {
+    font-size: var(--font-size-md);
+    gap: 2.5rem;
   }
 }
 </style>
