@@ -6,6 +6,7 @@ const props = withDefaults(
     label?: string;
     icon?: string;
     iconLib?: string;
+    iconPos?: 'start' | 'end';
     to?: RouteLocationRaw;
     href?: string;
     target?: string;
@@ -29,6 +30,7 @@ const props = withDefaults(
     label: undefined,
     icon: undefined,
     iconLib: 'heroicons-solid',
+    iconPos: 'start',
     to: undefined,
     href: undefined,
     target: undefined,
@@ -57,6 +59,7 @@ const emit = defineEmits(['click']);
       button
       button-size--${size}
       button-variant--${variant}
+      icon-position--${iconPos}
       ${hideLabel ? 'button--icon-only' : ''}
     `"
     :style="`--radius: var(--radius-${radius})`"
@@ -119,7 +122,7 @@ const emit = defineEmits(['click']);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
+  gap: 0.25rem;
   font-weight: 500;
   font-size: var(--font-size-sm);
   border: 1px solid transparent;
@@ -153,11 +156,21 @@ const emit = defineEmits(['click']);
   }
 }
 
+.icon-position--start {
+  flex-direction: row;
+}
+.icon-position--end {
+  flex-direction: row-reverse;
+}
+
 .button-size--xxs {
   height: 1.25rem;
   padding-inline: 0.25rem;
   font-size: var(--font-size-xxs);
 
+  .button-text {
+    padding-inline: 0.1rem;
+  }
   .iconify {
     font-size: var(--font-size-xxs);
   }
@@ -167,6 +180,10 @@ const emit = defineEmits(['click']);
   height: 1.5rem;
   padding-inline: 0.35rem;
   font-size: var(--font-size-xs);
+
+  .button-text {
+    padding-inline: 0.15rem;
+  }
 
   .iconify {
     font-size: var(--font-size-xs);
@@ -178,6 +195,10 @@ const emit = defineEmits(['click']);
   padding-inline: 0.5rem;
   font-size: var(--font-size-xs);
 
+  .button-text {
+    padding-inline: 0.2rem;
+  }
+
   .iconify {
     font-size: var(--font-size-sm);
   }
@@ -187,6 +208,10 @@ const emit = defineEmits(['click']);
   height: 2.25rem;
   padding-inline: 0.75rem;
 
+  .button-text {
+    padding-inline: 0.25rem;
+  }
+
   .iconify {
     font-size: var(--font-size-md);
   }
@@ -195,6 +220,10 @@ const emit = defineEmits(['click']);
 .button-size--lg {
   height: 2.5rem;
   padding-inline: 1rem;
+
+  .button-text {
+    padding-inline: 0.35rem;
+  }
 
   .iconify {
     font-size: var(--font-size-lg);
