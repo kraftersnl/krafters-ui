@@ -113,10 +113,15 @@ defineExpose({
 </template>
 
 <style>
+.tabs-wrapper {
+  .tabpanel {
+    padding-block-start: 1.5rem;
+  }
+}
+
 .tabs-list {
   flex-wrap: wrap;
   align-items: center;
-  margin-block-end: 1.5rem;
 
   .tab {
     -webkit-user-select: none;
