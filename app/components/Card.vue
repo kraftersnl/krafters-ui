@@ -17,8 +17,8 @@
   box-shadow: var(--shadow-1);
 
   @media (min-width: 480px) {
-    padding-block: 2rem;
-    padding-inline: 2.5rem;
+    padding-block: 1.5rem;
+    padding-inline: 2rem;
   }
 
   h1,
