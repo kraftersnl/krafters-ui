@@ -8,7 +8,7 @@ const { locale } = useI18n();
     viewBox="0 0 227.68 56.89"
     class="logo-cardan"
     width="160"
-    height="40"
+    height="44"
     lang="nl"
     :aria-label="$t('aria.logo-cardan')"
   >
