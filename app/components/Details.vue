@@ -33,6 +33,6 @@ defineProps<{
 }
 
 .details-content {
-  padding-inline-start: 1rem;
+  /* padding-inline-start: 1rem; */
 }
 </style>
