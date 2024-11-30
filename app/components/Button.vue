@@ -325,14 +325,18 @@ const emit = defineEmits(['click']);
 .button-variant--link {
   --radius: var(--radius-xs);
   display: inline;
-  font-size: inherit;
-  font-weight: 400;
-  height: auto;
-  padding-inline: 0;
   justify-content: start;
   align-items: start;
-  background-color: transparent;
   text-decoration: underline;
+  font-size: inherit;
+  font-weight: 400;
+  background-color: transparent;
+  height: auto;
+  padding-inline: 0;
+
+  .button-text {
+    padding-inline: 0;
+  }
 
   .iconify {
     font-size: inherit;
