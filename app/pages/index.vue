@@ -4,7 +4,7 @@ const file = ref<File>();
 const selection = ref();
 
 const content = ref(
-  'Dit voorbeeld van _silly example_{lang=en} duurde langer om te verzinnen dan de plugin installeren.',
+  'Dit voorbeeld van _silly example_{lang=en} duurde langer om te verzinnen dan de `#ff0000` plugin installeren.',
 );
 
 const list = [
@@ -21,11 +21,29 @@ const list = [
     name: 'Third item',
   },
 ];
+
+const tabs = [
+  { value: 'a', label: 'Tab A' },
+  { value: 'b', label: 'Tab b' },
+];
+
+const activeTab = ref('a');
 </script>
 
 <template>
   <div>
-    <!-- <MarkdownPreview :content="content" /> -->
+    <!-- <MarkdownEditor v-model="content" preview />
+    <MarkdownPreview :content="content" /> -->
+
+    <Tabs v-model="activeTab" :tabs="tabs">
+      <template #a> Content A </template>
+      <template #b> Content B </template>
+    </Tabs>
+    <br /><br />
+    <Tabs v-model="activeTab" :tabs="tabs" variant="minimal">
+      <template #a> Content A </template>
+      <template #b> Content B </template>
+    </Tabs>
 
     <!-- <Select
       v-model="selection"
@@ -104,8 +122,8 @@ const list = [
       </template>
     </Accordion> -->
 
-    <Form @submit="(e) => console.log(e)">
-      <!-- <MultiSelect
+    <!-- <Form @submit="(e) => console.log(e)"> -->
+    <!-- <MultiSelect
         v-model="selection"
         required
         searchable
@@ -115,11 +133,11 @@ const list = [
         label="MultiSelect Label"
       /> -->
 
-      <!-- <Input required label="Input" /> -->
+    <!-- <Input required label="Input" /> -->
 
-      <FileInput v-model="file" required name="file" label="File Upload" />
+    <!-- <FileInput v-model="file" required name="file" label="File Upload" /> -->
 
-      <Button type="submit" label="Submit" />
-    </Form>
+    <!-- <Button type="submit" label="Submit" /> -->
+    <!-- </Form> -->
   </div>
 </template>

@@ -13,7 +13,7 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
             <NuxtLink to="/">Home</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/test">Different page</NuxtLink>
+            <NuxtLink to="/test">Page</NuxtLink>
           </li>
         </ul>
       </nav>
@@ -58,21 +58,15 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
 }
 
 .app-header-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
   padding-inline: var(--app-padding-inline);
   max-width: var(--app-max-width);
   min-height: 3.5rem;
   width: 100%;
   height: 100%;
-  display: grid;
-  gap: 1rem;
-  flex-wrap: wrap;
-
-  @media (min-width: 1024px) {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 2rem;
-    align-items: center;
-  }
 
   .logo {
     font-size: var(--font-size-xs);
