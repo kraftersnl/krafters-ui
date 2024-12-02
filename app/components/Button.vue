@@ -323,7 +323,7 @@ const emit = defineEmits(['click']);
 }
 
 .button-variant--link {
-  --radius: var(--radius-xs);
+  --radius: 0 !important;
   display: inline;
   justify-content: start;
   align-items: start;
@@ -343,10 +343,6 @@ const emit = defineEmits(['click']);
     margin-block-end: 0.1rem;
     vertical-align: middle;
     margin-inline-start: 0.1rem;
-  }
-
-  &:focus-visible {
-    text-decoration: none;
   }
 
   &:not(:disabled):hover {
