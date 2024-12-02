@@ -38,10 +38,6 @@ withDefaults(
     width: 100%;
   }
 
-  tbody tr:hover {
-    background-color: var(--color-card-bg);
-  }
-
   th {
     &::first-letter {
       text-transform: capitalize;
