@@ -39,7 +39,7 @@ withDefaults(
   },
 );
 
-function handleMenuClick(item: string, hide: CallableFunction) {
+function handleMenuClick(item: MenuItem, hide: CallableFunction) {
   emit('click', item);
   hide();
 }
@@ -62,7 +62,11 @@ defineExpose({
   focusTrigger,
 });
 
-const emit = defineEmits(['click']);
+// const emit = defineEmits(['click']);
+
+const emit = defineEmits<{
+  click: [event: MenuItem];
+}>();
 </script>
 
 <template>

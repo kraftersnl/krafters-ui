@@ -12,6 +12,7 @@
   --color-bg: #1c1320;
   --color-card-bg: #120817;
   --color-card-border: var(--color-grey-bg);
+  --color-popover-border: var(--color-grey-bg);
 
   --color-purple: #c18cd9;
   --color-purple-bg: #362a3c;
@@ -55,6 +56,7 @@
   --color-bg: #f6f4f7;
   --color-card-bg: #ffffff;
   --color-card-border: transparent;
+  --color-popover-border: transparent;
 
   --color-purple: #582e6b;
   --color-purple-bg: #e7e1ea;
@@ -537,7 +539,7 @@ input {
   box-shadow: var(--shadow-2);
   color: var(--color-text);
   background-color: var(--color-card-bg);
-  border: 1px solid var(--color-card-border);
+  border: 1px solid var(--color-popover-border);
 }
 
 [data-theme~='krafters'] .tippy-content {
