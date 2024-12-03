@@ -287,6 +287,7 @@ ul[role='list'],
 ol[role='list'] {
   list-style: none;
   padding-inline-start: 0;
+  margin-block: 0;
 }
 
 ul > li::marker {
