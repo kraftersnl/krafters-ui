@@ -579,7 +579,7 @@ input {
 
 /* Markdown Editor/Preview classes */
 .md-editor-preview {
-  overflow-wrap: anywhere;
+  word-break: break-word !important;
 
   p {
     white-space: normal;
