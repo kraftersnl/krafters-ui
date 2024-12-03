@@ -39,7 +39,7 @@ withDefaults(
   },
 );
 
-function handleMenuClick(item: MenuItem, hide: CallableFunction) {
+function handleMenuClick(item: MenuItem, hide: () => void) {
   emit('click', item);
   hide();
 }
@@ -61,8 +61,6 @@ defineExpose({
   popoverTrigger,
   focusTrigger,
 });
-
-// const emit = defineEmits(['click']);
 
 const emit = defineEmits<{
   click: [event: MenuItem];
