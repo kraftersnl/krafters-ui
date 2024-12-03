@@ -86,11 +86,11 @@ function closeTooltip() {
 }
 
 .krafters-tooltip-wrapper {
-  height: 1.25rem;
+  height: 1rem;
   vertical-align: middle;
 
   .tooltip-wrapper {
-    height: 1.25rem;
+    height: 1rem;
   }
 }
 
@@ -98,7 +98,7 @@ function closeTooltip() {
   border: none;
   background: transparent;
   padding: 0;
-  height: 1.25rem;
+  height: 1rem;
   color: var(--color-grey-text);
   transition:
     color var(--duration-sm),
@@ -112,8 +112,8 @@ function closeTooltip() {
   }
 
   .iconify {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
   }
 }
 </style>
