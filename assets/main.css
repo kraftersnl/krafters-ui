@@ -228,7 +228,7 @@ blockquote {
 a {
   color: currentColor;
   outline-offset: 2px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.2rem;
 
   &:focus-visible {
     outline: 2px solid var(--focus-color);
