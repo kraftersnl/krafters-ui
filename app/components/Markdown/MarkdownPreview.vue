@@ -31,15 +31,13 @@ config({
 </script>
 
 <template>
-  <ClientOnly>
-    <MdPreview
-      v-bind="props"
-      :language="locale"
-      :model-value="content"
-      :theme="$colorMode.value === 'light' ? 'light' : 'dark'"
-      preview-theme="krafters"
-    />
-  </ClientOnly>
+  <MdPreview
+    v-bind="props"
+    :language="locale"
+    :model-value="content"
+    :theme="$colorMode.value === 'light' ? 'light' : 'dark'"
+    preview-theme="krafters"
+  />
 </template>
 
 <style>
