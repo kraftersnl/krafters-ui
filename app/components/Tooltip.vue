@@ -55,7 +55,7 @@ function closeTooltip() {
       content-tag="div"
       content-class="krafters-tooltip-content"
       class="tooltip-wrapper"
-      :append-to="interactive && tooltipWrapper ? tooltipWrapper : undefined"
+      :append-to="tooltipWrapper ?? undefined"
       @keyup.esc="closeTooltip"
     >
       <template #default>
@@ -80,25 +80,26 @@ function closeTooltip() {
 </template>
 
 <style>
-.krafters-tooltip-content {
-  padding-block: 1rem;
-  padding-inline: 1.35rem;
-}
-
 .krafters-tooltip-wrapper {
-  height: 1rem;
+  --height: 1rem;
+  height: var(--height);
   vertical-align: middle;
 
   .tooltip-wrapper {
-    height: 1rem;
+    height: var(--height);
   }
+}
+
+.krafters-tooltip-content {
+  padding-block: 1rem;
+  padding-inline: 1.35rem;
 }
 
 .tooltip-trigger-button {
   border: none;
   background: transparent;
   padding: 0;
-  height: 1rem;
+  height: var(--height);
   color: var(--color-grey-text);
   transition:
     color var(--duration-sm),
@@ -112,8 +113,8 @@ function closeTooltip() {
   }
 
   .iconify {
-    width: 1rem;
-    height: 1rem;
+    width: var(--height);
+    height: var(--height);
   }
 }
 </style>

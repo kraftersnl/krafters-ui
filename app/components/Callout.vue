@@ -22,7 +22,6 @@ const computedIcon = computed(() => {
 
       <span v-if="content">{{ content }}</span>
 
-      <slot v-if="$slots.tooltip" name="tooltip" />
       <slot />
     </div>
   </div>
