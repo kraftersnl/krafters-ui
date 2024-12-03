@@ -28,6 +28,9 @@
     "nextYear": "Volgend jaar",
     "prevYear": "Vorig jaar"
   },
+  "empty": {
+    "no-description": "Geen beschrijving."
+  },
   "files": {
     "browse": "Selecteer bestand",
     "example": "Voorbeeld van {file}",

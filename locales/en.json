@@ -28,6 +28,9 @@
     "nextYear": "Next year",
     "prevYear": "Previous year"
   },
+  "empty": {
+    "no-description": "No description."
+  },
   "files": {
     "browse": "Browse files",
     "example": "Example of {file}",
