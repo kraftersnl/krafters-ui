@@ -302,6 +302,7 @@ code {
   background-color: var(--color-grey-bg);
   padding: 0.15rem 0.25rem;
   border-radius: var(--radius-sm);
+  overflow-wrap: anywhere;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -578,7 +579,7 @@ input {
 
 /* Markdown Editor/Preview classes */
 .md-editor-preview {
-  word-break: break-word !important;
+  overflow-wrap: anywhere;
 
   p {
     white-space: normal;
