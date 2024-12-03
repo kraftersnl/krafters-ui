@@ -21,8 +21,6 @@ defineProps<{
 .details-wrapper {
   .summary {
     cursor: pointer;
-    margin-inline-start: 1rem;
-    list-style-position: outside;
 
     &:focus-visible {
       outline-offset: 2px;
@@ -30,9 +28,5 @@ defineProps<{
       outline: 1px dotted var(--focus-color);
     }
   }
-}
-
-.details-content {
-  /* padding-inline-start: 1rem; */
 }
 </style>
