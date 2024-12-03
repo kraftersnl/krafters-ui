@@ -6,6 +6,7 @@ import 'md-editor-v3/lib/style.css';
 
 const props = defineProps<{
   content?: string;
+  fontSize?: string;
 }>();
 
 const { locale } = useI18n();
@@ -37,6 +38,7 @@ config({
     :model-value="content"
     :theme="$colorMode.value === 'light' ? 'light' : 'dark'"
     preview-theme="krafters"
+    :style="`--font-size: var(--font-size-${fontSize || 'md'})`"
   />
 </template>
 

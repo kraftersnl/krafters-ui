@@ -32,8 +32,8 @@ const activeTab = ref('a');
 
 <template>
   <div>
-    <!-- <MarkdownEditor v-model="content" preview />
-    <MarkdownPreview :content="content" /> -->
+    <MarkdownEditor v-model="content" preview />
+    <MarkdownPreview :content="content" />
 
     <Tabs v-model="activeTab" :tabs="tabs">
       <template #a> Content A </template>

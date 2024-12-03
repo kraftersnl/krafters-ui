@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     port: 3003,
   },
 
+  i18n: {
+    baseUrl: 'http://localhost:3003',
+  },
+
   app: {
     head: {
       title: 'Krafters UI',

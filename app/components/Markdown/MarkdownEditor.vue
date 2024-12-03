@@ -113,11 +113,6 @@ defineExpose({
   min-height: 10rem;
 }
 
-.md-editor .cm-editor,
-.md-editor-preview {
-  font-size: var(--font-size-sm);
-}
-
 .show-invalid .markdown-editor:has(:invalid) {
   .error-wrapper .error {
     display: flex;

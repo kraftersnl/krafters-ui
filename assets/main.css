@@ -273,8 +273,11 @@ dl {
   margin-block: 0;
 }
 
-ul,
 ol {
+  list-style-position: outside;
+  padding-inline-start: 2rem;
+}
+ul {
   list-style-position: outside;
   padding-inline-start: 1rem;
 
@@ -579,15 +582,20 @@ input {
 
 /* Markdown Editor/Preview classes */
 .md-editor-preview {
+  font-size: var(--font-size) !important;
   word-break: break-word !important;
 
   p {
     white-space: normal;
   }
 
-  ol,
-  ul {
+  ol {
     list-style-position: outside !important;
+    padding-inline-start: 2rem !important;
+  }
+
+  ul {
+    list-style-position: inside !important;
     padding-inline-start: 1rem !important;
   }
 }
@@ -619,8 +627,6 @@ input {
   --md-bk-color-outstand: var(--color-grey-bg) !important;
   --md-border-color: var(--color-grey-graphic) !important;
   --md-border-active-color: var(--focus-color) !important;
-
-  font-size: var(--font-size-md);
 
   a {
     --md-theme-link-color: var(--color-text);
