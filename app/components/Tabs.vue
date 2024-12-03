@@ -137,12 +137,14 @@ defineExpose({
     white-space: nowrap;
     padding-inline: 0;
     padding-block-end: 0.65rem;
-    border-block-end: 2px solid var(--color-grey-bg);
-    outline-color: transparent;
+    border-block-end: 1px solid var(--color-grey-bg);
     transition-property: color, background-color, box-shadow, outline-color,
       outline-offset;
     transition-duration: var(--duration-s);
     transition-timing-function: ease-in-out;
+
+    /* disable focus outline on tab */
+    outline-color: transparent;
 
     &:hover {
       color: var(--color-text);
@@ -161,6 +163,7 @@ defineExpose({
     }
   }
 
+  /* show focus outline on tab list */
   &:has(:focus-visible) {
     outline-offset: 0.5rem;
     outline: 2px solid var(--focus-color);
@@ -176,7 +179,6 @@ defineExpose({
   }
 
   .tab {
-    border-width: 1px;
     margin-block-end: -0.0625rem;
   }
 }
@@ -184,6 +186,10 @@ defineExpose({
 .tabs-variant--minimal {
   .tabs-list {
     display: inline-flex;
+  }
+
+  .tab {
+    border-width: 2px;
   }
 }
 
