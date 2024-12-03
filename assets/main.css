@@ -278,7 +278,7 @@ ol {
   list-style-position: outside;
   padding-inline-start: 1rem;
 
-  p {
+  li > p {
     margin-block: 0rem 1rem;
   }
 }
