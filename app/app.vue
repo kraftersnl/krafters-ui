@@ -6,6 +6,9 @@ const head = useLocaleHead();
 
 <template>
   <Html :lang="head.htmlAttrs?.lang">
+    <NuxtRouteAnnouncer />
+    <SkipLink />
+
     <AppHeader />
 
     <div class="app-layout">
@@ -19,11 +22,8 @@ const head = useLocaleHead();
 </template>
 
 <style>
-:root {
-  --app-padding-inline: 2rem;
-}
-
 .app-layout {
   padding: 2rem;
+  max-width: var(--app-max-width);
 }
 </style>

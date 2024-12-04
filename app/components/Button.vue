@@ -399,16 +399,16 @@ const emit = defineEmits(['click']);
   justify-content: start;
   padding-inline: 2rem;
   background-color: transparent;
-  gap: 0rem;
+  gap: 0;
 
   &.router-link-exact-active {
+    text-decoration: underline;
     font-weight: 600;
-    color: var(--color-green);
+    color: var(--color-accent);
   }
 
   &:not(:disabled):hover {
-    /* background-color: var(--color-green-bg); */
-    color: var(--color-green-text);
+    color: var(--color-accent);
   }
 }
 

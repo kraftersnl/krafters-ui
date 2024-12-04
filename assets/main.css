@@ -136,6 +136,15 @@
   /* Animation design tokens */
   --animation-rotate: rotate var(--duration-xl) linear infinite;
 
+  /* Other design token */
+  --app-max-width: 1280px;
+  --app-padding-block: 1rem;
+  --app-padding-inline: 1rem;
+
+  @media (min-width: 480px) {
+    --app-padding-inline: 1.5rem;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     --duration-sm: 0.15s;
     --duration-md: 0.35s;

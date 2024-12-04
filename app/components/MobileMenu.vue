@@ -3,22 +3,28 @@ const { isLargeScreen } = useScreenSize();
 
 const props = withDefaults(
   defineProps<{
-    navList?: MenuItem[];
-    label?: string;
-    position?: 'inline-start' | 'inline-end';
-    icon?: string;
-    buttonVariant?: 'ghost' | 'secondary';
     class?: string;
-    navAriaLabel?: string;
+    teleportTo?: string;
+    width?: number;
+    position?: 'inline-start' | 'inline-end';
+    buttonVariant?: 'ghost' | 'secondary';
+    icon?: string;
+    hideTriggerLabel?: boolean;
+    triggerLabel?: string;
+    navLabel?: string;
+    navList?: MenuItem[];
   }>(),
   {
-    navList: () => [],
-    label: 'Menu',
-    position: 'inline-start',
-    icon: 'menu-alt-2',
-    buttonVariant: 'secondary',
     class: undefined,
-    navAriaLabel: undefined,
+    teleportTo: '#teleports',
+    width: 360,
+    position: 'inline-start',
+    buttonVariant: 'secondary',
+    icon: 'menu-alt-2',
+    hideTriggerLabel: true,
+    triggerLabel: undefined,
+    navLabel: undefined,
+    navList: () => [],
   },
 );
 
@@ -67,7 +73,7 @@ defineExpose({
 watch(
   () => isLargeScreen.value,
   (value) => {
-    if (value) {
+    if (value && isVisible.value) {
       closeDialog();
     }
   },
@@ -80,51 +86,56 @@ const emit = defineEmits<{
 
 <template>
   <div class="mobile-menu-wrapper">
-    <slot name="trigger" v-bind="openDialog" />
+    <slot v-if="$slots.trigger" name="trigger" v-bind="openDialog" />
 
     <Button
+      v-else
       ref="openButton"
       :icon="icon"
       class="mobile-nav-toggle"
       :variant="buttonVariant"
-      :label="$t('aria.mobile-menu')"
-      hide-label
+      :label="triggerLabel || $t('general.menu')"
+      :hide-label="hideTriggerLabel"
       @click="openDialog"
     />
 
-    <Teleport v-if="isMounted" to="#teleports">
+    <Teleport v-if="isMounted" :to="teleportTo">
       <dialog
         ref="dialogElement"
         :class="`mobile-dialog dialog-position--${position} ${props.class ?? ''}`"
         v-bind="props"
         :aria-label="$t('aria.mobile-menu')"
+        :style="`--width: ${width}px`"
         @keydown.esc="closeDialog"
         @click="handleDialogClick"
       >
-        <div class="dialog-content">
-          <Button
-            ref="closeButton"
-            icon="x"
-            variant="ghost"
-            radius="full"
-            :label="$t('aria.close-menu')"
-            hide-label
-            class="close-button"
-            @click="closeDialog"
-          />
-
-          <template v-if="navList?.length">
-            <h2 class="nav-label">{{ label }}</h2>
-            <MenuList
-              :list="navList"
-              button-variant="sidebar"
-              :aria-label="navAriaLabel || $t('aria.mobile-menu')"
-              @click="emit('click', $event)"
+        <FocusLoop :is-visible="isVisible">
+          <div class="dialog-content">
+            <Button
+              ref="closeButton"
+              icon="x"
+              variant="ghost"
+              radius="full"
+              :label="$t('aria.close-menu')"
+              hide-label
+              class="close-button"
+              @click="closeDialog"
             />
-          </template>
 
-          <slot name="default" v-bind="{ closeDialog }" />
-        </div>
+            <template v-if="navList?.length">
+              <h2 class="nav-label">{{ navLabel }}</h2>
+
+              <MenuList
+                :list="navList"
+                button-variant="sidebar"
+                :aria-label="navLabel || $t('aria.mobile-menu')"
+                @click="emit('click', $event)"
+              />
+            </template>
+
+            <slot name="default" v-bind="{ closeDialog }" />
+          </div>
+        </FocusLoop>
       </dialog>
     </Teleport>
   </div>
@@ -147,28 +158,24 @@ body:has(.mobile-dialog[open]) {
 .mobile-dialog {
   padding: 0;
   overscroll-behavior: contain;
-  top: 0;
-  left: 0;
   min-height: 100dvh;
   width: 90vw;
-  max-width: 360px;
+  max-width: var(--width, 360px);
   border: none;
   background-color: var(--color-card-bg);
 
   &::backdrop {
     background-color: rgb(0 0 0 / 50%);
-    /* backdrop-filter: blur(0.35rem); */
   }
 
   .close-button {
     position: absolute;
     right: 1rem;
     top: 1rem;
-    justify-self: end;
   }
 
   .dialog-content {
-    padding-block-start: 4rem;
+    padding-block: 2rem;
   }
 
   .nav-label {
@@ -179,6 +186,7 @@ body:has(.mobile-dialog[open]) {
 
 .dialog-position--inline-start {
   margin-inline-start: 0;
+  border-inline-end: 1px solid var(--color-card-border);
 
   &[open] {
     animation: slideInLeft var(--duration-lg) forwards;
@@ -205,6 +213,7 @@ body:has(.mobile-dialog[open]) {
 
 .dialog-position--inline-end {
   margin-inline-end: 0;
+  border-inline-start: 1px solid var(--color-card-border);
 
   &[open] {
     animation: slideInRight var(--duration-lg) forwards;

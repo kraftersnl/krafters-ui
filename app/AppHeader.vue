@@ -1,36 +1,49 @@
 <script setup lang="ts">
-import AppHeaderMenu from './AppHeaderMenu.vue';
+const navList = [
+  {
+    id: 'home',
+    to: '/',
+    label: 'Home',
+  },
+  {
+    id: 'test',
+    to: '/test',
+    label: 'Page',
+  },
+];
+
+const route = useRoute();
+const mobileMenu = useTemplateRef('mobileMenu');
+
+watch(
+  () => route.path,
+  () => {
+    if (mobileMenu.value?.isVisible) {
+      mobileMenu.value?.closeDialog();
+    }
+  },
+);
 </script>
 
 <template>
   <header class="app-header">
     <div class="app-header-content">
-      <MobileMenu position="inline-start" />
+      <MobileMenu
+        ref="mobileMenu"
+        position="inline-start"
+        :nav-list="navList"
+      />
 
-      <nav>
-        <div class="logo">Krafters UI</div>
-
-        <ul role="list">
-          <li>
-            <NuxtLink to="/">Home</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/test">Page</NuxtLink>
-          </li>
-        </ul>
-      </nav>
+      <div class="logo">Krafters UI</div>
 
       <MobileMenu position="inline-end" icon="menu-alt-3">
         <div class="menu-content">
-          <ThemeSelect class="cat-theme" />
+          <ThemeSelect />
           <hr />
-
-          <LanguageSelect class="cat-lang" />
+          <LanguageSelect />
           <hr />
         </div>
       </MobileMenu>
-
-      <!-- <AppHeaderMenu /> -->
     </div>
 
     <NuxtLoadingIndicator color="var(--color-accent)" />
@@ -90,6 +103,24 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
     font-size: var(--font-size-xs);
     color: var(--color-accent-text);
     margin-inline-end: 3rem;
+  }
+}
+
+.language-select {
+  padding: 1rem;
+  width: 100%;
+
+  .language-options-list {
+    width: 100%;
+  }
+}
+
+.theme-select {
+  padding: 1rem;
+  width: 100%;
+
+  .theme-options-list {
+    width: 100%;
   }
 }
 </style>
