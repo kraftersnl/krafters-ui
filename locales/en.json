@@ -1,8 +1,10 @@
 {
   "aria": {
+    "close-menu": "Close menu",
     "logo-cardan": "Cardan for all",
     "main-content": "Main content",
     "main-nav": "Main navigation",
+    "mobile-menu": "Mobile menu",
     "open-menu": "open menu",
     "open-larger-view": "open larger view",
     "open-new-window": "open in new window",

@@ -18,7 +18,8 @@ const props = withDefaults(
       | 'link'
       | 'green'
       | 'blue'
-      | 'menu';
+      | 'menu'
+      | 'sidebar';
     size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     radius?: 'xs' | 'sm' | 'md' | 'lg' | 'full';
     hideLabel?: boolean;
@@ -226,7 +227,7 @@ const emit = defineEmits(['click']);
   }
 
   .iconify {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
   }
 }
 
@@ -316,7 +317,7 @@ const emit = defineEmits(['click']);
     background-color: var(--color-grey-bg);
   }
 
-  &[aria-current='page'] {
+  &.router-link-active {
     text-decoration: underline;
     color: var(--color-accent);
   }
@@ -349,7 +350,7 @@ const emit = defineEmits(['click']);
     color: var(--color-accent);
   }
 
-  &[aria-current='page'] {
+  &.router-link-active {
     color: var(--color-accent);
     text-decoration: none;
   }
@@ -361,7 +362,6 @@ const emit = defineEmits(['click']);
   flex-direction: row-reverse;
   justify-content: space-between;
   background-color: transparent;
-  text-underline-offset: 0.35rem;
   gap: 1.5rem;
 
   .iconify {
@@ -378,7 +378,7 @@ const emit = defineEmits(['click']);
     }
   }
 
-  &[aria-current='page'] {
+  &.router-link-active {
     font-weight: 600;
     color: var(--color-accent);
   }
@@ -390,6 +390,25 @@ const emit = defineEmits(['click']);
     .iconify {
       color: var(--color-accent-text);
     }
+  }
+}
+
+.button-variant--sidebar {
+  width: 100%;
+  font-weight: 500;
+  justify-content: start;
+  padding-inline: 2rem;
+  background-color: transparent;
+  gap: 0rem;
+
+  &.router-link-exact-active {
+    font-weight: 600;
+    color: var(--color-green);
+  }
+
+  &:not(:disabled):hover {
+    /* background-color: var(--color-green-bg); */
+    color: var(--color-green-text);
   }
 }
 

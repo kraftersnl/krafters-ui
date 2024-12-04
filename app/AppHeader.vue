@@ -5,9 +5,11 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
 <template>
   <header class="app-header">
     <div class="app-header-content">
-      <div class="logo">Krafters UI</div>
+      <MobileMenu position="inline-start" />
 
       <nav>
+        <div class="logo">Krafters UI</div>
+
         <ul role="list">
           <li>
             <NuxtLink to="/">Home</NuxtLink>
@@ -18,7 +20,17 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
         </ul>
       </nav>
 
-      <AppHeaderMenu />
+      <MobileMenu position="inline-end" icon="menu-alt-3">
+        <div class="menu-content">
+          <ThemeSelect class="cat-theme" />
+          <hr />
+
+          <LanguageSelect class="cat-lang" />
+          <hr />
+        </div>
+      </MobileMenu>
+
+      <!-- <AppHeaderMenu /> -->
     </div>
 
     <NuxtLoadingIndicator color="var(--color-accent)" />
@@ -30,6 +42,7 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
   position: relative;
   border-block-end: 1px solid var(--color-accent-bg);
   background-color: var(--color-white);
+  /* padding-inline-end: 3rem; */
 
   @media (min-width: 360px) {
     position: sticky;
@@ -38,6 +51,10 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
   }
 
   nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
     ul {
       height: 100%;
       display: inline-flex;
@@ -62,6 +79,7 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
   flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
+  justify-content: space-between;
   padding-inline: var(--app-padding-inline);
   max-width: var(--app-max-width);
   min-height: 3.5rem;
@@ -70,9 +88,8 @@ import AppHeaderMenu from './AppHeaderMenu.vue';
 
   .logo {
     font-size: var(--font-size-xs);
-    /* font-weight: 700; */
     color: var(--color-accent-text);
-    margin-inline-end: 1.5rem;
+    margin-inline-end: 3rem;
   }
 }
 </style>

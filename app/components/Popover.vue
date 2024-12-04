@@ -3,8 +3,6 @@ import { Tippy, type TippyComponent } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
-const activeItem = defineModel<string>();
-
 withDefaults(
   defineProps<{
     label?: string;
@@ -116,7 +114,6 @@ const emit = defineEmits<{
         <slot name="default" />
 
         <MenuList
-          v-model="activeItem"
           :list="list"
           :aria-label="navAriaLabel || $t('general.menu')"
           @click="handleMenuClick($event, hide)"

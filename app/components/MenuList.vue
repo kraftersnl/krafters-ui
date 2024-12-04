@@ -1,10 +1,17 @@
 <script setup lang="ts">
-defineProps<{
-  list: MenuItem[];
-  ariaLabel?: string;
-}>();
+withDefaults(
+  defineProps<{
+    list: MenuItem[];
+    ariaLabel?: string;
+    buttonVariant?: string;
+  }>(),
+  {
+    buttonVariant: 'menu',
+    ariaLabel: undefined,
+  },
+);
 
-function handleClick(item?: MenuItem) {
+function handleClick(item: MenuItem) {
   emit('click', item);
 
   if (item?.onClick) {
@@ -12,7 +19,9 @@ function handleClick(item?: MenuItem) {
   }
 }
 
-const emit = defineEmits(['click']);
+const emit = defineEmits<{
+  click: [item: MenuItem];
+}>();
 </script>
 
 <template>
@@ -31,8 +40,8 @@ const emit = defineEmits(['click']);
           :disabled="item.disabled"
           :target="item.target"
           :external="item.external"
-          size="xl"
-          variant="menu"
+          size="lg"
+          :variant="buttonVariant"
           @click="handleClick(item)"
         />
 
@@ -47,13 +56,12 @@ const emit = defineEmits(['click']);
   min-width: 200px;
 
   .button {
-    background-color: var(--color-white);
-    border-radius: 0;
+    --radius: 0 !important;
     outline-offset: -2px;
   }
 
   .menu-list-item:last-of-type {
-    .button {
+    .button-variant--menu {
       border-radius: 0 0 var(--radius-md) var(--radius-md);
     }
   }
