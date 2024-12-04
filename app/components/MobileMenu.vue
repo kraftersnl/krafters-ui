@@ -8,6 +8,7 @@ const props = withDefaults(
     width?: number;
     position?: 'inline-start' | 'inline-end';
     buttonVariant?: 'ghost' | 'secondary';
+    buttonSize?: 'sm' | 'md';
     icon?: string;
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
@@ -20,6 +21,7 @@ const props = withDefaults(
     width: 360,
     position: 'inline-start',
     buttonVariant: 'secondary',
+    buttonSize: 'md',
     icon: 'menu-alt-2',
     hideTriggerLabel: true,
     triggerLabel: undefined,
@@ -93,6 +95,7 @@ const emit = defineEmits<{
       ref="openButton"
       :icon="icon"
       class="mobile-nav-toggle"
+      :size="buttonSize"
       :variant="buttonVariant"
       :label="triggerLabel || $t('general.menu')"
       :hide-label="hideTriggerLabel"
