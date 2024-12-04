@@ -277,6 +277,7 @@ ol {
   list-style-position: outside;
   padding-inline-start: 2rem;
 }
+
 ul {
   list-style-position: outside;
   padding-inline-start: 1rem;
@@ -595,7 +596,7 @@ input {
   }
 
   ul {
-    list-style-position: inside !important;
+    list-style-position: outside !important;
     padding-inline-start: 1rem !important;
   }
 }
