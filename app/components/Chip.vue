@@ -56,6 +56,11 @@ const formattedLabel = computed(() =>
   border: 1px solid transparent;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+
+  .krafters-tooltip-content {
+    font-weight: 400;
+    font-size: var(--font-size-xs);
+  }
 }
 
 .chip--capitalize .chip-text::first-letter {
