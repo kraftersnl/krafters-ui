@@ -222,10 +222,6 @@ const emit = defineEmits(['click']);
   height: 2.5rem;
   padding-inline: 1rem;
 
-  .button-text {
-    padding-inline: 0.35rem;
-  }
-
   .iconify {
     font-size: var(--font-size-md);
   }
@@ -399,7 +395,6 @@ const emit = defineEmits(['click']);
   justify-content: start;
   padding-inline: 2rem;
   background-color: transparent;
-  gap: 0;
 
   &.router-link-exact-active {
     text-decoration: underline;

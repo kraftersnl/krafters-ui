@@ -115,6 +115,7 @@ const emit = defineEmits<{
 
         <MenuList
           :list="list"
+          button-size="xl"
           :aria-label="navAriaLabel || $t('general.menu')"
           @click="handleMenuClick($event, hide)"
         />

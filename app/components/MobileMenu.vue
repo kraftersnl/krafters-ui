@@ -7,8 +7,8 @@ const props = withDefaults(
     teleportTo?: string;
     width?: number;
     position?: 'inline-start' | 'inline-end';
-    buttonVariant?: 'ghost' | 'secondary';
-    buttonSize?: 'sm' | 'md';
+    triggerButtonVariant?: 'ghost' | 'secondary';
+    triggerButtonSize?: 'sm' | 'md';
     icon?: string;
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
@@ -20,8 +20,8 @@ const props = withDefaults(
     teleportTo: '#teleports',
     width: 360,
     position: 'inline-start',
-    buttonVariant: 'secondary',
-    buttonSize: 'md',
+    triggerButtonVariant: 'secondary',
+    triggerButtonSize: 'md',
     icon: 'menu-alt-2',
     hideTriggerLabel: true,
     triggerLabel: undefined,
@@ -95,8 +95,8 @@ const emit = defineEmits<{
       ref="openButton"
       :icon="icon"
       class="mobile-nav-toggle"
-      :size="buttonSize"
-      :variant="buttonVariant"
+      :size="triggerButtonSize"
+      :variant="triggerButtonVariant"
       :label="triggerLabel || $t('general.menu')"
       :hide-label="hideTriggerLabel"
       @click="openDialog"

@@ -8,7 +8,7 @@ withDefaults(
   }>(),
   {
     buttonVariant: 'menu',
-    buttonSize: 'xl',
+    buttonSize: 'lg',
     ariaLabel: undefined,
   },
 );
