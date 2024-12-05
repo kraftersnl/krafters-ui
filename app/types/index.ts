@@ -28,6 +28,7 @@ declare global {
     icon?: string;
     iconLib?: string;
     to?: string;
+    size?: string;
     disabled?: boolean;
     divider?: boolean;
     external?: boolean;

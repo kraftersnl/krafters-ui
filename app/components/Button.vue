@@ -363,6 +363,7 @@ const emit = defineEmits(['click']);
   justify-content: space-between;
   background-color: transparent;
   gap: 1.5rem;
+  height: 3rem;
 
   .iconify {
     color: var(--color-grey-graphic);

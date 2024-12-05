@@ -4,9 +4,11 @@ withDefaults(
     list: MenuItem[];
     ariaLabel?: string;
     buttonVariant?: string;
+    buttonSize?: string;
   }>(),
   {
     buttonVariant: 'menu',
+    buttonSize: 'xl',
     ariaLabel: undefined,
   },
 );
@@ -40,7 +42,7 @@ const emit = defineEmits<{
           :disabled="item.disabled"
           :target="item.target"
           :external="item.external"
-          size="lg"
+          :size="buttonSize"
           :variant="buttonVariant"
           @click="handleClick(item)"
         />
