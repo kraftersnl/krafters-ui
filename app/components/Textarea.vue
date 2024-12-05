@@ -128,7 +128,7 @@ defineExpose({
 .textarea-wrapper {
   .textarea {
     background-color: var(--color-input-bg);
-    min-height: 6rem;
+    min-height: 8rem;
     padding-inline-end: 1.5rem;
 
     &.autoresize {
