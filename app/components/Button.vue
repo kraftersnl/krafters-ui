@@ -371,7 +371,6 @@ const emit = defineEmits(['click']);
   &:disabled {
     opacity: 1;
     color: var(--color-grey-bg);
-    background-color: var(--color-grey-bg);
 
     .iconify {
       opacity: 0.35;
