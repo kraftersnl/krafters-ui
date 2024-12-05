@@ -88,7 +88,7 @@ defineExpose({
           @keyup.right="handleNextTab(tab)"
           @click="setActiveTab(tab)"
         >
-          <div class="tab__text">{{ tab.label }}</div>
+          <span class="tab__text">{{ tab.label }}</span>
         </button>
       </template>
     </div>
