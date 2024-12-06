@@ -100,6 +100,7 @@
     "open": "Open",
     "order": "Order",
     "page": "pages | {n} page | {n} pages",
+    "part": "parts | {n} part | {n} parts",
     "permissions": "Permissions",
     "prefs": "Preferences",
     "priority": "Priority",
