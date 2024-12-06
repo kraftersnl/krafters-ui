@@ -289,7 +289,7 @@ ol {
 
 ul {
   list-style-position: outside;
-  padding-inline-start: 1rem;
+  padding-inline-start: 1.25rem;
 
   li > p {
     margin-block: 0rem 1rem;
@@ -607,7 +607,7 @@ input {
 
   ul {
     list-style-position: outside !important;
-    padding-inline-start: 1rem !important;
+    padding-inline-start: 1.25rem !important;
   }
 }
 
