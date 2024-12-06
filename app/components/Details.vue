@@ -21,11 +21,41 @@ defineProps<{
 .details-wrapper {
   .summary {
     cursor: pointer;
+    position: relative;
+
+    /* Hide marker in Firefox and Chrome */
+    &::marker {
+      content: none;
+    }
+    /* Hide marker in Safari */
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::before {
+      content: '▶';
+      font-size: var(--font-size-xs);
+      position: absolute;
+      top: 0.25em;
+      left: -0.75rem;
+    }
+
+    @media (min-width: 480px) {
+      &::before {
+        left: -1rem;
+      }
+    }
 
     &:focus-visible {
       outline-offset: 2px;
       border-radius: var(--radius-xs);
       outline: 1px dotted var(--focus-color);
+    }
+  }
+
+  &[open] {
+    > .summary::before {
+      content: '▼';
     }
   }
 }
