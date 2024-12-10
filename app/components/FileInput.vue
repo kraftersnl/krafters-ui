@@ -44,7 +44,7 @@ defineExpose({
 const errorMessage = computed(() => {
   if (model.value) {
     if (model.value.size / 1024 > props.maxFileSize) {
-      return t('files.too-big', { size: props.maxFileSize / 1000 + ' MB' });
+      return t('files.too-big');
     }
   }
   return t('form-errors.not-filled-in', { item: props.label });
@@ -103,6 +103,7 @@ async function handleInput(event: Event) {
 function removeFile() {
   model.value = undefined;
   imagePreview.value = undefined;
+  fileInputRef.value?.focus();
 }
 
 watch(

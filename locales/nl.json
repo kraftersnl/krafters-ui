@@ -39,7 +39,7 @@
     "no-file-selected": "Geen bestand geselecteerd.",
     "or-drop-file": "of sleep een bestand",
     "thumb": "Thumbnail van {file}",
-    "too-big": "Bestandsgrootte is groter dan {size}"
+    "too-big": "Bestandsgrootte is te groot"
   },
   "form-errors": {
     "not-filled-in": "{item} ontbreekt",

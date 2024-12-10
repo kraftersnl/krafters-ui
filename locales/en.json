@@ -39,7 +39,7 @@
     "no-file-selected": "No file selected.",
     "or-drop-file": "or drop a file here",
     "thumb": "Thumbnail of {file}",
-    "too-big": "File size is bigger then {size}"
+    "too-big": "File size is too big"
   },
   "form-errors": {
     "not-filled-in": "{item} is missing",
