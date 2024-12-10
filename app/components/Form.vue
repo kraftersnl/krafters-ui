@@ -72,6 +72,7 @@ const emit = defineEmits<{
     flex-basis: 100%;
     flex-grow: 1;
   }
+
   @container (min-width: 240px) {
     > * {
       flex-basis: var(--col-width, 100%);
@@ -79,6 +80,7 @@ const emit = defineEmits<{
   }
 
   .button {
+    --col-width: var(--col-width-auto);
     flex-grow: 0;
   }
 }
