@@ -69,16 +69,17 @@ const emit = defineEmits<{
   container-type: inline-size;
 
   > * {
-    flex-basis: var(--col-width, 100%);
+    flex-basis: 100%;
     flex-grow: 1;
+  }
+  @container (min-width: 240px) {
+    > * {
+      flex-basis: var(--col-width, 100%);
+    }
   }
 
   .button {
     flex-grow: 0;
-
-    &[type='submit'] {
-      flex-basis: 8rem;
-    }
   }
 }
 </style>
