@@ -36,6 +36,7 @@
   "files": {
     "browse": "Browse files",
     "example": "Example of {file}",
+    "name": "File name",
     "no-file-selected": "No file selected.",
     "or-drop-file": "or drop a file here",
     "thumb": "Thumbnail of {file}",

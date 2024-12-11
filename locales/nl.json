@@ -36,6 +36,7 @@
   "files": {
     "browse": "Selecteer bestand",
     "example": "Voorbeeld van {file}",
+    "name": "Bestandsnaam",
     "no-file-selected": "Geen bestand geselecteerd.",
     "or-drop-file": "of sleep een bestand",
     "thumb": "Thumbnail van {file}",

@@ -23,6 +23,7 @@ const props = withDefaults(
     size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     radius?: 'xs' | 'sm' | 'md' | 'lg' | 'full';
     hideLabel?: boolean;
+    disabled?: boolean;
     loading?: boolean;
     download?: boolean;
     type?: 'button' | 'submit' | 'reset';
@@ -89,6 +90,7 @@ const emit = defineEmits(['click']);
   <button
     v-else
     :type="type"
+    :disabled="loading || disabled"
     :class="`
       button
       button-size--${size}
@@ -149,7 +151,6 @@ const emit = defineEmits(['click']);
 
   &.button--loading {
     cursor: default;
-    opacity: 35%;
 
     .iconify {
       animation: var(--animation-rotate);

@@ -24,7 +24,7 @@ const props = withDefaults(
     </div>
 
     <div
-      v-bind="props"
+      v-bind="$attrs"
       :class="`meter meter-size--${size}`"
       :style="`--width: ${(value / (max - min)) * 100 + '%'}`"
     />

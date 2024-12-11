@@ -106,7 +106,7 @@ const emit = defineEmits<{
       <dialog
         ref="dialogElement"
         :class="`mobile-dialog dialog-position--${position} ${props.class ?? ''}`"
-        v-bind="props"
+        v-bind="$attrs"
         :aria-label="$t('aria.mobile-menu')"
         :style="`--width: ${width}px`"
         @keydown.esc="closeDialog"

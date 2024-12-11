@@ -4,7 +4,7 @@ import { attrs } from '@mdit/plugin-attrs';
 import { italicExtension, targetBlankExtension } from './extensions';
 import 'md-editor-v3/lib/style.css';
 
-const props = defineProps<{
+defineProps<{
   content?: string;
   fontSize?: string;
 }>();
@@ -33,7 +33,7 @@ config({
 
 <template>
   <MdPreview
-    v-bind="props"
+    v-bind="$attrs"
     :language="locale"
     :model-value="content"
     :theme="$colorMode.value === 'light' ? 'light' : 'dark'"

@@ -16,7 +16,6 @@ const props = withDefaults(
     name?: string;
     hideLabel?: boolean;
     hideSelected?: boolean;
-    closeOnSelect?: boolean;
     searchable?: boolean;
     disabled?: boolean;
     required?: boolean;
@@ -32,7 +31,6 @@ const props = withDefaults(
     placeholder: undefined,
     name: undefined,
     hideSelected: false,
-    closeOnSelect: false,
     searchable: true,
     valueKey: 'value',
     labelKey: 'label',
@@ -231,10 +229,10 @@ defineExpose({
   --ms-group-label-color-pointed: var(--color-text);
   --ms-group-label-bg-disabled: var(--color-grey-bg);
   --ms-group-label-color-disabled: var(--color-grey-graphic);
-  --ms-group-label-bg-selected: var(--color-green-bg);
-  --ms-group-label-color-selected: var(--color-green-text);
-  --ms-group-label-bg-selected-pointed: var(--color-green);
-  --ms-group-label-color-selected-pointed: #ffffff;
+  --ms-group-label-bg-selected: var(--color-accent);
+  --ms-group-label-color-selected: var(--color-white);
+  --ms-group-label-bg-selected-pointed: var(--color-accent);
+  --ms-group-label-color-selected-pointed: var(--color-white);
   /* --ms-group-label-bg-selected-disabled: #75cfb1; */
   /* --ms-group-label-color-selected-disabled: #d1fae5; */
 
@@ -242,12 +240,12 @@ defineExpose({
   /* --ms-option-line-height: 1.375; */
   --ms-option-bg-pointed: var(--color-grey-bg);
   --ms-option-color-pointed: var(--color-text);
-  --ms-option-bg-selected: var(--color-green-bg);
-  --ms-option-color-selected: var(--color-green-text);
+  --ms-option-bg-selected: var(--color-accent);
+  --ms-option-color-selected: var(--color-white);
   --ms-option-bg-disabled: var(--color-grey-bg);
   --ms-option-color-disabled: var(--color-grey-graphic);
-  --ms-option-bg-selected-pointed: var(--color-red-bg);
-  --ms-option-color-selected-pointed: var(--color-red);
+  --ms-option-bg-selected-pointed: var(--color-accent);
+  --ms-option-color-selected-pointed: var(--color-white);
   /* --ms-option-bg-selected-disabled: #FFFFFF;
   --ms-option-color-selected-disabled: #D1FAE5;
   --ms-option-py: 0.5rem;
@@ -299,6 +297,14 @@ defineExpose({
 
 .multiselect-fake-input {
   opacity: 0;
+}
+
+.multiselect.is-disabled {
+  opacity: 35%;
+
+  .multiselect-wrapper {
+    cursor: default;
+  }
 }
 
 .multiselect.is-active.is-open {

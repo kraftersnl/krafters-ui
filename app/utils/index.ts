@@ -20,3 +20,8 @@ export function isValidUrl(url?: string): boolean {
     return false;
   }
 }
+
+export function stripTrailingSlash(str?: string) {
+  if (!str) return;
+  return str.endsWith('/') ? str.slice(0, -1) : str;
+}

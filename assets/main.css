@@ -416,11 +416,18 @@ button {
   }
 }
 
-label:not(.disabled) {
-  cursor: pointer;
+label {
+  font-weight: 500;
   -webkit-user-select: none;
   user-select: none;
-  font-weight: 500;
+
+  &.disabled {
+    opacity: 25%;
+  }
+
+  &:not(.disabled) {
+    cursor: pointer;
+  }
 }
 
 address {

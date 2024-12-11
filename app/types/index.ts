@@ -5,6 +5,7 @@ import type Input from '../components/Input.vue';
 import type FileInput from '../components/FileInput.vue';
 import type Button from '../components/Button.vue';
 import type Popover from '../components/Popover.vue';
+import type MarkdownEditor from '../components/Markdown/MarkdownEditor.vue';
 
 declare global {
   type BaseColor =
@@ -43,6 +44,7 @@ declare global {
   type FileInputComponent = InstanceType<typeof FileInput>;
   type ButtonComponent = InstanceType<typeof Button>;
   type PopoverComponent = InstanceType<typeof Popover>;
+  type MarkdownEditorComponent = InstanceType<typeof MarkdownEditor>;
 
   type PopperPlacement =
     | 'auto'
