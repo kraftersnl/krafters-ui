@@ -4,7 +4,7 @@
   --color-scheme: dark;
   --color-white: #120817;
   --color-black: #ffffff;
-  --color-text: #ffffff;
+  --color-text: #e7e0eb;
   --color-grey-text: #aa91b6;
   --color-grey-graphic: #8b7b93;
   --color-grey-bg: #37293d;
@@ -210,6 +210,7 @@ body {
   font-family: system-ui, sans-serif;
   line-height: 1.5;
   overflow-wrap: word-break;
+  color: var(--color-text);
 }
 
 img {
