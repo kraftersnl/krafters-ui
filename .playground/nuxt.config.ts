@@ -1,7 +1,5 @@
 export default defineNuxtConfig({
-  $production: {
-    extends: ['github:kraftersnl/krafters-ui'],
-  },
+  extends: ['github:kraftersnl/krafters-ui'],
 
   $development: {
     extends: ['..'],
