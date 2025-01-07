@@ -1,5 +1,11 @@
 export default defineNuxtConfig({
-  extends: ['..'],
+  $production: {
+    extends: ['github:kraftersnl/krafters-ui'],
+  },
+
+  $development: {
+    extends: ['..'],
+  },
 
   devServer: {
     port: 3003,
