@@ -18,10 +18,10 @@ const id = useId();
     <input
       :id="id"
       v-model="model"
-      type="checkbox"
       :name="name"
       :value="value"
       :disabled="disabled"
+      type="checkbox"
     />
 
     <label :for="id" :title="title">

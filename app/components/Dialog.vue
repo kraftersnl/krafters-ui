@@ -115,9 +115,8 @@ body:has(.dialog[open]) {
     align-items: center;
 
     .close-button {
-      position: absolute;
-      right: 0.75rem;
-      top: 0.75rem;
+      float: inline-end;
+      margin-inline-start: auto;
     }
   }
 

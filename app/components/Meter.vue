@@ -1,18 +1,15 @@
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    label: string;
-    value: number;
-    min?: number;
-    max?: number;
-    size?: 'sm' | 'md' | 'lg';
-  }>(),
-  {
-    min: 0,
-    max: 100,
-    size: 'md',
-  },
-);
+const {
+  min = 0,
+  max = 100,
+  size = 'md',
+} = defineProps<{
+  label: string;
+  value: number;
+  min?: number;
+  max?: number;
+  size?: 'sm' | 'md' | 'lg';
+}>();
 </script>
 
 <template>

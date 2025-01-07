@@ -1,9 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { is = 'div' } = defineProps<{
+  is?: string;
+}>();
+</script>
 
 <template>
-  <div class="card">
+  <component :is="is" class="card">
     <slot />
-  </div>
+  </component>
 </template>
 
 <style>

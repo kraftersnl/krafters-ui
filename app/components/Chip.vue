@@ -202,7 +202,7 @@ const formattedLabel = computed(() =>
 }
 
 .chip-variant--outline.chip-color--yellow {
-  color: var(--color-yellow-text);
+  color: var(--color-text);
   border-color: var(--color-yellow);
 }
 </style>

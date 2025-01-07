@@ -57,7 +57,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         size="sm"
         variant="ghost"
         :disabled="loading || page === 1"
-        @click.stop="goToPage(1)"
+        @click="goToPage(1)"
       />
 
       <Button
@@ -93,7 +93,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         size="sm"
         class="next-page-button"
         :disabled="loading || page >= lastPage || lastPage <= 1"
-        @click.stop="goToPage(currentPage + 1)"
+        @click="goToPage(currentPage + 1)"
       />
 
       <Button
@@ -103,7 +103,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         size="sm"
         variant="ghost"
         :disabled="loading || page >= lastPage || lastPage <= 1"
-        @click.stop="goToPage(lastPage)"
+        @click="goToPage(lastPage)"
       />
     </nav>
 

@@ -16,7 +16,7 @@ Your layer is at the root of this repository, it is exactly like a regular Nuxt 
 
 The `.playground` directory should help you on trying your layer during development.
 
-Running `npm dev` will prepare and boot `.playground` directory, which imports your layer itself.
+Running `npm run dev` will prepare and boot `.playground` directory, which imports your layer itself.
 
 ## Distributing your layer
 
@@ -47,7 +47,7 @@ defineNuxtConfig({
 Start the development server on http://localhost:3000
 
 ```bash
-npm dev
+npm run dev
 ```
 
 ## Production
@@ -55,19 +55,19 @@ npm dev
 Build the application for production:
 
 ```bash
-npm build
+npm run build
 ```
 
 Or statically generate it with:
 
 ```bash
-npm generate
+npm run generate
 ```
 
 Locally preview production build:
 
 ```bash
-npm preview
+npm run preview
 ```
 
 Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

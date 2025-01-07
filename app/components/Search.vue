@@ -1,17 +1,19 @@
 <script setup lang="ts">
-defineProps<{
+const model = defineModel<string | number>();
+
+const { hideLabel = true } = defineProps<{
+  label?: string;
   placeholder?: string;
+  hideLabel?: boolean;
 }>();
 
-const searchTerm = ref();
-
 function handleSearch() {
-  emit('submit', searchTerm.value);
+  emit('submit', model.value);
 }
 
 function handleReset() {
-  searchTerm.value = undefined;
-  emit('reset', searchTerm.value);
+  model.value = '';
+  emit('reset', model.value);
 }
 
 const emit = defineEmits(['update:model-value', 'submit', 'reset']);
@@ -21,21 +23,20 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
   <Form role="search" class="search-form" @submit="handleSearch">
     <div class="search-input-wrapper">
       <Input
-        v-model="searchTerm"
+        v-model="model"
         type="search"
         size="lg"
-        icon="search"
+        :icon="hideLabel ? 'search' : undefined"
         :placeholder="placeholder"
-        :label="$t('general.search')"
-        hide-label
+        :label="label || $t('general.search')"
+        :hide-label="hideLabel"
         @update:model-value="emit('update:model-value', $event)"
       />
 
       <Button
-        v-if="searchTerm"
+        v-if="model"
         type="reset"
-        :label="$t('general.reset')"
-        hide-label
+        :title="$t('general.reset')"
         icon="refresh"
         size="sm"
         variant="ghost"
@@ -46,7 +47,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
     <Button
       type="submit"
       variant="primary"
-      :label="$t('general.search')"
+      :title="$t('general.submit')"
       icon="search"
       size="lg"
       hide-label
@@ -58,7 +59,8 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
 .search-form {
   flex-grow: 1;
   display: grid;
-  gap: 0.25rem;
+  align-items: end;
+  gap: 0.5rem;
   grid-template-columns: 1fr auto;
 
   .form-field-wrapper {
@@ -80,7 +82,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
       z-index: 1;
       position: absolute;
       right: 0.25rem;
-      top: 0.25rem;
+      bottom: 0.25rem;
     }
   }
 }

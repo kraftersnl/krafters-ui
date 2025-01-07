@@ -1,0 +1,202 @@
+<script setup lang="ts">
+import { wcagPrinciples } from '../data/wcag';
+
+useHead({ title: 'Table, Pagination and Filter | Krafters UI' });
+
+const keyword = ref('');
+const wcagLevel = ref<string[]>(['A', 'AA']);
+const page = ref(1);
+const pageSize = ref(10);
+const tableSize = ref('sm');
+const tableFontSize = ref('sm');
+
+const guidelines = computed(() =>
+  wcagPrinciples.map((principle) => principle.guidelines).flat(),
+);
+
+const criteria = computed(() =>
+  guidelines.value?.map((guideline) => guideline.criteria).flat(),
+);
+
+const filteredCriteria = computed(() =>
+  criteria.value?.filter(
+    (criterion) =>
+      (wcagLevel.value?.length
+        ? wcagLevel.value?.includes(criterion.level ?? '')
+        : true) &&
+      (criterion.name?.toLowerCase().includes(keyword.value.toLowerCase()) ||
+        criterion.description
+          ?.toLowerCase()
+          .includes(keyword.value.toLowerCase()) ||
+        criterion.number?.toLowerCase().includes(keyword.value.toLowerCase())),
+  ),
+);
+
+const results = ref(filteredCriteria.value.slice(0, 10));
+
+const wcagLevels = [
+  {
+    value: '',
+    label: 'All Levels',
+  },
+  {
+    value: 'A',
+    label: 'Level A',
+  },
+  {
+    value: 'AA',
+    label: 'Level AA',
+  },
+  {
+    value: 'AAA',
+    label: 'Level AAA',
+  },
+];
+
+const tableFontSizes = [
+  {
+    value: 'md',
+    label: 'md',
+  },
+  {
+    value: 'sm',
+    label: 'sm',
+  },
+  {
+    value: 'xs',
+    label: 'xs',
+  },
+];
+
+const tableSizes = [
+  {
+    value: 'md',
+    label: 'md',
+  },
+  {
+    value: 'sm',
+    label: 'sm',
+  },
+  {
+    value: 'xs',
+    label: 'xs',
+  },
+];
+
+function handlePageChange(pageNumber: number) {
+  const start = (pageNumber - 1) * pageSize.value;
+  const end = start + pageSize.value;
+  results.value = filteredCriteria.value.slice(start, end);
+}
+
+function handlePageSizeChange() {
+  page.value = 1;
+  handlePageChange(page.value);
+}
+</script>
+
+<template>
+  <div class="demo-page">
+    <div class="section-topbar">
+      <h1>Table</h1>
+
+      <Popover icon="cog" hide-label :max-width="480">
+        <div class="popover-settings-content">
+          <h2>Table Props</h2>
+
+          <div class="props-wrapper">
+            <Select
+              v-model="tableSize"
+              :options="tableSizes"
+              label="size"
+              size="sm"
+            />
+            <Select
+              v-model="tableFontSize"
+              :options="tableFontSizes"
+              label="fontSize"
+              size="sm"
+            />
+
+            <code
+              >{{ `<Table :size="${tableSize}" :font-size="${tableFontSize}" />`
+              }}</code
+            >
+          </div>
+        </div>
+      </Popover>
+    </div>
+
+    <Card>
+      <div class="topbar-wrapper">
+        <MultiSelect
+          v-model="wcagLevel"
+          :options="wcagLevels"
+          label="WCAG level filter"
+          :hide-label="true"
+          mode="tags"
+          placeholder="All levels"
+          size="lg"
+          @update:model-value="handlePageChange(1)"
+        />
+
+        <Search
+          v-model="keyword"
+          :hide-label="true"
+          label="Search"
+          @submit="handlePageChange(1)"
+          @reset="handlePageChange(1)"
+        />
+      </div>
+
+      <Table :size="tableSize" :font-size="tableFontSize">
+        <thead>
+          <tr>
+            <th scope="col" colspan="2">WCAG success criterion</th>
+            <th scope="col">Description</th>
+            <th scope="col">Level</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="sc in results" :key="sc.id">
+            <th scope="row">{{ sc.number }}</th>
+            <td class="sc-name">{{ sc.name }}</td>
+            <td>{{ sc.description }}</td>
+            <td>{{ sc.level }}</td>
+          </tr>
+        </tbody>
+      </Table>
+
+      <Pagination
+        v-model:page="page"
+        v-model:per-page="pageSize"
+        :total="filteredCriteria.length"
+        :page-sizes="[5, 10, 20, 50, 100]"
+        :last-page="Math.ceil(filteredCriteria.length / pageSize)"
+        @update:page="handlePageChange"
+        @update:per-page="handlePageSizeChange"
+      />
+    </Card>
+  </div>
+</template>
+
+<style>
+.demo-page {
+  .sc-name {
+    /* white-space: nowrap; */
+  }
+
+  .topbar-wrapper {
+    margin-block: 0.5rem 1rem;
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+    justify-content: space-between;
+
+    .multiselect {
+      min-width: 240px;
+    }
+  }
+}
+</style>

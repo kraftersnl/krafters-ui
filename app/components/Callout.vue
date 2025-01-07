@@ -43,6 +43,7 @@ const computedIcon = computed(() => {
   gap: 0.35rem;
 
   .iconify {
+    flex-shrink: 0;
     font-size: 1rem;
   }
 }

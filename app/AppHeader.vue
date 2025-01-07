@@ -1,16 +1,7 @@
 <script setup lang="ts">
-const navList = [
-  {
-    id: 'home',
-    to: '/',
-    label: 'Home',
-  },
-  {
-    id: 'test',
-    to: '/test',
-    label: 'Page',
-  },
-];
+import { version } from './package.json';
+
+const { navList } = useDemo();
 
 const route = useRoute();
 const mobileMenu = useTemplateRef('mobileMenu');
@@ -30,13 +21,14 @@ watch(
     <div class="app-header-content">
       <MobileMenu
         ref="mobileMenu"
+        class="left-menu"
         position="inline-start"
         :nav-list="navList"
       />
 
-      <div class="logo">Krafters UI</div>
+      <div class="logo">Krafters UI {{ version }}</div>
 
-      <MobileMenu position="inline-end" icon="menu-alt-3">
+      <MobileMenu position="inline-end" icon="adjustments-vertical">
         <div class="menu-content">
           <ThemeSelect />
           <hr />
@@ -51,11 +43,18 @@ watch(
 </template>
 
 <style>
+@media (min-width: 1024px) {
+  .app-header-content .mobile-menu-wrapper:first-child {
+    display: none;
+  }
+}
+
 .app-header {
   position: relative;
   border-block-end: 1px solid var(--color-accent-bg);
-  background-color: var(--color-white);
-  /* padding-inline-end: 3rem; */
+  background-color: rgb(var(--rgb-app-nav) / 75%);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 
   @media (min-width: 360px) {
     position: sticky;
@@ -88,21 +87,21 @@ watch(
 }
 
 .app-header-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline: var(--app-padding-inline);
   max-width: var(--app-max-width);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
   min-height: 3.5rem;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 
   .logo {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-s);
     color: var(--color-accent-text);
-    margin-inline-end: 3rem;
   }
 }
 

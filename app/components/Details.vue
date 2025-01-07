@@ -37,13 +37,7 @@ defineProps<{
       font-size: var(--font-size-xs);
       position: absolute;
       top: 0.25em;
-      left: -0.75rem;
-    }
-
-    @media (min-width: 480px) {
-      &::before {
-        left: -1rem;
-      }
+      left: -1rem;
     }
 
     &:focus-visible {

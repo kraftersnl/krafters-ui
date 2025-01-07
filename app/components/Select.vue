@@ -42,11 +42,6 @@ const props = withDefaults(
 );
 
 const id = useId();
-
-function handleChange(event: Event) {
-  const target = event.target as HTMLSelectElement;
-  model.value = target.value;
-}
 </script>
 
 <template>
@@ -87,7 +82,6 @@ function handleChange(event: Event) {
         ${instruction ? `instruction-${id}` : ''}
         ${id && required ? `error-${id}` : ''}
       `"
-      @change="handleChange"
     >
       <template v-if="!options?.length">
         <option selected disabled :value="placeholderValue">

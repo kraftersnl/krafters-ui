@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { MdPreview, config } from 'md-editor-v3';
 import { attrs } from '@mdit/plugin-attrs';
+import { mark } from '@mdit/plugin-mark';
 import { italicExtension, targetBlankExtension } from './extensions';
 import 'md-editor-v3/lib/style.css';
 
@@ -16,6 +17,7 @@ config({
     md.use(targetBlankExtension);
     md.use(italicExtension);
     md.use(attrs);
+    md.use(mark);
   },
   editorExtensions: {
     highlight: {

@@ -1,0 +1,36 @@
+<script setup lang="ts">
+defineProps<{
+  version: string;
+  date: string;
+}>();
+</script>
+
+<template>
+  <Card class="changelog-entry">
+    <h2>{{ version }}</h2>
+
+    <time :datetime="date">
+      {{ $d(new Date(date), 'long') }}
+    </time>
+
+    <slot />
+  </Card>
+</template>
+
+<style>
+.changelog-entry {
+  h2 {
+    margin-block-end: 0;
+  }
+
+  time {
+    color: var(--color-grey-text);
+    font-size: var(--font-size-xs);
+  }
+
+  p,
+  ul {
+    margin-block-end: 0;
+  }
+}
+</style>

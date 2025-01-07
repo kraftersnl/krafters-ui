@@ -240,6 +240,9 @@ watch(
     vertical-align: middle;
     margin-inline-start: 0.25rem;
   }
+  .file-name {
+    color: var(--color-text);
+  }
 }
 
 .file-input {

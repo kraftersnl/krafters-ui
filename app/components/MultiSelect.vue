@@ -24,6 +24,7 @@ const props = withDefaults(
     labelKey?: string;
     disabledKey?: string;
     itemsSelectedLabel?: string;
+    size?: 'sm' | 'md' | 'lg';
   }>(),
   {
     id: () => useId(),
@@ -36,6 +37,7 @@ const props = withDefaults(
     labelKey: 'label',
     disabledKey: 'disabled',
     itemsSelectedLabel: undefined,
+    size: 'md',
   },
 );
 
@@ -64,6 +66,7 @@ defineExpose({
     :class="`
       form-field-wrapper
       krafters-multiselect
+      multi-select-size--${size}
       ${showInvalid ? 'show-invalid' : ''}
     `"
   >
@@ -84,7 +87,6 @@ defineExpose({
       v-model="model"
       :locale="$i18n.locale"
       :hide-selected="hideSelected"
-      :close-on-select="closeOnSelect"
       :mode="mode"
       :placeholder="placeholder"
       :searchable="searchable"
@@ -315,5 +317,18 @@ defineExpose({
   .error-wrapper .error {
     display: flex;
   }
+}
+
+/* Sizes */
+.multi-select-size--sm .multiselect-wrapper {
+  height: calc(2rem - 2px);
+}
+
+.multi-select-size--md .multiselect-wrapper {
+  height: calc(2.25rem - 2px);
+}
+
+.multi-select-size--lg .multiselect-wrapper {
+  height: calc(2.5rem - 2px);
 }
 </style>

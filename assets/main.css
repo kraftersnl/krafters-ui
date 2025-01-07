@@ -38,6 +38,8 @@
   --color-blue-bg: #000080;
   --color-blue-text: #b3b3ff;
 
+  --rgb-app-nav: 0 0 0;
+
   --shadow-color: 282deg 42% 2%;
 
   --color-input-bg: #121212;
@@ -81,6 +83,8 @@
   --color-blue: #0000ff;
   --color-blue-bg: #ccccff;
   --color-blue-text: #000080;
+
+  --rgb-app-nav: 255 255 255;
 
   --shadow-color: 277deg 8% 60%;
 
@@ -453,6 +457,7 @@ textarea {
 input {
   background-color: transparent;
 }
+
 .file-input-wrapper,
 .form-field-wrapper {
   position: relative;
@@ -462,6 +467,7 @@ input {
 
   label,
   .label {
+    white-space: nowrap;
     display: inline-flex;
     gap: 0.35rem;
     min-height: 1.25rem;

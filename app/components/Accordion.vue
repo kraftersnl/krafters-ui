@@ -61,15 +61,14 @@ defineExpose({ toggleAccordion });
       :tabindex="tabindex"
       @click.stop="toggleAccordion"
     >
-      <slot v-if="$slots.trigger" name="trigger" />
-      <span v-else class="visuallyhidden">{{ $t('general.expand') }}</span>
-
       <Icon
         v-if="arrow"
-        name="heroicons-solid:chevron-down"
+        name="heroicons-solid:chevron-double-right"
         class="accordion-arrow"
         aria-hidden
       />
+      <slot v-if="$slots.trigger" name="trigger" />
+      <span v-else class="visuallyhidden">{{ $t('general.expand') }}</span>
     </button>
 
     <slot />
@@ -112,7 +111,7 @@ defineExpose({ toggleAccordion });
 
 .accordion-trigger[aria-expanded='true'] {
   .accordion-arrow {
-    rotate: 0.5turn;
+    rotate: 0.25turn;
   }
   ~ .accordion-content-wrapper {
     grid-template-rows: 1fr;
@@ -129,20 +128,18 @@ defineExpose({ toggleAccordion });
   width: 100%;
   display: flex;
   align-items: center;
-  outline: 2px solid transparent;
+  outline-offset: 2px;
   transition-property: color, border-color, outline-offset, outline-color;
   transition-duration: var(--duration-sm);
 
   &:focus-visible {
-    outline-offset: 2px;
-    outline-color: var(--focus-color);
+    outline: 1px dotted var(--focus-color);
     border-color: transparent;
   }
 
   .accordion-arrow {
     position: absolute;
-    right: 0;
-    top: 0;
+    left: -1.25rem;
     transition: rotate var(--duration-sm);
   }
 }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { MdEditor, config } from 'md-editor-v3';
 import { attrs } from '@mdit/plugin-attrs';
+import { mark } from '@mdit/plugin-mark';
 import { italicExtension, targetBlankExtension } from './extensions';
 import 'md-editor-v3/lib/style.css';
 
@@ -9,6 +10,7 @@ config({
     md.use(targetBlankExtension);
     md.use(italicExtension);
     md.use(attrs);
+    md.use(mark);
   },
   editorExtensions: {
     highlight: {
@@ -27,14 +29,7 @@ const { locale } = useI18n();
 
 const content = defineModel<string>();
 
-const {
-  label,
-  placeholder,
-  id = useId(),
-  preview = false,
-  required,
-  errorMessage,
-} = defineProps<{
+const { id = useId(), preview = false } = defineProps<{
   label?: string;
   placeholder?: string;
   id?: string;

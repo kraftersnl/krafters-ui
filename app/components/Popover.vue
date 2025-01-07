@@ -101,6 +101,7 @@ const emit = defineEmits<{
         :class="`popover-trigger popover-trigger-size--${size}`"
       >
         <Icon :name="iconLib + ':' + icon" />
+
         <span :class="hideLabel ? 'visuallyhidden' : undefined">
           {{ label || $t('aria.open-menu') }}
         </span>

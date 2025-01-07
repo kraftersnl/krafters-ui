@@ -1,7 +1,7 @@
 {
   "name": "@krafters/ui",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "./nuxt.config.ts",
   "scripts": {
     "dev": "nuxi dev .playground  --host",
@@ -15,6 +15,7 @@
   "devDependencies": {
     "@iconify-json/heroicons-solid": "latest",
     "@mdit/plugin-attrs": "latest",
+    "@mdit/plugin-mark": "latest",
     "@nuxt/eslint": "latest",
     "@nuxt/icon": "latest",
     "@nuxtjs/color-mode": "latest",

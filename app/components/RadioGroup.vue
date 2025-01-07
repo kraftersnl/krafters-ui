@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const model = defineModel<(string | number)[]>();
+const model = defineModel<string | number>();
 
 withDefaults(
   defineProps<{
@@ -8,7 +8,6 @@ withDefaults(
     name?: string;
     valueKey?: string;
     labelKey?: string;
-    nameKey?: string;
     titleKey?: string;
     hideLegend?: boolean;
   }>(),
@@ -16,29 +15,30 @@ withDefaults(
     name: undefined,
     valueKey: 'value',
     labelKey: 'label',
-    nameKey: 'value',
     titleKey: undefined,
   },
 );
 </script>
 
 <template>
-  <div class="checkboxes-wrapper">
+  <div class="radios-wrapper">
     <template v-if="options?.length">
       <fieldset>
         <legend :class="`${hideLegend ? 'visuallyhidden' : ''}`">
           {{ label }}
         </legend>
 
-        <ul role="list" class="checkbox-list">
-          <li v-for="option in options" :key="'checkbox-' + option.value">
-            <Checkbox
+        <ul role="list" class="radio-list">
+          <li v-for="option in options" :key="'radio-' + option.value">
+            <input
+              :id="option[valueKey]"
               v-model="model"
               :value="option[valueKey]"
-              :label="option[labelKey]"
               :title="titleKey ? option[titleKey] : undefined"
-              :name="option[nameKey]"
+              :name="name"
+              type="radio"
             />
+            <label :for="option[valueKey]">{{ option[labelKey] }}</label>
           </li>
         </ul>
       </fieldset>
@@ -47,7 +47,7 @@ withDefaults(
 </template>
 
 <style>
-.checkboxes-wrapper {
+.radios-wrapper {
   margin-block: 0.5rem;
 
   legend {
@@ -55,9 +55,19 @@ withDefaults(
     margin-block-end: 1rem;
   }
 
-  .checkbox-list {
+  .radio-list {
     display: grid;
     gap: 0.5rem;
+    font-size: var(--font-size-sm);
+
+    input[type='radio'] {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    label {
+      padding-inline-start: 0.25rem;
+    }
   }
 }
 </style>
