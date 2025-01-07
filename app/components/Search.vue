@@ -47,7 +47,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
     <Button
       type="submit"
       variant="primary"
-      :title="$t('general.submit')"
+      :label="$t('general.submit')"
       icon="search"
       size="lg"
       hide-label
