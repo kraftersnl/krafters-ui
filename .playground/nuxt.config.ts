@@ -6,10 +6,11 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    baseUrl: 'http://localhost:3003',
+    baseUrl: 'https://kraftersnl.github.io/krafters-ui/',
   },
 
   app: {
+    baseURL: '/krafters-ui',
     head: {
       title: 'Krafters UI',
     },
