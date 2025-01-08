@@ -115,8 +115,10 @@ function handlePageSizeChange() {
             />
 
             <code
-              >{{ `<Table :size="${tableSize}" :font-size="${tableFontSize}" />`
-              }}</code
+              >{{`<Table
+                size="${tableSize}"
+                font-size="${tableFontSize}"
+              />`}}</code
             >
           </div>
         </div>

@@ -174,7 +174,7 @@ function handleSubmit(formData: FormData) {
                 @update:model-value="multiSelection = undefined"
               />
 
-              <code>{{ `<MultiSelect :mode="${multiselectMode}" />` }}</code>
+              <code>{{`<MultiSelect mode="${multiselectMode}" />`}}</code>
             </div>
           </div>
         </Popover>

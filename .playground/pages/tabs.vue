@@ -60,8 +60,7 @@ const tabVariants = [
               label="variant"
             />
             <code
-              >{{ `<Tabs :size="${tabSize}" :variant="${tabVariant}" />`
-              }}</code
+              >{{`<Tabs size="${tabSize}" variant="${tabVariant}" />` }}</code
             >
           </div>
         </div>
