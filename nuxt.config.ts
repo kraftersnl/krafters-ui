@@ -13,13 +13,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
 
-  icon: {
-    clientBundle: {
-      scan: true,
-      sizeLimitKb: 256,
-    },
-  },
-
   htmlValidator: {
     usePrettier: true,
     options: {
@@ -37,7 +30,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'nl',
-    langDir: '../locales',
+    langDir: '../app/locales',
     locales: [
       { code: 'en', language: 'en', file: 'en.json' },
       { code: 'nl', language: 'nl', file: 'nl.json' },
@@ -54,13 +47,13 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [join(currentDir, './assets/main.css')],
+  css: [join(currentDir, './app/assets/main.css')],
 
   pages: true,
 
   devtools: { enabled: true },
 
-  compatibilityDate: '2024-10-10',
+  compatibilityDate: '2025-1-8',
 
   future: {
     compatibilityVersion: 4,

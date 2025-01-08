@@ -270,6 +270,8 @@ defineExpose({
 }
 
 .krafters-multiselect {
+  flex-basis: 200px;
+
   .clear-button {
     padding: 0.25rem;
     z-index: 0;

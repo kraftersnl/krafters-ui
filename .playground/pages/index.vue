@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import ChangelogEntry from '../ChangelogEntry.vue';
-
 useHead({ title: 'Krafters UI' });
 </script>
 

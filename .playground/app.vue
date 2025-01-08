@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import AppHeader from './AppHeader.vue';
-
 const route = useRoute();
 const head = useLocaleHead();
 const { navList } = useDemo();

@@ -4,13 +4,13 @@ useHead({ title: 'Form inputs | Krafters UI' });
 const file = ref<File>();
 
 const singleSelection = ref('');
-const multiSelection = ref([]);
+const multiSelection = ref<string | string[]>();
 const selectedCheckboxes = ref([]);
 const isTrue = ref(false);
 const selectedRadio = ref();
 const raw = ref();
 
-const multiselectMode = ref('multiple');
+const multiselectMode = ref<'single' | 'multiple' | 'tags'>('multiple');
 
 const selectOptions = [
   {
@@ -171,6 +171,7 @@ function handleSubmit(formData: FormData) {
                 :options="multiselectModes"
                 label="mode"
                 size="sm"
+                @update:model-value="multiSelection = undefined"
               />
 
               <code>{{ `<MultiSelect :mode="${multiselectMode}" />` }}</code>

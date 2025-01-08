@@ -23,7 +23,7 @@
     "@nuxtjs/i18n": "^9.1.1",
     "@types/markdown-it": "^14.1.2",
     "@vueform/multiselect": "^2.6.11",
-    "@vuepic/vue-datepicker": "^10.0.0",
+    "@vuepic/vue-datepicker": "^11.0.0",
     "@vueuse/nuxt": "^12.3.0",
     "compressorjs": "^1.2.1",
     "eslint": "^9.17.0",
