@@ -13,6 +13,13 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
 
+  icon: {
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 256,
+    },
+  },
+
   htmlValidator: {
     usePrettier: true,
     options: {
