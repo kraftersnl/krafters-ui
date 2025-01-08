@@ -36,10 +36,6 @@ const results = ref(filteredCriteria.value.slice(0, 10));
 
 const wcagLevels = [
   {
-    value: '',
-    label: 'All Levels',
-  },
-  {
     value: 'A',
     label: 'Level A',
   },

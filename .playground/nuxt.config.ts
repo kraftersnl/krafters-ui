@@ -5,6 +5,13 @@ export default defineNuxtConfig({
     port: 3003,
   },
 
+  icon: {
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 256,
+    },
+  },
+
   i18n: {
     baseUrl: 'https://kraftersnl.github.io/krafters-ui/',
   },
