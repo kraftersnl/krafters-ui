@@ -177,7 +177,6 @@ watch(
     </div>
 
     <div
-      v-if="!validity"
       :id="id ? `error-${id}` : undefined"
       class="error-wrapper"
       aria-live="polite"
@@ -185,7 +184,7 @@ watch(
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
 
-        <span>{{ errorMessage }}</span>
+        <span v-if="!validity">{{ errorMessage }}</span>
       </div>
     </div>
   </div>

@@ -6,6 +6,12 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry version="1.0.1" date="2025-01-09">
+      <ul>
+        <li>Fix aria-live for FileInput component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry version="1.0.0" date="2025-01-07">
       <ul>
         <li>Add documentation for existing components</li>
