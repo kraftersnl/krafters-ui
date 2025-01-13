@@ -7,6 +7,7 @@ export default defineNuxtConfig({
 
   icon: {
     provider: 'iconify',
+    serverBundle: false,
     clientBundle: {
       scan: true,
       sizeLimitKb: 256,
