@@ -130,7 +130,6 @@ defineExpose({ toggleAccordion });
   align-items: center;
   outline-offset: 2px;
   transition-property: color, border-color, outline-offset, outline-color;
-  transition-duration: var(--duration-sm);
 
   &:focus-visible {
     outline: 1px dotted var(--focus-color);
@@ -140,7 +139,7 @@ defineExpose({ toggleAccordion });
   .accordion-arrow {
     position: absolute;
     left: -1.25rem;
-    transition: rotate var(--duration-sm);
+    transition: rotate var(--duration-md);
   }
 }
 </style>

@@ -25,7 +25,11 @@ const isAccordionOpen = ref(true);
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa
           impedit, maiores inventore at quaerat suscipit obcaecati amet minus
           iste voluptate ex eveniet debitis animi fugit nulla et placeat modi?
-          Nemo!
+          Ullam reiciendis voluptatibus eaque delectus accusamus possimus illo
+          harum accusantium praesentium. Est dolor enim quod ipsa voluptatibus
+          exercitationem expedita quo ipsum. Aperiam facere, asperiores deserunt
+          dicta porro minima reprehenderit provident unde, assumenda eligendi
+          itaque doloribus.
         </template>
       </Details>
 
@@ -33,10 +37,13 @@ const isAccordionOpen = ref(true);
         <template #trigger>Accordion with CSS</template>
 
         <template #content>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa omnis
-          id odio! Esse veritatis modi quaerat non praesentium, voluptatibus
-          repudiandae quae quos autem doloribus ad perspiciatis eos recusandae
-          sapiente nisi.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+          veritatis modi quaerat non praesentium, voluptatibus repudiandae quae
+          quos autem doloribus ad perspiciatis eos recusandae sapiente nisi.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+          reiciendis earum tempore dolorum fugit saepe laborum suscipit ipsum
+          doloremque amet praesentium expedita consequuntur perspiciatis culpa,
+          odio voluptates error dolor eligendi. id odio!
         </template>
       </Accordion>
     </div>
@@ -55,9 +62,5 @@ const isAccordionOpen = ref(true);
   margin-block: 2rem;
   display: grid;
   gap: 2rem;
-
-  @media (min-width: 480px) {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 </style>
