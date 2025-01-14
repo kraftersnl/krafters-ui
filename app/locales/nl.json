@@ -94,6 +94,7 @@
     "level": "Niveau",
     "links": "Link | Links",
     "loading": "Laden",
+    "login": "Login",
     "menu": "Menu",
     "modify": "Aanpassen",
     "move-down": "Verplaats omlaag",
@@ -127,6 +128,7 @@
     "summary": "Samenvatting",
     "tel": "Telefoon",
     "title": "Titel",
+    "token": "Code",
     "total": "Totaal",
     "type": "Type",
     "updated": "Gewijzigd",
@@ -148,10 +150,16 @@
     "confirm": "Herhaal nieuwe wachtwoord",
     "current": "Huidig wachtwoord",
     "edit": "Wachtwoord wijzigen",
+    "email-sent": "We hebben je een e-mail gestuurd met een reset-link.",
+    "forgot": "Wachtwoord vergeten?",
     "heading": "Wachtwoord",
     "new": "Nieuw wachtwoord",
+    "request-reset": "Stuur code via email",
+    "reset": "Wachtwoord resetten",
     "save": "Wachtwoord opslaan",
-    "show": "Toon wachtwoord"
+    "show": "Toon wachtwoord",
+    "update": "Wachtwoord wijzigen",
+    "updated": "Je wachtwoord is gewijzigd. Je wordt automatisch ingelogd."
   },
   "pagination": {
     "current-page": "pagina",

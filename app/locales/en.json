@@ -94,6 +94,7 @@
     "level": "Level",
     "links": "Link | Links",
     "loading": "Loading",
+    "login": "Login",
     "menu": "Menu",
     "modify": "Modify",
     "move-down": "Move down",
@@ -127,6 +128,7 @@
     "summary": "Summary",
     "tel": "Telephone",
     "title": "Title",
+    "token": "Token",
     "total": "Total",
     "type": "Type",
     "updated": "Updated",
@@ -148,10 +150,16 @@
     "confirm": "Confirm new password",
     "current": "Current password",
     "edit": "Update password",
+    "email-sent": "We have emailed your password reset link.",
+    "forgot": "Forgot password?",
     "heading": "Password",
     "new": "New password",
+    "request-reset": "Send code via email",
+    "reset": "Reset password",
     "save": "Save password",
-    "show": "Show password"
+    "show": "Show password",
+    "update": "Update password",
+    "updated": "Your password has been updated. You will be signed in automatically."
   },
   "pagination": {
     "current-page": "page",
