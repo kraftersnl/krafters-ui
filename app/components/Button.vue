@@ -68,6 +68,7 @@ const emit = defineEmits(['click']);
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined
     "
+    @click="emit('click')"
   >
     <Icon v-if="icon" :name="computedIcon" />
 
