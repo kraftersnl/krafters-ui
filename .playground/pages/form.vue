@@ -15,30 +15,30 @@ const multiselectMode = ref<'single' | 'multiple' | 'tags'>('multiple');
 const selectOptions = [
   {
     id: 'option-1',
-    name: 'Option 1',
+    name: 'Long option 1',
   },
   {
     id: 'option-2',
-    name: 'Option 2',
+    name: 'Longer text option 2',
   },
   {
     id: 'option-3',
-    name: 'Option 3',
+    name: 'The longest text option 3',
   },
 ];
 
 const multiSelectOptions = [
   {
     id: 'option-1',
-    name: 'Option 1',
+    name: 'Long option 1',
   },
   {
     id: 'option-2',
-    name: 'Option 2',
+    name: 'Longer text option 2',
   },
   {
     id: 'option-3',
-    name: 'Option 3',
+    name: 'The longest text option 3',
   },
 ];
 

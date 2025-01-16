@@ -58,6 +58,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
 <style>
 .search-form {
   flex-grow: 1;
+  flex-basis: 240px;
   display: grid;
   align-items: end;
   gap: 0.5rem;

@@ -267,10 +267,20 @@ defineExpose({
 .multiselect-tags {
   margin-block: 0.25rem;
   gap: 0.25rem;
+  flex-wrap: nowrap;
+
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome and Safari */
+  }
 }
 
 .krafters-multiselect {
-  flex-basis: 200px;
+  flex-grow: 1;
+  flex-basis: 250px;
 
   .clear-button {
     padding: 0.25rem;
@@ -288,6 +298,9 @@ defineExpose({
   }
 
   .tag-wrapper {
+    scroll-snap-align: start;
+    scroll-margin-inline: 0.25rem;
+    white-space: nowrap;
     display: inline-flex;
     border-radius: var(--radius-sm);
     color: var(--color-accent);
