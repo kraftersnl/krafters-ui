@@ -33,6 +33,7 @@ declare global {
     disabled?: boolean;
     divider?: boolean;
     external?: boolean;
+    download?: boolean;
     target?: string;
     onClick?: () => void;
   };
