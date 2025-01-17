@@ -4,11 +4,13 @@ const props = withDefaults(
     label?: string;
     id?: string;
     clickOutside?: boolean;
+    position?: 'inline-start' | 'center' | 'inline-end';
   }>(),
   {
     label: undefined,
     id: () => useId(),
     clickOutside: true,
+    position: 'center',
   },
 );
 
@@ -31,8 +33,18 @@ function openDialog() {
 }
 
 function closeDialog() {
-  dialogTemplateRef.value?.close();
-  isVisible.value = false;
+  dialogTemplateRef.value?.setAttribute('closing', '');
+
+  dialogTemplateRef.value?.addEventListener(
+    'animationend',
+    () => {
+      dialogTemplateRef.value?.removeAttribute('closing');
+      dialogTemplateRef.value?.close();
+
+      isVisible.value = false;
+    },
+    { once: true },
+  );
 }
 
 defineExpose({
@@ -46,7 +58,7 @@ defineExpose({
   <dialog
     ref="dialog"
     :aria-labelledby="id"
-    class="dialog"
+    :class="`dialog dialog-position--${position}`"
     @click="handleDialogClick"
   >
     <FocusLoop :is-visible="isVisible">
@@ -93,12 +105,6 @@ body:has(.dialog[open]) {
   padding-block-end: 1.5rem;
   min-height: 100dvh;
 
-  @media (min-width: 480px) {
-    min-height: auto;
-    border: 1px solid var(--color-card-border);
-    border-radius: var(--radius-lg);
-  }
-
   &::backdrop {
     background-color: rgb(0 0 0 / 50%);
   }
@@ -129,6 +135,81 @@ body:has(.dialog[open]) {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.65rem;
+  }
+}
+
+.dialog-position--center {
+  @media (min-width: 480px) {
+    min-height: auto;
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+  }
+
+  &[open] {
+    animation: fadeIn var(--duration-lg) forwards;
+
+    &::backdrop {
+      animation: fadeIn var(--duration-md) forwards;
+    }
+  }
+
+  &[closing] {
+    display: block;
+    animation: fadeOut var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeOut var(--duration-md) forwards;
+    }
+  }
+}
+
+.dialog-position--inline-start {
+  margin: 0 auto 0 0;
+  border-radius: 0;
+  border: none;
+  border-inline-end: 1px solid var(--color-card-border);
+  max-width: 800px;
+
+  &[open] {
+    animation: slideInLeft var(--duration-lg) forwards;
+
+    &::backdrop {
+      animation: fadeIn var(--duration-md) forwards;
+    }
+  }
+
+  &[closing] {
+    display: block;
+    animation: slideOutLeft var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeOut var(--duration-md) forwards;
+    }
+  }
+}
+
+.dialog-position--inline-end {
+  margin: 0 0 0 auto;
+  border-radius: 0;
+  border: none;
+  border-inline-start: 1px solid var(--color-card-border);
+  max-width: 800px;
+
+  &[open] {
+    animation: slideInRight var(--duration-lg) forwards;
+
+    &::backdrop {
+      animation: fadeIn var(--duration-md) forwards;
+    }
+  }
+
+  &[closing] {
+    display: block;
+    animation: slideOutRight var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeOut var(--duration-md) forwards;
+    }
   }
 }
 </style>
