@@ -102,7 +102,7 @@ const emit = defineEmits<{
     <Teleport v-if="isMounted" :to="teleportTo">
       <dialog
         ref="dialogElement"
-        :class="`mobile-dialog dialog-position--${position} ${props.class ?? ''}`"
+        :class="`mobile-dialog mobile-dialog-position--${position} ${props.class ?? ''}`"
         v-bind="$attrs"
         :aria-label="$t('aria.mobile-menu')"
         :style="`--width: ${width}px`"
@@ -184,7 +184,7 @@ body:has(.mobile-dialog[open]) {
   }
 }
 
-.dialog-position--inline-start {
+.mobile-dialog-position--inline-start {
   margin-inline-start: 0;
   border-inline-end: 1px solid var(--color-card-border);
 
@@ -211,7 +211,7 @@ body:has(.mobile-dialog[open]) {
   }
 }
 
-.dialog-position--inline-end {
+.mobile-dialog-position--inline-end {
   margin-inline-end: 0;
   border-inline-start: 1px solid var(--color-card-border);
 
