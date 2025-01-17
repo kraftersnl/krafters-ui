@@ -2,12 +2,12 @@
 const route = useRoute();
 const head = useLocaleHead();
 const { navList } = useDemo();
-const app = useTemplateRef('app');
+const appRef = useTemplateRef('app');
 
 watch(
   () => route.path,
   () => {
-    app.value?.focus();
+    appRef.value?.focus();
   },
 );
 </script>
@@ -56,6 +56,11 @@ watch(
 
   @media (min-width: 1024px) {
     display: block;
+
+    nav {
+      position: sticky;
+      top: 6rem;
+    }
   }
 }
 

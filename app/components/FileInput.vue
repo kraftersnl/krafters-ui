@@ -32,7 +32,7 @@ const props = withDefaults(
 
 const { t } = useI18n();
 
-const fileInputRef = useTemplateRef<HTMLInputElement>('fileInputRef');
+const fileInputRef = useTemplateRef<HTMLInputElement>('fileInput');
 const imagePreview = ref<string>();
 const dragover = ref(false);
 const validity = ref(true);
@@ -128,7 +128,7 @@ watch(
     <div class="file-input">
       <input
         :id="id"
-        ref="fileInputRef"
+        ref="fileInput"
         :name="name"
         :required="required"
         :accept="accept"

@@ -28,7 +28,7 @@ withDefaults(
   },
 );
 
-const tooltipWrapper = useTemplateRef<HTMLElement>('tooltipWrapper');
+const wrapperRef = useTemplateRef<HTMLElement>('tooltipWrapper');
 
 function closeTooltip() {
   document
@@ -55,7 +55,7 @@ function closeTooltip() {
       content-tag="div"
       content-class="krafters-tooltip-content"
       class="tooltip-wrapper"
-      :append-to="tooltipWrapper ?? undefined"
+      :append-to="wrapperRef ?? undefined"
       @keyup.esc="closeTooltip"
     >
       <template #default>

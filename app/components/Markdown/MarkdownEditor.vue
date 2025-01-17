@@ -38,10 +38,10 @@ const { id = useId(), preview = false } = defineProps<{
   errorMessage?: string;
 }>();
 
-const markdownEditor = useTemplateRef<HTMLDivElement>('markdownEditor');
+const markdownEditorRef = useTemplateRef<HTMLDivElement>('markdownEditor');
 
 function focusEditor() {
-  markdownEditor.value?.focus();
+  markdownEditorRef.value?.focus();
 }
 
 defineExpose({

@@ -31,7 +31,7 @@ const props = withDefaults(
 );
 
 const textareaInput = ref('');
-const elementRef = useTemplateRef<HTMLTextAreaElement>('elementRef');
+const textareaRef = useTemplateRef<HTMLTextAreaElement>('textarea');
 
 function handleInput(event: Event) {
   const target = event.target as HTMLTextAreaElement;
@@ -40,15 +40,15 @@ function handleInput(event: Event) {
 }
 
 function focusElement() {
-  elementRef.value?.focus();
+  textareaRef.value?.focus();
 }
 
 function resizeTextarea() {
-  if (props.autoresize && elementRef.value) {
-    elementRef.value.style.height = 'auto';
+  if (props.autoresize && textareaRef.value) {
+    textareaRef.value.style.height = 'auto';
 
-    const height = elementRef.value.scrollHeight;
-    elementRef.value.style.height = `${height + 2}px`;
+    const height = textareaRef.value.scrollHeight;
+    textareaRef.value.style.height = `${height + 2}px`;
   }
 }
 
@@ -86,7 +86,7 @@ defineExpose({
 
     <textarea
       :id="id"
-      ref="elementRef"
+      ref="textarea"
       v-model="model"
       :class="`textarea ${autoresize ? 'autoresize' : ''}`"
       :placeholder="placeholder"

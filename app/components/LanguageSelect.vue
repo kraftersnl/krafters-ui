@@ -79,7 +79,7 @@ const userLang = computed({
       color: var(--color-accent-text);
 
       &:hover {
-        color: var(--color-accent);
+        border-color: var(--color-accent);
       }
     }
 
@@ -93,7 +93,7 @@ const userLang = computed({
 
     &:checked {
       + label {
-        color: var(--color-accent);
+        color: var(--color-accent-text);
         background-color: var(--color-accent-bg);
 
         .iconify {

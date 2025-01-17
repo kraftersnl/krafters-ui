@@ -115,7 +115,7 @@ const formattedLabel = computed(() =>
 }
 
 .chip-variant--flat.chip-color--accent {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   background-color: var(--color-accent-bg);
 
   .tooltip-trigger-button {
@@ -177,7 +177,7 @@ const formattedLabel = computed(() =>
 }
 
 .chip-variant--outline.chip-color--accent {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   border-color: var(--color-accent);
 }
 

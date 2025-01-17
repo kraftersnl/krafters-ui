@@ -19,10 +19,7 @@ withDefaults(
   },
 );
 
-const accordionContentWrapper = useTemplateRef<HTMLElement>(
-  'accordionContentWrapper',
-);
-const accordionContent = useTemplateRef<HTMLElement>('accordionContent');
+const contentRef = useTemplateRef<HTMLElement>('accordionContent');
 
 function toggleAccordion() {
   isExpanded.value = !isExpanded.value;
@@ -30,19 +27,19 @@ function toggleAccordion() {
 
 function handleTransitionRun(event: TransitionEvent) {
   if (event.propertyName === 'grid-template-rows' && !isExpanded.value) {
-    accordionContent.value?.style.setProperty('--overflow', 'hidden');
+    contentRef.value?.style.setProperty('--overflow', 'hidden');
   }
 }
 
 function handleTransitionEnd(event: TransitionEvent) {
   if (event.propertyName === 'grid-template-rows' && isExpanded.value) {
-    accordionContent.value?.style.removeProperty('--overflow');
+    contentRef.value?.style.removeProperty('--overflow');
   }
 }
 
 onMounted(() => {
   if (!isExpanded.value) {
-    accordionContent.value?.style.setProperty('--overflow', 'hidden');
+    contentRef.value?.style.setProperty('--overflow', 'hidden');
   }
 });
 
@@ -75,7 +72,6 @@ defineExpose({ toggleAccordion });
 
     <div
       :id="`accordion-panel-${id}`"
-      ref="accordionContentWrapper"
       :aria-labelledby="`accordion-trigger-${id}`"
       :aria-hidden="!isExpanded"
       class="accordion-content-wrapper"

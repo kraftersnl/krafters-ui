@@ -189,7 +189,7 @@ function handleSubmit(formData: FormData) {
         value-key="id"
         label-key="name"
         label="MultiSelect"
-        placeholder="Choose one or more options"
+        placeholder="Make a selection"
         class="demo-multiselect"
       />
     </Card>
@@ -216,6 +216,6 @@ function handleSubmit(formData: FormData) {
 }
 
 .demo-multiselect {
-  min-width: 285px;
+  min-width: 240px;
 }
 </style>

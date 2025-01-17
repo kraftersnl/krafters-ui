@@ -94,7 +94,7 @@ const colorMode = useColorMode();
       color: var(--color-accent-text);
 
       &:hover {
-        color: var(--color-accent);
+        border-color: var(--color-accent);
       }
     }
 
@@ -108,7 +108,7 @@ const colorMode = useColorMode();
 
     &:checked {
       + label {
-        color: var(--color-accent);
+        color: var(--color-accent-text);
         background-color: var(--color-accent-bg);
 
         .iconify {

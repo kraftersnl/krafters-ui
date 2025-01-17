@@ -49,14 +49,14 @@ function closePopover() {
 }
 
 function focusTrigger() {
-  popoverTrigger.value?.focus();
+  triggerRef.value?.focus();
 }
 
 const enableFocusLoop = ref(false);
-const popoverTrigger = useTemplateRef<HTMLButtonElement>('popoverTrigger');
+const triggerRef = useTemplateRef<HTMLButtonElement>('popoverTrigger');
 
 defineExpose({
-  popoverTrigger,
+  triggerRef,
   focusTrigger,
 });
 

@@ -188,12 +188,13 @@ function handlePageSizeChange() {
   .topbar-wrapper {
     margin-block: 0.5rem 1rem;
     display: flex;
+    flex-wrap: wrap;
     align-items: end;
-    gap: 1rem;
+    gap: 0.5rem;
     justify-content: space-between;
 
-    .multiselect {
-      min-width: 240px;
+    .search-form {
+      flex-grow: 9;
     }
   }
 }

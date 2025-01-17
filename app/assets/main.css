@@ -460,6 +460,7 @@ input {
 
 .file-input-wrapper,
 .form-field-wrapper {
+  flex-grow: 1;
   position: relative;
   display: inline-grid;
   align-items: center;

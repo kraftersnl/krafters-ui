@@ -30,9 +30,7 @@ const props = withDefaults(
   },
 );
 
-const dialogElement = useTemplateRef<HTMLDialogElement>('dialogElement');
-const openButton = useTemplateRef<HTMLButtonElement>('openButton');
-const closeButton = useTemplateRef<HTMLButtonElement>('closeButton');
+const dialogElementRef = useTemplateRef<HTMLDialogElement>('dialogElement');
 const isVisible = ref(false);
 const isMounted = ref(false);
 
@@ -47,13 +45,13 @@ function handleDialogClick(event: MouseEvent) {
 }
 
 function closeDialog() {
-  dialogElement.value?.setAttribute('closing', '');
+  dialogElementRef.value?.setAttribute('closing', '');
 
-  dialogElement.value?.addEventListener(
+  dialogElementRef.value?.addEventListener(
     'animationend',
     () => {
-      dialogElement.value?.removeAttribute('closing');
-      dialogElement.value?.close();
+      dialogElementRef.value?.removeAttribute('closing');
+      dialogElementRef.value?.close();
 
       isVisible.value = false;
     },
@@ -62,7 +60,7 @@ function closeDialog() {
 }
 
 function openDialog() {
-  dialogElement.value?.showModal();
+  dialogElementRef.value?.showModal();
   isVisible.value = true;
 }
 
@@ -92,7 +90,6 @@ const emit = defineEmits<{
 
     <Button
       v-else
-      ref="openButton"
       :icon="icon"
       class="mobile-nav-toggle"
       :size="triggerButtonSize"
@@ -115,7 +112,6 @@ const emit = defineEmits<{
         <FocusLoop :is-visible="isVisible">
           <div class="dialog-content">
             <Button
-              ref="closeButton"
               icon="x"
               variant="ghost"
               radius="full"

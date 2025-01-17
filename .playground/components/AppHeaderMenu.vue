@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const menuContent = useTemplateRef<HTMLElement>('menuContent');
-const menuTrigger = useTemplateRef<HTMLElement>('menuTrigger');
+const contentRef = useTemplateRef<HTMLElement>('menuContent');
+const triggerRef = useTemplateRef<HTMLElement>('menuTrigger');
 
 const showMenu = ref(false);
 
@@ -10,8 +10,8 @@ onUnmounted(() => window.removeEventListener('click', handleWindowClick));
 function handleWindowClick(event: Event) {
   const target = event.target as HTMLElement;
   if (
-    !menuContent.value?.contains(target) &&
-    !menuTrigger.value?.contains(target)
+    !contentRef.value?.contains(target) &&
+    !triggerRef.value?.contains(target)
   ) {
     showMenu.value = false;
   }
@@ -23,7 +23,7 @@ function toggleMenu() {
 
 function handleEscapeKey() {
   showMenu.value = false;
-  menuTrigger.value?.focus();
+  triggerRef.value?.focus();
 }
 </script>
 

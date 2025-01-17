@@ -2,7 +2,7 @@
 useHead({ title: 'Tooltip, Popover and Dialog | Krafters UI' });
 
 const { t } = useI18n();
-const dialogRef = useTemplateRef('dialogRef');
+const dialogRef = useTemplateRef('dialog');
 
 const popoverActions = [
   {
@@ -49,7 +49,7 @@ const popoverActions = [
 
       <Button label="Open dialog" @click="dialogRef?.openDialog()" />
 
-      <Dialog ref="dialogRef" label="Dialog title" class="demo-dialog">
+      <Dialog ref="dialog" label="Dialog title" class="demo-dialog">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quos
           nesciunt quam. Totam iste quasi nemo saepe a distinctio architecto?

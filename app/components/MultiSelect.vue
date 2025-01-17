@@ -41,7 +41,7 @@ const props = withDefaults(
   },
 );
 
-const msTemplateRef = useTemplateRef('multiselect');
+const multiSelectRef = useTemplateRef('multiselect');
 
 function formatMultipleLabels(values) {
   if (values.length === 1) {
@@ -51,7 +51,7 @@ function formatMultipleLabels(values) {
 }
 
 function selectAll() {
-  msTemplateRef.value?.selectAll();
+  multiSelectRef.value?.selectAll();
 }
 
 defineExpose({
@@ -279,8 +279,7 @@ defineExpose({
 }
 
 .krafters-multiselect {
-  flex-grow: 1;
-  flex-basis: 250px;
+  flex-basis: 240px;
 
   .clear-button {
     padding: 0.25rem;

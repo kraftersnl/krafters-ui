@@ -4,13 +4,13 @@ import { version } from '../../package.json';
 const { navList } = useDemo();
 
 const route = useRoute();
-const mobileMenu = useTemplateRef('mobileMenu');
+const mobileMenuRef = useTemplateRef('mobileMenu');
 
 watch(
   () => route.path,
   () => {
-    if (mobileMenu.value?.isVisible) {
-      mobileMenu.value?.closeDialog();
+    if (mobileMenuRef.value?.isVisible) {
+      mobileMenuRef.value?.closeDialog();
     }
   },
 );
