@@ -40,7 +40,6 @@ function closeDialog() {
     () => {
       dialogTemplateRef.value?.removeAttribute('closing');
       dialogTemplateRef.value?.close();
-
       isVisible.value = false;
     },
     { once: true },
@@ -146,7 +145,7 @@ body:has(.dialog[open]) {
   }
 
   &[open] {
-    animation: fadeIn var(--duration-lg) forwards;
+    animation: fadeIn var(--duration-md) forwards;
 
     &::backdrop {
       animation: fadeIn var(--duration-md) forwards;
@@ -171,7 +170,7 @@ body:has(.dialog[open]) {
   max-width: 800px;
 
   &[open] {
-    animation: slideInLeft var(--duration-lg) forwards;
+    animation: slideFadeInLeft var(--duration-md) forwards;
 
     &::backdrop {
       animation: fadeIn var(--duration-md) forwards;
@@ -180,7 +179,7 @@ body:has(.dialog[open]) {
 
   &[closing] {
     display: block;
-    animation: slideOutLeft var(--duration-md) forwards;
+    animation: slideFadeOutLeft var(--duration-md) forwards;
 
     &::backdrop {
       animation: fadeOut var(--duration-md) forwards;
@@ -196,7 +195,7 @@ body:has(.dialog[open]) {
   max-width: 800px;
 
   &[open] {
-    animation: slideInRight var(--duration-lg) forwards;
+    animation: slideFadeInRight var(--duration-md) forwards;
 
     &::backdrop {
       animation: fadeIn var(--duration-md) forwards;
@@ -205,7 +204,7 @@ body:has(.dialog[open]) {
 
   &[closing] {
     display: block;
-    animation: slideOutRight var(--duration-md) forwards;
+    animation: slideFadeOutRight var(--duration-md) forwards;
 
     &::backdrop {
       animation: fadeOut var(--duration-md) forwards;

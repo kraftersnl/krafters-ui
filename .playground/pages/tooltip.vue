@@ -22,6 +22,8 @@ const popoverActions = [
     icon: 'trash',
   },
 ];
+
+const position = ref('center');
 </script>
 
 <template>
@@ -47,9 +49,42 @@ const popoverActions = [
         </template> -->
       </Popover>
 
-      <Button label="Open dialog" @click="dialogRef?.openDialog()" />
+      <div class="dialog-buttons">
+        <Button
+          label="Open dialog left"
+          @click="
+            () => {
+              position = 'inline-start';
+              dialogRef?.openDialog();
+            }
+          "
+        />
+        <Button
+          label="Open dialog center"
+          @click="
+            () => {
+              position = 'center';
+              dialogRef?.openDialog();
+            }
+          "
+        />
+        <Button
+          label="Open dialog right"
+          @click="
+            () => {
+              position = 'inline-end';
+              dialogRef?.openDialog();
+            }
+          "
+        />
+      </div>
 
-      <Dialog ref="dialog" label="Dialog title" class="demo-dialog">
+      <Dialog
+        ref="dialog"
+        :position="position"
+        label="Dialog title"
+        class="demo-dialog"
+      >
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quos
           nesciunt quam. Totam iste quasi nemo saepe a distinctio architecto?
@@ -66,6 +101,12 @@ const popoverActions = [
   display: grid;
   gap: 3rem;
   justify-items: start;
+
+  .dialog-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 }
 
 .demo-dialog {

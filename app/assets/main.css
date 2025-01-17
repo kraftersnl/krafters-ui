@@ -736,3 +736,47 @@ input {
     transform: translateX(100%);
   }
 }
+
+@keyframes slideFadeInLeft {
+  from {
+    transform: translateX(-4rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeOutLeft {
+  from {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-4rem);
+    opacity: 0;
+  }
+}
+
+@keyframes slideFadeInRight {
+  from {
+    transform: translateX(4rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeOutRight {
+  from {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(4rem);
+    opacity: 0;
+  }
+}
