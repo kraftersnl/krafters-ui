@@ -19,6 +19,6 @@ jobs:
       - name: Publish
         uses: JS-DevTools/npm-publish@v3
         with:
-          token: ${{ secrets.KRAFTERS_UI_PAT_CLASSIC }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           access: public
           registry: https://npm.pkg.github.com
