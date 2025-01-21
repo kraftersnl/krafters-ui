@@ -3,7 +3,10 @@
   "type": "module",
   "version": "1.0.2",
   "main": "./nuxt.config.ts",
-  "repository": "github:kraftersnl/krafters-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kraftersnl/krafters-ui.git"
+  },
   "scripts": {
     "dev": "nuxi dev .playground  --host",
     "dev:prepare": "nuxt prepare .playground",
