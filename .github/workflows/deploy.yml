@@ -14,8 +14,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm ci
-      - run: npx nuxt build .playground --preset github_pages
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Run eslint
+        run: npm run lint
+
+      - name: Build
+        run: npx nuxt build .playground --preset github_pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

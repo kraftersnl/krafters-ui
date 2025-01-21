@@ -1,0 +1,25 @@
+name: Publish NPM package
+
+on:
+  push:
+    branches: main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Run eslint
+        run: npm run lint
+
+      - name: Publish
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.KRAFTERS_UI_NPM_TOKEN }}
