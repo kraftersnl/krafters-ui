@@ -7,9 +7,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write # allow GITHUB_TOKEN to publish packages
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,5 +19,5 @@ jobs:
       - name: Publish
         uses: JS-DevTools/npm-publish@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.KRAFTERS_UI_PAT_CLASSIC }}
           registry: https://npm.pkg.github.com
