@@ -115,7 +115,7 @@ function handleInput(event: Event) {
       :aria-describedby="`
         ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}
-        ${id && (required || min || max) ? `error-${id}` : ''}
+        ${id && (required || typeof min === 'number' || typeof max === 'number') ? `error-${id}` : ''}
       `"
       @input="handleInput"
     />
@@ -123,7 +123,7 @@ function handleInput(event: Event) {
     <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
 
     <div
-      v-if="required || min || max"
+      v-if="required || typeof min === 'number' || typeof max === 'number'"
       :id="id ? `error-${id}` : undefined"
       class="error-wrapper"
       aria-live="polite"
