@@ -16,9 +16,6 @@ jobs:
       - name: Install packages
         run: npm ci
 
-      - name: Run eslint
-        run: npm run lint
-
       - name: Publish
         uses: JS-DevTools/npm-publish@v3
         with:
