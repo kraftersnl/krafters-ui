@@ -61,6 +61,9 @@ watch(
       position: sticky;
       top: 6rem;
     }
+    .button-variant--sidebar {
+      padding-inline-start: 0.5rem;
+    }
   }
 }
 

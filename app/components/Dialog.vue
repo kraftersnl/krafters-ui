@@ -101,6 +101,7 @@ body:has(.dialog[open]) {
   width: calc(100vw - var(--app-inline-padding));
   background-color: var(--color-card-bg);
   border: none;
+  outline: 1px solid transparent;
   padding-block-end: 1.5rem;
   min-height: 100dvh;
 

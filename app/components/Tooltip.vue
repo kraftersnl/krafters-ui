@@ -68,7 +68,7 @@ function closeTooltip() {
           :tabindex="tabindex"
           class="tooltip-trigger-button"
         >
-          <Icon :name="'heroicons-solid:' + icon" />
+          <Icon :name="'heroicons-solid:' + icon" size="1.25rem" />
         </button>
       </template>
 
@@ -81,13 +81,7 @@ function closeTooltip() {
 
 <style>
 .krafters-tooltip-wrapper {
-  --height: 1rem;
-  height: var(--height);
   vertical-align: middle;
-
-  .tooltip-wrapper {
-    height: var(--height);
-  }
 }
 
 .krafters-tooltip-content {
@@ -96,10 +90,10 @@ function closeTooltip() {
 }
 
 .tooltip-trigger-button {
+  display: flex;
   border: none;
   background: transparent;
   padding: 0;
-  height: var(--height);
   color: var(--color-grey-text);
   transition:
     color var(--duration-sm),
@@ -110,11 +104,6 @@ function closeTooltip() {
     &:hover {
       scale: 1.15;
     }
-  }
-
-  .iconify {
-    width: var(--height);
-    height: var(--height);
   }
 }
 </style>

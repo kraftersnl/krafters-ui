@@ -4,15 +4,25 @@ const navList = [
     to: '/',
     label: 'Home',
   },
+  // {
+  //   id: 'accessibility',
+  //   to: '/accessibility',
+  //   label: 'Accessibility',
+  // },
   {
-    id: 'accordion',
-    to: '/accordion',
-    label: 'Accordion',
+    id: 'colors',
+    to: '/colors',
+    label: 'Colors',
   },
   {
     id: 'alerts',
     to: '/alerts',
-    label: 'Alerts',
+    label: 'Callout & Chip',
+  },
+  {
+    id: 'accordion',
+    to: '/accordion',
+    label: 'Accordion',
   },
   {
     id: 'form',
