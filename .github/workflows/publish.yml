@@ -20,3 +20,4 @@ jobs:
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.KRAFTERS_UI_NPM_TOKEN }}
+          access: public
