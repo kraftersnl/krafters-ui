@@ -138,7 +138,7 @@
     18.8px 37.5px 52.5px -1.6px hsl(var(--shadow-color) / 0.35);
 
   /* Animation design tokens */
-  --animation-rotate: rotate var(--duration-xl) linear infinite;
+  --animation-rotate: rotateLeft var(--duration-xl) linear infinite;
 
   /* Other design token */
   --app-max-width: 1280px;
@@ -677,9 +677,9 @@ input {
 }
 
 /* Animations */
-@keyframes rotate {
+@keyframes rotateLeft {
   to {
-    rotate: 1turn;
+    rotate: -1turn;
   }
 }
 

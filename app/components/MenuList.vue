@@ -37,9 +37,11 @@ const emit = defineEmits<{
         <Button
           :label="item.label"
           :to="item.to"
+          :href="item.href"
           :icon="item.icon"
           :icon-lib="item.iconLib"
           :disabled="item.disabled"
+          :loading="item.loading"
           :target="item.target"
           :external="item.external"
           :download="item.download"

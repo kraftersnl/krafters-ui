@@ -156,6 +156,7 @@
     "new": "New password",
     "request-reset": "Send code via email",
     "reset": "Reset password",
+    "reset-form-instructions": "Click the link in the password reset email or enter the token from the email manually.",
     "save": "Save password",
     "show": "Show password",
     "update": "Update password",

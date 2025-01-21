@@ -1,3 +1,4 @@
+import type { RouteLocationRaw } from 'vue-router';
 import type Dialog from '../components/Dialog.vue';
 import type Form from '../components/Form.vue';
 import type Textarea from '../components/Textarea.vue';
@@ -28,9 +29,11 @@ declare global {
     label?: string;
     icon?: string;
     iconLib?: string;
-    to?: string;
+    to?: RouteLocationRaw;
+    href?: string;
     size?: string;
     disabled?: boolean;
+    loading?: boolean;
     divider?: boolean;
     external?: boolean;
     download?: boolean;

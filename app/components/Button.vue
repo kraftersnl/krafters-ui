@@ -102,7 +102,7 @@ const emit = defineEmits(['click']);
     :style="`--radius: var(--radius-${radius})`"
     @click="handleClick"
   >
-    <Icon v-if="loading" name="heroicons-solid:refresh" />
+    <Icon v-if="loading" name="svg-spinners:90-ring" />
     <Icon v-else-if="icon" :name="computedIcon" />
 
     <span
@@ -152,10 +152,6 @@ const emit = defineEmits(['click']);
 
   &.button--loading {
     cursor: default;
-
-    .iconify {
-      animation: var(--animation-rotate);
-    }
   }
 }
 

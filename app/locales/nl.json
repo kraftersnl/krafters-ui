@@ -156,6 +156,7 @@
     "new": "Nieuw wachtwoord",
     "request-reset": "Stuur code via email",
     "reset": "Wachtwoord resetten",
+    "reset-form-instructions": "Klik op de link in de email met instructies om je wachtwoord te resetten of vul de code uit de email handmatig in.",
     "save": "Wachtwoord opslaan",
     "show": "Toon wachtwoord",
     "update": "Wachtwoord wijzigen",

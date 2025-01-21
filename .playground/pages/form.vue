@@ -140,7 +140,13 @@ function handleSubmit(formData: FormData) {
         />
 
         <div class="button-group">
-          <Button type="submit" variant="primary" label="Submit" />
+          <Button
+            type="submit"
+            icon="check"
+            :loading="isTrue"
+            variant="primary"
+            label="Submit"
+          />
 
           <Button type="reset" label="Reset" />
         </div>
@@ -154,7 +160,11 @@ function handleSubmit(formData: FormData) {
 
     <Card>
       <h2>Switch</h2>
-      <Switch v-model="isTrue" label="Enable setting" class="demo-switch" />
+      <Switch
+        v-model="isTrue"
+        label="Show loading indicator"
+        class="demo-switch"
+      />
     </Card>
 
     <Card>

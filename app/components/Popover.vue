@@ -17,6 +17,7 @@ withDefaults(
     interactive?: boolean;
     appendTo?: boolean;
     arrow?: boolean;
+    loading?: boolean;
     trigger?: string;
     hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
@@ -97,10 +98,13 @@ const emit = defineEmits<{
         v-if="!$slots.trigger"
         ref="popoverTrigger"
         type="button"
-        :disabled="disabled"
-        :class="`popover-trigger popover-trigger-size--${size}`"
+        :disabled="loading || disabled"
+        :class="`popover-trigger
+          popover-trigger-size--${size}
+        `"
       >
-        <Icon :name="iconLib + ':' + icon" />
+        <Icon v-if="loading" name="svg-spinners:90-ring" />
+        <Icon v-else :name="iconLib + ':' + icon" />
 
         <span :class="hideLabel ? 'visuallyhidden' : undefined">
           {{ label || $t('aria.open-menu') }}
@@ -138,7 +142,7 @@ const emit = defineEmits<{
 
 .popover-trigger {
   display: inline-flex;
-  gap: 0.25rem;
+  gap: 0.5rem;
   align-items: center;
   justify-content: center;
   color: var(--color-text);
@@ -155,6 +159,10 @@ const emit = defineEmits<{
 
   &:focus-visible {
     outline-color: var(--focus-color);
+  }
+
+  &:disabled {
+    opacity: 35%;
   }
 
   &:not(:disabled):hover {
