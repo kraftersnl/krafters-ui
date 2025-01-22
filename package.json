@@ -1,7 +1,7 @@
 {
   "name": "@krafters/ui",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
     "@types/markdown-it": "^14.1.2",
     "@vueform/multiselect": "^2.6.11",
     "@vuepic/vue-datepicker": "^11.0.1",
-    "@vueuse/nuxt": "^12.4.0",
+    "@vueuse/nuxt": "^12.5.0",
     "compressorjs": "^1.2.1",
     "eslint": "^9.18.0",
     "markdown-it": "^14.1.0",

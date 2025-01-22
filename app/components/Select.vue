@@ -100,6 +100,7 @@ const id = useId();
           :key="option[props.valueKey] + '-' + id"
           :value="option[props.valueKey]"
           :disabled="option[props.disabledKey]"
+          :lang="option.lang"
         >
           {{ option[props.labelKey] }}
         </option>

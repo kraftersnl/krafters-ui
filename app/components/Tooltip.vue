@@ -11,6 +11,7 @@ withDefaults(
     ariaLabel?: string;
     interactive?: boolean;
     trigger?: string;
+    iconSize?: string;
     tabindex?: string;
     hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
@@ -22,6 +23,7 @@ withDefaults(
     label: undefined,
     ariaLabel: 'Tooltip',
     trigger: 'click',
+    iconSize: 'md',
     tabindex: undefined,
     hideOnClick: true,
     maxWidth: undefined,
@@ -38,7 +40,11 @@ function closeTooltip() {
 </script>
 
 <template>
-  <div ref="tooltipWrapper" class="krafters-tooltip-wrapper">
+  <div
+    ref="tooltipWrapper"
+    class="krafters-tooltip-wrapper"
+    :style="`--icon-size: var(--font-size-${iconSize})`"
+  >
     <Tippy
       :trigger="trigger"
       :placement="placement"
@@ -68,7 +74,7 @@ function closeTooltip() {
           :tabindex="tabindex"
           class="tooltip-trigger-button"
         >
-          <Icon :name="'heroicons-solid:' + icon" size="1.25rem" />
+          <Icon :name="'heroicons-solid:' + icon" />
         </button>
       </template>
 
@@ -99,8 +105,13 @@ function closeTooltip() {
     color var(--duration-sm),
     scale var(--duration-sm);
 
+  .iconify {
+    font-size: var(--icon-size);
+  }
+
   &:hover {
     color: var(--color-text);
+
     &:hover {
       scale: 1.15;
     }

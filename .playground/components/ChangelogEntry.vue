@@ -1,13 +1,13 @@
 <script setup lang="ts">
 defineProps<{
-  version: string;
+  v: string;
   date: string;
 }>();
 </script>
 
 <template>
   <Card class="changelog-entry">
-    <h2>{{ version }}</h2>
+    <h2>{{ v }}</h2>
 
     <time :datetime="date">
       {{ $d(new Date(date), 'long') }}
