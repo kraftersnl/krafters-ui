@@ -24,7 +24,7 @@ useHead({ title: 'Krafters UI' });
       <ul>
         <li>Add <code>position</code> prop to Dialog component</li>
         <li>Add animations to Dialog component</li>
-        <li>Add <code>loading</code> props to Popover component</li>
+        <li>Add <code>loading</code> prop to Popover component</li>
       </ul>
     </ChangelogEntry>
 
