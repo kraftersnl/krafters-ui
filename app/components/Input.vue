@@ -73,6 +73,16 @@ function handleInput(event: Event) {
   }
   model.value = target.value;
 }
+const inputRef = useTemplateRef<HTMLTextAreaElement>('input');
+
+function focusElement() {
+  inputRef.value?.focus();
+}
+
+defineExpose({
+  inputRef,
+  focusElement,
+});
 </script>
 
 <template>
@@ -95,7 +105,7 @@ function handleInput(event: Event) {
 
     <input
       :id="id"
-      ref="elementRef"
+      ref="input"
       v-model="model"
       class="input"
       :name="name"
