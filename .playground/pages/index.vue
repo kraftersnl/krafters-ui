@@ -6,6 +6,17 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.5" date="2025-01-23">
+      <ul>
+        <li>Add <code>placeholderUrl</code> prop to FileInput component</li>
+        <li>Expose <code>focusElement</code> in Input component</li>
+        <li>
+          Rename <code>navList</code> prop to <code>list</code> in MobileMenu
+          component
+        </li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.4" date="2025-01-22">
       <ul>
         <li>Add <code>iconSize</code> prop to Tooltip component</li>
