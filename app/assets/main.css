@@ -676,6 +676,36 @@ input {
   }
 }
 
+/* Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all var(--duration-sm) ease-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0.25;
+}
+
+.fade-slow-enter-active,
+.fade-slow-leave-active {
+  transition: all var(--duration-md) ease-out;
+  transition-delay: var(--duration-sm);
+}
+.fade-slow-enter-from,
+.fade-slow-leave-to {
+  opacity: 0;
+}
+
+.blur-enter-active,
+.blur-leave-active {
+  transition: all var(--duration-md) ease-out;
+}
+.blur-enter-from,
+.blur-leave-to {
+  opacity: 0.25;
+  filter: blur(0.125rem);
+}
+
 /* Animations */
 @keyframes rotateLeft {
   to {

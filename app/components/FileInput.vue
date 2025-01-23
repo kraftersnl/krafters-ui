@@ -7,6 +7,7 @@ const props = withDefaults(
   defineProps<{
     label: string;
     name?: string;
+    placeholderUrl?: string;
     id?: string;
     accept?: string;
     showInvalid?: boolean;
@@ -20,6 +21,7 @@ const props = withDefaults(
   }>(),
   {
     name: undefined,
+    placeholderUrl: undefined,
     id: () => useId(),
     accept: undefined,
     maxFileSize: 5000,
@@ -33,7 +35,7 @@ const props = withDefaults(
 const { t } = useI18n();
 
 const fileInputRef = useTemplateRef<HTMLInputElement>('fileInput');
-const imagePreview = ref<string>();
+const imagePreview = ref(props.placeholderUrl);
 const dragover = ref(false);
 const validity = ref(true);
 
@@ -158,6 +160,7 @@ watch(
           v-if="imagePreview"
           :src="imagePreview"
           :alt="$t('files.example', { file: model?.name })"
+          class="preview-image"
         />
       </button>
     </div>
@@ -205,7 +208,7 @@ watch(
   border-style: dashed;
   border-radius: var(--radius-md);
   background-color: transparent;
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 
   .iconify {
     margin-inline: 6rem;
@@ -266,8 +269,8 @@ watch(
     }
 
     &:focus-visible + .file-input-button {
-      border-color: var(--focus-color);
-      outline-offset: 3px;
+      border-color: transparent;
+      outline-offset: 2px;
       outline-color: var(--focus-color);
     }
   }
