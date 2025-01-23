@@ -23,7 +23,7 @@ watch(
         ref="mobileMenu"
         class="left-menu"
         position="inline-start"
-        :nav-list="navList"
+        :list="navList"
       />
 
       <div class="logo">Krafters UI {{ version }}</div>

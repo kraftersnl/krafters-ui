@@ -13,7 +13,7 @@ const props = withDefaults(
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
     navLabel?: string;
-    navList?: MenuItem[];
+    list?: MenuItem[];
   }>(),
   {
     class: undefined,
@@ -26,7 +26,7 @@ const props = withDefaults(
     hideTriggerLabel: true,
     triggerLabel: undefined,
     navLabel: undefined,
-    navList: () => [],
+    list: () => [],
   },
 );
 
@@ -121,11 +121,11 @@ const emit = defineEmits<{
               @click="closeDialog"
             />
 
-            <template v-if="navList?.length">
+            <template v-if="list?.length">
               <h2 class="nav-label">{{ navLabel }}</h2>
 
               <MenuList
-                :list="navList"
+                :list="list"
                 button-size="lg"
                 button-variant="sidebar"
                 :aria-label="navLabel || $t('aria.mobile-menu')"
