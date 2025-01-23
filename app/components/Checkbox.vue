@@ -7,7 +7,8 @@ defineProps<{
   name?: string;
   value?: string | number;
   required?: boolean;
-  disabled?: disabled;
+  disabled?: boolean;
+  hideLabel?: boolean;
 }>();
 
 const id = useId();
@@ -24,7 +25,14 @@ const id = useId();
       type="checkbox"
     />
 
-    <label :for="id" :title="title">
+    <label
+      :for="id"
+      :title="title"
+      :class="`
+        ${hideLabel ? 'visuallyhidden' : ''}
+        ${disabled ? 'disabled' : ''}
+      `"
+    >
       <slot name="label" />
 
       <span v-if="label">{{ label }}</span>

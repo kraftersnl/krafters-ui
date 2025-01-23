@@ -6,6 +6,13 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.6" date="2025-01-23">
+      <ul>
+        <li>Add <code>hideLabel</code> prop to Checkbox component</li>
+        <li>Fix: show label in FileInput component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.5" date="2025-01-23">
       <ul>
         <li>Add <code>placeholderUrl</code> prop to FileInput component</li>

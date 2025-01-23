@@ -1,5 +1,4 @@
 /* Color design tokens */
-
 .dark-mode {
   --color-scheme: dark;
   --color-white: #120817;
@@ -273,14 +272,19 @@ h6 {
   hyphens: auto;
 }
 
+p {
+  text-wrap: pretty;
+  white-space: pre-line;
+}
+
+.bold,
 b,
 strong {
   font-weight: 600;
 }
 
-p {
-  text-wrap: pretty;
-  white-space: pre-line;
+.small-caps {
+  font-variant-caps: all-small-caps;
 }
 
 dl {

@@ -124,7 +124,7 @@ watch(
 <template>
   <div class="file-input-wrapper">
     <label :for="id" class="file-input-label">
-      {{ $t('files.browse') }} (max. {{ maxFileSize / 1000 }} MB)
+      {{ label || $t('files.browse') }} (max. {{ maxFileSize / 1000 }} MB)
     </label>
 
     <div class="file-input">

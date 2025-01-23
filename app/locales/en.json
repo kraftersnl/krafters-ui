@@ -54,8 +54,9 @@
   "general": {
     "about": "About",
     "actions": "Actions",
-    "address": "Adress",
+    "address": "Address",
     "admin": "Admin",
+    "app": "App",
     "apply": "Apply",
     "attachment": "Attachment | Attachments",
     "back": "Back",

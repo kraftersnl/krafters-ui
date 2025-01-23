@@ -73,8 +73,39 @@ const tabVariants = [
         :size="tabSize"
         :variant="tabVariant"
         :tabs="tabs"
+        class="demo-tabs"
       >
         <template #a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+            sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
+            deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
+            fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
+            repellat consequuntur officiis sequi illo provident ducimus
+            voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
+            necessitatibus.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+            sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
+            deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
+            fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
+            repellat consequuntur officiis sequi illo provident ducimus
+            voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
+            necessitatibus.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+            sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
+            deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
+            fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
+            repellat consequuntur officiis sequi illo provident ducimus
+            voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
+            necessitatibus.
+          </p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
             sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
@@ -136,4 +167,11 @@ const tabVariants = [
   </div>
 </template>
 
-<style></style>
+<style>
+.demo-tabs {
+  .tabpanel {
+    max-height: 32rem;
+    overflow: auto;
+  }
+}
+</style>

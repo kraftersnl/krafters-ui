@@ -73,6 +73,7 @@ function handleInput(event: Event) {
   }
   model.value = target.value;
 }
+
 const inputRef = useTemplateRef<HTMLTextAreaElement>('input');
 
 function focusElement() {
@@ -130,10 +131,9 @@ defineExpose({
       @input="handleInput"
     />
 
-    <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
+    <!-- <Icon v-if="icon" :name="'heroicons-solid:' + icon" /> -->
 
     <div
-      v-if="required || typeof min === 'number' || typeof max === 'number'"
       :id="id ? `error-${id}` : undefined"
       class="error-wrapper"
       aria-live="polite"
