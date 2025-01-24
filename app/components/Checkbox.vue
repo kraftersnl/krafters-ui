@@ -62,9 +62,12 @@ const id = useId();
   input[type='checkbox'] {
     margin: 0;
     margin-top: 1px;
-    cursor: pointer;
     width: 1rem;
     height: 1rem;
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
   }
 }
 </style>
