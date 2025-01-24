@@ -12,8 +12,14 @@ const props = withDefaults(
     size: 'sm',
     variant: 'default',
     ariaLabel: undefined,
+    icon: undefined,
   },
 );
+
+function computeIcon(tab: TabOption) {
+  if (tab.icon) return `${tab.iconLib || 'heroicons-solid'}:${tab.icon}`;
+  return undefined;
+}
 
 const tabElements = ref<HTMLButtonElement[]>([]);
 
@@ -88,6 +94,7 @@ defineExpose({
           @keyup.right="handleNextTab(tab)"
           @click="setActiveTab(tab)"
         >
+          <Icon v-if="computeIcon(tab)" :name="computeIcon(tab)" />
           <span class="tab__text">{{ tab.label }}</span>
         </button>
       </template>
@@ -124,6 +131,7 @@ defineExpose({
   align-items: center;
 
   .tab {
+    position: relative;
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
@@ -131,6 +139,7 @@ defineExpose({
     background: transparent;
     border: none;
     display: flex;
+    gap: 0.25rem;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -146,14 +155,27 @@ defineExpose({
     /* disable focus outline on tab */
     outline-color: transparent;
 
+    .iconify {
+      color: var(--color-grey-graphic);
+    }
+
     &:hover {
       color: var(--color-text);
       border-color: var(--color-grey-graphic);
+
+      .iconify {
+        color: var(--color-grey-text);
+      }
     }
 
     &[aria-selected='true'] {
       color: var(--color-green);
       border-color: var(--color-green);
+
+      .iconify {
+        color: inherit;
+        opacity: 65%;
+      }
     }
 
     &:disabled {

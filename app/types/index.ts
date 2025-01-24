@@ -22,6 +22,8 @@ declare global {
     value: string;
     label: string;
     disabled?: boolean;
+    icon?: string;
+    iconLib?: string;
   };
 
   type MenuItem = {

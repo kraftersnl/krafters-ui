@@ -9,6 +9,11 @@ useHead({ title: 'Krafters UI' });
     <ChangelogEntry v="1.0.7" date="2025-01-24">
       <ul>
         <li>Increase size for links in MobileMenu component</li>
+        <li>
+          Add <code>label</code> and <code>hTag</code> props to MenuList
+          component
+        </li>
+        <li>Add icon support for Tabs component</li>
       </ul>
     </ChangelogEntry>
 

@@ -2,13 +2,19 @@
 withDefaults(
   defineProps<{
     list: MenuItem[];
+    label?: string;
     ariaLabel?: string;
     buttonVariant?: string;
     buttonSize?: string;
+    hTag?: string;
+    id?: string;
   }>(),
   {
+    id: () => useId(),
+    hTag: 'h2',
     buttonVariant: 'menu',
     buttonSize: 'lg',
+    label: undefined,
     ariaLabel: undefined,
   },
 );
@@ -27,7 +33,11 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <nav :aria-label="ariaLabel">
+  <nav :aria-labelledby="id" :aria-label="ariaLabel" class="menu-list-nav">
+    <component :is="hTag" v-if="label" :id="id" class="menu-list-label">
+      {{ label }}
+    </component>
+
     <ul role="list" class="menu-list">
       <li
         v-for="item in list"
@@ -57,6 +67,17 @@ const emit = defineEmits<{
 </template>
 
 <style>
+.menu-list-label {
+  margin-inline-start: 1rem;
+  margin-block-end: 1rem;
+}
+
+.menu-list-nav:has(.button-variant--sidebar) {
+  .menu-list-label {
+    margin-inline-start: 2rem;
+  }
+}
+
 .menu-list {
   min-width: 200px;
 
