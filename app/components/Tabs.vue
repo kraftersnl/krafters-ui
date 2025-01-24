@@ -173,23 +173,23 @@ defineExpose({
 
 /* Tabs variants */
 .tabs-variant--default {
-  .tabs-list {
+  > .tabs-list {
     display: flex;
     border-block-end: 1px solid var(--color-grey-bg);
-  }
 
-  .tab {
-    margin-block-end: -0.0625rem;
+    .tab {
+      margin-block-end: -0.0625rem;
+    }
   }
 }
 
 .tabs-variant--minimal {
-  .tabs-list {
+  > .tabs-list {
     display: inline-flex;
-  }
 
-  .tab {
-    border-width: 2px;
+    .tab {
+      border-width: 2px;
+    }
   }
 }
 
