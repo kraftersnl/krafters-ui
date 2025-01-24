@@ -126,7 +126,7 @@ const emit = defineEmits<{
 
               <MenuList
                 :list="list"
-                button-size="lg"
+                button-size="xl"
                 button-variant="sidebar"
                 :aria-label="navLabel || $t('aria.mobile-menu')"
                 @click="emit('click', $event)"

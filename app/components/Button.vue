@@ -388,11 +388,17 @@ const emit = defineEmits(['click']);
 }
 
 .button-variant--sidebar {
+  display: flex;
+  gap: 1rem;
   width: 100%;
   font-weight: 500;
   justify-content: start;
   padding-inline: 2rem;
   background-color: transparent;
+
+  .iconify {
+    color: var(--color-grey-graphic);
+  }
 
   &.router-link-exact-active {
     text-decoration: underline;
@@ -402,6 +408,10 @@ const emit = defineEmits(['click']);
 
   &:not(:disabled):hover {
     color: var(--color-accent);
+
+    .iconify {
+      color: var(--color-grey-text);
+    }
   }
 }
 
