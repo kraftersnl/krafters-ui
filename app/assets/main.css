@@ -257,6 +257,7 @@ h6,
 button,
 input,
 label,
+.label,
 legend {
   line-height: 1.2;
 }
@@ -424,6 +425,7 @@ button {
   }
 }
 
+.label,
 label {
   font-weight: 500;
   -webkit-user-select: none;

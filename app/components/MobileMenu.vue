@@ -12,6 +12,7 @@ const props = withDefaults(
     icon?: string;
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
+    triggerClass?: string;
     navLabel?: string;
     list?: MenuItem[];
   }>(),
@@ -25,6 +26,7 @@ const props = withDefaults(
     icon: 'menu-alt-2',
     hideTriggerLabel: true,
     triggerLabel: undefined,
+    triggerClass: undefined,
     navLabel: undefined,
     list: () => [],
   },
@@ -91,7 +93,7 @@ const emit = defineEmits<{
     <Button
       v-else
       :icon="icon"
-      class="mobile-nav-toggle"
+      :class="`mobile-nav-toggle ${props.triggerClass ?? ''}`"
       :size="triggerButtonSize"
       :variant="triggerButtonVariant"
       :label="triggerLabel || $t('general.menu')"
@@ -113,7 +115,6 @@ const emit = defineEmits<{
           <div class="dialog-content">
             <Button
               icon="x"
-              variant="ghost"
               radius="full"
               :label="$t('aria.close-menu')"
               hide-label
@@ -122,7 +123,7 @@ const emit = defineEmits<{
             />
 
             <template v-if="list?.length">
-              <h2 class="nav-label">{{ navLabel }}</h2>
+              <h1 class="nav-label">{{ navLabel }}</h1>
 
               <MenuList
                 :list="list"

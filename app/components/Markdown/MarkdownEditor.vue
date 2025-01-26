@@ -52,7 +52,13 @@ defineExpose({
 <template>
   <ClientOnly>
     <div class="markdown-editor form-field-wrapper">
-      <div v-if="label" class="label">{{ label }}</div>
+      <div class="label" @click="focusEditor()">
+        <span>{{ label }}</span>
+
+        <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
+          <span class="visuallyhidden">,</span>
+        </Chip>
+      </div>
 
       <MdEditor
         ref="markdownEditor"

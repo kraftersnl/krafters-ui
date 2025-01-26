@@ -70,6 +70,7 @@ const emit = defineEmits<{
 .menu-list-label {
   margin-inline-start: 1rem;
   margin-block-end: 1rem;
+  color: var(--color-accent-text);
 }
 
 .menu-list-nav:has(.button-variant--sidebar) {

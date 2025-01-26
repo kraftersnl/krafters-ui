@@ -6,14 +6,30 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
-    <ChangelogEntry v="1.0.7" date="2025-01-24">
+    <ChangelogEntry v="1.0.9" date="2025-01-26">
       <ul>
-        <li>Increase size for links in MobileMenu component</li>
+        <li>Add <code>triggerClass</code> prop to MobileMenu component</li>
+        <li>Improve <code>required</code> prop for MarkdownEditor component</li>
+        <li>
+          Add <code>.label</code> helper class for easy swapping with native
+          <code>label</code> element
+        </li>
+      </ul>
+    </ChangelogEntry>
+
+    <ChangelogEntry v="1.0.8" date="2025-01-24">
+      <ul>
         <li>
           Add <code>label</code> and <code>hTag</code> props to MenuList
           component
         </li>
         <li>Add icon support for Tabs component</li>
+      </ul>
+    </ChangelogEntry>
+
+    <ChangelogEntry v="1.0.7" date="2025-01-24">
+      <ul>
+        <li>Increase size for links in MobileMenu component</li>
       </ul>
     </ChangelogEntry>
 

@@ -63,6 +63,7 @@ const emit = defineEmits(['click']);
       button-variant--${variant}
       icon-position--${iconPos}
       ${hideLabel ? 'button--icon-only' : ''}
+      ${disabled ? 'button--disabled' : ''}
     `"
     :style="`--radius: var(--radius-${radius})`"
     :title="
@@ -418,5 +419,10 @@ const emit = defineEmits(['click']);
 .button--icon-only {
   aspect-ratio: 1;
   padding: 0;
+}
+
+.button--disabled {
+  pointer-events: none;
+  opacity: 35%;
 }
 </style>

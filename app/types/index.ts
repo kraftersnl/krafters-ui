@@ -40,7 +40,7 @@ declare global {
     external?: boolean;
     download?: boolean;
     target?: string;
-    onClick?: () => void;
+    onClick?: CallableFunction;
   };
 
   type DialogComponent = InstanceType<typeof Dialog>;
