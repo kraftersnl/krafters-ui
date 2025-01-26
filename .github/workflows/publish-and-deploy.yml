@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Publish to NPM & Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
@@ -6,7 +6,47 @@ on:
     branches:
       - main
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Run eslint
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm test
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.KRAFTERS_UI_NPM_TOKEN }}
+          access: public
+
   build:
+    needs: publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
