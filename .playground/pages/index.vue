@@ -79,13 +79,13 @@ useHead({ title: 'Krafters UI' });
       </ul>
     </ChangelogEntry>
 
-    <ChangelogEntry version="1.0.1" date="2025-01-09">
+    <ChangelogEntry v="1.0.1" date="2025-01-09">
       <ul>
         <li>Fix aria-live for FileInput component</li>
       </ul>
     </ChangelogEntry>
 
-    <ChangelogEntry version="1.0.0" date="2025-01-07">
+    <ChangelogEntry v="1.0.0" date="2025-01-07">
       <ul>
         <li>Add documentation for existing components</li>
         <li>Add RadioGroup component</li>
