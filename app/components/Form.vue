@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { focusFn, autofocusFn, showInvalid } = defineProps<{
-  focusFn?: CallableFunction;
+const { invalidFocusFn, autofocusFn, showInvalid } = defineProps<{
+  invalidFocusFn?: CallableFunction;
   autofocusFn?: CallableFunction;
   showInvalid?: boolean;
 }>();
@@ -16,7 +16,7 @@ function handleSubmit(event: Event) {
     emit('submit', data, event);
   } else {
     emit('invalid', event);
-    if (focusFn) focusFn();
+    if (invalidFocusFn) invalidFocusFn();
     else {
       const firstInvalidElement: HTMLElement | null =
         target.querySelector(':invalid');

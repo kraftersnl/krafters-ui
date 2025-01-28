@@ -5,6 +5,16 @@ import { mark } from '@mdit/plugin-mark';
 import { italicExtension, targetBlankExtension } from './extensions';
 import 'md-editor-v3/lib/style.css';
 
+const { id = useId(), preview = false } = defineProps<{
+  label?: string;
+  placeholder?: string;
+  id?: string;
+  preview?: boolean;
+  required?: boolean;
+  hideLabel?: boolean;
+  errorMessage?: string;
+}>();
+
 config({
   markdownItConfig(md) {
     md.use(targetBlankExtension);
@@ -29,15 +39,6 @@ const { locale } = useI18n();
 
 const content = defineModel<string>();
 
-const { id = useId(), preview = false } = defineProps<{
-  label?: string;
-  placeholder?: string;
-  id?: string;
-  preview?: boolean;
-  required?: boolean;
-  errorMessage?: string;
-}>();
-
 const markdownEditorRef = useTemplateRef<HTMLDivElement>('markdownEditor');
 
 function focusEditor() {
@@ -52,7 +53,12 @@ defineExpose({
 <template>
   <ClientOnly>
     <div class="markdown-editor form-field-wrapper">
-      <div class="label" @click="focusEditor()">
+      <div
+        :class="`label
+        ${hideLabel ? 'visuallyhidden' : ''}
+      `"
+        @click="focusEditor()"
+      >
         <span>{{ label }}</span>
 
         <Chip v-if="required" size="sm" :label="$t('form-errors.required')">

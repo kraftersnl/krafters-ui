@@ -341,7 +341,7 @@ const emit = defineEmits(['click']);
     margin-inline-start: 0.1rem;
   }
 
-  &:not(:disabled):hover {
+  &:hover {
     color: var(--color-accent);
   }
 
@@ -373,17 +373,21 @@ const emit = defineEmits(['click']);
     }
   }
 
-  &.router-link-active {
-    font-weight: 600;
-    color: var(--color-accent);
-  }
-
-  &:not(:disabled):hover {
+  &:hover {
     color: var(--color-accent);
     background-color: var(--color-accent-bg);
 
     .iconify {
       color: var(--color-accent-text);
+    }
+  }
+
+  &.router-link-active {
+    font-weight: 600;
+    color: var(--color-accent);
+
+    .iconify {
+      color: inherit;
     }
   }
 }
@@ -401,17 +405,21 @@ const emit = defineEmits(['click']);
     color: var(--color-grey-graphic);
   }
 
-  &.router-link-exact-active {
-    text-decoration: underline;
-    font-weight: 600;
-    color: var(--color-accent);
-  }
-
-  &:not(:disabled):hover {
+  &:hover {
     color: var(--color-accent);
 
     .iconify {
       color: var(--color-grey-text);
+    }
+  }
+
+  &.router-link-exact-active {
+    text-decoration: underline;
+    font-weight: 600;
+    color: var(--color-accent);
+
+    .iconify {
+      color: inherit;
     }
   }
 }

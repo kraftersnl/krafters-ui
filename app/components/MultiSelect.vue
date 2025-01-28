@@ -19,6 +19,7 @@ const props = withDefaults(
     searchable?: boolean;
     disabled?: boolean;
     required?: boolean;
+    autofocus?: boolean;
     showInvalid?: boolean;
     valueKey?: string;
     labelKey?: string;
@@ -54,8 +55,17 @@ function selectAll() {
   multiSelectRef.value?.selectAll();
 }
 
+function focusElement() {
+  multiSelectRef.value?.focus();
+}
+
 defineExpose({
   selectAll,
+  focusElement,
+});
+
+onMounted(() => {
+  if (props.autofocus) setTimeout(() => focusElement(), 200);
 });
 
 // https://github.com/vueform/multiselect#events
@@ -75,6 +85,7 @@ defineExpose({
       :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
     >
       <span>{{ label }}</span>
+
       <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
         <span class="visuallyhidden">,</span>
       </Chip>
@@ -279,7 +290,7 @@ defineExpose({
 }
 
 .krafters-multiselect {
-  flex-basis: 240px;
+  flex-basis: var(--col-width, 240px);
 
   .clear-button {
     padding: 0.25rem;
