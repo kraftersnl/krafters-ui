@@ -26,8 +26,9 @@ withDefaults(
 .ellipsis-variant--clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  line-clamp: var(--webkit-line-clamp);
   -webkit-line-clamp: var(--webkit-line-clamp);
+  line-clamp: var(--webkit-line-clamp);
+  -webkit-hyphens: none;
   hyphens: none;
 }
 </style>

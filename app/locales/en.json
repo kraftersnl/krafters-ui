@@ -106,7 +106,7 @@
     "name": "Name",
     "open": "Open",
     "order": "Order",
-    "page": "Pages | {n} page | {n} pages",
+    "page": "pages | {n} page | {n} pages",
     "part": "parts | {n} part | {n} parts",
     "permissions": "Permissions",
     "phone": "Telephone number",
