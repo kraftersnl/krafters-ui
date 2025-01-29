@@ -126,12 +126,12 @@ defineExpose({
       :aria-describedby="`
         ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}
-        ${id && (required || typeof min === 'number' || typeof max === 'number') ? `error-${id}` : ''}
+        ${id ? `error-${id}` : ''}
       `"
       @input="handleInput"
     />
 
-    <!-- <Icon v-if="icon" :name="'heroicons-solid:' + icon" /> -->
+    <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
 
     <div
       :id="id ? `error-${id}` : undefined"
@@ -164,6 +164,7 @@ defineExpose({
 
     + .iconify {
       position: absolute;
+      z-index: 1;
       left: 0.5rem;
       color: var(--color-grey-text);
     }
@@ -176,30 +177,54 @@ defineExpose({
   }
 }
 
-.input-size--sm .input {
-  height: 2rem;
-  padding-inline: 0.5rem;
+.input-size--sm {
+  .input {
+    height: 2rem;
+    padding-inline: 0.5rem;
 
-  + .iconify {
-    bottom: 0.5em;
+    + .iconify {
+      top: 2em;
+    }
+  }
+
+  &:has(label.visuallyhidden) {
+    .input + .iconify {
+      top: 0.5em;
+    }
   }
 }
 
-.input-size--md .input {
-  height: 2.25rem;
-  padding-inline: 0.5rem;
+.input-size--md {
+  .input {
+    height: 2.25rem;
+    padding-inline: 0.5rem;
 
-  + .iconify {
-    bottom: 0.6em;
+    + .iconify {
+      top: 2.125em;
+    }
+  }
+
+  &:has(label.visuallyhidden) {
+    .input + .iconify {
+      top: 0.65em;
+    }
   }
 }
 
-.input-size--lg .input {
-  height: 2.5rem;
-  padding-inline: 0.65rem;
+.input-size--lg {
+  .input {
+    height: 2.5rem;
+    padding-inline: 0.65rem;
 
-  + .iconify {
-    bottom: 0.7em;
+    + .iconify {
+      top: 2.3em;
+    }
+  }
+
+  &:has(label.visuallyhidden) {
+    .input + .iconify {
+      top: 0.75em;
+    }
   }
 }
 </style>

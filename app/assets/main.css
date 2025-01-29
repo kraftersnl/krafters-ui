@@ -543,15 +543,15 @@ input {
 }
 
 .show-invalid {
-  .select,
-  .textarea,
-  .input {
-    &:invalid {
+  .form-field-wrapper:has(:invalid) {
+    .select,
+    .textarea,
+    .input {
       border-color: var(--color-red);
+    }
 
-      + .error-wrapper .error {
-        display: flex;
-      }
+    .error-wrapper .error {
+      display: flex;
     }
   }
 }

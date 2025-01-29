@@ -6,6 +6,13 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.12" date="2025-01-29">
+      <ul>
+        <li>Add more validation options for Input component</li>
+        <li>Fix icon support for Input component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.11" date="2025-01-28">
       <ul>
         <li>Fix loading prop when Button component is rendered as NuxtLink</li>

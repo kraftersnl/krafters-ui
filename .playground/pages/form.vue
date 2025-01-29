@@ -1,8 +1,6 @@
 <script setup lang="ts">
 useHead({ title: 'Form inputs | Krafters UI' });
 
-const file = ref<File>();
-
 const singleSelection = ref('');
 const multiSelection = ref<string | string[]>();
 const selectedCheckboxes = ref([]);
@@ -206,14 +204,7 @@ function handleSubmit(formData: FormData) {
 
     <Card>
       <h2>File Input</h2>
-
-      <FileInput
-        v-model="file"
-        required
-        name="file"
-        label="File Upload"
-        style="--col-width: var(--col-width-33)"
-      />
+      <DemoFileForm />
     </Card>
   </div>
 </template>

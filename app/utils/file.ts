@@ -58,5 +58,5 @@ export function fileTypeIcon(file?: File) {
     return 'vscode-icons:file-type-photoshop';
   if (file?.type.includes('video')) return 'vscode-icons:file-type-video';
   if (file?.type.includes('image')) return 'vscode-icons:file-type-image';
-  return 'heroicons-solid:document-check';
+  return 'heroicons-solid:document';
 }
