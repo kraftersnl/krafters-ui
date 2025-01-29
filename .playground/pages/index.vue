@@ -6,6 +6,13 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.11" date="2025-01-28">
+      <ul>
+        <li>Fix loading prop when Button component is rendered as NuxtLink</li>
+        <li>Add <code>title</code> prop to Tooltip component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.10" date="2025-01-27">
       <ul>
         <li>

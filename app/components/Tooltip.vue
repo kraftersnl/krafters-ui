@@ -13,6 +13,7 @@ withDefaults(
     trigger?: string;
     iconSize?: string;
     tabindex?: string;
+    title?: string;
     hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
   }>(),
@@ -25,6 +26,7 @@ withDefaults(
     trigger: 'click',
     iconSize: 'md',
     tabindex: undefined,
+    title: undefined,
     hideOnClick: true,
     maxWidth: undefined,
   },
@@ -72,6 +74,7 @@ function closeTooltip() {
           type="button"
           :aria-label="label || ariaLabel"
           :tabindex="tabindex"
+          :title="title"
           class="tooltip-trigger-button"
         >
           <Icon :name="'heroicons-solid:' + icon" />

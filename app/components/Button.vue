@@ -63,7 +63,8 @@ const emit = defineEmits(['click']);
       button-variant--${variant}
       icon-position--${iconPos}
       ${hideLabel ? 'button--icon-only' : ''}
-      ${disabled ? 'button--disabled' : ''}
+      ${loading ? 'button--loading' : ''}
+      ${loading || disabled ? 'button--disabled' : ''}
     `"
     :style="`--radius: var(--radius-${radius})`"
     :title="
@@ -71,7 +72,8 @@ const emit = defineEmits(['click']);
     "
     @click="emit('click')"
   >
-    <Icon v-if="icon" :name="computedIcon" />
+    <Icon v-if="loading" name="svg-spinners:90-ring" />
+    <Icon v-else-if="icon" :name="computedIcon" />
 
     <span
       v-if="label"
@@ -146,13 +148,14 @@ const emit = defineEmits(['click']);
     opacity: 35%;
   }
 
+  &.button--disabled {
+    pointer-events: none;
+    opacity: 35%;
+  }
+
   .iconify {
     flex-shrink: 0;
     transition-duration: all var(--duration-sm);
-  }
-
-  &.button--loading {
-    cursor: default;
   }
 }
 
@@ -427,10 +430,5 @@ const emit = defineEmits(['click']);
 .button--icon-only {
   aspect-ratio: 1;
   padding: 0;
-}
-
-.button--disabled {
-  pointer-events: none;
-  opacity: 35%;
 }
 </style>
