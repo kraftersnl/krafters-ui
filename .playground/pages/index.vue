@@ -6,6 +6,18 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.13" date="2025-01-30">
+      <ul>
+        <li>Add <code>hideExternalIcon</code> prop to Button component</li>
+        <li>
+          Add <code>lg</code> option to <code>size</code> prop in Table
+          component
+        </li>
+        <li>Fix hover styles for disabled buttons in Popover component</li>
+        <li>Add translations</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.12" date="2025-01-29">
       <ul>
         <li>Add more validation options for Input component</li>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    size?: 'xs' | 'sm' | 'md';
+    size?: 'xs' | 'sm' | 'md' | 'lg';
     fontSize?: 'xs' | 'sm' | 'md';
     ariaLabel?: string;
   }>(),
@@ -88,6 +88,17 @@ withDefaults(
 .table-size--md {
   tbody tr {
     height: 3rem;
+  }
+  th,
+  td {
+    padding-block: 0.6rem;
+    padding-inline: 0.5rem;
+  }
+}
+
+.table-size--lg {
+  tbody tr {
+    height: 3.5rem;
   }
   th,
   td {

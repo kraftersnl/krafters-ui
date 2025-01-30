@@ -39,6 +39,7 @@ declare global {
     divider?: boolean;
     external?: boolean;
     download?: boolean;
+    hideExternalIcon?: boolean;
     target?: string;
     onClick?: CallableFunction;
   };

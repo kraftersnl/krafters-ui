@@ -26,6 +26,7 @@ const props = withDefaults(
     disabled?: boolean;
     loading?: boolean;
     download?: boolean;
+    hideExternalIcon?: boolean;
     type?: 'button' | 'submit' | 'reset';
   }>(),
   {
@@ -82,7 +83,7 @@ const emit = defineEmits(['click']);
       {{ label }}
     </span>
 
-    <template v-if="!download && target === '_blank'">
+    <template v-if="!hideExternalIcon && target === '_blank'">
       <Icon name="heroicons-solid:external-link" class="external-link" />
     </template>
 
@@ -376,7 +377,7 @@ const emit = defineEmits(['click']);
     }
   }
 
-  &:hover {
+  &:not(:disabled):hover {
     color: var(--color-accent);
     background-color: var(--color-accent-bg);
 

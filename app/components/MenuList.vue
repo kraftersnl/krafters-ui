@@ -55,6 +55,7 @@ const emit = defineEmits<{
           :target="item.target"
           :external="item.external"
           :download="item.download"
+          :hide-external-icon="item.hideExternalIcon"
           :size="buttonSize"
           :variant="buttonVariant"
           @click="handleClick(item)"
