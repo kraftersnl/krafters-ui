@@ -5,13 +5,18 @@ import { mark } from '@mdit/plugin-mark';
 import { italicExtension, targetBlankExtension } from './extensions';
 import 'md-editor-v3/lib/style.css';
 
-const { id = useId(), preview = false } = defineProps<{
+const {
+  id = useId(),
+  preview = false,
+  autofocus,
+} = defineProps<{
   label?: string;
   placeholder?: string;
   id?: string;
   preview?: boolean;
   required?: boolean;
   hideLabel?: boolean;
+  autofocus?: boolean;
   errorMessage?: string;
 }>();
 
@@ -33,6 +38,10 @@ config({
       },
     },
   },
+});
+
+onMounted(() => {
+  if (autofocus) setTimeout(() => focusEditor(), 250);
 });
 
 const { locale } = useI18n();

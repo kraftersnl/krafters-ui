@@ -30,7 +30,7 @@ const computedIcon = computed(() => {
 <style>
 .callout-wrapper {
   display: inline-block;
-  padding-inline: 1rem;
+  padding-inline: 0.75rem;
   padding-block: 0.75rem;
   border-left: 0.35rem solid transparent;
   border-radius: var(--radius-sm);
@@ -40,7 +40,7 @@ const computedIcon = computed(() => {
 .callout-content {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.65rem;
 
   .iconify {
     flex-shrink: 0;
