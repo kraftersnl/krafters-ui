@@ -76,7 +76,7 @@
     "delete": "Delete",
     "description": "Description",
     "details": "Details",
-    "document": "documents | {n} document | {n} documenten",
+    "document": "documents | {n} document | {n} documents",
     "download": "Download",
     "duplicate": "Duplicate",
     "edit": "Edit",

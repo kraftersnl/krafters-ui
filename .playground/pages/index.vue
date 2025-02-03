@@ -6,6 +6,12 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.15" date="2025-02-03">
+      <ul>
+        <li>Translations fix</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.14" date="2025-01-31">
       <ul>
         <li>Add <code>autofocus</code> prop to MarkdownEditor component</li>

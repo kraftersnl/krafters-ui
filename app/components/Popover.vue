@@ -199,7 +199,7 @@ const emit = defineEmits<{
 }
 
 .popover--icon-only {
-  aspect-ratio: 1;
+  /* aspect-ratio: 1; */
   border-radius: var(--radius-full);
 }
 </style>
