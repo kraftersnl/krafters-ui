@@ -6,6 +6,15 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.17" date="2025-02-05">
+      <ul>
+        <li>Fix tooltip icon size in Chip component</li>
+        <li>Fix formatting for i18n <code>datetimeLong</code> option</li>
+        <li>Increase gap in <code>.table-cell</code> helper class</li>
+        <li>Add transition to LogoCardan component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.16" date="2025-02-05">
       <ul>
         <li>Fix border-radius in MenuList component</li>

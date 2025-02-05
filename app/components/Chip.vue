@@ -75,7 +75,7 @@ const formattedLabel = computed(() =>
   gap: 0.125rem;
 
   .krafters-tooltip-wrapper {
-    --height: 0.5rem;
+    --icon-size: 0.5rem !important;
   }
 }
 
@@ -85,7 +85,7 @@ const formattedLabel = computed(() =>
   padding-block: 0.0625rem;
 
   .krafters-tooltip-wrapper {
-    --height: 0.75rem;
+    --icon-size: 0.75rem !important;
   }
 }
 
@@ -95,7 +95,7 @@ const formattedLabel = computed(() =>
   padding-block: 0.125rem;
 
   .krafters-tooltip-wrapper {
-    --height: 1rem;
+    --icon-size: 1rem !important;
   }
 }
 
@@ -105,7 +105,7 @@ const formattedLabel = computed(() =>
   padding-block: 0.25rem;
 
   .krafters-tooltip-wrapper {
-    --height: 1.25rem;
+    --icon-size: 1.25rem !important;
   }
 }
 

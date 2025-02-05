@@ -25,7 +25,7 @@ const datetimeFormats = (): DefineDateTimeFormat => ({
     hour12: false,
   },
   datetimeLong: {
-    day: '2-digit',
+    day: 'numeric',
     month: 'long',
     year: 'numeric',
     hour: '2-digit',
