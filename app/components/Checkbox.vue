@@ -37,9 +37,7 @@ const id = useId();
 
       <span v-if="label">{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
-        <span class="visuallyhidden">,</span>
-      </Chip>
+      <Chip v-if="required" size="sm" :label="$t('form-errors.required')" />
     </label>
 
     <slot name="default" />
@@ -48,7 +46,7 @@ const id = useId();
 
 <style>
 .checkbox-wrapper {
-  display: inline-flex;
+  display: flex;
 
   &.disabled {
     opacity: 0.35;

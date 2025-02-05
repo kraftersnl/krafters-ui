@@ -6,6 +6,13 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.18" date="2025-02-06">
+      <ul>
+        <li>Fix whitespace for Checkbox component</li>
+        <li>Remove visually hidden comma from required label in form inputs</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.17" date="2025-02-05">
       <ul>
         <li>Fix tooltip icon size in Chip component</li>

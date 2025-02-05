@@ -52,12 +52,11 @@ withDefaults(
 
   legend {
     font-size: var(--font-size-md);
-    margin-block-end: 1rem;
+    margin-block-end: 0.75rem;
   }
 
   .radio-list {
     display: grid;
-    gap: 0.5rem;
     font-size: var(--font-size-sm);
 
     input[type='radio'] {

@@ -70,9 +70,7 @@ defineExpose({
       >
         <span>{{ label }}</span>
 
-        <Chip v-if="required" size="sm" :label="$t('form-errors.required')">
-          <span class="visuallyhidden">,</span>
-        </Chip>
+        <Chip v-if="required" size="sm" :label="$t('form-errors.required')" />
       </div>
 
       <MdEditor
