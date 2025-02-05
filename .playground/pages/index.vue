@@ -6,6 +6,14 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.16" date="2025-02-05">
+      <ul>
+        <li>Fix border-radius in MenuList component</li>
+        <li>Fix z-index issue for caret in MultiSelect component</li>
+        <li>Translations update for password reset</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.15" date="2025-02-03">
       <ul>
         <li>Translations fix</li>

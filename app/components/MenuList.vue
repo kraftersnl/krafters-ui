@@ -90,7 +90,8 @@ const emit = defineEmits<{
 
   .menu-list-item:last-of-type {
     .button-variant--menu {
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      border-bottom-left-radius: var(--radius-md) !important;
+      border-bottom-right-radius: var(--radius-md) !important;
     }
   }
 }

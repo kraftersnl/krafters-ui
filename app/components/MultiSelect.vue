@@ -272,6 +272,7 @@ onMounted(() => {
 }
 
 .multiselect-caret {
+  z-index: 1;
   margin-inline: 0.25rem 0.75rem;
 }
 

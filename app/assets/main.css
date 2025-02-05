@@ -440,6 +440,11 @@ label {
   }
 }
 
+.user-select-none {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 address {
   font-style: normal;
 }
