@@ -6,6 +6,12 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.19" date="2025-02-07">
+      <ul>
+        <li>Add <code>triggerVariant</code> to Popover component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.18" date="2025-02-06">
       <ul>
         <li>Fix whitespace for Checkbox component</li>

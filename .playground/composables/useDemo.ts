@@ -1,8 +1,8 @@
 const navList = [
   {
-    id: 'home',
+    id: 'changelog',
     to: '/',
-    label: 'Home',
+    label: 'Changelog',
   },
   // {
   //   id: 'accessibility',

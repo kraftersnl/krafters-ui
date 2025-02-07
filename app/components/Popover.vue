@@ -19,6 +19,7 @@ withDefaults(
     arrow?: boolean;
     loading?: boolean;
     trigger?: string;
+    triggerVariant?: string;
     hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
   }>(),
@@ -33,6 +34,7 @@ withDefaults(
     interactive: true,
     appendTo: undefined,
     trigger: 'click',
+    triggerVariant: 'secondary',
     hideOnClick: true,
     maxWidth: undefined,
   },
@@ -100,6 +102,7 @@ const emit = defineEmits<{
         type="button"
         :disabled="loading || disabled"
         :class="`popover-trigger
+          popover-trigger-variant--${triggerVariant}
           popover-trigger-size--${size}
         `"
       >
@@ -145,11 +148,9 @@ const emit = defineEmits<{
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
-  color: var(--color-text);
   font-size: var(--font-size-xs);
   white-space: nowrap;
   padding-inline: 0.5rem;
-  background-color: var(--color-grey-bg);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   transition-property: color, background-color, opacity;
@@ -164,6 +165,32 @@ const emit = defineEmits<{
   &:disabled {
     opacity: 35%;
   }
+
+  &:not(:disabled):hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-grey-bg) 95%,
+      var(--color-black)
+    );
+  }
+}
+
+.popover-trigger-variant--primary {
+  color: var(--color-white);
+  background-color: var(--color-accent);
+
+  &:not(:disabled):hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-accent) 85%,
+      var(--color-black)
+    );
+  }
+}
+
+.button-variant--secondary {
+  color: var(--color-text);
+  background-color: var(--color-grey-bg);
 
   &:not(:disabled):hover {
     background-color: color-mix(
