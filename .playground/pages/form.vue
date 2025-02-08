@@ -9,6 +9,7 @@ const selectedRadio = ref();
 const raw = ref();
 
 const multiselectMode = ref<'single' | 'multiple' | 'tags'>('multiple');
+const multiselectSize = ref<'md' | 'lg'>('lg');
 
 const selectOptions = [
   {
@@ -82,6 +83,17 @@ const multiselectModes = [
   {
     value: 'tags',
     label: 'tags',
+  },
+];
+
+const multiselectSizes = [
+  {
+    value: 'md',
+    label: 'md',
+  },
+  {
+    value: 'lg',
+    label: 'lg',
   },
 ];
 
@@ -182,7 +194,19 @@ function handleSubmit(formData: FormData) {
                 @update:model-value="multiSelection = undefined"
               />
 
-              <code>{{`<MultiSelect mode="${multiselectMode}" />`}}</code>
+              <Select
+                v-model="multiselectSize"
+                :options="multiselectSizes"
+                label="size"
+                size="sm"
+              />
+
+              <code
+                >{{`<MultiSelect
+                  mode="${multiselectMode}"
+                  size="${multiselectSize}"
+                />`}}</code
+              >
             </div>
           </div>
         </Popover>
@@ -193,6 +217,7 @@ function handleSubmit(formData: FormData) {
         searchable
         :options="multiSelectOptions"
         :mode="multiselectMode"
+        :size="multiselectSize"
         name="multiselect"
         value-key="id"
         label-key="name"

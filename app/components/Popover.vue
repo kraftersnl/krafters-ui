@@ -61,6 +61,7 @@ const triggerRef = useTemplateRef<HTMLButtonElement>('popoverTrigger');
 defineExpose({
   triggerRef,
   focusTrigger,
+  closePopover,
 });
 
 const emit = defineEmits<{
@@ -122,13 +123,14 @@ const emit = defineEmits<{
         <slot name="default" />
 
         <MenuList
+          v-if="list?.length"
           :list="list"
           button-size="xl"
           :aria-label="navAriaLabel || $t('general.menu')"
           @click="handleMenuClick($event, hide)"
         />
 
-        <slot name="content" />
+        <slot name="content" v-bind="{ hide }" />
       </FocusLoop>
     </template>
   </Tippy>
@@ -143,7 +145,12 @@ const emit = defineEmits<{
   }
 }
 
+.popover-wrapper {
+  display: flex;
+}
+
 .popover-trigger {
+  flex-grow: 1;
   display: inline-flex;
   gap: 0.5rem;
   align-items: center;
@@ -175,6 +182,11 @@ const emit = defineEmits<{
   }
 }
 
+.popover-trigger-variant--outline {
+  background-color: var(--color-grey-bg);
+  border-color: var(--color-grey-graphic);
+}
+
 .popover-trigger-variant--primary {
   color: var(--color-white);
   background-color: var(--color-accent);
@@ -188,7 +200,7 @@ const emit = defineEmits<{
   }
 }
 
-.button-variant--secondary {
+.popover-trigger-variant--secondary {
   color: var(--color-text);
   background-color: var(--color-grey-bg);
 
@@ -219,6 +231,7 @@ const emit = defineEmits<{
 
 .popover-trigger-size--lg {
   height: 2.5rem;
+  font-size: var(--font-size-sm);
 
   .iconify {
     font-size: var(--font-size-lg);

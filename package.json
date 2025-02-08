@@ -1,7 +1,7 @@
 {
   "name": "@krafters/ui",
   "type": "module",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "@vuepic/vue-datepicker": "^11.0.1",
     "@vueuse/nuxt": "^12.5.0",
     "compressorjs": "^1.2.1",
-    "eslint": "^9.19.0",
+    "eslint": "^9.20.0",
     "markdown-it": "^14.1.0",
     "md-editor-v3": "^5.2.2",
     "nuxt": "^3.15.4",

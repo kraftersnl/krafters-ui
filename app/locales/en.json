@@ -47,6 +47,7 @@
     "required": "required"
   },
   "filters": {
+    "apply": "Apply filters",
     "heading": "Filter | Filters",
     "reset": "Reset filters",
     "reset-all": "Reset all filters"

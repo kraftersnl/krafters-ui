@@ -6,6 +6,17 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.20" date="2025-02-08">
+      <ul>
+        <li>
+          Add outline option to <code>triggerVariant</code> prop in Popover
+          component
+        </li>
+        <li>Fix secondary button color in Popover component</li>
+        <li>Fix text truncation in MultiSelect component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.19" date="2025-02-07">
       <ul>
         <li>Add <code>triggerVariant</code> to Popover component</li>

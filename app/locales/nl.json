@@ -47,6 +47,7 @@
     "required": "vereist"
   },
   "filters": {
+    "apply": "Filters toepassen",
     "heading": "Filter | Filters",
     "reset": "Reset filters",
     "reset-all": "Reset alle filters"

@@ -25,7 +25,7 @@ const props = withDefaults(
     labelKey?: string;
     disabledKey?: string;
     itemsSelectedLabel?: string;
-    size?: 'sm' | 'md' | 'lg';
+    size?: 'md' | 'lg';
   }>(),
   {
     id: () => useId(),
@@ -186,7 +186,7 @@ onMounted(() => {
 @import '@vueform/multiselect/themes/default.css';
 
 :root {
-  /* --ms-font-size: 1rem; */
+  --ms-font-size: var(--font-size-md);
   --ms-line-height: 1.125;
   --ms-bg: var(--color-select-bg);
   --ms-bg-disabled: var(--color-white);
@@ -196,10 +196,10 @@ onMounted(() => {
   /* --ms-border-width-active: 1px; */
   --ms-radius: var(--radius-sm);
   --ms-py: 0.5rem;
-  --ms-px: 0.875rem;
+  --ms-px: 0.65rem;
   --ms-ring-width: 1px;
   --ms-ring-color: var(--focus-color);
-  --ms-placeholder-color: var(--color-grey-graphic);
+  --ms-placeholder-color: var(--color-grey-text);
   --ms-max-height: 16rem;
 
   --ms-spinner-color: var(--color-accent);
@@ -207,7 +207,7 @@ onMounted(() => {
   --ms-clear-color: var(--color-grey-text);
   --ms-clear-color-hover: var(--color-text);
 
-  /* --ms-tag-font-size: 0.875rem; */
+  --ms-tag-font-size: var(--font-size-xs);
   /* --ms-tag-line-height: 1.25rem; */
   --ms-tag-font-weight: 500;
   --ms-tag-bg: var(--color-accent-bg);
@@ -247,7 +247,7 @@ onMounted(() => {
   /* --ms-group-label-bg-selected-disabled: #75cfb1; */
   /* --ms-group-label-color-selected-disabled: #d1fae5; */
 
-  /* --ms-option-font-size: 1rem; */
+  --ms-option-font-size: var(--font-size-sm);
   /* --ms-option-line-height: 1.375; */
   --ms-option-bg-pointed: var(--color-grey-bg);
   --ms-option-color-pointed: var(--color-text);
@@ -266,6 +266,7 @@ onMounted(() => {
 }
 
 .multiselect-wrapper {
+  height: var(--height);
   min-height: 0;
 }
 
@@ -304,6 +305,22 @@ onMounted(() => {
     &:hover {
       background-color: var(--color-grey-bg);
     }
+  }
+  .multiselect-multiple-label,
+  .multiselect-placeholder,
+  .multiselect-single-label {
+    /* padding-right: calc(0.5rem + var(--ms-px, 0.875rem) * 3); */
+
+    line-height: var(--height);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1; */
   }
 
   .tag-wrapper {
@@ -344,15 +361,11 @@ onMounted(() => {
 }
 
 /* Sizes */
-.multi-select-size--sm .multiselect-wrapper {
-  height: calc(2rem - 2px);
-}
-
 .multi-select-size--md .multiselect-wrapper {
-  height: calc(2.25rem - 2px);
+  --height: calc(2.25rem - 2px);
 }
 
 .multi-select-size--lg .multiselect-wrapper {
-  height: calc(2.5rem - 2px);
+  --height: calc(2.5rem - 2px);
 }
 </style>

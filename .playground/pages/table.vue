@@ -7,8 +7,8 @@ const keyword = ref('');
 const wcagLevel = ref<string[]>(['A', 'AA']);
 const page = ref(1);
 const pageSize = ref(10);
-const tableSize = ref('sm');
-const tableFontSize = ref('sm');
+const tableSize = ref('md');
+const tableFontSize = ref('xs');
 
 const guidelines = computed(() =>
   wcagPrinciples.map((principle) => principle.guidelines).flat(),
@@ -85,7 +85,7 @@ function handlePageChange(pageNumber: number) {
   results.value = filteredCriteria.value.slice(start, end);
 }
 
-function handlePageSizeChange() {
+function handleFilter() {
   page.value = 1;
   handlePageChange(page.value);
 }
@@ -135,15 +135,16 @@ function handlePageSizeChange() {
           mode="tags"
           placeholder="All levels"
           size="lg"
-          @update:model-value="handlePageChange(1)"
+          @update:model-value="handleFilter()"
         />
 
         <Search
           v-model="keyword"
           :hide-label="true"
           label="Search"
-          @submit="handlePageChange(1)"
-          @reset="handlePageChange(1)"
+          placeholder="search criteria"
+          @submit="handleFilter()"
+          @reset="handleFilter()"
         />
       </div>
 
@@ -161,7 +162,9 @@ function handlePageSizeChange() {
             <th scope="row">{{ sc.number }}</th>
             <td class="sc-name">{{ sc.name }}</td>
             <td>{{ sc.description }}</td>
-            <td>{{ sc.level }}</td>
+            <td>
+              <Chip :label="sc.level" size="sm" color="accent" />
+            </td>
           </tr>
         </tbody>
       </Table>
@@ -173,7 +176,7 @@ function handlePageSizeChange() {
         :page-sizes="[5, 10, 20, 50, 100]"
         :last-page="Math.ceil(filteredCriteria.length / pageSize)"
         @update:page="handlePageChange"
-        @update:per-page="handlePageSizeChange"
+        @update:per-page="handleFilter()"
       />
     </Card>
   </div>
@@ -191,7 +194,6 @@ function handlePageSizeChange() {
     flex-wrap: wrap;
     align-items: end;
     gap: 0.5rem;
-    justify-content: space-between;
 
     .search-form {
       flex-grow: 9;
