@@ -49,6 +49,11 @@ const navList = [
     to: '/markdown',
     label: 'Markdown Editor',
   },
+  {
+    id: 'skeleton',
+    to: '/skeleton',
+    label: 'Skeleton loading',
+  },
 ];
 
 export function useDemo() {

@@ -10,6 +10,7 @@ const props = withDefaults(
     triggerButtonVariant?: 'ghost' | 'secondary';
     triggerButtonSize?: 'sm' | 'md';
     icon?: string;
+    iconLib?: string;
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
     triggerClass?: string;
@@ -24,6 +25,7 @@ const props = withDefaults(
     triggerButtonVariant: 'secondary',
     triggerButtonSize: 'md',
     icon: 'menu-alt-2',
+    iconLib: 'heroicons-solid',
     hideTriggerLabel: true,
     triggerLabel: undefined,
     triggerClass: undefined,
@@ -93,6 +95,7 @@ const emit = defineEmits<{
     <Button
       v-else
       :icon="icon"
+      :icon-lib="iconLib"
       :class="`mobile-nav-toggle ${props.triggerClass ?? ''}`"
       :size="triggerButtonSize"
       :variant="triggerButtonVariant"

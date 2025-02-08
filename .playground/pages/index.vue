@@ -6,6 +6,13 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.0.21" date="2025-02-09">
+      <ul>
+        <li>Add Skeleton and Spacer components</li>
+        <li>Add <code>iconLib</code> prop to MobileMenu component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.20" date="2025-02-08">
       <ul>
         <li>

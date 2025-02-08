@@ -12,11 +12,4 @@ useHead({ title: 'Colors | Krafters UI' });
   </div>
 </template>
 
-<style>
-.color-swatches-grid {
-  margin-block-start: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-</style>
+<style></style>

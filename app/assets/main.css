@@ -138,6 +138,10 @@
 
   /* Animation design tokens */
   --animation-rotate: rotateLeft var(--duration-xl) linear infinite;
+  --animation-shimmer: shimmer var(--duration-xxl) cubic-bezier(0.4, 0, 0.6, 1)
+    infinite;
+  --animation-pulse: pulse var(--duration-xxl) cubic-bezier(0.4, 0, 0.6, 1)
+    infinite;
 
   /* Other design token */
   --app-max-width: 1280px;
@@ -153,6 +157,7 @@
     --duration-md: 0.35s;
     --duration-lg: 0.65s;
     --duration-xl: 1.35s;
+    --duration-xxl: 2s;
 
     scroll-behavior: smooth;
   }
@@ -178,6 +183,21 @@
 }
 .font-size-xxs {
   font-size: var(--font-size-xxs);
+}
+
+.flex-wrapper {
+  --gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.grid-wrapper {
+  --gap: 1rem;
+  display: grid;
+  gap: var(--gap);
 }
 
 /* CSS Reset */
@@ -721,6 +741,21 @@ input {
 @keyframes rotateLeft {
   to {
     rotate: -1turn;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }
 
