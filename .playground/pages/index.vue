@@ -19,7 +19,8 @@ useHead({ title: 'Changelog | Krafters UI' });
         <li>Add <code>labelLink</code> prop to MenuList component</li>
         <li>
           Add <code>mdc-unwrap="p"</code> attribute to slot of several
-          components (Card, Callout, Accordion, Chip, Ellipsis)
+          components (Card, Callout, Accordion, AccordionDetails, Chip,
+          Ellipsis)
         </li>
         <li>Add size design tokens</li>
         <li>Add size options to circle variant in Skeleton component</li>
