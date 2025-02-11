@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Krafters UI' });
+useHead({ title: 'Changelog | Krafters UI' });
 </script>
 
 <template>
