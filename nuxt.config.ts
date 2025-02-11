@@ -40,6 +40,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
       htmlAttrs: {
         lang: typeof window !== 'undefined' ? navigator?.language : 'en',
         style: 'background-color: #000',
