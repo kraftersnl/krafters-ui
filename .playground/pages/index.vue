@@ -6,6 +6,29 @@ useHead({ title: 'Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.1.0" date="2025-02-11">
+      <ul>
+        <li>
+          <strong>Breaking</strong>: rename Details to AccordionDetails
+          component
+          <ul>
+            <li>Change summary slot to trigger slot</li>
+            <li>Change default slot to content slot</li>
+          </ul>
+        </li>
+        <li>Add <code>labelLink</code> prop to MenuList component</li>
+        <li>
+          Add <code>mdc-unwrap="p"</code> attribute to slot of several
+          components (Card, Callout, Accordion, Chip, Ellipsis)
+        </li>
+        <li>Add size design tokens</li>
+        <li>Add size options to circle variant in Skeleton component</li>
+        <li>Add <code>iconLib</code> prop to MobileMenu component</li>
+        <li>Add <code>order</code> argument to sort function</li>
+        <li>Fix flashing hidden content in Accordion component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.0.21" date="2025-02-09">
       <ul>
         <li>Add Skeleton and Spacer components</li>
@@ -201,4 +224,13 @@ useHead({ title: 'Krafters UI' });
   </div>
 </template>
 
-<style></style>
+<style>
+.changelog-page {
+  ul {
+    ul {
+      font-size: var(--font-size-sm);
+      margin-block-end: 0.25rem;
+    }
+  }
+}
+</style>

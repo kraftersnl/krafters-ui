@@ -1,4 +1,4 @@
-export function sort(arr: any, prop: string) {
+export function sort(arr: any, prop: string, order = 'asc') {
   const key = prop.split('.');
   const len = key.length;
 
@@ -10,9 +10,9 @@ export function sort(arr: any, prop: string) {
       i++;
     }
     if (a < b) {
-      return -1;
+      return order === 'asc' ? -1 : 1;
     } else if (a > b) {
-      return 1;
+      return order === 'asc' ? 1 : -1;
     } else {
       return 0;
     }

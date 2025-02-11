@@ -52,7 +52,7 @@ const navList = [
   {
     id: 'skeleton',
     to: '/skeleton',
-    label: 'Skeleton loading',
+    label: 'Skeleton screens',
   },
 ];
 

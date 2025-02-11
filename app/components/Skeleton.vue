@@ -15,50 +15,27 @@ const {
   <div
     :class="`
       skeleton
-      skeleton-size--${size}
       skeleton-animation--${animation}
       ${variant ? `skeleton-variant--${variant}` : undefined}
     `"
-    :style="`--width: ${width}`"
+    :style="`
+      --size: var(--size-${size});
+      --width: ${width}
+    `"
   />
 </template>
 
 <style>
 .skeleton {
-  --color-1: var(--color-accent-bg);
-  --color-2: var(--color-bg);
-
   width: var(--width, 100%);
+  height: var(--size);
   border-radius: var(--radius-sm);
   background-color: var(--color-accent-bg);
 }
 
-.skeleton-size--xxs {
-  height: 0.5rem;
-}
-.skeleton-size--xs {
-  height: 0.75rem;
-}
-.skeleton-size--sm {
-  height: 1rem;
-}
-.skeleton-size--md {
-  height: 1.25rem;
-}
-.skeleton-size--lg {
-  height: 1.75rem;
-}
-.skeleton-size--xl {
-  height: 2.5rem;
-}
-.skeleton-size--xxl {
-  height: 4rem;
-}
-
 .skeleton-variant--circle {
   border-radius: var(--radius-full);
-  height: 4rem;
-  width: 4rem;
+  width: var(--size);
 }
 
 .skeleton-animation--pulse {
@@ -66,10 +43,9 @@ const {
 }
 
 .skeleton-animation--shimmer {
-  animation-name: shimmer;
-  animation-duration: var(--duration-xxl);
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  --color-1: var(--color-accent-bg);
+  --color-2: var(--color-bg);
+  animation: var(--animation-shimmer);
   background: linear-gradient(
     -45deg,
     var(--color-1) 30%,

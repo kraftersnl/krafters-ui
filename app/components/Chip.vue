@@ -42,7 +42,7 @@ const formattedLabel = computed(() =>
       formattedLabel
     }}</span>
 
-    <slot />
+    <slot mdc-unwrap="p" />
   </span>
 </template>
 

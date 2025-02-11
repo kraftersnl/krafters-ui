@@ -6,7 +6,7 @@ const { is = 'div' } = defineProps<{
 
 <template>
   <component :is="is" class="card">
-    <slot />
+    <slot mdc-unwrap="p" />
   </component>
 </template>
 

@@ -6,8 +6,8 @@ withDefaults(
     minHeight?: number;
     id?: string;
     ariaLabel?: string;
-    arrow?: boolean;
     tabindex?: string;
+    arrow?: boolean;
   }>(),
   {
     id: () => useId(),
@@ -16,6 +16,7 @@ withDefaults(
     collapseLabel: 'collapse',
     expandLabel: 'expand',
     tabindex: undefined,
+    arrow: true,
   },
 );
 
@@ -60,11 +61,11 @@ defineExpose({ toggleAccordion });
     >
       <Icon
         v-if="arrow"
-        name="heroicons-solid:chevron-double-right"
+        name="heroicons-solid:chevron-right"
         class="accordion-arrow"
         aria-hidden
       />
-      <slot v-if="$slots.trigger" name="trigger" />
+      <slot v-if="$slots.trigger" name="trigger" mdc-unwrap="p" />
       <span v-else class="visuallyhidden">{{ $t('general.expand') }}</span>
     </button>
 
@@ -83,7 +84,7 @@ defineExpose({ toggleAccordion });
         class="accordion-content"
         :style="`--min-height: ${minHeight}px`"
       >
-        <slot name="content" />
+        <slot name="content" mdc-unwrap="p" />
       </div>
     </div>
   </div>
@@ -101,7 +102,7 @@ defineExpose({ toggleAccordion });
 }
 
 .accordion-content {
-  overflow: var(--overflow);
+  overflow: var(--overflow, hidden);
   min-height: var(--min-height);
 }
 

@@ -3,6 +3,7 @@ withDefaults(
   defineProps<{
     list: MenuItem[];
     label?: string;
+    labelLink?: string;
     ariaLabel?: string;
     buttonVariant?: string;
     buttonSize?: string;
@@ -15,6 +16,7 @@ withDefaults(
     buttonVariant: 'menu',
     buttonSize: 'lg',
     label: undefined,
+    labelLink: undefined,
     ariaLabel: undefined,
   },
 );
@@ -35,7 +37,10 @@ const emit = defineEmits<{
 <template>
   <nav :aria-labelledby="id" :aria-label="ariaLabel" class="menu-list-nav">
     <component :is="hTag" v-if="label" :id="id" class="menu-list-label">
-      {{ label }}
+      <NuxtLink v-if="labelLink" :to="labelLink" class="label-link">
+        {{ label }}
+      </NuxtLink>
+      <span v-else>{{ label }}</span>
     </component>
 
     <ul role="list" class="menu-list">
@@ -72,6 +77,20 @@ const emit = defineEmits<{
   margin-inline-start: 1rem;
   margin-block-end: 1rem;
   color: var(--color-accent-text);
+
+  .label-link {
+    text-decoration: none;
+    text-underline-offset: 0.25em;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+
+    &.router-link-active {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+  }
 }
 
 .menu-list-nav:has(.button-variant--sidebar) {

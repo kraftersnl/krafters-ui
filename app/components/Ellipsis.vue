@@ -12,7 +12,7 @@ withDefaults(
     class="ellipsis ellipsis-variant--clamp"
     :style="`--webkit-line-clamp: ${lines ?? 1}`"
   >
-    <slot />
+    <slot mdc-unwrap="p" />
   </span>
 </template>
 

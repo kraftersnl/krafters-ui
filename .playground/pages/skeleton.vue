@@ -17,7 +17,7 @@ const skeletonAnimations = [
 
 <template>
   <div class="demo-page layout-page">
-    <h1>Skeleton loading</h1>
+    <h1>Skeleton screens</h1>
 
     <Card>
       <div class="section-topbar">
@@ -64,8 +64,57 @@ const skeletonAnimations = [
         <Skeleton :animation="skeletonAnimation" size="xs" width="95%" />
         <Skeleton :animation="skeletonAnimation" size="xs" width="50%" />
 
+        <Spacer size="lg" />
+        <h2>Circle variant</h2>
+        <div class="flex-wrapper">
+          <Skeleton
+            :animation="skeletonAnimation"
+            size="xxl"
+            variant="circle"
+          />
+          <Skeleton :animation="skeletonAnimation" size="xl" variant="circle" />
+          <Skeleton :animation="skeletonAnimation" size="lg" variant="circle" />
+          <Skeleton :animation="skeletonAnimation" size="md" variant="circle" />
+          <Skeleton :animation="skeletonAnimation" size="sm" variant="circle" />
+          <Skeleton :animation="skeletonAnimation" size="xs" variant="circle" />
+          <Skeleton
+            :animation="skeletonAnimation"
+            size="xxs"
+            variant="circle"
+          />
+        </div>
+
+        <!-- Combinations -->
+
         <Spacer size="md" />
-        <Skeleton :animation="skeletonAnimation" size="md" variant="circle" />
+        <div class="flex-wrapper">
+          <Skeleton :animation="skeletonAnimation" size="lg" variant="circle" />
+          <div class="flex-wrapper">
+            <Skeleton :animation="skeletonAnimation" size="sm" width="50%" />
+          </div>
+        </div>
+
+        <Spacer size="md" />
+        <div class="flex-wrapper">
+          <Skeleton :animation="skeletonAnimation" size="xl" variant="circle" />
+          <div class="flex-wrapper">
+            <Skeleton :animation="skeletonAnimation" size="md" width="50%" />
+            <Skeleton :animation="skeletonAnimation" size="md" width="50%" />
+          </div>
+        </div>
+
+        <Spacer size="md" />
+        <div class="flex-wrapper">
+          <Skeleton
+            :animation="skeletonAnimation"
+            size="xxl"
+            variant="circle"
+          />
+          <div class="flex-wrapper">
+            <Skeleton :animation="skeletonAnimation" size="lg" width="50%" />
+            <Skeleton :animation="skeletonAnimation" size="lg" width="50%" />
+          </div>
+        </div>
       </div>
     </Card>
   </div>

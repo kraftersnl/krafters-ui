@@ -8,11 +8,11 @@ defineProps<{
 <template>
   <details :open="open" class="details-wrapper" :name="name">
     <summary class="summary">
-      <slot name="summary" />
+      <slot name="trigger" mdc-unwrap="p" />
     </summary>
 
     <div class="details-content">
-      <slot name="default" />
+      <slot name="content" mdc-unwrap="p" />
     </div>
   </details>
 </template>

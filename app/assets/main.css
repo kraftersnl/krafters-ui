@@ -115,6 +115,15 @@
   --font-size-xxs: 0.7rem;
   --font-size-xxxs: 0.6rem;
 
+  /* Size design tokens */
+  --size-xxl: 4rem; /* 64px */
+  --size-xl: 2.5rem; /* 40px */
+  --size-lg: 1.75rem; /* 28px */
+  --size-md: 1.25rem; /* 20px */
+  --size-sm: 1rem; /* 16px */
+  --size-xs: 0.75rem; /* 12px */
+  --size-xxs: 0.5rem; /* 8px */
+
   /* Utility design tokens */
   --color-accent: var(--color-purple);
   --color-accent-bg: var(--color-purple-bg);
@@ -138,8 +147,7 @@
 
   /* Animation design tokens */
   --animation-rotate: rotateLeft var(--duration-xl) linear infinite;
-  --animation-shimmer: shimmer var(--duration-xxl) cubic-bezier(0.4, 0, 0.6, 1)
-    infinite;
+  --animation-shimmer: shimmer var(--duration-xxl) linear infinite;
   --animation-pulse: pulse var(--duration-xxl) cubic-bezier(0.4, 0, 0.6, 1)
     infinite;
 
@@ -256,6 +264,8 @@ figure {
 
 blockquote {
   margin: 0;
+  border-inline-start: 3px solid var(--color-accent);
+  padding-inline-start: 1rem;
 }
 
 a {
@@ -343,7 +353,7 @@ ol > li::marker {
 
 code {
   background-color: var(--color-grey-bg);
-  padding: 0.15rem 0.25rem;
+  padding: 0.1rem 0.2rem;
   border-radius: var(--radius-sm);
   overflow-wrap: anywhere;
   -webkit-box-decoration-break: clone;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { color = 'blue', icon } = defineProps<{
-  color?: 'blue' | 'green' | 'red' | 'orange';
+  color?: 'accent' | 'blue' | 'green' | 'red' | 'orange';
   icon?: string;
   content?: string;
 }>();
@@ -22,7 +22,7 @@ const computedIcon = computed(() => {
 
       <span v-if="content">{{ content }}</span>
 
-      <slot />
+      <slot mdc-unwrap="p" />
     </div>
   </div>
 </template>
@@ -40,11 +40,21 @@ const computedIcon = computed(() => {
 .callout-content {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.5rem;
 
   .iconify {
     flex-shrink: 0;
     font-size: 1rem;
+  }
+}
+
+.callout-color--accent {
+  border-color: var(--color-accent);
+  color: var(--color-accent-text);
+  background-color: var(--color-accent-bg);
+
+  .tooltip-trigger-button {
+    color: var(--color-accent-text);
   }
 }
 

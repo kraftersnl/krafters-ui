@@ -22,7 +22,7 @@ watch(
       <AppHeader />
 
       <div class="app-layout">
-        <aside class="demo-sidebar">
+        <aside class="app-sidebar">
           <MenuList :list="navList" button-size="lg" button-variant="sidebar" />
         </aside>
 
@@ -43,6 +43,7 @@ watch(
   padding: 2rem;
   max-width: var(--app-max-width);
   margin-inline: auto;
+  min-height: calc(100dvh - 3.5rem - 1px);
 
   @media (min-width: 1024px) {
     display: grid;
@@ -51,7 +52,7 @@ watch(
   }
 }
 
-.demo-sidebar {
+.app-sidebar {
   display: none;
 
   @media (min-width: 1024px) {
@@ -68,6 +69,12 @@ watch(
 }
 
 .demo-page {
+  h1,
+  h2,
+  h3 {
+    color: var(--color-accent-text);
+  }
+
   .card {
     margin-block-end: 1rem;
   }

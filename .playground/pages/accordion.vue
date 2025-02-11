@@ -19,9 +19,9 @@ const isAccordionOpen = ref(true);
     </p>
 
     <div class="details-demo-cols">
-      <Details :open="isDetailsOpen" class="details-demo">
-        <template #summary>Accordion with HTML</template>
-        <template #default>
+      <AccordionDetails :open="isDetailsOpen" class="details-demo">
+        <template #trigger>Accordion with HTML</template>
+        <template #content>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa
           impedit, maiores inventore at quaerat suscipit obcaecati amet minus
           iste voluptate ex eveniet debitis animi fugit nulla et placeat modi?
@@ -31,7 +31,7 @@ const isAccordionOpen = ref(true);
           dicta porro minima reprehenderit provident unde, assumenda eligendi
           itaque doloribus.
         </template>
-      </Details>
+      </AccordionDetails>
 
       <Accordion v-model="isAccordionOpen" arrow>
         <template #trigger>Accordion with CSS</template>

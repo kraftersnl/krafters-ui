@@ -329,7 +329,7 @@ const emit = defineEmits(['click']);
   align-items: start;
   text-decoration: underline;
   font-size: inherit;
-  font-weight: 400;
+  font-weight: unset;
   background-color: transparent;
   height: auto;
   padding-inline: 0;
