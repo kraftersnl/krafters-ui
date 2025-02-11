@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "nuxi dev .playground  --host",
     "dev:prepare": "nuxt prepare .playground",
-    "build": "nuxt build .playground --output dist",
+    "build": "nuxt build .playground --output ../dist",
     "generate": "nuxt generate .playground",
     "preview": "nuxt preview .playground",
     "lint": "eslint .",
