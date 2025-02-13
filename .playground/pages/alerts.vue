@@ -24,6 +24,10 @@ useHead({ title: 'Alert messages | Krafters UI' });
         <Callout color="blue">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </Callout>
+
+        <Callout color="accent" icon="lightning-bolt">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </Callout>
       </div>
     </Card>
 
@@ -63,5 +67,6 @@ useHead({ title: 'Alert messages | Krafters UI' });
 .callouts-grid {
   display: inline-grid;
   gap: 1rem;
+  margin-inline-end: 1rem;
 }
 </style>

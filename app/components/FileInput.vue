@@ -159,7 +159,7 @@ watch(
         <img
           v-if="imagePreview"
           :src="imagePreview"
-          :alt="$t('files.example', { file: model?.name })"
+          :alt="$t('files.example', { file: model?.name || label })"
           class="preview-image"
         />
       </button>

@@ -7,7 +7,7 @@ const props = withDefaults(
     icon?: string;
     variant?: 'flat' | 'outline';
     color?: BaseColor;
-    size?: 'xs' | 'sm' | 'md' | 'lg';
+    size?: ChipSize;
     capitalize?: boolean;
   }>(),
   {

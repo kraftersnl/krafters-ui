@@ -8,10 +8,10 @@ const tabs = [
 
 const activeTab = ref('a');
 
-const tabSize = ref('md');
-const tabVariant = ref('default');
+const tabsSize = ref<TabsSize>('md');
+const tabsVariant = ref<TabsVariant>('default');
 
-const tabSizes = [
+const tabSizes: { value: TabsSize; label: string }[] = [
   {
     value: 'md',
     label: 'md',
@@ -26,7 +26,7 @@ const tabSizes = [
   },
 ];
 
-const tabVariants = [
+const tabsVariants: { value: TabsVariant; label: string }[] = [
   {
     value: 'default',
     label: 'default',
@@ -48,19 +48,19 @@ const tabVariants = [
           <h2>Tabs Props</h2>
           <div class="props-wrapper">
             <Select
-              v-model="tabSize"
+              v-model="tabsSize"
               :options="tabSizes"
               size="sm"
               label="size"
             />
             <Select
-              v-model="tabVariant"
-              :options="tabVariants"
+              v-model="tabsVariant"
+              :options="tabsVariants"
               size="sm"
               label="variant"
             />
             <code
-              >{{`<Tabs size="${tabSize}" variant="${tabVariant}" />` }}</code
+              >{{`<Tabs size="${tabsSize}" variant="${tabsVariant}" />` }}</code
             >
           </div>
         </div>
@@ -70,8 +70,8 @@ const tabVariants = [
     <Card>
       <Tabs
         v-model="activeTab"
-        :size="tabSize"
-        :variant="tabVariant"
+        :size="tabsSize"
+        :variant="tabsVariant"
         :tabs="tabs"
         class="demo-tabs"
       >

@@ -5,8 +5,8 @@ withDefaults(
     label?: string;
     labelLink?: string;
     ariaLabel?: string;
-    buttonVariant?: string;
-    buttonSize?: string;
+    buttonVariant?: ButtonVariant;
+    buttonSize?: ButtonSize;
     hTag?: string;
     id?: string;
   }>(),

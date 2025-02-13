@@ -25,6 +25,11 @@ const navList = [
     label: 'Accordion',
   },
   {
+    id: 'buttons',
+    to: '/buttons',
+    label: 'Buttons',
+  },
+  {
     id: 'form',
     to: '/form',
     label: 'Form inputs',

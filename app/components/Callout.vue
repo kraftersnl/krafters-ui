@@ -1,6 +1,11 @@
 <script setup lang="ts">
-const { color = 'blue', icon } = defineProps<{
+const {
+  color = 'blue',
+  fontSize = 'xs',
+  icon,
+} = defineProps<{
   color?: 'accent' | 'blue' | 'green' | 'red' | 'orange';
+  fontSize?: FontSize;
   icon?: string;
   content?: string;
 }>();
@@ -16,7 +21,12 @@ const computedIcon = computed(() => {
 </script>
 
 <template>
-  <div :class="`callout-wrapper callout-color--${color}`">
+  <div
+    :class="`callout-wrapper
+      callout-color--${color}
+    `"
+    :style="`--font-size: var(--font-size-${fontSize})`"
+  >
     <div class="callout-content">
       <Icon :name="'heroicons-solid:' + computedIcon" />
 
@@ -34,7 +44,7 @@ const computedIcon = computed(() => {
   padding-block: 0.75rem;
   border-left: 0.35rem solid transparent;
   border-radius: var(--radius-sm);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size);
 }
 
 .callout-content {

@@ -5,9 +5,9 @@ import { mark } from '@mdit/plugin-mark';
 import { italicExtension, targetBlankExtension } from './extensions';
 import 'md-editor-v3/lib/style.css';
 
-defineProps<{
+const { fontSize = 'md' } = defineProps<{
   content?: string;
-  fontSize?: string;
+  fontSize?: FontSize;
 }>();
 
 const { locale } = useI18n();
@@ -40,7 +40,7 @@ config({
     :model-value="content"
     :theme="$colorMode.value === 'light' ? 'light' : 'dark'"
     preview-theme="krafters"
-    :style="`--font-size: var(--font-size-${fontSize || 'md'})`"
+    :style="`--font-size: var(--font-size-${fontSize})`"
   />
 </template>
 

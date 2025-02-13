@@ -10,18 +10,10 @@ const props = withDefaults(
     to?: RouteLocationRaw;
     href?: string;
     target?: string;
-    variant?:
-      | 'primary'
-      | 'secondary'
-      | 'ghost'
-      | 'danger'
-      | 'link'
-      | 'green'
-      | 'blue'
-      | 'menu'
-      | 'sidebar';
-    size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-    radius?: 'xs' | 'sm' | 'md' | 'lg' | 'full';
+    variant?: ButtonVariant;
+    size?: ButtonSize;
+    fontSize?: FontSize;
+    radius?: BorderRadius;
     hideLabel?: boolean;
     disabled?: boolean;
     loading?: boolean;
@@ -39,6 +31,7 @@ const props = withDefaults(
     target: undefined,
     variant: 'secondary',
     size: 'md',
+    fontSize: undefined,
     radius: 'md',
     type: 'button',
   },
@@ -67,7 +60,10 @@ const emit = defineEmits(['click']);
       ${loading ? 'button--loading' : ''}
       ${loading || disabled ? 'button--disabled' : ''}
     `"
-    :style="`--radius: var(--radius-${radius})`"
+    :style="`
+      --radius: var(--radius-${radius});
+      ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
+    `"
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined
     "
@@ -100,10 +96,14 @@ const emit = defineEmits(['click']);
       button
       button-size--${size}
       button-variant--${variant}
+      icon-position--${iconPos}
       ${loading ? 'button--loading' : ''}
       ${hideLabel ? 'button--icon-only' : ''}
     `"
-    :style="`--radius: var(--radius-${radius})`"
+    :style="`
+      --radius: var(--radius-${radius});
+      ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
+    `"
     @click="handleClick"
   >
     <Icon v-if="loading" name="svg-spinners:90-ring" />
@@ -132,7 +132,7 @@ const emit = defineEmits(['click']);
   justify-content: center;
   gap: 0.25rem;
   font-weight: 500;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size, var(--font-size-sm));
   border: 1px solid transparent;
   transition-property: color, background-color, opacity;
   transition-duration: var(--duration-sm);
@@ -155,6 +155,7 @@ const emit = defineEmits(['click']);
   }
 
   .iconify {
+    font-size: inherit;
     flex-shrink: 0;
     transition-duration: all var(--duration-sm);
   }
@@ -163,79 +164,54 @@ const emit = defineEmits(['click']);
 .icon-position--start {
   flex-direction: row;
 }
+
 .icon-position--end {
   flex-direction: row-reverse;
 }
 
-.button-size--xxs {
-  height: 1.25rem;
-  padding-inline: 0.25rem;
-  font-size: var(--font-size-xxs);
+.button-size--xs {
+  --font-size: var(--font-size-xxs);
+  height: 1.5rem;
+  padding-inline: 0.5rem;
+}
+
+.button-size--sm {
+  --font-size: var(--font-size-xs);
+  height: 2rem;
+  padding-inline: 0.65rem;
 
   .button-text {
     padding-inline: 0.1rem;
   }
-  .iconify {
-    font-size: var(--font-size-xxs);
-  }
-}
-
-.button-size--xs {
-  height: 1.5rem;
-  padding-inline: 0.35rem;
-  font-size: var(--font-size-xs);
-
-  .button-text {
-    padding-inline: 0.15rem;
-  }
-
-  .iconify {
-    font-size: var(--font-size-xs);
-  }
-}
-
-.button-size--sm {
-  height: 2rem;
-  padding-inline: 0.5rem;
-  font-size: var(--font-size-xs);
-
-  .button-text {
-    padding-inline: 0.2rem;
-  }
-
-  .iconify {
-    font-size: var(--font-size-sm);
-  }
 }
 
 .button-size--md {
+  --font-size: var(--font-size-sm);
   height: 2.25rem;
   padding-inline: 0.75rem;
 
   .button-text {
-    padding-inline: 0.25rem;
-  }
-
-  .iconify {
-    font-size: var(--font-size-md);
+    padding-inline: 0.2rem;
   }
 }
 
 .button-size--lg {
+  --font-size: var(--font-size-sm);
   height: 2.5rem;
-  padding-inline: 1rem;
+  padding-inline: 0.85rem;
 
-  .iconify {
-    font-size: var(--font-size-md);
+  .button-text {
+    padding-inline: 0.2rem;
   }
 }
 
 .button-size--xl {
+  --font-size: var(--font-size-md);
   height: 3rem;
-  padding-inline: 1rem;
+  padding-inline: 1.25rem;
 
-  .iconify {
-    font-size: var(--font-size-lg);
+  .button-text {
+    padding-inline: 0.25rem;
   }
 }
 
@@ -324,25 +300,26 @@ const emit = defineEmits(['click']);
 
 .button-variant--link {
   --radius: 0 !important;
-  display: inline;
+  height: auto;
+  display: inline-flex;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   text-decoration: underline;
-  font-size: inherit;
   font-weight: unset;
   background-color: transparent;
-  height: auto;
   padding-inline: 0;
+
+  &:has(.external-link) {
+    display: inline;
+
+    .iconify {
+      vertical-align: middle;
+      margin-inline-start: 0.25em;
+    }
+  }
 
   .button-text {
     padding-inline: 0;
-  }
-
-  .iconify {
-    font-size: inherit;
-    margin-block-end: 0.1rem;
-    vertical-align: middle;
-    margin-inline-start: 0.1rem;
   }
 
   &:hover {

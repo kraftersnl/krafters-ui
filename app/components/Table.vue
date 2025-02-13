@@ -1,8 +1,8 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    size?: 'xs' | 'sm' | 'md' | 'lg';
-    fontSize?: 'xs' | 'sm' | 'md';
+    size?: TableSize;
+    fontSize?: FontSize;
     ariaLabel?: string;
   }>(),
   {
@@ -15,7 +15,8 @@ withDefaults(
 
 <template>
   <div
-    :class="`table-wrapper table-size--${size} table-font-size--${fontSize}`"
+    :class="`table-wrapper table-size--${size}`"
+    :style="`--font-size: var(--font-size-${fontSize})`"
   >
     <table>
       <caption v-if="ariaLabel" class="visuallyhidden" v-text="ariaLabel" />
@@ -30,6 +31,7 @@ withDefaults(
   padding-block-end: 1rem;
   overflow-x: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+  font-size: var(--font-size);
 
   table {
     width: 100%;
@@ -42,7 +44,7 @@ withDefaults(
   }
 }
 
-.table-font-size--xs {
+/* .table-font-size--xs {
   font-size: var(--font-size-xs);
   thead {
     font-size: var(--font-size-xxs);
@@ -61,7 +63,7 @@ withDefaults(
   thead {
     font-size: var(--font-size-sm);
   }
-}
+} */
 
 .table-size--xs {
   tbody tr {

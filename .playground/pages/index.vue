@@ -6,6 +6,19 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.1.1" date="2025-02-14">
+      <ul>
+        <li>Add <code>fontSize</code> prop to Button component</li>
+        <li>Add <code>fontSize</code> prop to Callout component</li>
+        <li>Expose <code>focusTabpanel</code> function in Tabs component</li>
+        <li>
+          Remove <code>--app-max-width</code> design token to prevent flashing
+          layout
+        </li>
+        <li>Improve types</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.1.0" date="2025-02-11">
       <ul>
         <li>
@@ -18,9 +31,8 @@ useHead({ title: 'Changelog | Krafters UI' });
         </li>
         <li>Add <code>labelLink</code> prop to MenuList component</li>
         <li>
-          Add <code>mdc-unwrap="p"</code> attribute to slot of several
-          components (Card, Callout, Accordion, AccordionDetails, Chip,
-          Ellipsis)
+          Add <code>mdc-unwrap="p"</code> attribute to slot Accordion,
+          AccordionDetails, Card, Callout, Chip and Ellipsis components
         </li>
         <li>Add size design tokens</li>
         <li>Add size options to circle variant in Skeleton component</li>

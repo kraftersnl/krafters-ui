@@ -8,18 +8,22 @@ const content = ref(
 
 <template>
   <div class="demo-page markdown-demo">
-    <h1>Markdown Editor</h1>
+    <div>
+      <h1>Markdown Editor</h1>
+      <MarkdownEditor v-model="content" hide-label />
+    </div>
 
-    <MarkdownEditor v-model="content" />
-
-    <h2>Markdown Preview</h2>
-    <MarkdownPreview :content="content" />
+    <Card>
+      <h2>Markdown Preview</h2>
+      <MarkdownPreview :content="content" />
+    </Card>
   </div>
 </template>
 
 <style>
 .markdown-demo {
-  margin-block-start: 1rem;
+  display: grid;
+  gap: 1rem;
 
   h2 {
     margin-block-end: 0;

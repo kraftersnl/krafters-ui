@@ -4,8 +4,8 @@ const model = defineModel<string>();
 const props = withDefaults(
   defineProps<{
     tabs: TabOption[];
-    size?: 'xs' | 'sm' | 'md';
-    variant?: 'default' | 'minimal';
+    size?: TabsSize;
+    variant?: TabsVariant;
     ariaLabel?: string;
   }>(),
   {
@@ -22,6 +22,7 @@ function computeIcon(tab: TabOption) {
 }
 
 const tabElements = ref<HTMLButtonElement[]>([]);
+const tabpanelRef = useTemplateRef('tabpanel');
 
 function handlePrevTab(tab: TabOption) {
   tabElements.value = tabElements.value.filter((x) => !x.disabled);
@@ -66,8 +67,13 @@ function setActiveTab(tab: TabOption) {
   activeTab.value = tab.value;
 }
 
+function focusTabpanel() {
+  tabpanelRef.value?.focus();
+}
+
 defineExpose({
   setActiveTab,
+  focusTabpanel,
 });
 </script>
 
@@ -102,18 +108,20 @@ defineExpose({
 
     <slot name="top" />
 
-    <template v-for="tab in tabs" :key="tab.value">
-      <div
-        v-show="tab.value === activeTab"
-        :id="tab.value"
-        :aria-labelledby="`tab-${tab.value}`"
-        tabindex="-1"
-        role="tabpanel"
-        class="tabpanel"
-      >
-        <slot :name="tab.value" />
-      </div>
-    </template>
+    <div ref="tabpanel" class="tabpanel-wrapper" tabindex="-1">
+      <template v-for="tab in tabs" :key="tab.value">
+        <div
+          v-show="tab.value === activeTab"
+          :id="tab.value"
+          :aria-labelledby="`tab-${tab.value}`"
+          role="tabpanel"
+          class="tabpanel"
+          tabindex="-1"
+        >
+          <slot :name="tab.value" />
+        </div>
+      </template>
+    </div>
 
     <slot name="bottom" />
   </div>
@@ -121,6 +129,10 @@ defineExpose({
 
 <style>
 .tabs-wrapper {
+  .tabpanel-wrapper {
+    outline: 1px solid transparent;
+  }
+
   .tabpanel {
     padding-block-start: 1.5rem;
   }
@@ -147,8 +159,8 @@ defineExpose({
     padding-inline: 0;
     padding-block-end: 0.65rem;
     border-block-end: 1px solid var(--color-grey-bg);
-    transition-property: color, background-color, box-shadow, outline-color,
-      outline-offset;
+    transition-property:
+      color, background-color, box-shadow, outline-color, outline-offset;
     transition-duration: var(--duration-s);
     transition-timing-function: ease-in-out;
 
@@ -187,7 +199,7 @@ defineExpose({
 
   /* show focus outline on tab list */
   &:has(:focus-visible) {
-    outline-offset: 0.5rem;
+    outline-offset: 2px;
     outline: 2px solid var(--focus-color);
     border-radius: var(--radius-xs);
   }

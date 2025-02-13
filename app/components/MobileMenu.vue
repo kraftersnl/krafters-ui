@@ -7,8 +7,8 @@ const props = withDefaults(
     teleportTo?: string;
     width?: number;
     position?: 'inline-start' | 'inline-end';
-    triggerButtonVariant?: 'ghost' | 'secondary';
-    triggerButtonSize?: 'sm' | 'md';
+    triggerButtonVariant?: ButtonVariant;
+    triggerButtonSize?: ButtonSize;
     icon?: string;
     iconLib?: string;
     hideTriggerLabel?: boolean;

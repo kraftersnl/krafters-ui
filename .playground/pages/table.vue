@@ -7,8 +7,8 @@ const keyword = ref('');
 const wcagLevel = ref<string[]>(['A', 'AA']);
 const page = ref(1);
 const pageSize = ref(10);
-const tableSize = ref('md');
-const tableFontSize = ref('xs');
+const tableSize = ref<TableSize>('md');
+const tableFontSize = ref<FontSize>('xs');
 
 const guidelines = computed(() =>
   wcagPrinciples.map((principle) => principle.guidelines).flat(),
@@ -49,7 +49,11 @@ const wcagLevels = [
   },
 ];
 
-const tableFontSizes = [
+const tableFontSizes: { value: FontSize; label: string }[] = [
+  {
+    value: 'lg',
+    label: 'lg',
+  },
   {
     value: 'md',
     label: 'md',
@@ -62,9 +66,13 @@ const tableFontSizes = [
     value: 'xs',
     label: 'xs',
   },
+  {
+    value: 'xxs',
+    label: 'xxs',
+  },
 ];
 
-const tableSizes = [
+const tableSizes: { value: TableSize; label: string }[] = [
   {
     value: 'md',
     label: 'md',

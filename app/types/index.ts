@@ -7,17 +7,9 @@ import type FileInput from '../components/FileInput.vue';
 import type Button from '../components/Button.vue';
 import type Popover from '../components/Popover.vue';
 import type MarkdownEditor from '../components/Markdown/MarkdownEditor.vue';
+import type Tabs from '../components/Tabs.vue';
 
 declare global {
-  type BaseColor =
-    | 'default'
-    | 'accent'
-    | 'blue'
-    | 'green'
-    | 'red'
-    | 'orange'
-    | 'yellow';
-
   type TabOption = {
     value: string;
     label: string;
@@ -52,7 +44,41 @@ declare global {
   type ButtonComponent = InstanceType<typeof Button>;
   type PopoverComponent = InstanceType<typeof Popover>;
   type MarkdownEditorComponent = InstanceType<typeof MarkdownEditor>;
+  type TabsComponent = InstanceType<typeof Tabs>;
 
+  type BaseColor =
+    | 'default'
+    | 'accent'
+    | 'blue'
+    | 'green'
+    | 'red'
+    | 'orange'
+    | 'yellow';
+
+  type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'full';
+
+  type FontSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+  type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  type ButtonVariant =
+    | 'primary'
+    | 'secondary'
+    | 'ghost'
+    | 'danger'
+    | 'link'
+    | 'green'
+    | 'blue'
+    | 'menu'
+    | 'sidebar';
+
+  type TabsVariant = 'default' | 'minimal';
+  type TabsSize = 'xs' | 'sm' | 'md';
+
+  type TableSize = 'xs' | 'sm' | 'md' | 'lg';
+
+  type ChipSize = 'xs' | 'sm' | 'md' | 'lg';
+
+  // External packages
   type PopperPlacement =
     | 'auto'
     | 'auto-start'
