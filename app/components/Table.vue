@@ -4,6 +4,7 @@ withDefaults(
     size?: TableSize;
     fontSize?: FontSize;
     ariaLabel?: string;
+    loading?: boolean;
   }>(),
   {
     size: 'sm',
@@ -15,7 +16,10 @@ withDefaults(
 
 <template>
   <div
-    :class="`table-wrapper table-size--${size}`"
+    :class="`table-wrapper
+      table-size--${size}
+      ${loading ? 'table--loading' : ''}
+    `"
     :style="`--font-size: var(--font-size-${fontSize})`"
   >
     <table>
@@ -44,26 +48,30 @@ withDefaults(
   }
 }
 
-/* .table-font-size--xs {
-  font-size: var(--font-size-xs);
-  thead {
-    font-size: var(--font-size-xxs);
+.table--loading {
+  tbody {
+    pointer-events: none;
+
+    td {
+      opacity: 35%;
+    }
+
+    tr {
+      --color-1: var(--color-card-bg);
+      --color-2: var(--color-bg);
+      animation: var(--animation-shimmer);
+      animation-duration: var(--duration-xl);
+      background: linear-gradient(
+        -45deg,
+        var(--color-1) 30%,
+        var(--color-2) 45%,
+        var(--color-2) 55%,
+        var(--color-1) 70%
+      );
+      background-size: 400% 400%;
+    }
   }
 }
-
-.table-font-size--sm {
-  font-size: var(--font-size-sm);
-  thead {
-    font-size: var(--font-size-xs);
-  }
-}
-
-.table-font-size--md {
-  font-size: var(--font-size-md);
-  thead {
-    font-size: var(--font-size-sm);
-  }
-} */
 
 .table-size--xs {
   tbody tr {

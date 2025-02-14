@@ -23,6 +23,7 @@ declare global {
     label?: string;
     icon?: string;
     iconLib?: string;
+    iconPos?: 'start' | 'end';
     to?: RouteLocationRaw;
     href?: string;
     size?: string;

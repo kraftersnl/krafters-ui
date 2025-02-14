@@ -35,6 +35,10 @@ watch(
 </template>
 
 <style>
+:root {
+  --app-max-width: 1280px;
+}
+
 .app-focus-wrapper {
   outline: 1px solid transparent;
 }

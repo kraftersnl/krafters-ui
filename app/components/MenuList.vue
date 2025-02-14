@@ -55,6 +55,7 @@ const emit = defineEmits<{
           :href="item.href"
           :icon="item.icon"
           :icon-lib="item.iconLib"
+          :icon-pos="item.iconPos"
           :disabled="item.disabled"
           :loading="item.loading"
           :target="item.target"

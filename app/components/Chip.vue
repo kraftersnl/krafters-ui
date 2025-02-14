@@ -8,6 +8,7 @@ const props = withDefaults(
     variant?: 'flat' | 'outline';
     color?: BaseColor;
     size?: ChipSize;
+    radius?: BorderRadius;
     capitalize?: boolean;
   }>(),
   {
@@ -16,6 +17,7 @@ const props = withDefaults(
     icon: undefined,
     color: undefined,
     size: 'md',
+    radius: 'sm',
   },
 );
 
@@ -35,6 +37,7 @@ const formattedLabel = computed(() =>
       chip-size--${size}
       ${capitalize ? 'chip--capitalize' : ''}
     `"
+    :style="`--radius: var(--radius-${radius})`"
   >
     <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
 
@@ -50,9 +53,10 @@ const formattedLabel = computed(() =>
 .chip {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   vertical-align: middle;
   gap: 0.25rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
   border: 1px solid transparent;
   font-weight: 500;
   font-variant-numeric: tabular-nums;

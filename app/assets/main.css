@@ -153,6 +153,7 @@
   --animation-shimmer: shimmer var(--duration-xxl) linear infinite;
   --animation-pulse: pulse var(--duration-xxl) cubic-bezier(0.4, 0, 0.6, 1)
     infinite;
+  --animation-shake: shake var(--duration-lg) both;
 
   /* Other design token */
   --app-padding-block: 1rem;
@@ -363,8 +364,15 @@ code {
 }
 
 pre {
+  overflow: auto;
   white-space: pre-wrap;
   word-break: break-all;
+}
+
+pre code {
+  white-space: pre;
+  display: inline-block;
+  padding: 0.75rem 1rem;
 }
 
 kbd {
@@ -609,7 +617,7 @@ input {
 /* Tippy classes for Popover and Tooltip components */
 .tippy-box[data-theme~='krafters'] {
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-3);
   color: var(--color-text);
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-popover-border);
@@ -786,6 +794,30 @@ input {
   }
   to {
     opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0% {
+    translate: -10px 0;
+  }
+  16% {
+    translate: 9px 0;
+  }
+  33% {
+    translate: -6px 0;
+  }
+  50% {
+    translate: 5px 0;
+  }
+  66% {
+    translate: -2px 0;
+  }
+  83% {
+    translate: 1px 0;
+  }
+  100% {
+    translate: 0px 0;
   }
 }
 

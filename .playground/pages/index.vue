@@ -6,6 +6,14 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.1.2" date="2025-02-14">
+      <ul>
+        <li>Add <code>--animation-shake</code> design token</li>
+        <li>Add <code>loading</code> prop to Table component</li>
+        <li>Add <code>radius</code> prop to Chip component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.1.1" date="2025-02-14">
       <ul>
         <li>Add <code>fontSize</code> prop to Button component</li>
