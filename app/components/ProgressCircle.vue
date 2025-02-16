@@ -75,8 +75,8 @@ const { color = 'accent', size = 'xl' } = defineProps<{
         transform: rotate(-90deg);
         transform-origin: var(--half-size) var(--half-size);
         transition:
-          stroke var(--duration-s) var(--timing-function),
-          stroke-dasharray var(--duration-l) linear;
+          stroke var(--duration-sm) ease-in-out,
+          stroke-dasharray var(--duration-lg) ease-out;
       }
     }
   }

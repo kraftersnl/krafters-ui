@@ -45,8 +45,10 @@ const emit = defineEmits<{
     <component :is="hTag" v-if="label" :id="id" class="menu-list-label">
       <NuxtLink v-if="labelLink" :to="labelLink" class="label-link">
         <Icon v-if="labelIcon" :name="labelIcon" />
+
         <span>{{ label }}</span>
       </NuxtLink>
+
       <span v-else>{{ label }}</span>
     </component>
 
@@ -93,6 +95,7 @@ const emit = defineEmits<{
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
+    font-size: var(--font-size-lg);
     text-underline-offset: 0.25em;
 
     .iconify {

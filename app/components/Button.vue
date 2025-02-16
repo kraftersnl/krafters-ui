@@ -25,7 +25,7 @@ const props = withDefaults(
   {
     label: undefined,
     icon: undefined,
-    iconLib: 'heroicons-solid',
+    iconLib: undefined,
     iconPos: 'start',
     to: undefined,
     href: undefined,
@@ -39,7 +39,14 @@ const props = withDefaults(
   },
 );
 
-const computedIcon = computed(() => `${props.iconLib}:${props.icon}`);
+const computedIcon = computed(() => {
+  if (props.icon?.includes(':')) {
+    return `${props.icon}`;
+  } else if (props.iconLib) {
+    return `${props.iconLib}:${props.icon}`;
+  }
+  return `heroicons-solid:${props.icon}`;
+});
 
 function handleClick() {
   emit('click');
