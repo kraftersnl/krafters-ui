@@ -116,6 +116,7 @@
   --font-size-xxxs: 0.6rem;
 
   /* Size design tokens */
+  --size-xxxl: 8rem; /* 128px */
   --size-xxl: 4rem; /* 64px */
   --size-xl: 2.5rem; /* 40px */
   --size-lg: 1.75rem; /* 28px */
@@ -319,6 +320,18 @@ strong {
 
 .small-caps {
   font-variant-caps: all-small-caps;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize > ::first-letter {
+  text-transform: capitalize;
 }
 
 dl {

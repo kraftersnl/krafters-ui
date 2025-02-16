@@ -1,0 +1,138 @@
+<script setup lang="ts">
+const { color = 'accent', size = 'xl' } = defineProps<{
+  value: number;
+  color?: 'accent' | 'green' | 'orange' | 'red';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+}>();
+</script>
+
+<template>
+  <div
+    :class="`
+      progress-circle-wrapper
+      progress-circle-size--${size}
+      progress-circle-color--${color}
+    `"
+    :style="`--progress-circle-value: ${value}`"
+  >
+    <div class="progress-circle-label">{{ value?.toFixed(0) }}%</div>
+
+    <div class="progress-circle" aria-hidden="true">
+      <svg>
+        <circle class="bg" />
+        <circle class="fg" />
+      </svg>
+    </div>
+  </div>
+</template>
+
+<style>
+.progress-circle-wrapper {
+  --progress-circle-bg: transparent;
+  --half-size: calc(var(--size) / 2);
+  --radius: calc((var(--size) - var(--progress-stroke-width)) / 2);
+  --circumference: calc(var(--radius) * pi * 2);
+  --dash: calc((var(--progress-circle-value) * var(--circumference)) / 100);
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  place-content: center;
+
+  .progress-circle-label {
+    z-index: 1;
+    color: var(--progress-label-color);
+    font-size: var(--font-size);
+    font-weight: 500;
+  }
+
+  .progress-circle {
+    position: absolute;
+    inset: 0;
+
+    svg {
+      width: var(--size);
+      height: var(--size);
+    }
+
+    circle {
+      cx: var(--half-size);
+      cy: var(--half-size);
+      r: var(--radius);
+      fill: transparent;
+      stroke-width: var(--progress-stroke-width);
+
+      &.bg {
+        stroke: var(--progress-stroke-bg);
+        fill: var(--progress-circle-bg);
+      }
+
+      &.fg {
+        stroke: var(--progress-stroke-color);
+        stroke-width: var(--progress-stroke-width);
+        stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+        transform: rotate(-90deg);
+        transform-origin: var(--half-size) var(--half-size);
+        transition:
+          stroke var(--duration-s) var(--timing-function),
+          stroke-dasharray var(--duration-l) linear;
+      }
+    }
+  }
+}
+
+.progress-circle-color--accent {
+  --progress-label-color: var(--color-accent);
+  --progress-stroke-color: var(--color-accent);
+  --progress-stroke-bg: var(--color-accent-bg);
+}
+
+.progress-circle-color--green {
+  --progress-label-color: var(--color-green-text);
+  --progress-stroke-color: var(--color-green);
+  --progress-stroke-bg: var(--color-green-bg);
+}
+
+.progress-circle-color--orange {
+  --progress-label-color: var(--color-orange-text);
+  --progress-stroke-color: var(--color-orange);
+  --progress-stroke-bg: var(--color-orange-bg);
+}
+
+.progress-circle-color--red {
+  --progress-label-color: var(--color-red-text);
+  --progress-stroke-color: var(--color-red);
+  --progress-stroke-bg: var(--color-red-bg);
+}
+
+.progress-circle-size--xl {
+  --size: 8rem;
+  --font-size: var(--font-size-lg);
+  --progress-stroke-width: 10px;
+}
+
+.progress-circle-size--lg {
+  --size: 6rem;
+  --font-size: var(--font-size-md);
+  --progress-stroke-width: 8px;
+}
+
+.progress-circle-size--md {
+  --size: 4rem;
+  --font-size: var(--font-size-sm);
+  --progress-stroke-width: 5px;
+}
+
+.progress-circle-size--sm {
+  --size: 3rem;
+  --font-size: var(--font-size-xs);
+  --progress-stroke-width: 3px;
+}
+
+.progress-circle-size--xs {
+  --size: 2rem;
+  --font-size: var(--font-size-xxxs);
+  --progress-stroke-width: 1px;
+}
+</style>

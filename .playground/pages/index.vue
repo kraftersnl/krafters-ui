@@ -6,6 +6,16 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.1.3" date="2025-02-16">
+      <ul>
+        <li>Add ProgressCircle component</li>
+        <li>
+          Remove <code>mdc-unwrap="p"</code> attribute from Card, Accordion and
+          AccordionDetails components
+        </li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.1.2" date="2025-02-14">
       <ul>
         <li>Add <code>--animation-shake</code> design token</li>

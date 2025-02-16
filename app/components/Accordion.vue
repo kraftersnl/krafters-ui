@@ -84,7 +84,7 @@ defineExpose({ toggleAccordion });
         class="accordion-content"
         :style="`--min-height: ${minHeight}px`"
       >
-        <slot name="content" mdc-unwrap="p" />
+        <slot name="content" />
       </div>
     </div>
   </div>
