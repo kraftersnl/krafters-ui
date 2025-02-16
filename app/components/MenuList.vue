@@ -4,9 +4,12 @@ withDefaults(
     list: MenuItem[];
     label?: string;
     labelLink?: string;
+    labelIcon?: string;
     ariaLabel?: string;
     buttonVariant?: ButtonVariant;
     buttonSize?: ButtonSize;
+    fontSize?: FontSize;
+    iconSize?: FontSize;
     hTag?: string;
     id?: string;
   }>(),
@@ -15,8 +18,11 @@ withDefaults(
     hTag: 'h2',
     buttonVariant: 'menu',
     buttonSize: 'lg',
+    fontSize: 'md',
+    iconSize: undefined,
     label: undefined,
     labelLink: undefined,
+    labelIcon: undefined,
     ariaLabel: undefined,
   },
 );
@@ -38,7 +44,8 @@ const emit = defineEmits<{
   <nav :aria-labelledby="id" :aria-label="ariaLabel" class="menu-list-nav">
     <component :is="hTag" v-if="label" :id="id" class="menu-list-label">
       <NuxtLink v-if="labelLink" :to="labelLink" class="label-link">
-        {{ label }}
+        <Icon v-if="labelIcon" :name="labelIcon" />
+        <span>{{ label }}</span>
       </NuxtLink>
       <span v-else>{{ label }}</span>
     </component>
@@ -63,6 +70,8 @@ const emit = defineEmits<{
           :download="item.download"
           :hide-external-icon="item.hideExternalIcon"
           :size="buttonSize"
+          :font-size="fontSize"
+          :icon-size="iconSize"
           :variant="buttonVariant"
           @click="handleClick(item)"
         />
@@ -80,16 +89,31 @@ const emit = defineEmits<{
   color: var(--color-accent-text);
 
   .label-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
     text-underline-offset: 0.25em;
 
+    .iconify {
+      color: var(--color-grey-graphic);
+    }
+
     &:hover {
       color: var(--color-accent);
+
+      .iconify {
+        color: var(--color-grey-text);
+      }
     }
 
     &.router-link-active {
       color: var(--color-accent);
       text-decoration: underline;
+
+      .iconify {
+        color: var(--color-grey-text);
+      }
     }
   }
 }
@@ -102,6 +126,10 @@ const emit = defineEmits<{
 
 .menu-list {
   min-width: 200px;
+
+  .menu-list-item {
+    margin-bottom: 0.5rem;
+  }
 
   .button {
     --radius: 0 !important;

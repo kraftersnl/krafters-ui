@@ -6,6 +6,17 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.1.4" date="2025-02-16">
+      <ul>
+        <li>Add <code>iconSize</code> prop to Button component</li>
+        <li>
+          Add <code>fontSize</code>, <code>iconSize</code> and
+          <code>labelIcon</code> props to MenuList component
+        </li>
+        <li>Add <code>datetime()</code> helper function</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.1.3" date="2025-02-16">
       <ul>
         <li>Add ProgressCircle component</li>
@@ -28,7 +39,7 @@ useHead({ title: 'Changelog | Krafters UI' });
       <ul>
         <li>Add <code>fontSize</code> prop to Button component</li>
         <li>Add <code>fontSize</code> prop to Callout component</li>
-        <li>Expose <code>focusTabpanel</code> function in Tabs component</li>
+        <li>Expose <code>focusTabpanel()</code> function in Tabs component</li>
         <li>
           Remove <code>--app-max-width</code> design token to prevent flashing
           layout
@@ -155,7 +166,7 @@ useHead({ title: 'Changelog | Krafters UI' });
         </li>
         <li>Add <code>hideLabel</code> prop to MarkdownEditor component</li>
         <li>
-          Expose <code>focusElement</code> function in MultiSelect component
+          Expose <code>focusElement()</code> function in MultiSelect component
         </li>
         <li>Improve styling for MenuList component</li>
       </ul>

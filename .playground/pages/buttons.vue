@@ -9,24 +9,24 @@ useHead({ title: 'Buttons | Krafters UI' });
     <Card>
       <h2>Variants</h2>
       <div class="flex-wrapper">
-        <Button variant="primary" label="Primary Button" />
-        <Button variant="secondary" label="Secondary Button" />
-        <Button variant="danger" label="Danger Button" />
-        <Button variant="green" label="Green Button" />
-        <Button variant="blue" label="Blue Button" />
-        <Button variant="ghost" label="Ghost Button" />
-        <Button variant="link" label="Link Button" />
+        <Button variant="primary" label="Primary" />
+        <Button variant="secondary" label="Secondary" />
+        <Button variant="danger" label="Danger" />
+        <Button variant="green" label="Green" />
+        <Button variant="blue" label="Blue" />
+        <Button variant="ghost" label="Ghost" />
+        <Button variant="link" label="Link" />
       </div>
 
       <Spacer size="xl" />
 
       <h2>Sizes</h2>
       <div class="flex-wrapper">
-        <Button size="xl" label="Extra Large Button" />
-        <Button size="lg" label="Large Button" />
-        <Button size="md" label="Medium Button" />
-        <Button size="sm" label="Small Button" />
-        <Button size="xs" label="XS Button" />
+        <Button size="xl" label="Extra Large" />
+        <Button size="lg" label="Large" />
+        <Button size="md" label="Medium" />
+        <Button size="sm" label="Small" />
+        <Button size="xs" label="Extra Small" />
       </div>
 
       <Spacer size="xl" />

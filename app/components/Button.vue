@@ -13,6 +13,7 @@ const props = withDefaults(
     variant?: ButtonVariant;
     size?: ButtonSize;
     fontSize?: FontSize;
+    iconSize?: FontSize;
     radius?: BorderRadius;
     hideLabel?: boolean;
     disabled?: boolean;
@@ -32,6 +33,7 @@ const props = withDefaults(
     variant: 'secondary',
     size: 'md',
     fontSize: undefined,
+    iconSize: undefined,
     radius: 'md',
     type: 'button',
   },
@@ -63,6 +65,7 @@ const emit = defineEmits(['click']);
     :style="`
       --radius: var(--radius-${radius});
       ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
+      ${iconSize ? `--icon-size: var(--font-size-${iconSize});` : ''}
     `"
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined
@@ -103,6 +106,7 @@ const emit = defineEmits(['click']);
     :style="`
       --radius: var(--radius-${radius});
       ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
+      ${iconSize ? `--font-size: var(--font-size-${iconSize});` : ''}
     `"
     @click="handleClick"
   >
@@ -155,7 +159,7 @@ const emit = defineEmits(['click']);
   }
 
   .iconify {
-    font-size: inherit;
+    font-size: var(--icon-size, inherit);
     flex-shrink: 0;
     transition-duration: all var(--duration-sm);
   }
@@ -171,13 +175,13 @@ const emit = defineEmits(['click']);
 
 .button-size--xs {
   --font-size: var(--font-size-xxs);
-  height: 1.5rem;
+  min-height: 1.5rem;
   padding-inline: 0.5rem;
 }
 
 .button-size--sm {
   --font-size: var(--font-size-xs);
-  height: 2rem;
+  min-height: 2rem;
   padding-inline: 0.65rem;
 
   .button-text {
@@ -187,7 +191,7 @@ const emit = defineEmits(['click']);
 
 .button-size--md {
   --font-size: var(--font-size-sm);
-  height: 2.25rem;
+  min-height: 2.25rem;
   padding-inline: 0.75rem;
 
   .button-text {
@@ -197,7 +201,7 @@ const emit = defineEmits(['click']);
 
 .button-size--lg {
   --font-size: var(--font-size-sm);
-  height: 2.5rem;
+  min-height: 2.5rem;
   padding-inline: 0.85rem;
 
   .button-text {
@@ -206,7 +210,8 @@ const emit = defineEmits(['click']);
 }
 
 .button-size--xl {
-  height: 3rem;
+  --font-size: var(--font-size-md);
+  min-height: 3rem;
   padding-inline: 1.25rem;
 
   .button-text {
@@ -368,14 +373,14 @@ const emit = defineEmits(['click']);
     color: var(--color-accent);
 
     .iconify {
-      color: inherit;
+      color: var(--color-accent-text);
     }
   }
 }
 
 .button-variant--sidebar {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   width: 100%;
   font-weight: 500;
   justify-content: start;
@@ -390,7 +395,7 @@ const emit = defineEmits(['click']);
     color: var(--color-accent);
 
     .iconify {
-      color: var(--color-grey-text);
+      color: var(--color-accent-text);
     }
   }
 
@@ -400,7 +405,7 @@ const emit = defineEmits(['click']);
     color: var(--color-accent);
 
     .iconify {
-      color: inherit;
+      color: var(--color-accent-text);
     }
   }
 }
