@@ -6,6 +6,12 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.1.6" date="2025-02-17">
+      <ul>
+        <li>Fix overflow issue for code blocks in MarkdownPreview component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.1.5" date="2025-02-17">
       <ul>
         <li>
