@@ -3,6 +3,7 @@ useHead({ title: 'Form inputs | Krafters UI' });
 
 const singleSelection = ref('');
 const multiSelection = ref<string | string[]>();
+const date = ref();
 const selectedCheckboxes = ref([]);
 const isTrue = ref(false);
 const selectedRadio = ref();
@@ -215,6 +216,7 @@ function handleSubmit(formData: FormData) {
       <MultiSelect
         v-model="multiSelection"
         searchable
+        create-option
         :options="multiSelectOptions"
         :mode="multiselectMode"
         :size="multiselectSize"
@@ -224,6 +226,40 @@ function handleSubmit(formData: FormData) {
         label="MultiSelect"
         placeholder="Make a selection"
         class="demo-multiselect"
+      />
+    </Card>
+
+    <Card>
+      <div class="section-topbar">
+        <h2>DatePicker</h2>
+
+        <!-- <Popover icon="cog" hide-label :max-width="480">
+          <div class="popover-settings-content">
+            <h2>DatePicker Props</h2>
+
+            <div class="props-wrapper">
+              <Select
+                v-model="datePickerMode"
+                :options="datePickerModes"
+                label="mode"
+                size="sm"
+              />
+
+              <code
+                >{{`<datePicker
+                  mode="${datePickerMode}"
+                />`}}</code
+              >
+            </div>
+          </div>
+        </Popover> -->
+      </div>
+
+      <DatePicker
+        v-model="date"
+        label="DatePicker"
+        placeholder="Pick a date"
+        class="demo-datepicker"
       />
     </Card>
 
@@ -243,5 +279,9 @@ function handleSubmit(formData: FormData) {
 
 .demo-multiselect {
   min-width: 240px;
+}
+
+.demo-datepicker {
+  max-width: 240px;
 }
 </style>

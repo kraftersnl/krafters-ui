@@ -6,6 +6,20 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.1.5" date="2025-02-17">
+      <ul>
+        <li>
+          Improve logic for <code>icon</code> and <code>iconLib</code> props in
+          Button component
+        </li>
+        <li>
+          Add <code>autofocus</code>, <code>autocomplete</code> andd
+          <code>hideSubmitButton</code> props to Search component
+        </li>
+        <li>Fix whitespace issue in Popover menu</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.1.4" date="2025-02-16">
       <ul>
         <li>Add <code>iconSize</code> prop to Button component</li>

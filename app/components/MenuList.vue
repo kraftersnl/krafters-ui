@@ -125,14 +125,14 @@ const emit = defineEmits<{
   .menu-list-label {
     margin-inline-start: 2rem;
   }
-}
-
-.menu-list {
-  min-width: 200px;
 
   .menu-list-item {
     margin-bottom: 0.5rem;
   }
+}
+
+.menu-list {
+  min-width: 200px;
 
   .button {
     --radius: 0 !important;

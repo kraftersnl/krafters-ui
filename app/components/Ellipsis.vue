@@ -20,7 +20,7 @@ withDefaults(
 .ellipsis {
   overflow: hidden;
   display: block;
-  word-break: break-all;
+  /* word-break: break-all; */
 }
 
 .ellipsis-variant--clamp {

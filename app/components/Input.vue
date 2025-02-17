@@ -84,6 +84,8 @@ defineExpose({
   inputRef,
   focusElement,
 });
+
+const emit = defineEmits(['focus', 'blur']);
 </script>
 
 <template>
@@ -126,6 +128,8 @@ defineExpose({
         ${instruction ? `instruction-${id}` : ''}
         ${id ? `error-${id}` : ''}
       `"
+      @focus="emit('focus', $event)"
+      @blur="emit('blur', $event)"
       @input="handleInput"
     />
 

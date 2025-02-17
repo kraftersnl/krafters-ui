@@ -23,7 +23,7 @@ watch(
 
       <div class="app-layout">
         <aside class="app-sidebar">
-          <MenuList :list="navList" button-size="lg" button-variant="sidebar" />
+          <MenuList :list="navList" button-size="md" button-variant="sidebar" />
         </aside>
 
         <main id="main">
