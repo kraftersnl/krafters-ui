@@ -156,6 +156,11 @@ const id = useId();
 .dp__input {
   min-height: 2.5rem;
   background-color: var(--color-select-bg);
+
+  &::placeholder {
+    opacity: 1;
+    color: var(--color-grey-text);
+  }
 }
 
 .dp__input_focus {

@@ -118,6 +118,10 @@ defineExpose({
   background-color: var(--color-grey-graphic);
 }
 
+.markdown-editor .md-editor {
+  --md-bk-color: var(--color-input-bg) !important;
+}
+
 .md-editor {
   height: auto;
   border-radius: var(--radius-sm);

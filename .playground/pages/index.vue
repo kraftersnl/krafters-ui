@@ -6,7 +6,15 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
-    <ChangelogEntry v="1.1.7" date="2025-02-17">
+    <ChangelogEntry v="1.1.8" date="2025-02-19">
+      <ul>
+        <li>Add <code>max</code>prop to ProgressCircle component</li>
+        <li>Fix placeholder color for DatePicker component</li>
+        <li>Fix background color of Markdown components</li>
+      </ul>
+    </ChangelogEntry>
+
+    <ChangelogEntry v="1.1.7" date="2025-02-18">
       <ul>
         <li>Add <code>borderWidth</code>prop to Card component</li>
         <li>Add <code>hideLabel</code>prop to Meter component</li>

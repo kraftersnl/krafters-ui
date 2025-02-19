@@ -63,6 +63,7 @@ const {
       position: absolute;
       inset: 0;
       width: var(--width);
+      transition: width var(--duration-lg) ease-in-out;
     }
   }
 }

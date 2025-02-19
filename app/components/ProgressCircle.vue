@@ -1,9 +1,17 @@
 <script setup lang="ts">
-const { color = 'accent', size = 'xl' } = defineProps<{
+const {
+  value,
+  max = 100,
+  size = 'xl',
+  color = 'accent',
+} = defineProps<{
   value: number;
-  color?: 'accent' | 'green' | 'orange' | 'red';
+  max?: number;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  color?: 'accent' | 'green' | 'orange' | 'red';
 }>();
+
+const percentage = computed(() => ((value / max) * 100)?.toFixed());
 </script>
 
 <template>
@@ -13,9 +21,12 @@ const { color = 'accent', size = 'xl' } = defineProps<{
       progress-circle-size--${size}
       progress-circle-color--${color}
     `"
-    :style="`--progress-circle-value: ${value}`"
+    :style="`
+      --progress-circle-value: ${value};
+      --progress-circle-max: ${max};
+    `"
   >
-    <div class="progress-circle-label">{{ value?.toFixed(0) }}%</div>
+    <div class="progress-circle-label">{{ percentage }}%</div>
 
     <div class="progress-circle" aria-hidden="true">
       <svg>
@@ -32,7 +43,10 @@ const { color = 'accent', size = 'xl' } = defineProps<{
   --half-size: calc(var(--size) / 2);
   --radius: calc((var(--size) - var(--progress-stroke-width)) / 2);
   --circumference: calc(var(--radius) * pi * 2);
-  --dash: calc((var(--progress-circle-value) * var(--circumference)) / 100);
+  --dash: calc(
+    (var(--progress-circle-value) * var(--circumference)) /
+      var(--progress-circle-max)
+  );
 
   position: relative;
   width: var(--size);

@@ -3,6 +3,7 @@ const navList = [
     id: 'changelog',
     to: '/',
     label: 'Changelog',
+    divider: true,
   },
   // {
   //   id: 'accessibility',
@@ -15,9 +16,19 @@ const navList = [
     label: 'Colors',
   },
   {
+    id: 'buttons',
+    to: '/buttons',
+    label: 'Buttons',
+  },
+  {
     id: 'alerts',
     to: '/alerts',
-    label: 'Callout & Chip',
+    label: 'Chips & Callouts',
+  },
+  {
+    id: 'ellipsis',
+    to: '/ellipsis',
+    label: 'Ellipsis',
   },
   {
     id: 'accordion',
@@ -25,14 +36,24 @@ const navList = [
     label: 'Accordion',
   },
   {
-    id: 'buttons',
-    to: '/buttons',
-    label: 'Buttons',
-  },
-  {
     id: 'form',
     to: '/form',
     label: 'Form inputs',
+  },
+  {
+    id: 'md',
+    to: '/markdown',
+    label: 'Markdown Editor',
+  },
+  {
+    id: 'progress',
+    to: '/progress',
+    label: 'Progress Circle & Meter',
+  },
+  {
+    id: 'tabs',
+    to: '/tabs',
+    label: 'Tabs navigation',
   },
   {
     id: 'table',
@@ -43,16 +64,6 @@ const navList = [
     id: 'tooltip',
     to: '/tooltip',
     label: 'Tooltip, Popover & Dialog',
-  },
-  {
-    id: 'tabs',
-    to: '/tabs',
-    label: 'Tabs navigation',
-  },
-  {
-    id: 'md',
-    to: '/markdown',
-    label: 'Markdown Editor',
   },
   {
     id: 'skeleton',

@@ -310,6 +310,7 @@ const emit = defineEmits(['click']);
 
 .button-variant--link {
   --radius: 0 !important;
+  min-height: 0;
   height: auto;
   display: inline-flex;
   justify-content: start;

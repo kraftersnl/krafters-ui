@@ -59,6 +59,11 @@ watch(
 .app-sidebar {
   display: none;
 
+  hr {
+    margin-block: 1rem;
+    max-width: 200px;
+  }
+
   @media (min-width: 1024px) {
     display: block;
 
@@ -73,8 +78,12 @@ watch(
 }
 
 .demo-page {
-  h1,
-  h2,
+  h1 {
+    color: var(--color-accent-text);
+  }
+  h2 {
+    color: var(--color-text);
+  }
   h3 {
     color: var(--color-accent-text);
   }
@@ -108,12 +117,6 @@ watch(
 
   .demo-divider {
     margin-block: 2rem;
-  }
-
-  .section-topbar {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
   }
 }
 </style>

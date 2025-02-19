@@ -46,6 +46,8 @@ config({
 
 <style>
 .md-editor-previewOnly {
+  --md-bk-color: transparent !important;
+
   .md-editor-preview-wrapper {
     padding: 0;
   }
