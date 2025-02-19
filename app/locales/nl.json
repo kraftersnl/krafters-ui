@@ -105,6 +105,7 @@
     "move-down": "Verplaats omlaag",
     "move-up": "Verplaats omhoog",
     "name": "Naam",
+    "no": "nee",
     "open": "Openen",
     "order": "Volgorde",
     "page": "pagina's | {n} pagina | {n} pagina's",
@@ -148,7 +149,8 @@
     "upload-image": "Afbeelding uploaden",
     "url": "URL | URLs",
     "version": "Versie",
-    "website": "Website"
+    "website": "Website",
+    "yes": "yes"
   },
   "meter": {
     "value-of-max": "{value} van {max}"

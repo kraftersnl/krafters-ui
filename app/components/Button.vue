@@ -217,7 +217,6 @@ const emit = defineEmits(['click']);
 }
 
 .button-size--xl {
-  --font-size: var(--font-size-md);
   min-height: 3rem;
   padding-inline: 1.25rem;
 
@@ -344,7 +343,8 @@ const emit = defineEmits(['click']);
 }
 
 .button-variant--menu {
-  font-size: var(--font-size-sm);
+  --font-size: var(--font-size-sm);
+
   width: 100%;
   font-weight: 500;
   flex-direction: row-reverse;

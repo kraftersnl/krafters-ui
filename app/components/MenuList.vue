@@ -18,7 +18,7 @@ withDefaults(
     hTag: 'h2',
     buttonVariant: 'menu',
     buttonSize: 'lg',
-    fontSize: 'md',
+    fontSize: undefined,
     iconSize: undefined,
     label: undefined,
     labelLink: undefined,

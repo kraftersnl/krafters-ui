@@ -169,97 +169,78 @@ function handleSubmit(formData: FormData) {
       </template>
     </Card>
 
+    <div class="card-cols">
+      <Card>
+        <div class="section-topbar">
+          <h2>MultiSelect</h2>
+
+          <Popover icon="cog" hide-label :max-width="480">
+            <div class="popover-settings-content">
+              <h2>MultiSelect Props</h2>
+
+              <div class="props-wrapper">
+                <Select
+                  v-model="multiselectMode"
+                  :options="multiselectModes"
+                  label="mode"
+                  size="sm"
+                  @update:model-value="multiSelection = undefined"
+                />
+
+                <Select
+                  v-model="multiselectSize"
+                  :options="multiselectSizes"
+                  label="size"
+                  size="sm"
+                />
+
+                <code
+                  >{{`<MultiSelect
+                    mode="${multiselectMode}"
+                    size="${multiselectSize}"
+                  />`}}</code
+                >
+              </div>
+            </div>
+          </Popover>
+        </div>
+
+        <MultiSelect
+          v-model="multiSelection"
+          searchable
+          create-option
+          :options="multiSelectOptions"
+          :mode="multiselectMode"
+          :size="multiselectSize"
+          name="multiselect"
+          value-key="id"
+          label-key="name"
+          label="MultiSelect"
+          placeholder="Make a selection"
+          class="demo-multiselect"
+        />
+      </Card>
+
+      <Card>
+        <div class="section-topbar">
+          <h2>DatePicker</h2>
+        </div>
+
+        <DatePicker
+          v-model="date"
+          label="DatePicker"
+          placeholder="Pick a date"
+          class="demo-datepicker"
+        />
+      </Card>
+    </div>
+
     <Card>
       <h2>Switch</h2>
       <Switch
         v-model="isTrue"
         label="Show loading indicator"
         class="demo-switch"
-      />
-    </Card>
-
-    <Card>
-      <div class="section-topbar">
-        <h2>MultiSelect</h2>
-
-        <Popover icon="cog" hide-label :max-width="480">
-          <div class="popover-settings-content">
-            <h2>MultiSelect Props</h2>
-
-            <div class="props-wrapper">
-              <Select
-                v-model="multiselectMode"
-                :options="multiselectModes"
-                label="mode"
-                size="sm"
-                @update:model-value="multiSelection = undefined"
-              />
-
-              <Select
-                v-model="multiselectSize"
-                :options="multiselectSizes"
-                label="size"
-                size="sm"
-              />
-
-              <code
-                >{{`<MultiSelect
-                  mode="${multiselectMode}"
-                  size="${multiselectSize}"
-                />`}}</code
-              >
-            </div>
-          </div>
-        </Popover>
-      </div>
-
-      <MultiSelect
-        v-model="multiSelection"
-        searchable
-        create-option
-        :options="multiSelectOptions"
-        :mode="multiselectMode"
-        :size="multiselectSize"
-        name="multiselect"
-        value-key="id"
-        label-key="name"
-        label="MultiSelect"
-        placeholder="Make a selection"
-        class="demo-multiselect"
-      />
-    </Card>
-
-    <Card>
-      <div class="section-topbar">
-        <h2>DatePicker</h2>
-
-        <!-- <Popover icon="cog" hide-label :max-width="480">
-          <div class="popover-settings-content">
-            <h2>DatePicker Props</h2>
-
-            <div class="props-wrapper">
-              <Select
-                v-model="datePickerMode"
-                :options="datePickerModes"
-                label="mode"
-                size="sm"
-              />
-
-              <code
-                >{{`<datePicker
-                  mode="${datePickerMode}"
-                />`}}</code
-              >
-            </div>
-          </div>
-        </Popover> -->
-      </div>
-
-      <DatePicker
-        v-model="date"
-        label="DatePicker"
-        placeholder="Pick a date"
-        class="demo-datepicker"
       />
     </Card>
 
@@ -274,6 +255,16 @@ function handleSubmit(formData: FormData) {
 .demo-form {
   .button {
     flex-basis: 8rem;
+  }
+}
+
+.card-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  > .card {
+    flex-grow: 1;
   }
 }
 

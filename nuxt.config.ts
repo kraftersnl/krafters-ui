@@ -23,6 +23,7 @@ export default defineNuxtConfig({
         'unique-landmark': 'off',
         'prefer-native-element': 'off',
         'no-missing-references': 'off',
+        'long-title': 'off',
       },
     },
   },

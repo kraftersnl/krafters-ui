@@ -4,7 +4,8 @@ const {
   max = 100,
   size = 'md',
 } = defineProps<{
-  label: string;
+  label?: string;
+  hideLabel?: boolean;
   value: number;
   min?: number;
   max?: number;
@@ -14,9 +15,11 @@ const {
 
 <template>
   <div class="meter-wrapper">
-    <div class="meter-label">{{ label }}</div>
+    <div :class="`meter-label ${hideLabel ? 'visuallyhidden' : ''}`">
+      {{ label }}
+    </div>
 
-    <div class="meter-value">
+    <div :class="`meter-value  ${hideLabel ? 'visuallyhidden' : ''}`">
       {{ $t('meter.value-of-max', { value: value, max: max }) }}
     </div>
 

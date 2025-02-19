@@ -1,7 +1,7 @@
 {
   "name": "@krafters/ui",
   "type": "module",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "@iconify-json/heroicons-solid": "^1.2.1",
     "@mdit/plugin-attrs": "^0.16.7",
     "@mdit/plugin-mark": "^0.16.0",
-    "@nuxt/eslint": "^1.0.1",
+    "@nuxt/eslint": "^1.1.0",
     "@nuxt/icon": "^1.10.3",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/html-validator": "^1.8.2",

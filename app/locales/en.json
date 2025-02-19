@@ -105,6 +105,7 @@
     "move-down": "Move down",
     "move-up": "Move up",
     "name": "Name",
+    "no": "no",
     "open": "Open",
     "order": "Order",
     "page": "pages | {n} page | {n} pages",
@@ -148,7 +149,8 @@
     "upload-image": "Upload image",
     "url": "URL | URLs",
     "version": "Version",
-    "website": "Website"
+    "website": "Website",
+    "yes": "yes"
   },
   "meter": {
     "value-of-max": "{value} of {max}"

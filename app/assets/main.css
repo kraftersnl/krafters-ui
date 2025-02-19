@@ -106,6 +106,7 @@
   --radius-full: 999px;
 
   /* Font size design tokens */
+  --font-size-xxxl: 2.5rem;
   --font-size-xxl: 2rem;
   --font-size-xl: 1.5rem;
   --font-size-lg: 1.25rem;
@@ -767,7 +768,7 @@ input {
 .md-editor,
 .md-editor-preview.krafters-theme {
   --md-color: var(--color-text) !important;
-  --md-bk-color: var(--color-input-bg) !important;
+  --md-bk-color: transparent !important;
   --md-bk-color-outstand: var(--color-grey-bg) !important;
   --md-border-color: var(--color-grey-graphic) !important;
   --md-border-active-color: var(--focus-color) !important;
