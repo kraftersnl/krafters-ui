@@ -6,6 +6,12 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.1.9" date="2025-02-19">
+      <ul>
+        <li>Fix text overflow in link variant for Button component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.1.8" date="2025-02-19">
       <ul>
         <li>Add <code>max</code>prop to ProgressCircle component</li>
