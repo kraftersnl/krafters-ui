@@ -57,6 +57,8 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
         :title="$t('general.reset')"
         icon="refresh"
         size="sm"
+        icon-size="md"
+        hide-label
         variant="ghost"
         @click="handleReset"
       />
@@ -69,6 +71,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
       :label="$t('general.submit')"
       icon="search"
       size="lg"
+      icon-size="lg"
       hide-label
     />
   </Form>

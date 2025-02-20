@@ -34,23 +34,23 @@ useHead({ title: 'Alert messages | Krafters UI' });
     <Card>
       <h2>Chip</h2>
       <div class="chips-grid">
-        <Chip label="Default" />
-        <Chip label="Accent" color="accent" />
-        <Chip label="Blue" color="blue" />
-        <Chip label="Green" color="green" />
-        <Chip label="Red" color="red" />
-        <Chip label="Orange" color="orange" />
-        <Chip label="Yellow" color="yellow" />
+        <Chip icon="check" label="Default" />
+        <Chip icon="check" label="Accent" color="accent" />
+        <Chip icon="check" label="Blue" color="blue" />
+        <Chip icon="check" label="Green" color="green" />
+        <Chip icon="check" label="Red" color="red" />
+        <Chip icon="check" label="Orange" color="orange" />
+        <Chip icon="check" label="Yellow" color="yellow" />
       </div>
 
       <div class="chips-grid">
-        <Chip variant="outline" label="Default" />
-        <Chip variant="outline" label="Accent" color="accent" />
-        <Chip variant="outline" label="Blue" color="blue" />
-        <Chip variant="outline" label="Green" color="green" />
-        <Chip variant="outline" label="Red" color="red" />
-        <Chip variant="outline" label="Orange" color="orange" />
-        <Chip variant="outline" label="Yellow" color="yellow" />
+        <Chip icon="check" variant="outline" label="Default" />
+        <Chip icon="check" variant="outline" label="Accent" color="accent" />
+        <Chip icon="check" variant="outline" label="Blue" color="blue" />
+        <Chip icon="check" variant="outline" label="Green" color="green" />
+        <Chip icon="check" variant="outline" label="Red" color="red" />
+        <Chip icon="check" variant="outline" label="Orange" color="orange" />
+        <Chip icon="check" variant="outline" label="Yellow" color="yellow" />
       </div>
     </Card>
   </div>

@@ -61,7 +61,7 @@ defineExpose({
 
 <template>
   <ClientOnly>
-    <div class="markdown-editor form-field-wrapper">
+    <div class="markdown-editor">
       <div
         :class="`label
         ${hideLabel ? 'visuallyhidden' : ''}
@@ -118,8 +118,12 @@ defineExpose({
   background-color: var(--color-grey-graphic);
 }
 
-.markdown-editor .md-editor {
-  --md-bk-color: var(--color-input-bg) !important;
+.markdown-editor {
+  flex-grow: 1;
+
+  .md-editor {
+    --md-bk-color: var(--color-input-bg) !important;
+  }
 }
 
 .md-editor {

@@ -11,12 +11,14 @@ const {
 }>();
 
 const computedIcon = computed(() => {
-  if (icon) return icon;
-  if (color === 'blue') return 'information-circle';
-  if (color === 'green') return 'check-circle';
-  if (color === 'red') return 'x-circle';
-  if (color === 'orange') return 'exclamation-circle';
-  return icon;
+  if (icon?.includes(':')) {
+    return icon;
+  }
+  if (color === 'blue') return 'heroicons-solid:information-circle';
+  if (color === 'green') return 'heroicons-solid:check-circle';
+  if (color === 'red') return 'heroicons-solid:x-circle';
+  if (color === 'orange') return 'heroicons-solid:exclamation-circle';
+  return `heroicons-solid:${icon}`;
 });
 </script>
 
@@ -28,7 +30,7 @@ const computedIcon = computed(() => {
     :style="`--font-size: var(--font-size-${fontSize})`"
   >
     <div class="callout-content">
-      <Icon :name="'heroicons-solid:' + computedIcon" />
+      <Icon :name="computedIcon" />
 
       <span v-if="content">{{ content }}</span>
 

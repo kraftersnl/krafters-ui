@@ -46,6 +46,13 @@ const props = withDefaults(
   },
 );
 
+const computedIcon = computed(() => {
+  if (props.icon?.includes(':')) {
+    return props.icon;
+  }
+  return `heroicons-solid:${props.icon}`;
+});
+
 const inputMode = computed(() => {
   if (props.type === 'email') return 'email';
   if (props.type === 'tel') return 'tel';
@@ -133,7 +140,7 @@ const emit = defineEmits(['focus', 'blur']);
       @input="handleInput"
     />
 
-    <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
+    <Icon v-if="icon" :name="computedIcon" />
 
     <div
       :id="id ? `error-${id}` : undefined"

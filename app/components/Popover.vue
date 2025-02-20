@@ -3,13 +3,12 @@ import { Tippy, type TippyComponent } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     label?: string;
     navAriaLabel?: string;
     list?: MenuItem[];
     icon?: string;
-    iconLib?: string;
     size?: 'sm' | 'md' | 'lg';
     placement?: PopperPlacement;
     hideLabel?: boolean;
@@ -28,7 +27,6 @@ withDefaults(
     navAriaLabel: undefined,
     list: () => [],
     icon: 'dots-horizontal',
-    iconLib: 'heroicons-solid',
     size: 'sm',
     placement: 'auto-start',
     interactive: true,
@@ -39,6 +37,13 @@ withDefaults(
     maxWidth: undefined,
   },
 );
+
+const computedIcon = computed(() => {
+  if (props.icon?.includes(':')) {
+    return props.icon;
+  }
+  return `heroicons-solid:${props.icon}`;
+});
 
 function handleMenuClick(item: MenuItem, hide: () => void) {
   emit('click', item);
@@ -108,7 +113,7 @@ const emit = defineEmits<{
         `"
       >
         <Icon v-if="loading" name="svg-spinners:90-ring" />
-        <Icon v-else :name="iconLib + ':' + icon" />
+        <Icon v-else :name="computedIcon" />
 
         <span :class="hideLabel ? 'visuallyhidden' : undefined">
           {{ label || $t('aria.open-menu') }}
@@ -126,6 +131,8 @@ const emit = defineEmits<{
           v-if="list?.length"
           :list="list"
           button-size="xl"
+          font-size="sm"
+          icon-size="lg"
           :aria-label="navAriaLabel || $t('general.menu')"
           @click="handleMenuClick($event, hide)"
         />
@@ -145,17 +152,12 @@ const emit = defineEmits<{
   }
 }
 
-.popover-wrapper {
-  display: flex;
-}
-
 .popover-trigger {
   flex-grow: 1;
   display: inline-flex;
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-xs);
   white-space: nowrap;
   padding-inline: 0.5rem;
   border: 1px solid transparent;
@@ -215,31 +217,23 @@ const emit = defineEmits<{
 
 .popover-trigger-size--sm {
   height: 2rem;
-
-  .iconify {
-    font-size: var(--font-size-sm);
-  }
+  min-width: 2rem;
+  font-size: var(--font-size-xs);
 }
 
 .popover-trigger-size--md {
   height: 2.25rem;
-
-  .iconify {
-    font-size: var(--font-size-md);
-  }
+  min-width: 2.25rem;
+  font-size: var(--font-size-xs);
 }
 
 .popover-trigger-size--lg {
   height: 2.5rem;
+  min-width: 2.5rem;
   font-size: var(--font-size-sm);
-
-  .iconify {
-    font-size: var(--font-size-lg);
-  }
 }
 
 .popover--icon-only {
-  /* aspect-ratio: 1; */
   border-radius: var(--radius-full);
 }
 </style>

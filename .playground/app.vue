@@ -23,7 +23,7 @@ watch(
 
       <div class="app-layout">
         <aside class="app-sidebar">
-          <MenuList :list="navList" button-size="md" button-variant="sidebar" />
+          <MenuList :list="navList" button-size="sm" button-variant="sidebar" />
         </aside>
 
         <main id="main">
@@ -60,8 +60,7 @@ watch(
   display: none;
 
   hr {
-    margin-block: 1rem;
-    max-width: 200px;
+    max-width: 180px;
   }
 
   @media (min-width: 1024px) {

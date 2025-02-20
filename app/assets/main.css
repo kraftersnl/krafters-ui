@@ -587,6 +587,21 @@ input {
 }
 
 .file-input-wrapper,
+.form-field-wrapper,
+.markdown-editor {
+  label,
+  .label {
+    white-space: nowrap;
+    display: inline-flex;
+    gap: 0.35rem;
+    min-height: 1.25rem;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    margin-block-end: 0.25rem;
+  }
+}
+
+.file-input-wrapper,
 .form-field-wrapper {
   position: relative;
   display: inline-grid;

@@ -21,6 +21,13 @@ const props = withDefaults(
   },
 );
 
+const computedIcon = computed(() => {
+  if (props.icon?.includes(':')) {
+    return props.icon;
+  }
+  return `heroicons-solid:${props.icon}`;
+});
+
 const formattedLabel = computed(() =>
   typeof props.label === 'number'
     ? props.label.toLocaleString(locale.value)
@@ -39,7 +46,7 @@ const formattedLabel = computed(() =>
     `"
     :style="`--radius: var(--radius-${radius})`"
   >
-    <Icon v-if="icon" :name="'heroicons-solid:' + icon" />
+    <Icon v-if="icon" :name="computedIcon" />
 
     <span v-if="label !== undefined" class="chip-text">{{
       formattedLabel

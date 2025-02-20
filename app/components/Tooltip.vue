@@ -3,7 +3,7 @@ import { Tippy, type TippyComponent } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-toward.css';
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     placement?: PopperPlacement;
     icon?: string;
@@ -31,6 +31,13 @@ withDefaults(
     maxWidth: undefined,
   },
 );
+
+const computedIcon = computed(() => {
+  if (props.icon?.includes(':')) {
+    return props.icon;
+  }
+  return `heroicons-solid:${props.icon}`;
+});
 
 const wrapperRef = useTemplateRef<HTMLElement>('tooltipWrapper');
 
@@ -77,7 +84,7 @@ function closeTooltip() {
           :title="title"
           class="tooltip-trigger-button"
         >
-          <Icon :name="'heroicons-solid:' + icon" />
+          <Icon :name="computedIcon" />
         </button>
       </template>
 

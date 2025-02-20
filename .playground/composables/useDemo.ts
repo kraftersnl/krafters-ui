@@ -20,6 +20,11 @@ const navList = [
     to: '/buttons',
     label: 'Buttons',
   },
+  // {
+  //   id: 'menu-list',
+  //   to: '/menu-list',
+  //   label: 'Menu List',
+  // },
   {
     id: 'alerts',
     to: '/alerts',
@@ -48,12 +53,12 @@ const navList = [
   {
     id: 'progress',
     to: '/progress',
-    label: 'Progress Circle & Meter',
+    label: 'Progress',
   },
   {
     id: 'tabs',
     to: '/tabs',
-    label: 'Tabs navigation',
+    label: 'Tabs',
   },
   {
     id: 'table',

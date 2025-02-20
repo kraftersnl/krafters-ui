@@ -6,8 +6,14 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
-    <ChangelogEntry v="1.1.9" date="2025-02-19">
+    <ChangelogEntry v="1.2.0" date="2025-02-20">
       <ul>
+        <li>Feature: improve <code>icon</code> prop in components</li>
+        <li>
+          Breaking: remove support for <code>iconLib</code> prop in components
+        </li>
+        <li>Breaking: rename Meter to ProgressMeter component</li>
+        <li>Fix <code>--font-size</code> design token for Button component</li>
         <li>Fix text overflow in link variant for Button component</li>
       </ul>
     </ChangelogEntry>

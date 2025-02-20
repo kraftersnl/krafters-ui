@@ -21,14 +21,16 @@ const max = ref(100);
             <code
               >{{`<ProgressCircle :value="${progress}" :max="${max}" />`}}</code
             >
-            <code>{{`<Meter :value="${progress}" :max="${max}" />`}}</code>
+            <code
+              >{{`<ProgressMeter :value="${progress}" :max="${max}" />`}}</code
+            >
           </div>
         </div>
       </Popover>
     </div>
 
     <Card>
-      <h2>ProgressCircle</h2>
+      <h2>Progress Circle</h2>
       <div class="flex-wrapper" style="--gap: 2rem">
         <ProgressCircle :value="progress" :max="max" size="xl" />
         <ProgressCircle :value="progress" :max="max" size="lg" />
@@ -39,11 +41,11 @@ const max = ref(100);
     </Card>
 
     <Card>
-      <h2>Meter</h2>
+      <h2>Progress Meter</h2>
       <div class="grid-wrapper" style="--gap: 2rem">
-        <Meter :value="progress" :max="max" size="lg" />
-        <Meter :value="progress" :max="max" size="md" />
-        <Meter :value="progress" :max="max" size="sm" />
+        <ProgressMeter :value="progress" :max="max" size="lg" />
+        <ProgressMeter :value="progress" :max="max" size="md" />
+        <ProgressMeter :value="progress" :max="max" size="sm" />
       </div>
     </Card>
   </div>

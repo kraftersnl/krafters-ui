@@ -19,12 +19,9 @@ watch(
 <template>
   <header class="app-header">
     <div class="app-header-content">
-      <MobileMenu
-        ref="mobileMenu"
-        class="left-menu"
-        position="inline-start"
-        :list="navList"
-      />
+      <MobileMenu ref="mobileMenu" class="left-menu" position="inline-start">
+        <MenuList :list="navList" button-variant="sidebar" />
+      </MobileMenu>
 
       <div class="logo">Krafters UI {{ version }}</div>
 

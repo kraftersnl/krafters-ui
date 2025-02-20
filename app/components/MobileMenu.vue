@@ -10,7 +10,6 @@ const props = withDefaults(
     triggerButtonVariant?: ButtonVariant;
     triggerButtonSize?: ButtonSize;
     icon?: string;
-    iconLib?: string;
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
     triggerClass?: string;
@@ -25,7 +24,6 @@ const props = withDefaults(
     triggerButtonVariant: 'secondary',
     triggerButtonSize: 'md',
     icon: 'menu-alt-2',
-    iconLib: 'heroicons-solid',
     hideTriggerLabel: true,
     triggerLabel: undefined,
     triggerClass: undefined,
@@ -33,6 +31,13 @@ const props = withDefaults(
     list: () => [],
   },
 );
+
+const computedIcon = computed(() => {
+  if (props.icon?.includes(':')) {
+    return props.icon;
+  }
+  return `heroicons-solid:${props.icon}`;
+});
 
 const dialogElementRef = useTemplateRef<HTMLDialogElement>('dialogElement');
 const isVisible = ref(false);
@@ -94,8 +99,7 @@ const emit = defineEmits<{
 
     <Button
       v-else
-      :icon="icon"
-      :icon-lib="iconLib"
+      :icon="computedIcon"
       :class="`mobile-nav-toggle ${props.triggerClass ?? ''}`"
       :size="triggerButtonSize"
       :variant="triggerButtonVariant"

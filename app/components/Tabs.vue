@@ -17,8 +17,11 @@ const props = withDefaults(
 );
 
 function computeIcon(tab: TabOption) {
-  if (tab.icon) return `${tab.iconLib || 'heroicons-solid'}:${tab.icon}`;
-  return undefined;
+  if (!tab.icon) return '';
+  if (tab.icon?.includes(':')) {
+    return tab.icon;
+  }
+  return `heroicons-solid:${tab.icon}`;
 }
 
 const tabElements = ref<HTMLButtonElement[]>([]);

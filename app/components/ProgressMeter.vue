@@ -14,7 +14,7 @@ const {
 </script>
 
 <template>
-  <div class="meter-wrapper">
+  <div class="progress-meter-wrapper">
     <div :class="`meter-label ${hideLabel ? 'visuallyhidden' : ''}`">
       {{ label }}
     </div>
@@ -32,7 +32,7 @@ const {
 </template>
 
 <style>
-.meter-wrapper {
+.progress-meter-wrapper {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;

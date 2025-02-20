@@ -63,7 +63,6 @@ const emit = defineEmits<{
           :to="item.to"
           :href="item.href"
           :icon="item.icon"
-          :icon-lib="item.iconLib"
           :icon-pos="item.iconPos"
           :disabled="item.disabled"
           :loading="item.loading"
@@ -128,6 +127,10 @@ const emit = defineEmits<{
 
   .menu-list-item {
     margin-bottom: 0.5rem;
+
+    hr {
+      margin-block: 0.75rem;
+    }
   }
 }
 

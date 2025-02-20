@@ -9,8 +9,8 @@ const content = ref(
 <template>
   <div class="demo-page markdown-demo">
     <div>
-      <h1>Markdown Editor</h1>
-      <MarkdownEditor v-model="content" hide-label />
+      <h1>Markdown</h1>
+      <MarkdownEditor v-model="content" label="Markdown Editor" />
     </div>
 
     <Card>

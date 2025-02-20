@@ -5,7 +5,6 @@ const props = withDefaults(
   defineProps<{
     label?: string;
     icon?: string;
-    iconLib?: string;
     iconPos?: 'start' | 'end';
     to?: RouteLocationRaw;
     href?: string;
@@ -25,7 +24,6 @@ const props = withDefaults(
   {
     label: undefined,
     icon: undefined,
-    iconLib: undefined,
     iconPos: 'start',
     to: undefined,
     href: undefined,
@@ -41,9 +39,7 @@ const props = withDefaults(
 
 const computedIcon = computed(() => {
   if (props.icon?.includes(':')) {
-    return `${props.icon}`;
-  } else if (props.iconLib) {
-    return `${props.iconLib}:${props.icon}`;
+    return props.icon;
   }
   return `heroicons-solid:${props.icon}`;
 });
@@ -113,7 +109,7 @@ const emit = defineEmits(['click']);
     :style="`
       --radius: var(--radius-${radius});
       ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
-      ${iconSize ? `--font-size: var(--font-size-${iconSize});` : ''}
+      ${iconSize ? `--icon-size: var(--font-size-${iconSize});` : ''}
     `"
     @click="handleClick"
   >
@@ -345,8 +341,6 @@ const emit = defineEmits(['click']);
 }
 
 .button-variant--menu {
-  --font-size: var(--font-size-sm);
-
   width: 100%;
   font-weight: 500;
   flex-direction: row-reverse;
@@ -355,7 +349,7 @@ const emit = defineEmits(['click']);
   gap: 1.5rem;
 
   .iconify {
-    font-size: var(--font-size-lg);
+    font-size: var(--icon-size, var(--font-size));
     color: var(--color-grey-graphic);
   }
 
