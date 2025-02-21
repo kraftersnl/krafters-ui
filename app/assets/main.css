@@ -106,6 +106,8 @@
   --radius-full: 999px;
 
   /* Font size design tokens */
+  --font-size-xxxxxl: 4rem;
+  --font-size-xxxxl: 3rem;
   --font-size-xxxl: 2.5rem;
   --font-size-xxl: 2rem;
   --font-size-xl: 1.5rem;
@@ -117,6 +119,7 @@
   --font-size-xxxs: 0.6rem;
 
   /* Size design tokens */
+  --size-xxxxl: 12rem; /* 192px */
   --size-xxxl: 8rem; /* 128px */
   --size-xxl: 4rem; /* 64px */
   --size-xl: 2.5rem; /* 40px */
@@ -125,6 +128,7 @@
   --size-sm: 1rem; /* 16px */
   --size-xs: 0.75rem; /* 12px */
   --size-xxs: 0.5rem; /* 8px */
+  --size-xxxs: 0.25rem; /* 4px */
 
   /* Utility design tokens */
   --color-accent: var(--color-purple);

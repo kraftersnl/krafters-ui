@@ -120,6 +120,17 @@ const formattedLabel = computed(() =>
   }
 }
 
+.chip-size--xl {
+  border-width: 2px;
+  font-size: var(--font-size-lg);
+  padding-inline: 0.75rem;
+  padding-block: 0.25rem;
+
+  .krafters-tooltip-wrapper {
+    --icon-size: 1.5rem !important;
+  }
+}
+
 /* Flat Chip */
 .chip-variant--flat {
   background-color: var(--color-grey-bg);

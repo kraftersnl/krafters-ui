@@ -58,7 +58,17 @@ declare global {
 
   type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'full';
 
-  type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
+  type Size =
+    | 'xxxs'
+    | 'xxs'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl'
+    | 'xxxxl';
 
   type FontSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
