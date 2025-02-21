@@ -89,7 +89,7 @@ declare global {
 
   type TableSize = 'xs' | 'sm' | 'md' | 'lg';
 
-  type ChipSize = 'xs' | 'sm' | 'md' | 'lg';
+  type ChipSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   // External packages
   type PopperPlacement =

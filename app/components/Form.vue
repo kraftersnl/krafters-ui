@@ -80,7 +80,7 @@ const emit = defineEmits<{
   }
 
   .button {
-    --col-width: var(--col-width-auto);
+    --col-width: var(--col-width, auto);
     flex-grow: 0;
   }
 }

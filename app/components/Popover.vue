@@ -32,7 +32,7 @@ const props = withDefaults(
     interactive: true,
     appendTo: undefined,
     trigger: 'click',
-    triggerVariant: 'secondary',
+    triggerVariant: 'ghost',
     hideOnClick: true,
     maxWidth: undefined,
   },
@@ -205,6 +205,19 @@ const emit = defineEmits<{
 .popover-trigger-variant--secondary {
   color: var(--color-text);
   background-color: var(--color-grey-bg);
+
+  &:not(:disabled):hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-grey-bg) 95%,
+      var(--color-black)
+    );
+  }
+}
+
+.popover-trigger-variant--ghost {
+  color: var(--color-text);
+  background-color: transparent;
 
   &:not(:disabled):hover {
     background-color: color-mix(

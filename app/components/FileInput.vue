@@ -65,7 +65,6 @@ async function handleInput(event: Event) {
   if (!target.files?.length) return;
 
   const file = target.files[0];
-  // console.log(file?.type);
 
   imagePreview.value = undefined;
 
@@ -218,7 +217,7 @@ watch(
   &.has-image-preview {
     color: white;
     border: none;
-    border-radius: var(--radius-xs);
+    border-radius: 0;
 
     .iconify {
       display: none;
@@ -242,6 +241,7 @@ watch(
     vertical-align: middle;
     margin-inline-start: 0.25rem;
   }
+
   .file-name {
     color: var(--color-text);
   }
@@ -253,7 +253,6 @@ watch(
 
   input[type='file'] {
     -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
     position: absolute;
     z-index: 1;
     inset: 0;
@@ -266,6 +265,10 @@ watch(
     &:hover + .file-input-button {
       color: var(--color-accent);
       border-color: var(--color-accent);
+    }
+
+    &:hover + .has-image-preview {
+      outline: 2px dashed var(--color-black);
     }
 
     &:focus-visible + .file-input-button {

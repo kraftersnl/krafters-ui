@@ -149,7 +149,6 @@ defineExpose({
     position: relative;
     -webkit-user-select: none;
     user-select: none;
-    cursor: pointer;
     font-weight: 500;
     background: transparent;
     border: none;

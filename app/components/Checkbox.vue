@@ -64,10 +64,6 @@ const id = useId();
     margin-top: 1px;
     width: 1rem;
     height: 1rem;
-
-    &:not(:disabled) {
-      cursor: pointer;
-    }
   }
 }
 </style>

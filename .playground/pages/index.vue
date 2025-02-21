@@ -6,6 +6,13 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.2.2" date="2025-02-21">
+      <ul>
+        <li>Change: remove <code>cursor: pointer</code> from buttons</li>
+        <li>Add ghost variant to Popover component and set to default</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.2.1" date="2025-02-21">
       <ul>
         <li>

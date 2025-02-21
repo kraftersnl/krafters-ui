@@ -20,7 +20,7 @@ function handleClick() {
     :id="id"
     type="button"
     role="switch"
-    class="switch-wrapper"
+    class="switch-button"
     :aria-checked="model"
     :value="String(model)"
     @click="handleClick"
@@ -36,7 +36,7 @@ function handleClick() {
 </template>
 
 <style>
-.switch-wrapper {
+.switch-button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -46,7 +46,6 @@ function handleClick() {
   text-align: left;
   color: inherit;
   font: inherit;
-  cursor: pointer;
   border: none;
   padding-inline: 0;
   border-radius: var(--radius-lg);
@@ -64,7 +63,7 @@ function handleClick() {
     width: 40px;
     height: 22px;
     border-radius: var(--radius-full);
-    transition: background-color var(--duration-md);
+    transition: background-color var(--duration-sm);
   }
 
   .switch-thumb {
@@ -84,6 +83,12 @@ function handleClick() {
     padding-inline: var(--size-4xs);
     transition-property: color, font-weight;
     transition-duration: var(--duration-sm);
+  }
+
+  &:hover {
+    .switch {
+      background-color: var(--color-grey-text);
+    }
   }
 
   &:disabled {

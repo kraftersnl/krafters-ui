@@ -20,7 +20,7 @@ defineProps<{
 <style>
 .details-wrapper {
   .summary {
-    cursor: pointer;
+    cursor: default;
     position: relative;
 
     /* Hide marker in Firefox and Chrome */
