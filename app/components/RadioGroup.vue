@@ -6,6 +6,7 @@ withDefaults(
     options: any[];
     label: string;
     name?: string;
+    tabindex?: tabindex;
     valueKey?: string;
     labelKey?: string;
     titleKey?: string;
@@ -13,6 +14,7 @@ withDefaults(
   }>(),
   {
     name: undefined,
+    tabindex: undefined,
     valueKey: 'value',
     labelKey: 'label',
     titleKey: undefined,
@@ -36,6 +38,7 @@ withDefaults(
               :value="option[valueKey]"
               :title="titleKey ? option[titleKey] : undefined"
               :name="name"
+              :tabindex="tabindex"
               type="radio"
             />
             <label :for="option[valueKey]">{{ option[labelKey] }}</label>

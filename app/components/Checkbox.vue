@@ -9,6 +9,7 @@ defineProps<{
   required?: boolean;
   disabled?: boolean;
   hideLabel?: boolean;
+  tabindex?: string;
 }>();
 
 const id = useId();
@@ -22,6 +23,7 @@ const id = useId();
       :name="name"
       :value="value"
       :disabled="disabled"
+      :tabindex="tabindex"
       type="checkbox"
     />
 

@@ -34,13 +34,19 @@ function handleTransitionRun(event: TransitionEvent) {
 
 function handleTransitionEnd(event: TransitionEvent) {
   if (event.propertyName === 'grid-template-rows' && isExpanded.value) {
-    contentRef.value?.style.removeProperty('--overflow');
+    if (isExpanded.value) {
+      contentRef.value?.style.setProperty('--overflow', 'visible');
+    } else {
+      contentRef.value?.style.setProperty('--overflow', 'hidden');
+    }
   }
 }
 
 onMounted(() => {
   if (!isExpanded.value) {
     contentRef.value?.style.setProperty('--overflow', 'hidden');
+  } else {
+    contentRef.value?.style.setProperty('--overflow', 'visible');
   }
 });
 

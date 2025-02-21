@@ -6,6 +6,19 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.2.1" date="2025-02-21">
+      <ul>
+        <li>
+          Fix: set <code>overflow: visible</code> if content is visible in
+          Accordion component
+        </li>
+        <li>
+          Add <code>tabindex</code> prop to Input, Checkbox, CheckboxGroup,
+          RadioGroup, Select and MultiSelect components
+        </li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.2.0" date="2025-02-20">
       <ul>
         <li>Feature: improve <code>icon</code> prop in components</li>

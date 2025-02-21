@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({ title: 'Accordion | Krafters UI' });
 
-const isDetailsOpen = ref(true);
+const isAccordionDetailsOpen = ref(true);
 const isAccordionOpen = ref(true);
 </script>
 
@@ -20,7 +20,7 @@ const isAccordionOpen = ref(true);
 
     <div class="details-demo-cols">
       <Card>
-        <AccordionDetails :open="isDetailsOpen" class="details-demo">
+        <AccordionDetails :open="isAccordionDetailsOpen" class="details-demo">
           <template #trigger>Accordion with HTML</template>
           <template #content>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa

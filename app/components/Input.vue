@@ -25,6 +25,7 @@ const props = withDefaults(
     ariaDescribedby?: string;
     instruction?: string;
     errorMessage?: string;
+    tabindex?: string;
   }>(),
   {
     id: () => useId(),
@@ -43,6 +44,7 @@ const props = withDefaults(
     ariaDescribedby: undefined,
     instruction: undefined,
     errorMessage: undefined,
+    tabindex: undefined,
   },
 );
 
@@ -130,6 +132,7 @@ const emit = defineEmits(['focus', 'blur']);
       :maxlength="maxlength"
       :min="min"
       :max="max"
+      :tabindex="tabindex"
       :aria-describedby="`
         ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}

@@ -21,6 +21,7 @@ const props = withDefaults(
     required?: boolean;
     autofocus?: boolean;
     showInvalid?: boolean;
+    tabindex?: string;
     valueKey?: string;
     labelKey?: string;
     disabledKey?: string;
@@ -34,6 +35,7 @@ const props = withDefaults(
     name: undefined,
     hideSelected: false,
     searchable: true,
+    tabindex: undefined,
     valueKey: 'value',
     labelKey: 'label',
     disabledKey: 'disabled',
@@ -101,6 +103,7 @@ onMounted(() => {
       :searchable="searchable"
       :disabled="disabled"
       :required="required"
+      :tabindex="tabindex"
       :label="labelKey"
       :value-prop="valueKey"
       :disabled-prop="disabledKey"

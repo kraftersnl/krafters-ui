@@ -22,6 +22,7 @@ const props = withDefaults(
     ariaDescribedby?: string;
     instruction?: string;
     errorMessage?: string;
+    tabindex?: string;
     color?: BaseColor;
   }>(),
   {
@@ -37,6 +38,7 @@ const props = withDefaults(
     ariaDescribedby: undefined,
     instruction: undefined,
     errorMessage: undefined,
+    tabindex: undefined,
     color: undefined,
   },
 );
@@ -75,6 +77,7 @@ const id = useId();
       :disabled="disabled"
       :autofocus="autofocus"
       :multiple="multiple"
+      :tabindex="tabindex"
       :aria-describedby="`
         ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}

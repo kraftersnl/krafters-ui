@@ -6,6 +6,7 @@ withDefaults(
     options: any[];
     label: string;
     name?: string;
+    tabindex?: string;
     valueKey?: string;
     labelKey?: string;
     nameKey?: string;
@@ -14,6 +15,7 @@ withDefaults(
   }>(),
   {
     name: undefined,
+    tabindex: undefined,
     valueKey: 'value',
     labelKey: 'label',
     nameKey: 'value',
@@ -38,6 +40,7 @@ withDefaults(
               :label="option[labelKey]"
               :title="titleKey ? option[titleKey] : undefined"
               :name="option[nameKey]"
+              :tabindex="tabindex"
             />
           </li>
         </ul>
