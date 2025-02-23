@@ -10,6 +10,8 @@
     "open-new-window": "open in new window",
     "skip-to-main-content": "Skip to main content",
     "skip-to-side-content": "Skip to sidebar",
+    "popover": "More options",
+    "tooltip": "More info",
     "user-menu": "User menu"
   },
   "datepicker": {

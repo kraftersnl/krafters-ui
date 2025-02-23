@@ -8,9 +8,10 @@ const props = withDefaults(
     placement?: PopperPlacement;
     icon?: string;
     label?: string;
-    ariaLabel?: string;
+    hideLabel?: boolean;
     interactive?: boolean;
     trigger?: string;
+    fontSize?: string;
     iconSize?: string;
     tabindex?: string;
     title?: string;
@@ -22,9 +23,10 @@ const props = withDefaults(
     placement: 'auto',
     icon: 'question-mark-circle',
     label: undefined,
-    ariaLabel: 'Tooltip',
+    hideLabel: true,
     trigger: 'click',
-    iconSize: 'md',
+    fontSize: undefined,
+    iconSize: undefined,
     tabindex: undefined,
     title: undefined,
     hideOnClick: true,
@@ -49,11 +51,7 @@ function closeTooltip() {
 </script>
 
 <template>
-  <div
-    ref="tooltipWrapper"
-    class="krafters-tooltip-wrapper"
-    :style="`--icon-size: var(--font-size-${iconSize})`"
-  >
+  <div ref="tooltipWrapper" class="krafters-tooltip-wrapper">
     <Tippy
       :trigger="trigger"
       :placement="placement"
@@ -62,7 +60,6 @@ function closeTooltip() {
       :max-width="maxWidth"
       :aria="{
         content: 'describedby',
-        expanded: false,
       }"
       theme="krafters"
       animation="shift-toward"
@@ -79,11 +76,20 @@ function closeTooltip() {
         <button
           v-else
           type="button"
-          :aria-label="label || ariaLabel"
           :tabindex="tabindex"
           :title="title"
           class="tooltip-trigger-button"
+          :style="`
+            --font-size: var(--font-size-${fontSize});
+            --icon-size: var(--font-size-${iconSize});
+          `"
         >
+          <span :class="`${hideLabel ? 'visuallyhidden' : ''}`">
+            {{ label }}
+          </span>
+
+          <span class="visuallyhidden">({{ $t('aria.tooltip') }})</span>
+
           <Icon :name="computedIcon" />
         </button>
       </template>
@@ -107,23 +113,26 @@ function closeTooltip() {
 
 .tooltip-trigger-button {
   display: flex;
+  gap: 0.25rem;
+  align-items: center;
   border: none;
   background: transparent;
   padding: 0;
-  color: var(--color-grey-text);
-  transition:
-    color var(--duration-sm),
-    scale var(--duration-sm);
+  color: inherit;
+  font-size: var(--font-size, inherit);
+  transition: color var(--duration-sm);
 
   .iconify {
-    font-size: var(--icon-size);
+    font-size: var(--icon-size, var(--font-size));
+    /* color: var(--color-grey-graphic); */
+    transition: color var(--duration-sm);
   }
 
   &:hover {
-    color: var(--color-text);
+    cursor: help;
 
-    &:hover {
-      scale: 1.15;
+    .iconify {
+      color: var(--color-text);
     }
   }
 }

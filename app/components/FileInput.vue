@@ -248,7 +248,7 @@ watch(
 }
 
 .file-input {
-  max-width: 320px;
+  /* max-width: 320px; */
   position: relative;
 
   input[type='file'] {

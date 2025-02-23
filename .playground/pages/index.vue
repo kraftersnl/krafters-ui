@@ -6,6 +6,13 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.2.3" date="2025-02-23">
+      <ul>
+        <li>Improve accessibility for Tooltip and Popover components</li>
+        <li>Improve styling for Callout component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.2.2" date="2025-02-21">
       <ul>
         <li>Change: remove <code>cursor: pointer</code> from buttons</li>

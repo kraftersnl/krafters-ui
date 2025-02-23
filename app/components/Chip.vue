@@ -92,7 +92,7 @@ const formattedLabel = computed(() =>
 
 .chip-size--sm {
   font-size: var(--font-size-xxs);
-  padding-inline: 0.25rem;
+  padding-inline: 0.3rem;
   padding-block: 0.0625rem;
 
   .krafters-tooltip-wrapper {

@@ -27,7 +27,7 @@
 
   --color-yellow: #f2f20d;
   --color-yellow-bg: #ffff00;
-  --color-yellow-text: #57570f;
+  --color-yellow-text: #161616;
 
   --color-red: #eb4747;
   --color-red-bg: #570f0f;
@@ -73,7 +73,7 @@
 
   --color-yellow: #f2f20d;
   --color-yellow-bg: #fafa9e;
-  --color-yellow-text: #57570f;
+  --color-yellow-text: #161616;
 
   --color-red: #ce1a1a;
   --color-red-bg: #ffcccc;
@@ -772,6 +772,9 @@ input {
       }
     }
   }
+}
+.md-editor-toolbar-wrapper .md-editor-toolbar-item {
+  cursor: default !important;
 }
 
 .md-editor-toolbar-item svg.md-editor-icon {

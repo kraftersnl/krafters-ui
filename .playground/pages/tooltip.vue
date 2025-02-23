@@ -31,23 +31,46 @@ const position = ref('center');
     <h1>Tooltip, Popover and Dialog</h1>
 
     <div class="popover-demo-cols">
-      <Tooltip>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-          architecto eligendi deserunt dicta similique enim, quibusdam officiis
-          quos quis quisquam amet doloribus explicabo iste nisi perferendis ut
-          non distinctio numquam.
-        </div>
-      </Tooltip>
+      <Card>
+        <Tooltip label="Tooltip label" :hide-label="false" size="lg">
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+            architecto eligendi deserunt dicta similique enim, quibusdam
+            officiis quos quis quisquam amet doloribus explicabo iste nisi
+            perferendis ut non distinctio numquam.
+          </div>
+        </Tooltip>
 
-      <Popover :list="popoverActions" hide-label>
-        <!-- <template #content>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-          quidem sequi autem eum dolore cupiditate blanditiis ipsam. Assumenda
-          quas incidunt doloribus ad, dicta, aliquam pariatur quisquam quos
-          iusto ipsam eum.
-        </template> -->
-      </Popover>
+        <Tooltip icon-size="xl">
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+            architecto eligendi deserunt dicta similique enim, quibusdam
+            officiis quos quis quisquam amet doloribus explicabo iste nisi
+            perferendis ut non distinctio numquam.
+          </div>
+        </Tooltip>
+      </Card>
+
+      <Card>
+        <Popover
+          :list="popoverActions"
+          icon="hugeicons:popcorn"
+          label="Popover label"
+          size="lg"
+          :hide-label="false"
+        />
+
+        <Popover hide-label :max-width="480">
+          <template #content>
+            <div style="padding: 1rem 1.5rem; min-width: 340px">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+              quidem sequi autem eum dolore cupiditate blanditiis ipsam.
+              Assumenda quas incidunt doloribus ad, dicta, aliquam pariatur
+              quisquam quos iusto ipsam eum.
+            </div>
+          </template>
+        </Popover>
+      </Card>
 
       <div class="dialog-buttons">
         <Button
@@ -99,13 +122,17 @@ const position = ref('center');
 .popover-demo-cols {
   margin-block: 2rem;
   display: grid;
-  gap: 3rem;
+  gap: 1rem;
   justify-items: start;
 
   .dialog-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+  .card {
+    display: grid;
+    gap: 1rem;
   }
 }
 

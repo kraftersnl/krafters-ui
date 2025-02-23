@@ -10,6 +10,9 @@ const props = withDefaults(
     list?: MenuItem[];
     icon?: string;
     size?: 'sm' | 'md' | 'lg';
+    fontSize: string;
+    iconSize: string;
+    borderRadius: string;
     placement?: PopperPlacement;
     hideLabel?: boolean;
     disabled?: boolean;
@@ -28,6 +31,10 @@ const props = withDefaults(
     list: () => [],
     icon: 'dots-horizontal',
     size: 'sm',
+    fontSize: undefined,
+    iconSize: undefined,
+    hideLabel: true,
+    borderRadius: 'sm',
     placement: 'auto-start',
     interactive: true,
     appendTo: undefined,
@@ -84,14 +91,13 @@ const emit = defineEmits<{
     :max-width="maxWidth"
     :aria="{
       content: 'describedby',
-      expanded: false,
     }"
     theme="krafters"
     animation="shift-away"
     tag="div"
     content-tag="div"
     content-class="popover-content"
-    :class="`popover-wrapper ${hideLabel ? 'popover--icon-only' : ''}`"
+    class="popover-wrapper"
     @show="enableFocusLoop = true"
     @hide="
       () => {
@@ -111,13 +117,20 @@ const emit = defineEmits<{
           popover-trigger-variant--${triggerVariant}
           popover-trigger-size--${size}
         `"
+        :style="`
+            --radius: var(--radius-${borderRadius});
+            --font-size: var(--font-size-${fontSize});
+            --icon-size: var(--font-size-${iconSize});
+          `"
       >
         <Icon v-if="loading" name="svg-spinners:90-ring" />
         <Icon v-else :name="computedIcon" />
 
-        <span :class="hideLabel ? 'visuallyhidden' : undefined">
-          {{ label || $t('aria.open-menu') }}
+        <span v-if="label" :class="hideLabel ? 'visuallyhidden' : undefined">
+          {{ label }}
         </span>
+
+        <span v-else class="visuallyhidden">{{ $t('aria.popover') }}</span>
       </button>
 
       <slot v-else name="trigger" />
@@ -161,9 +174,10 @@ const emit = defineEmits<{
   white-space: nowrap;
   padding-inline: 0.5rem;
   border: 1px solid transparent;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
   transition-property: color, background-color, opacity;
   transition-duration: var(--duration-sm);
+  font-size: var(--font-size);
   outline: 2px solid transparent;
   outline-offset: 2px;
 
@@ -181,6 +195,10 @@ const emit = defineEmits<{
       var(--color-grey-bg) 95%,
       var(--color-black)
     );
+  }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-md));
   }
 }
 
@@ -231,22 +249,18 @@ const emit = defineEmits<{
 .popover-trigger-size--sm {
   height: 2rem;
   min-width: 2rem;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size, var(--font-size-xs));
 }
 
 .popover-trigger-size--md {
   height: 2.25rem;
   min-width: 2.25rem;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size, var(--font-size-xs));
 }
 
 .popover-trigger-size--lg {
   height: 2.5rem;
   min-width: 2.5rem;
-  font-size: var(--font-size-sm);
-}
-
-.popover--icon-only {
-  border-radius: var(--radius-full);
+  font-size: var(--font-size, var(--font-size-sm));
 }
 </style>

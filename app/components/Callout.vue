@@ -44,7 +44,7 @@ const computedIcon = computed(() => {
   display: inline-block;
   padding-inline: 0.75rem;
   padding-block: 0.75rem;
-  border-left: 0.35rem solid transparent;
+  border: 1px solid var(--color-grey-bg);
   border-radius: var(--radius-sm);
   font-size: var(--font-size);
 }
@@ -63,7 +63,7 @@ const computedIcon = computed(() => {
 .callout-color--accent {
   border-color: var(--color-accent);
   color: var(--color-accent-text);
-  background-color: var(--color-accent-bg);
+  /* background-color: var(--color-accent-bg); */
 
   .tooltip-trigger-button {
     color: var(--color-accent-text);
@@ -73,7 +73,7 @@ const computedIcon = computed(() => {
 .callout-color--blue {
   border-color: var(--color-blue);
   color: var(--color-blue-text);
-  background-color: var(--color-blue-bg);
+  /* background-color: var(--color-blue-bg); */
 
   .tooltip-trigger-button {
     color: var(--color-blue-text);
@@ -83,7 +83,7 @@ const computedIcon = computed(() => {
 .callout-color--green {
   border-color: var(--color-green);
   color: var(--color-green-text);
-  background-color: var(--color-green-bg);
+  /* background-color: var(--color-green-bg); */
 
   .tooltip-trigger-button {
     color: var(--color-green-text);
@@ -93,7 +93,7 @@ const computedIcon = computed(() => {
 .callout-color--orange {
   border-color: var(--color-orange);
   color: var(--color-orange-text);
-  background-color: var(--color-orange-bg);
+  /* background-color: var(--color-orange-bg); */
 
   .tooltip-trigger-button {
     color: var(--color-orange-text);
@@ -103,7 +103,7 @@ const computedIcon = computed(() => {
 .callout-color--red {
   border-color: var(--color-red);
   color: var(--color-red-text);
-  background-color: var(--color-red-bg);
+  /* background-color: var(--color-red-bg); */
 
   .tooltip-trigger-button {
     color: var(--color-red-text);
