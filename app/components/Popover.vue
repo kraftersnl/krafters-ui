@@ -10,9 +10,9 @@ const props = withDefaults(
     list?: MenuItem[];
     icon?: string;
     size?: 'sm' | 'md' | 'lg';
-    fontSize: string;
-    iconSize: string;
-    borderRadius: string;
+    fontSize?: string;
+    iconSize?: string;
+    borderRadius?: string;
     placement?: PopperPlacement;
     hideLabel?: boolean;
     disabled?: boolean;
