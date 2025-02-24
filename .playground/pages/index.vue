@@ -6,6 +6,13 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.2.4" date="2025-02-24">
+      <ul>
+        <li>Add <code>iconSize</code> prop to Callout component</li>
+        <li>Fix: add video element to CSS reset</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.2.3" date="2025-02-23">
       <ul>
         <li>Improve accessibility for Tooltip and Popover components</li>

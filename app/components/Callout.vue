@@ -2,10 +2,12 @@
 const {
   color = 'blue',
   fontSize = 'xs',
+  iconSize = 'md',
   icon,
 } = defineProps<{
   color?: 'accent' | 'blue' | 'green' | 'red' | 'orange';
   fontSize?: FontSize;
+  iconSize?: FontSize;
   icon?: string;
   content?: string;
 }>();
@@ -27,14 +29,19 @@ const computedIcon = computed(() => {
     :class="`callout-wrapper
       callout-color--${color}
     `"
-    :style="`--font-size: var(--font-size-${fontSize})`"
+    :style="`
+      --font-size: var(--font-size-${fontSize});
+      --icon-size: var(--font-size-${iconSize});
+    `"
   >
     <div class="callout-content">
       <Icon :name="computedIcon" />
 
       <span v-if="content">{{ content }}</span>
 
-      <slot mdc-unwrap="p" />
+      <div v-if="$slots.default" class="default-slot">
+        <slot mdc-unwrap="p" />
+      </div>
     </div>
   </div>
 </template>
@@ -56,7 +63,7 @@ const computedIcon = computed(() => {
 
   .iconify {
     flex-shrink: 0;
-    font-size: 1rem;
+    font-size: var(--icon-size);
   }
 }
 
