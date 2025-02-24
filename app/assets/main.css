@@ -308,6 +308,7 @@ img {
   font-size: var(--font-size-xs);
 }
 
+video,
 img,
 picture,
 svg {
