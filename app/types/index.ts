@@ -25,6 +25,8 @@ declare global {
     iconLib?: string;
     iconPos?: 'start' | 'end';
     to?: RouteLocationRaw;
+    path?: RouteLocationRaw;
+    title?: string;
     href?: string;
     size?: string;
     disabled?: boolean;

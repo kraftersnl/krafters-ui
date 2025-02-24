@@ -59,9 +59,8 @@ const emit = defineEmits<{
         class="menu-list-item"
       >
         <Button
-          :label="item.label"
-          :to="item.to"
-          :href="item.href"
+          :label="item.label || item.title"
+          :to="item.to || item.href || item.path"
           :icon="item.icon"
           :icon-pos="item.iconPos"
           :disabled="item.disabled"
