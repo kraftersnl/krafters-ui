@@ -5,12 +5,16 @@ const props = withDefaults(
   defineProps<{
     tabs: TabOption[];
     size?: TabsSize;
+    fontSize?: FontSize;
     variant?: TabsVariant;
+    color?: 'green' | 'accent';
     ariaLabel?: string;
   }>(),
   {
     size: 'sm',
+    fontSize: 'sm',
     variant: 'default',
+    color: 'green',
     ariaLabel: undefined,
     icon: undefined,
   },
@@ -81,7 +85,17 @@ defineExpose({
 </script>
 
 <template>
-  <div :class="`tabs-wrapper tabs-variant--${variant} tabs-size--${size}`">
+  <div
+    :class="`
+      tabs-wrapper
+      tabs-variant--${variant}
+      tabs-color--${color}
+      tabs-size--${size}
+    `"
+    :style="`
+      --font-size: var(--font-size-${fontSize});
+    `"
+  >
     <div
       class="tabs-list"
       role="tablist"
@@ -142,6 +156,7 @@ defineExpose({
 }
 
 .tabs-list {
+  font-size: var(--font-size, var(--font-size-sm));
   flex-wrap: wrap;
   align-items: center;
 
@@ -183,8 +198,7 @@ defineExpose({
     }
 
     &[aria-selected='true'] {
-      color: var(--color-green);
-      border-color: var(--color-green);
+      border-color: var(--color-text);
 
       .iconify {
         color: inherit;
@@ -229,24 +243,35 @@ defineExpose({
   }
 }
 
+.tabs-color--green {
+  .tabs-list .tab[aria-selected='true'] {
+    color: var(--color-green);
+    border-color: var(--color-green);
+  }
+}
+
+.tabs-color--accent {
+  .tabs-list .tab[aria-selected='true'] {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+}
+
 /* Tabs sizes */
 .tabs-size--xs {
   .tabs-list {
-    font-size: var(--font-size-xs);
     gap: 1.5rem;
   }
 }
 
 .tabs-size--sm {
   .tabs-list {
-    font-size: var(--font-size-sm);
     gap: 2rem;
   }
 }
 
 .tabs-size--md {
   .tabs-list {
-    font-size: var(--font-size-md);
     gap: 2.5rem;
   }
 }
