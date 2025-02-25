@@ -6,6 +6,12 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.2.5" date="2025-02-25">
+      <ul>
+        <li>Fix wrapping for code examples in MarkdownPreview component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.2.4" date="2025-02-24">
       <ul>
         <li>Add <code>iconSize</code> prop to Callout component</li>
