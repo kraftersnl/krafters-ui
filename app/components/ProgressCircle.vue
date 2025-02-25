@@ -3,10 +3,13 @@ const {
   value,
   max = 100,
   size = 'xl',
+  fontSize = 'sm',
   color = 'accent',
 } = defineProps<{
   value: number;
   max?: number;
+  showValue?: boolean;
+  fontSize?: FontSize;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   color?: 'accent' | 'green' | 'orange' | 'red';
 }>();
@@ -22,11 +25,14 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
       progress-circle-color--${color}
     `"
     :style="`
+      --font-size: var(--font-size-${fontSize});
       --progress-circle-value: ${value};
       --progress-circle-max: ${max};
     `"
   >
-    <div class="progress-circle-label">{{ percentage }}%</div>
+    <div class="progress-circle-label">
+      {{ showValue ? value : percentage + '%' }}
+    </div>
 
     <div class="progress-circle" aria-hidden="true">
       <svg>
@@ -122,31 +128,26 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
 
 .progress-circle-size--xl {
   --size: 8rem;
-  --font-size: var(--font-size-lg);
   --progress-stroke-width: 10px;
 }
 
 .progress-circle-size--lg {
   --size: 6rem;
-  --font-size: var(--font-size-md);
   --progress-stroke-width: 8px;
 }
 
 .progress-circle-size--md {
   --size: 4rem;
-  --font-size: var(--font-size-sm);
   --progress-stroke-width: 5px;
 }
 
 .progress-circle-size--sm {
   --size: 3rem;
-  --font-size: var(--font-size-xs);
   --progress-stroke-width: 3px;
 }
 
 .progress-circle-size--xs {
   --size: 2rem;
-  --font-size: var(--font-size-xxxs);
   --progress-stroke-width: 1px;
 }
 </style>
