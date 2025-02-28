@@ -219,7 +219,7 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    --duration-sm: 0.15s;
+    --duration-sm: 0.2s;
     --duration-md: 0.35s;
     --duration-lg: 0.65s;
     --duration-xl: 1.35s;
