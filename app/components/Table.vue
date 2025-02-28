@@ -1,17 +1,18 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    size?: TableSize;
-    fontSize?: FontSize;
-    ariaLabel?: string;
-    loading?: boolean;
-  }>(),
-  {
-    size: 'sm',
-    fontSize: 'sm',
-    ariaLabel: undefined,
-  },
-);
+const {
+  size = 'sm',
+  fontSize = 'sm',
+  skeletonRows = 10,
+  skeletonCols = 3,
+} = defineProps<{
+  size?: TableSize;
+  fontSize?: FontSize;
+  ariaLabel?: string;
+  loading?: boolean;
+  skeleton?: boolean;
+  skeletonRows?: number;
+  skeletonCols?: number;
+}>();
 </script>
 
 <template>
@@ -19,11 +20,27 @@ withDefaults(
     :class="`table-wrapper
       table-size--${size}
       ${loading ? 'table--loading' : ''}
+      ${skeleton ? 'table--skeleton' : ''}
     `"
     :style="`--font-size: var(--font-size-${fontSize})`"
   >
     <table>
       <caption v-if="ariaLabel" class="visuallyhidden" v-text="ariaLabel" />
+
+      <tbody v-if="skeleton">
+        <tr
+          v-for="(_, rowIndex) in [...Array(skeletonRows).keys()]"
+          :key="rowIndex"
+          class="table-loader-row"
+        >
+          <td
+            v-for="(__, colIndex) in [...Array(skeletonCols).keys()]"
+            :key="colIndex"
+          >
+            <Skeleton />
+          </td>
+        </tr>
+      </tbody>
 
       <slot />
     </table>
@@ -48,6 +65,10 @@ withDefaults(
   }
 }
 
+.table--skeleton tbody tr:not(.table-loader-row) {
+  display: none;
+}
+
 .table--loading {
   tbody {
     pointer-events: none;
@@ -60,7 +81,7 @@ withDefaults(
       --color-1: var(--color-card-bg);
       --color-2: var(--color-bg);
       animation: var(--animation-shimmer);
-      animation-duration: var(--duration-xl);
+      animation-duration: var(--duration-xxl);
       background: linear-gradient(
         -45deg,
         var(--color-1) 30%,

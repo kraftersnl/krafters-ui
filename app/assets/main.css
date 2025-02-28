@@ -507,7 +507,7 @@ table {
     border-width: 0 0 1px 0;
   }
 
-  tbody tr:not(:first-of-type) {
+  tbody tr {
     border-color: var(--color-grey-bg);
     border-style: solid;
     border-width: 1px 0;
@@ -590,7 +590,6 @@ input {
 .markdown-editor {
   label,
   .label {
-    white-space: nowrap;
     display: inline-flex;
     gap: 0.35rem;
     min-height: 1.25rem;
@@ -606,17 +605,6 @@ input {
   display: inline-grid;
   align-items: center;
   align-content: start;
-
-  label,
-  .label {
-    white-space: nowrap;
-    display: inline-flex;
-    gap: 0.35rem;
-    min-height: 1.25rem;
-    align-items: center;
-    font-size: var(--font-size-xs);
-    margin-block-end: 0.25rem;
-  }
 
   [class*='instruction'] {
     margin-top: 0.5rem;

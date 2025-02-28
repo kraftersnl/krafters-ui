@@ -9,6 +9,8 @@ const page = ref(1);
 const pageSize = ref(10);
 const tableSize = ref<TableSize>('md');
 const tableFontSize = ref<FontSize>('xs');
+const loading = ref(false);
+const skeleton = ref(false);
 
 const guidelines = computed(() =>
   wcagPrinciples.map((principle) => principle.guidelines).flat(),
@@ -121,11 +123,15 @@ function handleFilter() {
               label="fontSize"
               size="sm"
             />
+            <Switch v-model="loading" label="loading" />
+            <Switch v-model="skeleton" label="skeleton" />
 
             <code
               >{{`<Table
                 size="${tableSize}"
                 font-size="${tableFontSize}"
+                :loading="${loading}"
+                :skeleton="${skeleton}"
               />`}}</code
             >
           </div>
@@ -156,7 +162,12 @@ function handleFilter() {
         />
       </div>
 
-      <Table :size="tableSize" :font-size="tableFontSize">
+      <Table
+        :size="tableSize"
+        :font-size="tableFontSize"
+        :loading="loading"
+        :skeleton="skeleton"
+      >
         <thead>
           <tr>
             <th scope="col" colspan="2">WCAG success criterion</th>

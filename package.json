@@ -1,7 +1,7 @@
 {
   "name": "@krafters/ui",
   "type": "module",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
     "@nuxt/eslint": "^1.1.0",
     "@nuxt/icon": "^1.10.3",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/html-validator": "^2.0.0",
+    "@nuxtjs/html-validator": "^2.1.0",
     "@nuxtjs/i18n": "^9.2.1",
     "@types/markdown-it": "^14.1.2",
     "@vueform/multiselect": "^2.6.11",

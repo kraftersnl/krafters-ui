@@ -6,6 +6,16 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.2.6" date="2025-02-28">
+      <ul>
+        <li>
+          Add <code>skeleton</code>, <code>skeletonRows</code> and
+          <code>skeletonCols</code> props to Table component
+        </li>
+        <li>Add <code>word-break: all</code> to Ellipsis component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.2.5" date="2025-02-25">
       <ul>
         <li>Fix wrapping for code examples in MarkdownPreview component</li>
