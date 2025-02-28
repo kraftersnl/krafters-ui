@@ -9,6 +9,7 @@ const props = withDefaults(
     navAriaLabel?: string;
     list?: MenuItem[];
     icon?: string;
+    iconPos?: 'start' | 'end';
     size?: 'sm' | 'md' | 'lg';
     fontSize?: string;
     iconSize?: string;
@@ -30,6 +31,7 @@ const props = withDefaults(
     navAriaLabel: undefined,
     list: () => [],
     icon: 'dots-horizontal',
+    iconPos: 'start',
     size: 'sm',
     fontSize: undefined,
     iconSize: undefined,
@@ -116,6 +118,7 @@ const emit = defineEmits<{
         :class="`popover-trigger
           popover-trigger-variant--${triggerVariant}
           popover-trigger-size--${size}
+          popover-icon-position--${iconPos}
         `"
         :style="`
             --radius: var(--radius-${borderRadius});
@@ -126,7 +129,11 @@ const emit = defineEmits<{
         <Icon v-if="loading" name="svg-spinners:90-ring" />
         <Icon v-else :name="computedIcon" />
 
-        <span v-if="label" :class="hideLabel ? 'visuallyhidden' : undefined">
+        <span
+          v-if="label"
+          :class="hideLabel ? 'visuallyhidden' : undefined"
+          class="popover-label"
+        >
           {{ label }}
         </span>
 
@@ -168,11 +175,10 @@ const emit = defineEmits<{
 .popover-trigger {
   flex-grow: 1;
   display: inline-flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  padding-inline: 0.5rem;
   border: 1px solid transparent;
   border-radius: var(--radius);
   transition-property: color, background-color, opacity;
@@ -196,10 +202,14 @@ const emit = defineEmits<{
       var(--color-black)
     );
   }
+}
 
-  .iconify {
-    font-size: var(--icon-size, var(--font-size-md));
-  }
+.popover-icon-position--start {
+  flex-direction: row;
+}
+
+.popover-icon-position--end {
+  flex-direction: row-reverse;
 }
 
 .popover-trigger-variant--outline {
@@ -250,17 +260,44 @@ const emit = defineEmits<{
   height: 2rem;
   min-width: 2rem;
   font-size: var(--font-size, var(--font-size-xs));
+  padding-inline: 0.35rem;
+
+  .popover-label {
+    padding-inline: 0.1rem;
+  }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-md));
+  }
 }
 
 .popover-trigger-size--md {
   height: 2.25rem;
   min-width: 2.25rem;
   font-size: var(--font-size, var(--font-size-xs));
+  padding-inline: 0.5rem;
+
+  .popover-label {
+    padding-inline: 0.2rem;
+  }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-md));
+  }
 }
 
 .popover-trigger-size--lg {
   height: 2.5rem;
   min-width: 2.5rem;
   font-size: var(--font-size, var(--font-size-sm));
+  padding-inline: 0.5rem;
+
+  .popover-label {
+    padding-inline: 0.2rem;
+  }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-lg));
+  }
 }
 </style>
