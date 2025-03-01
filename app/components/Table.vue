@@ -29,14 +29,11 @@ const {
 
       <tbody v-if="skeleton">
         <tr
-          v-for="(_, rowIndex) in [...Array(skeletonRows).keys()]"
+          v-for="(_, rowIndex) in new Array(skeletonRows)"
           :key="rowIndex"
           class="table-loader-row"
         >
-          <td
-            v-for="(__, colIndex) in [...Array(skeletonCols).keys()]"
-            :key="colIndex"
-          >
+          <td v-for="(__, colIndex) in new Array(skeletonCols)" :key="colIndex">
             <Skeleton />
           </td>
         </tr>
@@ -96,7 +93,7 @@ const {
 
 .table-size--xs {
   tbody tr {
-    min-height: 2rem;
+    height: 2rem;
   }
   th,
   td {
@@ -107,7 +104,7 @@ const {
 
 .table-size--sm {
   tbody tr {
-    height: 2.5rem;
+    height: 3rem;
   }
   th,
   td {
@@ -118,7 +115,7 @@ const {
 
 .table-size--md {
   tbody tr {
-    height: 3rem;
+    height: 3.25rem;
   }
   th,
   td {
