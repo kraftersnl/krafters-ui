@@ -1,5 +1,9 @@
 {
   "aria": {
+    "callout-error": "Foutmelding",
+    "callout-info": "Ter informatie",
+    "callout-success": "Succes",
+    "callout-warning": "Waarschuwing",
     "close-menu": "Menu sluiten",
     "logo-cardan": "Cardan voor iedereen",
     "main-content": "Hoofdcontent",

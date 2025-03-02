@@ -325,6 +325,10 @@ blockquote {
   margin: 0;
   border-inline-start: 3px solid var(--color-accent);
   padding-inline-start: 1rem;
+
+  > p {
+    font-style: italic;
+  }
 }
 
 a {

@@ -4,13 +4,17 @@ const {
   fontSize = 'xs',
   iconSize = 'md',
   icon,
+  ariaLabel,
 } = defineProps<{
   color?: 'accent' | 'blue' | 'green' | 'red' | 'orange';
   fontSize?: FontSize;
   iconSize?: FontSize;
   icon?: string;
   content?: string;
+  ariaLabel?: string;
 }>();
+
+const { t } = useI18n();
 
 const computedIcon = computed(() => {
   if (icon?.includes(':')) {
@@ -22,10 +26,20 @@ const computedIcon = computed(() => {
   if (color === 'orange') return 'heroicons-solid:exclamation-circle';
   return `heroicons-solid:${icon}`;
 });
+
+const computedAriaLabel = computed(() => {
+  if (ariaLabel) return ariaLabel;
+  if (color === 'blue') return t('aria.callout-info');
+  if (color === 'green') return t('aria.callout-success');
+  if (color === 'red') return t('aria.callout-error');
+  if (color === 'orange') return t('aria.callout-warning');
+  return ariaLabel;
+});
 </script>
 
 <template>
-  <div
+  <section
+    :aria-label="computedAriaLabel"
     :class="`callout-wrapper
       callout-color--${color}
     `"
@@ -37,13 +51,13 @@ const computedIcon = computed(() => {
     <div class="callout-content">
       <Icon :name="computedIcon" />
 
-      <span v-if="content">{{ content }}</span>
+      <div v-if="content">{{ content }}</div>
 
       <div v-if="$slots.default" class="default-slot">
         <slot mdc-unwrap="p" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style>

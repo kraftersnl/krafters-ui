@@ -1,5 +1,9 @@
 {
   "aria": {
+    "callout-error": "Error",
+    "callout-info": "Notice",
+    "callout-success": "Success",
+    "callout-warning": "Warning",
     "close-menu": "Close menu",
     "logo-cardan": "Cardan for all",
     "main-content": "Main content",
