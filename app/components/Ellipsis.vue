@@ -9,7 +9,10 @@ withDefaults(
 
 <template>
   <span
-    class="ellipsis ellipsis-variant--clamp"
+    :class="`ellipsis
+      ellipsis-variant--clamp
+${lines === 1 ? 'ellipsis--1-line' : ''}
+    `"
     :style="`--webkit-line-clamp: ${lines ?? 1}`"
   >
     <slot mdc-unwrap="p" />
@@ -20,6 +23,9 @@ withDefaults(
 .ellipsis {
   overflow: hidden;
   display: block;
+}
+
+.ellipsis--1-line {
   word-break: break-all;
 }
 
