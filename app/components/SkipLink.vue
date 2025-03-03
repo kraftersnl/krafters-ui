@@ -1,13 +1,18 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ links?: { href: string; labelKey: string }[] }>(), {
-  links: () => [{ href: '#main', labelKey: 'aria.skip-to-main-content' }],
-});
+withDefaults(
+  defineProps<{
+    links?: { href: string; label?: string }[];
+  }>(),
+  {
+    links: () => [{ href: '#main' }],
+  },
+);
 </script>
 
 <template>
   <template v-for="link in links" :key="link.href">
     <a :href="link.href" class="skip-link">
-      {{ $t(link.labelKey) }}
+      {{ link.label || $t('aria.skip-to-main-content') }}
     </a>
   </template>
 </template>
