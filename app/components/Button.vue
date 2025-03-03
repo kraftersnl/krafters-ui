@@ -164,7 +164,7 @@ const emit = defineEmits(['click']);
   .iconify {
     font-size: var(--icon-size, inherit);
     flex-shrink: 0;
-    transition-duration: all var(--duration-sm);
+    transition-duration: var(--duration-sm);
   }
 }
 
