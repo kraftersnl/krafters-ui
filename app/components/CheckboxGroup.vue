@@ -51,7 +51,7 @@ withDefaults(
 
 <style>
 .checkboxes-wrapper {
-  margin-block: 0.5rem;
+  margin-block-end: 0.5rem;
 
   legend {
     font-size: var(--font-size-md);

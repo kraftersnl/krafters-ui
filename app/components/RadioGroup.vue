@@ -6,7 +6,7 @@ withDefaults(
     options: any[];
     label: string;
     name?: string;
-    tabindex?: tabindex;
+    tabindex?: string;
     valueKey?: string;
     labelKey?: string;
     titleKey?: string;
@@ -36,11 +36,13 @@ withDefaults(
               :id="option[valueKey]"
               v-model="model"
               :value="option[valueKey]"
+              :disabled="option.disabled"
               :title="titleKey ? option[titleKey] : undefined"
               :name="name"
               :tabindex="tabindex"
               type="radio"
             />
+
             <label :for="option[valueKey]">{{ option[labelKey] }}</label>
           </li>
         </ul>
@@ -51,7 +53,7 @@ withDefaults(
 
 <style>
 .radios-wrapper {
-  margin-block: 0.5rem;
+  margin-block-end: 0.5rem;
 
   legend {
     font-size: var(--font-size-md);
@@ -60,11 +62,17 @@ withDefaults(
 
   .radio-list {
     display: grid;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
 
     input[type='radio'] {
       width: 1rem;
       height: 1rem;
+
+      &:disabled {
+        ~ label {
+          color: var(--color-grey-bg);
+        }
+      }
     }
 
     label {

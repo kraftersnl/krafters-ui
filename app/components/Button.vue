@@ -89,9 +89,7 @@ const emit = defineEmits(['click']);
       <Icon name="heroicons-solid:external-link" class="external-link" />
     </template>
 
-    <span v-if="$slots.default">
-      <slot />
-    </span>
+    <slot />
   </NuxtLink>
 
   <button

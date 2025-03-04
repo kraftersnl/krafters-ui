@@ -108,6 +108,7 @@ useHead({ title: 'Buttons | Krafters UI' });
       <div class="flex-wrapper">
         <Button size="lg" loading label="Loading" />
         <Button size="lg" disabled label="Disabled" />
+        <CopyButton size="lg" text="Demo Text" />
       </div>
     </Card>
   </div>
