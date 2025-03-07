@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const route = useRoute();
+
 withDefaults(
   defineProps<{
     list: MenuItem[];
@@ -12,6 +14,7 @@ withDefaults(
     iconSize?: FontSize;
     hTag?: string;
     id?: string;
+    inline?: boolean;
   }>(),
   {
     id: () => useId(),
@@ -52,7 +55,7 @@ const emit = defineEmits<{
       <span v-else>{{ label }}</span>
     </component>
 
-    <ul role="list" class="menu-list">
+    <ul role="list" :class="`menu-list ${inline ? 'menu-list--inline' : ''}`">
       <li
         v-for="item in list"
         :key="'menu-list-item-' + item.id"
@@ -73,6 +76,7 @@ const emit = defineEmits<{
           :font-size="fontSize"
           :icon-size="iconSize"
           :variant="buttonVariant"
+          :class="route.fullPath === item.to ? 'router-hash-link-active' : ''"
           @click="handleClick(item)"
         />
 
@@ -130,6 +134,12 @@ const emit = defineEmits<{
     hr {
       margin-block: 0.75rem;
     }
+  }
+}
+
+.menu-list--inline {
+  .menu-list-item {
+    display: inline-block;
   }
 }
 

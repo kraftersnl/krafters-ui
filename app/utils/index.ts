@@ -25,12 +25,14 @@ export function removeHttp(url?: string): string | undefined {
   return url?.replace(/^https?:\/\//, '');
 }
 
-export function stripTrailingSlash(str?: string) {
-  if (!str) return;
+export function stripTrailingSlash(str: string) {
+  if (!str) return '';
+  if (str === '/') return '/';
   return str.endsWith('/') ? str.slice(0, -1) : str;
 }
 
 export function addTrailingSlash(str?: string) {
   if (!str) return;
+  if (str === '/') return '/';
   return str.endsWith('/') ? str : str + '/';
 }

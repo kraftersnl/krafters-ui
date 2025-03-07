@@ -65,11 +65,11 @@ const formattedLabel = computed(() =>
   gap: 0.25rem;
   border-radius: var(--radius);
   border: 1px solid transparent;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-variant-numeric: tabular-nums;
 
   .krafters-tooltip-content {
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     font-size: var(--font-size-xs);
   }
 }

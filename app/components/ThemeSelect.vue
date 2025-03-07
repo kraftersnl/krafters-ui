@@ -1,11 +1,14 @@
 <script setup lang="ts">
+defineProps<{ hideLabels?: boolean }>();
 const colorMode = useColorMode();
 </script>
 
 <template>
   <div class="theme-select">
     <fieldset class="color-theme-fieldset">
-      <legend>{{ $t('theme.heading') }}</legend>
+      <legend :class="hideLabels ? 'visuallyhidden' : ''">
+        {{ $t('theme.heading') }}
+      </legend>
 
       <ul role="list" class="theme-options-list">
         <li class="color-theme-option">
@@ -19,7 +22,9 @@ const colorMode = useColorMode();
 
           <label for="color-theme-light">
             <Icon name="heroicons-solid:sun" />
-            <span>{{ $t('theme.light') }}</span>
+            <span :class="hideLabels ? 'visuallyhidden' : ''">
+              {{ $t('theme.light') }}
+            </span>
           </label>
         </li>
 
@@ -34,7 +39,9 @@ const colorMode = useColorMode();
 
           <label for="color-theme-dark">
             <Icon name="heroicons-solid:moon" />
-            <span>{{ $t('theme.dark') }}</span>
+            <span :class="hideLabels ? 'visuallyhidden' : ''">
+              {{ $t('theme.dark') }}
+            </span>
           </label>
         </li>
 
@@ -48,7 +55,9 @@ const colorMode = useColorMode();
           />
           <label for="color-theme-system">
             <Icon name="heroicons-solid:desktop-computer" />
-            <span>{{ $t('theme.system') }}</span>
+            <span :class="hideLabels ? 'visuallyhidden' : ''">
+              {{ $t('theme.system') }}
+            </span>
           </label>
         </li>
       </ul>
@@ -61,7 +70,7 @@ const colorMode = useColorMode();
   legend {
     width: 100%;
     font-size: var(--font-size-xs);
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     color: var(--color-grey-text);
     margin-block-end: 0.5rem;
   }
@@ -84,9 +93,10 @@ const colorMode = useColorMode();
     + label {
       font-size: var(--font-size-xs);
       display: flex;
+      gap: 0.35rem;
       align-items: center;
       padding-block: 0.35rem;
-      padding-inline: 0.5rem 0.65rem;
+      padding-inline: 0.5rem;
       min-width: 75px;
       justify-content: center;
       border: 1px solid var(--color-accent-bg);
@@ -108,7 +118,7 @@ const colorMode = useColorMode();
 
     &:checked {
       + label {
-        color: var(--color-accent-text);
+        color: var(--color-accent);
         background-color: var(--color-accent-bg);
 
         .iconify {
@@ -116,10 +126,6 @@ const colorMode = useColorMode();
         }
       }
     }
-  }
-
-  .iconify {
-    margin-inline-end: 0.35rem;
   }
 }
 </style>

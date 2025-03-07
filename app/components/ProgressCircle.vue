@@ -64,7 +64,7 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
     z-index: 1;
     color: var(--progress-label-color);
     font-size: var(--font-size);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
   }
 
   .progress-circle {

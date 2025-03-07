@@ -75,6 +75,11 @@ const navList = [
     to: '/skeleton',
     label: 'Skeleton screens',
   },
+  {
+    id: 'video',
+    to: '/video',
+    label: 'Video Player',
+  },
 ];
 
 export function useDemo() {

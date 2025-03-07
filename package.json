@@ -1,7 +1,7 @@
 {
   "name": "@krafters/ui",
   "type": "module",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
@@ -18,24 +18,26 @@
   },
   "devDependencies": {
     "@iconify-json/heroicons-solid": "^1.2.1",
+    "@iconify-json/hugeicons": "^1.2.3",
     "@mdit/plugin-attrs": "^0.16.7",
     "@mdit/plugin-mark": "^0.16.0",
     "@nuxt/eslint": "^1.1.0",
     "@nuxt/icon": "^1.10.3",
+    "@nuxt/image": "^1.9.0",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/html-validator": "^2.1.0",
     "@nuxtjs/i18n": "^9.2.1",
     "@types/markdown-it": "^14.1.2",
     "@vueform/multiselect": "^2.6.11",
     "@vuepic/vue-datepicker": "^11.0.1",
-    "@vueuse/nuxt": "^12.7.0",
+    "@vueuse/nuxt": "^12.8.2",
     "compressorjs": "^1.2.1",
     "eslint": "^9.21.0",
     "markdown-it": "^14.1.0",
     "md-editor-v3": "^5.3.2",
     "nuxt": "^3.15.4",
-    "prettier": "^3.5.2",
-    "typescript": "^5.7.3",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
     "vue": "^3.5.13",
     "vue-tippy": "^6.6.0"
   }

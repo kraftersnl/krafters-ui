@@ -73,7 +73,7 @@ watch(
 
     a {
       font-size: var(--font-size-sm);
-      font-weight: 500;
+      font-weight: var(--font-weight-medium);
 
       &.router-link-active {
         color: var(--color-accent);

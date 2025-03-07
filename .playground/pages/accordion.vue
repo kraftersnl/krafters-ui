@@ -58,7 +58,7 @@ const isAccordionOpen = ref(true);
 .details-demo {
   .summary {
     font-size: var(--font-size-s);
-    font-weight: 600;
+    font-weight: var(--font-weight-bold);
   }
 }
 </style>

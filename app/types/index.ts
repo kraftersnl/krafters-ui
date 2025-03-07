@@ -15,14 +15,12 @@ declare global {
     label: string;
     disabled?: boolean;
     icon?: string;
-    iconLib?: string;
   };
 
   type MenuItem = {
     id: string;
     label?: string;
     icon?: string;
-    iconLib?: string;
     iconPos?: 'start' | 'end';
     to?: RouteLocationRaw;
     path?: RouteLocationRaw;
@@ -72,7 +70,17 @@ declare global {
     | 'xxxl'
     | 'xxxxl';
 
-  type FontSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  type FontSize =
+    | 'xxs'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl'
+    | 'xxxxl'
+    | 'xxxxxl';
 
   type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   type ButtonVariant =
@@ -84,7 +92,8 @@ declare global {
     | 'green'
     | 'blue'
     | 'menu'
-    | 'sidebar';
+    | 'sidebar'
+    | 'topbar';
 
   type TabsVariant = 'default' | 'minimal';
   type TabsSize = 'xs' | 'sm' | 'md';
@@ -135,5 +144,12 @@ declare global {
     monthPicker: (overlay: boolean) => string;
     yearPicker: (overlay: boolean) => string;
     timeOverlay: (type: 'hours' | 'minutes' | 'seconds') => string;
+  };
+
+  type VideoMetaData = {
+    width?: number;
+    height?: number;
+    title?: string;
+    thumbnail_url?: string;
   };
 }

@@ -9,6 +9,7 @@ const props = withDefaults(
     position?: 'inline-start' | 'inline-end';
     triggerButtonVariant?: ButtonVariant;
     triggerButtonSize?: ButtonSize;
+    triggerIconSize?: FontSize;
     icon?: string;
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
@@ -23,6 +24,7 @@ const props = withDefaults(
     position: 'inline-start',
     triggerButtonVariant: 'secondary',
     triggerButtonSize: 'md',
+    triggerIconSize: undefined,
     icon: 'menu-alt-2',
     hideTriggerLabel: true,
     triggerLabel: undefined,
@@ -54,6 +56,8 @@ function handleDialogClick(event: MouseEvent) {
 }
 
 function closeDialog() {
+  if (!isVisible.value) return;
+
   dialogElementRef.value?.setAttribute('closing', '');
 
   dialogElementRef.value?.addEventListener(
@@ -102,6 +106,7 @@ const emit = defineEmits<{
       :icon="computedIcon"
       :class="`mobile-nav-toggle ${props.triggerClass ?? ''}`"
       :size="triggerButtonSize"
+      :icon-size="triggerIconSize"
       :variant="triggerButtonVariant"
       :label="triggerLabel || $t('general.menu')"
       :hide-label="hideTriggerLabel"

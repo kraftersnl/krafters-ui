@@ -212,7 +212,7 @@ onMounted(() => {
 
   --ms-tag-font-size: var(--font-size-xs);
   /* --ms-tag-line-height: 1.25rem; */
-  --ms-tag-font-weight: 500;
+  --ms-tag-font-weight: var(--font-weight-medium);
   --ms-tag-bg: var(--color-accent-bg);
   --ms-tag-bg-disabled: var(--color-grey-bg);
   --ms-tag-color: var(--color-accent);
@@ -335,7 +335,7 @@ onMounted(() => {
     color: var(--color-accent);
     background-color: var(--color-accent-bg);
     font-size: var(--font-size-xs);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     padding-block: 0.125rem;
     padding-inline-start: 0.5rem;
   }

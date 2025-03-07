@@ -30,9 +30,6 @@ async function handleClick() {
   if (!props.text) return;
   await navigator.clipboard.writeText(props.text);
   copied.value = true;
-  setTimeout(() => {
-    copied.value = false;
-  }, props.timeout);
 }
 </script>
 

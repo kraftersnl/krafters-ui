@@ -6,6 +6,24 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.2.7" date="2025-03-07">
+      <ul>
+        <li>Add VideoPlayer component</li>
+        <li>Add CopyButton component</li>
+        <li>Add ThemeToggle component</li>
+        <li>Add <code>ariaLabel</code> prop to Callout component</li>
+        <li>Add <code>iconPos</code> prop to Popover component</li>
+        <li>Add <code>inline</code> prop to MenuList component</li>
+        <li>
+          Add design tokens for <code>--font-weight-regular</code>,
+          <code>--font-weight-medium</code> and <code>--font-weight-bold</code>
+        </li>
+        <li>Fix word break in Ellipsis component</li>
+        <li>Fix z-index issue with close button in MobileMenu component</li>
+        <li>Fix table overflow issue with visuallyhidden text</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.2.6" date="2025-02-28">
       <ul>
         <li>

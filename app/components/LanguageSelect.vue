@@ -46,7 +46,7 @@ const userLang = computed({
   legend {
     width: 100%;
     font-size: var(--font-size-xs);
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     color: var(--color-grey-text);
     margin-block-end: 0.5rem;
   }

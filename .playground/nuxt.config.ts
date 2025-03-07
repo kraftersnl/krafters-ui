@@ -6,8 +6,6 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    provider: 'iconify',
-    serverBundle: false,
     clientBundle: {
       scan: true,
       sizeLimitKb: 256,
@@ -22,6 +20,7 @@ export default defineNuxtConfig({
     baseURL: '/krafters-ui',
     head: {
       title: 'Krafters UI',
+      link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
     },
   },
 });

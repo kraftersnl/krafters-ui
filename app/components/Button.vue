@@ -136,7 +136,7 @@ const emit = defineEmits(['click']);
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: var(--font-size, var(--font-size-sm));
   border: 1px solid transparent;
   transition-property: color, background-color, opacity;
@@ -340,7 +340,7 @@ const emit = defineEmits(['click']);
 
 .button-variant--menu {
   width: 100%;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   flex-direction: row-reverse;
   justify-content: space-between;
   background-color: transparent;
@@ -370,7 +370,7 @@ const emit = defineEmits(['click']);
   }
 
   &.router-link-active {
-    font-weight: 600;
+    font-weight: var(--font-weight-bold);
     color: var(--color-accent);
 
     .iconify {
@@ -383,7 +383,7 @@ const emit = defineEmits(['click']);
   display: flex;
   gap: 0.5rem;
   width: 100%;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   justify-content: start;
   padding-inline: 2rem;
   background-color: transparent;
@@ -402,12 +402,39 @@ const emit = defineEmits(['click']);
 
   &.router-link-exact-active {
     text-decoration: underline;
-    font-weight: 600;
+    font-weight: var(--font-weight-bold);
     color: var(--color-accent);
 
     .iconify {
       color: var(--color-accent-text);
     }
+  }
+}
+
+.button-variant--topbar {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  font-weight: var(--font-weight-medium);
+  justify-content: start;
+  padding-inline: 1rem;
+  background-color: transparent;
+
+  .iconify {
+    color: var(--color-grey-graphic);
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--color-accent);
+
+    .iconify {
+      color: var(--color-accent-text);
+    }
+  }
+
+  &.router-hash-link-active {
+    color: var(--color-accent);
   }
 }
 

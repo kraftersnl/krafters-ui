@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
+    '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxtjs/html-validator',
@@ -28,6 +29,10 @@ export default defineNuxtConfig({
     },
   },
 
+  image: {
+    domains: ['i.ytimg.com', 'i.vimeocdn.com'],
+  },
+
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'nl',
@@ -41,7 +46,6 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
       htmlAttrs: {
         lang: typeof window !== 'undefined' ? navigator?.language : 'en',
         style: 'background-color: #000',

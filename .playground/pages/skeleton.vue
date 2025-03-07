@@ -16,7 +16,7 @@ const skeletonAnimations = [
 </script>
 
 <template>
-  <div class="demo-page layout-page">
+  <div class="demo-page skeleton-page">
     <h1>Skeleton screens</h1>
 
     <Card>

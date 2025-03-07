@@ -113,6 +113,7 @@ function handleSubmit(formData: FormData) {
         <Input
           label="First name"
           name="first-name"
+          maxlength="3"
           style="--col-width: var(--col-width-25)"
         />
 
