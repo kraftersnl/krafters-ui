@@ -232,6 +232,7 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
+    --duration-xs: 0.1s;
     --duration-sm: 0.2s;
     --duration-md: 0.35s;
     --duration-lg: 0.65s;

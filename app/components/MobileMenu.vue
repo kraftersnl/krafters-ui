@@ -104,7 +104,7 @@ const emit = defineEmits<{
     <Button
       v-else
       :icon="computedIcon"
-      :class="`mobile-nav-toggle ${props.triggerClass ?? ''}`"
+      :class="`mobile-nav-toggle ${triggerClass ?? ''}`"
       :size="triggerButtonSize"
       :icon-size="triggerIconSize"
       :variant="triggerButtonVariant"

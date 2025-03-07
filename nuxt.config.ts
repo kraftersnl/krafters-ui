@@ -29,10 +29,6 @@ export default defineNuxtConfig({
     },
   },
 
-  image: {
-    domains: ['i.ytimg.com', 'i.vimeocdn.com'],
-  },
-
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'nl',
@@ -41,13 +37,16 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en', file: 'en.json' },
       { code: 'nl', language: 'nl', file: 'nl.json' },
     ],
-    vueI18n: './i18n.config.ts',
+  },
+
+  image: {
+    domains: ['i.ytimg.com', 'i.vimeocdn.com'],
   },
 
   app: {
     head: {
       htmlAttrs: {
-        lang: typeof window !== 'undefined' ? navigator?.language : 'en',
+        lang: 'nl',
         style: 'background-color: #000',
       },
     },

@@ -35,7 +35,7 @@
     "eslint": "^9.21.0",
     "markdown-it": "^14.1.0",
     "md-editor-v3": "^5.3.2",
-    "nuxt": "^3.15.4",
+    "nuxt": "3.15.4",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
     "vue": "^3.5.13",

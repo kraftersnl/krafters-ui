@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Skeleton loading | Krafters UI' });
+useHead({ title: 'Video Player | Krafters UI' });
 
 const youtube = ref('https://youtube.com/watch?v=4gPXn45d_8g');
 const vimeo = ref('https://vimeo.com/132733629');
