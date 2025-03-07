@@ -14,6 +14,7 @@ export default defineNuxtConfig({
 
   i18n: {
     baseUrl: 'https://kraftersnl.github.io/krafters-ui/',
+    defaultLocale: 'en',
   },
 
   app: {

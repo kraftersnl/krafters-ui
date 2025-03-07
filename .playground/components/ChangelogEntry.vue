@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { locale } = useI18n();
+
 defineProps<{
   v: string;
   date: string;
@@ -10,7 +12,7 @@ defineProps<{
     <h2>{{ v }}</h2>
 
     <time :datetime="date">
-      {{ $d(new Date(date), 'long') }}
+      {{ d(date, 'long', locale) }}
     </time>
 
     <slot />
