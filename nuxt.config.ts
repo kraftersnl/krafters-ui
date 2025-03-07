@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
-    '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxtjs/html-validator',
@@ -37,10 +36,6 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en', file: 'en.json' },
       { code: 'nl', language: 'nl', file: 'nl.json' },
     ],
-  },
-
-  image: {
-    domains: ['i.ytimg.com', 'i.vimeocdn.com'],
   },
 
   app: {

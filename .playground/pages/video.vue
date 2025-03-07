@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({ title: 'Video Player | Krafters UI' });
 
-const youtube = ref('https://youtube.com/watch?v=4gPXn45d_8g');
+const youtube = ref('https://youtube.com/watch?v=2oiBKSjOOFE');
 const vimeo = ref('https://vimeo.com/132733629');
 </script>
 
@@ -28,6 +28,7 @@ const vimeo = ref('https://vimeo.com/132733629');
 <style>
 .video-page {
   .card {
+    max-width: 640px;
     display: grid;
     gap: 1rem;
 

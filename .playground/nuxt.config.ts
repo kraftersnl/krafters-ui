@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     baseURL: '/krafters-ui',
     head: {
       title: 'Krafters UI',
-      link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+      link: [{ rel: 'icon', href: 'favicon.svg', type: 'image/svg+xml' }],
     },
   },
 });

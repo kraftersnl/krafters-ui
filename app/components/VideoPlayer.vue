@@ -80,11 +80,10 @@ const embedUrl = computed(() => {
 
 <template>
   <figure class="video-player" :style="`--aspect-ratio: ${ratio};`">
-    <NuxtImg
+    <img
       v-if="!started && videoData"
       :src="videoData?.thumbnail_url"
       :alt="videoData?.title || ''"
-      format="webp"
       @click="playVideo"
     />
 
@@ -129,7 +128,7 @@ const embedUrl = computed(() => {
     border-radius: var(--radius-full);
     position: absolute;
     cursor: pointer;
-    scale: 0.9;
+    scale: 0.95;
     transition: scale var(--duration-sm) ease-out;
 
     .iconify {

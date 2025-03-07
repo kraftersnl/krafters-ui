@@ -1,7 +1,7 @@
 export function d(
   date: number | string | Date,
   format: string | Intl.DateTimeFormatOptions = 'long',
-  locale = 'en',
+  locale = 'nl',
 ) {
   if (!date) return;
 
@@ -25,7 +25,7 @@ const formats: { [key: string]: Intl.DateTimeFormatOptions } = {
   numeric: {
     day: '2-digit',
     month: '2-digit',
-    year: '2-digit',
+    year: 'numeric',
   },
   datetime: {
     day: '2-digit',

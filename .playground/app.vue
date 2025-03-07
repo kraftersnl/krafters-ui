@@ -27,7 +27,7 @@ watch(
         </aside>
 
         <main id="main">
-          <NuxtPage class="playground" />
+          <NuxtPage />
         </main>
       </div>
     </div>

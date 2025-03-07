@@ -8,6 +8,10 @@ useHead({ title: 'Changelog | Krafters UI' });
 
     <ChangelogEntry v="1.2.7" date="2025-03-07">
       <ul>
+        <li>
+          Breaking: replace <code>datetime()</code> function with
+          <code>d()</code> to replace <code>$d()</code> from vue-i18n
+        </li>
         <li>Add VideoPlayer component</li>
         <li>Add CopyButton component</li>
         <li>Add ThemeToggle component</li>
