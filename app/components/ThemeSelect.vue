@@ -1,12 +1,9 @@
-<script setup lang="ts">
-defineProps<{ hideLabels?: boolean }>();
-const colorMode = useColorMode();
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="theme-select">
     <fieldset class="color-theme-fieldset">
-      <legend :class="hideLabels ? 'visuallyhidden' : ''">
+      <legend>
         {{ $t('theme.heading') }}
       </legend>
 
@@ -14,7 +11,7 @@ const colorMode = useColorMode();
         <li class="color-theme-option">
           <input
             id="color-theme-light"
-            v-model="colorMode.preference"
+            v-model="$colorMode.preference"
             name="color-theme"
             value="light"
             type="radio"
@@ -22,7 +19,7 @@ const colorMode = useColorMode();
 
           <label for="color-theme-light">
             <Icon name="heroicons-solid:sun" />
-            <span :class="hideLabels ? 'visuallyhidden' : ''">
+            <span>
               {{ $t('theme.light') }}
             </span>
           </label>
@@ -31,7 +28,7 @@ const colorMode = useColorMode();
         <li class="color-theme-option">
           <input
             id="color-theme-dark"
-            v-model="colorMode.preference"
+            v-model="$colorMode.preference"
             name="color-theme"
             value="dark"
             type="radio"
@@ -39,7 +36,7 @@ const colorMode = useColorMode();
 
           <label for="color-theme-dark">
             <Icon name="heroicons-solid:moon" />
-            <span :class="hideLabels ? 'visuallyhidden' : ''">
+            <span>
               {{ $t('theme.dark') }}
             </span>
           </label>
@@ -48,14 +45,14 @@ const colorMode = useColorMode();
         <li class="color-theme-option">
           <input
             id="color-theme-system"
-            v-model="colorMode.preference"
+            v-model="$colorMode.preference"
             name="color-theme"
             value="system"
             type="radio"
           />
           <label for="color-theme-system">
             <Icon name="heroicons-solid:desktop-computer" />
-            <span :class="hideLabels ? 'visuallyhidden' : ''">
+            <span>
               {{ $t('theme.system') }}
             </span>
           </label>
