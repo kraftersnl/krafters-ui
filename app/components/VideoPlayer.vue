@@ -1,12 +1,9 @@
 <script setup lang="ts">
 const props = defineProps<{
-  url?: string;
+  url: string;
 }>();
 
-const videoKey = ref();
 const started = ref(false);
-const ratio = ref(16 / 9);
-const videoData: VideoMetaData = reactive({});
 
 const videoProvider = computed(() => {
   if (props.url?.includes('vimeo')) {
@@ -15,60 +12,49 @@ const videoProvider = computed(() => {
   return 'youtube';
 });
 
-watchEffect(() => getVideo());
-
-function playVideo() {
-  started.value = true;
-}
-
-async function getVideo() {
-  started.value = false;
-
-  // YouTube URL match
-  if (videoProvider.value === 'youtube') {
-    if (props.url) {
-      const match = props.url.match(
-        /:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/)?([a-zA-Z0-9-_]+)(?:(?:&t=|\?t=|\?start=)(\d+))?/,
-      );
-      if (match?.length === 3) {
-        videoKey.value = match[1];
-      }
-    }
-  }
-
-  // Vimeo URL match
-  if (videoProvider.value === 'vimeo') {
-    if (props.url) {
-      const match = props.url.match(
-        /:\/\/(?:player\.)?vimeo\.com\/(?:video\/)?(\d+)(?:#t=(\d+?)s)?/,
-      );
-      if (match?.length === 3) {
-        videoKey.value = match[1];
-      }
-    }
-  }
-
-  await getRatio();
-}
-
-async function getRatio() {
-  let url = `https://youtube.com/oembed?url=https://youtube.com/watch?v=${videoKey.value}&format=json`;
+const videoKey = computed(() => {
+  let match;
 
   if (videoProvider.value === 'vimeo') {
-    url = `https://vimeo.com/api/oembed.json?url=https://vimeo.com/132733629&width=960&height=540`;
+    match = props.url.match(
+      /:\/\/(?:player\.)?vimeo\.com\/(?:video\/)?(\d+)(?:#t=(\d+?)s)?/,
+    );
+  } else {
+    match = props.url.match(
+      /:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/)?([a-zA-Z0-9-_]+)(?:(?:&t=|\?t=|\?start=)(\d+))?/,
+    );
   }
 
-  const { data: response } = await useAsyncData<VideoMetaDataResponse>(
-    props.url,
-    () => $fetch(url),
-  );
-  Object.assign(videoData, response.value);
-
-  if (response.value?.width && response.value?.height) {
-    ratio.value = response.value.width / response.value.height;
+  if (match?.length === 3) {
+    return match[1];
   }
-  if (ratio.value >= 1.76 && ratio.value <= 1.79) ratio.value = 16 / 9;
-}
+
+  return undefined;
+});
+
+const metadataUrl = computed(() => {
+  if (videoProvider.value === 'vimeo') {
+    return `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoKey.value}&width=960&height=540`;
+  }
+  return `https://youtube.com/oembed?url=https://youtube.com/watch?v=${videoKey.value}&format=json`;
+});
+
+const { data: videoData } = useAsyncData<VideoMetaData>(props.url, () =>
+  $fetch(metadataUrl.value),
+);
+
+const ratio = computed(() => {
+  if (videoData.value?.width && videoData.value?.height) {
+    const ar = videoData.value.width / videoData.value.height;
+
+    if (ar >= 1.76 && ar <= 1.79) {
+      return 16 / 9;
+    }
+    return ar;
+  }
+
+  return 16 / 9;
+});
 
 const embedUrl = computed(() => {
   if (videoProvider.value === 'vimeo') {
@@ -76,6 +62,10 @@ const embedUrl = computed(() => {
   }
   return `https://www.youtube-nocookie.com/embed/${videoKey.value}?autoplay=1&disablekb=1`;
 });
+
+function playVideo() {
+  started.value = true;
+}
 </script>
 
 <template>
@@ -84,6 +74,7 @@ const embedUrl = computed(() => {
       v-if="!started && videoData"
       :src="videoData?.thumbnail_url"
       :alt="videoData?.title || ''"
+      loading="lazy"
       @click="playVideo"
     />
 
@@ -105,9 +96,9 @@ const embedUrl = computed(() => {
 
 <style>
 .video-player {
-  width: 100%;
   position: relative;
   display: grid;
+  min-width: 240px;
   place-items: center;
 
   img {
@@ -120,7 +111,6 @@ const embedUrl = computed(() => {
   button {
     background-color: black;
     padding: 0;
-
     border: none;
     color: white;
     display: grid;
