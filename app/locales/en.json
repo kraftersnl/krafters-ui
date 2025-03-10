@@ -18,6 +18,7 @@
     "tooltip": "More info",
     "user-menu": "User menu"
   },
+
   "datepicker": {
     "input": "Datepicker input",
     "selectText": "Select",
@@ -36,9 +37,27 @@
     "nextYear": "Next year",
     "prevYear": "Previous year"
   },
+
   "empty": {
     "no-description": "No description."
   },
+
+  "error": {
+    "403": "unauthorized",
+    "404": "not found",
+    "heading": "Error",
+    "invalid-email": "Email address is invalid.",
+    "invalid-phone": "Phone number is invalid.",
+    "invalid-url": "Website URL is invalid.",
+    "page-not-found": "Page not found.",
+    "unauthorized": "You are unauthorized to view this page."
+  },
+
+  "form-errors": {
+    "not-filled-in": "{item} is missing.",
+    "required": "required"
+  },
+
   "files": {
     "browse": "Browse files",
     "example": "Example of {file}",
@@ -48,16 +67,14 @@
     "thumb": "Thumbnail of {file}",
     "too-big": "File size is too big"
   },
-  "form-errors": {
-    "not-filled-in": "{item} is missing.",
-    "required": "required"
-  },
+
   "filters": {
     "apply": "Apply filters",
     "heading": "Filter | Filters",
     "reset": "Reset filters",
     "reset-all": "Reset all filters"
   },
+
   "general": {
     "about": "About",
     "actions": "Actions",
@@ -159,13 +176,16 @@
     "website": "Website",
     "yes": "yes"
   },
+
   "meter": {
     "value-of-max": "{value} of {max}"
   },
+
   "multiselect": {
     "items-selected": "items selected",
     "pages-selected": "pages selected"
   },
+
   "password": {
     "confirm": "Confirm new password",
     "current": "Current password",
@@ -182,6 +202,7 @@
     "update": "Update password",
     "updated": "Your password has been updated. You will be signed in automatically."
   },
+
   "pagination": {
     "current-page": "page",
     "first-page": "First page",
@@ -192,9 +213,11 @@
     "per-page": "items per page",
     "prev-page": "Previous page"
   },
+
   "select": {
     "no-options": "No options"
   },
+
   "theme": {
     "dark": "Dark",
     "heading": "Theme",

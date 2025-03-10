@@ -18,6 +18,7 @@
     "tooltip": "Meer info",
     "user-menu": "Open gebruikersmenu"
   },
+
   "datepicker": {
     "input": "Datumveld",
     "selectText": "Selecteren",
@@ -36,9 +37,27 @@
     "nextYear": "Volgend jaar",
     "prevYear": "Vorig jaar"
   },
+
   "empty": {
     "no-description": "Geen beschrijving."
   },
+
+  "error": {
+    "403": "geen toegang",
+    "404": "niet gevonden",
+    "heading": "Foutmelding",
+    "invalid-email": "Emailadres is ongeldig.",
+    "invalid-phone": "Telefoonnummer is ongeldig.",
+    "invalid-url": "Website URL is ongeldig.",
+    "page-not-found": "Pagina niet gevonden.",
+    "unauthorized": "Je hebt geen rechten om deze pagina te openen."
+  },
+
+  "form-errors": {
+    "not-filled-in": "{item} ontbreekt.",
+    "required": "vereist"
+  },
+
   "files": {
     "browse": "Selecteer bestand",
     "example": "Voorbeeld van {file}",
@@ -48,16 +67,14 @@
     "thumb": "Thumbnail van {file}",
     "too-big": "Bestandsgrootte is te groot"
   },
-  "form-errors": {
-    "not-filled-in": "{item} ontbreekt.",
-    "required": "vereist"
-  },
+
   "filters": {
     "apply": "Filters toepassen",
     "heading": "Filter | Filters",
     "reset": "Reset filters",
     "reset-all": "Reset alle filters"
   },
+
   "general": {
     "about": "Over",
     "actions": "Acties",
@@ -159,13 +176,16 @@
     "website": "Website",
     "yes": "yes"
   },
+
   "meter": {
     "value-of-max": "{value} van {max}"
   },
+
   "multiselect": {
     "items-selected": "{count} items geselecteerd",
     "pages-selected": "{count} pagina's geselecteerd"
   },
+
   "password": {
     "confirm": "Herhaal nieuwe wachtwoord",
     "current": "Huidig wachtwoord",
@@ -182,6 +202,7 @@
     "update": "Wachtwoord wijzigen",
     "updated": "Je wachtwoord is gewijzigd. Je wordt automatisch ingelogd."
   },
+
   "pagination": {
     "current-page": "pagina",
     "first-page": "Eerste pagina",
@@ -192,9 +213,11 @@
     "per-page": "items per pagina",
     "prev-page": "Vorige pagina"
   },
+
   "select": {
     "no-options": "Geen opties"
   },
+
   "theme": {
     "dark": "Donker",
     "heading": "Thema",
