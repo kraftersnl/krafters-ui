@@ -296,9 +296,10 @@ html {
   text-size-adjust: none;
 
   /* prevent obscured content when using the keyboard to shift focus */
-  scroll-padding-block: 2rem;
-  @media (min-width: 360px) {
-    scroll-padding-block: 4rem;
+  scroll-padding-block: 1rem;
+
+  @media (min-width: 360px) and (min-height: 360px) {
+    scroll-padding-block: 2rem;
   }
 }
 

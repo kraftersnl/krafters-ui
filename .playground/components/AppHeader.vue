@@ -53,7 +53,7 @@ watch(
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 
-  @media (min-width: 360px) {
+  @media (min-width: 360px) and (min-height: 360px) {
     position: sticky;
     z-index: 2;
     top: 0;
