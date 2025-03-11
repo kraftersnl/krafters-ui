@@ -9,6 +9,7 @@ const props = withDefaults(
     title?: string;
     required?: boolean;
     disabled?: boolean;
+    readonly?: boolean;
     autofocus?: boolean;
     type?: string;
     autocomplete?: string;
@@ -126,6 +127,7 @@ const emit = defineEmits(['focus', 'blur']);
       :pattern="inputPattern"
       :required="required"
       :disabled="disabled"
+      :readonly="readonly"
       :autofocus="autofocus"
       :placeholder="placeholder"
       :minlength="minlength"

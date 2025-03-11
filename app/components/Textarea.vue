@@ -15,6 +15,7 @@ const props = withDefaults(
     hideLabel?: boolean;
     required?: boolean;
     disabled?: boolean;
+    readonly?: boolean;
     autofocus?: boolean;
     autoresize?: boolean;
   }>(),
@@ -89,6 +90,7 @@ defineExpose({
       :class="`textarea ${autoresize ? 'autoresize' : ''}`"
       :placeholder="placeholder"
       :disabled="disabled"
+      :readonly="readonly"
       :required="required"
       :pattern="pattern"
       :autofocus="autofocus"

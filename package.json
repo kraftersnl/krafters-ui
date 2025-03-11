@@ -30,7 +30,6 @@
     "@vueform/multiselect": "^2.6.11",
     "@vuepic/vue-datepicker": "^11.0.1",
     "@vueuse/nuxt": "^12.8.2",
-    "blurhash": "^2.0.5",
     "compressorjs": "^1.2.1",
     "eslint": "^9.21.0",
     "markdown-it": "^14.1.0",
