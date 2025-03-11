@@ -6,12 +6,18 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
-    <ChangelogEntry v="1.2.7" date="2025-03-07">
+    <ChangelogEntry v="1.3.0" date="2025-03-11">
       <ul>
         <li>
           Breaking: replace <code>datetime()</code> function with
           <code>d()</code> to replace <code>$d()</code> from vue-i18n
         </li>
+        <li>Add <code>readonly</code> prop to Input and Textarea components</li>
+      </ul>
+    </ChangelogEntry>
+
+    <ChangelogEntry v="1.2.7" date="2025-03-07">
+      <ul>
         <li>Add VideoPlayer component</li>
         <li>Add CopyButton component</li>
         <li>Add ThemeToggle component</li>
