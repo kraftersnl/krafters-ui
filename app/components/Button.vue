@@ -393,21 +393,28 @@ const emit = defineEmits(['click']);
   }
 
   &:hover {
-    color: var(--color-accent);
+    text-decoration: underline;
 
     .iconify {
       color: var(--color-accent-text);
     }
   }
 
-  &.router-link-exact-active {
-    text-decoration: underline;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-accent);
+  &:not(~ .router-hash-link-active) {
+    &.router-link-exact-active {
+      text-decoration: underline;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent);
 
-    .iconify {
-      color: var(--color-accent-text);
+      .iconify {
+        color: var(--color-accent-text);
+      }
     }
+  }
+
+  &.router-hash-link-active {
+    color: var(--color-accent);
+    text-decoration: underline;
   }
 }
 
