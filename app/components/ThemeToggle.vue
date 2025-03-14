@@ -1,15 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <Transition mode="out-in" name="fade">
-    <div
-      v-if="$colorMode.unknown === true"
-      type="button"
-      class="theme-toggle-button"
-    />
-
+  <ClientOnly>
     <button
-      v-else
       id="theme-toggle"
       type="button"
       class="theme-toggle-button"
@@ -27,7 +20,7 @@
       />
       <span class="visuallyhidden">Dark Theme</span>
     </button>
-  </Transition>
+  </ClientOnly>
 </template>
 
 <style>
