@@ -78,6 +78,7 @@ useHead({ title: 'Buttons | Krafters UI' });
           font-size="xl"
           icon="cloud-download"
           hide-label
+          label="Download"
         />
         <Button
           radius="md"
@@ -85,6 +86,7 @@ useHead({ title: 'Buttons | Krafters UI' });
           font-size="xl"
           icon="cloud-download"
           hide-label
+          label="Download"
         />
         <Button
           radius="sm"
@@ -92,6 +94,7 @@ useHead({ title: 'Buttons | Krafters UI' });
           font-size="xl"
           icon="cloud-download"
           hide-label
+          label="Download"
         />
         <Button
           radius="xs"
@@ -99,6 +102,7 @@ useHead({ title: 'Buttons | Krafters UI' });
           font-size="lg"
           icon="cloud-download"
           hide-label
+          label="Download"
         />
       </div>
 

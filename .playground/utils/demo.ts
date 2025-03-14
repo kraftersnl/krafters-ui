@@ -75,11 +75,11 @@ export const navList: MenuItem[] = [
     to: '/skeleton',
     label: 'Skeleton screens',
   },
-  {
-    id: 'image',
-    to: '/image',
-    label: 'Lazy Image',
-  },
+  // {
+  //   id: 'image',
+  //   to: '/image',
+  //   label: 'Lazy Image',
+  // },
   {
     id: 'video',
     to: '/video',
