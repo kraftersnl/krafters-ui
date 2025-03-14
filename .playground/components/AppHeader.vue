@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { version } from '../../package.json';
 
-const { navList } = useDemo();
-
 const route = useRoute();
 const mobileMenuRef = useTemplateRef('mobileMenu');
 

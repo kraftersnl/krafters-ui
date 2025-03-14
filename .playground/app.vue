@@ -1,7 +1,5 @@
 <script setup lang="ts">
 const route = useRoute();
-const head = useLocaleHead();
-const { navList } = useDemo();
 const appRef = useTemplateRef('app');
 
 watch(
@@ -13,7 +11,6 @@ watch(
 </script>
 
 <template>
-  <Html :lang="head.htmlAttrs?.lang">
     <div ref="app" tabindex="-1" class="app-focus-wrapper">
       <NuxtRouteAnnouncer />
 
@@ -31,7 +28,6 @@ watch(
         </main>
       </div>
     </div>
-  </Html>
 </template>
 
 <style>

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const route = useRoute();
-
 withDefaults(
   defineProps<{
     list: MenuItem[];
@@ -76,7 +74,6 @@ const emit = defineEmits<{
           :font-size="fontSize"
           :icon-size="iconSize"
           :variant="buttonVariant"
-          :class="route.fullPath === item.to ? 'router-hash-link-active' : ''"
           @click="handleClick(item)"
         />
 

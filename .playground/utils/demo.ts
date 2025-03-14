@@ -1,4 +1,4 @@
-const navList = [
+export const navList: MenuItem[] = [
   {
     id: 'changelog',
     to: '/',
@@ -76,14 +76,13 @@ const navList = [
     label: 'Skeleton screens',
   },
   {
+    id: 'image',
+    to: '/image',
+    label: 'Lazy Image',
+  },
+  {
     id: 'video',
     to: '/video',
     label: 'Video Player',
   },
 ];
-
-export function useDemo() {
-  return {
-    navList,
-  };
-}
