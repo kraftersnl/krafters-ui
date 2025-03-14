@@ -2,14 +2,11 @@
 
 <template>
   <Transition mode="out-in" name="fade">
-    <button
+    <div
       v-if="$colorMode.unknown === true"
       type="button"
       class="theme-toggle-button"
-      disabled
-    >
-      <span class="visuallyhidden">Loading...</span>
-    </button>
+    />
 
     <button
       v-else
