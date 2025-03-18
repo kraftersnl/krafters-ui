@@ -55,7 +55,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
         v-if="model"
         type="reset"
         :title="$t('general.reset')"
-        icon="refresh"
+        icon="x"
         size="sm"
         icon-size="md"
         hide-label
