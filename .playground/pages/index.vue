@@ -6,6 +6,12 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.3.2" date="2025-03-18">
+      <ul>
+        <li>Remove animation from Dialog component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.3.1" date="2025-03-14">
       <ul>
         <li>Move locales folder to root i18n folder</li>
