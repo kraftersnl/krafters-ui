@@ -17,6 +17,6 @@ import { VueAxePopup } from 'vue-axe';
 }
 
 .va-popup-btn {
-  box-shadow: 2px 2px 3px 2px var(--color-grey-bg) !important;
+  box-shadow: none !important;
 }
 </style>
