@@ -145,7 +145,6 @@ watch(
       <button
         tabindex="-1"
         type="button"
-        :aria-labelledby="id"
         :disabled="disabled"
         :class="`
           file-input-button
@@ -155,6 +154,7 @@ watch(
         `"
       >
         <Icon :name="fileTypeIcon(model)" />
+        <span class="visuallyhidden">{{ label }}</span>
         <img
           v-if="imagePreview"
           :src="imagePreview"

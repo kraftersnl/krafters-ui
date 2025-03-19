@@ -307,6 +307,7 @@ const emit = defineEmits(['click']);
   overflow-wrap: anywhere;
   min-height: 0;
   height: auto;
+  font-size: inherit;
   display: inline-flex;
   justify-content: start;
   align-items: center;
@@ -387,6 +388,7 @@ const emit = defineEmits(['click']);
   justify-content: start;
   padding-inline: 2rem;
   background-color: transparent;
+  transition-duration: 0s;
 
   .iconify {
     color: var(--color-grey-graphic);
@@ -426,6 +428,7 @@ const emit = defineEmits(['click']);
   justify-content: start;
   padding-inline: 1rem;
   background-color: transparent;
+  transition-duration: 0s;
 
   .iconify {
     color: var(--color-grey-graphic);

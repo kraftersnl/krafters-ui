@@ -7,19 +7,25 @@ on:
       - main
 
 jobs:
-  # test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 22
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-  #     - name: Install packages
-  #       run: npm ci
+      - name: Install packages
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run accessibility tests
+        run: npm run test
 
   publish:
-    # needs: test
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

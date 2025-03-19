@@ -1,9 +1,9 @@
 <script setup lang="ts">
 useHead({ title: 'Progress | Krafters UI' });
 
-const buttonSize = ref();
-const fontSize = ref();
-const iconSize = ref();
+// const buttonSize = ref();
+// const fontSize = ref();
+// const iconSize = ref();
 
 const menuList = [
   { id: 'a', label: 'User profile', icon: 'hugeicons:user-account' },

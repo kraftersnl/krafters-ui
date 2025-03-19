@@ -11,23 +11,25 @@ watch(
 </script>
 
 <template>
-    <div ref="app" tabindex="-1" class="app-focus-wrapper">
-      <NuxtRouteAnnouncer />
+  <div ref="app" tabindex="-1" class="app-focus-wrapper">
+    <NuxtRouteAnnouncer />
 
-      <SkipLink />
+    <SkipLink />
 
-      <AppHeader />
+    <AppHeader />
 
-      <div class="app-layout">
-        <aside class="app-sidebar">
-          <MenuList :list="navList" button-size="sm" button-variant="sidebar" />
-        </aside>
+    <div class="app-layout">
+      <aside class="app-sidebar">
+        <MenuList :list="navList" button-size="sm" button-variant="sidebar" />
+      </aside>
 
-        <main id="main">
-          <NuxtPage />
-        </main>
-      </div>
+      <main id="main">
+        <NuxtPage />
+      </main>
     </div>
+  </div>
+
+  <AxePopup />
 </template>
 
 <style>

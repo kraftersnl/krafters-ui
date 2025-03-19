@@ -84,50 +84,25 @@ const computedAriaLabel = computed(() => {
 .callout-color--accent {
   border-color: var(--color-accent);
   color: var(--color-accent-text);
-  /* background-color: var(--color-accent-bg); */
-
-  .tooltip-trigger-button {
-    color: var(--color-accent-text);
-  }
 }
 
 .callout-color--blue {
   border-color: var(--color-blue);
   color: var(--color-blue-text);
-  /* background-color: var(--color-blue-bg); */
-
-  .tooltip-trigger-button {
-    color: var(--color-blue-text);
-  }
 }
 
 .callout-color--green {
   border-color: var(--color-green);
   color: var(--color-green-text);
-  /* background-color: var(--color-green-bg); */
-
-  .tooltip-trigger-button {
-    color: var(--color-green-text);
-  }
 }
 
 .callout-color--orange {
   border-color: var(--color-orange);
   color: var(--color-orange-text);
-  /* background-color: var(--color-orange-bg); */
-
-  .tooltip-trigger-button {
-    color: var(--color-orange-text);
-  }
 }
 
 .callout-color--red {
   border-color: var(--color-red);
   color: var(--color-red-text);
-  /* background-color: var(--color-red-bg); */
-
-  .tooltip-trigger-button {
-    color: var(--color-red-text);
-  }
 }
 </style>

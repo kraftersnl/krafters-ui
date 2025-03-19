@@ -4,29 +4,21 @@ import { dirname, join } from 'path';
 const currentDir = dirname(fileURLToPath(import.meta.url));
 
 export default defineNuxtConfig({
+  devtools: { enabled: false },
+
+  pages: true,
+
+  css: [join(currentDir, './app/assets/main.css')],
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
+    '@nuxt/test-utils/module',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxtjs/html-validator',
     '@vueuse/nuxt',
   ],
-
-  htmlValidator: {
-    usePrettier: true,
-    options: {
-      rules: {
-        'no-redundant-role': 'off',
-        'no-implicit-input-type': 'off',
-        'heading-level': 'off',
-        'unique-landmark': 'off',
-        'prefer-native-element': 'off',
-        'no-missing-references': 'off',
-        'long-title': 'off',
-      },
-    },
-  },
 
   i18n: {
     strategy: 'no_prefix',
@@ -47,13 +39,22 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [join(currentDir, './app/assets/main.css')],
+  htmlValidator: {
+    usePrettier: true,
+    options: {
+      rules: {
+        'no-redundant-role': 'off',
+        'no-implicit-input-type': 'off',
+        'heading-level': 'off',
+        'unique-landmark': 'off',
+        'prefer-native-element': 'off',
+        'no-missing-references': 'off',
+        'long-title': 'off',
+      },
+    },
+  },
 
-  pages: true,
-
-  devtools: { enabled: true },
-
-  compatibilityDate: '2025-1-8',
+  compatibilityDate: '2025-01-08',
 
   future: {
     compatibilityVersion: 4,

@@ -1,10 +1,6 @@
 export default defineNuxtConfig({
   extends: ['..'],
 
-  devServer: {
-    port: 3003,
-  },
-
   icon: {
     clientBundle: {
       scan: true,
@@ -17,11 +13,22 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   },
 
+  $production: {
+    app: {
+      baseURL: '/krafters-ui',
+    },
+  },
+
   app: {
-    baseURL: '/krafters-ui',
     head: {
       title: 'Krafters UI',
       link: [{ rel: 'icon', href: 'favicon.svg', type: 'image/svg+xml' }],
     },
   },
+
+  devServer: {
+    port: 3003,
+  },
+
+  compatibilityDate: '2025-03-19',
 });
