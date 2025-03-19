@@ -34,6 +34,12 @@ withDefaults(
 );
 
 const id = useId();
+
+const colorMode = useColorMode();
+const isMounted = ref(false);
+const isDark = computed(() => isMounted.value && colorMode.value === 'dark');
+
+onMounted(() => (isMounted.value = true));
 </script>
 
 <template>
@@ -58,7 +64,7 @@ const id = useId();
       :disabled="disabled"
       :month-change-on-scroll="monthChangeOnScroll"
       :action-row="{ showSelect, showCancel, showNow, showPreview }"
-      :dark="$colorMode?.value === 'dark'"
+      :dark="isDark"
       :locale="$i18n.locale"
       :select-text="$t('datepicker.selectText')"
       :cancel-text="$t('datepicker.cancelText')"
