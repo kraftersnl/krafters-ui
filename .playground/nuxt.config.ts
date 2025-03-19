@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     clientBundle: {
       scan: true,
       sizeLimitKb: 256,
+      icons: ['heroicons-solid:x'],
     },
   },
 
