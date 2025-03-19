@@ -79,12 +79,12 @@ function playVideo() {
       @click="playVideo"
     />
 
-    <figcaption v-if="!started && caption">{{ caption }}</figcaption>
-
     <button v-if="!started" type="button" @click="playVideo">
       <Icon name="ic:round-play-arrow" />
       <span class="visuallyhidden">Speel video af: {{ videoData?.title }}</span>
     </button>
+
+    <figcaption v-if="!started && caption">{{ caption }}</figcaption>
 
     <div v-if="started" class="iframe-wrapper">
       <iframe
