@@ -1,6 +1,8 @@
 export default defineNuxtConfig({
   extends: ['..'],
 
+  modules: ['@nuxt/test-utils/module'],
+
   icon: {
     clientBundle: {
       scan: true,

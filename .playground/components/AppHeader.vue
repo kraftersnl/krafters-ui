@@ -2,7 +2,7 @@
 import { version } from '../../package.json';
 
 const route = useRoute();
-const mobileMenuRef = useTemplateRef('mobileMenu');
+const mobileMenuRef = useTemplateRef<DialogComponent>('mobileMenu');
 
 watch(
   () => route.path,
