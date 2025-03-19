@@ -102,7 +102,7 @@ const position = ref('center');
         />
       </div>
 
-      <Dialog2
+      <Dialog
         ref="dialog"
         :position="position"
         label="Dialog title"
@@ -113,7 +113,7 @@ const position = ref('center');
           nesciunt quam. Totam iste quasi nemo saepe a distinctio architecto?
           Maxime odio nam a placeat qui illo iure cupiditate et.
         </p>
-      </Dialog2>
+      </Dialog>
     </div>
   </div>
 </template>
