@@ -20,7 +20,7 @@ export type SuccessCriterion = {
   key?: string;
   name?: string;
   number?: string;
-  number_int?: number;
+  numberInt?: number | string;
   description?: string;
   level?: string;
   principle?: string;
