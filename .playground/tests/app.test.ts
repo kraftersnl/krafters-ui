@@ -1,6 +1,6 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime';
 import { axe } from 'vitest-axe';
-import App from '../.playground/app.vue';
+import App from '../app.vue';
 
 describe('Docs', () => {
   it('Changelog page has no accessibility violations', async () => {

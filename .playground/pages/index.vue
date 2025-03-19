@@ -6,6 +6,19 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.3.7" date="2025-03-20">
+      <ul>
+        <li>Move tests to playground</li>
+      </ul>
+    </ChangelogEntry>
+
+    <ChangelogEntry v="1.3.6" date="2025-03-20">
+      <ul>
+        <li>Remove <code>@nuxt/test-utils/module</code> from nuxt config</li>
+        <li>Update to Nuxt 3.16.1</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.3.5" date="2025-03-19">
       <ul>
         <li>Update to Nuxt 3.16.0</li>

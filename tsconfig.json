@@ -3,5 +3,5 @@
     "types": ["vitest/globals"]
   },
   "extends": "./.playground/.nuxt/tsconfig.json",
-  "include": ["tests/**/*"]
+  "include": [".playground/**/*"]
 }
