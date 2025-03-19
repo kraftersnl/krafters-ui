@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   url: string;
+  caption?: string;
 }>();
 
 const started = ref(false);
@@ -78,6 +79,8 @@ function playVideo() {
       @click="playVideo"
     />
 
+    <figcaption v-if="!started && caption">{{ caption }}</figcaption>
+
     <button v-if="!started" type="button" @click="playVideo">
       <Icon name="ic:round-play-arrow" />
       <span class="visuallyhidden">Speel video af: {{ videoData?.title }}</span>
@@ -106,6 +109,11 @@ function playVideo() {
     background-color: black;
     aspect-ratio: var(--aspect-ratio);
     width: 100%;
+  }
+
+  figcaption {
+    padding-block-start: 1rem;
+    font-style: italic;
   }
 
   button {

@@ -339,7 +339,7 @@ figure {
 blockquote {
   margin: 0;
   border-inline-start: 3px solid var(--color-accent);
-  padding-inline-start: 1rem;
+  padding-inline-start: 1.5rem;
 
   > p {
     font-style: italic;
