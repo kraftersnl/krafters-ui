@@ -8,3 +8,14 @@ mockNuxtImport('useI18n', () => {
     locale: ref('nl'),
   });
 });
+
+// create element for teleport
+beforeEach(() => {
+  const el = document.createElement('div');
+  el.id = 'teleports';
+  document.body.appendChild(el);
+});
+
+afterEach(() => {
+  document.body.innerHTML = '';
+});
