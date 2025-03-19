@@ -13,7 +13,7 @@
     "build": "nuxt build .playground",
     "generate": "nuxt generate .playground",
     "preview": "nuxt preview .playground",
-    "test": "vitest",
+    "test": "nuxt prepare .playground && vitest",
     "lint": "eslint .",
     "format": "prettier . --write"
   },
