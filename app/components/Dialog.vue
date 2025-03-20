@@ -50,6 +50,7 @@ defineExpose({
     :aria-labelledby="id"
     :class="`dialog dialog-position--${position}`"
     @click="handleDialogClick"
+    @close="isVisible = false"
   >
     <FocusLoop :is-visible="isVisible">
       <div class="dialog-header">

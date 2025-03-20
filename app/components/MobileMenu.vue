@@ -125,8 +125,8 @@ const emit = defineEmits<{
         v-bind="$attrs"
         :aria-label="$t('aria.mobile-menu')"
         :style="`--width: ${width}px`"
-        @keydown.esc="closeDialog"
         @click="handleDialogClick"
+        @close="isVisible = false"
       >
         <FocusLoop :is-visible="isVisible">
           <div class="dialog-content">

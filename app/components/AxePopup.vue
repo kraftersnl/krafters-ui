@@ -14,6 +14,9 @@ import { VueAxePopup } from 'vue-axe';
     display: inline;
   }
 }
+.va-pt-1 {
+  padding-top: 0.5rem !important;
+}
 
 .va-popup-btn {
   box-shadow: none !important;
