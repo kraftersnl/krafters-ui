@@ -4,9 +4,7 @@ import { VueAxePopup } from 'vue-axe';
 
 <template>
   <DevOnly>
-    <ClientOnly>
-      <VueAxePopup />
-    </ClientOnly>
+    <VueAxePopup />
   </DevOnly>
 </template>
 
