@@ -29,9 +29,7 @@ watch(
     </div>
   </div>
 
-  <DevOnly>
-    <AxePopup />
-  </DevOnly>
+  <AxePopup />
 </template>
 
 <style>
