@@ -104,6 +104,15 @@ watch(
     }
   }
 
+  .text-content {
+    ul,
+    ol {
+      > li {
+        margin-bottom: 0.125rem;
+      }
+    }
+  }
+
   .popover-settings-content {
     padding: 1.5rem;
 

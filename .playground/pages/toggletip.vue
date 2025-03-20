@@ -32,7 +32,7 @@ const popoverActions = [
         <h2>Toggletip</h2>
 
         <div class="flex-wrapper">
-          <Tooltip label="Toggletip" :max-width="480" :hide-label="false">
+          <Tooltip label="Toggletip label" :max-width="480" :hide-label="false">
             <p>
               Live regions are used to present changes in web content that occur
               after a web page has loaded. Typical uses include presenting news
@@ -138,15 +138,12 @@ const popoverActions = [
 
         <div class="flex-wrapper">
           <Popover
-            :list="popoverActions"
             icon="hugeicons:popcorn"
             label="Popover label"
             size="lg"
             trigger-variant="secondary"
             :hide-label="false"
-          />
-
-          <Popover hide-label size="lg" :max-width="480">
+          >
             <template #content>
               <p style="padding: 1rem 1.5rem; min-width: 340px">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -156,6 +153,13 @@ const popoverActions = [
               </p>
             </template>
           </Popover>
+
+          <Popover
+            hide-label
+            size="lg"
+            :max-width="480"
+            :list="popoverActions"
+          />
         </div>
 
         <div class="text-content">
