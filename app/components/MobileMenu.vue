@@ -6,10 +6,12 @@ const props = withDefaults(
     class?: string;
     teleportTo?: string;
     width?: number;
-    position?: 'inline-start' | 'inline-end';
+    position?: MobileMenuPosition;
     triggerButtonVariant?: ButtonVariant;
     triggerButtonSize?: ButtonSize;
     triggerIconSize?: FontSize;
+    triggerIconPos?: 'start' | 'end';
+    menuButtonSize?: ButtonSize;
     icon?: string;
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
@@ -25,6 +27,8 @@ const props = withDefaults(
     triggerButtonVariant: 'secondary',
     triggerButtonSize: 'md',
     triggerIconSize: undefined,
+    triggerIconPos: undefined,
+    menuButtonSize: 'xl',
     icon: 'menu-alt-2',
     hideTriggerLabel: true,
     triggerLabel: undefined,
@@ -107,6 +111,7 @@ const emit = defineEmits<{
       :class="`mobile-nav-toggle ${triggerClass ?? ''}`"
       :size="triggerButtonSize"
       :icon-size="triggerIconSize"
+      :icon-pos="triggerIconPos"
       :variant="triggerButtonVariant"
       :label="triggerLabel || $t('general.menu')"
       :hide-label="hideTriggerLabel"
@@ -139,7 +144,7 @@ const emit = defineEmits<{
 
               <MenuList
                 :list="list"
-                button-size="xl"
+                :button-size="menuButtonSize"
                 button-variant="sidebar"
                 :aria-label="navLabel || $t('aria.mobile-menu')"
                 @click="emit('click', $event)"

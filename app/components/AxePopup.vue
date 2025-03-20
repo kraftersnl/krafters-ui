@@ -3,9 +3,9 @@ import { VueAxePopup } from 'vue-axe';
 </script>
 
 <template>
-  <DevOnly>
+  <ClientOnly>
     <VueAxePopup />
-  </DevOnly>
+  </ClientOnly>
 </template>
 
 <style>

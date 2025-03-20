@@ -34,6 +34,17 @@ const props = withDefaults(
   },
 );
 
+const id = useId();
+const isExpanded = ref(false);
+
+function handleShow() {
+  isExpanded.value = true;
+}
+
+function handleHide() {
+  isExpanded.value = false;
+}
+
 const computedIcon = computed(() => {
   if (props.icon?.includes(':')) {
     return props.icon;
@@ -41,9 +52,9 @@ const computedIcon = computed(() => {
   return `heroicons-solid:${props.icon}`;
 });
 
-const wrapperRef = useTemplateRef<HTMLElement>('tooltipWrapper');
+const wrapperRef = useTemplateRef<HTMLElement>('toggletipWrapper');
 
-function closeTooltip() {
+function closeToggletip() {
   document
     .querySelectorAll('[data-tippy-root]')
     .forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
@@ -51,24 +62,32 @@ function closeTooltip() {
 </script>
 
 <template>
-  <div ref="tooltipWrapper" class="krafters-tooltip-wrapper">
+  <div
+    ref="toggletipWrapper"
+    class="krafters-toggletip-wrapper"
+    aria-live="polite"
+  >
     <Tippy
       :trigger="trigger"
       :placement="placement"
       :interactive="interactive"
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
+      role=""
       :aria="{
-        content: 'describedby',
+        content: null,
+        expanded: false,
       }"
       theme="krafters"
       animation="shift-toward"
       tag="div"
       content-tag="div"
-      content-class="krafters-tooltip-content"
-      class="tooltip-wrapper"
+      content-class="krafters-toggletip-content"
+      class="toggletip-wrapper"
       :append-to="wrapperRef ?? undefined"
-      @keyup.esc="closeTooltip"
+      @show="handleShow"
+      @hide="handleHide"
+      @keyup.esc="closeToggletip"
     >
       <template #default>
         <slot v-if="$slots.trigger" name="trigger" />
@@ -76,9 +95,11 @@ function closeTooltip() {
         <button
           v-else
           type="button"
+          :aria-controls="id"
+          :aria-expanded="isExpanded"
           :tabindex="tabindex"
           :title="title"
-          class="tooltip-trigger-button"
+          class="toggletip-trigger-button"
           :style="`
             --font-size: var(--font-size-${fontSize});
             --icon-size: var(--font-size-${iconSize});
@@ -88,7 +109,7 @@ function closeTooltip() {
             {{ label }}
           </span>
 
-          <span class="visuallyhidden">({{ $t('aria.tooltip') }})</span>
+          <span class="visuallyhidden">{{ $t('aria.toggletip') }}</span>
 
           <Icon :name="computedIcon" />
         </button>
@@ -102,16 +123,29 @@ function closeTooltip() {
 </template>
 
 <style>
-.krafters-tooltip-wrapper {
+.krafters-toggletip-wrapper {
   vertical-align: middle;
+
+  .toggletip-wrapper {
+    display: inline;
+  }
 }
 
-.krafters-tooltip-content {
+.krafters-toggletip-content {
   padding-block: 1rem;
   padding-inline: 1.35rem;
+
+  p {
+    &:first-child {
+      margin-block-start: 0;
+    }
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
 }
 
-.tooltip-trigger-button {
+.toggletip-trigger-button {
   display: flex;
   gap: 0.25rem;
   align-items: center;
@@ -122,18 +156,18 @@ function closeTooltip() {
   font-size: var(--font-size, inherit);
   transition: color var(--duration-sm);
 
+  &:focus-visible {
+    border-radius: var(--radius-sm);
+    outline-offset: 2px;
+  }
+
   .iconify {
     font-size: var(--icon-size, var(--font-size));
-    /* color: var(--color-grey-graphic); */
     transition: color var(--duration-sm);
   }
 
   &:hover {
     cursor: help;
-
-    .iconify {
-      color: var(--color-text);
-    }
   }
 }
 </style>

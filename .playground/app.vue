@@ -29,7 +29,9 @@ watch(
     </div>
   </div>
 
-  <AxePopup />
+  <DevOnly>
+    <AxePopup />
+  </DevOnly>
 </template>
 
 <style>
@@ -76,13 +78,18 @@ watch(
 
 .demo-page {
   h1 {
-    color: var(--color-accent-text);
+    color: var(--color-accent);
   }
   h2 {
     color: var(--color-text);
   }
   h3 {
     color: var(--color-accent-text);
+  }
+
+  code,
+  kbd {
+    font-size: 0.9em;
   }
 
   .card {

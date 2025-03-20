@@ -4,7 +4,7 @@ const props = withDefaults(
     label?: string;
     id?: string;
     clickOutside?: boolean;
-    position?: 'inline-start' | 'center' | 'inline-end';
+    position?: DialogPosition;
   }>(),
   {
     label: undefined,

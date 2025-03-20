@@ -54,6 +54,20 @@ const computedIcon = computed(() => {
   return `heroicons-solid:${props.icon}`;
 });
 
+const id = useId();
+const isExpanded = ref(false);
+
+function handleShow() {
+  isExpanded.value = true;
+  enableFocusLoop.value = true;
+}
+
+function handleHide() {
+  enableFocusLoop.value = false;
+  isExpanded.value = false;
+  focusTrigger();
+}
+
 function handleMenuClick(item: MenuItem, hide: () => void) {
   emit('click', item);
   hide();
@@ -84,83 +98,86 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <Tippy
-    :arrow="arrow"
-    :trigger="trigger"
-    :placement="placement"
-    :interactive="interactive"
-    :hide-on-click="hideOnClick"
-    :max-width="maxWidth"
-    :aria="{
-      content: 'describedby',
-    }"
-    theme="krafters"
-    animation="shift-away"
-    tag="div"
-    content-tag="div"
-    content-class="popover-content"
-    class="popover-wrapper"
-    @show="enableFocusLoop = true"
-    @hide="
-      () => {
-        enableFocusLoop = false;
-        focusTrigger();
-      }
-    "
-    @keyup.esc="closePopover"
-  >
-    <template #default>
-      <button
-        v-if="!$slots.trigger"
-        ref="popoverTrigger"
-        type="button"
-        :disabled="loading || disabled"
-        :class="`popover-trigger
+  <div ref="tooltipWrapper" class="krafters-popover-wrapper" aria-live="polite">
+    <Tippy
+      aria-live="polite"
+      :arrow="arrow"
+      :trigger="trigger"
+      :placement="placement"
+      :interactive="interactive"
+      :hide-on-click="hideOnClick"
+      :max-width="maxWidth"
+      :role="list?.length ? 'menu' : ''"
+      theme="krafters"
+      animation="shift-away"
+      tag="div"
+      :aria="{
+        content: null,
+        expanded: false,
+      }"
+      content-tag="div"
+      content-class="popover-content"
+      class="popover-wrapper"
+      @show="handleShow"
+      @hide="handleHide"
+      @keyup.esc="closePopover"
+    >
+      <template #default>
+        <button
+          v-if="!$slots.trigger"
+          ref="popoverTrigger"
+          type="button"
+          aria-haspopup="menu"
+          :aria-controls="id"
+          :aria-expanded="isExpanded"
+          :disabled="loading || disabled"
+          :class="`popover-trigger
           popover-trigger-variant--${triggerVariant}
           popover-trigger-size--${size}
           popover-icon-position--${iconPos}
         `"
-        :style="`
+          :style="`
             --radius: var(--radius-${borderRadius});
             --font-size: var(--font-size-${fontSize});
             --icon-size: var(--font-size-${iconSize});
           `"
-      >
-        <Icon v-if="loading" name="svg-spinners:90-ring" />
-        <Icon v-else :name="computedIcon" />
-
-        <span
-          v-if="label"
-          :class="hideLabel ? 'visuallyhidden' : undefined"
-          class="popover-label"
         >
-          {{ label }}
-        </span>
+          <Icon v-if="loading" name="svg-spinners:90-ring" />
+          <Icon v-else :name="computedIcon" />
 
-        <span v-else class="visuallyhidden">{{ $t('aria.popover') }}</span>
-      </button>
+          <span
+            v-if="label"
+            :class="hideLabel ? 'visuallyhidden' : undefined"
+            class="popover-label"
+          >
+            {{ label }}
+          </span>
 
-      <slot v-else name="trigger" />
-    </template>
+          <span v-else class="visuallyhidden">{{ $t('aria.popover') }}</span>
+        </button>
 
-    <template #content="{ hide }">
-      <FocusLoop :is-visible="enableFocusLoop" @keyup.esc="hide">
-        <slot name="default" />
+        <slot v-else name="trigger" />
+      </template>
 
-        <MenuList
-          v-if="list?.length"
-          :list="list"
-          button-size="xl"
-          font-size="sm"
-          icon-size="lg"
-          :aria-label="navAriaLabel || $t('general.menu')"
-          @click="handleMenuClick($event, hide)"
-        />
+      <template #content="{ hide }">
+        <FocusLoop :id="id" :is-visible="enableFocusLoop" @keyup.esc="hide">
+          <slot name="default" />
 
-        <slot name="content" v-bind="{ hide }" />
-      </FocusLoop>
-    </template>
-  </Tippy>
+          <MenuList
+            v-if="list?.length"
+            :list="list"
+            button-size="xl"
+            font-size="sm"
+            icon-size="lg"
+            :aria-label="navAriaLabel || $t('general.menu')"
+            @click="handleMenuClick($event, hide)"
+          />
+
+          <slot name="content" v-bind="{ hide }" />
+        </FocusLoop>
+      </template>
+    </Tippy>
+  </div>
 </template>
 
 <style>
@@ -201,6 +218,17 @@ const emit = defineEmits<{
       var(--color-grey-bg) 95%,
       var(--color-black)
     );
+  }
+}
+
+.popover-content {
+  p {
+    &:first-child {
+      margin-block-start: 0;
+    }
+    &:last-child {
+      margin-block-end: 0;
+    }
   }
 }
 

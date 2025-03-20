@@ -6,6 +6,15 @@ useHead({ title: 'Changelog | Krafters UI' });
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
 
+    <ChangelogEntry v="1.3.8" date="2025-03-20">
+      <ul>
+        <li>Improve accessibility for Tooltip and Popover components</li>
+        <li>
+          Improve docs for ToggleTip, Popover, Dialog and MobileMenu components
+        </li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.3.7" date="2025-03-20">
       <ul>
         <li>Move tests to playground</li>

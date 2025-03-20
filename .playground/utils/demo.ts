@@ -66,9 +66,14 @@ export const navList: MenuItem[] = [
     label: 'Table, Pagination & Filter',
   },
   {
-    id: 'tooltip',
-    to: '/tooltip',
-    label: 'Tooltip, Popover & Dialog',
+    id: 'toggletip',
+    to: '/toggletip',
+    label: 'Toggletip & Popover',
+  },
+  {
+    id: 'dialog',
+    to: '/dialog',
+    label: 'Dialog & MobileMenu',
   },
   {
     id: 'skeleton',
