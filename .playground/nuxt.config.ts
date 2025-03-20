@@ -18,7 +18,7 @@ export default defineNuxtConfig({
 
   $production: {
     app: {
-      baseURL: '/krafters-ui',
+      baseURL: '/krafters-ui/',
     },
   },
 
