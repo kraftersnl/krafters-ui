@@ -10,8 +10,9 @@ import { VueAxePopup } from 'vue-axe';
 
 <style>
 .va-btn {
-  display: grid !important;
-  place-content: center !important;
+  svg {
+    display: inline;
+  }
 }
 
 .va-popup-btn {
