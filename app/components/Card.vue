@@ -1,12 +1,24 @@
 <script setup lang="ts">
-const { is = 'div', borderWidth = 1 } = defineProps<{
+const {
+  is = 'div',
+  borderWidth = 1,
+  borderRadius = 'md',
+} = defineProps<{
   is?: string;
   borderWidth?: number;
+  borderRadius?: BorderRadius;
 }>();
 </script>
 
 <template>
-  <component :is="is" class="card" :style="`--border-width: ${borderWidth}px`">
+  <component
+    :is="is"
+    class="card"
+    :style="`
+      --border-width: ${borderWidth}px;
+      --border-radius: var(--radius-${borderRadius});
+    `"
+  >
     <slot />
   </component>
 </template>
@@ -18,7 +30,7 @@ const { is = 'div', borderWidth = 1 } = defineProps<{
   padding-inline: 1.5rem;
   background-color: var(--color-card-bg);
   border: var(--border-width, 1px) solid var(--color-card-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow-1);
 
   @media (min-width: 480px) {

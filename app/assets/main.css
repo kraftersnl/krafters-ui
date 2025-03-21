@@ -105,7 +105,7 @@
   }
 }
 
-:root {
+:where(:root) {
   /* Border radius design tokens */
   --radius-xs: 1px;
   --radius-sm: 5px;
@@ -323,11 +323,15 @@ img {
   font-size: var(--font-size-xs);
 }
 
-video,
 img,
-picture,
-svg {
+video,
+picture {
   display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+svg {
   max-width: 100%;
   object-fit: cover;
 }

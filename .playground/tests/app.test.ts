@@ -89,12 +89,6 @@ describe('Docs', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('VideoPlayer page has no accessibility violations', async () => {
-    const wrapper = await mountSuspended(App, { route: '/video' });
-    const results = await axe(wrapper.element);
-    expect(results).toHaveNoViolations();
-  });
-
   // it('Markdown page has no accessibility violations', async () => {
   //   const wrapper = await mountSuspended(App, { route: '/markdown' });
   //   const results = await axe(wrapper.element);

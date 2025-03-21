@@ -9,12 +9,6 @@ import { VueAxePopup } from 'vue-axe';
 </template>
 
 <style>
-.va-btn {
-  svg {
-    display: inline;
-  }
-}
-
 .va-pt-1 {
   padding-top: 0.5rem !important;
 }

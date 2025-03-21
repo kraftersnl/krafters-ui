@@ -76,62 +76,65 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
         class="demo-tabs"
       >
         <template #a>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-            sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
-            deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
-            fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
-            repellat consequuntur officiis sequi illo provident ducimus
-            voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
-            necessitatibus.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-            sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
-            deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
-            fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
-            repellat consequuntur officiis sequi illo provident ducimus
-            voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
-            necessitatibus.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-            sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
-            deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
-            fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
-            repellat consequuntur officiis sequi illo provident ducimus
-            voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
-            necessitatibus.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-            sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
-            deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
-            fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
-            repellat consequuntur officiis sequi illo provident ducimus
-            voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
-            necessitatibus.
-          </p>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, fuga.
-            Nihil iste enim expedita repellat consequuntur officiis sequi illo
-            provident ducimus voluptatem aliquam corrupti sapiente adipisci ex,
-            fugit rerum necessitatibus. Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Alias, magnam? Ad aperiam quaerat adipisci atque
-            dolores? Sapiente, distinctio accusantium, laudantium numquam ut
-            perferendis laborum harum molestias magnam saepe eius! Molestias.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-            accusamus illum voluptas soluta error blanditiis facere expedita
-            nihil hic possimus rem repellendus, vero a iste nesciunt. Aperiam
-            veritatis modi sint. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Architecto nisi perferendis ad laboriosam culpa
-            eaque asperiores tenetur earum, id saepe cupiditate laudantium!
-            Saepe obcaecati autem, quaerat nostrum laborum unde perferendis!
-          </p>
+          <div class="overflow-content" tabindex="0">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+              sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
+              deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
+              fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
+              repellat consequuntur officiis sequi illo provident ducimus
+              voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
+              necessitatibus.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+              sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
+              deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
+              fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
+              repellat consequuntur officiis sequi illo provident ducimus
+              voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
+              necessitatibus.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+              sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
+              deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
+              fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
+              repellat consequuntur officiis sequi illo provident ducimus
+              voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
+              necessitatibus.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+              sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
+              deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
+              fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
+              repellat consequuntur officiis sequi illo provident ducimus
+              voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
+              necessitatibus.
+            </p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum,
+              fuga. Nihil iste enim expedita repellat consequuntur officiis
+              sequi illo provident ducimus voluptatem aliquam corrupti sapiente
+              adipisci ex, fugit rerum necessitatibus. Lorem ipsum, dolor sit
+              amet consectetur adipisicing elit. Alias, magnam? Ad aperiam
+              quaerat adipisci atque dolores? Sapiente, distinctio accusantium,
+              laudantium numquam ut perferendis laborum harum molestias magnam
+              saepe eius! Molestias. Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. Assumenda accusamus illum voluptas soluta error
+              blanditiis facere expedita nihil hic possimus rem repellendus,
+              vero a iste nesciunt. Aperiam veritatis modi sint. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Architecto nisi
+              perferendis ad laboriosam culpa eaque asperiores tenetur earum, id
+              saepe cupiditate laudantium! Saepe obcaecati autem, quaerat
+              nostrum laborum unde perferendis!
+            </p>
+          </div>
         </template>
 
         <template #b>
@@ -169,9 +172,15 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
 
 <style>
 .demo-tabs {
-  .tabpanel {
+  .overflow-content {
     max-height: 32rem;
     overflow: auto;
+
+    &:focus-visible {
+      outline-offset: 0.5rem;
+      border-radius: var(--radius-xs);
+      outline: 2px solid var(--focus-color);
+    }
   }
 }
 </style>
