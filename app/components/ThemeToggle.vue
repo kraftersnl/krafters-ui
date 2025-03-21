@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const colorMode = useColorMode();
+</script>
 
 <template>
   <ClientOnly>
@@ -6,14 +8,14 @@
       id="theme-toggle"
       type="button"
       class="theme-toggle-button"
-      :aria-pressed="$colorMode.value === 'dark'"
+      :aria-pressed="colorMode.value === 'dark'"
       @click.stop="
-        $colorMode.preference = $colorMode.value == 'light' ? 'dark' : 'light'
+        colorMode.preference = colorMode.value == 'light' ? 'dark' : 'light'
       "
     >
       <Icon
         :name="
-          $colorMode.value === 'dark'
+          colorMode.value === 'dark'
             ? 'heroicons-solid:moon'
             : 'heroicons-solid:sun'
         "
