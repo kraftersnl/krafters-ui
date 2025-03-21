@@ -56,8 +56,8 @@ const wrapperRef = useTemplateRef<HTMLElement>('toggletipWrapper');
 
 function closeToggletip() {
   document
-    .querySelectorAll('[data-tippy-root]')
-    .forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
+    ?.querySelectorAll('[data-tippy-root]')
+    ?.forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
 }
 </script>
 

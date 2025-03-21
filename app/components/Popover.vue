@@ -75,8 +75,8 @@ function handleMenuClick(item: MenuItem, hide: () => void) {
 
 function closePopover() {
   document
-    .querySelectorAll('[data-tippy-root]')
-    .forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
+    ?.querySelectorAll('[data-tippy-root]')
+    ?.forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
 }
 
 function focusTrigger() {

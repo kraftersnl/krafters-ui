@@ -11,6 +11,7 @@ const { fontSize = 'md' } = defineProps<{
 }>();
 
 const { locale } = useI18n();
+const colorMode = useColorMode();
 
 config({
   markdownItConfig(md) {
@@ -38,7 +39,7 @@ config({
     v-bind="$attrs"
     :language="locale"
     :model-value="content"
-    :theme="$colorMode.value === 'light' ? 'light' : 'dark'"
+    :theme="colorMode.value === 'light' ? 'light' : 'dark'"
     preview-theme="krafters"
     :style="`--font-size: var(--font-size-${fontSize})`"
   />

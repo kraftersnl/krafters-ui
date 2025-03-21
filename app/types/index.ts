@@ -152,6 +152,8 @@ declare global {
   type VideoMetaData = {
     width?: number;
     height?: number;
+    thumbnail_width?: number;
+    thumbnail_height?: number;
     title?: string;
     thumbnail_url?: string;
   };

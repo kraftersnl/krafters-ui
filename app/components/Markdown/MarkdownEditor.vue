@@ -45,9 +45,9 @@ onMounted(() => {
 });
 
 const { locale } = useI18n();
+const colorMode = useColorMode();
 
 const content = defineModel<string>();
-
 const markdownEditorRef = useTemplateRef<HTMLDivElement>('markdownEditor');
 
 function focusEditor() {
@@ -82,7 +82,7 @@ defineExpose({
         :footers="footers"
         :toolbars="toolbars"
         :placeholder="placeholder"
-        :theme="$colorMode.value === 'light' ? 'light' : 'dark'"
+        :theme="colorMode.value === 'light' ? 'light' : 'dark'"
       />
 
       <textarea
