@@ -18,6 +18,7 @@ const props = withDefaults(
     disabled?: boolean;
     loading?: boolean;
     download?: boolean;
+    external?: boolean;
     hideExternalIcon?: boolean;
     type?: 'button' | 'submit' | 'reset';
   }>(),
@@ -57,6 +58,7 @@ const emit = defineEmits(['click']);
     :to="to"
     :href="href"
     :target="target"
+    :external="external"
     :class="`
       button
       button-size--${size}
@@ -90,7 +92,7 @@ const emit = defineEmits(['click']);
       <Icon name="heroicons-solid:external-link" class="external-link" />
     </template>
 
-    <slot />
+    <slot name="default" />
   </NuxtLink>
 
   <button
@@ -123,7 +125,7 @@ const emit = defineEmits(['click']);
     </span>
 
     <span v-if="$slots.default">
-      <slot />
+      <slot name="default" />
     </span>
   </button>
 </template>

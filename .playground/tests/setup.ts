@@ -2,10 +2,9 @@ import 'vitest-axe/extend-expect';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 // mock i18n
-
 mockNuxtImport('useI18n', () => () => ({
   t: (value: string) => value,
-  locale: ref('nl'),
+  locale: ref('en'),
 }));
 
 // mock useAsyncData
