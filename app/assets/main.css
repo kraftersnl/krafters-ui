@@ -364,7 +364,8 @@ strong {
 }
 
 .section-topbar {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   grid-template-columns: 1fr auto;
   justify-content: space-between;
   column-gap: 0.5rem;

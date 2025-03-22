@@ -11,22 +11,22 @@ const position = ref<DialogPosition>('center');
 
     <blockquote>
       <p>
-        A dialog is a window overlaid on either the primary window or another
+        "A dialog is a window overlaid on either the primary window or another
         dialog window. Windows under a modal dialog are inert. That is, users
         cannot interact with content outside an active dialog window. Inert
         content outside an active dialog is typically visually obscured or
         dimmed so it is difficult to discern, and in some implementations,
-        attempts to interact with the inert content cause the dialog to close.
+        attempts to interact with the inert content cause the dialog to close."
       </p>
 
       <p class="fs-xxs mbe-2">
         Source:
         <NuxtLink
-          to="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal"
           target="_blank"
           external
           >ARIA Design Patterns</NuxtLink
-        >.
+        >
       </p>
     </blockquote>
 
@@ -64,23 +64,24 @@ const position = ref<DialogPosition>('center');
     </Card>
 
     <Card>
-      <h2>MobileMenu</h2>
+      <h2>Mobile Menu</h2>
+
       <div class="flex-wrapper">
         <MobileMenu
-          position="inline-start"
           :list="navList"
-          trigger-label="Open left menu"
-          :hide-trigger-label="false"
+          :hide-button-label="false"
+          button-label="Open left menu"
           menu-button-size="sm"
+          position="inline-start"
         />
 
         <MobileMenu
-          position="inline-end"
           :list="navList"
-          trigger-label="Open right menu"
-          trigger-icon-pos="end"
-          :hide-trigger-label="false"
+          :hide-button-label="false"
+          button-label="Open right menu"
+          button-icon-pos="end"
           menu-button-size="sm"
+          position="inline-end"
         />
       </div>
     </Card>
@@ -110,7 +111,7 @@ const position = ref<DialogPosition>('center');
           message, you can set <code>role="alertdialog"</code>. Its usage is
           described in the
           <NuxtLink
-            to="https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/"
+            to="https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog"
             target="_blank"
             external
             >ARIA Design Patterns</NuxtLink

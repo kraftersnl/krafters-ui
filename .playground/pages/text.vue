@@ -63,7 +63,7 @@ const text = ref(
       <div class="section-topbar">
         <h2>Ellipsis</h2>
 
-        <Popover icon="cog" hide-label :max-width="480">
+        <Popover icon="cog" :max-width="480">
           <div class="popover-settings-content">
             <h2>Props</h2>
 

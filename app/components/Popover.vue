@@ -6,7 +6,6 @@ import 'tippy.js/animations/shift-away.css';
 const props = withDefaults(
   defineProps<{
     label?: string;
-    navAriaLabel?: string;
     list?: MenuItem[];
     icon?: string;
     iconPos?: 'start' | 'end';
@@ -29,7 +28,6 @@ const props = withDefaults(
   }>(),
   {
     label: undefined,
-    navAriaLabel: undefined,
     list: () => [],
     icon: 'dots-horizontal',
     iconPos: 'start',
@@ -45,7 +43,7 @@ const props = withDefaults(
     triggerVariant: 'ghost',
     hideOnClick: true,
     maxWidth: undefined,
-    modal: undefined,
+    modal: false,
   },
 );
 
@@ -149,13 +147,16 @@ const emit = defineEmits<{
 
           <span
             v-if="label"
+            :id="id"
             :class="hideLabel ? 'visuallyhidden' : undefined"
             class="popover-label"
           >
             {{ label }}
           </span>
 
-          <span v-else class="visuallyhidden">{{ $t('aria.popover') }}</span>
+          <span v-else :id="id" class="visuallyhidden">{{
+            $t('aria.popover')
+          }}</span>
         </button>
 
         <slot v-else name="trigger" />
@@ -176,7 +177,7 @@ const emit = defineEmits<{
             button-size="xl"
             font-size="sm"
             icon-size="lg"
-            :aria-label="navAriaLabel || $t('general.menu')"
+            :aria-labelledby="id"
             @click="handleMenuClick($event, hide)"
           />
 

@@ -116,7 +116,9 @@ function closeToggletip() {
       </template>
 
       <template #content>
-        <slot />
+        <div :id="id">
+          <slot />
+        </div>
       </template>
     </Tippy>
   </div>

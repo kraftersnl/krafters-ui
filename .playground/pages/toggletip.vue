@@ -38,7 +38,7 @@ const popoverActions = [
     <p class="c-grey-text fs-xs mbe-2">
       Krafters UI uses
       <Button
-        to="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning"
+        to="https://vue-tippy.netlify.app"
         label="VueTippy"
         variant="link"
         target="_blank"
@@ -76,7 +76,7 @@ const popoverActions = [
             toggletips are revealed by click rather than by hover and focus.
             Krafters UI uses
             <Button
-              to="https://inclusive-components.design/tooltips-toggletips/"
+              to="https://inclusive-components.design/tooltips-toggletips"
               label="Toggletips with live regions"
               target="_blank"
               external
@@ -88,7 +88,7 @@ const popoverActions = [
             Note: the
             <Button
               label="Tooltip design pattern"
-              to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/"
+              to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip"
               external
               target="_blank"
               variant="link"
@@ -173,15 +173,16 @@ const popoverActions = [
 
       <Card>
         <div class="text-content">
-          <h2>MenuButton</h2>
+          <h2>Menu Button</h2>
           <p class="c-grey-text">
             A
-            <NuxtLink
-              to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
+            <Button
+              label="menu button"
+              to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button"
+              variant="link"
               target="_blank"
               external
-              >menu button</NuxtLink
-            >
+            />
             is a button that opens a menu, also referred to as popup or overflow
             menu.
           </p>
@@ -198,12 +199,13 @@ const popoverActions = [
           >
             <template #content>
               <p style="padding: 1rem 1.5rem; min-width: 340px">
-                <NuxtLink
-                  to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
+                <Button
+                  label="ARIA Design Pattern for Menu Button"
+                  to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button"
+                  variant="link"
                   target="_blank"
                   external
-                  >Menu Button design pattern</NuxtLink
-                >
+                />
               </p>
             </template>
           </Popover>

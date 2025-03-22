@@ -1,24 +1,46 @@
 <script setup lang="ts">
 useHead({ title: 'Meter pattern' });
 
+const role = ref<'meter' | 'progressbar'>('meter');
+const hideLabel = ref(true);
 const progress = ref(50);
 const max = ref(100);
+
+const roleOptions = [
+  { value: 'meter', label: 'meter' },
+  { value: 'progressbar', label: 'progressbar' },
+];
 </script>
 
 <template>
   <div class="demo-page meter">
-    <h1>Meter Pattern</h1>
+    <h1>Meter pattern</h1>
 
     <blockquote>
       <p>
-        A meter is a graphical display of a numeric value that varies within a
-        defined range.
+        "A meter is a graphical display of a numeric value that varies within a
+        defined range. For example, a meter could be used to depict a device's
+        current battery percentage or a car's fuel level.
+      </p>
+      <p>
+        Note: a meter should not be used to represent a value like the current
+        world population since it does not have a meaningful maximum limit. The
+        meter should not be used to indicate progress, such as loading or
+        percent completion of a task. To communicate progress, use the
+        <Button
+          to="https://w3c.github.io/aria/#progressbar"
+          label="progressbar role"
+          variant="link"
+          target="_blank"
+          external
+        />
+        instead."
       </p>
 
       <p class="fs-xxs mbe-2">
         Source:
         <Button
-          to="https://www.w3.org/WAI/ARIA/apg/patterns/meter/"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/meter"
           label="ARIA Design Patterns"
           variant="link"
           target="_blank"
@@ -29,85 +51,109 @@ const max = ref(100);
 
     <div class="card-cols">
       <Card>
-        <h2>Progress Meter</h2>
+        <div class="section-topbar mbe-2">
+          <h2>Progress Meter</h2>
+
+          <Popover icon="cog">
+            <div class="popover-settings-content">
+              <h2 class="mbe-1">Props</h2>
+
+              <div class="props-wrapper">
+                <Select
+                  v-model.number="role"
+                  label="role"
+                  :options="roleOptions"
+                />
+                <Input v-model.number="progress" type="number" label="value" />
+                <Input v-model.number="max" type="number" label="max" />
+
+                <Switch v-model="hideLabel" label="hideLabel" />
+
+                <code
+                  >{{`<ProgressMeter
+                    :value="${progress}"
+                    :max="${max}"
+                    :role="${role}"
+                    :hide-label="${hideLabel}"
+                  />`}}</code
+                >
+                <code
+                  >{{`<ProgressCircle
+                    :value="${progress}"
+                    :max="${max}"
+                    :role="${role}"
+                    :hide-label="${hideLabel}"
+                  />`}}</code
+                >
+              </div>
+            </div>
+          </Popover>
+        </div>
+
         <div class="grid-wrapper" style="--gap: 2rem">
           <ProgressMeter
             label="Progress"
+            :hide-label="hideLabel"
             :value="progress"
             :max="max"
+            :role="role"
             size="lg"
           />
           <ProgressMeter
             label="Progress"
-            hide-label
+            :hide-label="hideLabel"
             :value="progress"
             :max="max"
+            :role="role"
             size="md"
           />
           <ProgressMeter
             label="Progress"
+            :hide-label="hideLabel"
             :value="progress"
             :max="max"
+            :role="role"
             size="sm"
           />
         </div>
-
-        <Popover icon="cog" hide-label :max-width="480">
-          <div class="popover-settings-content">
-            <h2>Props</h2>
-
-            <div class="props-wrapper">
-              <Input v-model.number="progress" type="number" label="value" />
-              <Input v-model.number="max" type="number" label="max" />
-
-              <code
-                >{{`<ProgressCircle
-                  :value="${progress}"
-                  :max="${max}"
-                />`}}</code
-              >
-              <code
-                >{{`<ProgressMeter
-                  :value="${progress}"
-                  :max="${max}"
-                />`}}</code
-              >
-            </div>
-          </div>
-        </Popover>
       </Card>
 
       <Card>
-        <h2>Progress Circle</h2>
+        <h2 class="mbe-2">Progress Circle</h2>
 
         <div class="flex-wrapper" style="--gap: 1.5rem">
           <ProgressCircle
             :value="progress"
             :max="max"
+            :role="role"
             size="xl"
             font-size="xl"
           />
           <ProgressCircle
             :value="progress"
             :max="max"
+            :role="role"
             size="lg"
             font-size="lg"
           />
           <ProgressCircle
             :value="progress"
             :max="max"
+            :role="role"
             size="md"
             font-size="md"
           />
           <ProgressCircle
             :value="progress"
             :max="max"
+            :role="role"
             size="sm"
             font-size="sm"
           />
           <ProgressCircle
             :value="progress"
             :max="max"
+            :role="role"
             size="xs"
             font-size="xxxs"
           />
@@ -118,17 +164,11 @@ const max = ref(100);
     <Card>
       <h2>Accessibility Requirements</h2>
       <ul class="a11y-list">
-        <li>
-          The element serving as the meter has a role of <code>meter</code>.
-        </li>
+        <li>The meter has a label, either visible or for screen readers.</li>
+        <li>The meter element has <code>role="meter"</code>.</li>
         <li>The meter has <code>aria-valuenow</code> set.</li>
         <li>The meter has <code>aria-valuemin</code> set.</li>
         <li>The meter has <code>aria-valuemax</code> set.</li>
-        <li>
-          If the meter has a visible label, it is referenced by aria-labelledby
-          on the element with role meter. Otherwise, the element with role meter
-          has a label provided by aria-label.
-        </li>
       </ul>
     </Card>
   </div>
@@ -136,5 +176,8 @@ const max = ref(100);
 
 <style>
 .demo-page.meter {
+  .card-cols :first-child {
+    flex-grow: 9;
+  }
 }
 </style>

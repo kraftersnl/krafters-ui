@@ -21,20 +21,20 @@ const skeletonAnimations = [
 
     <blockquote>
       <p>
-        A skeleton screen is used as a placeholder while users wait for a page
+        "A skeleton screen is used as a placeholder while users wait for a page
         to load. This progress indicator is used for full page loads and reduces
         the perception of a long loading time by providing clues for how the
-        page will ultimately look.
+        page will ultimately look."
       </p>
 
       <p class="fs-xxs mbe-2">
         Source:
         <NuxtLink
-          to="https://www.nngroup.com/articles/skeleton-screens/"
+          to="https://www.nngroup.com/articles/skeleton-screens"
           target="_blank"
           external
           >Nielsen Norman Group</NuxtLink
-        >.
+        >
       </p>
     </blockquote>
 
@@ -43,7 +43,7 @@ const skeletonAnimations = [
         <div class="section-topbar">
           <h2>Skeleton</h2>
 
-          <Popover icon="cog" hide-label :max-width="480">
+          <Popover icon="cog" :max-width="480">
             <div class="popover-settings-content">
               <h2>Props</h2>
 
@@ -140,7 +140,6 @@ const skeletonAnimations = [
           </div>
 
           <div class="flex-wrapper">
-            <Spacer size="md" />
             <div class="flex-wrapper">
               <Skeleton
                 :animation="skeletonAnimation"
@@ -155,7 +154,6 @@ const skeletonAnimations = [
           </div>
 
           <div class="flex-wrapper">
-            <Spacer size="md" />
             <div class="flex-wrapper">
               <Skeleton
                 :animation="skeletonAnimation"

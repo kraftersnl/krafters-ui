@@ -36,5 +36,7 @@ export default defineNuxtConfig({
     port: 3003,
   },
 
+  devtools: { enabled: false },
+
   compatibilityDate: '2025-03-19',
 });

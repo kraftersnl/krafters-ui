@@ -106,7 +106,7 @@ function handleFilter() {
     <div class="section-topbar">
       <h1>Table</h1>
 
-      <Popover icon="cog" hide-label :max-width="480">
+      <Popover icon="cog" :max-width="480">
         <div class="popover-settings-content">
           <h2>Props</h2>
 
@@ -141,23 +141,23 @@ function handleFilter() {
 
     <blockquote>
       <p>
-        A table is a static tabular structure containing one or more rows that
+        "A table is a static tabular structure containing one or more rows that
         each contain one or more cells. It is not an interactive widget. Thus,
         its cells are not focusable or selectable. The
         <Button
-          to="https://www.w3.org/WAI/ARIA/apg/patterns/grid/"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/grid"
           label="Grid Pattern"
           variant="link"
           target="_blank"
           external
         />
-        is used to make an interactive widget that has a tabular structure.
+        is used to make an interactive widget that has a tabular structure."
       </p>
 
       <p class="fs-xxs mbe-2">
         Source:
         <Button
-          to="https://www.w3.org/WAI/ARIA/apg/patterns/table/"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/table"
           label="ARIA Design Patterns"
           variant="link"
           target="_blank"

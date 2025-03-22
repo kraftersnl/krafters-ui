@@ -5,6 +5,7 @@ const {
   max = 100,
   size = 'md',
   fontSize = 'sm',
+  role = 'meter',
 } = defineProps<{
   label: string;
   hideLabel?: boolean;
@@ -14,6 +15,7 @@ const {
   max?: number;
   size?: 'sm' | 'md' | 'lg';
   fontSize?: FontSize;
+  role?: 'meter' | 'progressbar';
 }>();
 
 const id = useId();
@@ -21,11 +23,12 @@ const id = useId();
 
 <template>
   <div
-    role="meter"
+    :role="role"
     :aria-valuenow="value"
     :aria-valuemin="min"
     :aria-valuemax="max"
     :aria-labelledby="id"
+    :aria-busy="role === 'progressbar' && value < max"
     class="progress-meter-wrapper"
     :style="`--font-size: var(--font-size-${fontSize})`"
   >
@@ -48,8 +51,8 @@ const id = useId();
 <style>
 .progress-meter-wrapper {
   display: grid;
-  grid-template-columns: auto auto;
-  justify-content: space-between;
+  grid-template-columns: 1fr auto;
+  justify-items: space-between;
   font-size: var(--font-size);
 
   .meter-label {
@@ -57,7 +60,8 @@ const id = useId();
   }
 
   .meter-value {
-    font-size: var(--font-size-xs);
+    /* font-size: var(--font-size-xs); */
+    justify-self: end;
   }
 
   .meter {

@@ -7,15 +7,15 @@ const props = withDefaults(
     teleportTo?: string;
     width?: number;
     position?: MobileMenuPosition;
-    triggerButtonVariant?: ButtonVariant;
-    triggerButtonSize?: ButtonSize;
-    triggerIconSize?: FontSize;
-    triggerIconPos?: 'start' | 'end';
+    buttonVariant?: ButtonVariant;
+    buttonSize?: ButtonSize;
+    buttonIconSize?: FontSize;
+    buttonIconPos?: 'start' | 'end';
     menuButtonSize?: ButtonSize;
     icon?: string;
-    hideTriggerLabel?: boolean;
-    triggerLabel?: string;
-    triggerClass?: string;
+    hideButtonLabel?: boolean;
+    buttonLabel?: string;
+    buttonClass?: string;
     clickOutside?: boolean;
     label?: string;
     navLabel?: string;
@@ -26,21 +26,23 @@ const props = withDefaults(
     teleportTo: '#teleports',
     width: 360,
     position: 'inline-start',
-    triggerButtonVariant: 'secondary',
-    triggerButtonSize: 'md',
-    triggerIconSize: undefined,
-    triggerIconPos: undefined,
+    buttonVariant: 'secondary',
+    buttonSize: 'md',
+    buttonIconSize: undefined,
+    buttonIconPos: undefined,
     menuButtonSize: 'xl',
     icon: 'menu-alt-2',
-    hideTriggerLabel: true,
-    triggerLabel: undefined,
-    triggerClass: undefined,
+    hideButtonLabel: true,
+    buttonLabel: undefined,
+    buttonClass: undefined,
     clickOutside: true,
     label: undefined,
     navLabel: undefined,
     list: () => [],
   },
 );
+
+const id = useId();
 
 const computedIcon = computed(() => {
   if (props.icon?.includes(':')) {
@@ -114,18 +116,21 @@ const emit = defineEmits<{
     <Button
       v-else
       :icon="computedIcon"
-      :class="`mobile-nav-toggle ${triggerClass ?? ''}`"
-      :size="triggerButtonSize"
-      :icon-size="triggerIconSize"
-      :icon-pos="triggerIconPos"
-      :variant="triggerButtonVariant"
-      :label="triggerLabel || $t('general.menu')"
-      :hide-label="hideTriggerLabel"
+      :class="`mobile-nav-toggle ${buttonClass ?? ''}`"
+      :size="buttonSize"
+      :icon-size="buttonIconSize"
+      :icon-pos="buttonIconPos"
+      :variant="buttonVariant"
+      :label="buttonLabel || $t('general.menu')"
+      :hide-label="hideButtonLabel"
+      :aria-controls="id"
+      :aria-expanded="isVisible"
       @click="openDialog"
     />
 
     <Teleport v-if="isMounted" :to="teleportTo">
       <dialog
+        :id="id"
         ref="dialogElement"
         :class="`mobile-dialog mobile-dialog-position--${position} ${props.class ?? ''}`"
         v-bind="$attrs"

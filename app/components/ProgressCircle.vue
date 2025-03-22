@@ -6,6 +6,7 @@ const {
   size = 'xl',
   fontSize = 'sm',
   color = 'accent',
+  role = 'meter',
 } = defineProps<{
   value: number;
   max?: number;
@@ -14,6 +15,7 @@ const {
   fontSize?: FontSize;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   color?: 'accent' | 'green' | 'orange' | 'red';
+  role?: 'meter' | 'progressbar';
 }>();
 
 const id = useId();
@@ -23,12 +25,13 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
 
 <template>
   <div
-    role="meter"
+    :role="role"
     :aria-valuenow="value"
     :aria-valuemin="min"
     :aria-valuemax="max"
     :aria-valuetext="percentage + '%'"
     :aria-labelledby="id"
+    :aria-busy="role === 'progressbar' && value < max"
     :class="`
       progress-circle-wrapper
       progress-circle-size--${size}

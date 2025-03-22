@@ -8,7 +8,7 @@ const content = ref(
 
 <template>
   <div class="demo-page markdown">
-    <h1>Markdown</h1>
+    <h1>Markdown components</h1>
 
     <p>
       Markdown Editor for Vue 3 that come with <code>{{ `<MarkdownEditor>` }}</code> and

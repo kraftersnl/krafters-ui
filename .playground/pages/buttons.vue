@@ -8,10 +8,10 @@ useHead({ title: 'Buttons & Links' });
 
     <blockquote>
       <p>
-        A
+        "A
         <Button
           label="button"
-          to="https://www.w3.org/WAI/ARIA/apg/patterns/button/"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/button"
           variant="link"
           target="_blank"
           external
@@ -25,14 +25,14 @@ useHead({ title: 'Buttons & Links' });
         A
         <Button
           label="link"
-          to="https://www.w3.org/WAI/ARIA/apg/patterns/link/"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/link"
           variant="link"
           target="_blank"
           external
         />
         provides an interactive reference to a resource. The target resource can
         be either external or local, i.e., either outside or within the current
-        page or application.
+        page or application."
       </p>
     </blockquote>
 

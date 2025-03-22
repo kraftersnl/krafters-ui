@@ -82,14 +82,22 @@ h1 {
 }
 
 .demo-page {
+  .section-topbar {
+    flex-wrap: nowrap;
+  }
+
   blockquote {
     border-color: var(--color-accent-bg);
+
+    p {
+      font-style: normal;
+    }
   }
 
   .card-cols {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
 
     > * {
       flex-grow: 1;
@@ -122,7 +130,7 @@ h1 {
   }
 
   .card {
-    margin-block-end: 2rem;
+    margin-block-end: 1.5rem;
   }
 
   p {

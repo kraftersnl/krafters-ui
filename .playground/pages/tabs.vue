@@ -55,7 +55,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
         Source:
         <Button
           label="ARIA Design Patterns"
-          to="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/tabs"
           variant="link"
           target="_blank"
           external
@@ -189,7 +189,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
         </template>
       </Tabs>
 
-      <Popover icon="cog" hide-label :max-width="480">
+      <Popover icon="cog" :max-width="480">
         <div class="popover-settings-content">
           <h2>Props</h2>
           <div class="props-wrapper">

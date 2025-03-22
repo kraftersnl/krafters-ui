@@ -6,29 +6,29 @@ withDefaults(
     labelLink?: string;
     labelIcon?: string;
     ariaLabel?: string;
+    ariaLabelledby?: string;
     buttonVariant?: ButtonVariant;
     buttonSize?: ButtonSize;
     fontSize?: FontSize;
     iconSize?: FontSize;
     hTag?: string;
-    id?: string;
     inline?: boolean;
-    role?: string;
   }>(),
   {
-    id: () => useId(),
-    hTag: 'h2',
-    buttonVariant: 'menu',
-    buttonSize: 'lg',
     fontSize: undefined,
     iconSize: undefined,
     label: undefined,
     labelLink: undefined,
     labelIcon: undefined,
     ariaLabel: undefined,
-    role: undefined,
+    ariaLabelledby: undefined,
+    buttonVariant: 'menu',
+    buttonSize: 'lg',
+    hTag: 'h2',
   },
 );
+
+const id = useId();
 
 function handleClick(item: MenuItem) {
   emit('click', item);
@@ -44,7 +44,11 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <nav :aria-labelledby="id" :aria-label="ariaLabel" class="menu-list-nav">
+  <nav
+    :aria-labelledby="label ? id : ariaLabelledby"
+    :aria-label="ariaLabelledby ? undefined : ariaLabel"
+    class="menu-list-nav"
+  >
     <component :is="hTag" v-if="label" :id="id" class="menu-list-label">
       <NuxtLink v-if="labelLink" :to="labelLink" class="label-link">
         <Icon v-if="labelIcon" :name="labelIcon" />
