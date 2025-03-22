@@ -1,5 +1,5 @@
 /* Color design tokens */
-.dark-mode {
+:where(.dark-mode) {
   --color-scheme: dark;
   --color-white: #120817;
   --color-black: #ffffff;
@@ -49,7 +49,7 @@
   --color-select-bg: #121212;
 }
 
-.light-mode {
+:where(.light-mode) {
   --color-scheme: light;
   --color-white: #ffffff;
   --color-black: #000000;
