@@ -5,17 +5,22 @@ useHead({ title: 'Changelog' });
 <template>
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
+    <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <ChangelogEntry v="1.4.0" date="2025-03-23">
+    <!-- <ChangelogEntry v="1.4.0" date="2025-03-22">
       <ul>
         <li>Breaking: rename Tooltip to ToggleTip</li>
         <li>Breaking: rename Popover to MenuButton</li>
+        <li>Breaking: rename props for MobileMenu component</li>
+        <li>
+          Rename ariaLabel prop to <code>tabListLabel</code> in Tabs component
+        </li>
         <li>
           Change implementation of aria-hidden to <code>inert</code> in
           FocusLoop component
         </li>
         <li>
-          Add <code>modal</code> prop to FocusLoop, MenuButton and Dialog
+          Add <code>modal</code> prop to FocusLoop, Popover and Dialog
           components
         </li>
         <li>
@@ -28,17 +33,17 @@ useHead({ title: 'Changelog' });
           MobileMenu component
         </li>
         <li>
-          Rename ariaLabel prop to <code>tabListLabel</code> in Tabs component
-        </li>
-        <li>
           Improve accessibility for ProgressMeter and ProgressCircle components
         </li>
-        <li>Add <code>fontSize</code> prop to ProgressMeter component</li>
+        <li>
+          Add <code>fontSize</code> and <code>role</code> props to ProgressMeter
+          and ProgressCircle components
+        </li>
         <li>Add <code>borderRadius</code> prop to Card component</li>
         <li>Reduce specificity of CSS reset rules</li>
         <li>Improve docs with accessibility requirements</li>
       </ul>
-    </ChangelogEntry>
+    </ChangelogEntry> -->
 
     <ChangelogEntry v="1.3.8" date="2025-03-20">
       <ul>
