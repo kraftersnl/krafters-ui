@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Modal Dialog Pattern | Krafters UI' });
+useHead({ title: 'Modal dialog pattern' });
 
 const dialogRef = useTemplateRef<DialogComponent>('dialog');
 const position = ref<DialogPosition>('center');
@@ -7,26 +7,28 @@ const position = ref<DialogPosition>('center');
 
 <template>
   <div class="demo-page dialog-demo">
-    <h1>Modal Dialog Pattern</h1>
-    <p>
-      A dialog is a window overlaid on either the primary window or another
-      dialog window. Windows under a modal dialog are inert. That is, users
-      cannot interact with content outside an active dialog window. Inert
-      content outside an active dialog is typically visually obscured or dimmed
-      so it is difficult to discern, and in some implementations, attempts to
-      interact with the inert content cause the dialog to close.
-    </p>
+    <h1>Modal dialog pattern</h1>
 
-    <p class="font-size-xxs">
-      Source:
-      <Button
-        to="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
-        label="ARIA Design Patterns"
-        variant="link"
-        target="_blank"
-        external
-      />.
-    </p>
+    <blockquote>
+      <p>
+        A dialog is a window overlaid on either the primary window or another
+        dialog window. Windows under a modal dialog are inert. That is, users
+        cannot interact with content outside an active dialog window. Inert
+        content outside an active dialog is typically visually obscured or
+        dimmed so it is difficult to discern, and in some implementations,
+        attempts to interact with the inert content cause the dialog to close.
+      </p>
+
+      <p class="fs-xxs mbe-2">
+        Source:
+        <NuxtLink
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+          target="_blank"
+          external
+          >ARIA Design Patterns</NuxtLink
+        >.
+      </p>
+    </blockquote>
 
     <Card>
       <h2>Dialog</h2>
@@ -85,7 +87,7 @@ const position = ref<DialogPosition>('center');
 
     <Card>
       <h2>Accessibility Requirements</h2>
-      <ul>
+      <ul class="a11y-list">
         <li>The dialog has a label, either visible or for screen readers.</li>
         <li>Keyboard focus is trapped inside the dialog.</li>
         <li>
@@ -107,11 +109,12 @@ const position = ref<DialogPosition>('center');
           If your dialog should divert users' attention to a brief, important
           message, you can set <code>role="alertdialog"</code>. Its usage is
           described in the
-          <Button
+          <NuxtLink
             to="https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/"
-            label="Alert Dialog Pattern"
-            variant="link"
-          />.
+            target="_blank"
+            external
+            >ARIA Design Patterns</NuxtLink
+          >.
         </li>
       </ul>
     </Card>

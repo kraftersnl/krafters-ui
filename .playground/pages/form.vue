@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Form inputs | Krafters UI' });
+useHead({ title: 'Form inputs' });
 
 const singleSelection = ref('');
 const multiSelection = ref<string | string[]>();
@@ -105,11 +105,11 @@ function handleSubmit(formData: FormData) {
 </script>
 
 <template>
-  <div class="demo-page">
+  <div class="demo-page form-page">
     <h1>Form inputs</h1>
 
     <Card>
-      <Form class="demo-form" @submit="handleSubmit" @reset="raw = ''">
+      <Form @submit="handleSubmit" @reset="raw = ''">
         <Input
           label="First name"
           name="first-name"
@@ -176,7 +176,7 @@ function handleSubmit(formData: FormData) {
 
           <Popover icon="cog" hide-label :max-width="480">
             <div class="popover-settings-content">
-              <h2>MultiSelect Props</h2>
+              <h2>Props</h2>
 
               <div class="props-wrapper">
                 <Select
@@ -205,6 +205,17 @@ function handleSubmit(formData: FormData) {
           </Popover>
         </div>
 
+        <p class="c-grey-text fs-sm mbe-2">
+          Krafters UI uses
+          <Button
+            to="https://vueform.com/reference/multiselect-element"
+            label="@vueform/multiselect"
+            variant="link"
+            target="_blank"
+            external
+          />
+        </p>
+
         <MultiSelect
           v-model="multiSelection"
           searchable
@@ -222,9 +233,17 @@ function handleSubmit(formData: FormData) {
       </Card>
 
       <Card>
-        <div class="section-topbar">
-          <h2>DatePicker</h2>
-        </div>
+        <h2>DatePicker</h2>
+        <p class="c-grey-text fs-sm mbe-2">
+          Krafters UI uses
+          <Button
+            to="https://vue3datepicker.com"
+            label="@vuepic/vue-datepicker"
+            variant="link"
+            target="_blank"
+            external
+          />
+        </p>
 
         <DatePicker
           v-model="date"
@@ -252,19 +271,9 @@ function handleSubmit(formData: FormData) {
 </template>
 
 <style>
-.demo-form {
-  .button {
+.demo-page.form-page {
+  .button[type='submit'] {
     flex-basis: 8rem;
-  }
-}
-
-.card-cols {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-
-  > .card {
-    flex-grow: 1;
   }
 }
 

@@ -1,27 +1,42 @@
 <script setup lang="ts">
-useHead({ title: 'Buttons | Krafters UI' });
+useHead({ title: 'Buttons & Links' });
 </script>
 
 <template>
   <div class="demo-page">
-    <h1>Buttons</h1>
-    <p>A <Button
-        to="https://www.w3.org/WAI/ARIA/apg/patterns/button/"
-        label="button"
-        variant="link"
-        target="_blank"
-        external
-      /> is a widget that enables users to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.</p>
+    <h1>Buttons & Links</h1>
 
-    <p>A <Button
-        to="https://www.w3.org/WAI/ARIA/apg/patterns/link/"
-        label="link"
-        variant="link"
-        target="_blank"
-        external
-      /> provides an interactive reference to a resource. The target resource can be either external or local, i.e., either outside or within the current page or application.</p>
+    <blockquote>
+      <p>
+        A
+        <Button
+          label="button"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/button/"
+          variant="link"
+          target="_blank"
+          external
+        />
+        is a widget that enables users to trigger an action or event, such as
+        submitting a form, opening a dialog, canceling an action, or performing
+        a delete operation.
+      </p>
 
-    <p style="color:var(--color-accent)">If you use set the <code>to</code> or <code>href</code> prop, this component will be rendered as a <code>{{`<NuxtLink>`}}</code> component.</p>
+      <p>
+        A
+        <Button
+          label="link"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/link/"
+          variant="link"
+          target="_blank"
+          external
+        />
+        provides an interactive reference to a resource. The target resource can
+        be either external or local, i.e., either outside or within the current
+        page or application.
+      </p>
+    </blockquote>
+
+    <p class="bold mbe-2">If you set the <code>to</code> or <code>href</code> prop, this component will be rendered as a <code>{{`<NuxtLink>`}}</code> component.</p>
 
     <Card>
       <h2>Variants</h2>

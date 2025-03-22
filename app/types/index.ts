@@ -71,6 +71,7 @@ declare global {
     | 'xxxxl';
 
   type FontSize =
+    | 'xxxs'
     | 'xxs'
     | 'xs'
     | 'sm'

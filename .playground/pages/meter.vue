@@ -1,33 +1,56 @@
 <script setup lang="ts">
-useHead({ title: 'Meter Pattern | Krafters UI' });
+useHead({ title: 'Meter pattern' });
 
 const progress = ref(50);
 const max = ref(100);
 </script>
 
 <template>
-  <div class="demo-page">
+  <div class="demo-page meter">
     <h1>Meter Pattern</h1>
-    <p>
-      A meter is a graphical display of a numeric value that varies within a
-      defined range. For example, a meter could be used to depict a device's
-      current battery percentage or a car's fuel level.
-    </p>
 
-    <p class="font-size-xxs">
-      Source:
-      <Button
-        to="https://www.w3.org/WAI/ARIA/apg/patterns/meter/"
-        label="ARIA Design Patterns"
-        variant="link"
-        target="_blank"
-        external
-      />
-    </p>
+    <blockquote>
+      <p>
+        A meter is a graphical display of a numeric value that varies within a
+        defined range.
+      </p>
 
-    <Card>
-      <div class="section-topbar">
-        <h2>Progress Circle</h2>
+      <p class="fs-xxs mbe-2">
+        Source:
+        <Button
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/meter/"
+          label="ARIA Design Patterns"
+          variant="link"
+          target="_blank"
+          external
+        />
+      </p>
+    </blockquote>
+
+    <div class="card-cols">
+      <Card>
+        <h2>Progress Meter</h2>
+        <div class="grid-wrapper" style="--gap: 2rem">
+          <ProgressMeter
+            label="Progress"
+            :value="progress"
+            :max="max"
+            size="lg"
+          />
+          <ProgressMeter
+            label="Progress"
+            hide-label
+            :value="progress"
+            :max="max"
+            size="md"
+          />
+          <ProgressMeter
+            label="Progress"
+            :value="progress"
+            :max="max"
+            size="sm"
+          />
+        </div>
 
         <Popover icon="cog" hide-label :max-width="480">
           <div class="popover-settings-content">
@@ -52,34 +75,49 @@ const max = ref(100);
             </div>
           </div>
         </Popover>
-      </div>
+      </Card>
 
-      <div class="flex-wrapper" style="--gap: 2rem">
-        <ProgressCircle :value="progress" :max="max" size="xl" font-size="xl" />
-        <ProgressCircle :value="progress" :max="max" size="lg" font-size="lg" />
-        <ProgressCircle :value="progress" :max="max" size="md" font-size="md" />
-        <ProgressCircle :value="progress" :max="max" size="sm" font-size="sm" />
-        <ProgressCircle
-          :value="progress"
-          :max="max"
-          size="xs"
-          font-size="xxxs"
-        />
-      </div>
-    </Card>
+      <Card>
+        <h2>Progress Circle</h2>
 
-    <Card>
-      <h2>Progress Meter</h2>
-      <div class="grid-wrapper" style="--gap: 2rem">
-        <ProgressMeter :value="progress" :max="max" size="lg" />
-        <ProgressMeter :value="progress" :max="max" size="md" />
-        <ProgressMeter :value="progress" :max="max" size="sm" />
-      </div>
-    </Card>
+        <div class="flex-wrapper" style="--gap: 1.5rem">
+          <ProgressCircle
+            :value="progress"
+            :max="max"
+            size="xl"
+            font-size="xl"
+          />
+          <ProgressCircle
+            :value="progress"
+            :max="max"
+            size="lg"
+            font-size="lg"
+          />
+          <ProgressCircle
+            :value="progress"
+            :max="max"
+            size="md"
+            font-size="md"
+          />
+          <ProgressCircle
+            :value="progress"
+            :max="max"
+            size="sm"
+            font-size="sm"
+          />
+          <ProgressCircle
+            :value="progress"
+            :max="max"
+            size="xs"
+            font-size="xxxs"
+          />
+        </div>
+      </Card>
+    </div>
 
     <Card>
       <h2>Accessibility Requirements</h2>
-      <ul>
+      <ul class="a11y-list">
         <li>
           The element serving as the meter has a role of <code>meter</code>.
         </li>
@@ -96,4 +134,7 @@ const max = ref(100);
   </div>
 </template>
 
-<style></style>
+<style>
+.demo-page.meter {
+}
+</style>

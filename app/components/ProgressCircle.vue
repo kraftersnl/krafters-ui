@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const {
   value,
+  min = 0,
   max = 100,
   size = 'xl',
   fontSize = 'sm',
@@ -8,6 +9,7 @@ const {
 } = defineProps<{
   value: number;
   max?: number;
+  min?: number;
   showValue?: boolean;
   fontSize?: FontSize;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -65,14 +67,14 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
   position: relative;
   width: var(--size);
   height: var(--size);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
   display: grid;
   place-content: center;
 
   .progress-circle-label {
     z-index: 1;
     color: var(--progress-label-color);
-    font-size: var(--font-size);
-    font-weight: var(--font-weight-medium);
   }
 
   .progress-circle {

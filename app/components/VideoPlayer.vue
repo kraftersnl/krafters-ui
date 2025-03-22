@@ -45,9 +45,8 @@ const { data: videoData } = useAsyncData<VideoMetaData>(props.url, () =>
 );
 
 const ratio = computed(() => {
-  if (videoData.value?.thumbnail_width && videoData.value?.thumbnail_height) {
-    const ar =
-      videoData.value.thumbnail_width / videoData.value.thumbnail_height;
+  if (videoData.value?.width && videoData.value?.height) {
+    const ar = videoData.value.width / videoData.value.height;
 
     if (ar >= 1.76 && ar <= 1.79) {
       return 16 / 9;

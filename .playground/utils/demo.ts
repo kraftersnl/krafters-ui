@@ -23,7 +23,7 @@ export const navList: MenuItem[] = [
   {
     id: 'buttons',
     to: '/buttons',
-    label: 'Buttons',
+    label: 'Buttons & Links',
   },
   {
     id: 'accordion',
@@ -43,7 +43,7 @@ export const navList: MenuItem[] = [
   {
     id: 'meter',
     to: '/meter',
-    label: 'Progress Meter',
+    label: 'Meter',
   },
   {
     id: 'tabs',

@@ -70,7 +70,8 @@ const {
   tbody {
     pointer-events: none;
 
-    td {
+    td,
+    th {
       opacity: 35%;
     }
 

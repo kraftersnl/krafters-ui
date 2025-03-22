@@ -8,14 +8,14 @@ const props = withDefaults(
     fontSize?: FontSize;
     variant?: TabsVariant;
     color?: 'green' | 'accent';
-    ariaLabel?: string;
+    tabListLabel?: string;
   }>(),
   {
     size: 'sm',
     fontSize: 'sm',
     variant: 'default',
     color: 'green',
-    ariaLabel: undefined,
+    tabListLabel: undefined,
     icon: undefined,
   },
 );
@@ -99,7 +99,7 @@ defineExpose({
     <div
       class="tabs-list"
       role="tablist"
-      :aria-label="ariaLabel"
+      :aria-label="tabListLabel"
       v-bind="$attrs"
     >
       <template v-for="tab in tabs" :key="'tab-' + tab.value">

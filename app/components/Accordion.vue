@@ -20,7 +20,7 @@ withDefaults(
   },
 );
 
-const contentRef = useTemplateRef<HTMLElement>('accordionContent');
+const panelRef = useTemplateRef<HTMLElement>('accordionPanel');
 
 function toggleAccordion() {
   isExpanded.value = !isExpanded.value;
@@ -28,25 +28,25 @@ function toggleAccordion() {
 
 function handleTransitionRun(event: TransitionEvent) {
   if (event.propertyName === 'grid-template-rows' && !isExpanded.value) {
-    contentRef.value?.style.setProperty('--overflow', 'hidden');
+    panelRef.value?.style.setProperty('--overflow', 'hidden');
   }
 }
 
 function handleTransitionEnd(event: TransitionEvent) {
   if (event.propertyName === 'grid-template-rows' && isExpanded.value) {
     if (isExpanded.value) {
-      contentRef.value?.style.setProperty('--overflow', 'visible');
+      panelRef.value?.style.setProperty('--overflow', 'visible');
     } else {
-      contentRef.value?.style.setProperty('--overflow', 'hidden');
+      panelRef.value?.style.setProperty('--overflow', 'hidden');
     }
   }
 }
 
 onMounted(() => {
   if (!isExpanded.value) {
-    contentRef.value?.style.setProperty('--overflow', 'hidden');
+    panelRef.value?.style.setProperty('--overflow', 'hidden');
   } else {
-    contentRef.value?.style.setProperty('--overflow', 'visible');
+    panelRef.value?.style.setProperty('--overflow', 'visible');
   }
 });
 
@@ -57,12 +57,12 @@ defineExpose({ toggleAccordion });
   <div class="accordion-wrapper">
     <button
       :id="`accordion-trigger-${id}`"
-      type="button"
-      class="accordion-trigger"
       :aria-controls="`accordion-panel-${id}`"
       :aria-expanded="isExpanded"
       :aria-label="ariaLabel"
       :tabindex="tabindex"
+      type="button"
+      class="accordion-trigger"
       @click.stop="toggleAccordion"
     >
       <Icon
@@ -71,28 +71,30 @@ defineExpose({ toggleAccordion });
         class="accordion-arrow"
         aria-hidden
       />
+
       <slot v-if="$slots.trigger" name="trigger" mdc-unwrap="p" />
+
       <span v-else class="visuallyhidden">{{ $t('general.expand') }}</span>
     </button>
 
     <slot />
 
-    <div
+    <section
       :id="`accordion-panel-${id}`"
       :aria-labelledby="`accordion-trigger-${id}`"
       :aria-hidden="!isExpanded"
-      class="accordion-content-wrapper"
+      class="accordion-panel-wrapper"
       @transitionrun="handleTransitionRun"
       @transitionend="handleTransitionEnd"
     >
       <div
-        ref="accordionContent"
-        class="accordion-content"
+        ref="accordionPanel"
+        class="accordion-panel"
         :style="`--min-height: ${minHeight}px`"
       >
         <slot name="content" />
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -101,22 +103,26 @@ defineExpose({ toggleAccordion });
   border-radius: var(--radius-sm);
 }
 
-.accordion-content-wrapper {
+.accordion-panel-wrapper {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows var(--duration-lg) ease-in-out;
 }
 
-.accordion-content {
+.accordion-panel {
   overflow: var(--overflow, hidden);
   min-height: var(--min-height);
+
+  p {
+    margin-block-start: 0;
+  }
 }
 
 .accordion-trigger[aria-expanded='true'] {
   .accordion-arrow {
     rotate: 0.25turn;
   }
-  ~ .accordion-content-wrapper {
+  ~ .accordion-panel-wrapper {
     grid-template-rows: 1fr;
   }
 }

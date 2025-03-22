@@ -8,6 +8,8 @@ watch(
     appRef.value?.focus();
   },
 );
+
+useHead({ titleTemplate: '%s | Krafters UI' });
 </script>
 
 <template>
@@ -74,50 +76,60 @@ watch(
   }
 }
 
+h1 {
+  margin-block-start: 0;
+  color: var(--color-accent);
+}
+
 .demo-page {
-  h1 {
-    color: var(--color-accent);
-  }
-  h2 {
-    color: var(--color-text);
-  }
-  h3 {
-    color: var(--color-accent-text);
+  blockquote {
+    border-color: var(--color-accent-bg);
   }
 
-  code,
-  kbd {
-    font-size: 0.9em;
+  .card-cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    > * {
+      flex-grow: 1;
+      flex-basis: calc(50% - var(--gap));
+    }
   }
 
-  .card {
-    margin-block-end: 1rem;
-  }
+  .c-grey-text {
+    .button {
+      color: var(--color-text);
 
-  h1 {
-    margin-block-start: 0;
-  }
-
-  p {
-    max-width: 78ch;
-    margin-block-end: 1rem;
-
-    a {
       &:hover {
         color: var(--color-accent);
       }
     }
   }
 
-  ul {
-    max-width: 78ch;
-  }
-
-  h2 + ul {
+  .a11y-list {
     > li {
       margin-bottom: 0.125rem;
 
       &::marker {
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  kbd {
+    font-size: 0.8em;
+  }
+
+  .card {
+    margin-block-end: 2rem;
+  }
+
+  p {
+    max-width: 78ch;
+
+    a {
+      &:hover {
         color: var(--color-accent);
       }
     }

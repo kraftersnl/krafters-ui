@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Non modal popup | Krafters UI' });
+useHead({ title: 'Non modal dialog pattern' });
 
 const { t } = useI18n();
 
@@ -25,7 +25,8 @@ const popoverActions = [
 
 <template>
   <div class="demo-page">
-    <h1>Non modal dialog Pattern</h1>
+    <h1>Non modal dialog pattern</h1>
+
     <p>
       A common pattern on the web is to show content over top of other content,
       drawing the user's attention to specific important information or actions
@@ -34,12 +35,41 @@ const popoverActions = [
       and MenuButton.
     </p>
 
+    <p class="c-grey-text fs-xs mbe-2">
+      Krafters UI uses
+      <Button
+        to="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning"
+        label="VueTippy"
+        variant="link"
+        target="_blank"
+        external
+      />
+      for these components. In the future this package could be replaced with
+      the
+      <Button
+        to="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API"
+        label="Popover API"
+        variant="link"
+        target="_blank"
+        external
+      />
+      when
+      <Button
+        to="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning"
+        label="anchor positioning"
+        variant="link"
+        target="_blank"
+        external
+      />
+      will be supported in all modern browsers.
+    </p>
+
     <div class="demo-page-cols">
       <Card>
         <div class="text-content">
           <h2>ToggleTip</h2>
 
-          <p>
+          <p class="c-grey-text">
             A tooltip is a popup that displays information related to an element
             when the element receives keyboard focus or the mouse hovers over
             it. To work by touch just as well as by mouse or keyboard,
@@ -54,14 +84,13 @@ const popoverActions = [
             />.
           </p>
 
-          <p class="font-size-xxs">
+          <p class="c-grey-text fs-xxs">
             Note: the
             <Button
-              to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/"
-              target="_blank"
-              external
-              font-size="xs"
               label="Tooltip design pattern"
+              to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/"
+              external
+              target="_blank"
               variant="link"
             />
             is work in progress; it does not yet have task force consensus.
@@ -92,17 +121,17 @@ const popoverActions = [
 
         <div class="text-content">
           <h3>Accessibility requirements</h3>
-          <ul>
+          <ul class="a11y-list">
             <li>Use a <code>button</code> element to trigger the toggletip.</li>
 
             <li>
-              The trigger element has an <code>aria-controls</code> attribute.
-              The value should refer to the ID of the toggletip.
+              The trigger element has the <code>aria-expanded</code> attribute.
+              The value should align with the open state of the toggletip.
             </li>
 
             <li>
-              The trigger element has <code>aria-expanded</code> attribute. The
-              value should align with the open state of the toggletip.
+              The trigger element has the <code>aria-controls</code> attribute.
+              The value should refer to the ID of the toggletip.
             </li>
 
             <li>
@@ -127,8 +156,8 @@ const popoverActions = [
 
             <li>
               <s>
-                The element that serves as the toggletip container has role
-                <code>tooltip</code>.
+                The element that serves as the toggletip container has
+                <code>role="tooltip"</code>.
               </s>
               <ul>
                 <li>
@@ -145,15 +174,14 @@ const popoverActions = [
       <Card>
         <div class="text-content">
           <h2>MenuButton</h2>
-          <p>
+          <p class="c-grey-text">
             A
-            <Button
+            <NuxtLink
               to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
-              label="menu button"
-              variant="link"
               target="_blank"
               external
-            />
+              >menu button</NuxtLink
+            >
             is a button that opens a menu, also referred to as popup or overflow
             menu.
           </p>
@@ -170,13 +198,12 @@ const popoverActions = [
           >
             <template #content>
               <p style="padding: 1rem 1.5rem; min-width: 340px">
-                <Button
+                <NuxtLink
                   to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
-                  label="Menu Button design pattern"
-                  variant="link"
                   target="_blank"
                   external
-                />
+                  >Menu Button design pattern</NuxtLink
+                >
               </p>
             </template>
           </Popover>
@@ -191,6 +218,7 @@ const popoverActions = [
 
         <div class="text-content">
           <h3>Accessibility requirements</h3>
+
           <p>
             The Popover component is an interative toggletip. If the
             <code>list</code> prop is supplied, the component adds a
@@ -198,7 +226,7 @@ const popoverActions = [
             the navigation menu.
           </p>
 
-          <ul>
+          <ul class="a11y-list">
             <li>
               Use a <code>button</code> element to open or close the menu.
             </li>

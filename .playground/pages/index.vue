@@ -1,10 +1,44 @@
 <script setup lang="ts">
-useHead({ title: 'Changelog | Krafters UI' });
+useHead({ title: 'Changelog' });
 </script>
 
 <template>
   <div class="demo-page changelog-page">
     <h1>Changelog</h1>
+
+    <ChangelogEntry v="1.4.0" date="2025-03-23">
+      <ul>
+        <li>Breaking: rename Tooltip to ToggleTip</li>
+        <li>Breaking: rename Popover to MenuButton</li>
+        <li>
+          Change implementation of aria-hidden to <code>inert</code> in
+          FocusLoop component
+        </li>
+        <li>
+          Add <code>modal</code> prop to FocusLoop, MenuButton and Dialog
+          components
+        </li>
+        <li>
+          Fix accessibility issue with using <kbd>Escape</kbd> key to close
+          Dialog component
+        </li>
+        <li>Add <code>role</code> prop to Dialog component</li>
+        <li>
+          Add <code>label</code> and <code>clickOutside</code> props to
+          MobileMenu component
+        </li>
+        <li>
+          Rename ariaLabel prop to <code>tabListLabel</code> in Tabs component
+        </li>
+        <li>
+          Improve accessibility for ProgressMeter and ProgressCircle components
+        </li>
+        <li>Add <code>fontSize</code> prop to ProgressMeter component</li>
+        <li>Add <code>borderRadius</code> prop to Card component</li>
+        <li>Reduce specificity of CSS reset rules</li>
+        <li>Improve docs with accessibility requirements</li>
+      </ul>
+    </ChangelogEntry>
 
     <ChangelogEntry v="1.3.8" date="2025-03-20">
       <ul>

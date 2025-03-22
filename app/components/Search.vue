@@ -67,6 +67,7 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
     <Button
       v-if="!hideSubmitButton"
       type="submit"
+      :disabled="!model"
       variant="secondary"
       :label="$t('general.submit')"
       icon="search"

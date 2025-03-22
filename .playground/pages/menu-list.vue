@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Progress | Krafters UI' });
+useHead({ title: 'Menu pattern' });
 
 // const buttonSize = ref();
 // const fontSize = ref();
@@ -24,7 +24,7 @@ const menuList = [
 
       <Popover icon="cog" hide-label :max-width="480">
         <div class="popover-settings-content">
-          <h2>MenuList Props</h2>
+          <h2>Props</h2>
 
           <div class="props-wrapper">
             <!-- <Input v-model.number="progress" type="number" label="value" />

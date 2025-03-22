@@ -1,15 +1,19 @@
 <script setup lang="ts">
 const {
+  value,
   min = 0,
   max = 100,
   size = 'md',
+  fontSize = 'sm',
 } = defineProps<{
-  label?: string;
+  label: string;
   hideLabel?: boolean;
+  hideValue?: boolean;
   value: number;
   min?: number;
   max?: number;
   size?: 'sm' | 'md' | 'lg';
+  fontSize?: FontSize;
 }>();
 
 const id = useId();
@@ -23,12 +27,13 @@ const id = useId();
     :aria-valuemax="max"
     :aria-labelledby="id"
     class="progress-meter-wrapper"
+    :style="`--font-size: var(--font-size-${fontSize})`"
   >
     <div :id="id" :class="`meter-label ${hideLabel ? 'visuallyhidden' : ''}`">
       {{ label }}
     </div>
 
-    <div :class="`meter-value  ${hideLabel ? 'visuallyhidden' : ''}`">
+    <div :class="`meter-value  ${hideValue ? 'visuallyhidden' : ''}`">
       {{ $t('meter.value-of-max', { value: value, max: max }) }}
     </div>
 
@@ -45,10 +50,10 @@ const id = useId();
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
+  font-size: var(--font-size);
 
   .meter-label {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
   }
 
   .meter-value {

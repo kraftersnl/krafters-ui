@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Text components | Krafters UI' });
+useHead({ title: 'Text components' });
 
 const lines = ref(1);
 const text = ref(
@@ -65,7 +65,7 @@ const text = ref(
 
         <Popover icon="cog" hide-label :max-width="480">
           <div class="popover-settings-content">
-            <h2>Ellipsis Props</h2>
+            <h2>Props</h2>
 
             <div class="props-wrapper">
               <Input v-model.number="lines" type="number" label="lines" />

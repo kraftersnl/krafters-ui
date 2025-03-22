@@ -35,7 +35,7 @@ const props = withDefaults(
     hideTriggerLabel: true,
     triggerLabel: undefined,
     triggerClass: undefined,
-    clickOutside: undefined,
+    clickOutside: true,
     label: undefined,
     navLabel: undefined,
     list: () => [],

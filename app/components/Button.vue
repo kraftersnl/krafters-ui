@@ -53,8 +53,9 @@ const emit = defineEmits(['click']);
 
 <template>
   <NuxtLink
-    v-if="to"
-    :to="to || href"
+    v-if="to || href"
+    :to="to"
+    :href="href"
     :target="target"
     :class="`
       button
@@ -308,6 +309,7 @@ const emit = defineEmits(['click']);
   min-height: 0;
   height: auto;
   font-size: inherit;
+  /* font-size: var(--font-size, inherit); */
   display: inline-flex;
   justify-content: start;
   align-items: center;
@@ -414,7 +416,7 @@ const emit = defineEmits(['click']);
     }
   }
 
-  &.router-hash-link-active {
+  &.router-link-active {
     color: var(--color-accent);
     text-decoration: underline;
   }

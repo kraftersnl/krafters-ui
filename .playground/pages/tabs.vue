@@ -1,17 +1,17 @@
 <script setup lang="ts">
-useHead({ title: 'Tabs navigation | Krafters UI' });
+useHead({ title: 'Tabs pattern' });
 
 const tabs = [
-  { value: 'a', label: 'Tab A' },
-  { value: 'b', label: 'Tab b' },
+  { value: 'a', label: 'Accessibility requirements' },
+  { value: 'b', label: 'Overflowing content' },
 ];
 
 const activeTab = ref('a');
 
-const tabsSize = ref<TabsSize>('md');
+const tabsFontSize = ref<TabsSize>('sm');
 const tabsVariant = ref<TabsVariant>('default');
 
-const tabSizes: { value: TabsSize; label: string }[] = [
+const tabsFontSizes: { value: TabsSize; label: string }[] = [
   {
     value: 'md',
     label: 'md',
@@ -39,44 +39,95 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
 </script>
 
 <template>
-  <div class="demo-page">
-    <div class="section-topbar">
-      <h1>Tabs navigation</h1>
+  <div class="demo-page tabs">
+    <h1>Tabs pattern</h1>
 
-      <Popover icon="cog" hide-label :max-width="480">
-        <div class="popover-settings-content">
-          <h2>Tabs Props</h2>
-          <div class="props-wrapper">
-            <Select
-              v-model="tabsSize"
-              :options="tabSizes"
-              size="sm"
-              label="size"
-            />
-            <Select
-              v-model="tabsVariant"
-              :options="tabsVariants"
-              size="sm"
-              label="variant"
-            />
-            <code
-              >{{`<Tabs size="${tabsSize}" variant="${tabsVariant}" />` }}</code
-            >
-          </div>
-        </div>
-      </Popover>
-    </div>
+    <blockquote>
+      <p>
+        Tabs are a set of layered sections of content, known as tab panels, that
+        display one panel of content at a time. Each tab panel has an associated
+        tab element, that when activated, displays the panel. The list of tab
+        elements is arranged along one edge of the currently displayed panel,
+        most commonly the top edge.
+      </p>
+
+      <p class="fs-xxs mbe-2">
+        Source:
+        <Button
+          label="ARIA Design Patterns"
+          to="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/"
+          variant="link"
+          target="_blank"
+          external
+        />
+      </p>
+    </blockquote>
 
     <Card>
       <Tabs
         v-model="activeTab"
-        :size="tabsSize"
+        :font-size="tabsFontSize"
         :variant="tabsVariant"
         :tabs="tabs"
-        class="demo-tabs"
+        tab-list-label="Demo tabs"
       >
         <template #a>
+          <ul class="a11y-list">
+            <li>
+              It is recommended that tabs activate automatically when they
+              receive focus.
+            </li>
+            <li>
+              When the Tab List is focussed, the <kbd>Tab</kbd> key should move
+              focus to the Tab Panel.
+            </li>
+            <li>
+              When the Tab List is focussed, the
+              <kbd>
+                <Icon name="heroicons-solid:arrow-right" size="0.65rem" />
+              </kbd>
+              key moves focus to the next tab.
+            </li>
+            <li>
+              When the Tab List is focussed, the
+              <kbd>
+                <Icon name="heroicons-solid:arrow-left" size="0.65rem" />
+              </kbd>
+              key moves focus to the previous tab.
+            </li>
+            <li>
+              Each element that serves as a tab has <code>role="tab"</code>.
+            </li>
+            <li>
+              The element that serves as the container for the set of tabs has
+              <code>role="tablist"</code>.
+            </li>
+            <li>
+              The elements that contains the content for a tab have
+              <code>role="tabpanel"</code>.
+            </li>
+            <li>
+              The active tab element has <code>aria-selected</code> set to true
+              and all other tab elements to false.
+            </li>
+            <li>
+              Each tab has an <code>aria-controls</code> attribute referring to
+              its associated tabpanel element.
+            </li>
+            <li>
+              Each element with role tabpanel has the property
+              <code>aria-labelledby</code> referring to its associated tab
+              element.
+            </li>
+          </ul>
+        </template>
+
+        <template #b>
           <div class="overflow-content" tabindex="0">
+            <p>
+              This tab panel can be used to test keyboard accessibility for
+              overflowing content.
+            </p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
               sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
@@ -136,42 +187,41 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
             </p>
           </div>
         </template>
-
-        <template #b>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, fuga.
-            Nihil iste enim expedita repellat consequuntur officiis sequi illo
-            provident ducimus voluptatem alqiquam corrupti sapiente adipisci ex,
-            fugit rerum necessitatibus. Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Alias, magnam? Ad aperiam quaerat adipisci atque
-            dolores? Sapiente, distinctio accusantium, laudantium numquam ut
-            perferendis laborum harum molestias magnam saepe eius! Molestias.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-            accusamus illum voluptas soluta error blanditiis facere expedita
-            nihil hic possimus rem repellendus, vero a iste nesciunt. Aperiam
-            veritatis modi sint. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Architecto nisi perferendis ad laboriosam culpa
-            eaque asperiores tenetur earum, id saepe cupiditate laudantium!
-            Saepe obcaecati autem, quaerat nostrum laborum unde perferendis!
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-            sed nisi voluptatem perferendis facilis ab, aperiam mollitia neque
-            deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero
-            fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita
-            repellat consequuntur officiis sequi illo provident ducimus
-            voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum
-            necessitatibus.
-          </p>
-        </template>
       </Tabs>
+
+      <Popover icon="cog" hide-label :max-width="480">
+        <div class="popover-settings-content">
+          <h2>Props</h2>
+          <div class="props-wrapper">
+            <Select
+              v-model="tabsFontSize"
+              :options="tabsFontSizes"
+              size="sm"
+              label="fontSize"
+            />
+            <Select
+              v-model="tabsVariant"
+              :options="tabsVariants"
+              size="sm"
+              label="variant"
+            />
+            <code
+              >{{`<Tabs font-size="${tabsFontSize}" variant="${tabsVariant}" />`
+              }}</code
+            >
+          </div>
+        </div>
+      </Popover>
     </Card>
   </div>
 </template>
 
 <style>
-.demo-tabs {
+.demo-page.tabs {
+  .card {
+    padding-inline-end: 4rem;
+  }
+
   .overflow-content {
     max-height: 32rem;
     overflow: auto;
