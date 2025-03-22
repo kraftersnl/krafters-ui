@@ -4,13 +4,17 @@ const props = withDefaults(
     label?: string;
     id?: string;
     clickOutside?: boolean;
+    modal?: boolean;
     position?: DialogPosition;
+    role?: 'dialog' | 'alertdialog';
   }>(),
   {
     label: undefined,
     id: () => useId(),
     clickOutside: true,
+    modal: undefined,
     position: 'center',
+    role: undefined,
   },
 );
 
@@ -49,10 +53,11 @@ defineExpose({
     ref="dialog"
     :aria-labelledby="id"
     :class="`dialog dialog-position--${position}`"
+    :role="role"
     @click="handleDialogClick"
     @close="isVisible = false"
   >
-    <FocusLoop :is-visible="isVisible">
+    <FocusLoop :is-visible="isVisible" :modal="modal">
       <div class="dialog-header">
         <h1 v-if="label" :id="id">{{ label }}</h1>
 

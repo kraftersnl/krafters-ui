@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Toggletip and Popover | Krafters UI' });
+useHead({ title: 'Non modal popup | Krafters UI' });
 
 const { t } = useI18n();
 
@@ -25,11 +25,48 @@ const popoverActions = [
 
 <template>
   <div class="demo-page">
-    <h1>Toggletip and Popover</h1>
+    <h1>Non modal dialog Pattern</h1>
+    <p>
+      A common pattern on the web is to show content over top of other content,
+      drawing the user's attention to specific important information or actions
+      that need to be taken. This pattern can technically be described as a
+      non-modal dialog or popover. Krafters UI offers 2 components: ToggleTip
+      and MenuButton.
+    </p>
 
     <div class="demo-page-cols">
       <Card>
-        <h2>Toggletip</h2>
+        <div class="text-content">
+          <h2>ToggleTip</h2>
+
+          <p>
+            A tooltip is a popup that displays information related to an element
+            when the element receives keyboard focus or the mouse hovers over
+            it. To work by touch just as well as by mouse or keyboard,
+            toggletips are revealed by click rather than by hover and focus.
+            Krafters UI uses
+            <Button
+              to="https://inclusive-components.design/tooltips-toggletips/"
+              label="Toggletips with live regions"
+              target="_blank"
+              external
+              variant="link"
+            />.
+          </p>
+
+          <p class="font-size-xxs">
+            Note: the
+            <Button
+              to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/"
+              target="_blank"
+              external
+              font-size="xs"
+              label="Tooltip design pattern"
+              variant="link"
+            />
+            is work in progress; it does not yet have task force consensus.
+          </p>
+        </div>
 
         <div class="flex-wrapper">
           <Tooltip label="Toggletip label" :max-width="480" :hide-label="false">
@@ -55,18 +92,6 @@ const popoverActions = [
 
         <div class="text-content">
           <h3>Accessibility requirements</h3>
-          <p>
-            Krafters UI uses Toggletips with live regions. For more information,
-            visit
-            <Button
-              to="https://inclusive-components.design/tooltips-toggletips/"
-              label="Tooltips & Toggletips"
-              target="_blank"
-              external
-              variant="link"
-            />.
-          </p>
-
           <ul>
             <li>Use a <code>button</code> element to trigger the toggletip.</li>
 
@@ -114,27 +139,25 @@ const popoverActions = [
               </ul>
             </li>
           </ul>
-
-          <p>
-            <small>
-              Note: the
-              <Button
-                to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/"
-                target="_blank"
-                external
-                font-size="xs"
-                label="Tooltip pattern"
-                variant="link"
-              />
-              on ARIA Authoring Practices Guide has been work in progress since
-              2016.
-            </small>
-          </p>
         </div>
       </Card>
 
       <Card>
-        <h2>Popover</h2>
+        <div class="text-content">
+          <h2>MenuButton</h2>
+          <p>
+            A
+            <Button
+              to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
+              label="menu button"
+              variant="link"
+              target="_blank"
+              external
+            />
+            is a button that opens a menu, also referred to as popup or overflow
+            menu.
+          </p>
+        </div>
 
         <div class="flex-wrapper">
           <Popover
@@ -143,13 +166,17 @@ const popoverActions = [
             size="lg"
             trigger-variant="secondary"
             :hide-label="false"
+            :modal="false"
           >
             <template #content>
               <p style="padding: 1rem 1.5rem; min-width: 340px">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi quidem sequi autem eum dolore cupiditate blanditiis
-                ipsam. Assumenda quas incidunt doloribus ad, dicta, aliquam
-                pariatur quisquam quos iusto ipsam eum.
+                <Button
+                  to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"
+                  label="Menu Button design pattern"
+                  variant="link"
+                  target="_blank"
+                  external
+                />
               </p>
             </template>
           </Popover>
@@ -177,13 +204,13 @@ const popoverActions = [
             </li>
 
             <li>
-              The trigger element has an <code>aria-controls</code> attribute.
-              The value should refer to the ID of the menu.
+              The trigger element has <code>aria-expanded</code> attribute. The
+              value should align with the open state of the toggletip.
             </li>
 
             <li>
-              The trigger element has <code>aria-expanded</code> attribute. The
-              value should align with the open state of the toggletip.
+              The trigger element has an <code>aria-controls</code> attribute.
+              The value should refer to the ID of the menu.
             </li>
 
             <li>Focus is trapped inside the menu.</li>

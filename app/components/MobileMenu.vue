@@ -16,6 +16,8 @@ const props = withDefaults(
     hideTriggerLabel?: boolean;
     triggerLabel?: string;
     triggerClass?: string;
+    clickOutside?: boolean;
+    label?: string;
     navLabel?: string;
     list?: MenuItem[];
   }>(),
@@ -33,6 +35,8 @@ const props = withDefaults(
     hideTriggerLabel: true,
     triggerLabel: undefined,
     triggerClass: undefined,
+    clickOutside: undefined,
+    label: undefined,
     navLabel: undefined,
     list: () => [],
   },
@@ -52,6 +56,8 @@ const isMounted = ref(false);
 onMounted(() => (isMounted.value = true));
 
 function handleDialogClick(event: MouseEvent) {
+  if (!props.clickOutside) return;
+
   const target = event.target as HTMLDialogElement;
 
   if (target.nodeName === 'DIALOG') {
@@ -123,7 +129,7 @@ const emit = defineEmits<{
         ref="dialogElement"
         :class="`mobile-dialog mobile-dialog-position--${position} ${props.class ?? ''}`"
         v-bind="$attrs"
-        :aria-label="$t('aria.mobile-menu')"
+        :aria-label="label || $t('aria.mobile-menu')"
         :style="`--width: ${width}px`"
         @click="handleDialogClick"
         @close="isVisible = false"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Colors | Krafters UI' });
+useHead({ title: 'Accessibility | Krafters UI' });
 </script>
 
 <template>

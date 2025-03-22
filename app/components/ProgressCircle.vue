@@ -14,11 +14,19 @@ const {
   color?: 'accent' | 'green' | 'orange' | 'red';
 }>();
 
+const id = useId();
+
 const percentage = computed(() => ((value / max) * 100)?.toFixed());
 </script>
 
 <template>
   <div
+    role="meter"
+    :aria-valuenow="value"
+    :aria-valuemin="min"
+    :aria-valuemax="max"
+    :aria-valuetext="percentage + '%'"
+    :aria-labelledby="id"
     :class="`
       progress-circle-wrapper
       progress-circle-size--${size}
@@ -30,7 +38,7 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
       --progress-circle-max: ${max};
     `"
   >
-    <div class="progress-circle-label">
+    <div :id="id" class="progress-circle-label">
       {{ showValue ? value : percentage + '%' }}
     </div>
 

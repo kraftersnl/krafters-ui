@@ -18,10 +18,12 @@ const {
   disabled,
   isVisible = false,
   autoFocus = true,
+  modal = true,
 } = defineProps<{
   disabled?: boolean;
   isVisible?: boolean;
   autoFocus?: boolean;
+  modal?: boolean;
 }>();
 
 const focusLoopContainerRef = ref<InstanceType<any>>(null);
@@ -67,9 +69,14 @@ function lockForSwipeScreenReader(active: boolean = true) {
     if (
       ['SCRIPT', 'STYLE'].includes(el.nodeName) ||
       el.hasAttribute('aria-live')
-    )
+    ) {
       return;
-    el.setAttribute('aria-hidden', active.toString());
+    }
+
+    if (!modal) return;
+
+    if (active) el.setAttribute('inert', '');
+    else el.removeAttribute('inert');
   });
 }
 

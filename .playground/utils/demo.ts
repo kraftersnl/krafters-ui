@@ -16,24 +16,14 @@ export const navList: MenuItem[] = [
     label: 'Colors',
   },
   {
+    id: 'text',
+    to: '/text',
+    label: 'Text components',
+  },
+  {
     id: 'buttons',
     to: '/buttons',
     label: 'Buttons',
-  },
-  // {
-  //   id: 'menu-list',
-  //   to: '/menu-list',
-  //   label: 'Menu List',
-  // },
-  {
-    id: 'alerts',
-    to: '/alerts',
-    label: 'Chips & Callouts',
-  },
-  {
-    id: 'ellipsis',
-    to: '/ellipsis',
-    label: 'Ellipsis',
   },
   {
     id: 'accordion',
@@ -51,9 +41,9 @@ export const navList: MenuItem[] = [
     label: 'Markdown Editor',
   },
   {
-    id: 'progress',
-    to: '/progress',
-    label: 'Progress',
+    id: 'meter',
+    to: '/meter',
+    label: 'Progress Meter',
   },
   {
     id: 'tabs',
@@ -68,12 +58,12 @@ export const navList: MenuItem[] = [
   {
     id: 'toggletip',
     to: '/toggletip',
-    label: 'Toggletip & Popover',
+    label: 'Toggletip & Menu Button',
   },
   {
     id: 'dialog',
     to: '/dialog',
-    label: 'Dialog & MobileMenu',
+    label: 'Modal Dialog',
   },
   {
     id: 'skeleton',

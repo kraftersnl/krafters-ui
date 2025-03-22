@@ -98,17 +98,27 @@ watch(
     margin-block-start: 0;
   }
 
-  p a {
-    &:hover {
-      color: var(--color-accent);
+  p {
+    max-width: 78ch;
+    margin-block-end: 1rem;
+
+    a {
+      &:hover {
+        color: var(--color-accent);
+      }
     }
   }
 
-  .text-content {
-    ul,
-    ol {
-      > li {
-        margin-bottom: 0.125rem;
+  ul {
+    max-width: 78ch;
+  }
+
+  h2 + ul {
+    > li {
+      margin-bottom: 0.125rem;
+
+      &::marker {
+        color: var(--color-accent);
       }
     }
   }

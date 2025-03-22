@@ -5,6 +5,23 @@ useHead({ title: 'Buttons | Krafters UI' });
 <template>
   <div class="demo-page">
     <h1>Buttons</h1>
+    <p>A <Button
+        to="https://www.w3.org/WAI/ARIA/apg/patterns/button/"
+        label="button"
+        variant="link"
+        target="_blank"
+        external
+      /> is a widget that enables users to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.</p>
+
+    <p>A <Button
+        to="https://www.w3.org/WAI/ARIA/apg/patterns/link/"
+        label="link"
+        variant="link"
+        target="_blank"
+        external
+      /> provides an interactive reference to a resource. The target resource can be either external or local, i.e., either outside or within the current page or application.</p>
+
+    <p style="color:var(--color-accent)">If you use set the <code>to</code> or <code>href</code> prop, this component will be rendered as a <code>{{`<NuxtLink>`}}</code> component.</p>
 
     <Card>
       <h2>Variants</h2>
@@ -56,9 +73,9 @@ useHead({ title: 'Buttons | Krafters UI' });
         <Button variant="ghost" icon="chevron-left" label="Back" />
         <Button
           variant="link"
-          to="https://cardan.com"
+          to="https://krafters.nl"
           target="_blank"
-          label="Cardan.com"
+          label="Krafters.nl"
         />
       </div>
 

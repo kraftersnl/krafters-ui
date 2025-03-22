@@ -13,6 +13,7 @@ withDefaults(
     hTag?: string;
     id?: string;
     inline?: boolean;
+    role?: string;
   }>(),
   {
     id: () => useId(),
@@ -25,6 +26,7 @@ withDefaults(
     labelLink: undefined,
     labelIcon: undefined,
     ariaLabel: undefined,
+    role: undefined,
   },
 );
 

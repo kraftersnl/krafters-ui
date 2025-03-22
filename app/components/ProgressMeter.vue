@@ -11,11 +11,20 @@ const {
   max?: number;
   size?: 'sm' | 'md' | 'lg';
 }>();
+
+const id = useId();
 </script>
 
 <template>
-  <div class="progress-meter-wrapper">
-    <div :class="`meter-label ${hideLabel ? 'visuallyhidden' : ''}`">
+  <div
+    role="meter"
+    :aria-valuenow="value"
+    :aria-valuemin="min"
+    :aria-valuemax="max"
+    :aria-labelledby="id"
+    class="progress-meter-wrapper"
+  >
+    <div :id="id" :class="`meter-label ${hideLabel ? 'visuallyhidden' : ''}`">
       {{ label }}
     </div>
 

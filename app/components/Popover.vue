@@ -25,6 +25,7 @@ const props = withDefaults(
     triggerVariant?: string;
     hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
+    modal?: boolean;
   }>(),
   {
     label: undefined,
@@ -44,6 +45,7 @@ const props = withDefaults(
     triggerVariant: 'ghost',
     hideOnClick: true,
     maxWidth: undefined,
+    modal: undefined,
   },
 );
 
@@ -127,7 +129,7 @@ const emit = defineEmits<{
           v-if="!$slots.trigger"
           ref="popoverTrigger"
           type="button"
-          aria-haspopup="menu"
+          aria-haspopup="true"
           :aria-controls="id"
           :aria-expanded="isExpanded"
           :disabled="loading || disabled"
@@ -160,7 +162,12 @@ const emit = defineEmits<{
       </template>
 
       <template #content="{ hide }">
-        <FocusLoop :id="id" :is-visible="enableFocusLoop" @keyup.esc="hide">
+        <FocusLoop
+          :id="id"
+          :is-visible="enableFocusLoop"
+          :modal="modal"
+          @keyup.esc="hide"
+        >
           <slot name="default" />
 
           <MenuList
