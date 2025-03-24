@@ -288,16 +288,16 @@
   object-fit: cover;
 }
 
-svg {
+:where(svg) {
   max-width: 100%;
   object-fit: cover;
 }
 
-figure {
+:where(figure) {
   margin: 0;
 }
 
-blockquote {
+:where(blockquote) {
   margin: 0;
   border-inline-start: 3px solid var(--color-accent);
   padding-inline-start: 1.25rem;
