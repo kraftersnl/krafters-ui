@@ -385,7 +385,7 @@ strong {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 1rem;
-  row-gap: 0.5rem;
+  row-gap: 0.25rem;
 
   dt {
     font-weight: var(--font-weight-medium);
