@@ -299,7 +299,7 @@
 
 :where(blockquote) {
   margin: 0;
-  border-inline-start: 3px solid var(--color-accent);
+  border-inline-start: 3px solid var(--color-grey-bg);
   padding-inline-start: 1.25rem;
 
   > p {
