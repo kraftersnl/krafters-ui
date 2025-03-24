@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -29,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
 
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v3
@@ -48,12 +50,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: corepack enable
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: Install packages
-        run: npm install
+        run: pnpm install
 
       - name: Build
         run: NUXT_APP_BASE_URL=/krafters-ui/ npx nuxt build .playground --preset github_pages
