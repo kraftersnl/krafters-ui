@@ -86,6 +86,10 @@ h1 {
     flex-wrap: nowrap;
   }
 
+  ul > li > ul {
+    margin-block: 0.25rem;
+  }
+
   blockquote {
     border-color: var(--color-accent-bg);
 

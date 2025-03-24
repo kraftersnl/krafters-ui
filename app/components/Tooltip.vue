@@ -17,6 +17,7 @@ const props = withDefaults(
     title?: string;
     hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
+    id?: string;
   }>(),
   {
     items: () => [],
@@ -31,10 +32,10 @@ const props = withDefaults(
     title: undefined,
     hideOnClick: true,
     maxWidth: undefined,
+    id: () => useId(),
   },
 );
 
-const id = useId();
 const isExpanded = ref(false);
 
 function handleShow() {

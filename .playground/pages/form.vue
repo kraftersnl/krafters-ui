@@ -273,7 +273,7 @@ function handleSubmit(formData: FormData) {
 <style>
 .demo-page.form-page {
   .button[type='submit'] {
-    flex-basis: 8rem;
+    flex-basis: auto;
   }
 }
 

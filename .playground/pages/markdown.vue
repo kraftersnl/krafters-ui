@@ -2,29 +2,26 @@
 useHead({ title: 'Markdown Editor' });
 
 const content = ref(
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat sednisi voluptatem perferendis facilis ab, aperiam mollitia neque deserunt expedita ea! Repudiandae quaerat, unde cupiditate libero fuga excepturi obcaecati. Sunt? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, fuga. Nihil iste enim expedita repellat consequuntur officiis sequi illo provident ducimus voluptatem aliquam corrupti sapiente adipisci ex, fugit rerum necessitatibus.',
+  'Rich Text Editor for markdown that comes with `<MarkdownEditor>` and `<MarkdownPreview>` components. Krafters UI offers a wrapper for [md-editor-v3](https://github.com/imzbf/md-editor-v3).\n\n```vue\n<MarkdownEditor v-model="content" label="Markdown Editor" />\n```',
 );
 </script>
 
 <template>
   <div class="demo-page markdown">
     <h1>Markdown components</h1>
-
-    <p>
-      Markdown Editor for Vue 3 that come with <code>{{ `<MarkdownEditor>` }}</code> and
-       <code>{{ `<MarkdownPreview>` }}</code> components.
-    </p>
+    <p>Rich text editor and markdown parser.</p>
 
     <p class="c-grey-text fs-xs mbe-2">
-      Krafters UI uses
-      <Button
-        to="https://github.com/imzbf/md-editor-v3"
-        label="md-editor-v3"
-        variant="link"
-        target="_blank"
-        external
-      />
-      for these components.
+      <span class="flex-wrapper" style="--gap: 0.35rem">
+        <Icon name="mdi:github" size="1rem" />
+        <Button
+          to="https://github.com/imzbf/md-editor-v3"
+          label="md-editor-v3"
+          variant="link"
+          target="_blank"
+          external
+        />
+      </span>
     </p>
 
     <div>

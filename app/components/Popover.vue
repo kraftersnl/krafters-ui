@@ -25,6 +25,7 @@ const props = withDefaults(
     hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
     modal?: boolean;
+    id?: string;
   }>(),
   {
     label: undefined,
@@ -44,6 +45,7 @@ const props = withDefaults(
     hideOnClick: true,
     maxWidth: undefined,
     modal: false,
+    id: () => useId(),
   },
 );
 
@@ -54,7 +56,6 @@ const computedIcon = computed(() => {
   return `heroicons-solid:${props.icon}`;
 });
 
-const id = useId();
 const isExpanded = ref(false);
 
 function handleShow() {
@@ -190,6 +191,10 @@ const emit = defineEmits<{
 
 <style>
 .tippy-box {
+  .menu-list {
+    min-width: 240px;
+  }
+
   .menu-list-item:first-of-type {
     .button {
       border-radius: var(--radius-md) var(--radius-md) 0 0;

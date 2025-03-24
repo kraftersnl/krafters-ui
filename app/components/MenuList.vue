@@ -13,6 +13,7 @@ withDefaults(
     iconSize?: FontSize;
     hTag?: string;
     inline?: boolean;
+    id?: string;
   }>(),
   {
     fontSize: undefined,
@@ -25,10 +26,9 @@ withDefaults(
     buttonVariant: 'menu',
     buttonSize: 'lg',
     hTag: 'h2',
+    id: () => useId(),
   },
 );
-
-const id = useId();
 
 function handleClick(item: MenuItem) {
   emit('click', item);

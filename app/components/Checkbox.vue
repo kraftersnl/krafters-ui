@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const model = defineModel<boolean | (string | number)[]>();
 
-defineProps<{
+const { id = useId() } = defineProps<{
   label?: string;
   title?: string;
   name?: string;
@@ -10,9 +10,8 @@ defineProps<{
   disabled?: boolean;
   hideLabel?: boolean;
   tabindex?: string;
+  id?: string;
 }>();
-
-const id = useId();
 </script>
 
 <template>

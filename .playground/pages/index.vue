@@ -7,14 +7,11 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.4.0" date="2025-03-22">
+    <ChangelogEntry v="1.4.0" date="2025-03-22">
       <ul>
-        <li>Breaking: rename Tooltip to ToggleTip</li>
-        <li>Breaking: rename Popover to MenuButton</li>
+        <!-- <li>Breaking: rename Tooltip to ToggleTip</li> -->
+        <!-- <li>Breaking: rename Popover to MenuButton</li> -->
         <li>Breaking: rename props for MobileMenu component</li>
-        <li>
-          Rename ariaLabel prop to <code>tabListLabel</code> in Tabs component
-        </li>
         <li>
           Change implementation of aria-hidden to <code>inert</code> in
           FocusLoop component
@@ -43,7 +40,7 @@ useHead({ title: 'Changelog' });
         <li>Reduce specificity of CSS reset rules</li>
         <li>Improve docs with accessibility requirements</li>
       </ul>
-    </ChangelogEntry> -->
+    </ChangelogEntry>
 
     <ChangelogEntry v="1.3.8" date="2025-03-20">
       <ul>

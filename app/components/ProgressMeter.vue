@@ -6,6 +6,7 @@ const {
   size = 'md',
   fontSize = 'sm',
   role = 'meter',
+  id = useId(),
 } = defineProps<{
   label: string;
   hideLabel?: boolean;
@@ -16,9 +17,8 @@ const {
   size?: 'sm' | 'md' | 'lg';
   fontSize?: FontSize;
   role?: 'meter' | 'progressbar';
+  id?: string;
 }>();
-
-const id = useId();
 </script>
 
 <template>

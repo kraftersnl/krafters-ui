@@ -88,24 +88,39 @@ const position = ref<DialogPosition>('center');
 
     <Card>
       <h2>Accessibility Requirements</h2>
+
       <ul class="a11y-list">
         <li>The dialog has a label, either visible or for screen readers.</li>
-        <li>Keyboard focus is trapped inside the dialog.</li>
+
         <li>
           When a dialog opens, focus moves to an element contained in the
           dialog. Generally, focus is initially set on the first focusable
           element. However, the most appropriate focus placement will depend on
           the nature and size of the content.
+          <ul>
+            <li class="small">
+              Note that an immediate focus change can prevent screen readers
+              from announcing the dialog label. You can use
+              <code>aria-describedby</code> on the first focusable element to
+              add context for the user.
+            </li>
+          </ul>
         </li>
+
+        <li>Keyboard focus is trapped inside the dialog.</li>
+
         <li>The dialog can be closed with the <kbd>Escape</kbd> key.</li>
+
         <li>
           When the dialog is closed, the trigger button that opened the dialog
           receives focus.
         </li>
+
         <li>
           By default, the dialog is closed when clicking on the backdrop. Set
           <code>clickOutside</code> prop to false to disable this behaviour.
         </li>
+
         <li>
           If your dialog should divert users' attention to a brief, important
           message, you can set <code>role="alertdialog"</code>. Its usage is

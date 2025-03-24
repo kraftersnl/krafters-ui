@@ -24,6 +24,7 @@ const props = withDefaults(
     errorMessage?: string;
     tabindex?: string;
     color?: BaseColor;
+    id?: string;
   }>(),
   {
     name: undefined,
@@ -40,10 +41,9 @@ const props = withDefaults(
     errorMessage: undefined,
     tabindex: undefined,
     color: undefined,
+    id: () => useId(),
   },
 );
-
-const id = useId();
 </script>
 
 <template>

@@ -20,6 +20,7 @@ const props = withDefaults(
     label?: string;
     navLabel?: string;
     list?: MenuItem[];
+    id?: string;
   }>(),
   {
     class: undefined,
@@ -39,10 +40,9 @@ const props = withDefaults(
     label: undefined,
     navLabel: undefined,
     list: () => [],
+    id: () => useId(),
   },
 );
-
-const id = useId();
 
 const computedIcon = computed(() => {
   if (props.icon?.includes(':')) {
@@ -85,6 +85,8 @@ function closeDialog() {
 }
 
 function openDialog() {
+  if (isVisible.value) return;
+
   dialogElementRef.value?.showModal();
   isVisible.value = true;
 }

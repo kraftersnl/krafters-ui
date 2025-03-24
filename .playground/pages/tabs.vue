@@ -40,15 +40,41 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
 
 <template>
   <div class="demo-page tabs">
-    <h1>Tabs pattern</h1>
+    <div class="section-topbar">
+      <h1>Tabs pattern</h1>
+
+      <Popover icon="cog" :max-width="480">
+        <div class="popover-settings-content">
+          <h2>Props</h2>
+          <div class="props-wrapper">
+            <Select
+              v-model="tabsFontSize"
+              :options="tabsFontSizes"
+              size="sm"
+              label="fontSize"
+            />
+            <Select
+              v-model="tabsVariant"
+              :options="tabsVariants"
+              size="sm"
+              label="variant"
+            />
+            <code
+              >{{`<Tabs font-size="${tabsFontSize}" variant="${tabsVariant}" />`
+              }}</code
+            >
+          </div>
+        </div>
+      </Popover>
+    </div>
 
     <blockquote>
       <p>
-        Tabs are a set of layered sections of content, known as tab panels, that
-        display one panel of content at a time. Each tab panel has an associated
-        tab element, that when activated, displays the panel. The list of tab
-        elements is arranged along one edge of the currently displayed panel,
-        most commonly the top edge.
+        "Tabs are a set of layered sections of content, known as tab panels,
+        that display one panel of content at a time. Each tab panel has an
+        associated tab element, that when activated, displays the panel. The
+        list of tab elements is arranged along one edge of the currently
+        displayed panel, most commonly the top edge."
       </p>
 
       <p class="fs-xxs mbe-2">
@@ -77,10 +103,12 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
               It is recommended that tabs activate automatically when they
               receive focus.
             </li>
+
             <li>
               When the Tab List is focussed, the <kbd>Tab</kbd> key should move
               focus to the Tab Panel.
             </li>
+
             <li>
               When the Tab List is focussed, the
               <kbd>
@@ -88,6 +116,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
               </kbd>
               key moves focus to the next tab.
             </li>
+
             <li>
               When the Tab List is focussed, the
               <kbd>
@@ -95,25 +124,36 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
               </kbd>
               key moves focus to the previous tab.
             </li>
+
             <li>
               Each element that serves as a tab has <code>role="tab"</code>.
             </li>
+
             <li>
               The element that serves as the container for the set of tabs has
               <code>role="tablist"</code>.
             </li>
+
+            <li>
+              The tablist element has a label, either visible, or for screen
+              readers.
+            </li>
+
             <li>
               The elements that contains the content for a tab have
               <code>role="tabpanel"</code>.
             </li>
+
             <li>
               The active tab element has <code>aria-selected</code> set to true
               and all other tab elements to false.
             </li>
+
             <li>
               Each tab has an <code>aria-controls</code> attribute referring to
               its associated tabpanel element.
             </li>
+
             <li>
               Each element with role tabpanel has the property
               <code>aria-labelledby</code> referring to its associated tab
@@ -188,30 +228,6 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
           </div>
         </template>
       </Tabs>
-
-      <Popover icon="cog" :max-width="480">
-        <div class="popover-settings-content">
-          <h2>Props</h2>
-          <div class="props-wrapper">
-            <Select
-              v-model="tabsFontSize"
-              :options="tabsFontSizes"
-              size="sm"
-              label="fontSize"
-            />
-            <Select
-              v-model="tabsVariant"
-              :options="tabsVariants"
-              size="sm"
-              label="variant"
-            />
-            <code
-              >{{`<Tabs font-size="${tabsFontSize}" variant="${tabsVariant}" />`
-              }}</code
-            >
-          </div>
-        </div>
-      </Popover>
     </Card>
   </div>
 </template>
@@ -223,7 +239,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
   }
 
   .overflow-content {
-    max-height: 32rem;
+    max-height: 36svh;
     overflow: auto;
 
     &:focus-visible {

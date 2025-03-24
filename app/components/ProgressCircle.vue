@@ -7,6 +7,7 @@ const {
   fontSize = 'sm',
   color = 'accent',
   role = 'meter',
+  id = useId(),
 } = defineProps<{
   value: number;
   max?: number;
@@ -16,9 +17,8 @@ const {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   color?: 'accent' | 'green' | 'orange' | 'red';
   role?: 'meter' | 'progressbar';
+  id?: string;
 }>();
-
-const id = useId();
 
 const percentage = computed(() => ((value / max) * 100)?.toFixed());
 </script>

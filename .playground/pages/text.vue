@@ -59,7 +59,7 @@ const text = ref(
       </div>
     </Card>
 
-    <Card>
+    <Card class="grid-wrapper">
       <div class="section-topbar">
         <h2>Ellipsis</h2>
 

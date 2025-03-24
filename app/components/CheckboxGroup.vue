@@ -10,6 +10,7 @@ withDefaults(
     valueKey?: string;
     labelKey?: string;
     nameKey?: string;
+    disabledKey?: string;
     titleKey?: string;
     hideLegend?: boolean;
   }>(),
@@ -19,6 +20,7 @@ withDefaults(
     valueKey: 'value',
     labelKey: 'label',
     nameKey: 'value',
+    disabledKey: 'disabled',
     titleKey: undefined,
   },
 );
@@ -28,7 +30,7 @@ withDefaults(
   <div class="checkboxes-wrapper">
     <template v-if="options?.length">
       <fieldset>
-        <legend :class="`${hideLegend ? 'visuallyhidden' : ''}`">
+        <legend v-if="label" :class="`${hideLegend ? 'visuallyhidden' : ''}`">
           {{ label }}
         </legend>
 
@@ -38,6 +40,7 @@ withDefaults(
               v-model="model"
               :value="option[valueKey]"
               :label="option[labelKey]"
+              :disabled="option[disabledKey]"
               :title="titleKey ? option[titleKey] : undefined"
               :name="option[nameKey]"
               :tabindex="tabindex"

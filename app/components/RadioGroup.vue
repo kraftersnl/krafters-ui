@@ -25,7 +25,7 @@ withDefaults(
 <template>
   <div class="radios-wrapper">
     <template v-if="options?.length">
-      <fieldset>
+      <fieldset v-if="label">
         <legend :class="`${hideLegend ? 'visuallyhidden' : ''}`">
           {{ label }}
         </legend>

@@ -1,14 +1,13 @@
 <script setup lang="ts">
 const model = defineModel<boolean>();
 
-defineProps<{
+const { id = useId() } = defineProps<{
   label: string;
   name?: string;
   value?: string;
   required?: boolean;
+  id?: string;
 }>();
-
-const id = useId();
 
 function handleClick() {
   model.value = !model.value;

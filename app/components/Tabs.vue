@@ -8,14 +8,14 @@ const props = withDefaults(
     fontSize?: FontSize;
     variant?: TabsVariant;
     color?: 'green' | 'accent';
-    tabListLabel?: string;
+    ariaLabel?: string;
   }>(),
   {
     size: 'sm',
     fontSize: 'sm',
     variant: 'default',
     color: 'green',
-    tabListLabel: undefined,
+    ariaLabel: undefined,
     icon: undefined,
   },
 );
@@ -96,12 +96,7 @@ defineExpose({
       --font-size: var(--font-size-${fontSize});
     `"
   >
-    <div
-      class="tabs-list"
-      role="tablist"
-      :aria-label="tabListLabel"
-      v-bind="$attrs"
-    >
+    <div class="tablist" role="tablist" :aria-label="ariaLabel" v-bind="$attrs">
       <template v-for="tab in tabs" :key="'tab-' + tab.value">
         <button
           :id="`tab-${tab.value}`"
@@ -111,7 +106,7 @@ defineExpose({
           role="tab"
           :aria-selected="tab.value === activeTab"
           :tabindex="tab.value === activeTab ? '0' : '-1'"
-          :aria-controls="tab.value"
+          :aria-controls="`tabpanel-${tab.value}`"
           :disabled="tab.disabled"
           @keyup.left="handlePrevTab(tab)"
           @keyup.right="handleNextTab(tab)"
@@ -129,7 +124,7 @@ defineExpose({
       <template v-for="tab in tabs" :key="tab.value">
         <div
           v-show="tab.value === activeTab"
-          :id="tab.value"
+          :id="`tabpanel-${tab.value}`"
           :aria-labelledby="`tab-${tab.value}`"
           role="tabpanel"
           class="tabpanel"
@@ -155,7 +150,7 @@ defineExpose({
   }
 }
 
-.tabs-list {
+.tablist {
   font-size: var(--font-size, var(--font-size-sm));
   flex-wrap: wrap;
   align-items: center;
@@ -223,7 +218,7 @@ defineExpose({
 
 /* Tabs variants */
 .tabs-variant--default {
-  > .tabs-list {
+  > .tablist {
     display: flex;
     border-block-end: 1px solid var(--color-grey-bg);
 
@@ -234,7 +229,7 @@ defineExpose({
 }
 
 .tabs-variant--minimal {
-  > .tabs-list {
+  > .tablist {
     display: inline-flex;
 
     .tab {
@@ -244,14 +239,14 @@ defineExpose({
 }
 
 .tabs-color--green {
-  .tabs-list .tab[aria-selected='true'] {
+  .tablist .tab[aria-selected='true'] {
     color: var(--color-green);
     border-color: var(--color-green);
   }
 }
 
 .tabs-color--accent {
-  .tabs-list .tab[aria-selected='true'] {
+  .tablist .tab[aria-selected='true'] {
     color: var(--color-accent);
     border-color: var(--color-accent);
   }
@@ -259,19 +254,19 @@ defineExpose({
 
 /* Tabs sizes */
 .tabs-size--xs {
-  .tabs-list {
+  .tablist {
     gap: 1.5rem;
   }
 }
 
 .tabs-size--sm {
-  .tabs-list {
+  .tablist {
     gap: 2rem;
   }
 }
 
 .tabs-size--md {
-  .tabs-list {
+  .tablist {
     gap: 2.5rem;
   }
 }

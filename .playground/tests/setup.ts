@@ -21,6 +21,7 @@ beforeEach(() => {
   document.body.appendChild(el);
 });
 
+// cleanup
 afterEach(() => {
   document.body.innerHTML = '';
   mockAsyncData.mockReset();

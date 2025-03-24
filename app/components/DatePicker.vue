@@ -21,6 +21,7 @@ withDefaults(
     showPreview?: boolean;
     teleportCenter?: boolean;
     monthChangeOnScroll?: boolean;
+    id?: string;
   }>(),
   {
     format: 'yyyy-MM-dd',
@@ -30,10 +31,9 @@ withDefaults(
     showSelect: true,
     showCancel: true,
     monthChangeOnScroll: false,
+    id: () => useId(),
   },
 );
-
-const id = useId();
 
 const colorMode = useColorMode();
 const isMounted = ref(false);
