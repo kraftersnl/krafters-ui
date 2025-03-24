@@ -19,13 +19,13 @@ jobs:
           node-version: 22
 
       - name: Install packages
-        run: npm install
+        run: pnpm install
 
       - name: Run accessibility tests
-        run: npm run test
+        run: pnpm run test
 
       - name: Run linter
-        run: npm run lint
+        run: pnpm run lint
 
   publish:
     needs: test
