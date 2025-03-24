@@ -76,9 +76,9 @@ const emit = defineEmits(['click']);
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined
     "
-    @click="emit('click')"
+    @click="handleClick"
   >
-    <Icon v-if="loading" name="svg-spinners:90-ring" />
+    <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
     <Icon v-else-if="icon" :name="computedIcon" />
 
     <span
@@ -114,7 +114,7 @@ const emit = defineEmits(['click']);
     `"
     @click="handleClick"
   >
-    <Icon v-if="loading" name="svg-spinners:90-ring" />
+    <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
     <Icon v-else-if="icon" :name="computedIcon" />
 
     <span
