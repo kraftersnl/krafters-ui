@@ -36,7 +36,11 @@ async function handleClick() {
 <template>
   <Button
     :label="copied ? $t('general.copied') : $t('general.copy')"
-    :icon="copied ? 'heroicons-solid:check' : 'heroicons-solid:clipboard-copy'"
+    :icon="
+      copied
+        ? 'heroicons-solid:clipboard-check'
+        : 'heroicons-solid:clipboard-copy'
+    "
     :hide-label="hideLabel"
     :variant="variant"
     :color="color"

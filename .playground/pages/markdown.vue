@@ -24,19 +24,19 @@ const content = ref(
       </span>
     </p>
 
-    <div>
-      <MarkdownEditor v-model="content" label="Markdown Editor" />
-    </div>
-
     <Card class="mbs-2">
       <h2>Markdown Preview</h2>
       <MarkdownPreview :content="content" />
     </Card>
+
+    <MarkdownEditor v-model="content" label="Markdown Editor" />
   </div>
 </template>
 
 <style>
 .demo-page.markdown {
+  padding-block-end: 4rem;
+
   h2 {
     margin-block-end: 0;
   }
