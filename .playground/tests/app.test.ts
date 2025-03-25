@@ -4,7 +4,7 @@ import App from '~/app.vue';
 
 describe('Docs', () => {
   it('Changelog page has no accessibility violations', async () => {
-    const wrapper = await mountSuspended(App, { route: '/' });
+    const wrapper = await mountSuspended(App, { route: '/changelog' });
     const results = await axe(wrapper.element);
     expect(results).toHaveNoViolations();
   });
