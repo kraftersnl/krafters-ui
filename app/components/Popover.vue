@@ -99,7 +99,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div ref="tooltipWrapper" class="krafters-popover-wrapper" aria-live="polite">
+  <div class="krafters-popover-wrapper" aria-live="polite">
     <Tippy
       aria-live="polite"
       :arrow="arrow"

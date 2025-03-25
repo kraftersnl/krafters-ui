@@ -77,7 +77,6 @@ function closeDialog() {
     () => {
       dialogElementRef.value?.removeAttribute('closing');
       dialogElementRef.value?.close();
-      isVisible.value = false;
     },
     { once: true },
   );

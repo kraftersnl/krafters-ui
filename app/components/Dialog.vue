@@ -37,8 +37,17 @@ function openDialog() {
 }
 
 function closeDialog() {
-  dialogTemplateRef.value?.close();
-  isVisible.value = false;
+  if (!isVisible.value) return;
+
+  dialogTemplateRef.value?.setAttribute('closing', '');
+  dialogTemplateRef.value?.addEventListener(
+    'animationend',
+    () => {
+      dialogTemplateRef.value?.removeAttribute('closing');
+      dialogTemplateRef.value?.close();
+    },
+    { once: true },
+  );
 }
 
 defineExpose({
@@ -142,6 +151,23 @@ body:has(.dialog[open]) {
     border: 1px solid var(--color-card-border);
     border-radius: var(--radius-lg);
   }
+
+  &[open] {
+    animation: fadeIn var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeIn var(--duration-md) forwards;
+    }
+  }
+
+  &[closing] {
+    display: block;
+    animation: fadeOut var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeOut var(--duration-md) forwards;
+    }
+  }
 }
 
 .dialog-position--inline-start {
@@ -150,6 +176,23 @@ body:has(.dialog[open]) {
   border: none;
   border-inline-end: 1px solid var(--color-card-border);
   max-width: 800px;
+
+  &[open] {
+    animation: slideFadeInLeft var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeIn var(--duration-md) forwards;
+    }
+  }
+
+  &[closing] {
+    display: block;
+    animation: slideFadeOutLeft var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeOut var(--duration-md) forwards;
+    }
+  }
 }
 
 .dialog-position--inline-end {
@@ -158,5 +201,22 @@ body:has(.dialog[open]) {
   border: none;
   border-inline-start: 1px solid var(--color-card-border);
   max-width: 800px;
+
+  &[open] {
+    animation: slideFadeInRight var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeIn var(--duration-md) forwards;
+    }
+  }
+
+  &[closing] {
+    display: block;
+    animation: slideFadeOutRight var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeOut var(--duration-md) forwards;
+    }
+  }
 }
 </style>
