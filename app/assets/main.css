@@ -231,14 +231,20 @@
     --app-padding-inline: 1.5rem;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    --duration-xs: 0.1s;
-    --duration-sm: 0.2s;
-    --duration-md: 0.35s;
-    --duration-lg: 0.65s;
-    --duration-xl: 1.35s;
-    --duration-xxl: 2s;
+  --duration-xs: 0.1s;
+  --duration-sm: 0.2s;
+  --duration-md: 0.35s;
+  --duration-lg: 0.65s;
+  --duration-xl: 1.35s;
+  --duration-xxl: 2s;
 
+  @media (prefers-reduced-motion: prefers-reduced-motion) {
+    --duration-xs: 0s;
+    --duration-sm: 0s;
+    --duration-md: 0s;
+    --duration-lg: 0s;
+    --duration-xl: 0s;
+    --duration-xxl: 0s;
     scroll-behavior: smooth;
   }
 }
