@@ -91,8 +91,6 @@ h1 {
   }
 
   blockquote {
-    border-color: var(--color-accent-bg);
-
     p {
       font-style: normal;
     }

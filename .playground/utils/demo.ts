@@ -1,7 +1,12 @@
 export const navList: MenuItem[] = [
   {
-    id: 'changelog',
+    id: 'home',
     to: '/',
+    label: 'Getting Started',
+  },
+  {
+    id: 'changelog',
+    to: '/changelog',
     label: 'Changelog',
     divider: true,
   },

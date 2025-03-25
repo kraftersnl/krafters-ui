@@ -23,14 +23,7 @@ watch(
 
       <div class="logo">Krafters UI {{ version }}</div>
 
-      <MobileMenu position="inline-end" icon="adjustments-vertical">
-        <div class="menu-content">
-          <ThemeSelect />
-          <hr />
-          <LanguageSelect />
-          <hr />
-        </div>
-      </MobileMenu>
+      <ThemeToggle />
     </div>
 
     <NuxtLoadingIndicator color="var(--color-accent)" />

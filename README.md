@@ -1,14 +1,14 @@
 # Krafters UI
 
-Accessible component library for [Nuxt 3](https://nuxt.com) in TypeScript.
+Accessible Vue component library for [Nuxt 3](https://nuxt.com) in TypeScript.
 
-Krafters UI is a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers) in a public GitHub repository. It's published on [NPM](https://www.npmjs.com/package/@krafters/ui) for better version control.
+Krafters UI is a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers) in a public repository. It's published on NPM for better version control. You can extend from the [GitHub repository](https://github.com/kraftersnl/krafters-ui) or `@krafters/ui` [NPM package](https://github.com/kraftersnl/krafters-ui).
 
 ## Installation
 
-Refer to the layer with `extends` in `nuxt.config`:
-
 ### Extend from GitHub repository
+
+Refer to the layer with `extends` in nuxt.config.ts:
 
 ```ts
 defineNuxtConfig({
@@ -18,17 +18,17 @@ defineNuxtConfig({
 
 ### Extend from NPM
 
-First install the layer as a dependency by running `npm i @krafters/ui --save`
+First, install the package as a dependency by running `pnpm i @krafters/ui`.
 
-Then refer to the layer in `nuxt.config.ts`:
+Then refer to the layer with `extends` in nuxt.config.ts:
 
 ```ts
 defineNuxtConfig({
-  extends: '@krafters/ui',
+  extends: ['@krafters/ui'],
 });
 ```
 
 ## Development
 
-- Run `npm i` to install dependencies
-- Run `npm run dev` to start the development server on [localhost:3003](http://localhost:3003)
+- Run `pnpm i` to install dependencies
+- Run `pnpm run dev` to start the development server on [localhost:3003](http://localhost:3003)
