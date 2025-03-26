@@ -63,7 +63,7 @@ export const navList: MenuItem[] = [
   {
     id: 'toggletip',
     to: '/toggletip',
-    label: 'Toggletip & Menu Button',
+    label: 'Toggletip & Popover',
   },
   {
     id: 'dialog',

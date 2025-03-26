@@ -535,8 +535,8 @@
   align-content: start;
 
   [class*='instruction'] {
-    margin-top: 0.5rem;
-    font-size: var(--font-size-xs);
+    margin-top: 0.25rem;
+    font-size: var(--font-size-xxs);
     color: var(--color-grey-text);
   }
 
@@ -746,6 +746,27 @@
   --gap: 1rem;
   display: grid;
   gap: var(--gap);
+}
+
+:where(.title-wrapper) {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+
+  > .iconify {
+    flex-shrink: 0;
+    color: var(--color-grey-graphic);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block-end: 0;
+  }
 }
 
 :where(.section-topbar) {

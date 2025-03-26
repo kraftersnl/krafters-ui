@@ -44,6 +44,16 @@ const props = withDefaults(
     id: () => useId(),
   },
 );
+
+const { t } = useI18n();
+
+const computedErrorMessage = computed(() => {
+  if (props.errorMessage) return props.errorMessage;
+  if (props.required && !model.value) {
+    return t('form.missing-value', { item: props.label });
+  }
+  return t('form.invalid-value');
+});
 </script>
 
 <template>
@@ -64,7 +74,7 @@ const props = withDefaults(
     >
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form-errors.required')" />
+      <Chip v-if="required" size="sm" :label="$t('form.required')" />
     </label>
 
     <select
@@ -121,9 +131,7 @@ const props = withDefaults(
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
 
-        <span>
-          {{ errorMessage || $t('form-errors.not-filled-in', { item: label }) }}
-        </span>
+        <span>{{ computedErrorMessage }}</span>
       </div>
     </div>
   </div>

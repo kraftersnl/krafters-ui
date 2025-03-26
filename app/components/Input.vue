@@ -49,6 +49,16 @@ const props = withDefaults(
   },
 );
 
+const { t } = useI18n();
+
+const computedErrorMessage = computed(() => {
+  if (props.errorMessage) return props.errorMessage;
+  if (props.required && !props.modelValue) {
+    return t('form.missing-value', { item: props.label });
+  }
+  return t('form.invalid-value');
+});
+
 const computedIcon = computed(() => {
   if (props.icon?.includes(':')) {
     return props.icon;
@@ -74,10 +84,10 @@ function handleInput(event: Event) {
   const target = event.target as HTMLInputElement;
 
   if (props.type === 'number') {
-    if (Number(target.value) < props.min) {
+    if (Number(target.value) < Number(props.min)) {
       return;
     }
-    if (Number(target.value) > props.max) {
+    if (Number(target.value) > Number(props.max)) {
       return;
     }
   }
@@ -114,7 +124,7 @@ const emit = defineEmits<{
     >
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form-errors.required')" />
+      <Chip v-if="required" size="sm" :label="$t('form.required')" />
     </label>
 
     <input
@@ -158,9 +168,7 @@ const emit = defineEmits<{
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
 
-        <span>
-          {{ errorMessage || $t('form-errors.not-filled-in', { item: label }) }}
-        </span>
+        <span>{{ computedErrorMessage }}</span>
       </div>
     </div>
 
@@ -185,12 +193,6 @@ const emit = defineEmits<{
       left: 0.5rem;
       color: var(--color-grey-text);
     }
-  }
-
-  [class*='instruction'] {
-    margin-block: 0.25rem;
-    font-size: var(--font-size-xs);
-    color: var(--color-grey-text);
   }
 }
 

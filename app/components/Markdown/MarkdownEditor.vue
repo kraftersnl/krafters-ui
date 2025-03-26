@@ -9,6 +9,9 @@ const {
   id = useId(),
   preview = false,
   autofocus,
+  errorMessage,
+  label,
+  required,
 } = defineProps<{
   label?: string;
   placeholder?: string;
@@ -57,6 +60,16 @@ function focusEditor() {
 defineExpose({
   focusEditor,
 });
+
+const { t } = useI18n();
+
+const computedErrorMessage = computed(() => {
+  if (errorMessage) return errorMessage;
+  if (required && !content.value) {
+    return t('form.missing-value', { item: label });
+  }
+  return t('form.invalid-value');
+});
 </script>
 
 <template>
@@ -70,7 +83,7 @@ defineExpose({
       >
         <span>{{ label }}</span>
 
-        <Chip v-if="required" size="sm" :label="$t('form-errors.required')" />
+        <Chip v-if="required" size="sm" :label="$t('form.required')" />
       </div>
 
       <MdEditor
@@ -102,11 +115,7 @@ defineExpose({
         <div class="error">
           <Icon name="heroicons-solid:exclamation" />
 
-          <span>
-            {{
-              errorMessage || $t('form-errors.not-filled-in', { item: label })
-            }}
-          </span>
+          <span>{{ computedErrorMessage }}</span>
         </div>
       </div>
     </div>
@@ -119,6 +128,7 @@ defineExpose({
 }
 
 .markdown-editor {
+  display: inline-grid;
   flex-grow: 1;
 
   .md-editor {

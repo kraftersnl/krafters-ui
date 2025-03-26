@@ -31,6 +31,16 @@ const props = withDefaults(
   },
 );
 
+const { t } = useI18n();
+
+const computedErrorMessage = computed(() => {
+  if (props.errorMessage) return props.errorMessage;
+  if (props.required && !model.value) {
+    return t('form.missing-value', { item: props.label });
+  }
+  return t('form.invalid-value');
+});
+
 const textareaInput = ref('');
 const textareaRef = useTemplateRef<HTMLTextAreaElement>('textarea');
 
@@ -80,7 +90,7 @@ defineExpose({
     >
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form-errors.required')" />
+      <Chip v-if="required" size="sm" :label="$t('form.required')" />
     </label>
 
     <textarea
@@ -116,9 +126,7 @@ defineExpose({
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
 
-        <span>
-          {{ errorMessage || $t('form-errors.not-filled-in', { item: label }) }}
-        </span>
+        <span>{{ computedErrorMessage }}</span>
       </div>
     </div>
   </div>

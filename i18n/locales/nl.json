@@ -14,9 +14,9 @@
     "open-new-window": "open in nieuw venster",
     "skip-to-main-content": "Spring naar hoofdcontent",
     "skip-to-side-content": "Spring naar zijbalk",
-    "popover": "Menu",
+    "popover": "Meer opties",
     "toggletip": "Meer info",
-    "user-menu": "Open gebruikersmenu"
+    "user-menu": "Menu"
   },
 
   "datepicker": {
@@ -46,15 +46,16 @@
     "403": "geen toegang",
     "404": "niet gevonden",
     "heading": "Foutmelding",
-    "invalid-email": "Emailadres is ongeldig.",
-    "invalid-phone": "Telefoonnummer is ongeldig.",
-    "invalid-url": "Website URL is ongeldig.",
     "page-not-found": "Pagina niet gevonden.",
     "unauthorized": "Je hebt geen rechten om deze pagina te openen."
   },
 
-  "form-errors": {
-    "not-filled-in": "{item} ontbreekt.",
+  "form": {
+    "invalid-email": "Emailadres is ongeldig",
+    "invalid-phone": "Telefoonnummer is ongeldig",
+    "invalid-url": "Website URL is ongeldig",
+    "invalid-value": "Waarde ongeldig",
+    "missing-value": "{item} ontbreekt",
     "required": "vereist"
   },
 

@@ -38,7 +38,7 @@ const { id = useId() } = defineProps<{
 
       <span v-if="label">{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form-errors.required')" />
+      <Chip v-if="required" size="sm" :label="$t('form.required')" />
     </label>
 
     <slot name="default" />

@@ -5,32 +5,33 @@ import 'tippy.js/animations/shift-toward.css';
 
 const props = withDefaults(
   defineProps<{
+    trigger?: string;
+    interactive?: boolean;
+    hideOnClick?: boolean | 'toggle';
     placement?: PopperPlacement;
     icon?: string;
     label?: string;
     hideLabel?: boolean;
-    interactive?: boolean;
-    trigger?: string;
     fontSize?: string;
     iconSize?: string;
     tabindex?: string;
     title?: string;
-    hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
     id?: string;
   }>(),
   {
     items: () => [],
     placement: 'auto',
+    trigger: 'click',
+    hideOnClick: true,
+    interactive: true,
     icon: 'question-mark-circle',
     label: undefined,
     hideLabel: true,
-    trigger: 'click',
     fontSize: undefined,
     iconSize: undefined,
     tabindex: undefined,
     title: undefined,
-    hideOnClick: true,
     maxWidth: undefined,
     id: () => useId(),
   },
@@ -67,6 +68,7 @@ function closeToggletip() {
     ref="toggletipWrapper"
     class="krafters-toggletip-wrapper"
     aria-live="polite"
+    @keyup.esc="closeToggletip"
   >
     <Tippy
       :trigger="trigger"
@@ -75,49 +77,46 @@ function closeToggletip() {
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
       role=""
+      :aria-controls="'toggletip-content-' + id"
       :aria="{
         content: null,
-        expanded: false,
       }"
+      tag="button"
+      type="button"
+      content-tag="div"
+      content-class="toggletip-content"
       theme="krafters"
       animation="shift-toward"
-      tag="div"
-      content-tag="div"
-      content-class="krafters-toggletip-content"
-      class="toggletip-wrapper"
+      class="toggletip-trigger-button"
       :append-to="wrapperRef ?? undefined"
+      :tabindex="tabindex"
+      :title="title"
+      :style="`
+        ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
+        ${iconSize ? `--icon-size: var(--font-size-${iconSize});` : ''}
+      `"
       @show="handleShow"
       @hide="handleHide"
-      @keyup.esc="closeToggletip"
     >
       <template #default>
         <slot v-if="$slots.trigger" name="trigger" />
 
-        <button
-          v-else
-          type="button"
-          :aria-controls="id"
-          :aria-expanded="isExpanded"
-          :tabindex="tabindex"
-          :title="title"
-          class="toggletip-trigger-button"
-          :style="`
-            --font-size: var(--font-size-${fontSize});
-            --icon-size: var(--font-size-${iconSize});
-          `"
-        >
-          <span :class="`${hideLabel ? 'visuallyhidden' : ''}`">
+        <template v-else>
+          <span
+            :id="'toggletip-label-' + id"
+            :class="`${hideLabel ? 'visuallyhidden' : ''}`"
+          >
             {{ label }}
           </span>
 
-          <span class="visuallyhidden">{{ $t('aria.toggletip') }}</span>
+          <span class="visuallyhidden">({{ $t('aria.toggletip') }})</span>
 
           <Icon :name="computedIcon" />
-        </button>
+        </template>
       </template>
 
       <template #content>
-        <div :id="id">
+        <div :id="'toggletip-content-' + id">
           <slot />
         </div>
       </template>
@@ -126,15 +125,7 @@ function closeToggletip() {
 </template>
 
 <style>
-.krafters-toggletip-wrapper {
-  vertical-align: middle;
-
-  .toggletip-wrapper {
-    display: inline;
-  }
-}
-
-.krafters-toggletip-content {
+.toggletip-content {
   padding-block: 1rem;
   padding-inline: 1.35rem;
 
@@ -165,7 +156,7 @@ function closeToggletip() {
   }
 
   .iconify {
-    font-size: var(--icon-size, var(--font-size));
+    font-size: var(--icon-size, inherit);
     transition: color var(--duration-sm);
   }
 

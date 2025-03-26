@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Tippy, type TippyComponent } from 'vue-tippy';
+import { Tippy } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
@@ -17,11 +17,10 @@ const props = withDefaults(
     hideLabel?: boolean;
     disabled?: boolean;
     interactive?: boolean;
-    appendTo?: boolean;
     arrow?: boolean;
     loading?: boolean;
     trigger?: string;
-    triggerVariant?: string;
+    buttonVariant?: string;
     hideOnClick?: boolean | 'toggle';
     maxWidth?: number | 'none';
     modal?: boolean;
@@ -39,9 +38,8 @@ const props = withDefaults(
     borderRadius: 'sm',
     placement: 'auto-start',
     interactive: true,
-    appendTo: undefined,
     trigger: 'click',
-    triggerVariant: 'ghost',
+    buttonVariant: 'ghost',
     hideOnClick: true,
     maxWidth: undefined,
     modal: false,
@@ -74,24 +72,18 @@ function handleMenuClick(item: MenuItem, hide: () => void) {
   hide();
 }
 
-function closePopover() {
-  document
-    ?.querySelectorAll('[data-tippy-root]')
-    ?.forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
-}
+const enableFocusLoop = ref(false);
+const wrapperRef = useTemplateRef<HTMLElement>('popoverWrapper');
+const triggerRef = useTemplateRef<{ elem: HTMLButtonElement }>(
+  'popoverTrigger',
+);
 
 function focusTrigger() {
-  triggerRef.value?.focus();
+  console.log('focus popover trigger');
+  triggerRef.value?.elem?.focus();
 }
 
-const enableFocusLoop = ref(false);
-const triggerRef = useTemplateRef<HTMLButtonElement>('popoverTrigger');
-
-defineExpose({
-  triggerRef,
-  focusTrigger,
-  closePopover,
-});
+defineExpose({ focusTrigger });
 
 const emit = defineEmits<{
   click: [event: MenuItem];
@@ -99,73 +91,66 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="krafters-popover-wrapper" aria-live="polite">
+  <div ref="popoverWrapper" class="krafters-popover-wrapper">
     <Tippy
-      aria-live="polite"
+      ref="popoverTrigger"
       :arrow="arrow"
       :trigger="trigger"
       :placement="placement"
       :interactive="interactive"
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
-      :role="list?.length ? 'menu' : ''"
-      theme="krafters"
-      animation="shift-away"
-      tag="div"
+      role=""
+      :aria-controls="'popover-menu-' + id"
       :aria="{
-        content: null,
-        expanded: false,
+        content: null, // disable in favor of own solution
       }"
+      tag="button"
+      type="button"
       content-tag="div"
       content-class="popover-content"
-      class="popover-wrapper"
+      theme="krafters"
+      animation="shift-away"
+      :append-to="wrapperRef ?? undefined"
+      :disabled="loading || disabled"
+      :class="`popover-trigger
+        popover-trigger-variant--${buttonVariant}
+        popover-trigger-size--${size}
+        popover-icon-position--${iconPos}
+      `"
+      :style="`
+        --radius: var(--radius-${borderRadius});
+        --font-size: var(--font-size-${fontSize});
+        --icon-size: var(--font-size-${iconSize});
+      `"
       @show="handleShow"
       @hide="handleHide"
-      @keyup.esc="closePopover"
     >
       <template #default>
-        <button
-          v-if="!$slots.trigger"
-          ref="popoverTrigger"
-          type="button"
-          aria-haspopup="true"
-          :aria-controls="id"
-          :aria-expanded="isExpanded"
-          :disabled="loading || disabled"
-          :class="`popover-trigger
-          popover-trigger-variant--${triggerVariant}
-          popover-trigger-size--${size}
-          popover-icon-position--${iconPos}
-        `"
-          :style="`
-            --radius: var(--radius-${borderRadius});
-            --font-size: var(--font-size-${fontSize});
-            --icon-size: var(--font-size-${iconSize});
-          `"
-        >
+        <slot v-if="$slots.trigger" name="trigger" />
+
+        <template v-else>
           <Icon v-if="loading" name="svg-spinners:90-ring" />
           <Icon v-else :name="computedIcon" />
 
           <span
             v-if="label"
-            :id="id"
+            :id="'popover-label-' + id"
             :class="hideLabel ? 'visuallyhidden' : undefined"
             class="popover-label"
           >
             {{ label }}
           </span>
 
-          <span v-else :id="id" class="visuallyhidden">{{
-            $t('aria.popover')
-          }}</span>
-        </button>
-
-        <slot v-else name="trigger" />
+          <span v-else :id="'popover-label-' + id" class="visuallyhidden">
+            {{ $t('aria.popover') }}
+          </span>
+        </template>
       </template>
 
       <template #content="{ hide }">
         <FocusLoop
-          :id="id"
+          :id="'popover-menu-' + id"
           :is-visible="enableFocusLoop"
           :modal="modal"
           @keyup.esc="hide"
@@ -178,7 +163,7 @@ const emit = defineEmits<{
             button-size="xl"
             font-size="sm"
             icon-size="lg"
-            :aria-labelledby="id"
+            :aria-labelledby="'popover-label-' + id"
             @click="handleMenuClick($event, hide)"
           />
 

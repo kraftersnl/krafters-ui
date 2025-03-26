@@ -43,13 +43,13 @@ defineExpose({
   validity,
 });
 
-const errorMessage = computed(() => {
+const computedErrorMessage = computed(() => {
   if (model.value) {
     if (model.value.size / 1024 > props.maxFileSize) {
       return t('files.too-big');
     }
   }
-  return t('form-errors.not-filled-in', { item: props.label });
+  return t('form.missing-value', { item: props.label });
 });
 
 function handleDragOver() {
@@ -130,12 +130,12 @@ watch(
       <input
         :id="id"
         ref="fileInput"
+        type="file"
         :name="name"
         :required="required"
         :accept="accept"
         :aria-describedby="id && !validity ? `error-${id}` : ''"
         :class="`${showInvalid && !validity ? 'show-invalid' : ''}`"
-        type="file"
         @dragover="handleDragOver"
         @dragleave="handleDragLeave"
         @drop="handleDragLeave"
@@ -154,7 +154,9 @@ watch(
         `"
       >
         <Icon :name="fileTypeIcon(model)" />
+
         <span class="visuallyhidden">{{ label }}</span>
+
         <img
           v-if="imagePreview"
           :src="imagePreview"
@@ -166,7 +168,9 @@ watch(
 
     <div v-if="model" class="file-preview" :aria-describedby="id">
       <span class="file-name">{{ model.name }}</span>
+
       <span class="file-size"> ({{ formatFileSize(model.size) }})</span>
+
       <Button
         :label="$t('general.delete')"
         hide-label
@@ -186,7 +190,7 @@ watch(
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
 
-        <span v-if="!validity">{{ errorMessage }}</span>
+        <span v-if="!validity">{{ computedErrorMessage }}</span>
       </div>
     </div>
   </div>

@@ -19,7 +19,9 @@ const {
   isVisible = false,
   autoFocus = true,
   modal = true,
+  is = 'div',
 } = defineProps<{
+  is?: string;
   disabled?: boolean;
   isVisible?: boolean;
   autoFocus?: boolean;
@@ -115,11 +117,16 @@ function handleFocusEnd() {
 </script>
 
 <template>
-  <div v-if="isVisible" ref="focusLoopContainerRef" class="vue-focus-loop">
+  <component
+    :is="is"
+    v-if="isVisible"
+    ref="focusLoopContainerRef"
+    class="vue-focus-loop"
+  >
     <div :tabindex="getTabindex" @focus="handleFocusStart" />
     <div ref="focusLoopContentRef">
       <slot />
     </div>
     <div :tabindex="getTabindex" @focus="handleFocusEnd" />
-  </div>
+  </component>
 </template>

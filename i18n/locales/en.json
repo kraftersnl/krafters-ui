@@ -14,9 +14,9 @@
     "open-new-window": "open in new window",
     "skip-to-main-content": "Skip to main content",
     "skip-to-side-content": "Skip to sidebar",
-    "popover": "Menu",
+    "popover": "More options",
     "toggletip": "More info",
-    "user-menu": "User menu"
+    "user-menu": "Menu"
   },
 
   "datepicker": {
@@ -46,15 +46,16 @@
     "403": "unauthorized",
     "404": "not found",
     "heading": "Error",
-    "invalid-email": "Email address is invalid.",
-    "invalid-phone": "Phone number is invalid.",
-    "invalid-url": "Website URL is invalid.",
     "page-not-found": "Page not found.",
     "unauthorized": "You are unauthorized to view this page."
   },
 
-  "form-errors": {
-    "not-filled-in": "{item} is missing.",
+  "form": {
+    "invalid-email": "Email address is invalid",
+    "invalid-phone": "Phone number is invalid",
+    "invalid-url": "Website URL is invalid",
+    "invalid-value": "Value invalid",
+    "missing-value": "{item} is missing",
     "required": "required"
   },
 

@@ -178,13 +178,19 @@ const emit = defineEmits(['click']);
 }
 
 .button-size--xs {
-  --font-size: var(--font-size-xxs);
+  font-size: var(--font-size, var(--font-size-xxs));
   min-height: 1.5rem;
   padding-inline: 0.5rem;
 }
 
+.button-size--xxs {
+  font-size: var(--font-size, var(--font-size-xxs));
+  min-height: 1.25rem;
+  padding-inline: 0.25rem;
+}
+
 .button-size--sm {
-  --font-size: var(--font-size-xs);
+  font-size: var(--font-size, var(--font-size-xs));
   min-height: 2rem;
   padding-inline: 0.65rem;
 
@@ -194,7 +200,7 @@ const emit = defineEmits(['click']);
 }
 
 .button-size--md {
-  --font-size: var(--font-size-sm);
+  font-size: var(--font-size, var(--font-size-sm));
   min-height: 2.25rem;
   padding-inline: 0.75rem;
 
@@ -204,7 +210,7 @@ const emit = defineEmits(['click']);
 }
 
 .button-size--lg {
-  --font-size: var(--font-size-sm);
+  font-size: var(--font-size, var(--font-size-sm));
   min-height: 2.5rem;
   padding-inline: 0.85rem;
 
@@ -214,6 +220,7 @@ const emit = defineEmits(['click']);
 }
 
 .button-size--xl {
+  font-size: var(--font-size, var(--font-size-md));
   min-height: 3rem;
   padding-inline: 1.25rem;
 
@@ -242,11 +249,8 @@ const emit = defineEmits(['click']);
   white-space: nowrap;
 
   &:not(:disabled):hover {
-    background-color: color-mix(
-      in srgb,
-      var(--color-red-bg) 90%,
-      var(--color-white)
-    );
+    color: var(--color-red-bg);
+    background-color: var(--color-red-text);
   }
 }
 .button-variant--green {
@@ -310,8 +314,8 @@ const emit = defineEmits(['click']);
   overflow-wrap: anywhere;
   min-height: 0;
   height: auto;
-  font-size: inherit;
-  /* font-size: var(--font-size, inherit); */
+  /* font-size: inherit; */
+  font-size: var(--font-size, inherit);
   display: inline-flex;
   justify-content: start;
   align-items: center;

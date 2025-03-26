@@ -88,7 +88,7 @@ onMounted(() => {
     >
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form-errors.required')" />
+      <Chip v-if="required" size="sm" :label="$t('form.required')" />
     </label>
 
     <Multiselect
@@ -179,7 +179,7 @@ onMounted(() => {
     >
       <div class="error">
         <Icon name="heroicons-solid:exclamation" />
-        <span>{{ $t('form-errors.not-filled-in', { item: label }) }}</span>
+        <span>{{ $t('form.missing-value', { item: label }) }}</span>
       </div>
     </div>
   </div>

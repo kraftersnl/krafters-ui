@@ -83,7 +83,7 @@ declare global {
     | 'xxxxl'
     | 'xxxxxl';
 
-  type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  type ButtonSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   type ButtonVariant =
     | 'primary'
     | 'secondary'

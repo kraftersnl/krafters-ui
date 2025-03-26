@@ -9,12 +9,15 @@ useHead({ title: 'Changelog' });
 
     <!-- <ChangelogEntry v="1.4.0" date="2025-03-25">
       <ul>
-        <li>Breaking: rename Tooltip to ToggleTip</li>
-        <li>Breaking: rename Popover to MenuButton</li>
+        <li>Breaking: rename Tooltip to Toggletip</li>
         <li>Breaking: rename props for MobileMenu component</li>
+        <li>Breaking: rename <code>triggerVariant</code> to <code>buttonVariant</code> prop in Popover component</li>
         <li>
           Change implementation of aria-hidden to <code>inert</code> in
           FocusLoop component
+        </li>
+        <li>
+          Add <code>is</code> prop to FocusLoop component
         </li>
         <li>
           Add <code>modal</code> prop to FocusLoop, Popover and Dialog
