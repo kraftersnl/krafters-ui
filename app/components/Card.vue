@@ -3,10 +3,18 @@ const {
   is = 'div',
   borderWidth = 1,
   borderRadius = 'md',
+  borderColor = 'card-border',
+  shadow = 1,
+  padding = '1.5rem 2rem',
+  mobilePadding = '1.25rem 1.5rem',
 } = defineProps<{
   is?: string;
   borderWidth?: number;
   borderRadius?: BorderRadius;
+  borderColor?: string;
+  shadow?: false | 1 | 2 | 3;
+  padding?: string;
+  mobilePadding?: string;
 }>();
 </script>
 
@@ -17,6 +25,10 @@ const {
     :style="`
       --border-width: ${borderWidth}px;
       --border-radius: var(--radius-${borderRadius});
+      --border-color: var(--color-${borderColor});
+      --mobile-padding: ${mobilePadding};
+      --padding: ${padding};
+      ${shadow ? `--shadow: var(--shadow-${shadow});` : ''}
     `"
   >
     <slot />
@@ -26,16 +38,15 @@ const {
 <style>
 .card {
   position: relative;
-  padding-block: 1.25rem;
-  padding-inline: 1.5rem;
+  padding: var(--mobile-padding);
   background-color: var(--color-card-bg);
-  border: var(--border-width, 1px) solid var(--color-card-border);
+  border: var(--border-width, 1px) solid
+    var(--border-color, var(--color-card-border));
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow, none);
 
   @media (min-width: 480px) {
-    padding-block: 1.5rem;
-    padding-inline: 2rem;
+    padding: var(--padding);
   }
 
   h1,

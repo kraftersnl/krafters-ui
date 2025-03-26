@@ -39,7 +39,7 @@ useHead({ title: 'Changelog' });
           Add <code>fontSize</code> and <code>role</code> props to ProgressMeter
           and ProgressCircle components
         </li>
-        <li>Add <code>borderRadius</code> prop to Card component</li>
+        <li>Add <code>borderRadius</code>, <code>padding</code> and <code>mobilePadding</code> props to Card component</li>
         <li>Reduce specificity of CSS reset rules</li>
         <li>Improve docs with accessibility requirements</li>
       </ul>
