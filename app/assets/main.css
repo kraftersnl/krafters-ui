@@ -583,19 +583,22 @@
     font-size: var(--font-size-xxs);
     padding-block-start: 0.25rem;
   }
+
+  .iconify {
+    flex-shrink: 0;
+  }
 }
 
-:where(.show-invalid) {
-  .form-field-wrapper:has(:invalid) {
-    .select,
-    .textarea,
-    .input {
-      border-color: var(--color-red);
-    }
+:where(.form-field-wrapper.show-invalid:has(:invalid)),
+:where(.show-invalid) .form-field-wrapper:has(:invalid) {
+  .select,
+  .textarea,
+  .input {
+    border-color: var(--color-red);
+  }
 
-    .error-wrapper .error {
-      display: flex;
-    }
+  .error-wrapper .error {
+    display: flex;
   }
 }
 

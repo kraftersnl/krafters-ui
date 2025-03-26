@@ -1,8 +1,7 @@
 <script setup lang="ts">
-const model = defineModel<string | number>();
-
 const props = withDefaults(
   defineProps<{
+    modelValue?: string | number;
     label: string;
     id?: string;
     name?: string;
@@ -29,6 +28,7 @@ const props = withDefaults(
     tabindex?: string;
   }>(),
   {
+    modelValue: undefined,
     id: () => useId(),
     name: undefined,
     title: undefined,
@@ -74,17 +74,17 @@ function handleInput(event: Event) {
   const target = event.target as HTMLInputElement;
 
   if (props.type === 'number') {
-    if (typeof props.min === 'number' && Number(target.value) < props.min) {
+    if (Number(target.value) < props.min) {
       return;
     }
-    if (typeof props.max === 'number' && Number(target.value) > props.max) {
+    if (Number(target.value) > props.max) {
       return;
     }
   }
-  model.value = target.value;
+  emit('update:model-value', target.value);
 }
 
-const inputRef = useTemplateRef<HTMLTextAreaElement>('input');
+const inputRef = useTemplateRef<HTMLInputElement>('input');
 
 function focusElement() {
   inputRef.value?.focus();
@@ -95,7 +95,10 @@ defineExpose({
   focusElement,
 });
 
-const emit = defineEmits(['focus', 'blur']);
+const emit = defineEmits<{
+  (event: 'update:model-value', value: string | number): string | number;
+  (event: 'focus' | 'blur', value: Event): Event;
+}>();
 </script>
 
 <template>
@@ -117,8 +120,8 @@ const emit = defineEmits(['focus', 'blur']);
     <input
       :id="id"
       ref="input"
-      v-model="model"
       class="input"
+      :value="modelValue"
       :name="name"
       :title="title"
       :type="type || 'text'"

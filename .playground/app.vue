@@ -82,6 +82,8 @@ h1 {
 }
 
 .demo-page {
+  padding-block-end: 5rem;
+
   .section-topbar {
     flex-wrap: nowrap;
   }
