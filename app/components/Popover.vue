@@ -101,9 +101,12 @@ const emit = defineEmits<{
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
       role=""
+      :aria-expanded="isExpanded"
       :aria-controls="'popover-menu-' + id"
       :aria="{
-        content: null, // disable in favor of own solution
+        // disable in favor of own solution
+        content: null,
+        expanded: false,
       }"
       tag="button"
       type="button"

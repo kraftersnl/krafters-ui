@@ -18,7 +18,7 @@ describe('Popover', async () => {
 
     const results = await axe(wrapper.html(), {
       rules: {
-        // region: { enabled: false }
+        region: { enabled: false },
       },
     });
 

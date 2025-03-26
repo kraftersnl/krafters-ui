@@ -77,9 +77,12 @@ function closeToggletip() {
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
       role=""
+      :aria-expanded="isExpanded"
       :aria-controls="'toggletip-content-' + id"
       :aria="{
+        // disable in favor of own solution
         content: null,
+        expanded: false,
       }"
       tag="button"
       type="button"
