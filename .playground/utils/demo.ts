@@ -43,7 +43,7 @@ export const navList: MenuItem[] = [
   {
     id: 'md',
     to: '/markdown',
-    label: 'Markdown Editor',
+    label: 'Markdown',
   },
   {
     id: 'meter',
@@ -61,9 +61,9 @@ export const navList: MenuItem[] = [
     label: 'Table, Pagination & Filter',
   },
   {
-    id: 'toggletip',
-    to: '/toggletip',
-    label: 'Toggletip & Popover',
+    id: 'tooltip',
+    to: '/tooltip',
+    label: 'Tooltip & Popover',
   },
   {
     id: 'dialog',

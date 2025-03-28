@@ -66,7 +66,7 @@ function closeToggletip() {
 <template>
   <div
     ref="toggletipWrapper"
-    class="krafters-toggletip-wrapper"
+    class="toggletip-wrapper"
     aria-live="polite"
     @keyup.esc="closeToggletip"
   >
@@ -76,14 +76,14 @@ function closeToggletip() {
       :interactive="interactive"
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
-      role=""
-      :aria-expanded="isExpanded"
-      :aria-controls="'toggletip-content-' + id"
       :aria="{
         // disable in favor of own solution
         content: null,
         expanded: false,
       }"
+      :aria-expanded="isExpanded"
+      :aria-controls="'toggletip-content-' + id"
+      role=""
       tag="button"
       type="button"
       content-tag="div"

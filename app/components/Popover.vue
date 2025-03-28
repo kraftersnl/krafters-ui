@@ -74,16 +74,14 @@ function handleMenuClick(item: MenuItem, hide: () => void) {
 
 const enableFocusLoop = ref(false);
 const wrapperRef = useTemplateRef<HTMLElement>('popoverWrapper');
-const triggerRef = useTemplateRef<{ elem: HTMLButtonElement }>(
-  'popoverTrigger',
-);
+const triggerRef = useTemplateRef<{ elem: HTMLElement }>('popoverTrigger');
 
 function focusTrigger() {
-  console.log('focus popover trigger');
+  // console.log('focus popover trigger');
   triggerRef.value?.elem?.focus();
 }
 
-defineExpose({ focusTrigger });
+defineExpose({ triggerRef, focusTrigger });
 
 const emit = defineEmits<{
   click: [event: MenuItem];
@@ -91,7 +89,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div ref="popoverWrapper" class="krafters-popover-wrapper">
+  <div ref="popoverWrapper" class="popover-wrapper">
     <Tippy
       ref="popoverTrigger"
       :arrow="arrow"
@@ -100,14 +98,14 @@ const emit = defineEmits<{
       :interactive="interactive"
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
-      role=""
-      :aria-expanded="isExpanded"
-      :aria-controls="'popover-menu-' + id"
       :aria="{
         // disable in favor of own solution
         content: null,
         expanded: false,
       }"
+      :aria-expanded="isExpanded"
+      :aria-controls="'popover-content-' + id"
+      role=""
       tag="button"
       type="button"
       content-tag="div"
@@ -153,7 +151,7 @@ const emit = defineEmits<{
 
       <template #content="{ hide }">
         <FocusLoop
-          :id="'popover-menu-' + id"
+          :id="'popover-content-' + id"
           :is-visible="enableFocusLoop"
           :modal="modal"
           @keyup.esc="hide"

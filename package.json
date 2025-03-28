@@ -39,6 +39,7 @@
     "compressorjs": "^1.2.1",
     "eslint": "^9.22.0",
     "happy-dom": "^17.4.4",
+    "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
     "md-editor-v3": "^5.4.2",
     "nuxt": "^3.16.1",

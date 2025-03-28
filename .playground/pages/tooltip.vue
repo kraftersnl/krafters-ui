@@ -99,12 +99,12 @@ const popoverActions = [
         </div>
 
         <div class="flex-wrapper">
-          <Tooltip label="Live regions" :hide-label="false">
+          <Tooltip label="Live regions" :max-width="480" icon-size="xxl">
             Live regions are used to present changes in web content that occur
             after a web page has loaded.
           </Tooltip>
 
-          <Tooltip label="Live regions" :max-width="480" icon-size="xxl">
+          <Tooltip label="Live regions" :hide-label="false">
             Live regions are used to present changes in web content that occur
             after a web page has loaded. Typical uses include presenting news
             feeds, feedback and error messages, or live chat output to screen
@@ -176,6 +176,14 @@ const popoverActions = [
 
         <div class="flex-wrapper">
           <Popover
+            hide-label
+            size="lg"
+            button-variant="secondary"
+            :max-width="480"
+            :list="popoverActions"
+          />
+
+          <Popover
             icon="hugeicons:popcorn"
             label="Popover label"
             size="lg"
@@ -195,14 +203,6 @@ const popoverActions = [
               </p>
             </template>
           </Popover>
-
-          <Popover
-            hide-label
-            size="lg"
-            button-variant="secondary"
-            :max-width="480"
-            :list="popoverActions"
-          />
         </div>
 
         <div class="text-content">
@@ -229,7 +229,7 @@ const popoverActions = [
               The value should refer to the ID of the menu.
             </li>
 
-            <li>Focus is trapped inside the menu.</li>
+            <li>Keyboard focus is trapped inside the menu.</li>
 
             <li>The menu can be closed with the <kbd>Escape</kbd> key.</li>
           </ul>
@@ -298,7 +298,7 @@ const popoverActions = [
                 The value should refer to the ID of the menu.
               </li>
 
-              <li>Focus is trapped inside the menu.</li>
+              <li>Keyboard focus is trapped inside the menu.</li>
 
               <li>The menu can be closed with the <kbd>Escape</kbd> key.</li>
             </ul>

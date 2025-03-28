@@ -384,6 +384,7 @@
 }
 
 :where(code) {
+  color: var(--color-text);
   background-color: var(--color-grey-bg);
   padding: 0.1rem 0.2rem;
   border-radius: var(--radius-sm);

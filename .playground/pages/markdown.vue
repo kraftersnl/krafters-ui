@@ -1,9 +1,9 @@
 <script setup lang="ts">
-useHead({ title: 'Markdown Editor' });
+import md from '~/data/demo.md?raw';
 
-const content = ref(
-  'Rich Text Editor for markdown that comes with `<MarkdownEditor>` and `<MarkdownPreview>` components. Krafters UI offers a wrapper for [md-editor-v3](https://github.com/imzbf/md-editor-v3).\n\n```vue\n<MarkdownEditor v-model="content" label="Markdown Editor" />\n```',
-);
+useHead({ title: 'Markdown components' });
+
+const content = ref(md);
 </script>
 
 <template>
@@ -25,20 +25,24 @@ const content = ref(
     </p>
 
     <Card class="mbs-2">
+      <h2>Markdown Editor</h2>
+      <MarkdownEditor v-model="content" label="Markdown Editor" hide-label />
+    </Card>
+
+    <Card class="mbs-2">
       <h2>Markdown Preview</h2>
       <MarkdownPreview :content="content" />
     </Card>
 
-    <MarkdownEditor v-model="content" label="Markdown Editor" />
+    <Card class="mbs-2">
+      <h2>Markdown Preview (old)</h2>
+      <MarkdownPreviewOld :content="content" />
+    </Card>
+
+    <!-- <Card>
+      <MarkdownKrafters v-model="content" label="Custom Markdown Editor" />
+    </Card> -->
   </div>
 </template>
 
-<style>
-.demo-page.markdown {
-  padding-block-end: 4rem;
-
-  h2 {
-    margin-block-end: 0;
-  }
-}
-</style>
+<style></style>

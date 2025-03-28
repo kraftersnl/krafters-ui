@@ -33,10 +33,10 @@ config({
   editorExtensions: {
     highlight: {
       css: {
-        atom: {
+        'stackoverflow-dark': {
           light:
-            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css',
-          dark: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css',
+            'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/stackoverflow-dark.min.css',
+          dark: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/stackoverflow-dark.min.css',
         },
       },
     },
@@ -96,6 +96,7 @@ const computedErrorMessage = computed(() => {
         :toolbars="toolbars"
         :placeholder="placeholder"
         :theme="colorMode.value === 'light' ? 'light' : 'dark'"
+        code-theme="stackoverflow-dark"
       />
 
       <textarea
@@ -128,7 +129,7 @@ const computedErrorMessage = computed(() => {
 }
 
 .markdown-editor {
-  display: inline-grid;
+  display: grid;
   flex-grow: 1;
 
   .md-editor {
