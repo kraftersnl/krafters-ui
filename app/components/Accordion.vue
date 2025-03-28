@@ -112,10 +112,6 @@ defineExpose({ toggleAccordion });
 .accordion-panel {
   overflow: var(--overflow, hidden);
   min-height: var(--min-height);
-
-  p {
-    margin-block-start: 0;
-  }
 }
 
 .accordion-trigger[aria-expanded='true'] {

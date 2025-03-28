@@ -53,10 +53,4 @@ defineProps<{
     }
   }
 }
-
-.details-panel {
-  p {
-    margin-block-start: 0;
-  }
-}
 </style>
