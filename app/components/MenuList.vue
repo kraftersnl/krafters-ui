@@ -92,8 +92,9 @@ const emit = defineEmits<{
 <style>
 .menu-list-label {
   margin-inline-start: 1rem;
-  margin-block-end: 1rem;
+  margin-block-end: 2.5rem;
   color: var(--color-accent-text);
+  font-size: var(--font-size-xl);
 
   .label-link {
     display: flex;
