@@ -9,7 +9,6 @@ useHead({ title: 'Changelog' });
 
     <ChangelogEntry v="1.4.0" date="2025-03-30">
       <ul>
-        <li>Breaking: rename Tooltip to Toggletip</li>
         <li>Breaking: rename props for MobileMenu component</li>
         <li>
           Breaking: rename <code>triggerVariant</code> to
