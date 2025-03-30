@@ -21,11 +21,11 @@ export function isValidUrl(url?: string): boolean {
   }
 }
 
-export function removeHttp(url?: string): string | undefined {
+export function removeHttp(url?: string) {
   return url?.replace(/^https?:\/\//, '');
 }
 
-export function stripTrailingSlash(str: string) {
+export function stripTrailingSlash(str?: string) {
   if (!str) return '';
   if (str === '/') return '/';
   return str.endsWith('/') ? str.slice(0, -1) : str;

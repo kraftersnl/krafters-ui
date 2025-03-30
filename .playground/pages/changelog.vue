@@ -7,25 +7,24 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.4.0" date="2025-03-25">
+    <ChangelogEntry v="1.4.0" date="2025-03-30">
       <ul>
         <li>Breaking: rename Tooltip to Toggletip</li>
         <li>Breaking: rename props for MobileMenu component</li>
-        <li>Breaking: rename <code>triggerVariant</code> to <code>buttonVariant</code> prop in Popover component</li>
+        <li>
+          Breaking: rename <code>triggerVariant</code> to
+          <code>buttonVariant</code> prop in Popover component
+        </li>
         <li>
           Change implementation of aria-hidden to <code>inert</code> in
           FocusLoop component
         </li>
-        <li>
-          Add <code>is</code> prop to FocusLoop component
-        </li>
+        <li>Add <code>is</code> prop to FocusLoop component</li>
         <li>
           Add <code>modal</code> prop to FocusLoop, Popover and Dialog
           components
         </li>
-        <li>
-          Fix issue with animations for Dialog and MobileMenu components
-        </li>
+        <li>Fix issue with animations for Dialog and MobileMenu components</li>
         <li>
           Fix accessibility issue with using <kbd>Escape</kbd> key to close
           Dialog component
@@ -42,11 +41,14 @@ useHead({ title: 'Changelog' });
           Add <code>fontSize</code> and <code>role</code> props to ProgressMeter
           and ProgressCircle components
         </li>
-        <li>Add <code>borderRadius</code>, <code>padding</code> and <code>mobilePadding</code> props to Card component</li>
+        <li>
+          Add <code>borderRadius</code>, <code>padding</code> and
+          <code>mobilePadding</code> props to Card component
+        </li>
         <li>Reduce specificity of CSS reset rules</li>
         <li>Improve docs with accessibility requirements</li>
       </ul>
-    </ChangelogEntry> -->
+    </ChangelogEntry>
 
     <ChangelogEntry v="1.3.8" date="2025-03-20">
       <ul>

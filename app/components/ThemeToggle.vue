@@ -44,7 +44,7 @@ const colorMode = useColorMode();
   }
 
   &:hover {
-    background-color: var(--color-bg);
+    background-color: var(--color-grey-bg);
   }
 
   &:focus-visible {

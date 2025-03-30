@@ -1,6 +1,17 @@
 export default defineNuxtConfig({
   extends: ['..'],
 
+  $production: {
+    app: {
+      baseURL: '/krafters-ui/',
+    },
+  },
+
+  i18n: {
+    baseUrl: 'https://kraftersnl.github.io/krafters-ui/',
+    defaultLocale: 'en',
+  },
+
   modules: ['@nuxt/test-utils/module'],
 
   icon: {
@@ -36,17 +47,6 @@ export default defineNuxtConfig({
         'mdi:github',
         'ic:round-play-arrow',
       ],
-    },
-  },
-
-  i18n: {
-    baseUrl: 'https://kraftersnl.github.io/krafters-ui/',
-    defaultLocale: 'en',
-  },
-
-  $production: {
-    app: {
-      baseURL: '/krafters-ui/',
     },
   },
 
