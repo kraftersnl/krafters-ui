@@ -40,7 +40,7 @@ const colorMode = useColorMode();
 
   .iconify {
     color: var(--color-shape);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
   }
 
   &:hover {
