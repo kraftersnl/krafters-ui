@@ -444,14 +444,14 @@ const emit = defineEmits(['click']);
     }
   }
 
-  &.router-link-exact-active {
+  /* &.router-link-exact-active {
     color: var(--color-accent);
     font-weight: var(--font-weight-bold);
 
     .iconify {
       color: var(--color-accent-text);
     }
-  }
+  } */
 }
 
 .button--icon-only {
