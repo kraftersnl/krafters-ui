@@ -53,10 +53,6 @@ const colorMode = useColorMode();
 
   &[aria-pressed='true'] {
     --color-shape: #ffaa00;
-
-    &:hover {
-      background-color: var(--color-accent-bg);
-    }
   }
 }
 </style>
