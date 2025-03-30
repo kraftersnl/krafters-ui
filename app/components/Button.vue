@@ -410,22 +410,15 @@ const emit = defineEmits(['click']);
     }
   }
 
-  &:not(~ .router-hash-link-active) {
-    &.router-link-exact-active {
-      text-decoration: underline;
-      font-weight: var(--font-weight-bold);
-      color: var(--color-accent);
-
-      .iconify {
-        color: var(--color-accent-text);
-      }
-    }
-  }
-
-  &.router-link-active {
-    color: var(--color-accent);
+  /* &.router-link-exact-active {
     text-decoration: underline;
-  }
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent);
+
+    .iconify {
+      color: var(--color-accent-text);
+    }
+  } */
 }
 
 .button-variant--topbar {
@@ -451,8 +444,13 @@ const emit = defineEmits(['click']);
     }
   }
 
-  &.router-hash-link-active {
+  &.router-link-exact-active {
     color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+
+    .iconify {
+      color: var(--color-accent-text);
+    }
   }
 }
 
