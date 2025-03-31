@@ -79,7 +79,7 @@ const emit = defineEmits<{
           :size="buttonSize"
           :font-size="fontSize"
           :icon-size="iconSize"
-          :variant="buttonVariant"
+          :variant="item.variant || buttonVariant"
           @click="handleClick(item)"
         />
 

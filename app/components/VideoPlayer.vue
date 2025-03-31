@@ -14,14 +14,14 @@ const videoProvider = computed(() => {
 });
 
 const videoKey = computed(() => {
-  let match;
+  let match: string[] | undefined | null;
 
   if (videoProvider.value === 'vimeo') {
-    match = props.url.match(
+    match = props.url?.match(
       /:\/\/(?:player\.)?vimeo\.com\/(?:video\/)?(\d+)(?:#t=(\d+?)s)?/,
     );
   } else {
-    match = props.url.match(
+    match = props.url?.match(
       /:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/)?([a-zA-Z0-9-_]+)(?:(?:&t=|\?t=|\?start=)(\d+))?/,
     );
   }
@@ -30,7 +30,7 @@ const videoKey = computed(() => {
     return match[1];
   }
 
-  return undefined;
+  return 'e';
 });
 
 const metadataUrl = computed(() => {

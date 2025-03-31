@@ -59,20 +59,20 @@ const emit = defineEmits(['click']);
     :href="href"
     :target="target"
     :external="external"
-    :class="`
-      button
-      button-size--${size}
-      button-variant--${variant}
-      icon-position--${iconPos}
-      ${hideLabel ? 'button--icon-only' : ''}
-      ${loading ? 'button--loading' : ''}
-      ${loading || disabled ? 'button--disabled' : ''}
-    `"
-    :style="`
-      --radius: var(--radius-${radius});
-      ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
-      ${iconSize ? `--icon-size: var(--font-size-${iconSize});` : ''}
-    `"
+    :class="[
+      'button',
+      `button-size--${size}`,
+      `button-variant--${variant}`,
+      `icon-position--${iconPos}`,
+      hideLabel && 'button--icon-only',
+      loading && 'button--loading',
+      (loading || disabled) && 'button--disabled',
+    ]"
+    :style="[
+      `--radius: var(--radius-${radius})`,
+      fontSize && `--font-size: var(--font-size-${fontSize})`,
+      iconSize && `--icon-size: var(--font-size-${iconSize})`,
+    ]"
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined
     "
@@ -81,10 +81,7 @@ const emit = defineEmits(['click']);
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
     <Icon v-else-if="icon" :name="computedIcon" />
 
-    <span
-      v-if="label"
-      :class="`button-text ${hideLabel ? 'visuallyhidden' : ''}`"
-    >
+    <span v-if="label" :class="['button-text', hideLabel && 'visuallyhidden']">
       {{ label }}
     </span>
 
@@ -99,28 +96,25 @@ const emit = defineEmits(['click']);
     v-else
     :type="type"
     :disabled="loading || disabled"
-    :class="`
-      button
-      button-size--${size}
-      button-variant--${variant}
-      icon-position--${iconPos}
-      ${loading ? 'button--loading' : ''}
-      ${hideLabel ? 'button--icon-only' : ''}
-    `"
-    :style="`
-      --radius: var(--radius-${radius});
-      ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
-      ${iconSize ? `--icon-size: var(--font-size-${iconSize});` : ''}
-    `"
+    :class="[
+      'button',
+      `button-size--${size}`,
+      `button-variant--${variant}`,
+      `icon-position--${iconPos}`,
+      hideLabel && 'button--icon-only',
+      loading && 'button--loading',
+    ]"
+    :style="[
+      `--radius: var(--radius-${radius})`,
+      fontSize && `--font-size: var(--font-size-${fontSize})`,
+      iconSize && `--icon-size: var(--font-size-${iconSize})`,
+    ]"
     @click="handleClick"
   >
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
     <Icon v-else-if="icon" :name="computedIcon" />
 
-    <span
-      v-if="label"
-      :class="`button-text ${hideLabel ? 'visuallyhidden' : ''}`"
-    >
+    <span v-if="label" :class="['button-text', hideLabel && 'visuallyhidden']">
       {{ label }}
     </span>
 

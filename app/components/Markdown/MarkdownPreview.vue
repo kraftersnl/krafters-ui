@@ -41,7 +41,7 @@ const md = markdownit(options)
   .use(mark);
 
 const props = defineProps<{
-  content?: string;
+  content: string;
   fontSize?: FontSize;
 }>();
 
@@ -51,7 +51,7 @@ const preview = computed(() => md.render(props.content));
 <template>
   <div
     class="krafters-markdown-preview"
-    :style="fontSize && `--font-size: var(--font-size-${fontSize})`"
+    :style="[fontSize && `--font-size: var(--font-size-${fontSize})`]"
     v-html="preview"
   />
 </template>

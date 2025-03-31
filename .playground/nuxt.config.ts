@@ -12,6 +12,18 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   },
 
+  app: {
+    head: {
+      title: 'Krafters UI',
+      link: [{ rel: 'icon', href: 'favicon.svg', type: 'image/svg+xml' }],
+      htmlAttrs: {
+        lang: 'en',
+      },
+    },
+  },
+
+  devtools: { enabled: false },
+
   modules: ['@nuxt/test-utils/module'],
 
   icon: {
@@ -50,21 +62,9 @@ export default defineNuxtConfig({
     },
   },
 
-  app: {
-    head: {
-      title: 'Krafters UI',
-      link: [{ rel: 'icon', href: 'favicon.svg', type: 'image/svg+xml' }],
-      htmlAttrs: {
-        lang: 'en',
-      },
-    },
-  },
-
   devServer: {
     port: 3003,
   },
-
-  devtools: { enabled: false },
 
   compatibilityDate: '2025-03-19',
 });

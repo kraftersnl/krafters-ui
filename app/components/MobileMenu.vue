@@ -9,6 +9,7 @@ const props = withDefaults(
     position?: MobileMenuPosition;
     buttonVariant?: ButtonVariant;
     buttonSize?: ButtonSize;
+    buttonFontSize?: FontSize;
     buttonIconSize?: FontSize;
     buttonIconPos?: 'start' | 'end';
     menuButtonSize?: ButtonSize;
@@ -29,6 +30,7 @@ const props = withDefaults(
     position: 'inline-start',
     buttonVariant: 'secondary',
     buttonSize: 'md',
+    buttonFontSize: undefined,
     buttonIconSize: undefined,
     buttonIconPos: undefined,
     menuButtonSize: 'xl',
@@ -118,6 +120,7 @@ const emit = defineEmits<{
       :icon="computedIcon"
       :class="`mobile-nav-toggle ${buttonClass ?? ''}`"
       :size="buttonSize"
+      :font-size="buttonFontSize"
       :icon-size="buttonIconSize"
       :icon-pos="buttonIconPos"
       :variant="buttonVariant"

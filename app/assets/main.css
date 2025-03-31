@@ -278,7 +278,7 @@
   min-height: 100svh;
   background-color: var(--color-bg);
   font-family: var(--font-family, system-ui), sans-serif;
-  line-height: 1.5;
+  line-height: var(--line-height, 1.5);
   overflow-wrap: break-word;
   color: var(--color-text);
 }
@@ -325,7 +325,7 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6, button, input, label, .label, legend) {
-  line-height: 1.2;
+  line-height: var(--line-height-heading, 1.5);
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
@@ -707,7 +707,7 @@
 
   code {
     font-size: 0.9em;
-    line-height: 1.5;
+    line-height: var(--line-height, 1.5);
     --md-theme-code-inline-color: var(--color-accent-text);
     --md-theme-code-inline-bg-color: var(--color-accent-bg);
   }
