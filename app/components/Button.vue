@@ -48,6 +48,15 @@ const computedIcon = computed(() => {
 function handleClick() {
   emit('click');
 }
+const buttonRef = useTemplateRef<HTMLButtonElement | HTMLAnchorElement>(
+  'button',
+);
+
+function focusElement() {
+  buttonRef.value?.focus();
+}
+
+defineExpose({ triggerRef, focusElement });
 
 const emit = defineEmits(['click']);
 </script>
@@ -55,6 +64,7 @@ const emit = defineEmits(['click']);
 <template>
   <NuxtLink
     v-if="to || href"
+    ref="button"
     :to="to"
     :href="href"
     :target="target"
@@ -94,6 +104,7 @@ const emit = defineEmits(['click']);
 
   <button
     v-else
+    ref="button"
     :type="type"
     :disabled="loading || disabled"
     :class="[
@@ -175,12 +186,20 @@ const emit = defineEmits(['click']);
   font-size: var(--font-size, var(--font-size-xxs));
   min-height: 1.5rem;
   padding-inline: 0.5rem;
+
+  .iconify {
+    font-size: var(--font-size, var(--font-size-sm));
+  }
 }
 
 .button-size--xxs {
   font-size: var(--font-size, var(--font-size-xxs));
   min-height: 1.25rem;
   padding-inline: 0.25rem;
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-sm));
+  }
 }
 
 .button-size--sm {
@@ -190,6 +209,10 @@ const emit = defineEmits(['click']);
 
   .button-text {
     padding-inline: 0.1rem;
+  }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-md));
   }
 }
 
@@ -201,6 +224,10 @@ const emit = defineEmits(['click']);
   .button-text {
     padding-inline: 0.2rem;
   }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-md));
+  }
 }
 
 .button-size--lg {
@@ -211,6 +238,10 @@ const emit = defineEmits(['click']);
   .button-text {
     padding-inline: 0.2rem;
   }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-md));
+  }
 }
 
 .button-size--xl {
@@ -220,6 +251,10 @@ const emit = defineEmits(['click']);
 
   .button-text {
     padding-inline: 0.25rem;
+  }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-lg));
   }
 }
 

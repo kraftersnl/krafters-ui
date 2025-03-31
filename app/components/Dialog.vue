@@ -75,7 +75,6 @@ defineExpose({
         <Button
           icon="x"
           size="sm"
-          icon-size="md"
           variant="ghost"
           :label="$t('general.close')"
           hide-label

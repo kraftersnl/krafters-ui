@@ -64,7 +64,7 @@ function handleShow() {
 function handleHide() {
   enableFocusLoop.value = false;
   isExpanded.value = false;
-  focusTrigger();
+  focusElement();
 }
 
 function handleMenuClick(item: MenuItem, hide: () => void) {
@@ -76,12 +76,11 @@ const enableFocusLoop = ref(false);
 const wrapperRef = useTemplateRef<HTMLElement>('popoverWrapper');
 const triggerRef = useTemplateRef<{ elem: HTMLElement }>('popoverTrigger');
 
-function focusTrigger() {
-  // console.log('focus popover trigger');
+function focusElement() {
   triggerRef.value?.elem?.focus();
 }
 
-defineExpose({ triggerRef, focusTrigger });
+defineExpose({ triggerRef, focusElement });
 
 const emit = defineEmits<{
   click: [event: MenuItem];

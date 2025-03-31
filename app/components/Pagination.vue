@@ -1,30 +1,20 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    page: number;
     lastPage: number;
     total: number;
-    perPage: number;
     pageSizes?: number[];
     loading?: boolean;
   }>(),
   {
-    pageSize: 10,
     pageSizes: () => [10, 20, 50, 100],
   },
 );
 
 const { t } = useI18n();
 
-const currentPage = computed({
-  get: () => props.page,
-  set: (value: number) => emit('update:page', value),
-});
-
-const computedPageSize = computed({
-  get: () => props.perPage,
-  set: (value: number) => emit('update:per-page', value),
-});
+const page = defineModel<number>('page', { default: 1 });
+const perPage = defineModel<number>('perPage', { default: 10 });
 
 const computedPageSizes = computed(() => {
   const sizes: { value: number; label: string }[] = [];
@@ -38,13 +28,11 @@ const computedPageSizes = computed(() => {
 });
 
 function goToPage(pageNumber: number) {
-  if (currentPage.value === pageNumber) return;
-  if (currentPage.value < 1) return;
+  if (page.value === pageNumber) return;
+  if (page.value && page.value < 1) return;
 
-  currentPage.value = pageNumber;
+  page.value = pageNumber;
 }
-
-const emit = defineEmits(['update:page', 'update:per-page']);
 </script>
 
 <template>
@@ -67,12 +55,12 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         size="sm"
         class="prev-page-button"
         :disabled="loading || page <= 1"
-        @click="goToPage(currentPage - 1)"
+        @click="goToPage(page - 1)"
       />
 
       <div :class="`current-page-wrapper ${loading ? 'disabled' : ''}`">
         <Input
-          v-model.number="currentPage"
+          v-model.number="page"
           type="number"
           input-mode="numeric"
           :label="$t('pagination.current-page')"
@@ -93,7 +81,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
         size="sm"
         class="next-page-button"
         :disabled="loading || page >= lastPage || lastPage <= 1"
-        @click="goToPage(currentPage + 1)"
+        @click="goToPage(page + 1)"
       />
 
       <Button
@@ -109,7 +97,7 @@ const emit = defineEmits(['update:page', 'update:per-page']);
 
     <div class="pagination-page-size">
       <Select
-        v-model.number="computedPageSize"
+        v-model.number="perPage"
         :options="computedPageSizes"
         :label="$t('pagination.per-page')"
         :disabled="loading"

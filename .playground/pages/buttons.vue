@@ -54,11 +54,11 @@ useHead({ title: 'Buttons & Links' });
 
       <h2>Sizes</h2>
       <div class="flex-wrapper">
-        <Button size="xl" label="Extra Large" />
-        <Button size="lg" label="Large" />
-        <Button size="md" label="Medium" />
-        <Button size="sm" label="Small" />
-        <Button size="xs" label="Extra Small" />
+        <Button icon="face-smile" size="xl" label="Extra Large" />
+        <Button icon="face-smile" size="lg" label="Large" />
+        <Button icon="face-smile" size="md" label="Medium" />
+        <Button icon="face-smile" size="sm" label="Small" />
+        <Button icon="face-smile" size="xs" label="Extra Small" />
       </div>
 
       <Spacer size="xl" />
@@ -70,6 +70,17 @@ useHead({ title: 'Buttons & Links' });
         <Button variant="link" font-size="sm" label="Small link" />
         <Button variant="link" font-size="xs" label="XS link" />
         <Button variant="link" font-size="xxs" label="XXS link" />
+      </div>
+
+      <Spacer size="xl" />
+
+      <h2>Icon sizes</h2>
+      <div class="flex-wrapper" style="--gap: 1rem">
+        <Button icon="check-circle" icon-pos="end" icon-size="lg" label="Large icon" />
+        <Button icon="check-circle" icon-pos="end" icon-size="md" label="Medium icon" />
+        <Button icon="check-circle" icon-pos="end" icon-size="sm" label="Small icon" />
+        <Button icon="check-circle" icon-pos="end" icon-size="xs" label="XS icon" />
+        <Button icon="check-circle" icon-pos="end" icon-size="xxs" label="XXS icon" />
       </div>
 
       <Spacer size="xl" />

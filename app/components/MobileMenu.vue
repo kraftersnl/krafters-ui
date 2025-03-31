@@ -146,7 +146,6 @@ const emit = defineEmits<{
           <div class="dialog-content">
             <Button
               icon="x"
-              icon-size="md"
               radius="full"
               :label="$t('aria.close-menu')"
               hide-label
