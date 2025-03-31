@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
+
+defineProps<{ fontSize?: FontSize }>();
 </script>
 
 <template>
@@ -9,6 +11,7 @@ const colorMode = useColorMode();
       type="button"
       class="theme-toggle-button"
       :aria-pressed="colorMode.value === 'dark'"
+      :style="[fontSize && `--font-size: var(--font-size-${fontSize})`]"
       @click.stop="
         colorMode.preference = colorMode.value == 'light' ? 'dark' : 'light'
       "
@@ -40,7 +43,7 @@ const colorMode = useColorMode();
 
   .iconify {
     color: var(--color-shape);
-    font-size: var(--font-size-md);
+    font-size: var(--font-size, var(--font-size-md));
   }
 
   &:hover {
