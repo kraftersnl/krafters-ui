@@ -24,6 +24,7 @@ declare global {
     iconPos?: 'start' | 'end';
     to?: RouteLocationRaw;
     path?: RouteLocationRaw;
+    variant?: ButtonVariant;
     title?: string;
     href?: string;
     size?: string;
