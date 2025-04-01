@@ -57,7 +57,6 @@ export default defineNuxtConfig({
         'heroicons-solid:document-add',
         'heroicons-solid:adjustments-vertical',
         'mdi:github',
-        'ic:round-play-arrow',
       ],
     },
   },
