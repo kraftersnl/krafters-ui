@@ -1,6 +1,6 @@
 Rich Text Editor for _markdown_{lang="nl"} that comes with `<MarkdownEditor>` and `<MarkdownPreview>` components. Krafters UI offers a wrapper for [md-editor-v3](https://github.com/imzbf/md-editor-v3).
 
-```ts
+```js
 <script setup lang="ts">
 import { ref } from 'vue';
 const isOpen = ref(false);

@@ -43,6 +43,7 @@ const md = markdownit(options)
 const props = defineProps<{
   content: string;
   fontSize?: FontSize;
+  ellipsisLines?: number;
 }>();
 
 const preview = computed(() => md.render(props.content));
@@ -50,8 +51,11 @@ const preview = computed(() => md.render(props.content));
 
 <template>
   <div
-    class="krafters-markdown-preview"
-    :style="[fontSize && `--font-size: var(--font-size-${fontSize})`]"
+    :class="['krafters-markdown-preview', ellipsisLines && 'ellipsis']"
+    :style="[
+      fontSize && `--font-size: var(--font-size-${fontSize})`,
+      ellipsisLines && `--line-clamp: ${ellipsisLines}`,
+    ]"
     v-html="preview"
   />
 </template>
@@ -59,6 +63,15 @@ const preview = computed(() => md.render(props.content));
 <style>
 .krafters-markdown-preview {
   font-size: var(--font-size, inherit);
+
+  &.ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: var(--line-clamp);
+    -webkit-line-clamp: var(--line-clamp);
+    hyphens: none;
+  }
 
   a[target='_blank']::after {
     content: '';
