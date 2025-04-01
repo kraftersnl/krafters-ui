@@ -80,7 +80,17 @@ function playVideo() {
     />
 
     <button v-if="!started" type="button" @click="playVideo">
-      <Icon name="ic:round-play-arrow" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="64"
+        height="64"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6.906 4.537A.6.6 0 0 0 6 5.053v13.894a.6.6 0 0 0 .906.516l11.723-6.947a.6.6 0 0 0 0-1.032z"
+          aria-hidden="true"
+        />
+      </svg>
       <span class="visuallyhidden">Speel video af: {{ videoData?.title }}</span>
     </button>
 
@@ -126,11 +136,12 @@ function playVideo() {
     border-radius: var(--radius-full);
     position: absolute;
     cursor: pointer;
-    scale: 0.95;
+    scale: 0.94;
     transition: scale var(--duration-sm) ease-out;
 
-    .iconify {
-      font-size: 5rem;
+    svg {
+      fill: currentColor;
+      padding-inline-start: 0.35rem;
     }
 
     &:hover {
