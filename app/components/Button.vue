@@ -58,7 +58,9 @@ function focusElement() {
 
 defineExpose({ triggerRef, focusElement });
 
-const emit = defineEmits(['click']);
+const emit = defineEmits<{
+  click: [];
+}>();
 </script>
 
 <template>

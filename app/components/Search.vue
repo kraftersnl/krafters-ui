@@ -31,7 +31,10 @@ defineExpose({
   focusElement,
 });
 
-const emit = defineEmits(['update:model-value', 'submit', 'reset']);
+const emit = defineEmits<{
+  submit: [value: string | number];
+  reset: [value: string | number];
+}>();
 </script>
 
 <template>
@@ -48,7 +51,6 @@ const emit = defineEmits(['update:model-value', 'submit', 'reset']);
         :hide-label="hideLabel"
         :autocomplete="autocomplete"
         :autofocus="autofocus"
-        @update:model-value="emit('update:model-value', $event)"
       />
 
       <Button
