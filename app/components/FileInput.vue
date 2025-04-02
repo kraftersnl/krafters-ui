@@ -4,6 +4,7 @@ import compressor from 'compressorjs';
 const model = defineModel<File>();
 
 const {
+  required,
   placeholderUrl,
   maxFileSize = 5000,
   convertSize = 500000,
@@ -20,6 +21,7 @@ const {
   showInvalid?: boolean;
   required?: boolean;
   disabled?: boolean;
+  autofocus?: boolean;
   maxFileSize?: number;
   convertSize?: number;
   quality?: number;
@@ -128,6 +130,7 @@ watch(
         type="file"
         :name="name"
         :required="required"
+        :autofocus="autofocus"
         :accept="accept"
         :aria-describedby="id && !validity ? `error-${id}` : ''"
         :class="[showInvalid && !validity && 'show-invalid']"
