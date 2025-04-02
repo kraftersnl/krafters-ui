@@ -74,24 +74,25 @@ const preview = computed(() => md.render(props.content));
   }
 
   a {
-    &:hover {
-      color: var(--color-accent);
-    }
-
     &[target='_blank']::after {
       content: '';
       display: inline-block;
       vertical-align: middle;
       width: 1em;
       height: 1em;
-      margin-left: 0.25em;
-      background-color: currentColor;
-      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>');
-      mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>');
-      -webkit-mask-size: contain;
+      margin-left: 0.2em;
+      background-color: var(--color-grey-text);
+      mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1z"/><path d="M5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2z"/></svg>');
       mask-size: contain;
-      -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
+    }
+
+    &:hover {
+      color: var(--color-accent);
+
+      &::after {
+        background-color: var(--color-accent-text);
+      }
     }
   }
 }

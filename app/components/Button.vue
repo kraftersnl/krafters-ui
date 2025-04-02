@@ -345,7 +345,7 @@ const emit = defineEmits<{
   overflow-wrap: anywhere;
   min-height: 0;
   height: auto;
-  /* font-size: inherit; */
+  vertical-align: middle;
   font-size: var(--font-size, inherit);
   display: inline-flex;
   justify-content: start;
