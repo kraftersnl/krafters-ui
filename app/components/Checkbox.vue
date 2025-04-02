@@ -15,7 +15,7 @@ const { id = useId() } = defineProps<{
 </script>
 
 <template>
-  <div :class="`checkbox-wrapper ${disabled ? 'disabled' : ''}`">
+  <div :class="['checkbox-wrapper', disabled && 'disabled']">
     <input
       :id="id"
       v-model="model"
@@ -29,10 +29,7 @@ const { id = useId() } = defineProps<{
     <label
       :for="id"
       :title="title"
-      :class="`
-        ${hideLabel ? 'visuallyhidden' : ''}
-        ${disabled ? 'disabled' : ''}
-      `"
+      :class="[hideLabel && 'visuallyhidden', disabled && 'disabled']"
     >
       <slot name="label" />
 

@@ -3,39 +3,34 @@ import compressor from 'compressorjs';
 
 const model = defineModel<File>();
 
-const props = withDefaults(
-  defineProps<{
-    label: string;
-    name?: string;
-    placeholderUrl?: string;
-    id?: string;
-    accept?: string;
-    showInvalid?: boolean;
-    required?: boolean;
-    disabled?: boolean;
-    maxFileSize?: number;
-    convertSize?: number;
-    quality?: number;
-    maxWidth?: number;
-    maxHeight?: number;
-  }>(),
-  {
-    name: undefined,
-    placeholderUrl: undefined,
-    id: () => useId(),
-    accept: undefined,
-    maxFileSize: 5000,
-    convertSize: 500000,
-    quality: 0.9,
-    maxWidth: 1920,
-    maxHeight: 1920,
-  },
-);
+const {
+  placeholderUrl,
+  maxFileSize = 5000,
+  convertSize = 500000,
+  quality = 0.9,
+  maxWidth = 1920,
+  maxHeight = 1920,
+  id = useId(),
+} = defineProps<{
+  label: string;
+  name?: string;
+  placeholderUrl?: string;
+  id?: string;
+  accept?: string;
+  showInvalid?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  maxFileSize?: number;
+  convertSize?: number;
+  quality?: number;
+  maxWidth?: number;
+  maxHeight?: number;
+}>();
 
 const { t } = useI18n();
 
 const fileInputRef = useTemplateRef<HTMLInputElement>('fileInput');
-const imagePreview = ref(props.placeholderUrl);
+const imagePreview = ref(placeholderUrl);
 const dragover = ref(false);
 const validity = ref(true);
 
@@ -45,11 +40,11 @@ defineExpose({
 
 const computedErrorMessage = computed(() => {
   if (model.value) {
-    if (model.value.size / 1024 > props.maxFileSize) {
+    if (model.value.size / 1024 > maxFileSize) {
       return t('files.too-big');
     }
   }
-  return t('form.missing-value', { item: props.label });
+  return t('form.missing-value', { item: label });
 });
 
 function handleDragOver() {
@@ -70,9 +65,9 @@ async function handleInput(event: Event) {
 
   if (!file) return;
 
-  if (file.size / 1024 > props.maxFileSize) {
+  if (file.size / 1024 > maxFileSize) {
     validity.value = false;
-  } else if (file && props.required) {
+  } else if (file && required) {
     validity.value = !!file;
   } else {
     validity.value = true;
@@ -84,10 +79,10 @@ async function handleInput(event: Event) {
 
   if (file?.type?.includes('image') && !file?.type?.includes('gif')) {
     new compressor(file, {
-      quality: props.quality,
-      maxWidth: props.maxWidth,
-      maxHeight: props.maxHeight,
-      convertSize: props.convertSize,
+      quality: quality,
+      maxWidth: maxWidth,
+      maxHeight: maxHeight,
+      convertSize: convertSize,
 
       success(result: File) {
         const compressedFile = new File([result], result.name, {
@@ -135,7 +130,7 @@ watch(
         :required="required"
         :accept="accept"
         :aria-describedby="id && !validity ? `error-${id}` : ''"
-        :class="`${showInvalid && !validity ? 'show-invalid' : ''}`"
+        :class="[showInvalid && !validity && 'show-invalid']"
         @dragover="handleDragOver"
         @dragleave="handleDragLeave"
         @drop="handleDragLeave"
@@ -146,12 +141,12 @@ watch(
         tabindex="-1"
         type="button"
         :disabled="disabled"
-        :class="`
-          file-input-button
-          ${imagePreview ? 'has-image-preview' : ''}
-          ${model ? 'has-file' : ''}
-          ${dragover ? 'dragover' : ''}
-        `"
+        :class="[
+          'file-input-button',
+          imagePreview && 'has-image-preview',
+          model && 'has-file',
+          dragover && 'dragover',
+        ]"
       >
         <Icon :name="fileTypeIcon(model)" />
 

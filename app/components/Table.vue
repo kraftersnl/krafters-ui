@@ -17,11 +17,12 @@ const {
 
 <template>
   <div
-    :class="`table-wrapper
-      table-size--${size}
-      ${loading ? 'table--loading' : ''}
-      ${skeleton ? 'table--skeleton' : ''}
-    `"
+    :class="[
+      'table-wrapper',
+      `table-size--${size}`,
+      loading && 'table--loading',
+      skeleton && 'table--skeleton',
+    ]"
     :style="`--font-size: var(--font-size-${fontSize})`"
   >
     <table>

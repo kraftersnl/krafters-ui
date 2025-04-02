@@ -76,7 +76,7 @@ describe('Docs', () => {
   });
 
   it('Toggletip/Popover page has no accessibility violations', async () => {
-    const wrapper = await mountSuspended(App, { route: '/toggletip' });
+    const wrapper = await mountSuspended(App, { route: '/tooltip' });
     const results = await axe(wrapper.element);
     expect(results).toHaveNoViolations();
   });

@@ -3,55 +3,55 @@ import { Tippy } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
-const props = withDefaults(
-  defineProps<{
-    label?: string;
-    list?: MenuItem[];
-    icon?: string;
-    iconPos?: 'start' | 'end';
-    size?: 'sm' | 'md' | 'lg';
-    fontSize?: string;
-    iconSize?: string;
-    borderRadius?: string;
-    placement?: PopperPlacement;
-    hideLabel?: boolean;
-    disabled?: boolean;
-    interactive?: boolean;
-    arrow?: boolean;
-    loading?: boolean;
-    trigger?: string;
-    buttonVariant?: string;
-    hideOnClick?: boolean | 'toggle';
-    maxWidth?: number | 'none';
-    modal?: boolean;
-    id?: string;
-  }>(),
-  {
-    label: undefined,
-    list: () => [],
-    icon: 'dots-horizontal',
-    iconPos: 'start',
-    size: 'sm',
-    fontSize: undefined,
-    iconSize: undefined,
-    hideLabel: true,
-    borderRadius: 'sm',
-    placement: 'auto-start',
-    interactive: true,
-    trigger: 'click',
-    buttonVariant: 'ghost',
-    hideOnClick: true,
-    maxWidth: undefined,
-    modal: false,
-    id: () => useId(),
-  },
-);
+const {
+  fontSize,
+  iconSize,
+  borderRadius = 'sm',
+  hideLabel = true,
+  icon = 'dots-horizontal',
+  iconPos = 'start',
+  buttonVariant = 'ghost',
+  size = 'sm',
+  placement = 'auto-start',
+  interactive = true,
+  trigger = 'click',
+  hideOnClick = true,
+  modal = false,
+  id = useId(),
+} = defineProps<{
+  fontSize?: string;
+  iconSize?: string;
+  borderRadius?: string;
+  label?: string;
+  hideLabel?: boolean;
+  icon?: string;
+  iconPos?: 'start' | 'end';
+  buttonVariant?: string;
+  size?: 'sm' | 'md' | 'lg';
+  placement?: PopperPlacement;
+  disabled?: boolean;
+  interactive?: boolean;
+  arrow?: boolean;
+  loading?: boolean;
+  trigger?: string;
+  hideOnClick?: boolean | 'toggle';
+  maxWidth?: number | 'none';
+  modal?: boolean;
+  id?: string;
+  list?: MenuItem[];
+}>();
+
+const computedStyle = computed(() => ({
+  '--font-size': `var(--font-size-${fontSize})`,
+  '--icon-size': `var(--font-size-${iconSize})`,
+  '--radius': `var(--radius-${borderRadius})`,
+}));
 
 const computedIcon = computed(() => {
-  if (props.icon?.includes(':')) {
-    return props.icon;
+  if (icon?.includes(':')) {
+    return icon;
   }
-  return `heroicons-solid:${props.icon}`;
+  return `heroicons-solid:${icon}`;
 });
 
 const isExpanded = ref(false);
@@ -113,16 +113,13 @@ const emit = defineEmits<{
       animation="shift-away"
       :append-to="wrapperRef ?? undefined"
       :disabled="loading || disabled"
-      :class="`popover-trigger
-        popover-trigger-variant--${buttonVariant}
-        popover-trigger-size--${size}
-        popover-icon-position--${iconPos}
-      `"
-      :style="`
-        --radius: var(--radius-${borderRadius});
-        --font-size: var(--font-size-${fontSize});
-        --icon-size: var(--font-size-${iconSize});
-      `"
+      :class="[
+        'popover-trigger',
+        `popover-trigger-variant--${buttonVariant}`,
+        `popover-trigger-size--${size}`,
+        `popover-icon-position--${iconPos}`,
+      ]"
+      :style="computedStyle"
       @show="handleShow"
       @hide="handleHide"
     >

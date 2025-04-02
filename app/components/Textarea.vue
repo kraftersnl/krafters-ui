@@ -1,42 +1,36 @@
 <script setup lang="ts">
 const model = defineModel<string | number>();
 
-const props = withDefaults(
-  defineProps<{
-    label?: string;
-    placeholder?: string;
-    id?: string;
-    name?: string;
-    pattern?: string;
-    ariaDescribedby?: string;
-    instruction?: string;
-    errorMessage?: string;
-    showInvalid?: boolean;
-    hideLabel?: boolean;
-    required?: boolean;
-    disabled?: boolean;
-    readonly?: boolean;
-    autofocus?: boolean;
-    autoresize?: boolean;
-  }>(),
-  {
-    label: undefined,
-    placeholder: undefined,
-    id: () => useId(),
-    name: undefined,
-    pattern: undefined,
-    ariaDescribedby: undefined,
-    instruction: undefined,
-    errorMessage: undefined,
-  },
-);
+const {
+  label,
+  required,
+  errorMessage,
+  autoresize,
+  id = useId(),
+} = defineProps<{
+  label?: string;
+  placeholder?: string;
+  id?: string;
+  name?: string;
+  pattern?: string;
+  ariaDescribedby?: string;
+  instruction?: string;
+  errorMessage?: string;
+  showInvalid?: boolean;
+  hideLabel?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  readonly?: boolean;
+  autofocus?: boolean;
+  autoresize?: boolean;
+}>();
 
 const { t } = useI18n();
 
 const computedErrorMessage = computed(() => {
-  if (props.errorMessage) return props.errorMessage;
-  if (props.required && !model.value) {
-    return t('form.missing-value', { item: props.label });
+  if (errorMessage) return errorMessage;
+  if (required && !model.value) {
+    return t('form.missing-value', { item: label });
   }
   return t('form.invalid-value');
 });
@@ -55,7 +49,7 @@ function focusElement() {
 }
 
 function resizeTextarea() {
-  if (props.autoresize && textareaRef.value) {
+  if (autoresize && textareaRef.value) {
     textareaRef.value.style.height = 'auto';
 
     const height = textareaRef.value.scrollHeight;
@@ -81,12 +75,16 @@ defineExpose({
 
 <template>
   <div
-    :class="`form-field-wrapper textarea-wrapper ${showInvalid ? 'show-invalid' : ''}`"
+    :class="[
+      'form-field-wrapper',
+      'textarea-wrapper',
+      showInvalid && 'show-invalid',
+    ]"
   >
     <label
       v-if="label"
-      :for="props.id"
-      :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
+      :for="id"
+      :class="[hideLabel && 'visuallyhidden', disabled && 'disabled']"
     >
       <span>{{ label }}</span>
 
@@ -97,7 +95,7 @@ defineExpose({
       :id="id"
       ref="textarea"
       v-model="model"
-      :class="`textarea ${autoresize ? 'autoresize' : ''}`"
+      :class="['textarea', autoresize && 'autoresize']"
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"

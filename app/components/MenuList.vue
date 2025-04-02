@@ -1,34 +1,24 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    list: MenuItem[];
-    label?: string;
-    labelLink?: string;
-    labelIcon?: string;
-    ariaLabel?: string;
-    ariaLabelledby?: string;
-    buttonVariant?: ButtonVariant;
-    buttonSize?: ButtonSize;
-    fontSize?: FontSize;
-    iconSize?: FontSize;
-    hTag?: string;
-    inline?: boolean;
-    id?: string;
-  }>(),
-  {
-    fontSize: undefined,
-    iconSize: undefined,
-    label: undefined,
-    labelLink: undefined,
-    labelIcon: undefined,
-    ariaLabel: undefined,
-    ariaLabelledby: undefined,
-    buttonVariant: 'menu',
-    buttonSize: 'lg',
-    hTag: 'h2',
-    id: () => useId(),
-  },
-);
+const {
+  buttonVariant = 'menu',
+  buttonSize = 'lg',
+  hTag = 'h2',
+  id = useId(),
+} = defineProps<{
+  list: MenuItem[];
+  label?: string;
+  labelLink?: string;
+  labelIcon?: string;
+  ariaLabel?: string;
+  ariaLabelledby?: string;
+  buttonVariant?: ButtonVariant;
+  buttonSize?: ButtonSize;
+  fontSize?: FontSize;
+  iconSize?: FontSize;
+  hTag?: string;
+  inline?: boolean;
+  id?: string;
+}>();
 
 function handleClick(item: MenuItem) {
   emit('click', item);
@@ -59,7 +49,7 @@ const emit = defineEmits<{
       <span v-else>{{ label }}</span>
     </component>
 
-    <ul role="list" :class="`menu-list ${inline ? 'menu-list--inline' : ''}`">
+    <ul role="list" :class="['menu-list', inline && 'menu-list--inline']">
       <li
         v-for="item in list"
         :key="'menu-list-item-' + item.id"
@@ -92,7 +82,7 @@ const emit = defineEmits<{
 <style>
 .menu-list-label {
   margin-inline-start: 1rem;
-  margin-block-end: 2.5rem;
+  margin-block-end: 2rem;
   color: var(--color-accent-text);
   font-size: var(--font-size-xl);
 

@@ -1,56 +1,47 @@
 <script setup lang="ts">
 const model = defineModel<string | number | boolean>();
 
-const props = withDefaults(
-  defineProps<{
-    label: string;
-    name?: string;
-    options?: any[];
-    placeholder?: string;
-    placeholderValue?: string | number;
-    size?: 'sm' | 'md' | 'lg';
-    valueKey?: string;
-    labelKey?: string;
-    disabledKey?: string;
-    hideLabel?: boolean;
-    showInvalid?: boolean;
-    required?: boolean;
-    disabled?: boolean;
-    autofocus?: boolean;
-    multiple?: boolean;
-    noOptionsLabel?: string;
-    ariaDescribedby?: string;
-    instruction?: string;
-    errorMessage?: string;
-    tabindex?: string;
-    color?: BaseColor;
-    id?: string;
-  }>(),
-  {
-    name: undefined,
-    options: undefined,
-    placeholder: undefined,
-    placeholderValue: '',
-    size: 'md',
-    valueKey: 'value',
-    labelKey: 'label',
-    disabledKey: 'disabled',
-    noOptionsLabel: 'select.no-options',
-    ariaDescribedby: undefined,
-    instruction: undefined,
-    errorMessage: undefined,
-    tabindex: undefined,
-    color: undefined,
-    id: () => useId(),
-  },
-);
+const {
+  label,
+  required,
+  errorMessage,
+  placeholderValue = '',
+  size = 'md',
+  valueKey = 'value',
+  labelKey = 'label',
+  disabledKey = 'disabled',
+  id = useId(),
+} = defineProps<{
+  label: string;
+  name?: string;
+  options?: any[];
+  placeholder?: string;
+  placeholderValue?: string | number;
+  size?: 'sm' | 'md' | 'lg';
+  valueKey?: string;
+  labelKey?: string;
+  disabledKey?: string;
+  hideLabel?: boolean;
+  showInvalid?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  autofocus?: boolean;
+  multiple?: boolean;
+  noOptionsLabel?: string;
+  ariaDescribedby?: string;
+  instruction?: string;
+  errorMessage?: string;
+  tabindex?: string;
+  color?: BaseColor;
+  id?: string;
+}>();
 
 const { t } = useI18n();
 
 const computedErrorMessage = computed(() => {
-  if (props.errorMessage) return props.errorMessage;
-  if (props.required && !model.value) {
-    return t('form.missing-value', { item: props.label });
+  if (errorMessage) return errorMessage;
+  if (required && !model.value) {
+    return t('form.missing-value', { item: label });
   }
   return t('form.invalid-value');
 });
@@ -58,19 +49,16 @@ const computedErrorMessage = computed(() => {
 
 <template>
   <div
-    :class="`
-      form-field-wrapper
-      select-size--${size}
-      ${color ? `select-color--${color}` : ''}
-      ${showInvalid ? 'show-invalid' : ''}
-    `"
+    :class="[
+      'form-field-wrapper',
+      `select-size--${size}`,
+      color && `select-color--${color}`,
+      showInvalid && 'show-invalid',
+    ]"
   >
     <label
       :for="id"
-      :class="`
-        ${hideLabel ? 'visuallyhidden' : ''}
-        ${disabled ? 'disabled' : ''}
-      `"
+      :class="[hideLabel && 'visuallyhidden', disabled && 'disabled']"
     >
       <span>{{ label }}</span>
 
@@ -96,7 +84,7 @@ const computedErrorMessage = computed(() => {
     >
       <template v-if="!options?.length">
         <option selected disabled :value="placeholderValue">
-          {{ $t(noOptionsLabel) }}
+          {{ noOptionsLabel || $t('select.no-options') }}
         </option>
       </template>
       <option v-else-if="placeholder" hidden :value="placeholderValue">
@@ -108,12 +96,12 @@ const computedErrorMessage = computed(() => {
       <template v-else>
         <option
           v-for="option in options"
-          :key="option[props.valueKey] + '-' + id"
-          :value="option[props.valueKey]"
-          :disabled="option[props.disabledKey]"
+          :key="option[valueKey] + '-' + id"
+          :value="option[valueKey]"
+          :disabled="option[disabledKey]"
           :lang="option.lang"
         >
-          {{ option[props.labelKey] }}
+          {{ option[labelKey] }}
         </option>
       </template>
     </select>

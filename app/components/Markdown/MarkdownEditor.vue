@@ -76,9 +76,7 @@ const computedErrorMessage = computed(() => {
   <ClientOnly>
     <div class="markdown-editor">
       <div
-        :class="`label
-        ${hideLabel ? 'visuallyhidden' : ''}
-      `"
+        :class="['label', hideLabel && 'visuallyhidden']"
         @click="focusEditor()"
       >
         <span>{{ label }}</span>

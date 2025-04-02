@@ -19,6 +19,8 @@ const {
   role?: 'meter' | 'progressbar';
   id?: string;
 }>();
+
+const width = computed(() => (value / (max - min)) * 100);
 </script>
 
 <template>
@@ -32,18 +34,18 @@ const {
     class="progress-meter-wrapper"
     :style="`--font-size: var(--font-size-${fontSize})`"
   >
-    <div :id="id" :class="`meter-label ${hideLabel ? 'visuallyhidden' : ''}`">
+    <div :id="id" :class="['meter-label', hideLabel && 'visuallyhidden']">
       {{ label }}
     </div>
 
-    <div :class="`meter-value  ${hideValue ? 'visuallyhidden' : ''}`">
+    <div :class="['meter-value', hideValue && 'visuallyhidden']">
       {{ $t('meter.value-of-max', { value: value, max: max }) }}
     </div>
 
     <div
       v-bind="$attrs"
-      :class="`meter meter-size--${size}`"
-      :style="`--width: ${(value / (max - min)) * 100 + '%'}`"
+      :class="['meter', `meter-size--${size}`]"
+      :style="`--width: ${width}%`"
     />
   </div>
 </template>

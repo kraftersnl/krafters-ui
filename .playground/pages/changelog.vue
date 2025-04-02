@@ -7,6 +7,27 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.4.1" date="2025-04-02">
+      <ul>
+        <li>
+          Rename focusTrigger to <code>focusElement</code> in Popover component
+        </li>
+        <li>Expose <code>focusElement</code> in Button component</li>
+        <li>
+          Add <code>ellipsisLines</code> prop to MarkdownPreview component
+        </li>
+        <li>Add <code>buttonFontSize</code> prop to MobileMenu component</li>
+        <li>Add <code>fontSize</code> prop to ThemeToggle component</li>
+        <li>Fix default icon sizes for Button component</li>
+        <li>Refactor: Pagination component</li>
+        <li>Refactor: class and style bindings</li>
+        <li>
+          Refactor: replace <code>withDefaults()</code> with destructured props
+          syntax
+        </li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.4.0" date="2025-03-30">
       <ul>
         <li>Breaking: rename props for MobileMenu component</li>
@@ -496,6 +517,14 @@ useHead({ title: 'Changelog' });
 <style>
 .changelog-page {
   ul {
+    > li {
+      margin-bottom: 0.125rem;
+
+      &::marker {
+        color: var(--color-accent);
+      }
+    }
+
     ul {
       font-size: var(--font-size-sm);
       margin-block-end: 0.25rem;

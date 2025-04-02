@@ -1,28 +1,22 @@
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    label?: string;
-    id?: string;
-    clickOutside?: boolean;
-    modal?: boolean;
-    position?: DialogPosition;
-    role?: 'dialog' | 'alertdialog';
-  }>(),
-  {
-    label: undefined,
-    id: () => useId(),
-    clickOutside: true,
-    modal: undefined,
-    position: 'center',
-    role: undefined,
-  },
-);
+const {
+  id = useId(),
+  clickOutside = true,
+  position = 'center',
+} = defineProps<{
+  label?: string;
+  id?: string;
+  clickOutside?: boolean;
+  modal?: boolean;
+  position?: DialogPosition;
+  role?: 'dialog' | 'alertdialog';
+}>();
 
 const dialogTemplateRef = useTemplateRef<HTMLDialogElement>('dialog');
 const isVisible = ref(false);
 
 function handleDialogClick(event: MouseEvent) {
-  if (!props.clickOutside) return;
+  if (!clickOutside) return;
 
   const target = event.target as HTMLDialogElement;
 
@@ -61,7 +55,7 @@ defineExpose({
   <dialog
     ref="dialog"
     :aria-labelledby="id"
-    :class="`dialog dialog-position--${position}`"
+    :class="['dialog', `dialog-position--${position}`]"
     :role="role"
     @click="handleDialogClick"
     @close="isVisible = false"

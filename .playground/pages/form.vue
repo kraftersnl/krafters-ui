@@ -126,14 +126,16 @@ function handleSubmit(formData: FormData) {
         <Select
           v-model="singleSelection"
           required
-          label="Select"
+          label="Selection"
           placeholder="Choose an option"
-          name="select"
+          name="selection"
           :options="selectOptions"
           label-key="name"
           value-key="id"
           style="--col-width: var(--col-width-50)"
         />
+
+        <Textarea label="Comments" name="comments" />
 
         <CheckboxGroup
           v-model="selectedCheckboxes"
@@ -165,7 +167,7 @@ function handleSubmit(formData: FormData) {
 
       <template v-if="raw">
         <hr class="demo-divider" />
-        <code>{{ raw }}</code>
+        <MarkdownPreview :content="'```ts\n' + raw + '\n```'" />
       </template>
     </Card>
 

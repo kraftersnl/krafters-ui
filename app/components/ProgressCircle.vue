@@ -20,6 +20,12 @@ const {
   id?: string;
 }>();
 
+const computedStyle = computed(() => ({
+  '--font-size': `var(--font-size-${fontSize})`,
+  '--progress-circle-value': value,
+  '--progress-circle-max': max,
+}));
+
 const percentage = computed(() => ((value / max) * 100)?.toFixed());
 </script>
 
@@ -32,16 +38,12 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
     :aria-valuetext="percentage + '%'"
     :aria-labelledby="id"
     :aria-busy="role === 'progressbar' && value < max"
-    :class="`
-      progress-circle-wrapper
-      progress-circle-size--${size}
-      progress-circle-color--${color}
-    `"
-    :style="`
-      --font-size: var(--font-size-${fontSize});
-      --progress-circle-value: ${value};
-      --progress-circle-max: ${max};
-    `"
+    :class="[
+      'progress-circle-wrapper',
+      `progress-circle-size--${size}`,
+      `progress-circle-color--${color}`,
+    ]"
+    :style="computedStyle"
   >
     <div :id="id" class="progress-circle-label">
       {{ showValue ? value : percentage + '%' }}

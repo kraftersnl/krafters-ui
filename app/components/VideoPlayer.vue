@@ -70,7 +70,7 @@ function playVideo() {
 </script>
 
 <template>
-  <figure class="video-player" :style="`--aspect-ratio: ${ratio};`">
+  <figure class="video-player" :style="`--aspect-ratio: ${ratio}`">
     <img
       v-if="!started && videoData"
       :src="videoData?.thumbnail_url"

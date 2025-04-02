@@ -50,7 +50,7 @@ const roleOptions = [
     </blockquote>
 
     <div class="card-cols">
-      <Card>
+      <Card class="progress-meter-card">
         <div class="section-topbar mbe-2">
           <h2>Progress Meter</h2>
 
@@ -118,7 +118,7 @@ const roleOptions = [
         </div>
       </Card>
 
-      <Card>
+      <Card class="progress-circle-card">
         <h2 class="mbe-2">Progress Circle</h2>
 
         <div class="flex-wrapper" style="--gap: 1.5rem">
@@ -176,8 +176,8 @@ const roleOptions = [
 
 <style>
 .demo-page.meter {
-  .card-cols :first-child {
-    flex-grow: 9;
+  .progress-meter-card {
+    max-width: 420px;
   }
 }
 </style>

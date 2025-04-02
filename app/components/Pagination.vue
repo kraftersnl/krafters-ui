@@ -1,15 +1,10 @@
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    lastPage: number;
-    total: number;
-    pageSizes?: number[];
-    loading?: boolean;
-  }>(),
-  {
-    pageSizes: () => [10, 20, 50, 100],
-  },
-);
+const { pageSizes = [10, 20, 50, 100] } = defineProps<{
+  lastPage: number;
+  total: number;
+  pageSizes?: number[];
+  loading?: boolean;
+}>();
 
 const { t } = useI18n();
 
@@ -18,7 +13,7 @@ const perPage = defineModel<number>('perPage', { default: 10 });
 
 const computedPageSizes = computed(() => {
   const sizes: { value: number; label: string }[] = [];
-  props.pageSizes.map((item) => {
+  pageSizes.map((item) => {
     sizes.push({
       value: item,
       label: `${item} ${t('pagination.per-page')}`,
@@ -58,7 +53,7 @@ function goToPage(pageNumber: number) {
         @click="goToPage(page - 1)"
       />
 
-      <div :class="`current-page-wrapper ${loading ? 'disabled' : ''}`">
+      <div :class="['current-page-wrapper', loading && 'disabled']">
         <Input
           v-model.number="page"
           type="number"

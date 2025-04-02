@@ -7,50 +7,44 @@ const { t } = useI18n();
 const model = defineModel<MultiselectProps['modelValue']>();
 
 // https://github.com/vueform/multiselect#basic-props
-const props = withDefaults(
-  defineProps<{
-    mode?: 'single' | 'multiple' | 'tags';
-    id?: string;
-    label: string;
-    placeholder?: string;
-    name?: string;
-    hideLabel?: boolean;
-    hideSelected?: boolean;
-    searchable?: boolean;
-    disabled?: boolean;
-    required?: boolean;
-    autofocus?: boolean;
-    showInvalid?: boolean;
-    tabindex?: string;
-    valueKey?: string;
-    labelKey?: string;
-    disabledKey?: string;
-    itemsSelectedLabel?: string;
-    size?: 'md' | 'lg';
-  }>(),
-  {
-    id: () => useId(),
-    mode: 'multiple',
-    placeholder: undefined,
-    name: undefined,
-    hideSelected: false,
-    searchable: true,
-    tabindex: undefined,
-    valueKey: 'value',
-    labelKey: 'label',
-    disabledKey: 'disabled',
-    itemsSelectedLabel: undefined,
-    size: 'md',
-  },
-);
+const {
+  id = useId(),
+  mode = 'multiple',
+  searchable = true,
+  valueKey = 'value',
+  labelKey = 'label',
+  disabledKey = 'disabled',
+  itemsSelectedLabel,
+  size = 'md',
+  autofocus,
+} = defineProps<{
+  mode?: 'single' | 'multiple' | 'tags';
+  id?: string;
+  label: string;
+  placeholder?: string;
+  name?: string;
+  hideLabel?: boolean;
+  hideSelected?: boolean;
+  searchable?: boolean;
+  disabled?: boolean;
+  required?: boolean;
+  autofocus?: boolean;
+  showInvalid?: boolean;
+  tabindex?: string;
+  valueKey?: string;
+  labelKey?: string;
+  disabledKey?: string;
+  itemsSelectedLabel?: string;
+  size?: 'md' | 'lg';
+}>();
 
 const multiSelectRef = useTemplateRef('multiselect');
 
 function formatMultipleLabels(values) {
   if (values.length === 1) {
-    return values[0][props.labelKey];
+    return values[0][labelKey];
   }
-  return `${values.length} ${props.itemsSelectedLabel || t('multiselect.items-selected')}`;
+  return `${values.length} ${itemsSelectedLabel || t('multiselect.items-selected')}`;
 }
 
 function selectAll() {
@@ -67,7 +61,7 @@ defineExpose({
 });
 
 onMounted(() => {
-  if (props.autofocus) setTimeout(() => focusElement(), 200);
+  if (autofocus) setTimeout(() => focusElement(), 200);
 });
 
 // https://github.com/vueform/multiselect#events
@@ -75,16 +69,16 @@ onMounted(() => {
 
 <template>
   <div
-    :class="`
-      form-field-wrapper
-      krafters-multiselect
-      multi-select-size--${size}
-      ${showInvalid ? 'show-invalid' : ''}
-    `"
+    :class="[
+      'form-field-wrapper',
+      'krafters-multiselect',
+      `multi-select-size--${size}`,
+      showInvalid && 'show-invalid',
+    ]"
   >
     <label
       :for="id"
-      :class="`${hideLabel ? 'visuallyhidden' : ''} ${disabled ? 'disabled' : ''}`"
+      :class="[hideLabel && 'visuallyhidden', disabled && 'disabled']"
     >
       <span>{{ label }}</span>
 

@@ -16,6 +16,11 @@ const {
 
 const { t } = useI18n();
 
+const computedStyle = computed(() => ({
+  '--font-size': `var(--font-size-${fontSize})`,
+  '--icon-size': `var(--font-size-${iconSize})`,
+}));
+
 const computedIcon = computed(() => {
   if (icon?.includes(':')) {
     return icon;
@@ -40,13 +45,8 @@ const computedAriaLabel = computed(() => {
 <template>
   <section
     :aria-label="computedAriaLabel"
-    :class="`callout-wrapper
-      callout-color--${color}
-    `"
-    :style="`
-      --font-size: var(--font-size-${fontSize});
-      --icon-size: var(--font-size-${iconSize});
-    `"
+    :class="['callout-wrapper', `callout-color--${color}`]"
+    :style="computedStyle"
   >
     <div class="callout-content">
       <Icon :name="computedIcon" />

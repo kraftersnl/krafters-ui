@@ -1,24 +1,20 @@
 <script setup lang="ts">
 const model = defineModel<string>();
 
-const props = withDefaults(
-  defineProps<{
-    tabs: TabOption[];
-    size?: TabsSize;
-    fontSize?: FontSize;
-    variant?: TabsVariant;
-    color?: 'green' | 'accent';
-    ariaLabel?: string;
-  }>(),
-  {
-    size: 'sm',
-    fontSize: 'sm',
-    variant: 'default',
-    color: 'green',
-    ariaLabel: undefined,
-    icon: undefined,
-  },
-);
+const {
+  tabs,
+  size = 'sm',
+  fontSize = 'sm',
+  variant = 'default',
+  color = 'green',
+} = defineProps<{
+  tabs: TabOption[];
+  size?: TabsSize;
+  fontSize?: FontSize;
+  variant?: TabsVariant;
+  color?: 'green' | 'accent';
+  ariaLabel?: string;
+}>();
 
 function computeIcon(tab: TabOption) {
   if (!tab.icon) return '';
@@ -33,7 +29,7 @@ const tabpanelRef = useTemplateRef('tabpanel');
 
 function handlePrevTab(tab: TabOption) {
   tabElements.value = tabElements.value.filter((x) => !x.disabled);
-  const enabledTabs = props.tabs.filter((x) => !x.disabled);
+  const enabledTabs = tabs.filter((x) => !x.disabled);
   const currentIndex: number = enabledTabs.findIndex((x) => x === tab);
   let prevIndex: number;
 
@@ -50,7 +46,7 @@ function handlePrevTab(tab: TabOption) {
 
 function handleNextTab(tab: TabOption) {
   tabElements.value = tabElements.value.filter((x) => !x.disabled);
-  const enabledTabs = props.tabs.filter((x) => !x.disabled);
+  const enabledTabs = tabs.filter((x) => !x.disabled);
   const currentIndex: number = enabledTabs.findIndex((x) => x === tab);
   let nextIndex: number;
 
@@ -86,15 +82,13 @@ defineExpose({
 
 <template>
   <div
-    :class="`
-      tabs-wrapper
-      tabs-variant--${variant}
-      tabs-color--${color}
-      tabs-size--${size}
-    `"
-    :style="`
-      --font-size: var(--font-size-${fontSize});
-    `"
+    :class="[
+      'tabs-wrapper',
+      `tabs-variant--${variant}`,
+      `tabs-color--${color}`,
+      `tabs-size--${size}`,
+    ]"
+    :style="`--font-size: var(--font-size-${fontSize})`"
   >
     <div class="tablist" role="tablist" :aria-label="ariaLabel" v-bind="$attrs">
       <template v-for="tab in tabs" :key="'tab-' + tab.value">

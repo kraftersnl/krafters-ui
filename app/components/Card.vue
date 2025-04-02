@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const {
   is = 'div',
-  borderWidth = 1,
   borderRadius = 'md',
   borderColor = 'card-border',
-  shadow = 1,
+  borderWidth = 1,
   padding = '1.5rem 2rem',
   mobilePadding = '1.25rem 1.5rem',
+  shadow = 1,
 } = defineProps<{
   is?: string;
   borderWidth?: number;
@@ -16,21 +16,19 @@ const {
   padding?: string;
   mobilePadding?: string;
 }>();
+
+const computedStyle = computed(() => ({
+  '--border-radius': `var(--radius-${borderRadius})`,
+  '--border-color': `var(--color-${borderColor})`,
+  '--border-width': `${borderWidth}px`,
+  '--padding': padding,
+  '--mobile-padding': mobilePadding,
+  '--shadow': shadow && `var(--shadow-${shadow})`,
+}));
 </script>
 
 <template>
-  <component
-    :is="is"
-    class="card"
-    :style="`
-      --border-width: ${borderWidth}px;
-      --border-radius: var(--radius-${borderRadius});
-      --border-color: var(--color-${borderColor});
-      --mobile-padding: ${mobilePadding};
-      --padding: ${padding};
-      ${shadow ? `--shadow: var(--shadow-${shadow});` : ''}
-    `"
-  >
+  <component :is="is" class="card" :style="computedStyle">
     <slot />
   </component>
 </template>
@@ -51,8 +49,7 @@ const {
 
   h1,
   h2,
-  h3,
-  h4 {
+  h3 {
     margin-block-start: 0;
   }
 }

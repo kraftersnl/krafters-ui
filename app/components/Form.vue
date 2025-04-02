@@ -37,7 +37,11 @@ const emit = defineEmits<{
 
 <template>
   <form
-    :class="`form ${showInvalid ? 'show-invalid' : ''} ${!validity ? 'show-invalid' : 'show-valid'}`"
+    :class="[
+      'form',
+      showInvalid && 'show-invalid',
+      validity ? 'show-valid' : 'show-invalid',
+    ]"
     novalidate
     action="."
     @submit.prevent="handleSubmit"

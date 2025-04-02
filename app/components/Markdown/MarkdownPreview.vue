@@ -15,6 +15,17 @@ hljs.registerLanguage('css', css);
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('typescript', typescript);
 
+const { content, fontSize, ellipsisLines } = defineProps<{
+  content: string;
+  fontSize?: FontSize;
+  ellipsisLines?: number;
+}>();
+
+const computedStyle = computed(() => ({
+  '--font-size': fontSize && `var(--font-size-${fontSize})`,
+  '--line-clamp': ellipsisLines && ellipsisLines,
+}));
+
 const md = markdownit({
   html: true,
   linkify: true,
@@ -40,22 +51,13 @@ md.use(italicExtension);
 md.use(attrs);
 md.use(mark);
 
-const props = defineProps<{
-  content: string;
-  fontSize?: FontSize;
-  ellipsisLines?: number;
-}>();
-
-const preview = computed(() => md.render(props.content));
+const preview = computed(() => md.render(content));
 </script>
 
 <template>
   <div
     :class="['krafters-markdown-preview', ellipsisLines && 'ellipsis']"
-    :style="[
-      fontSize && `--font-size: var(--font-size-${fontSize})`,
-      ellipsisLines && `--line-clamp: ${ellipsisLines}`,
-    ]"
+    :style="computedStyle"
     v-html="preview"
   />
 </template>
@@ -71,6 +73,13 @@ const preview = computed(() => md.render(props.content));
     line-clamp: var(--line-clamp);
     -webkit-line-clamp: var(--line-clamp);
     hyphens: none;
+  }
+
+  code {
+    font-size: 0.9em;
+  }
+  pre code {
+    font-size: 1em;
   }
 
   a {

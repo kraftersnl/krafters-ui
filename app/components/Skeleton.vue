@@ -9,19 +9,21 @@ const {
   variant?: string;
   animation?: string;
 }>();
+
+const computedStyle = computed(() => ({
+  '--size': `var(--size-${size})`,
+  '--width': width,
+}));
 </script>
 
 <template>
   <div
-    :class="`
-      skeleton
-      skeleton-animation--${animation}
-      ${variant ? `skeleton-variant--${variant}` : undefined}
-    `"
-    :style="`
-      --size: var(--size-${size});
-      --width: ${width}
-    `"
+    :class="[
+      'skeleton',
+      `skeleton-animation--${animation}`,
+      variant && `skeleton-variant--${variant}`,
+    ]"
+    :style="computedStyle"
   />
 </template>
 

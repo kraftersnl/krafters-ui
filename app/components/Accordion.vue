@@ -1,24 +1,17 @@
 <script setup lang="ts">
 const isExpanded = defineModel<boolean>();
 
-withDefaults(
-  defineProps<{
-    minHeight?: number;
-    id?: string;
-    ariaLabel?: string;
-    tabindex?: string;
-    arrow?: boolean;
-  }>(),
-  {
-    id: () => useId(),
-    minHeight: 0,
-    ariaLabel: undefined,
-    collapseLabel: 'collapse',
-    expandLabel: 'expand',
-    tabindex: undefined,
-    arrow: true,
-  },
-);
+const {
+  id = useId(),
+  minHeight = 0,
+  arrow = true,
+} = defineProps<{
+  minHeight?: number;
+  id?: string;
+  ariaLabel?: string;
+  tabindex?: string;
+  arrow?: boolean;
+}>();
 
 const panelRef = useTemplateRef<HTMLElement>('accordionPanel');
 

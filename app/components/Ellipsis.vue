@@ -1,19 +1,17 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    lines?: number;
-  }>(),
-  { lines: undefined },
-);
+const { lines = 1 } = defineProps<{
+  lines?: number;
+}>();
 </script>
 
 <template>
   <span
-    :class="`ellipsis
-      ellipsis-variant--clamp
-${lines === 1 ? 'ellipsis--1-line' : ''}
-    `"
-    :style="`--webkit-line-clamp: ${lines ?? 1}`"
+    :class="[
+      'ellipsis',
+      'ellipsis-variant--clamp',
+      lines === 1 && 'ellipsis--1-line',
+    ]"
+    :style="{ '--line-clamp': lines }"
   >
     <slot mdc-unwrap="p" />
   </span>
@@ -32,8 +30,8 @@ ${lines === 1 ? 'ellipsis--1-line' : ''}
 .ellipsis-variant--clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--webkit-line-clamp);
-  line-clamp: var(--webkit-line-clamp);
+  -webkit-line-clamp: var(--line-clamp);
+  line-clamp: var(--line-clamp);
   -webkit-hyphens: none;
   hyphens: none;
 }

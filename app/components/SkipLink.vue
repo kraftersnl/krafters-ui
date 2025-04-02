@@ -1,12 +1,7 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    links?: { href: string; label?: string }[];
-  }>(),
-  {
-    links: () => [{ href: '#main' }],
-  },
-);
+const { links = [{ href: '#main' }] } = defineProps<{
+  links?: { href: string; label?: string }[];
+}>();
 </script>
 
 <template>

@@ -1,93 +1,83 @@
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    modelValue?: string | number;
-    label: string;
-    id?: string;
-    name?: string;
-    title?: string;
-    required?: boolean;
-    disabled?: boolean;
-    readonly?: boolean;
-    autofocus?: boolean;
-    type?: string;
-    autocomplete?: string;
-    pattern?: string;
-    placeholder?: string;
-    icon?: string;
-    size?: 'sm' | 'md' | 'lg';
-    minlength?: number;
-    maxlength?: number;
-    hideLabel?: boolean;
-    showInvalid?: boolean;
-    min?: number | string;
-    max?: number | string;
-    ariaDescribedby?: string;
-    instruction?: string;
-    errorMessage?: string;
-    tabindex?: string;
-  }>(),
-  {
-    modelValue: undefined,
-    id: () => useId(),
-    name: undefined,
-    title: undefined,
-    type: 'text',
-    autocomplete: undefined,
-    pattern: undefined,
-    placeholder: undefined,
-    icon: undefined,
-    size: 'md',
-    minlength: undefined,
-    maxlength: undefined,
-    min: undefined,
-    max: undefined,
-    ariaDescribedby: undefined,
-    instruction: undefined,
-    errorMessage: undefined,
-    tabindex: undefined,
-  },
-);
+const {
+  modelValue,
+  label,
+  required,
+  errorMessage,
+  min,
+  max,
+  pattern,
+  icon,
+  type = 'text',
+  size = 'md',
+  id = useId(),
+} = defineProps<{
+  modelValue?: string | number;
+  label: string;
+  id?: string;
+  name?: string;
+  title?: string;
+  required?: boolean;
+  disabled?: boolean;
+  readonly?: boolean;
+  autofocus?: boolean;
+  type?: string;
+  autocomplete?: string;
+  pattern?: string;
+  placeholder?: string;
+  icon?: string;
+  size?: 'sm' | 'md' | 'lg';
+  minlength?: number;
+  maxlength?: number;
+  hideLabel?: boolean;
+  showInvalid?: boolean;
+  min?: number | string;
+  max?: number | string;
+  ariaDescribedby?: string;
+  instruction?: string;
+  errorMessage?: string;
+  tabindex?: string;
+}>();
 
 const { t } = useI18n();
 
 const computedErrorMessage = computed(() => {
-  if (props.errorMessage) return props.errorMessage;
-  if (props.required && !props.modelValue) {
-    return t('form.missing-value', { item: props.label });
+  if (errorMessage) return errorMessage;
+  if (required && !modelValue) {
+    return t('form.missing-value', { item: label });
   }
   return t('form.invalid-value');
 });
 
 const computedIcon = computed(() => {
-  if (props.icon?.includes(':')) {
-    return props.icon;
+  if (icon?.includes(':')) {
+    return icon;
   }
-  return `heroicons-solid:${props.icon}`;
+  return `heroicons-solid:${icon}`;
 });
 
 const inputMode = computed(() => {
-  if (props.type === 'email') return 'email';
-  if (props.type === 'tel') return 'tel';
-  if (props.type === 'url') return 'url';
-  if (props.type === 'number') return 'decimal';
+  if (type === 'email') return 'email';
+  if (type === 'tel') return 'tel';
+  if (type === 'url') return 'url';
+  if (type === 'number') return 'decimal';
   return 'text';
 });
 
 const inputPattern = computed(() => {
-  if (props.pattern) return props.pattern;
-  if (props.type === 'tel') return '^[0-9]+$';
+  if (pattern) return pattern;
+  if (type === 'tel') return '^[0-9]+$';
   return undefined;
 });
 
 function handleInput(event: Event) {
   const target = event.target as HTMLInputElement;
 
-  if (props.type === 'number') {
-    if (Number(target.value) < Number(props.min)) {
+  if (type === 'number') {
+    if (Number(target.value) < Number(min)) {
       return;
     }
-    if (Number(target.value) > Number(props.max)) {
+    if (Number(target.value) > Number(max)) {
       return;
     }
   }
@@ -106,21 +96,23 @@ defineExpose({
 });
 
 const emit = defineEmits<{
-  (event: 'update:model-value', value: string | number): string | number;
-  (event: 'focus' | 'blur', value: Event): Event;
+  'update:model-value': [value: string | number];
+  focus: [value: Event];
+  blur: [value: Event];
 }>();
 </script>
 
 <template>
   <div
-    :class="`form-field-wrapper input-size--${size} ${showInvalid ? 'show-invalid' : ''}`"
+    :class="[
+      'form-field-wrapper',
+      `input-size--${size}`,
+      showInvalid && 'show-invalid',
+    ]"
   >
     <label
       :for="id"
-      :class="`
-        ${hideLabel ? 'visuallyhidden' : ''}
-        ${disabled ? 'disabled' : ''}
-      `"
+      :class="[hideLabel && 'visuallyhidden', disabled && 'disabled']"
     >
       <span>{{ label }}</span>
 

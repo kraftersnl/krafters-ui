@@ -1,48 +1,47 @@
 <script setup lang="ts">
 import type { RouteLocationRaw } from 'vue-router';
 
-const props = withDefaults(
-  defineProps<{
-    label?: string;
-    icon?: string;
-    iconPos?: 'start' | 'end';
-    to?: RouteLocationRaw;
-    href?: string;
-    target?: string;
-    variant?: ButtonVariant;
-    size?: ButtonSize;
-    fontSize?: FontSize;
-    iconSize?: FontSize;
-    radius?: BorderRadius;
-    hideLabel?: boolean;
-    disabled?: boolean;
-    loading?: boolean;
-    download?: boolean;
-    external?: boolean;
-    hideExternalIcon?: boolean;
-    type?: 'button' | 'submit' | 'reset';
-  }>(),
-  {
-    label: undefined,
-    icon: undefined,
-    iconPos: 'start',
-    to: undefined,
-    href: undefined,
-    target: undefined,
-    variant: 'secondary',
-    size: 'md',
-    fontSize: undefined,
-    iconSize: undefined,
-    radius: 'md',
-    type: 'button',
-  },
-);
+const {
+  fontSize,
+  iconSize,
+  icon,
+  iconPos = 'start',
+  variant = 'secondary',
+  size = 'md',
+  radius = 'md',
+  type = 'button',
+} = defineProps<{
+  label?: string;
+  icon?: string;
+  iconPos?: 'start' | 'end';
+  to?: RouteLocationRaw;
+  href?: string;
+  target?: string;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  fontSize?: FontSize;
+  iconSize?: FontSize;
+  radius?: BorderRadius;
+  hideLabel?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
+  download?: boolean;
+  external?: boolean;
+  hideExternalIcon?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+}>();
+
+const computedStyle = computed(() => ({
+  '--radius': `var(--radius-${radius})`,
+  '--font-size': fontSize && `var(--font-size-${fontSize})`,
+  '--icon-size': iconSize && `var(--font-size-${iconSize})`,
+}));
 
 const computedIcon = computed(() => {
-  if (props.icon?.includes(':')) {
-    return props.icon;
+  if (icon?.includes(':')) {
+    return icon;
   }
-  return `heroicons-solid:${props.icon}`;
+  return `heroicons-solid:${icon}`;
 });
 
 function handleClick() {
@@ -80,11 +79,7 @@ const emit = defineEmits<{
       loading && 'button--loading',
       (loading || disabled) && 'button--disabled',
     ]"
-    :style="[
-      `--radius: var(--radius-${radius})`,
-      fontSize && `--font-size: var(--font-size-${fontSize})`,
-      iconSize && `--icon-size: var(--font-size-${iconSize})`,
-    ]"
+    :style="computedStyle"
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined
     "
@@ -117,11 +112,7 @@ const emit = defineEmits<{
       hideLabel && 'button--icon-only',
       loading && 'button--loading',
     ]"
-    :style="[
-      `--radius: var(--radius-${radius})`,
-      fontSize && `--font-size: var(--font-size-${fontSize})`,
-      iconSize && `--icon-size: var(--font-size-${iconSize})`,
-    ]"
+    :style="computedStyle"
     @click="handleClick"
   >
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />

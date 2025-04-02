@@ -135,6 +135,7 @@
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 600;
+  --font-weight-extrabold: 700;
 
   /* Font size design tokens */
   --font-size-xxxxxl: 4rem;
@@ -325,7 +326,7 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6, button, input, label, .label, legend) {
-  line-height: var(--line-height-heading, 1.5);
+  line-height: var(--line-height-heading, 1.2);
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
@@ -411,7 +412,7 @@
 
 :where(kbd) {
   font-family: system-ui;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   background-color: var(--color-white);
   border-radius: var(--radius-sm);
   padding-inline: 0.35rem;

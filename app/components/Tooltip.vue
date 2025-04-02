@@ -3,39 +3,35 @@ import { Tippy, type TippyComponent } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-toward.css';
 
-const props = withDefaults(
-  defineProps<{
-    trigger?: string;
-    interactive?: boolean;
-    hideOnClick?: boolean | 'toggle';
-    placement?: PopperPlacement;
-    icon?: string;
-    label?: string;
-    hideLabel?: boolean;
-    fontSize?: string;
-    iconSize?: string;
-    tabindex?: string;
-    title?: string;
-    maxWidth?: number | 'none';
-    id?: string;
-  }>(),
-  {
-    items: () => [],
-    placement: 'auto',
-    trigger: 'click',
-    hideOnClick: true,
-    interactive: true,
-    icon: 'question-mark-circle',
-    label: undefined,
-    hideLabel: true,
-    fontSize: undefined,
-    iconSize: undefined,
-    tabindex: undefined,
-    title: undefined,
-    maxWidth: undefined,
-    id: () => useId(),
-  },
-);
+const {
+  fontSize,
+  iconSize,
+  placement = 'auto',
+  trigger = 'click',
+  hideOnClick = true,
+  interactive = true,
+  icon = 'question-mark-circle',
+  id = useId(),
+} = defineProps<{
+  trigger?: string;
+  interactive?: boolean;
+  hideOnClick?: boolean | 'toggle';
+  placement?: PopperPlacement;
+  icon?: string;
+  label?: string;
+  hideLabel?: boolean;
+  fontSize?: string;
+  iconSize?: string;
+  tabindex?: string;
+  title?: string;
+  maxWidth?: number | 'none';
+  id?: string;
+}>();
+
+const computedStyle = computed(() => ({
+  '--font-size': `var(--font-size-${fontSize})`,
+  '--icon-size': `var(--font-size-${iconSize})`,
+}));
 
 const isExpanded = ref(false);
 
@@ -48,10 +44,10 @@ function handleHide() {
 }
 
 const computedIcon = computed(() => {
-  if (props.icon?.includes(':')) {
-    return props.icon;
+  if (icon?.includes(':')) {
+    return icon;
   }
-  return `heroicons-solid:${props.icon}`;
+  return `heroicons-solid:${icon}`;
 });
 
 const wrapperRef = useTemplateRef<HTMLElement>('toggletipWrapper');
@@ -94,10 +90,7 @@ function closeToggletip() {
       :append-to="wrapperRef ?? undefined"
       :tabindex="tabindex"
       :title="title"
-      :style="`
-        ${fontSize ? `--font-size: var(--font-size-${fontSize});` : ''}
-        ${iconSize ? `--icon-size: var(--font-size-${iconSize});` : ''}
-      `"
+      :style="computedStyle"
       @show="handleShow"
       @hide="handleHide"
     >
@@ -107,7 +100,7 @@ function closeToggletip() {
         <template v-else>
           <span
             :id="'toggletip-label-' + id"
-            :class="`${hideLabel ? 'visuallyhidden' : ''}`"
+            :class="[hideLabel && 'visuallyhidden']"
           >
             {{ label }}
           </span>

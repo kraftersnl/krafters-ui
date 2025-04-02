@@ -6,34 +6,29 @@ import '@vuepic/vue-datepicker/dist/main.css';
 const model = defineModel<ModelValue>();
 
 // https://vue3datepicker.com/props/modes/
-withDefaults(
-  defineProps<{
-    label: string;
-    format?: string | ((date: Date) => string) | ((dates: Date[]) => string);
-    required?: boolean;
-    disabled?: boolean;
-    utc?: boolean;
-    textInput?: boolean;
-    enableTimePicker?: boolean;
-    showSelect?: boolean;
-    showCancel?: boolean;
-    showNow?: boolean;
-    showPreview?: boolean;
-    teleportCenter?: boolean;
-    monthChangeOnScroll?: boolean;
-    id?: string;
-  }>(),
-  {
-    format: 'yyyy-MM-dd',
-    textInput: undefined,
-    utc: false,
-    enableTimePicker: false,
-    showSelect: true,
-    showCancel: true,
-    monthChangeOnScroll: false,
-    id: () => useId(),
-  },
-);
+const {
+  format = 'yyyy-MM-dd',
+  enableTimePicker = false,
+  showSelect = true,
+  showCancel = true,
+  monthChangeOnScroll = false,
+  id = useId(),
+} = defineProps<{
+  label: string;
+  format?: string | ((date: Date) => string) | ((dates: Date[]) => string);
+  required?: boolean;
+  disabled?: boolean;
+  utc?: boolean;
+  textInput?: boolean;
+  enableTimePicker?: boolean;
+  showSelect?: boolean;
+  showCancel?: boolean;
+  showNow?: boolean;
+  showPreview?: boolean;
+  teleportCenter?: boolean;
+  monthChangeOnScroll?: boolean;
+  id?: string;
+}>();
 
 const colorMode = useColorMode();
 const isMounted = ref(false);
@@ -43,7 +38,7 @@ onMounted(() => (isMounted.value = true));
 </script>
 
 <template>
-  <div class="form-field-wrapper cardan-datepicker-container">
+  <div class="form-field-wrapper krafters-datepicker-container">
     <label :for="`dp-input-${id}`">
       <span>{{ label }}</span>
 
@@ -86,7 +81,7 @@ onMounted(() => (isMounted.value = true));
         nextYear: $t('datepicker.nextYear'),
         prevYear: $t('datepicker.prevYear'),
       }"
-      class="cardan-datepicker"
+      class="krafters-datepicker"
     >
       <template #input-icon>
         <Icon name="heroicons-solid:calendar-days" />
@@ -109,7 +104,7 @@ onMounted(() => (isMounted.value = true));
 </template>
 
 <style>
-.cardan-datepicker-container {
+.krafters-datepicker-container {
   display: grid;
 }
 
@@ -195,7 +190,7 @@ onMounted(() => (isMounted.value = true));
     }
   }
 
-  .cardan-datepicker-container:has(:invalid) {
+  .krafters-datepicker-container:has(:invalid) {
     .error-wrapper .error {
       display: flex;
     }

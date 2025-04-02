@@ -1,56 +1,43 @@
 <script setup lang="ts">
 const { isLargeScreen } = useScreenSize();
 
-const props = withDefaults(
-  defineProps<{
-    class?: string;
-    teleportTo?: string;
-    width?: number;
-    position?: MobileMenuPosition;
-    buttonVariant?: ButtonVariant;
-    buttonSize?: ButtonSize;
-    buttonFontSize?: FontSize;
-    buttonIconSize?: FontSize;
-    buttonIconPos?: 'start' | 'end';
-    menuButtonSize?: ButtonSize;
-    icon?: string;
-    hideButtonLabel?: boolean;
-    buttonLabel?: string;
-    buttonClass?: string;
-    clickOutside?: boolean;
-    label?: string;
-    navLabel?: string;
-    list?: MenuItem[];
-    id?: string;
-  }>(),
-  {
-    class: undefined,
-    teleportTo: '#teleports',
-    width: 360,
-    position: 'inline-start',
-    buttonVariant: 'secondary',
-    buttonSize: 'md',
-    buttonFontSize: undefined,
-    buttonIconSize: undefined,
-    buttonIconPos: undefined,
-    menuButtonSize: 'xl',
-    icon: 'menu-alt-2',
-    hideButtonLabel: true,
-    buttonLabel: undefined,
-    buttonClass: undefined,
-    clickOutside: true,
-    label: undefined,
-    navLabel: undefined,
-    list: () => [],
-    id: () => useId(),
-  },
-);
+const {
+  teleportTo = '#teleports',
+  width = 360,
+  position = 'inline-start',
+  buttonVariant = 'secondary',
+  buttonSize = 'md',
+  buttonIconSize = 'lg',
+  menuButtonSize = 'xl',
+  icon = 'menu-alt-2',
+  hideButtonLabel = true,
+  clickOutside = true,
+  id = useId(),
+} = defineProps<{
+  teleportTo?: string;
+  width?: number;
+  position?: MobileMenuPosition;
+  buttonVariant?: ButtonVariant;
+  buttonSize?: ButtonSize;
+  buttonFontSize?: FontSize;
+  buttonIconSize?: FontSize;
+  buttonIconPos?: 'start' | 'end';
+  menuButtonSize?: ButtonSize;
+  icon?: string;
+  hideButtonLabel?: boolean;
+  buttonLabel?: string;
+  clickOutside?: boolean;
+  label?: string;
+  navLabel?: string;
+  list?: MenuItem[];
+  id?: string;
+}>();
 
 const computedIcon = computed(() => {
-  if (props.icon?.includes(':')) {
-    return props.icon;
+  if (icon?.includes(':')) {
+    return icon;
   }
-  return `heroicons-solid:${props.icon}`;
+  return `heroicons-solid:${icon}`;
 });
 
 const dialogElementRef = useTemplateRef<HTMLDialogElement>('dialogElement');
@@ -60,7 +47,7 @@ const isMounted = ref(false);
 onMounted(() => (isMounted.value = true));
 
 function handleDialogClick(event: MouseEvent) {
-  if (!props.clickOutside) return;
+  if (!clickOutside) return;
 
   const target = event.target as HTMLDialogElement;
 
@@ -118,7 +105,7 @@ const emit = defineEmits<{
     <Button
       v-else
       :icon="computedIcon"
-      :class="`mobile-nav-toggle ${buttonClass ?? ''}`"
+      class="mobile-nav-toggle"
       :size="buttonSize"
       :font-size="buttonFontSize"
       :icon-size="buttonIconSize"
@@ -135,7 +122,7 @@ const emit = defineEmits<{
       <dialog
         :id="id"
         ref="dialogElement"
-        :class="`mobile-dialog mobile-dialog-position--${position} ${props.class ?? ''}`"
+        :class="['mobile-dialog', `mobile-dialog-position--${position}`]"
         v-bind="$attrs"
         :aria-label="label || $t('aria.mobile-menu')"
         :style="`--width: ${width}px`"

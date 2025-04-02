@@ -1,34 +1,24 @@
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    text?: string;
-    timeout?: number;
-    hideLabel?: boolean;
-    variant?: ButtonVariant;
-    color?: ButtonColor;
-    size?: ButtonSize;
-    iconSize?: IconSize;
-    iconPos?: IconPositions;
-    disabled?: boolean;
-  }>(),
-  {
-    text: undefined,
-    hideLabel: true,
-    timeout: 4000,
-    variant: undefined,
-    color: undefined,
-    hoverColor: undefined,
-    size: undefined,
-    iconSize: 'lg',
-    iconPos: undefined,
-  },
-);
+const {
+  text,
+  hideLabel = true,
+  iconSize = 'lg',
+} = defineProps<{
+  text?: string;
+  hideLabel?: boolean;
+  variant?: ButtonVariant;
+  color?: ButtonColor;
+  size?: ButtonSize;
+  iconSize?: IconSize;
+  iconPos?: IconPositions;
+  disabled?: boolean;
+}>();
 
 const copied = ref(false);
 
 async function handleClick() {
-  if (!props.text) return;
-  await navigator.clipboard.writeText(props.text);
+  if (!text) return;
+  await navigator.clipboard.writeText(text);
   copied.value = true;
 }
 </script>

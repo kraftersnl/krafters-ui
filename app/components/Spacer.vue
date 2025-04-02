@@ -6,13 +6,8 @@ const { size = 'md' } = defineProps<{
 
 <template>
   <span
-    :class="`
-      spacer
-      spacer-size--${size}
-    `"
-    :style="`
-      --size: var(--size-${size})
-    `"
+    :class="['spacer', `spacer-size--${size}`]"
+    :style="`--size: var(--size-${size})`"
   />
 </template>
 

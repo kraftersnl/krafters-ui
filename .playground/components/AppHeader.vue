@@ -18,12 +18,12 @@ watch(
   <header class="app-header">
     <div class="app-header-content">
       <MobileMenu ref="mobileMenu" class="left-menu" position="inline-start">
-        <MenuList :list="navList" button-variant="sidebar" />
+        <MenuList :list="navList" button-variant="sidebar" label="Menu" />
       </MobileMenu>
 
       <div class="logo">Krafters UI {{ version }}</div>
 
-      <ThemeToggle />
+      <ThemeToggle font-size="lg" />
     </div>
 
     <NuxtLoadingIndicator color="var(--color-accent)" />

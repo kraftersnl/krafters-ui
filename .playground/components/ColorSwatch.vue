@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <div class="color-swatch-wrapper" :style="`--color: var(--color-${color})`">
-    <div :class="`color-swatch color-swatch--${color}`" />
+    <div :class="['color-swatch', `color-swatch--${color}`]" />
 
     <code class="swatch-name">--color-{{ color }}</code>
   </div>

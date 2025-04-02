@@ -99,6 +99,7 @@ h1 {
   }
 
   .card-cols {
+    --gap: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -106,6 +107,7 @@ h1 {
     > * {
       flex-grow: 1;
       flex-basis: calc(50% - var(--gap));
+      min-width: 240px;
     }
   }
 

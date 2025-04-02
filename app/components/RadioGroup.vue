@@ -1,32 +1,23 @@
 <script setup lang="ts">
 const model = defineModel<string | number>();
 
-withDefaults(
-  defineProps<{
-    options: any[];
-    label: string;
-    name?: string;
-    tabindex?: string;
-    valueKey?: string;
-    labelKey?: string;
-    titleKey?: string;
-    hideLegend?: boolean;
-  }>(),
-  {
-    name: undefined,
-    tabindex: undefined,
-    valueKey: 'value',
-    labelKey: 'label',
-    titleKey: undefined,
-  },
-);
+const { valueKey = 'value', labelKey = 'label' } = defineProps<{
+  options: any[];
+  label: string;
+  name?: string;
+  tabindex?: string;
+  valueKey?: string;
+  labelKey?: string;
+  titleKey?: string;
+  hideLegend?: boolean;
+}>();
 </script>
 
 <template>
   <div class="radios-wrapper">
     <template v-if="options?.length">
       <fieldset v-if="label">
-        <legend :class="`${hideLegend ? 'visuallyhidden' : ''}`">
+        <legend :class="[hideLegend && 'visuallyhidden']">
           {{ label }}
         </legend>
 

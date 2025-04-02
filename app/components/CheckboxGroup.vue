@@ -1,36 +1,30 @@
 <script setup lang="ts">
 const model = defineModel<(string | number)[]>();
 
-withDefaults(
-  defineProps<{
-    options: any[];
-    label: string;
-    name?: string;
-    tabindex?: string;
-    valueKey?: string;
-    labelKey?: string;
-    nameKey?: string;
-    disabledKey?: string;
-    titleKey?: string;
-    hideLegend?: boolean;
-  }>(),
-  {
-    name: undefined,
-    tabindex: undefined,
-    valueKey: 'value',
-    labelKey: 'label',
-    nameKey: 'value',
-    disabledKey: 'disabled',
-    titleKey: undefined,
-  },
-);
+const {
+  valueKey = 'value',
+  labelKey = 'label',
+  nameKey = 'value',
+  disabledKey = 'disabled',
+} = defineProps<{
+  options: any[];
+  label: string;
+  name?: string;
+  tabindex?: string;
+  valueKey?: string;
+  labelKey?: string;
+  nameKey?: string;
+  disabledKey?: string;
+  titleKey?: string;
+  hideLegend?: boolean;
+}>();
 </script>
 
 <template>
   <div class="checkboxes-wrapper">
     <template v-if="options?.length">
       <fieldset>
-        <legend v-if="label" :class="`${hideLegend ? 'visuallyhidden' : ''}`">
+        <legend v-if="label" :class="[hideLegend && 'visuallyhidden']">
           {{ label }}
         </legend>
 
@@ -43,6 +37,7 @@ withDefaults(
               :disabled="option[disabledKey]"
               :title="titleKey ? option[titleKey] : undefined"
               :name="option[nameKey]"
+              :hide-label="option.hideLabel"
               :tabindex="tabindex"
             />
           </li>
