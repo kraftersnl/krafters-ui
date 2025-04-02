@@ -12,9 +12,5 @@ useHead({ title: 'Getting Started' });
 
 <style>
 .getting-started-page {
-  h1 {
-    margin-block-start: 0;
-    color: var(--color-accent);
-  }
 }
 </style>

@@ -132,7 +132,7 @@ h1 {
   }
 
   kbd {
-    font-size: 0.8em;
+    font-size: smaller;
   }
 
   .card {

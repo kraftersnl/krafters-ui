@@ -122,6 +122,73 @@ const computedErrorMessage = computed(() => {
 </template>
 
 <style>
+.md-editor-preview {
+  font-size: var(--font-size) !important;
+  word-break: break-word !important;
+
+  p {
+    white-space: normal;
+  }
+  ol {
+    list-style-position: outside !important;
+    padding-inline-start: 2rem !important;
+  }
+  ul {
+    list-style-position: outside !important;
+    padding-inline-start: 1.25rem !important;
+  }
+
+  &.default-theme {
+    ol,
+    ul {
+      margin: 0 !important;
+      > li {
+        margin: 0 !important;
+        > ul,
+        > ol {
+          margin-block-end: 0.5rem !important;
+        }
+      }
+    }
+  }
+}
+
+.md-editor,
+.md-editor-preview.krafters-theme {
+  --md-color: var(--color-text) !important;
+  --md-bk-color-outstand: var(--color-grey-bg) !important;
+  --md-border-color: var(--color-grey-graphic) !important;
+  --md-border-active-color: var(--focus-color) !important;
+
+  a {
+    --md-theme-link-color: var(--color-text);
+    --md-theme-link-hover-color: var(--color-accent);
+    text-decoration: underline;
+    transition-duration: var(--duration-sm);
+  }
+
+  code {
+    line-height: var(--line-height, 1.5);
+    --md-theme-code-inline-color: var(--color-text);
+    --md-theme-code-inline-bg-color: var(--color-grey-bg);
+  }
+
+  blockquote {
+    --md-theme-quote-color: var(--color-text);
+    --md-theme-quote-bg-color: var(--color-accent-bg);
+    --md-theme-quote-border: 5px solid var(--color-accent);
+  }
+}
+
+.md-editor-toolbar-wrapper .md-editor-toolbar-item {
+  cursor: default !important;
+}
+
+.md-editor-toolbar-item svg.md-editor-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .md-editor-resize-operate {
   background-color: var(--color-grey-graphic);
 }

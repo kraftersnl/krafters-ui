@@ -15,7 +15,11 @@ hljs.registerLanguage('css', css);
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('typescript', typescript);
 
-const { content, fontSize, ellipsisLines } = defineProps<{
+const {
+  content,
+  fontSize = 'md',
+  ellipsisLines,
+} = defineProps<{
   content: string;
   fontSize?: FontSize;
   ellipsisLines?: number;
@@ -64,8 +68,6 @@ const preview = computed(() => md.render(content));
 
 <style>
 .krafters-markdown-preview {
-  font-size: var(--font-size, inherit);
-
   &.ellipsis {
     overflow: hidden;
     display: -webkit-box;
@@ -75,11 +77,32 @@ const preview = computed(() => md.render(content));
     hyphens: none;
   }
 
+  font-size: var(--font-size, inherit);
+
   code {
-    font-size: 0.9em;
+    font-size: smaller;
   }
-  pre code {
-    font-size: 1em;
+
+  blockquote,
+  pre,
+  p,
+  ul,
+  ol {
+    &:has(+ h2) {
+      margin-block-end: 3rem;
+    }
+    &:has(+ h3) {
+      margin-block-end: 2.5rem;
+    }
+    &:has(+ h4) {
+      margin-block-end: 2rem;
+    }
+    &:has(+ h5) {
+      margin-block-end: 1.5rem;
+    }
+    &:has(+ h6) {
+      margin-block-end: 1rem;
+    }
   }
 
   a {

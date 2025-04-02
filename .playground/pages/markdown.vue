@@ -33,25 +33,7 @@ const fontSizeOptions: { value: FontSize; label: string }[] = [
 <template>
   <div class="demo-page markdown">
     <h1>Markdown components</h1>
-    <p>Rich text editor and markdown parser.</p>
-
-    <p class="c-grey-text fs-xs mbe-2">
-      <span class="flex-wrapper" style="--gap: 0.35rem">
-        <Icon name="mdi:github" size="1rem" />
-        <Button
-          to="https://github.com/imzbf/md-editor-v3"
-          label="md-editor-v3"
-          variant="link"
-          target="_blank"
-          external
-        />
-      </span>
-    </p>
-
-    <Card class="mbs-2">
-      <h2>Markdown Editor</h2>
-      <MarkdownEditor v-model="content" label="Markdown Editor" hide-label />
-    </Card>
+    <p>Rich Text Editor and markdown parser component.</p>
 
     <Card class="mbs-2">
       <div class="section-topbar">
@@ -91,6 +73,11 @@ const fontSizeOptions: { value: FontSize; label: string }[] = [
         :font-size="fontSize"
         :ellipsis-lines="ellipsisLines"
       />
+    </Card>
+
+    <Card class="mbs-2">
+      <h2>Markdown Editor</h2>
+      <MarkdownEditor v-model="content" label="Markdown Editor" hide-label />
     </Card>
 
     <Card class="mbs-2">

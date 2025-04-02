@@ -1,4 +1,6 @@
-Rich Text Editor for _markdown_{lang="nl"} that comes with `<MarkdownEditor>` and `<MarkdownPreview>` components. Krafters UI offers a wrapper for [md-editor-v3](https://github.com/imzbf/md-editor-v3).
+The `<MarkdownPreview>` component is powered by markdown-it and highlight.js.
+
+The `<MarkdownEditor>` component is a wrapper for [md-editor-v3](https://github.com/imzbf/md-editor-v3).
 
 ```js
 <script setup lang="ts">

@@ -380,7 +380,7 @@ const emit = defineEmits<{
   gap: 1.5rem;
 
   .iconify {
-    font-size: var(--icon-size, var(--font-size));
+    font-size: var(--icon-size, inherit);
     color: var(--color-grey-graphic);
   }
 

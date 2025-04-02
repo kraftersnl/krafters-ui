@@ -8,20 +8,21 @@ const {
   iconSize,
   placement = 'auto',
   trigger = 'click',
+  hideLabel = true,
   hideOnClick = true,
   interactive = true,
   icon = 'question-mark-circle',
   id = useId(),
 } = defineProps<{
+  label: string;
+  fontSize?: string;
+  iconSize?: string;
   trigger?: string;
   interactive?: boolean;
   hideOnClick?: boolean | 'toggle';
   placement?: PopperPlacement;
   icon?: string;
-  label?: string;
   hideLabel?: boolean;
-  fontSize?: string;
-  iconSize?: string;
   tabindex?: string;
   title?: string;
   maxWidth?: number | 'none';
@@ -29,8 +30,8 @@ const {
 }>();
 
 const computedStyle = computed(() => ({
-  '--font-size': `var(--font-size-${fontSize})`,
-  '--icon-size': `var(--font-size-${iconSize})`,
+  '--font-size': fontSize && `var(--font-size-${fontSize})`,
+  '--icon-size': iconSize && `var(--font-size-${iconSize})`,
 }));
 
 const isExpanded = ref(false);

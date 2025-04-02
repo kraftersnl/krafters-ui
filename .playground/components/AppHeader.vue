@@ -21,7 +21,7 @@ watch(
         <MenuList :list="navList" button-variant="sidebar" label="Menu" />
       </MobileMenu>
 
-      <div class="logo">Krafters UI {{ version }}</div>
+      <NuxtLink to="/" class="home-link">Krafters UI {{ version }}</NuxtLink>
 
       <ThemeToggle font-size="lg" />
     </div>
@@ -70,6 +70,14 @@ watch(
         color: var(--color-accent);
         text-decoration: none;
       }
+    }
+  }
+
+  .home-link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

@@ -56,7 +56,7 @@ const sizeOptions: { value: FontSize; label: string }[] = [
                 <Select
                   v-model="iconSize"
                   :options="sizeOptions"
-                  label="fontSize"
+                  label="iconSize"
                   size="sm"
                 />
 

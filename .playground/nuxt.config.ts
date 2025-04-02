@@ -31,6 +31,8 @@ export default defineNuxtConfig({
       scan: true,
       sizeLimitKb: 256,
       icons: [
+        'heroicons-solid:moon',
+        'heroicons-solid:sun',
         'heroicons-solid:check-circle',
         'heroicons-solid:x-circle',
         'heroicons-solid:information-circle',

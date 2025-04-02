@@ -31,29 +31,9 @@ export const navList: MenuItem[] = [
     label: 'Buttons & Links',
   },
   {
-    id: 'accordion',
-    to: '/accordion',
-    label: 'Accordion',
-  },
-  {
     id: 'form',
     to: '/form',
     label: 'Form inputs',
-  },
-  {
-    id: 'md',
-    to: '/markdown',
-    label: 'Markdown',
-  },
-  {
-    id: 'meter',
-    to: '/meter',
-    label: 'Meter',
-  },
-  {
-    id: 'tabs',
-    to: '/tabs',
-    label: 'Tabs',
   },
   {
     id: 'table',
@@ -61,14 +41,34 @@ export const navList: MenuItem[] = [
     label: 'Table, Pagination & Filter',
   },
   {
+    id: 'dialog',
+    to: '/dialog',
+    label: 'Modal Dialog',
+  },
+  {
     id: 'tooltip',
     to: '/tooltip',
     label: 'Tooltip & Popover',
   },
   {
-    id: 'dialog',
-    to: '/dialog',
-    label: 'Modal Dialog',
+    id: 'tabs',
+    to: '/tabs',
+    label: 'Tabs',
+  },
+  {
+    id: 'accordion',
+    to: '/accordion',
+    label: 'Accordion',
+  },
+  {
+    id: 'meter',
+    to: '/meter',
+    label: 'Meter',
+  },
+  {
+    id: 'md',
+    to: '/markdown',
+    label: 'Markdown',
   },
   {
     id: 'skeleton',
