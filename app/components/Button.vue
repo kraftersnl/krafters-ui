@@ -55,7 +55,7 @@ function focusElement() {
   buttonRef.value?.focus();
 }
 
-defineExpose({ triggerRef, focusElement });
+defineExpose({ focusElement });
 
 const emit = defineEmits<{
   click: [];
