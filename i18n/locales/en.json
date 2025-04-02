@@ -15,7 +15,8 @@
     "skip-to-main-content": "Skip to main content",
     "skip-to-side-content": "Skip to sidebar",
     "popover": "More options",
-    "toggletip": "More info",
+    "more-info": "More info",
+    "more-info-about": "More info about {label}",
     "user-menu": "Menu"
   },
 

@@ -15,7 +15,8 @@
     "skip-to-main-content": "Spring naar hoofdcontent",
     "skip-to-side-content": "Spring naar zijbalk",
     "popover": "Meer opties",
-    "toggletip": "Meer info",
+    "more-info": "Meer info",
+    "more-info-about": "Meer info over {label}",
     "user-menu": "Menu"
   },
 

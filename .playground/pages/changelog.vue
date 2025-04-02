@@ -7,10 +7,11 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <ChangelogEntry v="1.4.1" date="2025-04-02">
+    <!-- <ChangelogEntry v="1.4.1" date="2025-04-03">
       <ul>
         <li>
-          Rename focusTrigger to <code>focusElement</code> in Popover component
+          Breaking: rename focusTrigger to <code>focusElement</code> in Popover
+          component
         </li>
         <li>Expose <code>focusElement</code> in Button component</li>
         <li>
@@ -26,7 +27,7 @@ useHead({ title: 'Changelog' });
           syntax
         </li>
       </ul>
-    </ChangelogEntry>
+    </ChangelogEntry> -->
 
     <ChangelogEntry v="1.4.0" date="2025-03-30">
       <ul>

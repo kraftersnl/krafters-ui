@@ -14,7 +14,7 @@ const {
   icon = 'question-mark-circle',
   id = useId(),
 } = defineProps<{
-  label: string;
+  label?: string;
   fontSize?: string;
   iconSize?: string;
   trigger?: string;
@@ -100,13 +100,19 @@ function closeToggletip() {
 
         <template v-else>
           <span
+            v-if="label && hideLabel"
             :id="'toggletip-label-' + id"
-            :class="[hideLabel && 'visuallyhidden']"
+            class="visuallyhidden"
           >
-            {{ label }}
+            {{ $t('aria.more-info-about', { label }) }}
           </span>
 
-          <span class="visuallyhidden">({{ $t('aria.toggletip') }})</span>
+          <span v-else-if="label && !hideLabel" :id="'toggletip-label-' + id">
+            {{ label }}
+            <span class="visuallyhidden">({{ $t('aria.more-info') }})</span>
+          </span>
+
+          <span v-else class="visuallyhidden">{{ $t('aria.more-info') }}</span>
 
           <Icon :name="computedIcon" />
         </template>
