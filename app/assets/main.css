@@ -311,6 +311,7 @@
   padding-inline-start: 1.25rem;
 
   > p {
+    margin-block-start: 0;
     font-style: italic;
   }
 }
