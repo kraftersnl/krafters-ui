@@ -14,6 +14,7 @@ useHead({ title: 'Changelog' });
           component
         </li>
         <li>Expose <code>focusElement</code> in Button component</li>
+        <li>Increase minimum click area to 24px for Tooltip component</li>
         <li>
           Add <code>ellipsisLines</code> prop to MarkdownPreview component
         </li>

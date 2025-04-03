@@ -143,6 +143,7 @@ function closeToggletip() {
 }
 
 .toggletip-trigger-button {
+  position: relative;
   display: flex;
   gap: 0.25rem;
   align-items: center;
@@ -152,6 +153,19 @@ function closeToggletip() {
   color: inherit;
   font-size: var(--font-size, inherit);
   transition: color var(--duration-sm);
+
+  &::after {
+    /* increase click target */
+    content: '';
+    position: absolute;
+    inset: -50%;
+    margin: auto;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 1;
+  }
 
   &:focus-visible {
     border-radius: var(--radius-sm);
