@@ -85,6 +85,7 @@ const emit = defineEmits<{
     "
     @click="handleClick"
   >
+    <slot name="icon" />
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
     <Icon v-else-if="icon" :name="computedIcon" />
 
@@ -115,6 +116,7 @@ const emit = defineEmits<{
     :style="computedStyle"
     @click="handleClick"
   >
+    <slot name="icon" />
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
     <Icon v-else-if="icon" :name="computedIcon" />
 
@@ -259,8 +261,8 @@ const emit = defineEmits<{
   &:not(:disabled):hover {
     background-color: color-mix(
       in srgb,
-      var(--color-accent) 85%,
-      var(--color-black)
+      var(--color-accent) 90%,
+      var(--color-white)
     );
   }
 }
@@ -434,7 +436,7 @@ const emit = defineEmits<{
     }
   }
 
-  /* &.router-link-exact-active {
+  &.router-link-exact-active {
     text-decoration: underline;
     font-weight: var(--font-weight-bold);
     color: var(--color-accent);
@@ -442,7 +444,7 @@ const emit = defineEmits<{
     .iconify {
       color: var(--color-accent-text);
     }
-  } */
+  }
 }
 
 .button-variant--topbar {
@@ -468,14 +470,14 @@ const emit = defineEmits<{
     }
   }
 
-  /* &.router-link-exact-active {
+  &.router-link-exact-active {
+    text-decoration: underline;
     color: var(--color-accent);
-    font-weight: var(--font-weight-bold);
 
     .iconify {
       color: var(--color-accent-text);
     }
-  } */
+  }
 }
 
 .button--icon-only {
