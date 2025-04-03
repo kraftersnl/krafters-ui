@@ -119,6 +119,11 @@ const popoverActions = [
             <li>Use a <code>button</code> element to trigger the toggletip.</li>
 
             <li>
+              The <code>button</code> has a clickable target area of at least
+              24px x 24px.
+            </li>
+
+            <li>
               The trigger element has the <code>aria-expanded</code> attribute.
               The value should align with the open state of the toggletip.
             </li>

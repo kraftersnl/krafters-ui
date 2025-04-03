@@ -122,8 +122,10 @@ function playVideo() {
   }
 
   figcaption {
-    padding-block-start: 1rem;
     font-style: italic;
+    font-size: smaller;
+    color: var(--color-grey-text);
+    padding-block-start: 1rem;
   }
 
   button {
