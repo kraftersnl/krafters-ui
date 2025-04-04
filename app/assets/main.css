@@ -387,6 +387,7 @@
 
 :where(code) {
   color: var(--color-text);
+  font-weight: var(--font-weight-regular);
   background-color: var(--color-grey-bg);
   padding: 0.1rem 0.2rem;
   border-radius: var(--radius-sm);
@@ -412,14 +413,16 @@
 }
 
 :where(kbd) {
-  font-family: system-ui;
-  font-weight: var(--font-weight-medium);
   background-color: var(--color-white);
   border-radius: var(--radius-sm);
   padding-inline: 0.35rem;
-  padding-block: 0.1rem 0.15rem;
+  padding-block: 0.15rem 0.1rem;
   border: 1px solid var(--color-grey-bg);
-  box-shadow: inset 0 -1px 0 var(--color-grey-bg);
+  box-shadow: inset 0 -2px 0 var(--color-grey-bg);
+
+  &:has(.iconify) {
+    padding-block: 0.2rem 0.05rem;
+  }
 }
 
 :where(abbr) {

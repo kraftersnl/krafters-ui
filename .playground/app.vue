@@ -86,6 +86,10 @@ h1 {
 
   .section-topbar {
     flex-wrap: nowrap;
+
+    &:has(h1) {
+      margin-block-end: 1.5rem;
+    }
   }
 
   ul > li > ul {
@@ -129,10 +133,6 @@ h1 {
         color: var(--color-accent);
       }
     }
-  }
-
-  kbd {
-    font-size: smaller;
   }
 
   .card {

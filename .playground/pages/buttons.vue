@@ -89,7 +89,7 @@ useHead({ title: 'Buttons & Links' });
       <div class="flex-wrapper">
         <Button
           icon="cloud-download"
-          font-size="lg"
+          icon-size="xl"
           label="Download"
           variant="primary"
           hide-label

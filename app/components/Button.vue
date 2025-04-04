@@ -163,7 +163,7 @@ const emit = defineEmits<{
   }
 
   .iconify {
-    font-size: var(--icon-size, inherit);
+    font-size: var(--icon-size, larger);
     flex-shrink: 0;
     transition-duration: var(--duration-sm);
   }
@@ -193,7 +193,7 @@ const emit = defineEmits<{
   padding-inline: 0.25rem;
 
   .iconify {
-    font-size: var(--icon-size, var(--font-size-sm));
+    font-size: var(--icon-size, larger);
   }
 }
 
@@ -207,7 +207,7 @@ const emit = defineEmits<{
   }
 
   .iconify {
-    font-size: var(--icon-size, var(--font-size-md));
+    font-size: var(--icon-size, larger);
   }
 }
 
@@ -221,7 +221,7 @@ const emit = defineEmits<{
   }
 
   .iconify {
-    font-size: var(--icon-size, var(--font-size-md));
+    font-size: var(--icon-size, larger);
   }
 }
 
@@ -235,7 +235,7 @@ const emit = defineEmits<{
   }
 
   .iconify {
-    font-size: var(--icon-size, var(--font-size-md));
+    font-size: var(--icon-size, larger);
   }
 }
 
@@ -249,7 +249,7 @@ const emit = defineEmits<{
   }
 
   .iconify {
-    font-size: var(--icon-size, var(--font-size-lg));
+    font-size: var(--icon-size, larger);
   }
 }
 
@@ -351,10 +351,12 @@ const emit = defineEmits<{
     display: inline;
 
     .iconify {
+      font-size: var(--icon-size, inherit);
       width: 1em;
       height: 1em;
       vertical-align: middle;
       margin-inline-start: 0.2em;
+      margin-block-end: 0.2em;
     }
   }
 
