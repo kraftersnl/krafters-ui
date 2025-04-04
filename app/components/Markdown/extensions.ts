@@ -12,6 +12,7 @@ export function targetBlankExtension(md: MarkdownIt) {
 
     if (aIndex < 0) {
       tokens[idx].attrPush(['target', '_blank']);
+      tokens[idx].attrPush(['title', 'opent in nieuw venster']);
     } else {
       tokens[idx].attrs![aIndex][1] = '_blank';
     }

@@ -176,7 +176,7 @@ function handleSubmit(formData: FormData) {
         <div class="section-topbar">
           <h2>MultiSelect</h2>
 
-          <Popover icon="cog" :max-width="480">
+          <Popover icon="solar:settings-bold" :max-width="480">
             <div class="popover-settings-content">
               <h2>Props</h2>
 

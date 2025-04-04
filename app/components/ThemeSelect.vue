@@ -53,7 +53,7 @@ const colorMode = useColorMode();
             type="radio"
           />
           <label for="color-theme-system">
-            <Icon name="heroicons-solid:desktop-computer" />
+            <Icon name="heroicons-solid:computer-desktop" />
             <span>
               {{ $t('theme.system') }}
             </span>

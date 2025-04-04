@@ -43,7 +43,7 @@ const skeletonAnimations = [
         <div class="section-topbar">
           <h2>Skeleton</h2>
 
-          <Popover icon="cog" :max-width="480">
+          <Popover icon="solar:settings-bold" :max-width="480">
             <div class="popover-settings-content">
               <h2>Props</h2>
 

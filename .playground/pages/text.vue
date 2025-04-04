@@ -42,7 +42,7 @@ const sizeOptions: { value: FontSize; label: string }[] = [
         <div class="section-topbar">
           <h2>Callout</h2>
 
-          <Popover icon="cog">
+          <Popover icon="solar:settings-bold">
             <div class="popover-settings-content">
               <h2 class="mbe-1">Props</h2>
 
@@ -108,7 +108,7 @@ const sizeOptions: { value: FontSize; label: string }[] = [
         ><div class="section-topbar">
           <h2>Chip</h2>
 
-          <Popover icon="cog">
+          <Popover icon="solar:settings-bold">
             <div class="popover-settings-content">
               <h2 class="mbe-1">Props</h2>
 
@@ -188,7 +188,7 @@ const sizeOptions: { value: FontSize; label: string }[] = [
       <div class="section-topbar">
         <h2>Ellipsis</h2>
 
-        <Popover icon="cog" :max-width="480">
+        <Popover icon="solar:settings-bold" :max-width="480">
           <div class="popover-settings-content">
             <h2>Props</h2>
 

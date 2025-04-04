@@ -7,7 +7,7 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.4.1" date="2025-04-03">
+    <ChangelogEntry v="1.4.1" date="2025-04-04">
       <ul>
         <li>
           Breaking: rename focusTrigger to <code>focusElement</code> in Popover
@@ -20,6 +20,7 @@ useHead({ title: 'Changelog' });
         </li>
         <li>Add <code>buttonFontSize</code> prop to MobileMenu component</li>
         <li>Add <code>fontSize</code> prop to ThemeToggle component</li>
+        <li>Add solar icon set</li>
         <li>Fix default icon sizes for Button component</li>
         <li>Refactor: Pagination component</li>
         <li>Refactor: class and style bindings</li>
@@ -28,7 +29,7 @@ useHead({ title: 'Changelog' });
           syntax
         </li>
       </ul>
-    </ChangelogEntry> -->
+    </ChangelogEntry>
 
     <ChangelogEntry v="1.4.0" date="2025-03-30">
       <ul>

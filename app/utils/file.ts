@@ -33,7 +33,7 @@ export function downloadCSV({ data, name }: { data: any[]; name: string }) {
 }
 
 export function fileTypeIcon(file?: File) {
-  if (!file) return 'heroicons-solid:document-add';
+  if (!file) return 'solar:add-square-linear';
   if (getFileExtension(file?.name) === 'vue')
     return 'vscode-icons:file-type-vue';
   if (getFileExtension(file?.name) === 'md')

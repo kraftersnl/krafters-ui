@@ -43,7 +43,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
     <div class="section-topbar">
       <h1>Tabs pattern</h1>
 
-      <Popover icon="cog" :max-width="480">
+      <Popover icon="solar:settings-bold" :max-width="480">
         <div class="popover-settings-content">
           <h2>Props</h2>
           <div class="props-wrapper">

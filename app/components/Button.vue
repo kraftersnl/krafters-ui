@@ -94,7 +94,7 @@ const emit = defineEmits<{
     </span>
 
     <template v-if="!hideExternalIcon && target === '_blank'">
-      <Icon name="heroicons-solid:external-link" class="external-link" />
+      <Icon name="solar:square-bottom-up-linear" class="external-link" />
     </template>
 
     <slot name="default" />
@@ -355,8 +355,7 @@ const emit = defineEmits<{
       width: 1em;
       height: 1em;
       vertical-align: middle;
-      margin-inline-start: 0.2em;
-      margin-block-end: 0.2em;
+      margin-inline-start: 0.35em;
     }
   }
 

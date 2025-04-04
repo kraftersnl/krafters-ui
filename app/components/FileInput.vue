@@ -213,7 +213,7 @@ watch(
 
   .iconify {
     margin-inline: 6rem;
-    font-size: 3rem;
+    font-size: var(--font-size-xxxl);
   }
 
   &.has-image-preview {

@@ -106,7 +106,7 @@ function handleFilter() {
     <div class="section-topbar">
       <h1>Table</h1>
 
-      <Popover icon="cog" :max-width="480">
+      <Popover icon="solar:settings-bold" :max-width="480">
         <div class="popover-settings-content">
           <h2>Props</h2>
 
