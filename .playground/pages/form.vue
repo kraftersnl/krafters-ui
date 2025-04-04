@@ -5,7 +5,7 @@ const singleSelection = ref('');
 const multiSelection = ref<string | string[]>();
 const date = ref();
 const selectedCheckboxes = ref([]);
-const isTrue = ref(false);
+const disabled = ref(false);
 const selectedRadio = ref();
 const raw = ref();
 
@@ -24,6 +24,11 @@ const selectOptions = [
   {
     id: 'option-3',
     name: 'The longest text option 3',
+  },
+  {
+    id: 'option-3',
+    name: 'Disabled option',
+    disabled: true,
   },
 ];
 
@@ -113,6 +118,7 @@ function handleSubmit(formData: FormData) {
         <Input
           label="First name"
           name="first-name"
+          :disabled="disabled"
           style="--col-width: var(--col-width-25)"
         />
 
@@ -120,6 +126,7 @@ function handleSubmit(formData: FormData) {
           required
           label="Last name"
           name="last-name"
+          :disabled="disabled"
           style="--col-width: var(--col-width-25)"
         />
 
@@ -130,16 +137,18 @@ function handleSubmit(formData: FormData) {
           placeholder="Choose an option"
           name="selection"
           :options="selectOptions"
+          :disabled="disabled"
           label-key="name"
           value-key="id"
           style="--col-width: var(--col-width-50)"
         />
 
-        <Textarea label="Comments" name="comments" />
+        <Textarea label="Comments" name="comments" :disabled="disabled" />
 
         <CheckboxGroup
           v-model="selectedCheckboxes"
           :options="checkboxOptions"
+          :disabled="disabled"
           label="Checkbox group"
           style="--col-width: var(--col-width-auto)"
         />
@@ -147,6 +156,7 @@ function handleSubmit(formData: FormData) {
         <RadioGroup
           v-model="selectedRadio"
           :options="radioOptions"
+          :disabled="disabled"
           label="Radio buttons group"
           name="radio-group"
           style="--col-width: var(--col-width-50)"
@@ -156,12 +166,12 @@ function handleSubmit(formData: FormData) {
           <Button
             type="submit"
             icon="check"
-            :loading="isTrue"
+            :loading="disabled"
             variant="primary"
             label="Submit"
           />
 
-          <Button type="reset" label="Reset" />
+          <Button type="reset" label="Reset" :disabled="disabled" />
         </div>
       </Form>
 
@@ -169,6 +179,15 @@ function handleSubmit(formData: FormData) {
         <hr class="demo-divider" />
         <MarkdownPreview :content="'```ts\n' + raw + '\n```'" />
       </template>
+    </Card>
+
+    <Card>
+      <h2>Switch</h2>
+      <Switch
+        v-model="disabled"
+        label="Disable form inputs"
+        class="demo-switch"
+      />
     </Card>
 
     <div class="card-cols">
@@ -255,15 +274,6 @@ function handleSubmit(formData: FormData) {
         />
       </Card>
     </div>
-
-    <Card>
-      <h2>Switch</h2>
-      <Switch
-        v-model="isTrue"
-        label="Show loading indicator"
-        class="demo-switch"
-      />
-    </Card>
 
     <Card>
       <h2>File Input</h2>

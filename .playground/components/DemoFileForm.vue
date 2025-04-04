@@ -47,7 +47,7 @@ async function uploadFile(formData: FormData) {
       :label="$t('general.upload')"
       :disabled="buttonIsDisabled"
       :title="$t('general.upload')"
-      icon="cloud-upload"
+      icon="solar:cloud-upload-linear"
       size="lg"
     />
   </Form>
