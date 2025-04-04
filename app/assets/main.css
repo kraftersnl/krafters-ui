@@ -547,7 +547,7 @@
     color: var(--color-grey-text);
   }
 
-  &:has(:disabled) {
+  &:has(:disabled):not(:has(option:disabled)) {
     opacity: 35%;
   }
 
