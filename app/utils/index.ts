@@ -22,7 +22,7 @@ export function isValidUrl(url?: string): boolean {
 }
 
 export function removeHttp(url?: string) {
-  return url?.replace(/^https?:\/\//, '');
+  return url?.replace(/^https?:\/\//, '')?.replace('www.', '');
 }
 
 export function stripTrailingSlash(str?: string) {

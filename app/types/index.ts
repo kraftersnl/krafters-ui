@@ -1,5 +1,6 @@
 import type { RouteLocationRaw } from 'vue-router';
 import type Dialog from '../components/Dialog.vue';
+import type MobileMenu from '../components/MobileMenu.vue';
 import type Form from '../components/Form.vue';
 import type Textarea from '../components/Textarea.vue';
 import type Input from '../components/Input.vue';
@@ -39,6 +40,7 @@ declare global {
   };
 
   type DialogComponent = InstanceType<typeof Dialog>;
+  type MobileMenuComponent = InstanceType<typeof MobileMenu>;
   type FormComponent = InstanceType<typeof Form>;
   type TextareaComponent = InstanceType<typeof Textarea>;
   type InputComponent = InstanceType<typeof Input>;
