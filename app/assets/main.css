@@ -389,7 +389,7 @@
   color: var(--color-text);
   font-weight: var(--font-weight-regular);
   background-color: var(--color-grey-bg);
-  padding: 0.1rem 0.2rem;
+  padding-inline: 0.25em;
   border-radius: var(--radius-sm);
   overflow-wrap: anywhere;
   -webkit-box-decoration-break: clone;
