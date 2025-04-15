@@ -23,7 +23,7 @@ defineProps<{ fontSize?: FontSize }>();
             : 'heroicons-solid:sun'
         "
       />
-      <span class="visuallyhidden">Dark Theme</span>
+      <span class="visuallyhidden">{{ $t('theme.dark') }}</span>
     </button>
   </ClientOnly>
 </template>
