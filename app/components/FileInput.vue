@@ -4,6 +4,7 @@ import compressor from 'compressorjs';
 const model = defineModel<File>();
 
 const {
+  label,
   required,
   placeholderUrl,
   maxFileSize = 5000,
