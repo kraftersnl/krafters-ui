@@ -107,7 +107,12 @@ declare global {
 
   type ChipSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-  type DialogPosition = 'inline-start' | 'center' | 'inline-end';
+  type DialogPosition =
+    | 'inline-start'
+    | 'center'
+    | 'inline-end'
+    | 'block-start'
+    | 'block-end';
   type MobileMenuPosition = 'inline-start' | 'inline-end';
 
   // External packages

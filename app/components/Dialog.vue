@@ -5,6 +5,8 @@ const {
   position = 'center',
 } = defineProps<{
   label?: string;
+  ariaLabel?: string;
+  ariaLabelledby?: string;
   id?: string;
   clickOutside?: boolean;
   modal?: boolean;
@@ -54,7 +56,8 @@ defineExpose({
 <template>
   <dialog
     ref="dialog"
-    :aria-labelledby="id"
+    :aria-label="ariaLabel"
+    :aria-labelledby="ariaLabelledby || id"
     :class="['dialog', `dialog-position--${position}`]"
     :role="role"
     @click="handleDialogClick"
@@ -97,13 +100,12 @@ body:has(.dialog[open]) {
 }
 
 .dialog {
+  border-radius: 0;
   padding: 0;
-  width: calc(100vw - var(--app-inline-padding));
+
   background-color: var(--color-card-bg);
   border: none;
   outline: 1px solid transparent;
-  padding-block-end: 1.5rem;
-  min-height: 100dvh;
 
   &::backdrop {
     background-color: rgb(0 0 0 / 50%);
@@ -119,6 +121,7 @@ body:has(.dialog[open]) {
     padding-inline: 2rem;
     display: flex;
     align-items: center;
+    text-align: center;
 
     .close-button {
       z-index: 9;
@@ -140,11 +143,9 @@ body:has(.dialog[open]) {
 }
 
 .dialog-position--center {
-  @media (min-width: 480px) {
-    min-height: auto;
-    border: 1px solid var(--color-card-border);
-    border-radius: var(--radius-lg);
-  }
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding-block-end: 1.5rem;
 
   &[open] {
     animation: fadeIn var(--duration-md) forwards;
@@ -166,10 +167,12 @@ body:has(.dialog[open]) {
 
 .dialog-position--inline-start {
   margin: 0 auto 0 0;
-  border-radius: 0;
   border: none;
   border-inline-end: 1px solid var(--color-card-border);
+  padding-block-end: 1.5rem;
+  width: 100%;
   max-width: 800px;
+  min-height: 100dvh;
 
   &[open] {
     animation: slideFadeInLeft var(--duration-md) forwards;
@@ -191,10 +194,12 @@ body:has(.dialog[open]) {
 
 .dialog-position--inline-end {
   margin: 0 0 0 auto;
-  border-radius: 0;
   border: none;
   border-inline-start: 1px solid var(--color-card-border);
+  padding-block-end: 1.5rem;
+  width: 100%;
   max-width: 800px;
+  min-height: 100dvh;
 
   &[open] {
     animation: slideFadeInRight var(--duration-md) forwards;
@@ -207,6 +212,59 @@ body:has(.dialog[open]) {
   &[closing] {
     display: block;
     animation: slideFadeOutRight var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeOut var(--duration-md) forwards;
+    }
+  }
+}
+
+.dialog-position--block-start {
+  inset: 0 0 0 auto;
+  margin: 0;
+
+  max-width: 100%;
+  border: none;
+  border-block-end: 1px solid var(--color-card-border);
+  width: 100%;
+
+  &[open] {
+    animation: slideInTop var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeIn var(--duration-md) forwards;
+    }
+  }
+
+  &[closing] {
+    display: block;
+    animation: slideOutTop var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeOut var(--duration-md) forwards;
+    }
+  }
+}
+
+.dialog-position--block-end {
+  inset: auto 0 0 0;
+  margin: 0;
+  max-width: 100%;
+  border: none;
+  border-block-start: 1px solid var(--color-card-border);
+  width: 100%;
+
+  &[open] {
+    animation: slideInBottom var(--duration-md) forwards;
+
+    &::backdrop {
+      animation: fadeIn var(--duration-md) forwards;
+    }
+  }
+
+  &[closing] {
+    display: block;
+    animation: slideOutBottom var(--duration-md) forwards;
 
     &::backdrop {
       animation: fadeOut var(--duration-md) forwards;

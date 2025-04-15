@@ -60,6 +60,24 @@ const position = ref<DialogPosition>('center');
             }
           "
         />
+        <Button
+          label="Open dialog top"
+          @click="
+            () => {
+              position = 'block-start';
+              dialogRef?.openDialog();
+            }
+          "
+        />
+        <Button
+          label="Open dialog bottom"
+          @click="
+            () => {
+              position = 'block-end';
+              dialogRef?.openDialog();
+            }
+          "
+        />
       </div>
     </Card>
 
@@ -141,11 +159,13 @@ const position = ref<DialogPosition>('center');
       label="Dialog title"
       class="demo-dialog"
     >
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quos
-        nesciunt quam. Totam iste quasi nemo saepe a distinctio architecto?
-        Maxime odio nam a placeat qui illo iure cupiditate et.
-      </p>
+      <div class="demo-dialog-content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quos
+          nesciunt quam. Totam iste quasi nemo saepe a distinctio architecto?
+          Maxime odio nam a placeat qui illo iure cupiditate et.
+        </p>
+      </div>
     </Dialog>
   </div>
 </template>
@@ -157,7 +177,7 @@ const position = ref<DialogPosition>('center');
   }
 }
 
-.demo-dialog {
+.demo-dialog-content {
   max-width: 360px;
 }
 </style>
