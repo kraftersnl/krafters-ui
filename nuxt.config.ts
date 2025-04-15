@@ -10,12 +10,15 @@ export default defineNuxtConfig({
 
   css: [join(currentDir, './app/assets/main.css')],
 
+  $development: {
+    modules: ['@nuxtjs/html-validator'],
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
-    '@nuxtjs/html-validator',
     '@vueuse/nuxt',
   ],
 
