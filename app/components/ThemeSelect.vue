@@ -98,12 +98,13 @@ const colorMode = useColorMode();
       padding-inline: 0.5rem;
       min-width: 75px;
       justify-content: center;
-      border: 1px solid var(--color-accent-bg);
+      border: 1px solid var(--color-grey-bg);
       border-radius: var(--radius-md);
-      color: var(--color-accent-text);
+      color: var(--color-grey-text);
 
       &:hover {
-        border-color: var(--color-accent);
+        color: var(--color-text);
+        border-color: var(--color-grey-graphic);
       }
     }
 
@@ -118,6 +119,7 @@ const colorMode = useColorMode();
     &:checked {
       + label {
         color: var(--color-accent);
+        border-color: var(--color-accent);
         background-color: var(--color-accent-bg);
 
         .iconify {

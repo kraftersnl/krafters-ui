@@ -63,7 +63,7 @@
   --color-card-border: transparent;
   --color-popover-border: transparent;
 
-  --color-purple: #582e6b;
+  --color-purple: #654f6f;
   --color-purple-bg: #e7e1ea;
   --color-purple-text: #704d80;
 
@@ -135,7 +135,6 @@
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 600;
-  --font-weight-extrabold: 700;
 
   /* Font size design tokens */
   --font-size-xxxxxl: 4rem;
@@ -307,7 +306,7 @@
 
 :where(blockquote) {
   margin: 0;
-  border-inline-start: 3px solid var(--color-accent-bg);
+  border-inline-start: 3px solid var(--color-grey-bg);
   padding-inline-start: 1.25rem;
 
   > p {
@@ -484,7 +483,7 @@
 :where(button) {
   font: inherit;
   color: inherit;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 
   &:focus-visible {
     outline: 2px solid var(--focus-color);
@@ -746,9 +745,7 @@
   user-select: none;
 }
 
-.bold,
-b,
-strong {
+:where(.bold, b, strong) {
   font-weight: var(--font-weight-bold);
 }
 
@@ -962,6 +959,24 @@ strong {
   }
   to {
     transform: translateX(100%);
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutBottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
   }
 }
 

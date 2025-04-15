@@ -277,6 +277,20 @@ const emit = defineEmits<{
     background-color: var(--color-red-text);
   }
 }
+
+.button-variant--purple {
+  color: var(--color-white);
+  background-color: var(--color-purple);
+
+  &:not(:disabled):hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-purple) 90%,
+      var(--color-white)
+    );
+  }
+}
+
 .button-variant--green {
   color: var(--color-white);
   background-color: var(--color-green);
@@ -290,6 +304,7 @@ const emit = defineEmits<{
     );
   }
 }
+
 .button-variant--blue {
   color: var(--color-white);
   background-color: var(--color-blue-text);
@@ -433,7 +448,7 @@ const emit = defineEmits<{
     text-decoration: underline;
 
     .iconify {
-      color: var(--color-accent-text);
+      color: var(--color-grey-text);
     }
   }
 
@@ -467,7 +482,7 @@ const emit = defineEmits<{
     color: var(--color-accent);
 
     .iconify {
-      color: var(--color-accent-text);
+      color: var(--color-grey-text);
     }
   }
 

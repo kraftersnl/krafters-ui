@@ -93,6 +93,7 @@ declare global {
     | 'ghost'
     | 'danger'
     | 'link'
+    | 'purple'
     | 'green'
     | 'blue'
     | 'menu'
