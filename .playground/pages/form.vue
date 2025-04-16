@@ -59,6 +59,7 @@ const checkboxOptions = [
   {
     value: 'checkbox-c',
     label: 'Checkbox C',
+    disabled: true,
   },
 ];
 
@@ -74,6 +75,7 @@ const radioOptions = [
   {
     value: 'radio-c',
     label: 'Radio C',
+    disabled: true,
   },
 ];
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const model = defineModel<boolean | (string | number)[]>();
+const model = defineModel<boolean | string | number>();
 
 const { id = useId() } = defineProps<{
   label?: string;
@@ -15,7 +15,7 @@ const { id = useId() } = defineProps<{
 </script>
 
 <template>
-  <div :class="['checkbox-wrapper', disabled && 'disabled']">
+  <div :class="['radio-wrapper', disabled && 'disabled']">
     <input
       :id="id"
       v-model="model"
@@ -23,7 +23,7 @@ const { id = useId() } = defineProps<{
       :value="value"
       :disabled="disabled"
       :tabindex="tabindex"
-      type="checkbox"
+      type="radio"
     />
 
     <label
@@ -43,7 +43,7 @@ const { id = useId() } = defineProps<{
 </template>
 
 <style>
-.checkbox-wrapper {
+.radio-wrapper {
   display: flex;
 
   &.disabled {
@@ -52,13 +52,13 @@ const { id = useId() } = defineProps<{
 
   label {
     font-size: var(--font-size-sm);
-    padding-inline-start: 0.5rem;
+    padding-inline-start: 0.4rem;
   }
 
-  input[type='checkbox'] {
+  input[type='radio'] {
     margin: 0;
     margin-block-start: 1px;
-    width: 1rem;
+    width: 1.1rem;
     height: 1rem;
   }
 }

@@ -23,18 +23,16 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
 
         <ul role="list" class="radio-list">
           <li v-for="option in options" :key="'radio-' + option.value">
-            <input
-              :id="option[valueKey]"
+            <Radio
               v-model="model"
               :value="option[valueKey]"
+              :label="option[labelKey]"
               :disabled="option.disabled"
               :title="titleKey ? option[titleKey] : undefined"
               :name="name"
               :tabindex="tabindex"
               type="radio"
             />
-
-            <label :for="option[valueKey]">{{ option[labelKey] }}</label>
           </li>
         </ul>
       </fieldset>
@@ -48,27 +46,12 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
 
   legend {
     font-size: var(--font-size-md);
-    margin-block-end: 0.75rem;
+    margin-block-end: 1rem;
   }
 
   .radio-list {
     display: grid;
-    font-size: var(--font-size-md);
-
-    input[type='radio'] {
-      width: 1rem;
-      height: 1rem;
-
-      &:disabled {
-        ~ label {
-          color: var(--color-grey-bg);
-        }
-      }
-    }
-
-    label {
-      padding-inline-start: 0.25rem;
-    }
+    gap: 0.5rem;
   }
 }
 </style>

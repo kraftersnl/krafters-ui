@@ -13,6 +13,7 @@ useHead({ title: 'Changelog' });
           Add block-start and block-end options to <code>position</code> prop
           for Dialog component
         </li>
+        <li>Add Radio component</li>
       </ul>
     </ChangelogEntry> -->
 

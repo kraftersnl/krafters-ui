@@ -325,6 +325,10 @@
   }
 }
 
+:where(h1) {
+  margin-block-start: 0;
+}
+
 :where(h1, h2, h3, h4, h5, h6, button, input, label, .label, legend) {
   line-height: var(--line-height-heading, 1.2);
 }
