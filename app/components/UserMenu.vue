@@ -41,7 +41,6 @@ function focusMenu() {
 }
 
 function hideMenu() {
-  console.log('hideMenu');
   showMenu.value = false;
   focusMenu();
 }

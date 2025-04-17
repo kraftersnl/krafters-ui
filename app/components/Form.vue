@@ -53,7 +53,6 @@ const emit = defineEmits<{
 <style>
 .form,
 .form-content {
-  accent-color: var(--color-black);
   --focus-color: var(--color-black);
 
   --row-gap: 1rem;

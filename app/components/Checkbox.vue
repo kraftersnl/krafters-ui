@@ -57,7 +57,6 @@ const { id = useId() } = defineProps<{
 
   input[type='checkbox'] {
     margin: 0;
-    margin-block-start: 1px;
     width: 1rem;
     height: 1rem;
   }

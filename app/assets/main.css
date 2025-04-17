@@ -524,6 +524,12 @@
 
 :where(input) {
   background-color: transparent;
+  filter: none;
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: var(--color-accent-text);
+    box-shadow: 0 0 0 100px var(--color-accent-bg) inset;
+  }
 }
 
 :where(.file-input-wrapper, .form-field-wrapper, .markdown-editor) {
