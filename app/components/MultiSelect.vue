@@ -35,6 +35,7 @@ const {
   labelKey?: string;
   disabledKey?: string;
   itemsSelectedLabel?: string;
+  instruction?: string;
   size?: 'md' | 'lg';
 }>();
 
@@ -101,7 +102,10 @@ onMounted(() => {
       :label="labelKey"
       :value-prop="valueKey"
       :disabled-prop="disabledKey"
-      :aria-describedby="id && required ? `error-${id}` : ''"
+      :aria-describedby="`
+        ${instruction ? `instruction-${id}` : ''}
+        ${id ? `error-${id}` : ''}
+      `"
       :multiple-label="formatMultipleLabels"
     >
       <!-- https://github.com/vueform/multiselect#slots -->
@@ -176,6 +180,10 @@ onMounted(() => {
         <span>{{ $t('form.missing-value', { item: label }) }}</span>
       </div>
     </div>
+
+    <p v-if="instruction" :class="`instruction-${id}`">
+      {{ instruction }}
+    </p>
   </div>
 </template>
 
