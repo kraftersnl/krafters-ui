@@ -262,12 +262,12 @@ onMounted(() => {
   --ms-option-color-disabled: var(--color-grey-graphic);
   --ms-option-bg-selected-pointed: var(--color-accent);
   --ms-option-color-selected-pointed: var(--color-white);
-  /* --ms-option-bg-selected-disabled: #FFFFFF;
-  --ms-option-color-selected-disabled: #D1FAE5;
-  --ms-option-py: 0.5rem;
-  --ms-option-px: 0.75rem;
+  --ms-option-bg-selected-disabled: var(--color-accent);
+  --ms-option-color-selected-disabled: var(--color-white);
+  /* --ms-option-py: 0.5rem; */
+  /* --ms-option-px: 0.75rem; */
 
-  --ms-empty-color: #4B5563; */
+  /* --ms-empty-color: #4B5563; */
 }
 
 .multiselect-wrapper {
