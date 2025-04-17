@@ -29,11 +29,18 @@ function toggleMenu() {
 }
 
 function handleLogout() {
-  if (props.logout) props.logout();
+  if (props.logout) {
+    props.logout();
+    closeLogoutDialog();
+  }
 }
 
 function openLogoutDialog() {
   dialogRef.value?.openDialog();
+}
+
+function closeLogoutDialog() {
+  dialogRef.value?.closeDialog();
 }
 
 function focusMenu() {
@@ -49,6 +56,7 @@ defineExpose({
   hideMenu,
   focusMenu,
   openLogoutDialog,
+  closeLogoutDialog,
 });
 </script>
 
