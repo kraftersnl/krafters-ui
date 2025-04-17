@@ -20,7 +20,7 @@ function handleWindowClick(event: Event) {
     !contentRef.value?.contains(target) &&
     !triggerRef.value?.$el?.contains(target)
   ) {
-    hideMenu();
+    showMenu.value = false;
   }
 }
 
@@ -33,7 +33,6 @@ function handleLogout() {
 }
 
 function openLogoutDialog() {
-  console.log('closing');
   dialogRef.value?.openDialog();
 }
 
@@ -42,6 +41,7 @@ function focusMenu() {
 }
 
 function hideMenu() {
+  console.log('hideMenu');
   showMenu.value = false;
   focusMenu();
 }
@@ -86,7 +86,7 @@ defineExpose({
       ref="logoutDialog"
       class="logout-dialog"
       :label="$t('general.sign-out')"
-      @close="triggerRef?.focusElement()"
+      @close="focusMenu"
     >
       <p>{{ $t('general.sign-out-confirm') }}</p>
       <Button
