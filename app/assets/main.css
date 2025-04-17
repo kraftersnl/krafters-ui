@@ -837,14 +837,24 @@
   margin-block-end: 2rem;
 }
 
-/* Transitions */
+/* Vue Transitions */
+.stretch-fade-enter-active,
+.stretch-fade-leave-active {
+  transition: all var(--duration-sm) ease-in-out;
+}
+.stretch-fade-enter-from,
+.stretch-fade-leave-to {
+  transform: scaleY(95%);
+  opacity: 0;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all var(--duration-sm) ease-out;
 }
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0.25;
+  opacity: 0;
 }
 
 .fade-slow-enter-active,

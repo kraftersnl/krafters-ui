@@ -10,7 +10,7 @@ const userLang = computed({
 </script>
 
 <template>
-  <div class="language-select">
+  <div class="language-select-wrapper">
     <fieldset class="language-fieldset">
       <legend>{{ $t('general.language') }}</legend>
 
@@ -87,7 +87,6 @@ const userLang = computed({
       + label {
         outline: 2px solid var(--focus-color);
         outline-offset: 2px;
-        border-radius: var(--radius-xs);
       }
     }
 

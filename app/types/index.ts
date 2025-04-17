@@ -9,6 +9,7 @@ import type Button from '../components/Button.vue';
 import type Popover from '../components/Popover.vue';
 import type MarkdownEditor from '../components/Markdown/MarkdownEditor.vue';
 import type Tabs from '../components/Tabs.vue';
+import type UserMenu from '../components/UserMenu.vue';
 
 declare global {
   type TabOption = {
@@ -49,6 +50,7 @@ declare global {
   type PopoverComponent = InstanceType<typeof Popover>;
   type MarkdownEditorComponent = InstanceType<typeof MarkdownEditor>;
   type TabsComponent = InstanceType<typeof Tabs>;
+  type UserMenuComponent = InstanceType<typeof UserMenu>;
 
   type BaseColor =
     | 'default'

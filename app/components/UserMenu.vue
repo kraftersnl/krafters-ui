@@ -1,0 +1,173 @@
+<script setup lang="ts">
+const props = defineProps<{
+  label?: string;
+  icon?: string;
+  logout?: CallableFunction;
+}>();
+
+const triggerRef = useTemplateRef<ButtonComponent>('menuTrigger');
+const contentRef = useTemplateRef<HTMLElement>('menuContent');
+const dialogRef = useTemplateRef<DialogComponent>('logoutDialog');
+
+const showMenu = defineModel<boolean>();
+
+onMounted(() => window.addEventListener('click', handleWindowClick));
+onUnmounted(() => window.removeEventListener('click', handleWindowClick));
+
+function handleWindowClick(event: Event) {
+  const target = event.target as HTMLElement;
+  if (
+    !contentRef.value?.contains(target) &&
+    !triggerRef.value?.$el?.contains(target)
+  ) {
+    hideMenu();
+  }
+}
+
+function toggleMenu() {
+  showMenu.value = !showMenu.value;
+}
+
+function handleLogout() {
+  if (props.logout) props.logout();
+}
+
+function openLogoutDialog() {
+  console.log('closing');
+  dialogRef.value?.openDialog();
+}
+
+function focusMenu() {
+  setTimeout(() => triggerRef.value?.focusElement());
+}
+
+function hideMenu() {
+  showMenu.value = false;
+  focusMenu();
+}
+
+defineExpose({
+  hideMenu,
+  focusMenu,
+  openLogoutDialog,
+});
+</script>
+
+<template>
+  <div class="user-menu-wrapper" @keydown.esc="hideMenu">
+    <Button
+      ref="menuTrigger"
+      :icon="icon"
+      :label="label"
+      :aria-label="$t('aria.user-menu')"
+      :aria-expanded="showMenu"
+      size="lg"
+      icon-size="xl"
+      radius="full"
+      aria-controls="user-menu"
+      @click="toggleMenu"
+    />
+
+    <Transition name="stretch-fade">
+      <FocusLoop
+        id="user-menu"
+        :is-visible="showMenu"
+        class="user-menu-popover"
+      >
+        <div v-if="showMenu" ref="menuContent">
+          <div class="user-menu-content">
+            <slot name="default" v-bind="{ hideMenu }" />
+          </div>
+        </div>
+      </FocusLoop>
+    </Transition>
+
+    <Dialog
+      ref="logoutDialog"
+      class="logout-dialog"
+      :label="$t('general.sign-out')"
+      @close="triggerRef?.focusElement()"
+    >
+      <p>{{ $t('general.sign-out-confirm') }}</p>
+      <Button
+        :label="$t('general.sign-out')"
+        icon="hugeicons:logout-02"
+        variant="danger"
+        @click="handleLogout"
+      />
+    </Dialog>
+  </div>
+</template>
+
+<style>
+.user-menu-wrapper {
+  height: var(--app-header-height);
+  display: grid;
+  place-content: center;
+  position: relative;
+
+  > .button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.user-menu-popover {
+  z-index: 9;
+  position: absolute;
+  top: calc(1px + var(--app-header-height));
+  right: 0;
+  transform-origin: center 0;
+
+  .user-menu-content {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: var(--shadow-2);
+    border: 1px solid var(--color-card-border);
+    border-block-start: none;
+    background-color: var(--color-card-bg);
+  }
+
+  .user-info-wrapper {
+    padding-block: 1rem 0.75rem;
+    padding-inline: 1rem;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .user-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+  }
+
+  .user-email {
+    color: var(--color-grey-text);
+    font-size: var(--font-size-xs);
+  }
+
+  .theme-select-wrapper {
+    padding: 1rem;
+  }
+
+  .language-select-wrapper {
+    padding: 1rem;
+
+    .language-options-list {
+      width: 100%;
+    }
+  }
+}
+
+.logout-dialog {
+  .dialog-content {
+    p {
+      margin-block-start: 0;
+      margin-block-end: 1.5rem;
+    }
+  }
+}
+</style>

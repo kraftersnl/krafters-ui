@@ -3,7 +3,7 @@ const colorMode = useColorMode();
 </script>
 
 <template>
-  <div class="theme-select">
+  <div class="theme-select-wrapper">
     <fieldset class="color-theme-fieldset">
       <legend>
         {{ $t('theme.heading') }}
@@ -112,7 +112,6 @@ const colorMode = useColorMode();
       + label {
         outline: 2px solid var(--focus-color);
         outline-offset: 2px;
-        border-radius: var(--radius-xs);
       }
     }
 

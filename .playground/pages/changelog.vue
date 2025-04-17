@@ -7,13 +7,14 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.4.2" date="2025-04-16">
+    <!-- <ChangelogEntry v="1.4.2" date="2025-04-17">
       <ul>
+        <li>Add UserMenu component</li>
+        <li>Add Radio component</li>
         <li>
           Add block-start and block-end options to <code>position</code> prop
           for Dialog component
         </li>
-        <li>Add Radio component</li>
       </ul>
     </ChangelogEntry> -->
 
