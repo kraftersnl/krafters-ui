@@ -6,6 +6,7 @@ const multiSelection = ref<string | string[]>();
 const date = ref();
 const selectedCheckboxes = ref([]);
 const disabled = ref(false);
+const rangeValue = ref(6);
 const selectedRadio = ref();
 const raw = ref();
 
@@ -162,6 +163,16 @@ function handleSubmit(formData: FormData) {
           label="Radio buttons group"
           name="radio-group"
           style="--col-width: var(--col-width-50)"
+        />
+
+        <RangeInput
+          v-model="rangeValue"
+          :min="6"
+          :max="60"
+          :step="6"
+          label="Range Input"
+          class="demo-range-input"
+          show-ticks
         />
 
         <div class="button-group">

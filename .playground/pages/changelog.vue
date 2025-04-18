@@ -9,6 +9,7 @@ useHead({ title: 'Changelog' });
 
     <!-- <ChangelogEntry v="1.4.2" date="2025-04-17">
       <ul>
+        <li>Add RangeInput component</li>
         <li>Add UserMenu component</li>
         <li>Add Radio component</li>
         <li>
