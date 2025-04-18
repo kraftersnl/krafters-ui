@@ -577,7 +577,8 @@
 
   .select {
     &:focus-visible {
-      outline: 1px solid var(--focus-color);
+      outline: 2px solid var(--focus-color);
+      outline-offset: 2px;
       border-color: var(--focus-color);
     }
   }
@@ -585,7 +586,8 @@
   .input,
   .textarea {
     &:focus {
-      outline: 1px solid var(--focus-color);
+      outline: 2px solid var(--focus-color);
+      outline-offset: 2px;
       border-color: var(--focus-color);
     }
   }
