@@ -24,6 +24,8 @@ const {
 
 const range = computed(() => max - min);
 
+const ratio = computed(() => (model.value - min) / range.value);
+
 const ticksLength = computed(() => range.value / step + 1);
 
 const ticksList = computed(() =>
@@ -38,6 +40,7 @@ const ticksList = computed(() =>
       `--min: ${min}`,
       `--max: ${max}`,
       `--range: ${range}`,
+      `--ratio: ${ratio}`,
       `--val: ${model}`,
     ]"
   >
@@ -75,7 +78,9 @@ const ticksList = computed(() =>
       </span>
     </div>
 
-    <output v-if="showOutput" class="range-output">{{ model }}</output>
+    <output v-if="showOutput" class="range-output">
+      {{ model }}
+    </output>
   </div>
 </template>
 
@@ -110,7 +115,6 @@ input[type='range'] {
   margin: 0;
   width: var(--track-width);
 
-  --ratio: calc((var(--val) - var(--min)) / var(--range));
   --sx: calc(
     var(--thumb-width) / 2 + var(--ratio) * (100% - var(--thumb-width))
   );
@@ -249,7 +253,7 @@ input[type='range']:focus-visible {
     transform: translateX(-50%);
     border-radius: var(--radius-sm);
     color: var(--color-accent);
-    background-color: var(--color-accent-bg);
+    background-color: var(--track-bg-color);
 
     &::before {
       content: '';
@@ -257,10 +261,10 @@ input[type='range']:focus-visible {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      border-top: 5px solid transparent;
       border-bottom: 5px solid var(--track-bg-color);
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
+      border-top: 5px solid transparent;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
     }
   }
 

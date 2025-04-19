@@ -11,18 +11,7 @@ const dialogRef = useTemplateRef<DialogComponent>('logoutDialog');
 
 const showMenu = defineModel<boolean>();
 
-onMounted(() => window.addEventListener('click', handleWindowClick));
-onUnmounted(() => window.removeEventListener('click', handleWindowClick));
-
-function handleWindowClick(event: Event) {
-  const target = event.target as HTMLElement;
-  if (
-    !contentRef.value?.contains(target) &&
-    !triggerRef.value?.$el?.contains(target)
-  ) {
-    showMenu.value = false;
-  }
-}
+onClickOutside(contentRef, () => (showMenu.value = false));
 
 function toggleMenu() {
   showMenu.value = !showMenu.value;

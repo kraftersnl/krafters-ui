@@ -101,7 +101,7 @@ async function handleInput(event: Event) {
 
 function removeFile() {
   model.value = undefined;
-  imagePreview.value = undefined;
+  URL.revokeObjectUrl(imagePreview.value);
   fileInputRef.value?.focus();
 }
 

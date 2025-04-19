@@ -140,7 +140,8 @@ defineExpose({
   }
 
   .tabpanel {
-    padding-block-start: 1.5rem;
+    display: grid;
+    padding-block-start: 1rem;
   }
 }
 

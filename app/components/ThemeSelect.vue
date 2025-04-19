@@ -72,6 +72,7 @@ const colorMode = useColorMode();
     font-weight: var(--font-weight-regular);
     color: var(--color-grey-text);
     margin-block-end: 0.5rem;
+    user-select: none;
   }
 }
 
