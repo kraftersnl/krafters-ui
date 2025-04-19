@@ -3,10 +3,15 @@ useHead({ title: 'Form inputs' });
 
 const singleSelection = ref('');
 const multiSelection = ref<string | string[]>();
+const rangeValue = ref(6);
+const showTicks = ref(true);
+const showOutput = ref(false);
+const min = ref(6);
+const max = ref(60);
+const step = ref(6);
 const date = ref();
 const selectedCheckboxes = ref([]);
 const disabled = ref(false);
-const rangeValue = ref(6);
 const selectedRadio = ref();
 const raw = ref();
 
@@ -166,25 +171,80 @@ function handleSubmit(formData: FormData) {
         />
 
         <RangeInput
-          v-model="rangeValue"
-          :min="6"
-          :max="60"
-          :step="6"
+          v-model.number="rangeValue"
+          :min="min"
+          :max="max"
+          :step="step"
           label="Range Input"
           class="demo-range-input"
-          show-ticks
+          :show-ticks="showTicks"
+          :show-output="showOutput"
         />
 
-        <div class="button-group">
-          <Button
-            type="submit"
-            icon="check"
-            :loading="disabled"
-            variant="primary"
-            label="Submit"
-          />
+        <div class="form-bottom-row">
+          <div class="button-group">
+            <Button
+              type="submit"
+              icon="check"
+              :loading="disabled"
+              variant="primary"
+              label="Submit"
+            />
 
-          <Button type="reset" label="Reset" :disabled="disabled" />
+            <Button type="reset" label="Reset" :disabled="disabled" />
+          </div>
+
+          <Popover
+            icon="solar:settings-bold"
+            :max-width="480"
+            class="range-input-props"
+          >
+            <div class="popover-settings-content">
+              <h2>RangeInput Props</h2>
+
+              <div class="props-wrapper">
+                <Input
+                  v-model.number="min"
+                  type="number"
+                  label="min"
+                  size="sm"
+                />
+                <Input
+                  v-model.number="max"
+                  type="number"
+                  label="max"
+                  size="sm"
+                />
+                <Input
+                  v-model.number="step"
+                  type="number"
+                  label="step"
+                  size="sm"
+                />
+
+                <Switch v-model="showTicks" label="showTicks" />
+
+                <Switch v-model="showOutput" label="showOutput" />
+
+                <Select
+                  v-model="multiselectSize"
+                  :options="multiselectSizes"
+                  label="size"
+                  size="sm"
+                />
+
+                <code
+                  >{{`<RangeInput
+                    :min="${min}"
+                    :max="${max}"
+                    :step="${step}"
+                    :show-ticks="${showTicks}"
+                    :show-output="${showOutput}"
+                  />`}}</code
+                >
+              </div>
+            </div>
+          </Popover>
         </div>
       </Form>
 
@@ -299,6 +359,11 @@ function handleSubmit(formData: FormData) {
 .demo-page.form-page {
   .button[type='submit'] {
     flex-basis: auto;
+  }
+
+  .form-bottom-row {
+    display: flex;
+    justify-content: space-between;
   }
 }
 

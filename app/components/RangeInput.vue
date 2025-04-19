@@ -13,6 +13,7 @@ const {
   max?: number;
   step?: number;
   showTicks?: boolean;
+  showOutput?: boolean;
   hideLabel?: boolean;
   disabled?: boolean;
   required?: boolean;
@@ -44,7 +45,7 @@ const ticksList = computed(() =>
       :for="id"
       :class="[hideLabel && 'visuallyhidden', disabled && 'disabled']"
     >
-      <span>{{ label }} ({{ model }})</span>
+      <span>{{ label }}</span>
 
       <Chip v-if="required" size="sm" :label="$t('form.required')" />
     </label>
@@ -73,6 +74,8 @@ const ticksList = computed(() =>
         {{ tick }}
       </span>
     </div>
+
+    <output v-if="showOutput" class="range-output">{{ model }}</output>
   </div>
 </template>
 
@@ -91,6 +94,7 @@ const ticksList = computed(() =>
   --track-height: 1rem;
   --track-width: 100%;
 
+  position: relative;
   width: var(--track-width);
 
   label {
@@ -191,26 +195,86 @@ input[type='range']:focus-visible {
 
 /* slider ticks */
 .range-input-ticks {
+  bottom: calc(0% - var(--track-height));
+  width: 100%;
   font-size: var(--font-size-xxxs);
-  color: var(--color-grey-text);
+  color: var(--color-accent-text);
   display: flex;
   justify-content: space-between;
   padding-inline: calc((var(--thumb-width) / 2) - 1px);
 
   .tick {
+    position: relative;
     display: flex;
     justify-content: center;
     width: 1px;
-    height: calc(var(--thumb-height) / 2);
-    line-height: calc(var(--thumb-height) * 2);
-    margin-bottom: calc(var(--thumb-height));
-    background-color: var(--color-accent-bg);
     user-select: none;
+    margin-block-start: 0.5rem;
+
+    &::before {
+      position: absolute;
+      content: '';
+      bottom: 100%;
+      width: 1px;
+      height: 0.5rem;
+      background-color: var(--track-bg-color);
+    }
 
     &.active {
-      background-color: var(--thumb-color);
       font-weight: var(--font-weight-bold);
       color: var(--color-accent);
+
+      &::before {
+        background-color: var(--thumb-color);
+      }
+    }
+  }
+}
+
+/* slider output */
+.range-input-wrapper {
+  output {
+    --perc: calc((var(--val) - var(--min)) / var(--range));
+    --offset: calc((var(--thumb-width) / 2) - var(--thumb-width) * var(--perc));
+    --left: calc((var(--perc) * 100%) + var(--offset));
+
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    position: absolute;
+    left: var(--left);
+    padding-block: 0.125rem;
+    padding-inline: 0.25rem;
+    min-width: 1.5rem;
+    text-align: center;
+    transform: translateX(-50%);
+    border-radius: var(--radius-sm);
+    color: var(--color-accent);
+    background-color: var(--color-accent-bg);
+
+    &::before {
+      content: '';
+      bottom: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid var(--track-bg-color);
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+    }
+  }
+
+  &:has(.range-input-ticks) {
+    output {
+      bottom: -0.6rem;
+    }
+  }
+
+  &:not(:has(.range-input-ticks)) {
+    margin-block-end: 1.5rem;
+
+    output {
+      bottom: calc(-1 * var(--thumb-height) - 0.5rem);
     }
   }
 }
