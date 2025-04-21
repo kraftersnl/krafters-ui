@@ -6,12 +6,14 @@ const {
   max = 100,
   step = 1,
   id = useId(),
+  ticks,
 } = defineProps<{
   label: string;
   name?: string;
   min?: number;
   max?: number;
   step?: number;
+  ticks?: (number | { value: number; label: string })[];
   showTicks?: boolean;
   showOutput?: boolean;
   hideLabel?: boolean;
@@ -24,12 +26,14 @@ const {
 
 const range = computed(() => max - min);
 
-const ratio = computed(() => (model.value - min) / range.value);
+const ratio = computed(() => (Number(model.value) - min) / range.value);
 
 const ticksLength = computed(() => range.value / step + 1);
 
-const ticksList = computed(() =>
-  Array.from({ length: ticksLength.value }, (_, i) => i * step + min),
+const ticksList = computed(
+  () =>
+    ticks ??
+    Array.from({ length: ticksLength.value }, (_, i) => i * step + min),
 );
 </script>
 
@@ -71,10 +75,10 @@ const ticksList = computed(() =>
     <div v-if="showTicks" class="range-input-ticks" aria-hidden="true">
       <span
         v-for="tick in ticksList"
-        :key="tick"
-        :class="['tick', model === tick && 'active']"
+        :key="tick.value || tick"
+        :class="['tick', (model === tick.value || model === tick) && 'active']"
       >
-        {{ tick }}
+        {{ tick.label || tick }}
       </span>
     </div>
 

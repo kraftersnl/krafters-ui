@@ -49,8 +49,6 @@ const {
 
 <style>
 .checkboxes-wrapper {
-  margin-block-end: 0.5rem;
-
   legend {
     font-size: var(--font-size-md);
     margin-block-end: 1rem;

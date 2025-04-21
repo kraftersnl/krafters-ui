@@ -283,6 +283,10 @@
   color: var(--color-text);
 }
 
+:where(main) {
+  container-type: inline-size;
+}
+
 :where(img) {
   word-break: break-all;
   font-style: italic;

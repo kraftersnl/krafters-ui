@@ -10,6 +10,7 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
   labelKey?: string;
   titleKey?: string;
   hideLegend?: boolean;
+  inline?: boolean;
 }>();
 </script>
 
@@ -21,7 +22,7 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
           {{ label }}
         </legend>
 
-        <ul role="list" class="radio-list">
+        <ul role="list" :class="['radio-list', inline && 'inline']">
           <li v-for="option in options" :key="'radio-' + option.value">
             <Radio
               v-model="model"
@@ -42,8 +43,6 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
 
 <style>
 .radios-wrapper {
-  margin-block-end: 0.5rem;
-
   legend {
     font-size: var(--font-size-md);
     margin-block-end: 1rem;
@@ -52,6 +51,13 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
   .radio-list {
     display: grid;
     gap: 0.5rem;
+
+    &.inline {
+      display: flex;
+      flex-wrap: Wrap;
+      row-gap: 0.5rem;
+      column-gap: 1rem;
+    }
   }
 }
 </style>
