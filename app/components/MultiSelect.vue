@@ -30,6 +30,7 @@ const {
   required?: boolean;
   autofocus?: boolean;
   showInvalid?: boolean;
+  showOptionIcons?: boolean;
   tabindex?: string;
   valueKey?: string;
   labelKey?: string;
@@ -75,6 +76,7 @@ onMounted(() => {
       'krafters-multiselect',
       `multi-select-size--${size}`,
       showInvalid && 'show-invalid',
+      showOptionIcons && 'show-option-icons',
     ]"
   >
     <label
@@ -357,6 +359,44 @@ onMounted(() => {
 
 .multiselect.is-active.is-open {
   box-shadow: none;
+}
+
+.show-option-icons {
+  .multiselect-option {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    &::after {
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+      width: 1em;
+      height: 1em;
+      color: var(--ms-option-bg-pointed);
+      background-color: var(--ms-option-color-pointed);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+    }
+    &:hover::after {
+      content: '';
+      mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M10 3a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H4a1 1 0 1 1 0-2h5V4a1 1 0 0 1 1-1" clip-rule="evenodd"/></svg>');
+    }
+
+    &.is-selected {
+      &::after {
+        content: '';
+        color: var(--ms-option-bg-selected-pointed);
+        background-color: var(--ms-option-color-selected-pointed);
+        mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L8 12.586l7.293-7.293a1 1 0 0 1 1.414 0" clip-rule="evenodd"/></svg>');
+      }
+
+      &:hover::after {
+        content: '';
+        mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M4.293 4.293a1 1 0 0 1 1.414 0L10 8.586l4.293-4.293a1 1 0 1 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L8.586 10L4.293 5.707a1 1 0 0 1 0-1.414" clip-rule="evenodd"/></svg>');
+      }
+    }
+  }
 }
 
 .show-invalid .krafters-multiselect:has(:invalid) {
