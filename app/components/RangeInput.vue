@@ -72,19 +72,24 @@ const ticksList = computed(
       type="range"
     />
 
-    <div v-if="showTicks" class="range-input-ticks" aria-hidden="true">
-      <span
-        v-for="tick in ticksList"
-        :key="tick.value || tick"
-        :class="['tick', (model === tick.value || model === tick) && 'active']"
-      >
-        {{ tick.label || tick }}
-      </span>
-    </div>
+    <ClientOnly>
+      <div v-if="showTicks" class="range-input-ticks" aria-hidden="true">
+        <span
+          v-for="tick in ticksList"
+          :key="tick.value || tick"
+          :class="[
+            'tick',
+            (model === tick.value || model === tick) && 'active',
+          ]"
+        >
+          {{ tick.label || tick }}
+        </span>
+      </div>
 
-    <output v-if="showOutput" class="range-output">
-      {{ model }}
-    </output>
+      <output v-if="showOutput" class="range-output">
+        {{ model }}
+      </output>
+    </ClientOnly>
   </div>
 </template>
 
