@@ -281,6 +281,7 @@
   line-height: var(--line-height, 1.5);
   overflow-wrap: break-word;
   color: var(--color-text);
+  scrollbar-gutter: stable;
 }
 
 :where(main) {
