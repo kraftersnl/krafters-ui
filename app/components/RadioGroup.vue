@@ -5,6 +5,7 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
   options: any[];
   label: string;
   name?: string;
+  tooltip?: string;
   tabindex?: string;
   valueKey?: string;
   labelKey?: string;
@@ -18,9 +19,12 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
   <div class="radios-wrapper">
     <template v-if="options?.length">
       <fieldset v-if="label">
-        <legend :class="[hideLegend && 'visuallyhidden']">
-          {{ label }}
-        </legend>
+        <div class="legend-wrapper">
+          <legend :class="[hideLegend && 'visuallyhidden']">
+            {{ label }}
+          </legend>
+          <Tooltip v-if="tooltip" label="legend">{{ tooltip }}</Tooltip>
+        </div>
 
         <ul role="list" :class="['radio-list', inline && 'inline']">
           <li v-for="option in options" :key="'radio-' + option.value">
@@ -43,9 +47,15 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
 
 <style>
 .radios-wrapper {
+  .legend-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-block-end: 1rem;
+  }
+
   legend {
     font-size: var(--font-size-md);
-    margin-block-end: 1rem;
   }
 
   .radio-list {

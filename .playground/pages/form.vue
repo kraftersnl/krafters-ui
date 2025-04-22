@@ -11,6 +11,7 @@ const max = ref(60);
 const step = ref(6);
 const date = ref();
 const selectedCheckboxes = ref([]);
+const showOptionIcons = ref(true);
 const disabled = ref(false);
 const selectedRadio = ref();
 const raw = ref();
@@ -49,7 +50,7 @@ const multiSelectOptions = [
   },
   {
     id: 'option-3',
-    name: 'The longest text option 3',
+    name: 'The longest text option 3 The longest text option 3 with way more tet that can possible fit anywhere in this drop dead gorgeous UI',
   },
 ];
 
@@ -288,10 +289,13 @@ function handleSubmit(formData: FormData) {
                   size="sm"
                 />
 
+                <Switch v-model="showOptionIcons" label="showOptionIcons" />
+
                 <code
                   >{{`<MultiSelect
                     mode="${multiselectMode}"
                     size="${multiselectSize}"
+                    show-option-icons="${showOptionIcons}"
                   />`}}</code
                 >
               </div>
@@ -312,6 +316,7 @@ function handleSubmit(formData: FormData) {
 
         <MultiSelect
           v-model="multiSelection"
+          :show-option-icons="showOptionIcons"
           searchable
           create-option
           :options="multiSelectOptions"
