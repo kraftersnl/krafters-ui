@@ -208,7 +208,6 @@ input[type='range']:focus-visible {
 
 /* slider ticks */
 .range-input-ticks {
-  bottom: calc(0% - var(--track-height));
   width: 100%;
   font-size: var(--font-size-xxxs);
   color: var(--color-accent-text);
@@ -220,13 +219,14 @@ input[type='range']:focus-visible {
     position: relative;
     display: flex;
     justify-content: center;
-    width: 1px;
+    width: 2px;
     user-select: none;
+    margin-block-end: 0.1rem;
     margin-block-start: 0.5rem;
 
     &::before {
-      position: absolute;
       content: '';
+      position: absolute;
       bottom: 100%;
       width: 1px;
       height: 0.5rem;

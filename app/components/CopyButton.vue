@@ -4,7 +4,7 @@ const {
   hideLabel = true,
   iconSize = 'lg',
 } = defineProps<{
-  text?: string;
+  text?: string | number;
   hideLabel?: boolean;
   variant?: ButtonVariant;
   color?: ButtonColor;
