@@ -253,6 +253,7 @@ input[type='range']:focus-visible {
 
     z-index: 1;
     position: absolute;
+    top: calc(100% + 0.5rem);
     left: var(--left);
     padding-block: 0.125rem;
     padding-inline: 0.25rem;
@@ -280,14 +281,11 @@ input[type='range']:focus-visible {
 
   &:has(.range-input-ticks) {
     output {
-      bottom: -0.6rem;
+      top: calc(100% - 1rem);
     }
   }
 
   &:not(:has(.range-input-ticks)) {
-    output {
-      bottom: calc(-1 * var(--thumb-height) - 0.6rem);
-    }
     &:has(output) {
       margin-block-end: 1.5rem;
     }
