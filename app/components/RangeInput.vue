@@ -251,8 +251,7 @@ input[type='range']:focus-visible {
     --offset: calc((var(--thumb-width) / 2) - var(--thumb-width) * var(--perc));
     --left: calc((var(--perc) * 100%) + var(--offset));
 
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
+    z-index: 1;
     position: absolute;
     left: var(--left);
     padding-block: 0.125rem;
@@ -260,6 +259,8 @@ input[type='range']:focus-visible {
     min-width: 1.5rem;
     text-align: center;
     transform: translateX(-50%);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
     border-radius: var(--radius-sm);
     color: var(--color-accent);
     background-color: var(--track-bg-color);
@@ -284,10 +285,11 @@ input[type='range']:focus-visible {
   }
 
   &:not(:has(.range-input-ticks)) {
-    margin-block-end: 1.5rem;
-
     output {
-      bottom: calc(-1 * var(--thumb-height) - 0.5rem);
+      bottom: calc(-1 * var(--thumb-height) - 0.6rem);
+    }
+    &:has(output) {
+      margin-block-end: 1.5rem;
     }
   }
 }
