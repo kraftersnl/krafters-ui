@@ -316,18 +316,13 @@ onMounted(() => {
   .multiselect-multiple-label,
   .multiselect-placeholder,
   .multiselect-single-label {
-    /* padding-right: calc(0.5rem + var(--ms-px, 0.875rem) * 3); */
-
     line-height: var(--height);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     display: block;
-
-    /* display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    line-clamp: 1; */
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   .tag-wrapper {
@@ -361,6 +356,11 @@ onMounted(() => {
   box-shadow: none;
 }
 
+.multiselect-option {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .show-option-icons {
   .multiselect-option {
     display: flex;
@@ -378,7 +378,8 @@ onMounted(() => {
       mask-size: contain;
       mask-repeat: no-repeat;
     }
-    &:hover::after {
+
+    &:not(.is-disabled):hover::after {
       content: '';
       mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M10 3a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H4a1 1 0 1 1 0-2h5V4a1 1 0 0 1 1-1" clip-rule="evenodd"/></svg>');
     }
@@ -391,7 +392,12 @@ onMounted(() => {
         mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L8 12.586l7.293-7.293a1 1 0 0 1 1.414 0" clip-rule="evenodd"/></svg>');
       }
 
-      &:hover::after {
+      &.is-disabled::after {
+        color: var(--ms-option-bg-selected-disabled);
+        background-color: var(--ms-option-color-selected-disabled);
+      }
+
+      &:not(.is-disabled):hover::after {
         content: '';
         mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M4.293 4.293a1 1 0 0 1 1.414 0L10 8.586l4.293-4.293a1 1 0 1 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L8.586 10L4.293 5.707a1 1 0 0 1 0-1.414" clip-rule="evenodd"/></svg>');
       }
