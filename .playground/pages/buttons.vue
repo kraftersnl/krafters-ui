@@ -36,7 +36,7 @@ useHead({ title: 'Buttons & Links' });
       </p>
     </blockquote>
 
-    <p class="bold mbe-2">If you set the <code>to</code> or <code>href</code> prop, this component will be rendered as a <code>{{`<NuxtLink>`}}</code> component.</p>
+    <p class="bold mbe-2">If you set the <code>to</code> or <code>href</code> prop, the <code>{{`<Button>`}}</code> component will be rendered as a <code>{{`<NuxtLink>`}}</code> component.</p>
 
     <Card>
       <h2>Variants</h2>

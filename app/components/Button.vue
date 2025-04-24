@@ -77,7 +77,7 @@ const emit = defineEmits<{
       `icon-position--${iconPos}`,
       hideLabel && 'button--icon-only',
       loading && 'button--loading',
-      (loading || disabled) && 'link--disabled',
+      (loading || disabled) && 'disabled',
     ]"
     :style="computedStyle"
     :title="
@@ -153,12 +153,10 @@ const emit = defineEmits<{
     outline-color: var(--focus-color);
   }
 
-  &[disabled] {
+  &[disabled],
+  &.disabled {
+    pointer-events: none;
     cursor: default;
-    opacity: 35%;
-  }
-
-  &.link--disabled {
     opacity: 35%;
   }
 
@@ -258,7 +256,7 @@ const emit = defineEmits<{
   background-color: var(--color-accent);
   white-space: nowrap;
 
-  &:not(:disabled):hover {
+  &:not(:disabled, .disabled):hover {
     background-color: color-mix(
       in srgb,
       var(--color-accent) 90%,
@@ -272,7 +270,7 @@ const emit = defineEmits<{
   background-color: var(--color-red-bg);
   white-space: nowrap;
 
-  &:not(:disabled):hover {
+  &:not(:disabled, .disabled):hover {
     color: var(--color-red-bg);
     background-color: var(--color-red-text);
   }
@@ -282,7 +280,7 @@ const emit = defineEmits<{
   color: var(--color-white);
   background-color: var(--color-purple);
 
-  &:not(:disabled):hover {
+  &:not(:disabled, .disabled):hover {
     background-color: color-mix(
       in srgb,
       var(--color-purple) 90%,
@@ -296,7 +294,7 @@ const emit = defineEmits<{
   background-color: var(--color-green);
   white-space: nowrap;
 
-  &:not(:disabled):hover {
+  &:not(:disabled, .disabled):hover {
     background-color: color-mix(
       in srgb,
       var(--color-green) 85%,
@@ -310,7 +308,7 @@ const emit = defineEmits<{
   background-color: var(--color-blue-text);
   white-space: nowrap;
 
-  &:not(:disabled):hover {
+  &:not(:disabled, .disabled):hover {
     background-color: color-mix(
       in srgb,
       var(--color-blue-text) 85%,
@@ -324,7 +322,7 @@ const emit = defineEmits<{
   background-color: var(--color-grey-bg);
   white-space: nowrap;
 
-  &:not(:disabled):hover {
+  &:not(:disabled, .disabled):hover {
     background-color: color-mix(
       in srgb,
       var(--color-grey-bg) 95%,
@@ -338,7 +336,7 @@ const emit = defineEmits<{
   background-color: transparent;
   white-space: nowrap;
 
-  &:not(:disabled):hover {
+  &:not(:disabled, .disabled):hover {
     background-color: var(--color-grey-bg);
   }
 
@@ -411,7 +409,7 @@ const emit = defineEmits<{
     }
   }
 
-  &:not(:disabled):hover {
+  &:not(:disabled, .disabled):hover {
     color: var(--color-accent);
     background-color: var(--color-accent-bg);
 
@@ -443,7 +441,7 @@ const emit = defineEmits<{
     color: var(--color-grey-graphic);
   }
 
-  &:hover {
+  &:not(:disabled, .disabled):hover {
     text-decoration: underline;
 
     .iconify {
