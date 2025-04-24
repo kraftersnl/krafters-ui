@@ -83,6 +83,10 @@ const preview = computed(() => md.render(content));
     font-size: smaller;
   }
 
+  pre code.hljs {
+    display: inline-block;
+  }
+
   blockquote,
   pre,
   p,

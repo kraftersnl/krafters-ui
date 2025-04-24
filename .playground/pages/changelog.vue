@@ -7,7 +7,7 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.4.2" date="2025-04-25">
+    <ChangelogEntry v="1.4.2" date="2025-04-25">
       <ul>
         <li>Add RangeInput component</li>
         <li>Add UserMenu component</li>
@@ -28,7 +28,7 @@ useHead({ title: 'Changelog' });
           MultiSelect component
         </li>
       </ul>
-    </ChangelogEntry> -->
+    </ChangelogEntry>
 
     <ChangelogEntry v="1.4.1" date="2025-04-04">
       <ul>
