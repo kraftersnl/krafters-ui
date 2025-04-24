@@ -18,12 +18,10 @@ describe('Tooltip', async () => {
     const button = wrapper.find('[type="button"]');
 
     expect(button.attributes('aria-expanded')).toBe('false');
-    expect(button.attributes('aria-controls')).toBe(
-      'toggletip-content-test-id',
-    );
+    expect(button.attributes('aria-controls')).toBe('tooltip-content-test-id');
 
     await button?.trigger('click');
-    const content = wrapper.find('#toggletip-content-test-id');
+    const content = wrapper.find('#tooltip-content-test-id');
     expect(content.text()).toBe('Test slot');
     expect(button.attributes('aria-expanded')).toBe('true');
 

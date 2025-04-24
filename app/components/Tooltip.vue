@@ -66,7 +66,7 @@ function closeToggletip() {
 <template>
   <div
     ref="toggletipWrapper"
-    class="toggletip-wrapper"
+    class="tooltip-wrapper"
     aria-live="polite"
     @keyup.esc="closeToggletip"
   >

@@ -12,6 +12,8 @@ useHead({ title: 'Changelog' });
         <li>Add RangeInput component</li>
         <li>Add UserMenu component</li>
         <li>Add Radio component</li>
+        <li>Add <code>iconColor</code> prop to Tooltip component</li>
+        <li>Add <code>feature</code>, <code>permission</code>, <code>tooltip</code>, <code>tooltipIcon</code> and <code>tooltipLabel</code> keys to MenuItem type for MenuList component</li>
         <li>
           Add block-start and block-end options to <code>position</code> prop
           for Dialog component
