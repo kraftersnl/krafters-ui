@@ -8,7 +8,7 @@ const {
   iconPos = 'start',
   variant = 'secondary',
   size = 'md',
-  radius = 'md',
+  radius,
   type = 'button',
 } = defineProps<{
   label?: string;
@@ -32,7 +32,7 @@ const {
 }>();
 
 const computedStyle = computed(() => ({
-  '--radius': `var(--radius-${radius})`,
+  '--radius': radius && `var(--radius-${radius})`,
   '--font-size': fontSize && `var(--font-size-${fontSize})`,
   '--icon-size': iconSize && `var(--font-size-${iconSize})`,
 }));
@@ -132,7 +132,7 @@ const emit = defineEmits<{
 
 <style>
 .button {
-  border-radius: var(--radius);
+  border-radius: var(--radius, var(--radius-sm));
   -webkit-tap-highlight-color: transparent;
   position: relative;
   display: inline-flex;
@@ -433,10 +433,9 @@ const emit = defineEmits<{
 .button-variant--sidebar {
   display: flex;
   gap: 0.5rem;
-  width: 100%;
   font-weight: var(--font-weight-medium);
   justify-content: start;
-  padding-inline: 2rem;
+  padding-inline-start: 2rem;
   background-color: transparent;
   transition-duration: 0s;
 

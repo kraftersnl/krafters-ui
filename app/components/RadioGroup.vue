@@ -23,7 +23,10 @@ const { valueKey = 'value', labelKey = 'label' } = defineProps<{
           <legend :class="[hideLegend && 'visuallyhidden']">
             {{ label }}
           </legend>
-          <Tooltip v-if="tooltip" label="legend">{{ tooltip }}</Tooltip>
+
+          <Tooltip v-if="tooltip" :label="label" icon-color="accent-text">
+            {{ tooltip }}
+          </Tooltip>
         </div>
 
         <ul role="list" :class="['radio-list', inline && 'inline']">

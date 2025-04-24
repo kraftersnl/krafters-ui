@@ -6,6 +6,7 @@ import 'tippy.js/animations/shift-toward.css';
 const {
   fontSize,
   iconSize,
+  iconColor,
   placement = 'auto',
   trigger = 'click',
   hideLabel = true,
@@ -17,6 +18,7 @@ const {
   label?: string;
   fontSize?: string;
   iconSize?: string;
+  iconColor?: string;
   trigger?: string;
   interactive?: boolean;
   hideOnClick?: boolean | 'toggle';
@@ -32,6 +34,7 @@ const {
 const computedStyle = computed(() => ({
   '--font-size': fontSize && `var(--font-size-${fontSize})`,
   '--icon-size': iconSize && `var(--font-size-${iconSize})`,
+  '--icon-color': iconColor && `var(--color-${iconColor})`,
 }));
 
 const isExpanded = ref(false);
@@ -173,6 +176,7 @@ function closeToggletip() {
   }
 
   .iconify {
+    color: var(--icon-color, inherit);
     font-size: var(--icon-size, inherit);
     transition: color var(--duration-sm);
   }
