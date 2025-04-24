@@ -154,7 +154,8 @@ useHead({ title: 'Buttons & Links' });
       <h2>States</h2>
       <div class="flex-wrapper">
         <Button size="lg" loading label="Loading" />
-        <Button size="lg" disabled label="Disabled" />
+        <Button size="lg" disabled label="Disabled button" />
+        <Button size="lg" to="https://www.krafters.nl" target="_blank" disabled label="Disabled link" />
         <CopyButton size="lg" text="Demo Text" />
       </div>
     </Card>

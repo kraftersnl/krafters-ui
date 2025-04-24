@@ -66,8 +66,7 @@ const emit = defineEmits<{
   <NuxtLink
     v-if="to || href"
     ref="button"
-    :to="to"
-    :href="href"
+    :to="disabled ? undefined : to || href"
     :target="target"
     :external="external"
     :class="[
@@ -77,8 +76,9 @@ const emit = defineEmits<{
       `icon-position--${iconPos}`,
       hideLabel && 'button--icon-only',
       loading && 'button--loading',
-      (loading || disabled) && 'button--disabled',
+      (loading || disabled) && 'link--disabled',
     ]"
+    :tabindex="loading || disabled ? '-1' : undefined"
     :style="computedStyle"
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined
@@ -157,7 +157,7 @@ const emit = defineEmits<{
     opacity: 35%;
   }
 
-  &.button--disabled {
+  &.link--disabled {
     pointer-events: none;
     opacity: 35%;
   }
