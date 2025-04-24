@@ -30,6 +30,11 @@ declare global {
     title?: string;
     href?: string;
     size?: string;
+    permission?: string;
+    feature?: string;
+    tooltip?: string;
+    tooltipIcon?: string;
+    tooltipLabel?: string;
     disabled?: boolean;
     loading?: boolean;
     divider?: boolean;

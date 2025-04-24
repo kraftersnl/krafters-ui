@@ -73,6 +73,8 @@ const emit = defineEmits<{
           @click="handleClick(item)"
         />
 
+        <slot v-bind="{ item }" />
+
         <hr v-if="item.divider" />
       </li>
     </ul>
@@ -137,13 +139,22 @@ const emit = defineEmits<{
   }
 }
 
-.menu-list {
-  min-width: 200px;
+.menu-list-item:has(.disabled-tooltip) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-  .button {
+.menu-list-item {
+  > .button {
     --radius: 0 !important;
     outline-offset: -2px;
   }
+}
+
+.menu-list {
+  min-width: 200px;
 
   .menu-list-item:last-of-type {
     .button-variant--menu {

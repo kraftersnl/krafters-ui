@@ -634,6 +634,14 @@
   color: var(--color-text);
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-popover-border);
+
+  --arrow-color: var(--color-card-bg);
+}
+
+.dark-mode {
+  .tippy-box[data-theme~='krafters'] {
+    --arrow-color: var(--color-card-border);
+  }
 }
 
 [data-theme~='krafters'] .tippy-content {
@@ -644,22 +652,26 @@
 
 .tippy-box[data-theme~='krafters'][data-placement^='top']
   > .tippy-arrow::before {
-  border-block-start-color: var(--color-card-bg);
+  border-block-start-color: var(--arrow-color);
+  bottom: -8px;
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='bottom']
   > .tippy-arrow:before {
-  border-block-end-color: var(--color-card-bg);
+  border-block-end-color: var(--arrow-color);
+  top: -8px;
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='left']
   > .tippy-arrow::before {
-  border-inline-start-color: var(--color-card-bg);
+  border-inline-start-color: var(--arrow-color);
+  right: -8px;
 }
 
 .tippy-box[data-theme~='krafters'][data-placement^='right']
   > .tippy-arrow::before {
-  border-inline-end-color: var(--color-card-bg);
+  border-inline-end-color: var(--arrow-color);
+  left: -8px;
 }
 
 .tippy-box[data-theme~='krafters'] > .tippy-backdrop {

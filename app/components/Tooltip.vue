@@ -82,15 +82,15 @@ function closeToggletip() {
         expanded: false,
       }"
       :aria-expanded="isExpanded"
-      :aria-controls="'toggletip-content-' + id"
+      :aria-controls="'tooltip-content-' + id"
       role=""
       tag="button"
       type="button"
       content-tag="div"
-      content-class="toggletip-content"
+      content-class="tooltip-content"
       theme="krafters"
       animation="shift-toward"
-      class="toggletip-trigger-button"
+      class="tooltip-trigger-button"
       :append-to="wrapperRef ?? undefined"
       :tabindex="tabindex"
       :title="title"
@@ -104,13 +104,13 @@ function closeToggletip() {
         <template v-else>
           <span
             v-if="label && hideLabel"
-            :id="'toggletip-label-' + id"
+            :id="'tooltip-label-' + id"
             class="visuallyhidden"
           >
             {{ $t('aria.more-info-about', { label }) }}
           </span>
 
-          <span v-else-if="label && !hideLabel" :id="'toggletip-label-' + id">
+          <span v-else-if="label && !hideLabel" :id="'tooltip-label-' + id">
             {{ label }}
             <span class="visuallyhidden">({{ $t('aria.more-info') }})</span>
           </span>
@@ -122,7 +122,7 @@ function closeToggletip() {
       </template>
 
       <template #content>
-        <div :id="'toggletip-content-' + id">
+        <div :id="'tooltip-content-' + id">
           <slot />
         </div>
       </template>
@@ -131,7 +131,7 @@ function closeToggletip() {
 </template>
 
 <style>
-.toggletip-content {
+.tooltip-content {
   padding-block: 1rem;
   padding-inline: 1.35rem;
 
@@ -145,7 +145,7 @@ function closeToggletip() {
   }
 }
 
-.toggletip-trigger-button {
+.tooltip-trigger-button {
   position: relative;
   display: flex;
   gap: 0.25rem;
