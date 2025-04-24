@@ -176,6 +176,7 @@ function closeToggletip() {
   }
 
   .iconify {
+    flex-shrink: 0;
     color: var(--icon-color, inherit);
     font-size: var(--icon-size, inherit);
     transition: color var(--duration-sm);
