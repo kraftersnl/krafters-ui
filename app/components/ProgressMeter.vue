@@ -5,6 +5,7 @@ const {
   max = 100,
   size = 'md',
   fontSize = 'sm',
+  color = 'accent',
   role = 'meter',
   id = useId(),
 } = defineProps<{
@@ -16,6 +17,7 @@ const {
   max?: number;
   size?: 'sm' | 'md' | 'lg';
   fontSize?: FontSize;
+  color?: 'accent' | 'green' | 'orange' | 'red';
   role?: 'meter' | 'progressbar';
   id?: string;
 }>();
@@ -31,7 +33,7 @@ const width = computed(() => (value / (max - min)) * 100);
     :aria-valuemax="max"
     :aria-labelledby="id"
     :aria-busy="role === 'progressbar' && value < max"
-    class="progress-meter-wrapper"
+    :class="['progress-meter-wrapper', `progress-meter-color--${color}`]"
     :style="`--font-size: var(--font-size-${fontSize})`"
   >
     <div :id="id" :class="['meter-label', hideLabel && 'visuallyhidden']">
@@ -69,7 +71,7 @@ const width = computed(() => (value / (max - min)) * 100);
   .meter {
     grid-column: span 2;
     position: relative;
-    background-color: var(--color-accent-bg);
+    background-color: var(--progress-stroke-bg);
     border-radius: var(--radius-full);
     overflow: hidden;
     display: block;
@@ -79,7 +81,7 @@ const width = computed(() => (value / (max - min)) * 100);
     &::after {
       content: '';
       height: 100%;
-      background-color: var(--color-accent);
+      background-color: var(--progress-stroke-color);
       position: absolute;
       inset: 0;
       width: var(--width);
@@ -98,5 +100,29 @@ const width = computed(() => (value / (max - min)) * 100);
 
 .meter-size--lg {
   height: 1rem;
+}
+
+.progress-meter-color--accent {
+  --progress-label-color: var(--color-accent);
+  --progress-stroke-color: var(--color-accent);
+  --progress-stroke-bg: var(--color-accent-bg);
+}
+
+.progress-meter-color--green {
+  --progress-label-color: var(--color-green-text);
+  --progress-stroke-color: var(--color-green);
+  --progress-stroke-bg: var(--color-green-bg);
+}
+
+.progress-meter-color--orange {
+  --progress-label-color: var(--color-orange-text);
+  --progress-stroke-color: var(--color-orange);
+  --progress-stroke-bg: var(--color-orange-bg);
+}
+
+.progress-meter-color--red {
+  --progress-label-color: var(--color-red-text);
+  --progress-stroke-color: var(--color-red);
+  --progress-stroke-bg: var(--color-red-bg);
 }
 </style>

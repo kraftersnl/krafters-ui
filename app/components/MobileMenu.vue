@@ -187,7 +187,10 @@ body:has(.mobile-dialog[open]) {
   }
 
   .dialog-content {
-    padding-block: 2rem;
+    padding-block: 1.5rem;
+    display: grid;
+    min-height: 100svh;
+    align-content: start;
   }
 
   .nav-label {

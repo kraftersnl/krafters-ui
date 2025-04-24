@@ -17,6 +17,7 @@ const {
   to?: RouteLocationRaw;
   href?: string;
   target?: string;
+  title?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
   fontSize?: FontSize;
@@ -113,6 +114,7 @@ const emit = defineEmits<{
       loading && 'button--loading',
     ]"
     :style="computedStyle"
+    :title="disabled ? undefined : title"
     @click="handleClick"
   >
     <slot name="icon" />
