@@ -5,7 +5,7 @@ const { id = useId() } = defineProps<{
   label: string;
   name?: string;
   value?: string;
-  required?: boolean;
+  disabled?: boolean;
   id?: string;
 }>();
 
@@ -21,6 +21,7 @@ function handleClick() {
     role="switch"
     class="switch-button"
     :aria-checked="model"
+    :disabled="disabled"
     :value="String(model)"
     @click="handleClick"
   >
@@ -91,7 +92,6 @@ function handleClick() {
   }
 
   &:disabled {
-    pointer-events: none;
     opacity: 0.35;
   }
 

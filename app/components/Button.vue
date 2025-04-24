@@ -159,7 +159,6 @@ const emit = defineEmits<{
   }
 
   &.link--disabled {
-    pointer-events: none;
     opacity: 35%;
   }
 
