@@ -8,12 +8,16 @@ const popoverActions = [
     id: 'edit',
     label: t('general.edit'),
     icon: 'pencil',
+    disabled: true,
+    tooltip: 'Tooltip content to explain why the option is disabled.',
   },
   {
     id: 'duplicate',
     label: t('general.duplicate'),
     icon: 'duplicate',
     divider: true,
+    disabled: true,
+    tooltip: 'Tooltip content to explain why the option is disabled.',
   },
   {
     id: 'delete',
@@ -186,7 +190,13 @@ const popoverActions = [
             button-variant="secondary"
             :max-width="480"
             :list="popoverActions"
-          />
+          >
+            <template #menu-list-item="{ item }">
+              <MenuListTooltip :item="item">
+                {{ item.tooltip }}
+              </MenuListTooltip>
+            </template>
+          </Popover>
 
           <Popover
             icon="hugeicons:popcorn"

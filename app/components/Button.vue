@@ -78,7 +78,6 @@ const emit = defineEmits<{
       loading && 'button--loading',
       (loading || disabled) && 'link--disabled',
     ]"
-    :tabindex="loading || disabled ? '-1' : undefined"
     :style="computedStyle"
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined

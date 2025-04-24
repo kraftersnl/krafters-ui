@@ -7,10 +7,10 @@ const {
   text?: string | number;
   hideLabel?: boolean;
   variant?: ButtonVariant;
-  color?: ButtonColor;
   size?: ButtonSize;
-  iconSize?: IconSize;
-  iconPos?: IconPositions;
+  iconSize?: FontSize;
+  iconPos?: 'start' | 'end';
+  title?: string;
   disabled?: boolean;
 }>();
 
@@ -18,7 +18,7 @@ const copied = ref(false);
 
 async function handleClick() {
   if (!text) return;
-  await navigator.clipboard.writeText(text);
+  await navigator.clipboard.writeText(String(text));
   copied.value = true;
 }
 </script>
@@ -31,10 +31,10 @@ async function handleClick() {
     "
     :hide-label="hideLabel"
     :variant="variant"
-    :color="color"
     :size="size"
     :icon-size="iconSize"
     :icon-pos="iconPos"
+    :title="disabled ? undefined : title"
     :disabled="disabled"
     class="copy-button"
     aria-live="polite"

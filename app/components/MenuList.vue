@@ -73,7 +73,7 @@ const emit = defineEmits<{
           @click="handleClick(item)"
         />
 
-        <slot v-bind="{ item }" />
+        <slot name="menu-list-item" v-bind="{ item }" />
 
         <hr v-if="item.divider" />
       </li>
@@ -139,11 +139,12 @@ const emit = defineEmits<{
   }
 }
 
-.menu-list-item:has(.disabled-tooltip) {
-  display: flex;
+.menu-list-item:has(.menu-list-tooltip) {
+  /* display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: center; */
+  /* flex-direction: row-reverse; */
+  /* gap: 0.5rem; */
 }
 
 .menu-list-item {
@@ -155,6 +156,56 @@ const emit = defineEmits<{
 
 .menu-list {
   min-width: 200px;
+
+  &:has(.button-variant--sidebar) {
+    .menu-list-item:has(.menu-list-tooltip) {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row-reverse;
+      justify-content: start;
+      align-items: center;
+
+      .tooltip-trigger-button {
+        margin-inline-start: 2rem;
+      }
+
+      .button {
+        padding-inline-start: 0.5rem;
+
+        > .iconify {
+          display: none;
+        }
+      }
+
+      hr {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &:has(.button-variant--menu) {
+    .menu-list-item:has(.menu-list-tooltip) {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+
+      .tooltip-trigger-button {
+        margin-inline-end: 1.25rem;
+      }
+
+      .button {
+        flex-direction: row;
+
+        > .iconify {
+          display: none;
+        }
+      }
+
+      hr {
+        grid-column: span 2;
+      }
+    }
+  }
 
   .menu-list-item:last-of-type {
     .button-variant--menu {

@@ -162,7 +162,11 @@ const emit = defineEmits<{
             icon-size="lg"
             :aria-labelledby="'popover-label-' + id"
             @click="handleMenuClick($event, hide)"
-          />
+          >
+            <template #menu-list-item="{ item }">
+              <slot name="menu-list-item" :item="item" />
+            </template>
+          </MenuList>
 
           <slot name="content" v-bind="{ hide }" />
         </FocusLoop>
