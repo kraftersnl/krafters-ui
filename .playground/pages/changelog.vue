@@ -7,18 +7,26 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.4.2" date="2025-04-17">
+    <!-- <ChangelogEntry v="1.4.2" date="2025-04-25">
       <ul>
         <li>Add RangeInput component</li>
         <li>Add UserMenu component</li>
         <li>Add Radio component</li>
+        <li>Add MenuListTooltip component</li>
+        <li>
+          Add <code>menu-list-item</code> slot to MenuList and Popover
+          components
+        </li>
         <li>Add <code>iconColor</code> prop to Tooltip component</li>
-        <li>Add <code>feature</code>, <code>permission</code>, <code>tooltip</code>, <code>tooltipIcon</code> and <code>tooltipLabel</code> keys to MenuItem type for MenuList component</li>
+        <li>Add <code>color</code> prop to ProgressMeter component</li>
         <li>
           Add block-start and block-end options to <code>position</code> prop
           for Dialog component
         </li>
-        <li>Add <code>instruction</code> prop to MultiSelect component</li>
+        <li>
+          Add <code>instruction</code> and <code>showOptionIcons</code> props to
+          MultiSelect component
+        </li>
       </ul>
     </ChangelogEntry> -->
 

@@ -103,25 +103,21 @@ const width = computed(() => (value / (max - min)) * 100);
 }
 
 .progress-meter-color--accent {
-  --progress-label-color: var(--color-accent);
   --progress-stroke-color: var(--color-accent);
   --progress-stroke-bg: var(--color-accent-bg);
 }
 
 .progress-meter-color--green {
-  --progress-label-color: var(--color-green-text);
   --progress-stroke-color: var(--color-green);
   --progress-stroke-bg: var(--color-green-bg);
 }
 
 .progress-meter-color--orange {
-  --progress-label-color: var(--color-orange-text);
   --progress-stroke-color: var(--color-orange);
   --progress-stroke-bg: var(--color-orange-bg);
 }
 
 .progress-meter-color--red {
-  --progress-label-color: var(--color-red-text);
   --progress-stroke-color: var(--color-red);
   --progress-stroke-bg: var(--color-red-bg);
 }

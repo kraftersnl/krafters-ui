@@ -151,6 +151,7 @@ const emit = defineEmits<{
 
   &:focus-visible {
     outline-color: var(--focus-color);
+    text-decoration: none;
   }
 
   &[disabled],
@@ -299,20 +300,6 @@ const emit = defineEmits<{
       in srgb,
       var(--color-green) 85%,
       var(--color-black)
-    );
-  }
-}
-
-.button-variant--blue {
-  color: var(--color-white);
-  background-color: var(--color-blue-text);
-  white-space: nowrap;
-
-  &:not(:disabled, .disabled):hover {
-    background-color: color-mix(
-      in srgb,
-      var(--color-blue-text) 85%,
-      var(--color-white)
     );
   }
 }

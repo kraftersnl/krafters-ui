@@ -32,7 +32,7 @@ defineExpose({
 });
 
 const emit = defineEmits<{
-  submit: [value: string | number];
+  submit: [value?: string | number];
   reset: [value: string | number];
 }>();
 </script>

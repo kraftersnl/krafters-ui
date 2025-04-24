@@ -33,7 +33,7 @@ const computedStyle = computed(() => ({
 const md = markdownit({
   html: true,
   linkify: true,
-  highlight: (str, lang) => {
+  highlight: (str: string, lang: string) => {
     if (lang && hljs.getLanguage(lang)) {
       try {
         return (

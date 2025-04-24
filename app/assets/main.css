@@ -286,6 +286,7 @@
 
 :where(main) {
   container-type: inline-size;
+  scroll-margin-block: var(--app-header-height);
 }
 
 :where(img) {

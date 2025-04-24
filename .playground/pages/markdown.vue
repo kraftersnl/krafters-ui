@@ -84,10 +84,6 @@ const fontSizeOptions: { value: FontSize; label: string }[] = [
       <h2>Markdown Preview (old)</h2>
       <MarkdownPreviewOld :content="content" />
     </Card>
-
-    <!-- <Card>
-      <MarkdownKrafters v-model="content" label="Custom Markdown Editor" />
-    </Card> -->
   </div>
 </template>
 

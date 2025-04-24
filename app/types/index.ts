@@ -102,7 +102,6 @@ declare global {
     | 'link'
     | 'purple'
     | 'green'
-    | 'blue'
     | 'menu'
     | 'sidebar'
     | 'topbar';

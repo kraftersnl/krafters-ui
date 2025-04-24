@@ -139,14 +139,6 @@ const emit = defineEmits<{
   }
 }
 
-.menu-list-item:has(.menu-list-tooltip) {
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: center; */
-  /* flex-direction: row-reverse; */
-  /* gap: 0.5rem; */
-}
-
 .menu-list-item {
   > .button {
     --radius: 0 !important;
@@ -175,10 +167,6 @@ const emit = defineEmits<{
         > .iconify {
           display: none;
         }
-      }
-
-      hr {
-        grid-column: span 2;
       }
     }
   }
