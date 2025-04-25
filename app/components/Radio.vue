@@ -22,6 +22,7 @@ const { id = useId() } = defineProps<{
       :name="name"
       :value="value"
       :disabled="disabled"
+      :required="required"
       :tabindex="tabindex"
       type="radio"
     />
@@ -35,7 +36,7 @@ const { id = useId() } = defineProps<{
 
       <span v-if="label">{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form.required')" />
+      <!-- <Chip v-if="required" size="sm" :label="$t('form.required')" /> -->
     </label>
 
     <slot name="default" />

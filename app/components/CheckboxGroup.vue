@@ -50,6 +50,7 @@ const {
 <style>
 .checkboxes-wrapper {
   legend {
+    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-md);
     margin-block-end: 1rem;
   }
