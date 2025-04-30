@@ -129,11 +129,13 @@ const sizeOptions: { value: FontSize; label: string }[] = [
         <div class="chips-grid">
           <Chip :size="size" icon="check" label="Default" />
           <Chip :size="size" icon="check" label="Accent" color="accent" />
-          <Chip :size="size" icon="check" label="Blue" color="blue" />
-          <Chip :size="size" icon="check" label="Green" color="green" />
           <Chip :size="size" icon="check" label="Red" color="red" />
           <Chip :size="size" icon="check" label="Orange" color="orange" />
-          <Chip :size="size" icon="check" label="Yellow" color="yellow" />
+          <!-- <Chip :size="size" icon="check" label="Yellow" color="yellow" /> -->
+          <Chip :size="size" icon="check" label="Green" color="green" />
+          <Chip :size="size" icon="check" label="Blue" color="blue" />
+          <Chip :size="size" icon="check" label="Purple" color="purple" />
+          <Chip :size="size" icon="check" label="Pink" color="pink" />
         </div>
 
         <div class="chips-grid">
@@ -149,9 +151,23 @@ const sizeOptions: { value: FontSize; label: string }[] = [
             :size="size"
             icon="check"
             variant="outline"
-            label="Blue"
-            color="blue"
+            label="Red"
+            color="red"
           />
+          <Chip
+            :size="size"
+            icon="check"
+            variant="outline"
+            label="Orange"
+            color="orange"
+          />
+          <!-- <Chip
+            :size="size"
+            icon="check"
+            variant="outline"
+            label="Yellow"
+            color="yellow"
+          /> -->
           <Chip
             :size="size"
             icon="check"
@@ -163,22 +179,22 @@ const sizeOptions: { value: FontSize; label: string }[] = [
             :size="size"
             icon="check"
             variant="outline"
-            label="Red"
-            color="red"
+            label="Blue"
+            color="blue"
           />
           <Chip
             :size="size"
             icon="check"
             variant="outline"
-            label="Orange"
-            color="orange"
+            label="Purple"
+            color="purple"
           />
           <Chip
             :size="size"
             icon="check"
             variant="outline"
-            label="Yellow"
-            color="yellow"
+            label="Pink"
+            color="pink"
           />
         </div>
       </Card>
@@ -201,7 +217,9 @@ const sizeOptions: { value: FontSize; label: string }[] = [
         </Popover>
       </div>
 
-      <Ellipsis :lines="lines">{{ text }}</Ellipsis>
+      <Ellipsis :lines="lines" class="ellipsis-demo">
+        {{ text }}
+      </Ellipsis>
     </Card>
   </div>
 </template>
@@ -228,5 +246,9 @@ const sizeOptions: { value: FontSize; label: string }[] = [
   display: inline-grid;
   gap: 1rem;
   margin-inline-end: 1rem;
+}
+
+.ellipsis-demo {
+  color: var(--color-grey-text);
 }
 </style>

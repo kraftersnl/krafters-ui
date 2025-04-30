@@ -123,8 +123,8 @@ const popoverActions = [
             <li>Use a <code>button</code> element to trigger the toggletip.</li>
 
             <li>
-              The <code>button</code> has a clickable target area of at least
-              24px x 24px.
+              The trigger element has a clickable target area of at least 24px x
+              24px.
             </li>
 
             <li>
@@ -250,76 +250,6 @@ const popoverActions = [
           </ul>
         </div>
       </Card>
-
-      <DevOnly>
-        <Card>
-          <div class="text-content">
-            <div class="title-wrapper">
-              <h2>Menu Button</h2>
-              <Chip
-                label="In development"
-                size="sm"
-                variant="outline"
-                color="orange"
-              />
-            </div>
-            <p class="c-grey-text">
-              A
-              <Button
-                label="menu button"
-                to="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button"
-                variant="link"
-                target="_blank"
-                external
-              />
-              is a button that opens a menu, also referred to as popup or
-              overflow menu.
-            </p>
-          </div>
-
-          <div class="flex-wrapper">
-            <Popover
-              hide-label
-              size="lg"
-              :max-width="480"
-              :list="popoverActions"
-              button-variant="secondary"
-            />
-          </div>
-
-          <div class="text-content">
-            <h3>Accessibility requirements</h3>
-
-            <p>
-              The MenuButton component is an interative toggletip, typically
-              used in web applications. This component adds
-              <code>role="menu"</code>, <code>role="menu-item"</code> and
-              <code>aria-has-popup="true"</code> to the MenuList component
-              inside.
-            </p>
-
-            <ul class="a11y-list">
-              <li>
-                Use a <code>button</code> element to open or close the menu.
-              </li>
-
-              <li>
-                The trigger element has <code>aria-expanded</code> attribute.
-                The value should align with the open state of the toggletip.
-              </li>
-
-              <li>
-                The trigger element has an <code>aria-controls</code> attribute.
-                The value should refer to the ID of the menu.
-              </li>
-
-              <li>Keyboard focus is trapped inside the menu.</li>
-
-              <li>The menu can be closed with the <kbd>Escape</kbd> key.</li>
-            </ul>
-          </div>
-        </Card>
-      </DevOnly>
     </div>
   </div>
 </template>

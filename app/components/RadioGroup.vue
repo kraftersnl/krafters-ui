@@ -24,15 +24,17 @@ const {
 <template>
   <div class="radios-wrapper">
     <fieldset v-if="options?.length">
-      <div v-if="label" class="legend-wrapper">
-        <legend :class="[hideLegend && 'visuallyhidden']">
-          {{ label }}
-        </legend>
-
-        <Tooltip v-if="tooltip" :label="label" icon-color="accent-text">
+      <legend v-if="label || tooltip" :class="[hideLegend && 'visuallyhidden']">
+        <Tooltip
+          v-if="tooltip"
+          :label="label"
+          :hide-label="false"
+          icon-color="accent-text"
+        >
           {{ tooltip }}
         </Tooltip>
-      </div>
+        <span v-else>{{ label }}</span>
+      </legend>
 
       <ul role="list" :class="['radio-list', inline && 'inline']">
         <li v-for="option in options" :key="'radio-' + option.value">
@@ -67,16 +69,17 @@ const {
 
 <style>
 .radios-wrapper {
-  .legend-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  legend {
     margin-block-end: 1rem;
   }
 
   legend {
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-md);
+
+    .tooltip-content {
+      font-weight: 400;
+    }
   }
 
   .radio-list {

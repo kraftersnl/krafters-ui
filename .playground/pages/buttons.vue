@@ -87,7 +87,7 @@ useHead({ title: 'Buttons & Links' });
       <h2>Icons</h2>
       <div class="flex-wrapper">
         <Button
-          icon="solar:cloud-upload-line-duotone"
+          icon="solar:cloud-download-line-duotone"
           icon-size="xl"
           label="Download"
           variant="primary"
@@ -111,14 +111,14 @@ useHead({ title: 'Buttons & Links' });
         <Button
           radius="full"
           size="xl"
-          icon="solar:cloud-upload-line-duotone"
+          icon="solar:cloud-download-line-duotone"
           label="Download"
         />
         <Button
           radius="full"
           size="xl"
           icon-size="xl"
-          icon="solar:cloud-upload-line-duotone"
+          icon="solar:cloud-download-line-duotone"
           hide-label
           label="Download"
         />
@@ -126,7 +126,7 @@ useHead({ title: 'Buttons & Links' });
           radius="md"
           size="xl"
           icon-size="xxl"
-          icon="solar:cloud-upload-line-duotone"
+          icon="solar:cloud-download-line-duotone"
           hide-label
           label="Download"
         />
@@ -134,7 +134,7 @@ useHead({ title: 'Buttons & Links' });
           radius="sm"
           size="lg"
           icon-size="xl"
-          icon="solar:cloud-upload-line-duotone"
+          icon="solar:cloud-download-line-duotone"
           hide-label
           label="Download"
         />
@@ -142,7 +142,7 @@ useHead({ title: 'Buttons & Links' });
           radius="xs"
           size="sm"
           icon-size="lg"
-          icon="solar:cloud-upload-line-duotone"
+          icon="solar:cloud-download-line-duotone"
           hide-label
           label="Download"
         />

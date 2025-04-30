@@ -92,7 +92,7 @@ const isAccordionOpen = ref(false);
           </li>
 
           <li>
-            When using the <code>{{ `<Accordion>` }}</code> component and the Accordion Panel contains focussable elements, you should set <code>tabindex="-1"</code> on these elements when they are hidden.
+            If the Accordion Panel contains focussable elements when using the <code>{{ `<Accordion>` }}</code> component, you should set <code>tabindex="-1"</code> on the focussable elements when they are hidden.
           </li>
         </ul>
       </Card>

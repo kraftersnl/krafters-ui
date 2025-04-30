@@ -79,11 +79,6 @@ const fontSizeOptions: { value: FontSize; label: string }[] = [
       <h2>Markdown Editor</h2>
       <MarkdownEditor v-model="content" label="Markdown Editor" hide-label />
     </Card>
-
-    <Card class="mbs-2">
-      <h2>Markdown Preview (old)</h2>
-      <MarkdownPreviewOld :content="content" />
-    </Card>
   </div>
 </template>
 

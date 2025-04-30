@@ -82,8 +82,8 @@ function playVideo() {
     <button v-if="!started" type="button" @click="playVideo">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="64"
-        height="64"
+        width="48"
+        height="48"
         viewBox="0 0 24 24"
       >
         <path
@@ -137,6 +137,7 @@ function playVideo() {
     place-content: center;
     border-radius: var(--radius-full);
     position: absolute;
+    padding: 0.25rem;
     cursor: pointer;
     scale: 0.94;
     transition: scale var(--duration-sm) ease-out;
