@@ -106,7 +106,6 @@
 }
 
 :where(:root) {
-  scroll-behavior: smooth;
   --duration-xs: 0.1s;
   --duration-sm: 0.2s;
   --duration-md: 0.35s;
@@ -115,7 +114,6 @@
   --duration-xxl: 2s;
 
   @media (prefers-reduced-motion: prefers-reduced-motion) {
-    scroll-behavior: auto;
     --duration-xs: 0s;
     --duration-sm: 0s;
     --duration-md: 0s;
