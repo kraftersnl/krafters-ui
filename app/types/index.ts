@@ -20,7 +20,7 @@ declare global {
   };
 
   type MenuItem = {
-    id: string;
+    id: string | number;
     label?: string;
     icon?: string;
     iconPos?: 'start' | 'end';
@@ -60,11 +60,13 @@ declare global {
   type BaseColor =
     | 'default'
     | 'accent'
-    | 'blue'
-    | 'green'
     | 'red'
     | 'orange'
-    | 'yellow';
+    | 'yellow'
+    | 'green'
+    | 'blue'
+    | 'purple'
+    | 'pink';
 
   type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'full';
 

@@ -131,7 +131,7 @@ const sizeOptions: { value: FontSize; label: string }[] = [
           <Chip :size="size" icon="check" label="Accent" color="accent" />
           <Chip :size="size" icon="check" label="Red" color="red" />
           <Chip :size="size" icon="check" label="Orange" color="orange" />
-          <!-- <Chip :size="size" icon="check" label="Yellow" color="yellow" /> -->
+          <Chip :size="size" icon="check" label="Yellow" color="yellow" />
           <Chip :size="size" icon="check" label="Green" color="green" />
           <Chip :size="size" icon="check" label="Blue" color="blue" />
           <Chip :size="size" icon="check" label="Purple" color="purple" />
@@ -161,13 +161,13 @@ const sizeOptions: { value: FontSize; label: string }[] = [
             label="Orange"
             color="orange"
           />
-          <!-- <Chip
+          <Chip
             :size="size"
             icon="check"
             variant="outline"
             label="Yellow"
             color="yellow"
-          /> -->
+          />
           <Chip
             :size="size"
             icon="check"

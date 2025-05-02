@@ -17,6 +17,7 @@ useHead({ title: 'Colors' });
       <h2>Neutral</h2>
       <div class="color-swatches-grid">
         <ColorSwatch color="white" />
+        <ColorSwatch color="bg" />
         <ColorSwatch color="grey-bg" />
         <ColorSwatch color="grey-graphic" />
         <ColorSwatch color="grey-text" />
@@ -32,6 +33,7 @@ useHead({ title: 'Colors' });
         <ColorSwatch color="green" />
         <ColorSwatch color="blue" />
         <ColorSwatch color="purple" />
+        <ColorSwatch color="pink" />
       </div>
 
       <h2>Base background</h2>
@@ -42,6 +44,7 @@ useHead({ title: 'Colors' });
         <ColorSwatch color="green-bg" />
         <ColorSwatch color="blue-bg" />
         <ColorSwatch color="purple-bg" />
+        <ColorSwatch color="pink-bg" />
       </div>
 
       <h2>Base text</h2>
@@ -52,6 +55,7 @@ useHead({ title: 'Colors' });
         <ColorSwatch color="green-text" />
         <ColorSwatch color="blue-text" />
         <ColorSwatch color="purple-text" />
+        <ColorSwatch color="pink-text" />
       </div>
     </Card>
   </div>

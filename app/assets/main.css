@@ -1,108 +1,108 @@
 /* Color design tokens */
 :where(.dark-mode) {
   --color-scheme: dark;
-  --color-white: #120817;
-  --color-black: #ffffff;
-  --color-text: #e7e0eb;
-  --color-grey-text: #aa91b6;
-  --color-grey-graphic: #8b7b93;
-  --color-grey-bg: #37293d;
 
-  --color-bg: #1c1320;
-  --color-card-bg: #120817;
-  --color-card-border: var(--color-grey-bg);
-  --color-popover-border: var(--color-grey-bg);
+  --color-accent: hsl(281 50% 70%);
+  --color-accent-bg: hsl(281 25% 20%);
+  --color-accent-text: hsl(281 50% 70%);
 
-  --color-purple: #c18cd9;
-  --color-purple-bg: #362a3c;
-  --color-purple-text: #d3b8e0;
+  --color-black: white;
+  --color-text: hsl(281 25% 90%);
+  --color-grey-text: hsl(281 20% 65%);
+  --color-grey-graphic: hsl(281 10% 50%);
+  --color-grey-bg: hsl(281 20% 20%);
+  --color-bg: hsl(281 25% 9%);
+  --color-card-bg: hsl(281 50% 6%);
+  --color-white: hsl(281 50% 6%);
 
-  --color-pink: #ff0055;
-  --color-pink-bg: #210810;
-  --color-pink-text: #e080a0;
+  --color-red: hsl(0 100% 60%);
+  --color-red-bg: hsl(0 100% 15%);
+  --color-red-text: hsl(0 100% 70%);
 
-  --color-green: #00a854;
-  --color-green-bg: #133927;
-  --color-green-text: #99ffca;
+  --color-orange: hsl(30 100% 50%);
+  --color-orange-bg: hsl(30 100% 15%);
+  --color-orange-text: hsl(30 100% 60%);
 
-  --color-orange: #ff8c00;
-  --color-orange-bg: #4d2a00;
-  --color-orange-text: #ffa333;
+  --color-yellow: hsl(60 60% 50%);
+  --color-yellow-bg: hsl(60 60% 50%);
+  --color-yellow-text: hsl(0 0% 0%);
 
-  --color-yellow: #f2f20d;
-  --color-yellow-bg: #ffff00;
-  --color-yellow-text: #161616;
+  --color-green: hsl(150 100% 33%);
+  --color-green-bg: hsl(150 50% 15%);
+  --color-green-text: hsl(150 100% 80%);
 
-  --color-red: #eb4747;
-  --color-red-bg: #570f0f;
-  --color-red-text: #ff7575;
+  --color-blue: hsl(220, 100%, 60%);
+  --color-blue-bg: hsl(240, 100%, 20%);
+  --color-blue-text: hsl(220, 100%, 80%);
 
-  --color-blue: #3333ff;
-  --color-blue-bg: #000080;
-  --color-blue-text: #b3b3ff;
+  --color-purple: hsl(280 100% 70%);
+  --color-purple-bg: hsl(280 100% 15%);
+  --color-purple-text: hsl(280 100% 70%);
+
+  --color-pink: hsl(320 100% 75%);
+  --color-pink-bg: hsl(320 100% 15%);
+  --color-pink-text: hsl(320 100% 75%);
 
   --rgb-app-nav: 0 0 0;
 
   --shadow-color: 282deg 42% 2%;
 
-  --color-input-bg: #121212;
-  --color-select-bg: #121212;
+  --color-input-bg: var(--color-bg);
+  --color-card-border: var(--color-grey-bg);
+  --color-popover-border: var(--color-grey-bg);
 }
 
 :where(.light-mode) {
   --color-scheme: light;
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-text: #161616;
-  --color-grey-text: #666666;
-  --color-grey-graphic: #808080;
-  --color-grey-bg: #e6e6e6;
 
-  --color-bg: #f6f4f7;
-  --color-card-bg: #ffffff;
-  --color-card-border: transparent;
-  --color-popover-border: transparent;
+  --color-accent: hsl(281 25% 40%);
+  --color-accent-bg: hsl(281 25% 90%);
+  --color-accent-text: hsl(281 25% 40%);
 
-  --color-purple: #654f6f;
-  --color-purple-bg: #e7e1ea;
-  --color-purple-text: #704d80;
+  --color-black: black;
+  --color-text: hsl(0 0% 9%);
+  --color-grey-text: hsl(0 0% 40%);
+  --color-grey-graphic: hsl(0 0% 50%);
+  --color-grey-bg: hsl(0 0% 90%);
+  --color-bg: hsl(281 16% 97%);
+  --color-card-bg: white;
+  --color-white: white;
 
-  --color-pink: #e6195d;
-  --color-pink-bg: #fad1df;
-  --color-pink-text: #b8144b;
+  --color-red: hsl(0 100% 60%);
+  --color-red-bg: hsl(0 100% 90%);
+  --color-red-text: hsl(0 90% 30%);
 
-  --color-green: #007a3d;
-  --color-green-bg: #d9f2e5;
-  --color-green-text: #074024;
+  --color-orange: hsl(30 100% 60%);
+  --color-orange-bg: hsl(30 100% 90%);
+  --color-orange-text: hsl(30 90% 30%);
 
-  --color-orange: #ff5c00;
-  --color-orange-bg: #ffdfcc;
-  --color-orange-text: #a04009;
+  --color-yellow: hsl(60 90% 50%);
+  --color-yellow-bg: hsl(60 90% 80%);
+  --color-yellow-text: hsl(60 25% 20%);
 
-  --color-yellow: #f2f20d;
-  --color-yellow-bg: #fafa9e;
-  --color-yellow-text: #161616;
+  --color-green: hsl(150 100% 24%);
+  --color-green-bg: hsl(150 49% 90%);
+  --color-green-text: hsl(150 80% 14%);
 
-  --color-red: #ce1a1a;
-  --color-red-bg: #ffcccc;
-  --color-red-text: #910808;
+  --color-blue: hsl(220 100% 50%);
+  --color-blue-bg: hsl(220 100% 93%);
+  --color-blue-text: hsl(220 100% 25%);
 
-  --color-blue: #0000ff;
-  --color-blue-bg: #ccccff;
-  --color-blue-text: #000080;
+  --color-purple: hsl(280 100% 40%);
+  --color-purple-bg: hsl(280 100% 94%);
+  --color-purple-text: hsl(280 50% 40%);
+
+  --color-pink: hsl(320 100% 70%);
+  --color-pink-bg: hsl(320 100% 93%);
+  --color-pink-text: hsl(320 70% 40%);
 
   --rgb-app-nav: 255 255 255;
 
   --shadow-color: 277deg 8% 60%;
 
-  --color-input-bg: white;
-  --color-select-bg: white;
-
-  .card,
-  .dialog {
-    --color-input-bg: white;
-    --color-select-bg: #eeeef1;
-  }
+  --color-input-bg: var(--color-bg);
+  --color-card-border: transparent;
+  --color-popover-border: transparent;
 }
 
 :where(:root) {
@@ -160,9 +160,6 @@
   --size-xxxs: 0.25rem; /* 4px */
 
   /* Utility design tokens */
-  --color-accent: var(--color-purple);
-  --color-accent-bg: var(--color-purple-bg);
-  --color-accent-text: var(--color-purple-text);
   --focus-color: var(--color-black);
 
   /* Shadow design token */
@@ -275,7 +272,7 @@
   margin: 0;
   min-height: 100svh;
   background-color: var(--color-bg);
-  font-family: var(--font-family, system-ui), sans-serif;
+  font-family: var(--font-family, system-ui);
   line-height: var(--line-height, 1.5);
   overflow-wrap: break-word;
   color: var(--color-text);
@@ -425,7 +422,7 @@
   background-color: var(--color-white);
   border-radius: var(--radius-sm);
   padding-inline: 0.35rem;
-  padding-block: 0.15rem 0.1rem;
+  padding-block: 0.1rem 0.15rem;
   border: 1px solid var(--color-grey-bg);
   box-shadow: inset 0 -2px 0 var(--color-grey-bg);
 
@@ -634,13 +631,7 @@
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-popover-border);
 
-  --arrow-color: var(--color-card-bg);
-}
-
-.dark-mode {
-  .tippy-box[data-theme~='krafters'] {
-    --arrow-color: var(--color-card-border);
-  }
+  --arrow-color: var(--color-card-border);
 }
 
 [data-theme~='krafters'] .tippy-content {

@@ -39,7 +39,7 @@ watch(
 
 .app-header {
   position: relative;
-  border-block-end: 1px solid var(--color-accent-bg);
+  border-block-end: 1px solid var(--color-grey-bg);
   background-color: rgb(var(--rgb-app-nav) / 75%);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -98,24 +98,6 @@ watch(
   .logo {
     font-size: var(--font-size-s);
     color: var(--color-accent-text);
-  }
-}
-
-.language-select {
-  padding: 1rem;
-  width: 100%;
-
-  .language-options-list {
-    width: 100%;
-  }
-}
-
-.theme-select {
-  padding: 1rem;
-  width: 100%;
-
-  .theme-options-list {
-    width: 100%;
   }
 }
 </style>

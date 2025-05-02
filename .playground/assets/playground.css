@@ -1,0 +1,15 @@
+.light-mode {
+  /* --color-accent: hsl(219 100% 49%);
+  --color-accent-bg: hsl(219 100% 93%);
+  --color-accent-text: hsl(219 100% 25%); */
+}
+
+.dark-mode {
+  /* --color-bg: hsl(219 0% 7%);
+  --color-card-bg: hsl(219 0% 4%);
+  --color-white: hsl(219 0% 4%); */
+
+  /* --color-accent: hsl(219 70% 70%);
+  --color-accent-bg: hsl(219 80% 12%);
+  --color-accent-text: hsl(219 39% 80%); */
+}

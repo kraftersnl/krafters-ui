@@ -7,6 +7,7 @@ const {
   step = 1,
   id = useId(),
   ticks,
+  variant = 'accent',
 } = defineProps<{
   label: string;
   name?: string;
@@ -22,6 +23,7 @@ const {
   ariaValuetext?: string;
   tabindex?: string;
   id?: string;
+  variant?: 'accent' | 'hue';
 }>();
 
 const range = computed(() => max - min);
@@ -39,13 +41,17 @@ const ticksList = computed(
 
 <template>
   <div
-    class="form-field-wrapper range-input-wrapper"
+    :class="[
+      'form-field-wrapper',
+      'range-input-wrapper',
+      `range-input-variant--${variant}`,
+    ]"
     :style="[
       `--min: ${min}`,
       `--max: ${max}`,
       `--range: ${range}`,
       `--ratio: ${ratio}`,
-      `--val: ${model}`,
+      `--value: ${model}`,
     ]"
   >
     <label
@@ -206,6 +212,21 @@ input[type='range']:focus-visible {
   }
 }
 
+.range-input-variant--hue input[type='range'] {
+  --track-height: 0.25rem;
+  --thumb-color: hsl(var(--value) 100% 65%);
+  --progress-gradient: linear-gradient(
+    to right,
+    #ff0000 0%,
+    #ffff00 16.667%,
+    #00ff00 33.333%,
+    #00ffff 50%,
+    #0000ff 66.667%,
+    #ff00ff 83.333%,
+    #ff0000 100%
+  );
+}
+
 /* slider ticks */
 .range-input-ticks {
   width: 100%;
@@ -247,7 +268,7 @@ input[type='range']:focus-visible {
 /* slider output */
 .range-input-wrapper {
   output {
-    --perc: calc((var(--val) - var(--min)) / var(--range));
+    --perc: calc((var(--value) - var(--min)) / var(--range));
     --offset: calc((var(--thumb-width) / 2) - var(--thumb-width) * var(--perc));
     --left: calc((var(--perc) * 100%) + var(--offset));
 

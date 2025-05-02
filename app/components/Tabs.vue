@@ -6,7 +6,7 @@ const {
   size = 'sm',
   fontSize = 'sm',
   variant = 'default',
-  color = 'green',
+  color = 'accent',
 } = defineProps<{
   tabs: TabOption[];
   size?: TabsSize;

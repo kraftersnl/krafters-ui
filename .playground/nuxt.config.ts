@@ -22,6 +22,8 @@ export default defineNuxtConfig({
     },
   },
 
+  css: ['~/assets/playground.css'],
+
   devtools: { enabled: false },
 
   modules: ['@nuxt/test-utils/module'],
@@ -60,8 +62,9 @@ export default defineNuxtConfig({
         'solar:clipboard-check-line-duotone',
         'solar:settings-bold',
         'solar:add-square-linear',
-        'heroicons-solid:adjustments-vertical',
         'mdi:github',
+        'material-symbols:arrow-left-alt',
+        'material-symbols:arrow-right-alt',
       ],
     },
   },

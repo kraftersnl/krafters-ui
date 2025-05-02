@@ -20,15 +20,15 @@ defineProps<{
   align-items: center;
 
   .color-swatch {
-    width: 10rem;
-    height: 10rem;
-    margin-inline: -1rem;
+    width: 8rem;
+    height: 8rem;
+    margin-inline: -0.5rem;
     border-radius: var(--radius-full);
     background-color: var(--color);
   }
 
   code {
-    font-size: var(--font-size-xxs);
+    font-size: var(--font-size-xxxs);
   }
 
   .color-swatch--white {

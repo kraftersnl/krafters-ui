@@ -27,3 +27,10 @@ export function addTrailingSlash(str?: string) {
   if (str === '/') return '/';
   return str.endsWith('/') ? str : str + '/';
 }
+
+export const xsTransition = 100;
+export const smTransition = 200;
+export const mdTransition = 350;
+export const lgTransition = 650;
+export const xlTransition = 1350;
+export const xxlTransition = 2000;

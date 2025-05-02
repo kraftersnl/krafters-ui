@@ -156,7 +156,7 @@ onMounted(() => (isMounted.value = true));
 
 .dp__input {
   min-height: 2.5rem;
-  background-color: var(--color-select-bg);
+  background-color: var(--color-input-bg);
 
   &::placeholder {
     opacity: 1;
