@@ -21,16 +21,11 @@ defineProps<{
 .details-summary {
   cursor: default;
   position: relative;
-
-  &:focus-visible {
-    outline-offset: 2px;
-    border-radius: var(--radius-xs);
-    outline: 1px dotted var(--focus-color);
-  }
+  list-style: none;
 
   /* Hide marker in Firefox and Chrome */
   &::marker {
-    content: none;
+    /* content: none; */
   }
   /* Hide marker in Safari */
   &::-webkit-details-marker {
@@ -38,18 +33,24 @@ defineProps<{
   }
 
   &::before {
-    content: '▶';
+    content: '▶' / '';
     font-size: var(--font-size-xs);
     position: absolute;
     top: 0.25em;
     left: -1rem;
+  }
+
+  &:focus-visible {
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+    outline: 1px dotted var(--focus-color);
   }
 }
 
 .details-wrapper {
   &[open] {
     > .details-summary::before {
-      content: '▼';
+      content: '▼' / '';
     }
   }
 }
