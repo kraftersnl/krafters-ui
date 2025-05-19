@@ -22,13 +22,18 @@ const computedStyle = computed(() => ({
 }));
 
 const computedIcon = computed(() => {
-  if (icon?.includes(':')) {
-    return icon;
+  if (icon) {
+    if (icon?.includes(':')) {
+      return icon;
+    }
+    return `heroicons-solid:${icon}`;
   }
+
   if (color === 'blue') return 'heroicons-solid:information-circle';
   if (color === 'green') return 'heroicons-solid:check-circle';
   if (color === 'red') return 'heroicons-solid:x-circle';
   if (color === 'orange') return 'heroicons-solid:exclamation-circle';
+
   return `heroicons-solid:${icon}`;
 });
 

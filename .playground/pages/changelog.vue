@@ -7,12 +7,15 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.4.3" date="2025-05-19">
+    <ChangelogEntry v="1.4.3" date="2025-05-19">
       <ul>
         <li>Use <code>hsl()</code> for color design tokens</li>
         <li>Remove <code>scroll-behaviour: smooth</code> from CSS reset</li>
+        <li>
+          Update to Nuxt 3.17+ to fix useTemplateRef issue with Nuxt Layer
+        </li>
       </ul>
-    </ChangelogEntry> -->
+    </ChangelogEntry>
 
     <ChangelogEntry v="1.4.2" date="2025-04-25">
       <ul>
