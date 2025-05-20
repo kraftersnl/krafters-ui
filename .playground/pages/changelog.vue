@@ -14,6 +14,7 @@ useHead({ title: 'Changelog' });
         <li>
           Update to Nuxt 3.17+ to fix useTemplateRef issue with Nuxt Layer
         </li>
+        <li>Add support for SVG icons in Tabs component</li>
       </ul>
     </ChangelogEntry>
 

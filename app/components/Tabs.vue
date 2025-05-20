@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const model = defineModel<string>();
+const activeTab = defineModel<string>();
 
 const {
   tabs,
@@ -61,11 +61,6 @@ function handleNextTab(tab: TabOption) {
   nextTab?.click();
 }
 
-const activeTab = computed({
-  get: () => model.value,
-  set: (value) => (model.value = value),
-});
-
 function setActiveTab(tab: TabOption) {
   activeTab.value = tab.value;
 }
@@ -106,8 +101,13 @@ defineExpose({
           @keyup.right="handleNextTab(tab)"
           @click="setActiveTab(tab)"
         >
-          <Icon v-if="computeIcon(tab)" :name="computeIcon(tab)" />
-          <span class="tab__text">{{ tab.label }}</span>
+          <div
+            v-if="tab.icon?.startsWith('<svg')"
+            v-html="tab.icon"
+            class="html-icon"
+          />
+          <Icon v-else-if="computeIcon(tab)" :name="computeIcon(tab)" />
+          <span class="tab-text">{{ tab.label }}</span>
         </button>
       </template>
     </div>
@@ -176,6 +176,16 @@ defineExpose({
 
     .iconify {
       color: var(--color-grey-graphic);
+    }
+
+    .html-icon {
+      display: grid;
+      margin-inline-end: 0.5rem;
+
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
     }
 
     &:hover {
