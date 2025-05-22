@@ -4,7 +4,7 @@
 
   --color-accent: hsl(281 50% 70%);
   --color-accent-bg: hsl(281 25% 20%);
-  --color-accent-text: hsl(281 50% 70%);
+  --color-accent-text: hsl(281 40% 80%);
 
   --color-black: white;
   --color-text: hsl(281 25% 90%);
@@ -57,7 +57,7 @@
 
   --color-accent: hsl(281 25% 40%);
   --color-accent-bg: hsl(281 25% 90%);
-  --color-accent-text: hsl(281 25% 40%);
+  --color-accent-text: hsl(281 25% 30%);
 
   --color-black: black;
   --color-text: hsl(0 0% 9%);

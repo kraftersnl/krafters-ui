@@ -7,6 +7,12 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <!-- <ChangelogEntry v="1.4.4" date="2025-05-22">
+      <ul>
+        <li>Fix colors for <code>--color-accent</code> and <code>--color-accent-text</code></li>
+      </ul>
+    </ChangelogEntry> -->
+
     <ChangelogEntry v="1.4.3" date="2025-05-19">
       <ul>
         <li>Use <code>hsl()</code> for color design tokens</li>

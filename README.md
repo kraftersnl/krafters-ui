@@ -2,7 +2,7 @@
 
 Accessible Vue component library for [Nuxt 3](https://nuxt.com) in TypeScript.
 
-Krafters UI is a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers) in a public repository. It's published on NPM for better version control. You can extend from the [GitHub repository](https://github.com/kraftersnl/krafters-ui) or `@krafters/ui` [NPM package](https://github.com/kraftersnl/krafters-ui).
+Krafters UI is a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers) in a public repository. It's published on NPM for better version control. You can extend from the [GitHub repository](https://github.com/kraftersnl/krafters-ui) or `@krafters/ui` [NPM package](https://www.npmjs.com/package/@krafters/ui).
 
 ## Installation
 
