@@ -3,8 +3,9 @@ const {
   color = 'blue',
   fontSize = 'xs',
   iconSize = 'md',
-  icon,
-  ariaLabel,
+  icon = undefined,
+  content = undefined,
+  ariaLabel = undefined,
 } = defineProps<{
   color?: 'accent' | 'blue' | 'green' | 'red' | 'orange';
   fontSize?: FontSize;

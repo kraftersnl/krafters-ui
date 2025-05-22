@@ -1,7 +1,7 @@
 {
   "name": "@krafters/ui",
   "type": "module",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
     "@iconify-json/solar": "^1.2.2",
     "@mdit/plugin-attrs": "^0.18.0",
     "@mdit/plugin-mark": "^0.18.0",
-    "@nuxt/eslint": "^1.4.0",
+    "@nuxt/eslint": "^1.4.1",
+    "@nuxt/fonts": "^0.11.4",
     "@nuxt/icon": "^1.13.0",
     "@nuxt/test-utils": "^3.19.0",
     "@nuxtjs/color-mode": "^3.5.2",
@@ -46,14 +47,14 @@
     "happy-dom": "^17.4.7",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
-    "md-editor-v3": "^5.5.1",
-    "nuxt": "^3.17.3",
+    "md-editor-v3": "^5.6.0",
+    "nuxt": "^3.17.4",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.3",
+    "vitest": "^3.1.4",
     "vitest-axe": "1.0.0-pre.5",
     "vue": "^3.5.14",
     "vue-axe": "^3.1.2",
-    "vue-tippy": "^6.7.0"
+    "vue-tippy": "^6.7.1"
   }
 }

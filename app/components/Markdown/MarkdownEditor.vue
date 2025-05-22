@@ -9,8 +9,9 @@ const {
   id = useId(),
   preview = false,
   autofocus,
-  errorMessage,
-  label,
+  label = undefined,
+  placeholder = undefined,
+  errorMessage = undefined,
   required,
 } = defineProps<{
   label?: string;
@@ -70,6 +71,10 @@ const computedErrorMessage = computed(() => {
   }
   return t('form.invalid-value');
 });
+
+const emit = defineEmits<{
+  blur: [value: Event];
+}>();
 </script>
 
 <template>
@@ -95,6 +100,7 @@ const computedErrorMessage = computed(() => {
         :placeholder="placeholder"
         :theme="colorMode.value === 'light' ? 'light' : 'dark'"
         code-theme="stackoverflow-dark"
+        @blur="emit('blur', $event)"
       />
 
       <textarea

@@ -81,7 +81,7 @@ export const wcagPrinciples: WcagPrinciple[] = [
             name: 'Audio Description or Media Alternative (Prerecorded)',
             description:
               'Provide audio description for all prerecorded video content in synchronized media.',
-            level: 'AA',
+            level: 'A',
           },
           {
             number: '1.2.4',

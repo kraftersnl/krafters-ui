@@ -2,9 +2,14 @@
 const model = defineModel<string | number>();
 
 const {
-  label,
+  label = undefined,
+  placeholder = undefined,
+  pattern = undefined,
+  ariaDescribedby = undefined,
+  name = undefined,
+  instruction = undefined,
+  errorMessage = undefined,
   required,
-  errorMessage,
   autoresize,
   id = useId(),
 } = defineProps<{
@@ -71,6 +76,10 @@ onUnmounted(() => window.removeEventListener('resize', resizeTextarea));
 defineExpose({
   focusElement,
 });
+
+const emit = defineEmits<{
+  blur: [value: Event];
+}>();
 </script>
 
 <template>
@@ -109,6 +118,7 @@ defineExpose({
         ${id && required ? `error-${id}` : ''}
       `"
       @input="handleInput"
+      @blur="emit('blur', $event)"
     />
 
     <p v-if="instruction" :class="`instruction-${id}`">
