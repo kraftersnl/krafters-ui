@@ -127,7 +127,7 @@ const preview = computed(() => md.render(content));
       color: var(--color-accent);
 
       &::after {
-        background-color: var(--color-accent-text);
+        background-color: var(--color-accent);
       }
     }
   }
