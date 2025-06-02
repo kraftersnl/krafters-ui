@@ -121,7 +121,11 @@ watch(
 <template>
   <div class="file-input-wrapper">
     <label :for="id" class="file-input-label">
-      {{ label || $t('files.browse') }} (max. {{ maxFileSize / 1000 }} MB)
+      <span>
+        {{ label || $t('files.browse') }} (max. {{ maxFileSize / 1000 }} MB)
+      </span>
+
+      <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
     <div class="file-input">
@@ -251,7 +255,6 @@ watch(
 }
 
 .file-input {
-  /* max-width: 320px; */
   position: relative;
 
   input[type='file'] {
@@ -286,6 +289,7 @@ watch(
   .file-input-button {
     border-color: var(--color-red);
   }
+
   .error-wrapper .error {
     display: flex;
   }

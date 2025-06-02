@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const model = defineModel<boolean | string | number>();
 
-const { id = useId() } = defineProps<{
+const { id = useId(), variant = 'default' } = defineProps<{
   label?: string;
   title?: string;
   name?: string;
@@ -11,11 +11,18 @@ const { id = useId() } = defineProps<{
   hideLabel?: boolean;
   tabindex?: string;
   id?: string;
+  variant?: 'default' | 'krafters';
 }>();
 </script>
 
 <template>
-  <div :class="['radio-wrapper', disabled && 'disabled']">
+  <div
+    :class="[
+      'radio-wrapper',
+      disabled && 'disabled',
+      `radio-variant--${variant}`,
+    ]"
+  >
     <input
       :id="id"
       v-model="model"
@@ -51,14 +58,65 @@ const { id = useId() } = defineProps<{
 
   label {
     font-size: var(--font-size-sm);
-    padding-inline-start: 0.4rem;
+    padding-inline-start: 0.5rem;
   }
 
   input[type='radio'] {
     margin: 0;
-    margin-block-start: 1px;
     width: 1.1rem;
     height: 1rem;
+  }
+}
+
+.radio-variant--krafters {
+  align-items: center;
+  gap: 0.25rem;
+
+  input[type='radio'] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    border-radius: var(--radius-full);
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--color-grey-graphic);
+      /* box-shadow: 0 1.5px 0 0 var(--color-grey-graphic); */
+      border-radius: inherit;
+      background-color: var(--color-card-bg);
+      outline: 2px solid transparent;
+      transition-property: border-color, outline-offset, outline-color;
+      transition-duration: var(--duration-sm);
+    }
+
+    &:checked::before {
+      border-color: var(--color-accent);
+      /* box-shadow: 0 1.5px 0 0 var(--color-accent); */
+    }
+
+    &:focus-visible::before {
+      border-color: var(--color-accent);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 1rem;
+      height: 1rem;
+      box-shadow: inset 0 0 0 0 transparent;
+      border-radius: var(--radius-full);
+      transition-property: box-shadow;
+      transition-duration: var(--duration-sm);
+    }
+    &:checked::after {
+      box-shadow: inset 0 0 0 8px var(--color-accent);
+    }
   }
 }
 </style>

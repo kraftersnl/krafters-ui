@@ -2,13 +2,18 @@
 import type { RouteLocationRaw } from 'vue-router';
 
 const {
-  fontSize,
-  iconSize,
-  icon,
+  label = undefined,
+  fontSize = undefined,
+  iconSize = undefined,
+  radius = undefined,
+  href = undefined,
+  to = undefined,
+  title = undefined,
+  target = undefined,
+  icon = undefined,
   iconPos = 'start',
   variant = 'secondary',
   size = 'md',
-  radius,
   type = 'button',
 } = defineProps<{
   label?: string;
@@ -252,6 +257,20 @@ const emit = defineEmits<{
   }
 }
 
+.button-size--xxl {
+  font-size: var(--font-size, var(--font-size-md));
+  min-height: 3.5rem;
+  padding-inline: 1.5rem;
+
+  .button-text {
+    padding-inline: 0.5rem;
+  }
+
+  .iconify {
+    font-size: var(--icon-size, larger);
+  }
+}
+
 .button-variant--primary {
   color: var(--color-white);
   background-color: var(--color-accent);
@@ -299,6 +318,44 @@ const emit = defineEmits<{
     background-color: color-mix(
       in srgb,
       var(--color-green) 85%,
+      var(--color-black)
+    );
+  }
+}
+
+.button-variant--black {
+  color: var(--color-white);
+  background-color: var(--color-black);
+
+  &:not(:disabled, .disabled):hover {
+    color: var(--color-text);
+    background-color: var(--color-grey-bg);
+  }
+}
+
+.button-variant--white {
+  color: var(--color-text);
+  background-color: var(--color-white);
+
+  &:not(:disabled, .disabled):hover {
+    color: var(--color-white);
+    background-color: var(--color-text);
+  }
+}
+
+.button-variant--cta {
+  color: white;
+  background-color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  min-height: 3.5rem;
+  padding-inline: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+
+  &:not(:disabled, .disabled):hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-accent) 85%,
       var(--color-black)
     );
   }
@@ -376,6 +433,7 @@ const emit = defineEmits<{
 .button-variant--menu {
   width: 100%;
   font-weight: var(--font-weight-medium);
+  color: var(--color-text);
   flex-direction: row-reverse;
   justify-content: space-between;
   background-color: transparent;
@@ -452,6 +510,7 @@ const emit = defineEmits<{
   gap: 0.5rem;
   width: 100%;
   font-weight: var(--font-weight-medium);
+  color: var(--color-text);
   justify-content: start;
   padding-inline: 1rem;
   background-color: transparent;
@@ -472,11 +531,6 @@ const emit = defineEmits<{
 
   &.router-link-exact-active {
     text-decoration: underline;
-    color: var(--color-accent);
-
-    .iconify {
-      color: var(--color-accent-text);
-    }
   }
 }
 

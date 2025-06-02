@@ -12,6 +12,7 @@ const {
   label = undefined,
   placeholder = undefined,
   errorMessage = undefined,
+  instruction = undefined,
   required,
 } = defineProps<{
   label?: string;
@@ -22,6 +23,7 @@ const {
   hideLabel?: boolean;
   autofocus?: boolean;
   errorMessage?: string;
+  instruction?: string;
 }>();
 
 config({
@@ -86,7 +88,7 @@ const emit = defineEmits<{
       >
         <span>{{ label }}</span>
 
-        <Chip v-if="required" size="sm" :label="$t('form.required')" />
+        <Chip v-if="required" size="xs" :label="$t('form.required')" />
       </div>
 
       <MdEditor
@@ -100,8 +102,13 @@ const emit = defineEmits<{
         :placeholder="placeholder"
         :theme="colorMode.value === 'light' ? 'light' : 'dark'"
         code-theme="stackoverflow-dark"
+        :aria-describedby="`${instruction ? `instruction-${id}` : ''}`"
         @blur="emit('blur', $event)"
       />
+
+      <p v-if="instruction" :class="`instruction-${id}`">
+        {{ instruction }}
+      </p>
 
       <textarea
         v-if="required"

@@ -55,6 +55,6 @@ async function uploadFile(formData: FormData) {
 
 <style>
 .demo-file-form {
-  max-width: 400px;
+  max-width: 300px;
 }
 </style>

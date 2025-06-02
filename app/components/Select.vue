@@ -5,6 +5,7 @@ const {
   label,
   required,
   errorMessage,
+  variant = 'default',
   placeholderValue = '',
   size = 'md',
   valueKey = 'value',
@@ -34,6 +35,7 @@ const {
   tabindex?: string;
   color?: BaseColor;
   id?: string;
+  variant?: 'default' | 'krafters';
 }>();
 
 const { t } = useI18n();
@@ -52,6 +54,7 @@ const computedErrorMessage = computed(() => {
     :class="[
       'form-field-wrapper',
       `select-size--${size}`,
+      `select-variant--${variant}`,
       color && `select-color--${color}`,
       showInvalid && 'show-invalid',
     ]"
@@ -62,7 +65,7 @@ const computedErrorMessage = computed(() => {
     >
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form.required')" />
+      <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
     <select
@@ -174,5 +177,18 @@ const computedErrorMessage = computed(() => {
   accent-color: var(--color-red-text);
   border-color: var(--color-red);
   background-color: var(--color-red-bg);
+}
+
+.select-variant--krafters {
+  .select {
+    border-width: 1.5px;
+    box-shadow: 0 1.5px 0 0 var(--color-grey-graphic);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 1.5px 0 0 var(--color-accent);
+    }
+  }
 }
 </style>

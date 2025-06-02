@@ -40,8 +40,12 @@ const metadataUrl = computed(() => {
   return `https://youtube.com/oembed?url=https://youtube.com/watch?v=${videoKey.value}&format=json`;
 });
 
-const { data: videoData } = useAsyncData<VideoMetaData>(props.url, () =>
-  $fetch(metadataUrl.value),
+const { data: videoData } = await useAsyncData<VideoMetaData>(
+  props.url,
+  () => $fetch(metadataUrl.value),
+  {
+    lazy: true,
+  },
 );
 
 const ratio = computed(() => {

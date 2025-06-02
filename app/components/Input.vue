@@ -8,6 +8,7 @@ const {
   max,
   pattern,
   icon,
+  variant = 'default',
   type = 'text',
   size = 'md',
   id = useId(),
@@ -37,6 +38,7 @@ const {
   instruction?: string;
   errorMessage?: string;
   tabindex?: string;
+  variant?: 'default' | 'krafters';
 }>();
 
 const { t } = useI18n();
@@ -107,6 +109,7 @@ const emit = defineEmits<{
     :class="[
       'form-field-wrapper',
       `input-size--${size}`,
+      `input-variant--${variant}`,
       showInvalid && 'show-invalid',
     ]"
   >
@@ -116,7 +119,7 @@ const emit = defineEmits<{
     >
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form.required')" />
+      <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
     <input
@@ -235,6 +238,36 @@ const emit = defineEmits<{
   &:has(label.visuallyhidden) {
     .input + .iconify {
       top: 0.75em;
+    }
+  }
+}
+
+.input-size--xl {
+  .input {
+    height: 3rem;
+    padding-inline: 0.75rem;
+
+    + .iconify {
+      top: 2em;
+    }
+  }
+
+  &:has(label.visuallyhidden) {
+    .input + .iconify {
+      top: 0.65em;
+    }
+  }
+}
+
+.input-variant--krafters {
+  .input {
+    border-width: 1.5px;
+    box-shadow: 0 1.5px 0 0 var(--color-grey-graphic);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 1.5px 0 0 var(--color-accent);
     }
   }
 }

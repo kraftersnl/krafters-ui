@@ -161,7 +161,7 @@ const emit = defineEmits<{
         margin-inline-start: 2rem;
       }
 
-      .button {
+      > .button {
         padding-inline-start: 0.5rem;
 
         > .iconify {
@@ -181,7 +181,7 @@ const emit = defineEmits<{
         margin-inline-end: 1.25rem;
       }
 
-      .button {
+      > .button {
         flex-direction: row;
 
         > .iconify {

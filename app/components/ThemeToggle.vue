@@ -40,6 +40,8 @@ defineProps<{ fontSize?: FontSize }>();
   height: 2rem;
   outline: 2px solid transparent;
   outline-offset: 2px;
+  transition-property: color, background-color;
+  transition-duration: var(--duration-sm);
 
   .iconify {
     color: var(--color-shape);

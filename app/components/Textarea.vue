@@ -9,6 +9,7 @@ const {
   name = undefined,
   instruction = undefined,
   errorMessage = undefined,
+  variant = 'default',
   required,
   autoresize,
   id = useId(),
@@ -28,6 +29,7 @@ const {
   readonly?: boolean;
   autofocus?: boolean;
   autoresize?: boolean;
+  variant?: 'default' | 'krafters';
 }>();
 
 const { t } = useI18n();
@@ -79,6 +81,7 @@ defineExpose({
 
 const emit = defineEmits<{
   blur: [value: Event];
+  paste: [value: Event];
 }>();
 </script>
 
@@ -87,6 +90,7 @@ const emit = defineEmits<{
     :class="[
       'form-field-wrapper',
       'textarea-wrapper',
+      `textarea-variant--${variant}`,
       showInvalid && 'show-invalid',
     ]"
   >
@@ -97,7 +101,7 @@ const emit = defineEmits<{
     >
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form.required')" />
+      <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
     <textarea
@@ -119,6 +123,7 @@ const emit = defineEmits<{
       `"
       @input="handleInput"
       @blur="emit('blur', $event)"
+      @paste="emit('paste', $event)"
     />
 
     <p v-if="instruction" :class="`instruction-${id}`">
@@ -150,6 +155,19 @@ const emit = defineEmits<{
     &.autoresize {
       height: auto;
       overflow: auto;
+    }
+  }
+}
+
+.textarea-variant--krafters {
+  .textarea {
+    border-width: 1.5px;
+    box-shadow: 0 1.5px 0 0 var(--color-grey-graphic);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 1.5px 0 0 var(--color-accent);
     }
   }
 }

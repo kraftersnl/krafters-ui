@@ -6,6 +6,7 @@ const {
   labelKey = 'label',
   nameKey = 'value',
   disabledKey = 'disabled',
+  variant = 'default',
 } = defineProps<{
   options: any[];
   label: string;
@@ -17,6 +18,7 @@ const {
   disabledKey?: string;
   titleKey?: string;
   hideLegend?: boolean;
+  variant?: 'default' | 'krafters';
 }>();
 </script>
 
@@ -39,6 +41,7 @@ const {
               :name="option[nameKey]"
               :hide-label="option.hideLabel"
               :tabindex="tabindex"
+              :variant="variant"
             />
           </li>
         </ul>

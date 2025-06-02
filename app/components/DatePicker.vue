@@ -42,7 +42,7 @@ onMounted(() => (isMounted.value = true));
     <label :for="`dp-input-${id}`">
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="sm" :label="$t('form.required')" />
+      <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
     <VueDatePicker

@@ -154,7 +154,13 @@ h1 {
     padding: 1.5rem;
 
     h2 {
+      font-size: var(--font-size-md);
       margin-block-start: 0;
+      margin-block-end: 0.5rem;
+    }
+
+    :has(+ h2) {
+      margin-block-end: 1.5rem;
     }
 
     .props-wrapper {

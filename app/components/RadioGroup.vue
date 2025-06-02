@@ -4,6 +4,7 @@ const model = defineModel<string | number>();
 const {
   valueKey = 'value',
   labelKey = 'label',
+  variant = 'default',
   id = useId(),
 } = defineProps<{
   options: any[];
@@ -18,6 +19,7 @@ const {
   hideLegend?: boolean;
   required?: boolean;
   inline?: boolean;
+  variant?: 'default' | 'krafters';
 }>();
 </script>
 
@@ -47,6 +49,7 @@ const {
             :name="name"
             :tabindex="tabindex"
             :required="required"
+            :variant="variant"
             type="radio"
           />
         </li>
