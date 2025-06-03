@@ -2,15 +2,17 @@
 const { locale } = useI18n();
 
 const {
-  label,
-  icon,
-  color,
-  radius,
+  label = undefined,
+  icon = undefined,
+  color = undefined,
+  radius = undefined,
   variant = 'flat',
   size = 'md',
+  iconSize = undefined,
 } = defineProps<{
   label?: string | number;
   icon?: string;
+  iconSize?: FontSize;
   variant?: 'flat' | 'outline';
   color?: BaseColor;
   size?: ChipSize;
@@ -20,6 +22,7 @@ const {
 
 const computedStyle = computed(() => ({
   '--radius': radius && `var(--radius-${radius})`,
+  '--icon-size': iconSize && `var(--font-size-${iconSize})`,
 }));
 
 const computedIcon = computed(() => {
@@ -71,6 +74,10 @@ const formattedLabel = computed(() =>
   .krafters-tooltip-content {
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-xs);
+  }
+
+  .iconify {
+    font-size: var(--icon-size, larger);
   }
 }
 
@@ -130,6 +137,10 @@ const formattedLabel = computed(() =>
 .chip-variant--flat.chip-color--orange {
   color: var(--color-orange-text);
   background-color: var(--color-orange-bg);
+
+  .iconify {
+    color: var(--color-orange-graphic);
+  }
 }
 
 .chip-variant--flat.chip-color--yellow {
@@ -178,6 +189,10 @@ const formattedLabel = computed(() =>
 .chip-variant--outline.chip-color--orange {
   color: var(--color-orange-text);
   border-color: var(--color-orange);
+
+  .iconify {
+    color: var(--color-orange-graphic);
+  }
 }
 
 .chip-variant--outline.chip-color--yellow {

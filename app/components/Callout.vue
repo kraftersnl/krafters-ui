@@ -100,6 +100,10 @@ const computedAriaLabel = computed(() => {
 .callout-color--orange {
   border-color: var(--color-orange);
   color: var(--color-orange-text);
+
+  .iconify {
+    color: var(--color-orange-graphic);
+  }
 }
 
 .callout-color--green {

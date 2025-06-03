@@ -131,7 +131,7 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
 
 .progress-circle-color--orange {
   --progress-label-color: var(--color-orange-text);
-  --progress-stroke-color: var(--color-orange);
+  --progress-stroke-color: var(--color-orange-graphic);
   --progress-stroke-bg: var(--color-orange-bg);
 }
 

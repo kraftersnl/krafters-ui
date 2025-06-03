@@ -14,6 +14,9 @@ useHead({ title: 'Changelog' });
           Checkbox(Group) and Radio(Group) components
         </li>
         <li>
+          Add <code>iconSize</code> prop to Chip component
+        </li>
+        <li>
           Fix colors for <code>--color-accent</code> and
           <code>--color-accent-text</code>
         </li>

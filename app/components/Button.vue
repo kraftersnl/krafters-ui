@@ -344,6 +344,7 @@ const emit = defineEmits<{
 }
 
 .button-variant--cta {
+  --focus-color: var(--color-accent);
   color: white;
   background-color: var(--color-accent);
   font-size: var(--font-size-sm);
