@@ -198,7 +198,7 @@ onMounted(() => {
   --ms-bg: var(--color-input-bg);
   --ms-bg-disabled: var(--color-white);
   --ms-border-color: var(--color-grey-graphic);
-  --ms-border-width: 1.5px;
+  --ms-border-width: 1px;
   --ms-border-color-active: var(--focus-color);
   /* --ms-border-width-active: 1px; */
   --ms-radius: var(--radius-sm);
@@ -362,7 +362,7 @@ onMounted(() => {
 }
 
 .multiselect-search {
-  box-shadow: 0 1.5px 0 0 var(--color-grey-graphic);
+  /* box-shadow: 0 1.5px 0 0 var(--color-grey-graphic); */
 }
 
 .show-option-icons {
