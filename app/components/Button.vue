@@ -144,7 +144,7 @@ const emit = defineEmits<{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
+  gap: 0.25em;
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size, var(--font-size-sm));
   border: 1px solid transparent;
@@ -354,11 +354,7 @@ const emit = defineEmits<{
   white-space: nowrap;
 
   &:not(:disabled, .disabled):hover {
-    background-color: color-mix(
-      in srgb,
-      var(--color-accent) 85%,
-      var(--color-black)
-    );
+    background-color: color-mix(in srgb, var(--color-accent) 85%, black);
   }
 }
 

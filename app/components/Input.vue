@@ -260,12 +260,21 @@ const emit = defineEmits<{
 }
 
 .input-variant--krafters {
+  label {
+    color: var(--color-grey-text);
+  }
+  &:focus-within {
+    label {
+      color: var(--color-text);
+    }
+  }
+
   .input {
     border-width: 1.5px;
     box-shadow: 0 1.5px 0 0 var(--color-grey-graphic);
 
     &:focus {
-      outline: none;
+      outline-color: transparent;
       border-color: var(--color-accent);
       box-shadow: 0 1.5px 0 0 var(--color-accent);
     }
