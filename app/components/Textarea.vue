@@ -160,6 +160,16 @@ const emit = defineEmits<{
 }
 
 .textarea-variant--krafters {
+  label {
+    color: var(--color-grey-text);
+    font-weight: var(--font-weight-bold);
+  }
+  &:focus-within {
+    label {
+      color: var(--color-text);
+    }
+  }
+
   .textarea {
     border-width: 1.5px;
     box-shadow: 0 1.5px 0 0 var(--color-grey-graphic);

@@ -262,6 +262,7 @@ const emit = defineEmits<{
 .input-variant--krafters {
   label {
     color: var(--color-grey-text);
+    font-weight: var(--font-weight-bold);
   }
   &:focus-within {
     label {
