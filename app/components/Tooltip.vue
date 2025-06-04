@@ -4,9 +4,13 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-toward.css';
 
 const {
-  fontSize,
-  iconSize,
-  iconColor,
+  label = undefined,
+  fontSize = undefined,
+  iconSize = undefined,
+  iconColor = undefined,
+  tabindex = undefined,
+  title = undefined,
+  maxWidth = undefined,
   placement = 'auto',
   trigger = 'click',
   hideLabel = true,

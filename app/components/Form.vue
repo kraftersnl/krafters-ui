@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const { invalidFocusFn, autofocusFn, showInvalid } = defineProps<{
+const {
+  invalidFocusFn = undefined,
+  autofocusFn = undefined,
+  showInvalid,
+} = defineProps<{
   invalidFocusFn?: CallableFunction;
   autofocusFn?: CallableFunction;
   showInvalid?: boolean;

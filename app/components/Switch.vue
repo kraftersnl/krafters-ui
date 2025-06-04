@@ -3,8 +3,6 @@ const model = defineModel<boolean>();
 
 const { id = useId() } = defineProps<{
   label: string;
-  name?: string;
-  value?: string;
   disabled?: boolean;
   id?: string;
 }>();

@@ -6,7 +6,10 @@ const {
   max = 100,
   step = 1,
   id = useId(),
-  ticks,
+  ticks = undefined,
+  name = undefined,
+  ariaValuetext = undefined,
+  tabindex = undefined,
   variant = 'accent',
 } = defineProps<{
   label: string;

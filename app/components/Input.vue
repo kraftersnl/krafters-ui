@@ -1,20 +1,29 @@
 <script setup lang="ts">
 const {
-  modelValue,
-  label,
-  required,
-  errorMessage,
-  min,
-  max,
-  pattern,
-  icon,
+  modelValue = undefined,
+  label = undefined,
+  required = undefined,
+  errorMessage = undefined,
+  min = undefined,
+  max = undefined,
+  pattern = undefined,
+  icon = undefined,
+  name = undefined,
+  title = undefined,
+  autocomplete = undefined,
+  placeholder = undefined,
+  minlength = undefined,
+  maxlength = undefined,
+  ariaDescribedby = undefined,
+  instruction = undefined,
+  tabindex = undefined,
   variant = 'default',
   type = 'text',
   size = 'md',
   id = useId(),
 } = defineProps<{
   modelValue?: string | number;
-  label: string;
+  label?: string;
   id?: string;
   name?: string;
   title?: string;

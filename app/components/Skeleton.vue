@@ -3,6 +3,7 @@ const {
   size = 'md',
   width = '100%',
   animation = 'shimmer',
+  variant = undefined,
 } = defineProps<{
   size?: string;
   width?: string;

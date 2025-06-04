@@ -1,7 +1,15 @@
 <script setup lang="ts">
 const model = defineModel<boolean | string | number>();
 
-const { id = useId(), variant = 'default' } = defineProps<{
+const {
+  id = useId(),
+  variant = 'default',
+  label = undefined,
+  title = undefined,
+  name = undefined,
+  value = undefined,
+  tabindex = undefined,
+} = defineProps<{
   label?: string;
   title?: string;
   name?: string;

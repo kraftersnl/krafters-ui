@@ -2,9 +2,17 @@
 const model = defineModel<string | number | boolean>();
 
 const {
-  label,
+  label = undefined,
+  name = undefined,
+  errorMessage = undefined,
+  placeholder = undefined,
+  options = undefined,
+  noOptionsLabel = undefined,
+  ariaDescribedby = undefined,
+  instruction = undefined,
+  tabindex = undefined,
+  color = undefined,
   required,
-  errorMessage,
   variant = 'default',
   placeholderValue = '',
   size = 'md',
@@ -13,7 +21,7 @@ const {
   disabledKey = 'disabled',
   id = useId(),
 } = defineProps<{
-  label: string;
+  label?: string;
   name?: string;
   options?: any[];
   placeholder?: string;

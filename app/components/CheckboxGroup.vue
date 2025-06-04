@@ -7,10 +7,11 @@ const {
   nameKey = 'value',
   disabledKey = 'disabled',
   variant = 'default',
+  titleKey = undefined,
+  tabindex = undefined,
 } = defineProps<{
   options: any[];
   label: string;
-  name?: string;
   tabindex?: string;
   valueKey?: string;
   labelKey?: string;

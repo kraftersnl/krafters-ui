@@ -334,8 +334,8 @@ function handleSubmit(formData: FormData) {
             </p>
 
             <DatePicker
-              required
               v-model="date"
+              required
               label="DatePicker"
               placeholder="Pick a date"
               class="demo-datepicker"

@@ -3,7 +3,12 @@ const model = defineModel<string | number>();
 
 const searchInputRef = useTemplateRef('searchInput');
 
-const { hideLabel = true } = defineProps<{
+const {
+  hideLabel = true,
+  label = undefined,
+  placeholder = undefined,
+  autocomplete = undefined,
+} = defineProps<{
   label?: string;
   placeholder?: string;
   autocomplete?: string;

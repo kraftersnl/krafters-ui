@@ -7,6 +7,7 @@ const {
   fontSize = 'sm',
   variant = 'default',
   color = 'accent',
+  ariaLabel = undefined,
 } = defineProps<{
   tabs: TabOption[];
   size?: TabsSize;
@@ -103,8 +104,8 @@ defineExpose({
         >
           <div
             v-if="tab.icon?.startsWith('<svg')"
-            v-html="tab.icon"
             class="html-icon"
+            v-html="tab.icon"
           />
           <Icon v-else-if="computeIcon(tab)" :name="computeIcon(tab)" />
           <span class="tab-text">{{ tab.label }}</span>

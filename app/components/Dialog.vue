@@ -3,6 +3,10 @@ const {
   id = useId(),
   clickOutside = true,
   position = 'center',
+  label = undefined,
+  ariaLabel = undefined,
+  ariaLabelledby = undefined,
+  role = undefined,
 } = defineProps<{
   label?: string;
   ariaLabel?: string;

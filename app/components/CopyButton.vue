@@ -1,8 +1,12 @@
 <script setup lang="ts">
 const {
-  text,
   hideLabel = true,
   iconSize = 'lg',
+  text = undefined,
+  variant = undefined,
+  size = undefined,
+  iconPos = undefined,
+  title = undefined,
 } = defineProps<{
   text?: string | number;
   hideLabel?: boolean;

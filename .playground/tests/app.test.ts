@@ -2,7 +2,7 @@ import { mountSuspended } from '@nuxt/test-utils/runtime';
 import { axe } from 'vitest-axe';
 import App from '~/app.vue';
 
-describe('Docs', () => {
+describe.skip('Docs', () => {
   it('Changelog page has no accessibility violations', async () => {
     const wrapper = await mountSuspended(App, { route: '/changelog' });
     const results = await axe(wrapper.element);

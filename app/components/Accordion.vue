@@ -5,6 +5,8 @@ const {
   id = useId(),
   minHeight = 0,
   arrow = true,
+  ariaLabel = undefined,
+  tabindex = undefined,
 } = defineProps<{
   minHeight?: number;
   id?: string;

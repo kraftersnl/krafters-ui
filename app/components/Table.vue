@@ -4,6 +4,7 @@ const {
   fontSize = 'sm',
   skeletonRows = 10,
   skeletonCols = 3,
+  ariaLabel = undefined,
 } = defineProps<{
   size?: TableSize;
   fontSize?: FontSize;

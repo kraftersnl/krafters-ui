@@ -6,12 +6,14 @@ const model = defineModel<File>();
 const {
   label,
   required,
-  placeholderUrl,
   maxFileSize = 5000,
   convertSize = 500000,
   quality = 0.9,
   maxWidth = 1920,
   maxHeight = 1920,
+  name = undefined,
+  placeholderUrl = undefined,
+  accept = undefined,
   id = useId(),
 } = defineProps<{
   label: string;

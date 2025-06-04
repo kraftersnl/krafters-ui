@@ -13,6 +13,12 @@ const {
   hideButtonLabel = true,
   clickOutside = true,
   id = useId(),
+  buttonFontSize = undefined,
+  buttonIconPos = undefined,
+  buttonLabel = undefined,
+  label = undefined,
+  navLabel = undefined,
+  list = undefined,
 } = defineProps<{
   teleportTo?: string;
   width?: number;

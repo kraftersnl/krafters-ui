@@ -6,6 +6,10 @@ const {
   labelKey = 'label',
   variant = 'default',
   id = useId(),
+  name = undefined,
+  tooltip = undefined,
+  tabindex = undefined,
+  titleKey = undefined,
 } = defineProps<{
   options: any[];
   label: string;

@@ -4,8 +4,11 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
 const {
-  fontSize,
-  iconSize,
+  fontSize = undefined,
+  iconSize = undefined,
+  label = undefined,
+  maxWidth = undefined,
+  list = undefined,
   borderRadius = 'sm',
   hideLabel = true,
   icon = 'dots-horizontal',

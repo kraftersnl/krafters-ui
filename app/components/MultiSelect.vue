@@ -14,15 +14,17 @@ const {
   valueKey = 'value',
   labelKey = 'label',
   disabledKey = 'disabled',
-  itemsSelectedLabel,
   size = 'md',
   autofocus,
+  placeholder = undefined,
+  tabindex = undefined,
+  itemsSelectedLabel = undefined,
+  instruction = undefined,
 } = defineProps<{
   mode?: 'single' | 'multiple' | 'tags';
   id?: string;
   label: string;
   placeholder?: string;
-  name?: string;
   hideLabel?: boolean;
   hideSelected?: boolean;
   searchable?: boolean;

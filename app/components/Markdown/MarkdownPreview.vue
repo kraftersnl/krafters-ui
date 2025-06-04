@@ -18,7 +18,7 @@ hljs.registerLanguage('typescript', typescript);
 const {
   content,
   fontSize = 'md',
-  ellipsisLines,
+  ellipsisLines = undefined,
 } = defineProps<{
   content: string;
   fontSize?: FontSize;

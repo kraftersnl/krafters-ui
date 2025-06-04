@@ -4,6 +4,13 @@ const {
   buttonSize = 'lg',
   hTag = 'h2',
   id = useId(),
+  label = undefined,
+  labelLink = undefined,
+  labelIcon = undefined,
+  ariaLabel = undefined,
+  ariaLabelledby = undefined,
+  fontSize = undefined,
+  iconSize = undefined,
 } = defineProps<{
   list: MenuItem[];
   label?: string;
