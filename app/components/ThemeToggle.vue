@@ -19,8 +19,8 @@ defineProps<{ fontSize?: FontSize }>();
       <Icon
         :name="
           colorMode.value === 'dark'
-            ? 'heroicons-solid:moon'
-            : 'heroicons-solid:sun'
+            ? 'material-symbols:dark-mode-outline-rounded'
+            : 'material-symbols:light-mode-outline-rounded'
         "
       />
       <span class="visuallyhidden">{{ $t('theme.dark') }}</span>
@@ -30,7 +30,7 @@ defineProps<{ fontSize?: FontSize }>();
 
 <style>
 .theme-toggle-button {
-  --color-shape: #c78500;
+  --color-shape: var(--color-text);
   background-color: transparent;
   display: grid;
   place-content: center;
@@ -57,7 +57,7 @@ defineProps<{ fontSize?: FontSize }>();
   }
 
   &[aria-pressed='true'] {
-    --color-shape: #ffaa00;
+    /* --color-shape: #ffaa00; */
   }
 }
 </style>

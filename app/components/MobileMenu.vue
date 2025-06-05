@@ -9,7 +9,7 @@ const {
   buttonSize = 'md',
   buttonIconSize = 'lg',
   menuButtonSize = 'xl',
-  icon = 'menu-alt-2',
+  icon = 'material-symbols:dehaze-rounded',
   hideButtonLabel = true,
   clickOutside = true,
   id = useId(),
@@ -19,6 +19,7 @@ const {
   label = undefined,
   navLabel = undefined,
   list = undefined,
+  hideCloseButton = false,
 } = defineProps<{
   teleportTo?: string;
   width?: number;
@@ -37,7 +38,12 @@ const {
   navLabel?: string;
   list?: MenuItem[];
   id?: string;
+  hideCloseButton?: boolean;
 }>();
+
+const dialogElementRef = useTemplateRef<HTMLDialogElement>('dialogElement');
+const isVisible = ref(false);
+const isMounted = ref(false);
 
 const computedIcon = computed(() => {
   if (icon?.includes(':')) {
@@ -45,10 +51,6 @@ const computedIcon = computed(() => {
   }
   return `heroicons-solid:${icon}`;
 });
-
-const dialogElementRef = useTemplateRef<HTMLDialogElement>('dialogElement');
-const isVisible = ref(false);
-const isMounted = ref(false);
 
 onMounted(() => (isMounted.value = true));
 
@@ -138,6 +140,7 @@ const emit = defineEmits<{
         <FocusLoop :is-visible="isVisible">
           <div class="dialog-content">
             <Button
+              v-if="!hideCloseButton"
               icon="x"
               radius="full"
               :label="$t('aria.close-menu')"
@@ -181,6 +184,10 @@ body:has(.mobile-dialog[open]) {
   border: none;
   background-color: var(--color-card-bg);
 
+  .menu-list {
+    padding-block-start: 3rem;
+  }
+
   &::backdrop {
     background-color: rgb(0 0 0 / 50%);
   }
@@ -193,7 +200,6 @@ body:has(.mobile-dialog[open]) {
   }
 
   .dialog-content {
-    padding-block: 1.5rem;
     display: grid;
     min-height: 100svh;
     align-content: start;

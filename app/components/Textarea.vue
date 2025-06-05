@@ -172,7 +172,7 @@ const emit = defineEmits<{
 
   .textarea {
     border-width: 1.5px;
-    box-shadow: 0 1.5px 0 0 var(--color-grey-graphic);
+    box-shadow: 0 1.5px 0 0 var(--color-grey-text);
 
     &:focus {
       outline: none;
