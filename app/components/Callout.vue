@@ -90,11 +90,19 @@ const computedAriaLabel = computed(() => {
 .callout-color--accent {
   border-color: var(--color-accent);
   color: var(--color-accent-text);
+
+  .iconify {
+    color: var(--color-accent-graphic);
+  }
 }
 
 .callout-color--red {
   border-color: var(--color-red);
   color: var(--color-red-text);
+
+  .iconify {
+    color: var(--color-red-graphic);
+  }
 }
 
 .callout-color--orange {
@@ -109,10 +117,18 @@ const computedAriaLabel = computed(() => {
 .callout-color--green {
   border-color: var(--color-green);
   color: var(--color-green-text);
+
+  .iconify {
+    color: var(--color-green-graphic);
+  }
 }
 
 .callout-color--blue {
   border-color: var(--color-blue);
   color: var(--color-blue-text);
+
+  .iconify {
+    color: var(--color-blue-graphic);
+  }
 }
 </style>

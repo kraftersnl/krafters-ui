@@ -46,7 +46,7 @@ function handleClick() {
   font: inherit;
   border: none;
   padding-inline: 0;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   outline: 2px solid transparent;
   transition:
     background-color var(--duration-sm),

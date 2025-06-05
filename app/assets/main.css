@@ -5,6 +5,7 @@
   --color-accent: hsl(281 50% 70%);
   --color-accent-bg: hsl(281 25% 20%);
   --color-accent-text: hsl(281 40% 80%);
+  --color-accent-graphic: hsl(281 50% 70%);
 
   --color-black: white;
   --color-text: hsl(281 25% 90%);
@@ -18,31 +19,37 @@
   --color-red: hsl(0 100% 60%);
   --color-red-bg: hsl(0 100% 15%);
   --color-red-text: hsl(0 100% 70%);
+  --color-red-graphic: hsl(0 100% 70%);
 
   --color-orange: hsl(30 100% 50%);
   --color-orange-bg: hsl(30 100% 15%);
   --color-orange-text: hsl(30 100% 60%);
   --color-orange-graphic: hsl(30 100% 45%);
 
-  --color-yellow: hsl(60 60% 50%);
-  --color-yellow-bg: hsl(60 60% 50%);
+  --color-yellow: hsl(60 80% 50%);
+  --color-yellow-bg: hsl(60 100% 20%);
   --color-yellow-text: hsl(0 0% 0%);
+  --color-yellow-graphic: hsl(60 80% 60%);
 
   --color-green: hsl(150 100% 33%);
   --color-green-bg: hsl(150 50% 15%);
   --color-green-text: hsl(150 100% 80%);
+  --color-green-graphic: hsl(150 100% 33%);
 
   --color-blue: hsl(220, 100%, 60%);
-  --color-blue-bg: hsl(240, 100%, 20%);
+  --color-blue-bg: hsl(240, 100%, 25%);
   --color-blue-text: hsl(220, 100%, 80%);
+  --color-blue-graphic: hsl(220, 100%, 60%);
 
   --color-purple: hsl(280 100% 70%);
-  --color-purple-bg: hsl(280 100% 15%);
+  --color-purple-bg: hsl(280 100% 20%);
   --color-purple-text: hsl(280 100% 70%);
+  --color-purple-graphic: hsl(280 100% 70%);
 
   --color-pink: hsl(320 100% 75%);
   --color-pink-bg: hsl(320 100% 15%);
   --color-pink-text: hsl(320 100% 75%);
+  --color-pink-graphic: hsl(320 100% 75%);
 
   --rgb-app-nav: 0 0 0;
 
@@ -72,6 +79,7 @@
   --color-red: hsl(0 100% 60%);
   --color-red-bg: hsl(0 100% 90%);
   --color-red-text: hsl(0 90% 30%);
+  --color-red-graphic: hsl(0 90% 30%);
 
   --color-orange: hsl(30 100% 50%);
   --color-orange-bg: hsl(30 100% 90%);
@@ -81,22 +89,27 @@
   --color-yellow: hsl(60 90% 50%);
   --color-yellow-bg: hsl(60 90% 80%);
   --color-yellow-text: hsl(60 25% 20%);
+  --color-yellow-graphic: hsl(45 80% 40%);
 
   --color-green: hsl(150 100% 24%);
   --color-green-bg: hsl(150 49% 90%);
   --color-green-text: hsl(150 80% 14%);
+  --color-green-graphic: hsl(150 100% 24%);
 
   --color-blue: hsl(220 100% 50%);
   --color-blue-bg: hsl(220 100% 93%);
   --color-blue-text: hsl(220 100% 25%);
+  --color-blue-graphic: hsl(220 100% 50%);
 
   --color-purple: hsl(280 100% 40%);
   --color-purple-bg: hsl(280 100% 94%);
   --color-purple-text: hsl(280 50% 40%);
+  --color-purple-graphic: hsl(280 100% 40%);
 
   --color-pink: hsl(320 100% 70%);
   --color-pink-bg: hsl(320 100% 93%);
   --color-pink-text: hsl(320 70% 40%);
+  --color-pink-graphic: hsl(320 70% 40%);
 
   --rgb-app-nav: 255 255 255;
 
@@ -128,7 +141,8 @@
   --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 22px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 999px;
 
   /* Font weight design tokens */

@@ -244,7 +244,7 @@ const emit = defineEmits<{
 }
 
 .button-size--xl {
-  font-size: var(--font-size, var(--font-size-md));
+  font-size: var(--font-size, var(--font-size-sm));
   min-height: 3rem;
   padding-inline: 1.25rem;
 
@@ -418,11 +418,11 @@ const emit = defineEmits<{
   }
 
   &:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
   }
 
   &.router-link-active {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     text-decoration: none;
   }
 }
@@ -519,7 +519,6 @@ const emit = defineEmits<{
 
   &:hover {
     text-decoration: underline;
-    color: var(--color-accent);
 
     .iconify {
       color: var(--color-grey-text);

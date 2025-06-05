@@ -162,28 +162,28 @@ const computedErrorMessage = computed(() => {
 .select-color--blue .select {
   color: var(--color-blue-text);
   accent-color: var(--color-blue-text);
-  border-color: var(--color-blue);
+  border-color: var(--color-blue-graphic);
   background-color: var(--color-blue-bg);
 }
 
 .select-color--green .select {
   color: var(--color-green-text);
   accent-color: var(--color-green-text);
-  border-color: var(--color-green);
+  border-color: var(--color-green-graphic);
   background-color: var(--color-green-bg);
 }
 
 .select-color--orange .select {
   color: var(--color-orange-text);
   accent-color: var(--color-orange-text);
-  border-color: var(--color-orange);
+  border-color: var(--color-orange-graphic);
   background-color: var(--color-orange-bg);
 }
 
 .select-color--red .select {
   color: var(--color-red-text);
   accent-color: var(--color-red-text);
-  border-color: var(--color-red);
+  border-color: var(--color-red-graphic);
   background-color: var(--color-red-bg);
 }
 

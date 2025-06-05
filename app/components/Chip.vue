@@ -127,11 +127,19 @@ const formattedLabel = computed(() =>
 .chip-variant--flat.chip-color--accent {
   color: var(--color-accent-text);
   background-color: var(--color-accent-bg);
+
+  .iconify {
+    color: var(--color-accent-graphic);
+  }
 }
 
 .chip-variant--flat.chip-color--red {
   color: var(--color-red-text);
   background-color: var(--color-red-bg);
+
+  .iconify {
+    color: var(--color-red-graphic);
+  }
 }
 
 .chip-variant--flat.chip-color--orange {
@@ -148,24 +156,47 @@ const formattedLabel = computed(() =>
   background-color: var(--color-yellow-bg);
 }
 
+.dark-mode {
+  .chip-variant--flat.chip-color--yellow {
+    color: var(--color-yellow-graphic);
+    background-color: var(--color-yellow-bg);
+  }
+}
+
 .chip-variant--flat.chip-color--green {
   color: var(--color-green-text);
   background-color: var(--color-green-bg);
+
+  .iconify {
+    color: var(--color-green-graphic);
+  }
 }
 
 .chip-variant--flat.chip-color--blue {
   color: var(--color-blue-text);
   background-color: var(--color-blue-bg);
+
+  .iconify {
+    color: var(--color-blue-graphic);
+  }
 }
 
 .chip-variant--flat.chip-color--purple {
   color: var(--color-purple-text);
   background-color: var(--color-purple-bg);
+
+  .iconify {
+    color: var(--color-purple-graphic);
+  }
 }
 
 .chip-variant--flat.chip-color--pink {
   color: var(--color-pink-text);
   background-color: var(--color-pink-bg);
+
+  .iconify {
+    color: var(--color-pink-graphic);
+  }
 }
 
 /* Outline Chip */
@@ -179,11 +210,19 @@ const formattedLabel = computed(() =>
 .chip-variant--outline.chip-color--accent {
   color: var(--color-accent-text);
   border-color: var(--color-accent);
+
+  .iconify {
+    color: var(--color-accent-graphic);
+  }
 }
 
 .chip-variant--outline.chip-color--red {
   color: var(--color-red-text);
   border-color: var(--color-red);
+
+  .iconify {
+    color: var(--color-red-graphic);
+  }
 }
 
 .chip-variant--outline.chip-color--orange {
@@ -197,26 +236,56 @@ const formattedLabel = computed(() =>
 
 .chip-variant--outline.chip-color--yellow {
   color: var(--color-text);
-  border-color: var(--color-yellow);
+  border-color: var(--color-yellow-graphic);
+
+  .iconify {
+    /* color: var(--color-yellow-graphic); */
+  }
 }
 
+.dark-mode {
+  .chip-variant--outline.chip-color--yellow {
+    color: var(--color-yellow);
+    border-color: var(--color-yellow);
+
+    .iconify {
+      color: var(--color-yellow-graphic);
+    }
+  }
+}
 .chip-variant--outline.chip-color--green {
   color: var(--color-green-text);
   border-color: var(--color-green);
+
+  .iconify {
+    color: var(--color-green-graphic);
+  }
 }
 
 .chip-variant--outline.chip-color--blue {
   color: var(--color-blue-text);
   border-color: var(--color-blue);
+
+  .iconify {
+    color: var(--color-blue-graphic);
+  }
 }
 
 .chip-variant--outline.chip-color--purple {
   color: var(--color-purple-text);
   border-color: var(--color-purple);
+
+  .iconify {
+    color: var(--color-purple-graphic);
+  }
 }
 
 .chip-variant--outline.chip-color--pink {
   color: var(--color-pink-text);
   border-color: var(--color-pink);
+
+  .iconify {
+    color: var(--color-pink-graphic);
+  }
 }
 </style>

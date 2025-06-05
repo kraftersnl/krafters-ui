@@ -148,7 +148,7 @@ body:has(.dialog[open]) {
 
 .dialog-position--center {
   border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding-block-end: 1.5rem;
 
   &[open] {
