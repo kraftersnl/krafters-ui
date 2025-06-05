@@ -281,6 +281,7 @@ const emit = defineEmits<{
 
   .input {
     border-width: 1.5px;
+    border-color: var(--color-grey-text);
     box-shadow: 0 1.5px 0 0 var(--color-grey-text);
 
     &:focus {

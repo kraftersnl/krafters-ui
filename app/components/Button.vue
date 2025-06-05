@@ -326,10 +326,17 @@ const emit = defineEmits<{
 .button-variant--black {
   color: var(--color-white);
   background-color: var(--color-black);
+  transition-property: background-color, box-shadow;
+  box-shadow: 6px 6px 0px 0 var(--color-accent);
 
   &:not(:disabled, .disabled):hover {
-    color: var(--color-text);
-    background-color: var(--color-grey-bg);
+    /* box-shadow: 6px 6px 0px 0 var(--color-black); */
+
+    background-color: color-mix(
+      in srgb,
+      var(--color-black) 85%,
+      var(--color-white)
+    );
   }
 }
 
@@ -344,7 +351,7 @@ const emit = defineEmits<{
 }
 
 .button-variant--cta {
-  --focus-color: var(--color-accent);
+  --focus-color: var(--color-accent-graphic);
   color: white;
   background-color: var(--color-accent);
   font-size: var(--font-size-sm);
@@ -383,7 +390,7 @@ const emit = defineEmits<{
 
   &.router-link-active {
     text-decoration: underline;
-    color: var(--color-accent);
+    color: var(--color-accent-text);
   }
 }
 
@@ -452,20 +459,20 @@ const emit = defineEmits<{
   }
 
   &:not(:disabled, .disabled):hover {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     background-color: var(--color-accent-bg);
 
     .iconify {
-      color: var(--color-accent-text);
+      color: var(--color-accent-graphic);
     }
   }
 
   &.router-link-active {
     font-weight: var(--font-weight-bold);
-    color: var(--color-accent);
+    color: var(--color-accent-text);
 
     .iconify {
-      color: var(--color-accent-text);
+      color: var(--color-accent-graphic);
     }
   }
 }
@@ -485,19 +492,19 @@ const emit = defineEmits<{
 
   &:not(:disabled, .disabled):hover {
     text-decoration: underline;
+    color: var(--color-accent-text);
 
     .iconify {
-      color: var(--color-grey-text);
+      color: var(--color-accent-graphic);
     }
   }
 
   &.router-link-exact-active {
     text-decoration: underline;
     font-weight: var(--font-weight-bold);
-    color: var(--color-accent);
 
     .iconify {
-      color: var(--color-accent-text);
+      color: var(--color-grey-text);
     }
   }
 }
@@ -527,6 +534,7 @@ const emit = defineEmits<{
 
   &.router-link-exact-active {
     text-decoration: underline;
+    font-weight: var(--font-weight-bold);
   }
 }
 

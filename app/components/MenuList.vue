@@ -53,7 +53,7 @@ const emit = defineEmits<{
         <span>{{ label }}</span>
       </NuxtLink>
 
-      <span v-else>{{ label }}</span>
+      <template v-else>{{ label }}</template>
     </component>
 
     <ul role="list" :class="['menu-list', inline && 'menu-list--inline']">

@@ -92,8 +92,7 @@ const {
       content: '';
       width: 100%;
       height: 100%;
-      border: 1.5px solid var(--color-grey-graphic);
-      /* box-shadow: 0 1.5px 0 0 var(--color-grey-graphic); */
+      border: 1.5px solid var(--color-grey-text);
       border-radius: inherit;
       background-color: var(--color-card-bg);
       outline: 2px solid transparent;
@@ -103,7 +102,6 @@ const {
 
     &:checked::before {
       border-color: var(--color-accent);
-      /* box-shadow: 0 1.5px 0 0 var(--color-accent); */
     }
 
     &:focus-visible::before {
