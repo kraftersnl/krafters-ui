@@ -333,7 +333,7 @@ const emit = defineEmits<{
     box-shadow: 6px 6px 0px 0 var(--color-accent);
     background-color: color-mix(
       in srgb,
-      var(--color-black) 85%,
+      var(--color-black) 90%,
       var(--color-white)
     );
   }
