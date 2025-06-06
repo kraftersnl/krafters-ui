@@ -327,11 +327,10 @@ const emit = defineEmits<{
   color: var(--color-white);
   background-color: var(--color-black);
   transition-property: background-color, box-shadow;
-  box-shadow: 6px 6px 0px 0 var(--color-accent);
+  box-shadow: 4px 4px 0 0 var(--color-accent);
 
   &:not(:disabled, .disabled):hover {
-    /* box-shadow: 6px 6px 0px 0 var(--color-black); */
-
+    box-shadow: 6px 6px 0px 0 var(--color-accent);
     background-color: color-mix(
       in srgb,
       var(--color-black) 85%,
