@@ -7,21 +7,23 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.4.5" date="2025-05-22">
+    <ChangelogEntry v="1.4.5" date="2025-06-10">
       <ul>
         <li>
           Add <code>variant</code> prop to Form, Input, Textarea, Select,
           Checkbox(Group) and Radio(Group) components
         </li>
+        <li>Add <code>iconSize</code> prop to Chip component</li>
         <li>
-          Add <code>iconSize</code> prop to Chip component
+          Add new graphic color design tokens, for example
+          <code>--color-accent-graphic</code>
         </li>
         <li>
           Fix colors for <code>--color-accent</code> and
           <code>--color-accent-text</code>
         </li>
       </ul>
-    </ChangelogEntry> -->
+    </ChangelogEntry>
 
     <ChangelogEntry v="1.4.4" date="2025-05-22">
       <ul>
