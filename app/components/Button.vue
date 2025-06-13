@@ -535,7 +535,7 @@ const emit = defineEmits<{
     text-decoration: none;
     background-image: linear-gradient(var(--color-text));
     background-repeat: no-repeat;
-    background-size: 0% 1.5px;
+    background-size: 0% 1px;
     background-position: calc(100% - 1rem) bottom;
 
     transition-timing-function: ease-in-out;
@@ -546,7 +546,7 @@ const emit = defineEmits<{
     &:hover,
     &.router-link-exact-active {
       background-position: 1rem bottom;
-      background-size: calc(100% - 2rem) 1.5px;
+      background-size: calc(100% - 2rem) 1px;
       transition:
         background-size var(--duration-md),
         border-color var(--duration-sm);
