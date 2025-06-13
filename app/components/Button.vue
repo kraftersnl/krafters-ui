@@ -531,17 +531,26 @@ const emit = defineEmits<{
     color: var(--color-grey-graphic);
   }
 
-  &:hover {
-    text-decoration: underline;
+  @media (prefers-reduced-motion: no-preference) {
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-text));
+    background-repeat: no-repeat;
+    background-size: 0% 1.5px;
+    background-position: calc(100% - 1rem) bottom;
 
-    .iconify {
-      color: var(--color-grey-text);
+    transition-timing-function: ease-in-out;
+    transition:
+      background-size var(--duration-md),
+      border-color var(--duration-sm) var(--duration-sm);
+
+    &:hover,
+    &.router-link-exact-active {
+      background-position: 1rem bottom;
+      background-size: calc(100% - 2rem) 1.5px;
+      transition:
+        background-size var(--duration-md),
+        border-color var(--duration-sm);
     }
-  }
-
-  &.router-link-exact-active {
-    text-decoration: underline;
-    font-weight: var(--font-weight-bold);
   }
 }
 
