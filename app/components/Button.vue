@@ -329,8 +329,16 @@ const emit = defineEmits<{
   transition-property: background-color, box-shadow;
   box-shadow: 4px 4px 0 0 var(--color-accent);
 
-  &:not(:disabled, .disabled):hover {
+  &:not(:focus-visible, :disabled, .disabled):hover {
     box-shadow: 6px 6px 0px 0 var(--color-accent);
+    background-color: color-mix(
+      in srgb,
+      var(--color-black) 90%,
+      var(--color-white)
+    );
+  }
+  &:focus-visible {
+    box-shadow: -4px -4px 0px 0 transparent;
     background-color: color-mix(
       in srgb,
       var(--color-black) 90%,
