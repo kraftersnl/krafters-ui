@@ -74,9 +74,10 @@ defineExpose({
         <slot name="header" v-bind="{ closeDialog }" />
 
         <Button
-          icon="x"
+          icon="material-symbols:close-rounded"
           size="sm"
           variant="ghost"
+          radius="full"
           :label="$t('general.close')"
           hide-label
           class="close-button"
@@ -104,6 +105,13 @@ body:has(.dialog[open]) {
 }
 
 .dialog {
+  --dialog-padding-inline: 1.5rem;
+  --dialog-padding-block: var(--dialog-padding-inline, 1.5rem);
+
+  @media (min-width: 768px) {
+    --dialog-padding-inline: 2rem;
+  }
+
   border-radius: 0;
   padding: 0;
 
@@ -121,8 +129,8 @@ body:has(.dialog[open]) {
   }
 
   .dialog-header {
-    padding-block: 1.5rem;
-    padding-inline: 2rem;
+    padding-block: var(--dialog-padding-block);
+    padding-inline: var(--dialog-padding-inline);
     display: flex;
     align-items: center;
     text-align: center;
@@ -135,7 +143,7 @@ body:has(.dialog[open]) {
   }
 
   .dialog-content {
-    padding-inline: 2rem;
+    padding-inline: var(--dialog-padding-inline);
   }
 
   .dialog-buttons {
@@ -149,7 +157,7 @@ body:has(.dialog[open]) {
 .dialog-position--center {
   border: 1px solid var(--color-card-border);
   border-radius: var(--radius-xl);
-  padding-block-end: 1.5rem;
+  padding-block-end: var(--dialog-padding-block);
 
   &[open] {
     animation: fadeIn var(--duration-md) forwards;
@@ -173,7 +181,7 @@ body:has(.dialog[open]) {
   margin: 0 auto 0 0;
   border: none;
   border-inline-end: 1px solid var(--color-card-border);
-  padding-block-end: 1.5rem;
+  padding-block-end: var(--dialog-padding-block);
   width: 100%;
   max-width: 800px;
   min-height: 100dvh;
@@ -200,7 +208,7 @@ body:has(.dialog[open]) {
   margin: 0 0 0 auto;
   border: none;
   border-inline-start: 1px solid var(--color-card-border);
-  padding-block-end: 1.5rem;
+  padding-block-end: var(--dialog-padding-block);
   width: 100%;
   max-width: 800px;
   min-height: 100dvh;

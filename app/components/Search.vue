@@ -62,7 +62,7 @@ const emit = defineEmits<{
         v-if="model"
         type="reset"
         :title="$t('general.reset')"
-        icon="x"
+        icon="material-symbols:close-rounded"
         size="sm"
         icon-size="md"
         hide-label

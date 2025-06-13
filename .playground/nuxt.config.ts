@@ -35,6 +35,7 @@ export default defineNuxtConfig({
       icons: [
         'material-symbols:light-mode-outline-rounded',
         'material-symbols:dark-mode-outline-rounded',
+        'material-symbols:close-rounded',
         'heroicons-solid:check-circle',
         'heroicons-solid:x-circle',
         'heroicons-solid:information-circle',

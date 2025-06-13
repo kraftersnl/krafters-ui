@@ -141,7 +141,7 @@ const emit = defineEmits<{
           <div class="dialog-content">
             <Button
               v-if="!hideCloseButton"
-              icon="x"
+              icon="material-symbols:close-rounded"
               radius="full"
               :label="$t('aria.close-menu')"
               hide-label

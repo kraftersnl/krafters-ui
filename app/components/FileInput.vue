@@ -179,7 +179,7 @@ watch(
       <Button
         :label="$t('general.delete')"
         hide-label
-        icon="x"
+        icon="material-symbols:close-rounded"
         variant="danger"
         radius="full"
         size="xxs"
