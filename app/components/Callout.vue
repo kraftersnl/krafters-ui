@@ -74,16 +74,16 @@ const computedAriaLabel = computed(() => {
   border: 1px solid var(--color-grey-bg);
   border-radius: var(--radius-sm);
   font-size: var(--font-size);
-}
 
-.callout-content {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  .callout-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-  .iconify {
-    flex-shrink: 0;
-    font-size: var(--icon-size);
+    .iconify {
+      flex-shrink: 0;
+      font-size: var(--icon-size);
+    }
   }
 }
 
