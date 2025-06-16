@@ -12,6 +12,7 @@ const {
   label: string;
   hideLabel?: boolean;
   hideValue?: boolean;
+  showPercentage?: boolean;
   value: number;
   min?: number;
   max?: number;
@@ -22,7 +23,7 @@ const {
   id?: string;
 }>();
 
-const width = computed(() => (value / (max - min)) * 100);
+const percentage = computed(() => (value / (max - min)) * 100);
 </script>
 
 <template>
@@ -41,13 +42,16 @@ const width = computed(() => (value / (max - min)) * 100);
     </div>
 
     <div :class="['meter-value', hideValue && 'visuallyhidden']">
-      {{ $t('meter.value-of-max', { value: value, max: max }) }}
+      <span v-if="showPercentage">{{ percentage }}%</span>
+      <span v-else>
+        {{ $t('meter.value-of-max', { value: value, max: max }) }}
+      </span>
     </div>
 
     <div
       v-bind="$attrs"
       :class="['meter', `meter-size--${size}`]"
-      :style="`--width: ${width}%`"
+      :style="`--width: ${percentage}%`"
     />
   </div>
 </template>
@@ -64,12 +68,11 @@ const width = computed(() => (value / (max - min)) * 100);
   }
 
   .meter-value {
-    /* font-size: var(--font-size-xs); */
     justify-self: end;
   }
 
   .meter {
-    grid-column: span 2;
+    grid-column: 1 / -1;
     position: relative;
     background-color: var(--progress-stroke-bg);
     border-radius: var(--radius-full);

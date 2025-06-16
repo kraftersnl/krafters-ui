@@ -4,6 +4,7 @@ const { pageSizes = [10, 20, 50, 100] } = defineProps<{
   total: number;
   pageSizes?: number[];
   loading?: boolean;
+  hidePageSizes?: boolean;
 }>();
 
 const { t } = useI18n();
@@ -90,7 +91,7 @@ function goToPage(pageNumber: number) {
       />
     </nav>
 
-    <div class="pagination-page-size">
+    <div v-if="!hidePageSizes" class="pagination-page-size">
       <Select
         v-model.number="perPage"
         :options="computedPageSizes"
