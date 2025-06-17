@@ -20,7 +20,7 @@ const colorMode = useColorMode();
           />
 
           <label for="color-theme-light">
-            <Icon name="heroicons-solid:sun" />
+            <Icon name="material-symbols:dark-mode-outline-rounded" />
             <span>
               {{ $t('theme.light') }}
             </span>
@@ -37,7 +37,7 @@ const colorMode = useColorMode();
           />
 
           <label for="color-theme-dark">
-            <Icon name="heroicons-solid:moon" />
+            <Icon name="material-symbols:dark-mode-outline-rounded" />
             <span>
               {{ $t('theme.dark') }}
             </span>
@@ -53,7 +53,7 @@ const colorMode = useColorMode();
             type="radio"
           />
           <label for="color-theme-system">
-            <Icon name="heroicons-solid:computer-desktop" />
+            <Icon name="material-symbols:computer-outline-rounded" />
             <span>
               {{ $t('theme.system') }}
             </span>
