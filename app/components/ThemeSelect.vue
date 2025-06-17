@@ -20,7 +20,7 @@ const colorMode = useColorMode();
           />
 
           <label for="color-theme-light">
-            <Icon name="material-symbols:dark-mode-outline-rounded" />
+            <Icon name="material-symbols:light-mode-outline-rounded" />
             <span>
               {{ $t('theme.light') }}
             </span>
