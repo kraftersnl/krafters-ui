@@ -76,11 +76,12 @@ const userLang = computed({
       min-width: 75px;
       justify-content: center;
       border: 1px solid var(--color-accent-bg);
-      border-radius: var(--radius-md);
-      color: var(--color-accent-text);
+      border-radius: var(--radius-sm);
+      color: var(--color-grey-text);
 
       &:hover {
-        border-color: var(--color-accent);
+        color: var(--color-text);
+        border-color: var(--color-accent-graphic);
       }
     }
 
@@ -93,8 +94,9 @@ const userLang = computed({
 
     &:checked {
       + label {
-        color: var(--color-accent-text);
-        background-color: var(--color-accent-bg);
+        color: var(--color-white);
+        border-color: var(--color-accent);
+        background-color: var(--color-accent);
 
         .iconify {
           color: var(--color-accent);

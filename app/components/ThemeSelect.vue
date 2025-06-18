@@ -99,13 +99,13 @@ const colorMode = useColorMode();
       padding-inline: 0.5rem;
       min-width: 75px;
       justify-content: center;
-      border: 1px solid var(--color-grey-bg);
-      border-radius: var(--radius-md);
+      border: 1px solid var(--color-accent-bg);
+      border-radius: var(--radius-sm);
       color: var(--color-grey-text);
 
       &:hover {
         color: var(--color-text);
-        border-color: var(--color-grey-graphic);
+        border-color: var(--color-accent-graphic);
       }
     }
 
@@ -118,12 +118,12 @@ const colorMode = useColorMode();
 
     &:checked {
       + label {
-        color: var(--color-accent);
+        color: var(--color-white);
         border-color: var(--color-accent);
-        background-color: var(--color-accent-bg);
+        background-color: var(--color-accent);
 
         .iconify {
-          color: var(--color-accent);
+          color: var(--color-accent-bg);
         }
       }
     }

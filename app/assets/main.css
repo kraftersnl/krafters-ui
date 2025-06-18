@@ -642,6 +642,16 @@
   }
 }
 
+:where(.show-invalid) .input-variant--krafters:has(:invalid) .input:not(:focus),
+:where(.show-invalid)
+  .select-variant--krafters:has(:invalid)
+  .select:not(:focus),
+:where(.show-invalid)
+  .textarea-variant--krafters:has(:invalid)
+  .textarea:not(:focus) {
+  box-shadow: 0 1.5px 0 0 var(--color-red);
+}
+
 /* Tippy classes for Popover and Tooltip components */
 .tippy-box[data-theme~='krafters'] {
   border-radius: var(--radius-md);

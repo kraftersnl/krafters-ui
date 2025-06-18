@@ -52,7 +52,7 @@
   },
 
   "form": {
-    "invalid-email": "Emailadres is ongeldig",
+    "invalid-email": "Geen geldig e-mailadres",
     "invalid-phone": "Telefoonnummer is ongeldig",
     "invalid-url": "Website URL is ongeldig",
     "invalid-value": "Waarde ongeldig",

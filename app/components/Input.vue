@@ -54,6 +54,9 @@ const { t } = useI18n();
 
 const computedErrorMessage = computed(() => {
   if (errorMessage) return errorMessage;
+  if (type === 'email') {
+    return t('form.invalid-email');
+  }
   if (required && !modelValue) {
     return t('form.missing-value', { item: label });
   }
