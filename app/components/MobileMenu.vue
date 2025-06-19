@@ -19,6 +19,7 @@ const {
   label = undefined,
   navLabel = undefined,
   list = undefined,
+  closeIcon = 'material-symbols:close-rounded',
   hideCloseButton = false,
 } = defineProps<{
   teleportTo?: string;
@@ -38,6 +39,7 @@ const {
   navLabel?: string;
   list?: MenuItem[];
   id?: string;
+  closeIcon?: string;
   hideCloseButton?: boolean;
 }>();
 
@@ -108,7 +110,11 @@ const emit = defineEmits<{
 
 <template>
   <div class="mobile-menu-wrapper">
-    <slot v-if="$slots.trigger" name="trigger" v-bind="openDialog" />
+    <slot
+      v-if="$slots.trigger"
+      name="trigger"
+      v-bind="{ openDialog, closeDialog }"
+    />
 
     <Button
       v-else
@@ -141,8 +147,10 @@ const emit = defineEmits<{
           <div class="dialog-content">
             <Button
               v-if="!hideCloseButton"
-              icon="material-symbols:close-rounded"
+              :icon="closeIcon"
+              icon-size="xl"
               radius="full"
+              variant="ghost"
               :label="$t('aria.close-menu')"
               hide-label
               class="close-button"
