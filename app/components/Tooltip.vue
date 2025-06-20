@@ -11,6 +11,7 @@ const {
   tabindex = undefined,
   title = undefined,
   maxWidth = undefined,
+  offset = undefined,
   placement = 'auto',
   trigger = 'click',
   hideLabel = true,
@@ -27,6 +28,7 @@ const {
   interactive?: boolean;
   hideOnClick?: boolean | 'toggle';
   placement?: PopperPlacement;
+  offset?: [number, number];
   icon?: string;
   hideLabel?: boolean;
   tabindex?: string;
@@ -80,6 +82,7 @@ function closeToggletip() {
       :interactive="interactive"
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
+      :offset="offset"
       :aria="{
         // disable in favor of own solution
         content: null,

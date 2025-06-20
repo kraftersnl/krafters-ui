@@ -121,10 +121,6 @@ const colorMode = useColorMode();
         color: var(--color-white);
         border-color: var(--color-accent);
         background-color: var(--color-accent);
-
-        .iconify {
-          color: var(--color-accent-bg);
-        }
       }
     }
   }

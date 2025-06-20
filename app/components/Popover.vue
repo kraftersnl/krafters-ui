@@ -16,6 +16,7 @@ const {
   buttonVariant = 'ghost',
   size = 'sm',
   placement = 'auto-start',
+  offset = undefined,
   interactive = true,
   trigger = 'click',
   hideOnClick = true,
@@ -32,6 +33,7 @@ const {
   buttonVariant?: string;
   size?: 'sm' | 'md' | 'lg';
   placement?: PopperPlacement;
+  offset?: [number, number];
   disabled?: boolean;
   interactive?: boolean;
   arrow?: boolean;
@@ -100,6 +102,7 @@ const emit = defineEmits<{
       :interactive="interactive"
       :hide-on-click="hideOnClick"
       :max-width="maxWidth"
+      :offset="offset"
       :aria="{
         // disable in favor of own solution
         content: null,
