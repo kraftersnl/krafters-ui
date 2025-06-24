@@ -346,6 +346,11 @@ onMounted(() => {
   opacity: 0;
 }
 
+.multiselect {
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+}
+
 .multiselect.is-disabled {
   opacity: 35%;
 

@@ -9,6 +9,7 @@ const {
   id = useId(),
   preview = false,
   autofocus,
+  disabled,
   label = undefined,
   placeholder = undefined,
   errorMessage = undefined,
@@ -22,6 +23,7 @@ const {
   required?: boolean;
   hideLabel?: boolean;
   autofocus?: boolean;
+  disabled?: boolean;
   errorMessage?: string;
   instruction?: string;
 }>();
@@ -100,6 +102,7 @@ const emit = defineEmits<{
         :footers="footers"
         :toolbars="toolbars"
         :placeholder="placeholder"
+        :disabled="disabled"
         :theme="colorMode.value === 'light' ? 'light' : 'dark'"
         code-theme="stackoverflow-dark"
         :aria-describedby="`${instruction ? `instruction-${id}` : ''}`"

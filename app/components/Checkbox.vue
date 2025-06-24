@@ -60,6 +60,8 @@ const {
 <style>
 .checkbox-wrapper {
   display: flex;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
 
   &.disabled {
     opacity: 0.35;

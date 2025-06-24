@@ -297,10 +297,6 @@
   scrollbar-gutter: stable;
 }
 
-:where(aside) {
-  container-type: inline-size;
-}
-
 :where(main) {
   container-type: inline-size;
   scroll-margin-block: var(--app-header-height);
@@ -525,6 +521,8 @@
   font-weight: var(--font-weight-medium);
   -webkit-user-select: none;
   user-select: none;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
 
   &.disabled {
     opacity: 25%;
@@ -574,6 +572,8 @@
   display: inline-grid;
   align-items: center;
   align-content: start;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
 
   [class*='instruction'] {
     margin-block-start: 0.25rem;
