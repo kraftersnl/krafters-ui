@@ -3,6 +3,7 @@ import type { RouteLocationRaw } from 'vue-router';
 
 const {
   label = undefined,
+  ariaLabel = undefined,
   fontSize = undefined,
   iconSize = undefined,
   radius = undefined,
@@ -17,6 +18,7 @@ const {
   type = 'button',
 } = defineProps<{
   label?: string;
+  ariaLabel?: string;
   icon?: string;
   iconPos?: 'start' | 'end';
   to?: RouteLocationRaw;
@@ -75,6 +77,7 @@ const emit = defineEmits<{
     :to="disabled ? undefined : to || href"
     :target="target"
     :external="external"
+    :aria-label="ariaLabel"
     :class="[
       'button',
       `button-size--${size}`,
@@ -110,6 +113,7 @@ const emit = defineEmits<{
     ref="button"
     :type="type"
     :disabled="loading || disabled"
+    :aria-label="ariaLabel"
     :class="[
       'button',
       `button-size--${size}`,
