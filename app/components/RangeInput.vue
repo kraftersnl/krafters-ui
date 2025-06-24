@@ -117,6 +117,10 @@ const ticksList = computed(
   --track-height: 1rem;
   --track-width: 100%;
 
+  &:has(:disabled) {
+    opacity: 35%;
+  }
+
   position: relative;
   width: var(--track-width);
 

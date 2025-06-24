@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineProps<{ disabled?: boolean }>();
+
 const file = ref<File>();
 const fileInputRef = useTemplateRef<FileInputComponent>('fileInput');
 const showInvalid = ref(false);
@@ -39,6 +41,7 @@ async function uploadFile(formData: FormData) {
       :label="$t('general.files')"
       :show-invalid="showInvalid"
       name="file"
+      :disabled="disabled"
       @update:model-value="handleFileInput"
     />
 

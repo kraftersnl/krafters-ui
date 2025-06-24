@@ -139,6 +139,7 @@ watch(
         :required="required"
         :autofocus="autofocus"
         :accept="accept"
+        :disabled="disabled"
         :aria-describedby="id && !validity ? `error-${id}` : ''"
         :class="[showInvalid && !validity && 'show-invalid']"
         @dragover="handleDragOver"
@@ -150,7 +151,6 @@ watch(
       <button
         tabindex="-1"
         type="button"
-        :disabled="disabled"
         :class="[
           'file-input-button',
           imagePreview && 'has-image-preview',
@@ -204,6 +204,10 @@ watch(
 <style>
 .file-input-wrapper {
   max-width: 100%;
+
+  &:has(input:disabled) {
+    opacity: 35%;
+  }
 }
 
 .file-input-button {
@@ -270,12 +274,12 @@ watch(
     width: 100%;
     height: 100%;
 
-    &:hover + .file-input-button {
+    &:hover:not(:disabled) + .file-input-button {
       color: var(--color-accent);
       border-color: var(--color-accent);
     }
 
-    &:hover + .has-image-preview {
+    &:hover:not(:disabled) + .has-image-preview {
       outline: 2px dashed var(--color-black);
     }
 

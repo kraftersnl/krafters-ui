@@ -519,6 +519,8 @@
 /* Form inputs */
 :where(.label, label) {
   font-weight: var(--font-weight-medium);
+}
+:where(.label, label, legend) {
   -webkit-user-select: none;
   user-select: none;
   transition-property: opacity;
@@ -582,7 +584,7 @@
     color: var(--color-grey-text);
   }
 
-  &:has(:disabled):not(:has(option:disabled)) {
+  &:has(.select:disabled, .input:disabled, .textarea:disabled) {
     opacity: 35%;
   }
 

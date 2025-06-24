@@ -9,6 +9,7 @@ const {
   variant = 'default',
   titleKey = undefined,
   tabindex = undefined,
+  disabled,
 } = defineProps<{
   options: any[];
   label: string;
@@ -19,6 +20,7 @@ const {
   disabledKey?: string;
   titleKey?: string;
   hideLegend?: boolean;
+  disabled?: boolean;
   variant?: 'default' | 'krafters';
 }>();
 </script>
@@ -27,7 +29,10 @@ const {
   <div class="checkboxes-wrapper">
     <template v-if="options?.length">
       <fieldset>
-        <legend v-if="label" :class="[hideLegend && 'visuallyhidden']">
+        <legend
+          v-if="label"
+          :class="[hideLegend && 'visuallyhidden', disabled && 'disabled']"
+        >
           {{ label }}
         </legend>
 
@@ -37,7 +42,7 @@ const {
               v-model="model"
               :value="option[valueKey]"
               :label="option[labelKey]"
-              :disabled="option[disabledKey]"
+              :disabled="disabled || option[disabledKey]"
               :title="titleKey ? option[titleKey] : undefined"
               :name="option[nameKey]"
               :hide-label="option.hideLabel"

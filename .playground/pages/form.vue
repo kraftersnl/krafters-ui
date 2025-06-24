@@ -250,6 +250,7 @@ function handleSubmit(formData: FormData) {
           class="demo-range-input"
           :show-ticks="showTicks"
           :show-output="showOutput"
+          :disabled="disabled"
         />
 
         <div class="card-cols">
@@ -311,6 +312,7 @@ function handleSubmit(formData: FormData) {
               :options="multiSelectOptions"
               :mode="multiselectMode"
               :size="multiselectSize"
+              :disabled="disabled"
               name="multiselect"
               value-key="id"
               label-key="name"
@@ -339,6 +341,7 @@ function handleSubmit(formData: FormData) {
               label="DatePicker"
               placeholder="Pick a date"
               class="demo-datepicker"
+              :disabled="disabled"
             />
           </section>
         </div>
@@ -350,12 +353,19 @@ function handleSubmit(formData: FormData) {
               v-model="disabled"
               label="Disable form inputs"
               class="demo-switch"
+              :disabled="disabled"
+            />
+            <Switch
+              v-if="disabled"
+              v-model="disabled"
+              label="Disable form inputs"
+              class="demo-switch"
             />
           </section>
 
           <section>
             <h2>File Input</h2>
-            <DemoFileForm />
+            <DemoFileForm :disabled="disabled" />
           </section>
         </div>
 

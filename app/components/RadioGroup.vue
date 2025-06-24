@@ -10,6 +10,7 @@ const {
   tooltip = undefined,
   tabindex = undefined,
   titleKey = undefined,
+  disabled,
 } = defineProps<{
   options: any[];
   label: string;
@@ -22,6 +23,7 @@ const {
   id?: string;
   hideLegend?: boolean;
   required?: boolean;
+  disabled?: boolean;
   inline?: boolean;
   variant?: 'default' | 'krafters';
 }>();
@@ -30,7 +32,10 @@ const {
 <template>
   <div class="radios-wrapper">
     <fieldset v-if="options?.length">
-      <legend v-if="label || tooltip" :class="[hideLegend && 'visuallyhidden']">
+      <legend
+        v-if="label || tooltip"
+        :class="[hideLegend && 'visuallyhidden', disabled && 'disabled']"
+      >
         <Tooltip
           v-if="tooltip"
           :label="label"
@@ -48,7 +53,7 @@ const {
             v-model="model"
             :value="option[valueKey]"
             :label="option[labelKey]"
-            :disabled="option.disabled"
+            :disabled="disabled || option.disabled"
             :title="titleKey ? option[titleKey] : undefined"
             :name="name"
             :tabindex="tabindex"

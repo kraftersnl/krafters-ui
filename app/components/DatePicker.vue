@@ -106,6 +106,12 @@ onMounted(() => (isMounted.value = true));
 <style>
 .krafters-datepicker-container {
   display: grid;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  &:has(.dp__disabled) {
+    opacity: 35%;
+  }
 }
 
 .dp__theme_light,
