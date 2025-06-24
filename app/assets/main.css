@@ -297,6 +297,10 @@
   scrollbar-gutter: stable;
 }
 
+:where(aside) {
+  container-type: inline-size;
+}
+
 :where(main) {
   container-type: inline-size;
   scroll-margin-block: var(--app-header-height);
