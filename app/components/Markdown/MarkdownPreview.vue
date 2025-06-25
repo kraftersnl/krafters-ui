@@ -110,6 +110,8 @@ const preview = computed(() => md.render(content));
   }
 
   a {
+    overflow-wrap: anywhere;
+
     &[target='_blank']::after {
       content: '';
       display: inline-block;
