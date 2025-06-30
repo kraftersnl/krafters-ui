@@ -7,6 +7,12 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.4.7" date="2025-06-30">
+      <ul>
+        <li>Update color design tokens</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.4.6" date="2025-06-30">
       <ul>
         <li>Expose <code>submit</code> function from Form component</li>
@@ -22,7 +28,7 @@ useHead({ title: 'Changelog' });
           component
         </li>
         <li>Fix overflowing hyperlinks in MarkdownPreview component</li>
-        <li>Update font size design token values</li>
+        <li>Update font size design tokens</li>
         <li>Update icon for external links in MarkdownPreview component</li>
         <li>Update icons for ThemeToggle and ThemeSelect components</li>
       </ul>
