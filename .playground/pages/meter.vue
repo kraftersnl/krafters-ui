@@ -3,6 +3,7 @@ useHead({ title: 'Meter pattern' });
 
 const role = ref<'meter' | 'progressbar'>('meter');
 const hideLabel = ref(true);
+const showPercentage = ref(false);
 const progress = ref(50);
 const max = ref(100);
 
@@ -68,6 +69,7 @@ const roleOptions = [
                 <Input v-model.number="max" type="number" label="max" />
 
                 <Switch v-model="hideLabel" label="hideLabel" />
+                <Switch v-model="showPercentage" label="showPercentage" />
 
                 <code
                   >{{`<ProgressMeter
@@ -75,6 +77,7 @@ const roleOptions = [
                     :max="${max}"
                     :role="${role}"
                     :hide-label="${hideLabel}"
+                    :show-percentage="${showPercentage}"
                   />`}}</code
                 >
                 <code
@@ -83,6 +86,7 @@ const roleOptions = [
                     :max="${max}"
                     :role="${role}"
                     :hide-label="${hideLabel}"
+                    :show-percentage="${showPercentage}"
                   />`}}</code
                 >
               </div>
@@ -94,6 +98,7 @@ const roleOptions = [
           <ProgressMeter
             label="Progress"
             :hide-label="hideLabel"
+            :show-percentage="showPercentage"
             :value="progress"
             :max="max"
             :role="role"
@@ -102,6 +107,7 @@ const roleOptions = [
           <ProgressMeter
             label="Progress"
             :hide-label="hideLabel"
+            :show-percentage="showPercentage"
             :value="progress"
             :max="max"
             :role="role"
@@ -110,6 +116,7 @@ const roleOptions = [
           <ProgressMeter
             label="Progress"
             :hide-label="hideLabel"
+            :show-percentage="showPercentage"
             :value="progress"
             :max="max"
             :role="role"
