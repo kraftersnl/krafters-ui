@@ -28,7 +28,7 @@ defineProps<{
   }
 
   code {
-    font-size: var(--font-size-xxxs);
+    font-size: 0.5rem;
   }
 
   .color-swatch--white {
