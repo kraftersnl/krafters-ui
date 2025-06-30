@@ -128,6 +128,7 @@ const sizeOptions: { value: FontSize; label: string }[] = [
 
         <div class="chips-grid">
           <Chip :size="size" icon="check" label="Default" />
+          <Chip :size="size" icon="check" label="Grey" color="grey" />
           <Chip :size="size" icon="check" label="Accent" color="accent" />
           <Chip :size="size" icon="check" label="Red" color="red" />
           <Chip :size="size" icon="check" label="Orange" color="orange" />
@@ -140,6 +141,13 @@ const sizeOptions: { value: FontSize; label: string }[] = [
 
         <div class="chips-grid">
           <Chip :size="size" icon="check" variant="outline" label="Default" />
+          <Chip
+            :size="size"
+            icon="check"
+            variant="outline"
+            label="Grey"
+            color="grey"
+          />
           <Chip
             :size="size"
             icon="check"

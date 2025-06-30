@@ -17,18 +17,18 @@
   --color-white: hsl(281 50% 6%);
 
   --color-red: hsl(0 100% 60%);
-  --color-red-bg: hsl(0 100% 15%);
-  --color-red-text: hsl(0 100% 70%);
+  --color-red-bg: hsl(0 33% 19%);
+  --color-red-text: hsl(0 63% 65%);
   --color-red-graphic: hsl(0 100% 70%);
 
   --color-orange: hsl(30 100% 50%);
-  --color-orange-bg: hsl(30 100% 15%);
+  --color-orange-bg: hsl(30 67% 18%);
   --color-orange-text: hsl(30 100% 60%);
   --color-orange-graphic: hsl(30 100% 45%);
 
   --color-yellow: hsl(60 80% 50%);
-  --color-yellow-bg: hsl(60 100% 20%);
-  --color-yellow-text: hsl(0 0% 0%);
+  --color-yellow-bg: hsl(55 43% 20%);
+  --color-yellow-text: hsl(50 70% 59%);
   --color-yellow-graphic: hsl(60 80% 60%);
 
   --color-green: hsl(150 100% 33%);
@@ -87,7 +87,7 @@
   --color-orange-text: hsl(30 90% 33%);
   --color-orange-graphic: hsl(30 100% 45%);
 
-  --color-yellow: hsl(60 90% 50%);
+  --color-yellow: hsl(60 100% 46%);
   --color-yellow-bg: hsl(60 90% 80%);
   --color-yellow-text: hsl(60 25% 20%);
   --color-yellow-graphic: hsl(45 80% 40%);

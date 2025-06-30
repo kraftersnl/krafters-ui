@@ -59,6 +59,7 @@ declare global {
 
   type BaseColor =
     | 'default'
+    | 'grey'
     | 'accent'
     | 'red'
     | 'orange'
