@@ -9,7 +9,23 @@ const {
   showInvalid?: boolean;
 }>();
 
+onMounted(() => {
+  if (autofocusFn) autofocusFn();
+});
+
+const formRef = useTemplateRef('form');
 const validity = ref(true);
+
+function submit() {
+  if (!formRef.value) return;
+
+  validity.value = formRef.value?.checkValidity();
+
+  if (validity.value) {
+    const data = new FormData(formRef.value);
+    emit('submit', data);
+  }
+}
 
 function handleSubmit(event: Event) {
   const target = event.target as HTMLFormElement;
@@ -29,18 +45,19 @@ function handleSubmit(event: Event) {
   }
 }
 
-onMounted(() => {
-  if (autofocusFn) autofocusFn();
+defineExpose({
+  submit,
 });
 
 const emit = defineEmits<{
-  submit: [data: FormData, event: Event];
+  submit: [data: FormData, event?: Event];
   invalid: [event: Event];
 }>();
 </script>
 
 <template>
   <form
+    ref="form"
     :class="[
       'form',
       showInvalid && 'show-invalid',

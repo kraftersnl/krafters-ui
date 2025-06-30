@@ -7,6 +7,27 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.4.6" date="2025-06-30">
+      <ul>
+        <li>Expose <code>submit</code> function from Form component</li>
+        <li>Add <code>disabled</code> prop to all form input components</li>
+        <li>Add <code>ariaLabel</code> prop to Button component</li>
+        <li>Add <code>offset</code> prop to Tooltip and Popover components</li>
+        <li>Add <code>closeIcon</code> prop to MobileMenu component</li>
+        <li>Add <code>showPercentage</code> prop to ProgressMeter component</li>
+        <li>Add <code>hidePageSizes</code> prop to Pagination component</li>
+        <li>
+          Add <code>--dialog-padding-block</code> and
+          <code>--dialog-padding-inline</code> design tokens for Dialog
+          component
+        </li>
+        <li>Fix overflowing hyperlinks in MarkdownPreview component</li>
+        <li>Update font size design token values</li>
+        <li>Update icon for external links in MarkdownPreview component</li>
+        <li>Update icons for ThemeToggle and ThemeSelect components</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.4.5" date="2025-06-10">
       <ul>
         <li>
