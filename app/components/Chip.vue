@@ -179,7 +179,7 @@ const formattedLabel = computed(() =>
 
 .chip-variant--outline.chip-color--accent {
   color: var(--color-accent-text);
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-graphic);
 }
 
 .chip-variant--outline.chip-color--grey {
@@ -189,22 +189,22 @@ const formattedLabel = computed(() =>
 
 .chip-variant--outline.chip-color--red {
   color: var(--color-red-text);
-  border-color: var(--color-red);
+  border-color: var(--color-red-graphic);
 }
 
 .chip-variant--outline.chip-color--orange {
   color: var(--color-orange-text);
-  border-color: var(--color-orange);
+  border-color: var(--color-orange-graphic);
 }
 
 .chip-variant--outline.chip-color--yellow {
   color: var(--color-yellow-text);
-  border-color: var(--color-yellow);
+  border-color: var(--color-yellow-graphic);
 }
 
 .chip-variant--outline.chip-color--green {
   color: var(--color-green-text);
-  border-color: var(--color-green);
+  border-color: var(--color-green-graphic);
 
   .iconify {
     color: var(--color-green-graphic);
@@ -213,16 +213,16 @@ const formattedLabel = computed(() =>
 
 .chip-variant--outline.chip-color--blue {
   color: var(--color-blue-text);
-  border-color: var(--color-blue);
+  border-color: var(--color-blue-graphic);
 }
 
 .chip-variant--outline.chip-color--purple {
   color: var(--color-purple-text);
-  border-color: var(--color-purple);
+  border-color: var(--color-purple-graphic);
 }
 
 .chip-variant--outline.chip-color--pink {
   color: var(--color-pink-text);
-  border-color: var(--color-pink);
+  border-color: var(--color-pink-graphic);
 }
 </style>
