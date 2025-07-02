@@ -1,11 +1,12 @@
 <script setup lang="ts">
-const { lines = 1 } = defineProps<{
+const { is = 'span', lines = 1 } = defineProps<{
   lines?: number;
 }>();
 </script>
 
 <template>
-  <span
+  <component
+    :is="is"
     :class="[
       'ellipsis',
       'ellipsis-variant--clamp',
@@ -14,7 +15,7 @@ const { lines = 1 } = defineProps<{
     :style="{ '--line-clamp': lines }"
   >
     <slot mdc-unwrap="p" />
-  </span>
+  </component>
 </template>
 
 <style>
