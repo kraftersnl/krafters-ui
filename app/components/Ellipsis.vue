@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { is = 'span', lines = 1 } = defineProps<{
   lines?: number;
+  is?: string;
 }>();
 </script>
 
