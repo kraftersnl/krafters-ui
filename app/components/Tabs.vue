@@ -105,6 +105,7 @@ defineExpose({
           <div
             v-if="tab.icon?.startsWith('<svg')"
             class="html-icon"
+            aria-hidden="true"
             v-html="tab.icon"
           />
           <Icon v-else-if="computeIcon(tab)" :name="computeIcon(tab)" />
