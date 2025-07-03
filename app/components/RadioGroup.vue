@@ -100,7 +100,7 @@ const {
 
     &.inline {
       display: flex;
-      flex-wrap: Wrap;
+      flex-wrap: wrap;
       row-gap: 0.5rem;
       column-gap: 1rem;
     }
@@ -108,7 +108,7 @@ const {
 
   &:has(input[type='radio']:invalid) {
     legend {
-      color: var(--color-red);
+      color: var(--color-red-text);
     }
 
     .error-wrapper .error {

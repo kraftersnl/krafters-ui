@@ -191,8 +191,8 @@ onMounted(() => (isMounted.value = true));
 .show-invalid {
   .dp__input {
     &:invalid {
-      border-color: var(--color-red);
-      outline: 1px solid var(--color-red);
+      border-color: var(--color-red-graphic);
+      outline: 1px solid var(--color-red-graphic);
     }
   }
 

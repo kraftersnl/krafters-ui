@@ -6,7 +6,7 @@ const {
   borderWidth = 1,
   padding = '1.5rem 2rem',
   mobilePadding = '1.25rem 1.5rem',
-  shadow = 1,
+  shadow = false,
 } = defineProps<{
   is?: string;
   borderWidth?: number;

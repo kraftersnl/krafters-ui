@@ -115,7 +115,8 @@ body:has(.dialog[open]) {
   border-radius: 0;
   padding: 0;
 
-  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  background-color: var(--color-dialog-bg);
   border: none;
   outline: 1px solid transparent;
 

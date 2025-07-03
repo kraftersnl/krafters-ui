@@ -121,7 +121,7 @@ defineExpose({
     box-shadow: var(--shadow-2);
     border: 1px solid var(--color-card-border);
     border-block-start: none;
-    background-color: var(--color-card-bg);
+    background-color: var(--color-dialog-bg);
   }
 
   .user-info-wrapper {

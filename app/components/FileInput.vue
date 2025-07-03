@@ -293,7 +293,7 @@ watch(
 
 .file-input-wrapper:has(.show-invalid) {
   .file-input-button {
-    border-color: var(--color-red);
+    border-color: var(--color-red-graphic);
   }
 
   .error-wrapper .error {

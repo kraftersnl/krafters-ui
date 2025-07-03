@@ -421,7 +421,7 @@ onMounted(() => {
     display: flex;
   }
 
-  --ms-border-color: var(--color-red);
+  --ms-border-color: var(--color-red-graphic);
 }
 
 /* Sizes */
