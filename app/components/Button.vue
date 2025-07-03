@@ -278,7 +278,6 @@ const emit = defineEmits<{
 .button-variant--primary {
   color: var(--color-white);
   background-color: var(--color-accent);
-  white-space: nowrap;
 
   &:not(:disabled, .disabled):hover {
     background-color: color-mix(
@@ -292,7 +291,6 @@ const emit = defineEmits<{
 .button-variant--danger {
   color: var(--color-red-text);
   background-color: var(--color-red-bg);
-  white-space: nowrap;
 
   &:not(:disabled, .disabled):hover {
     color: var(--color-red-bg);
@@ -316,7 +314,6 @@ const emit = defineEmits<{
 .button-variant--green {
   color: var(--color-white);
   background-color: var(--color-green);
-  white-space: nowrap;
 
   &:not(:disabled, .disabled):hover {
     background-color: color-mix(
@@ -369,7 +366,6 @@ const emit = defineEmits<{
   min-height: 3.5rem;
   padding-inline: 1.5rem;
   font-weight: var(--font-weight-bold);
-  white-space: nowrap;
 
   &:not(:disabled, .disabled):hover {
     background-color: color-mix(in srgb, var(--color-accent) 85%, black);
@@ -379,7 +375,6 @@ const emit = defineEmits<{
 .button-variant--secondary {
   color: var(--color-text);
   background-color: var(--color-grey-bg);
-  white-space: nowrap;
 
   &:not(:disabled, .disabled):hover {
     background-color: color-mix(
@@ -393,7 +388,6 @@ const emit = defineEmits<{
 .button-variant--ghost {
   color: var(--color-text);
   background-color: transparent;
-  white-space: nowrap;
 
   &:not(:disabled, .disabled):hover {
     background-color: var(--color-grey-bg);
