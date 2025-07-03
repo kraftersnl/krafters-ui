@@ -23,7 +23,7 @@ defineProps<{ fontSize?: FontSize }>();
             : 'material-symbols:light-mode-outline-rounded'
         "
       />
-      <span class="visuallyhidden">{{ $t('theme.dark') }}</span>
+      <span class="visuallyhidden">{{ $t('theme.sr.dark') }}</span>
     </button>
   </ClientOnly>
 </template>

@@ -223,9 +223,14 @@
   },
 
   "theme": {
-    "dark": "Dark mode",
+    "dark": "Dark",
     "heading": "Theme",
-    "light": "Light mode",
-    "system": "System theme"
+    "light": "Light",
+    "system": "System",
+    "sr": {
+      "dark": "Dark mode",
+      "light": "Light mode",
+      "system": "System theme"
+    }
   }
 }

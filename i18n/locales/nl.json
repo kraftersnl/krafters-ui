@@ -223,9 +223,14 @@
   },
 
   "theme": {
-    "dark": "Donkere modus",
+    "dark": "Donker",
     "heading": "Thema",
-    "light": "Lichte modus",
-    "system": "Systeemthema"
+    "light": "Licht",
+    "system": "Systeem",
+    "sr": {
+      "dark": "Donkere modus",
+      "light": "Lichte modus",
+      "system": "Systeemthema"
+    }
   }
 }
