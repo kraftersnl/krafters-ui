@@ -2,7 +2,11 @@
 import markdownit from 'markdown-it';
 import { attrs } from '@mdit/plugin-attrs';
 import { mark } from '@mdit/plugin-mark';
-import { italicExtension, targetBlankExtension } from './extensions';
+import {
+  swatchExtension,
+  italicExtension,
+  targetBlankExtension,
+} from './extensions';
 
 import hljs from 'highlight.js/lib/core';
 import css from 'highlight.js/lib/languages/css';
@@ -50,6 +54,7 @@ const md = markdownit({
   },
 });
 
+md.use(swatchExtension);
 md.use(targetBlankExtension);
 md.use(italicExtension);
 md.use(attrs);
@@ -81,6 +86,19 @@ const preview = computed(() => md.render(content));
 
   code {
     font-size: smaller;
+
+    &[data-color]::before {
+      display: inline-block;
+      content: '';
+      width: 0.825rem;
+      height: 0.825rem;
+      border: 1px solid var(--color-card-bg);
+      border-radius: var(--radius-full);
+      vertical-align: middle;
+      margin-inline-end: 0.25rem;
+      margin-block-start: -2px;
+      background-color: var(--color);
+    }
   }
 
   pre code.hljs {

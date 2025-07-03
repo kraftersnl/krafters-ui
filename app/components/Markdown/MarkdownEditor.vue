@@ -2,7 +2,11 @@
 import { MdEditor, config } from 'md-editor-v3';
 import { attrs } from '@mdit/plugin-attrs';
 import { mark } from '@mdit/plugin-mark';
-import { italicExtension, targetBlankExtension } from './extensions';
+import {
+  swatchExtension,
+  italicExtension,
+  targetBlankExtension,
+} from './extensions';
 import 'md-editor-v3/lib/style.css';
 
 const {
@@ -30,6 +34,7 @@ const {
 
 config({
   markdownItConfig(md) {
+    md.use(swatchExtension);
     md.use(targetBlankExtension);
     md.use(italicExtension);
     md.use(attrs);
@@ -187,6 +192,19 @@ const emit = defineEmits<{
     line-height: var(--line-height, 1.5);
     --md-theme-code-inline-color: var(--color-text);
     --md-theme-code-inline-bg-color: var(--color-grey-bg);
+
+    &[data-color]::before {
+      display: inline-block;
+      content: '';
+      width: 0.825rem;
+      height: 0.825rem;
+      border: 1px solid var(--color-card-bg);
+      border-radius: var(--radius-full);
+      vertical-align: middle;
+      margin-inline-end: 0.25rem;
+      margin-block-start: -2px;
+      background-color: var(--color);
+    }
   }
 
   blockquote {
