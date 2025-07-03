@@ -223,9 +223,9 @@
   },
 
   "theme": {
-    "dark": "Donker",
+    "dark": "Donkere modus",
     "heading": "Thema",
-    "light": "Licht",
-    "system": "Systeem"
+    "light": "Lichte modus",
+    "system": "Systeemthema"
   }
 }

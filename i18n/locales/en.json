@@ -223,9 +223,9 @@
   },
 
   "theme": {
-    "dark": "Dark",
+    "dark": "Dark mode",
     "heading": "Theme",
-    "light": "Light",
-    "system": "System"
+    "light": "Light mode",
+    "system": "System theme"
   }
 }
