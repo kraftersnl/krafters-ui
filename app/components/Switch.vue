@@ -78,7 +78,7 @@ function handleClick() {
   .switch-label {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
-    padding-inline: var(--size-4xs);
+    /* padding-inline: 2px; */
     transition-property: color, font-weight;
     transition-duration: var(--duration-sm);
   }

@@ -166,7 +166,7 @@
   --font-size-xxs: 0.6875rem;
   --font-size-xxxs: 0.625rem;
 
-  /* Size design tokens */
+  /* Size design tokens - only used by Skeleton and Spacer components */
   --size-xxxxl: 12rem; /* 192px */
   --size-xxxl: 8rem; /* 128px */
   --size-xxl: 4rem; /* 64px */

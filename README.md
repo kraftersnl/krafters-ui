@@ -8,7 +8,7 @@ Krafters UI is a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers) in a
 
 ### Extend from GitHub repository
 
-Refer to the layer with `extends` in nuxt.config.ts:
+Configuration below extends from main branch of repository:
 
 ```ts
 defineNuxtConfig({
@@ -20,7 +20,7 @@ defineNuxtConfig({
 
 First, install the package as a dependency by running `pnpm i @krafters/ui`.
 
-Then refer to the layer with `extends` in nuxt.config.ts:
+Then configure nuxt.config.ts to extend from the `@krafters/ui` package:
 
 ```ts
 defineNuxtConfig({

@@ -102,7 +102,7 @@ const emit = defineEmits<{
     </span>
 
     <template v-if="!hideExternalIcon && target === '_blank'">
-      <Icon name="solar:square-bottom-up-linear" class="external-link" />
+      <Icon name="material-symbols:open-in-new-rounded" class="external-link" />
     </template>
 
     <slot name="default" />
@@ -421,7 +421,7 @@ const emit = defineEmits<{
       width: 1em;
       height: 1em;
       vertical-align: middle;
-      margin-inline-start: 0.35em;
+      margin-inline-start: 0.25em;
     }
   }
 

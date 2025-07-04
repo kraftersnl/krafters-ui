@@ -175,6 +175,7 @@ function handleFilter() {
           :hide-label="true"
           mode="tags"
           placeholder="All levels"
+          show-option-icons
           size="lg"
           @update:model-value="handleFilter()"
         />
