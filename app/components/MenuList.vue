@@ -108,6 +108,7 @@ const emit = defineEmits<{
     }
 
     &:hover {
+      text-decoration: underline;
       color: var(--color-accent);
 
       .iconify {
