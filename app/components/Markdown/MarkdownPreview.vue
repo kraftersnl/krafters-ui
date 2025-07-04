@@ -90,8 +90,8 @@ const preview = computed(() => md.render(content));
     &[data-color]::before {
       display: inline-block;
       content: '';
-      width: 0.825rem;
-      height: 0.825rem;
+      width: 1em;
+      height: 1em;
       border: 1px solid var(--color-card-bg);
       border-radius: var(--radius-full);
       vertical-align: middle;
