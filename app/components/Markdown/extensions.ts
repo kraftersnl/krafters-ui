@@ -9,8 +9,11 @@ export function swatchExtension(md: MarkdownIt) {
 
   md.renderer.rules.code_inline = function (tokens, idx, options, env, self) {
     if (
-      tokens[idx]?.content?.startsWith('#') ||
-      tokens[idx]?.content?.startsWith('rgb')
+      (tokens[idx]?.content?.startsWith('#') &&
+        (tokens[idx]?.content?.length === 4 ||
+          tokens[idx]?.content?.length === 7)) ||
+      tokens[idx]?.content?.startsWith('rgb') ||
+      tokens[idx]?.content?.startsWith('hsl')
     ) {
       tokens[idx].attrPush(['data-color', tokens[idx]?.content]);
       tokens[idx].attrPush(['style', '--color:' + tokens[idx]?.content]);
