@@ -140,7 +140,7 @@ const computedErrorMessage = computed(() => {
 .form-field-wrapper {
   .select {
     accent-color: var(--color-text);
-    background-color: var(--color-input-bg);
+    background-color: var(--color-select-bg);
   }
 }
 

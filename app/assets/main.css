@@ -10,8 +10,8 @@
   --color-black: white;
   --color-text: hsl(280 25% 90%);
   --color-grey-text: hsl(280 20% 65%);
-  --color-grey-graphic: hsl(281 10% 50%);
-  --color-grey-bg: hsl(279 27% 17%);
+  --color-grey-graphic: hsl(280 16% 45%);
+  --color-grey-bg: hsl(280 27% 17%);
   --color-bg: hsl(280 26% 9%);
   --color-card-bg: hsl(280 27% 12%);
   --color-white: hsl(280 41% 7%);
@@ -56,7 +56,8 @@
   --shadow-color: 282deg 42% 2%;
 
   --color-dialog-bg: var(--color-white);
-  --color-input-bg: var(--color-bg);
+  --color-input-bg: var(--color-card-bg);
+  --color-select-bg: var(--color-bg);
   --color-card-border: var(--color-grey-bg);
   --color-popover-border: var(--color-grey-bg);
 }
@@ -74,8 +75,8 @@
   --color-grey-text: hsl(0 0% 40%);
   --color-grey-graphic: hsl(0 0% 50%);
   --color-grey-bg: hsl(0 0% 90%);
-  --color-card-bg: white;
   --color-bg: hsl(281 16% 97%);
+  --color-card-bg: white;
   --color-white: white;
 
   --color-red: hsl(0 100% 60%);
@@ -118,7 +119,8 @@
   --shadow-color: 277deg 8% 60%;
 
   --color-dialog-bg: var(--color-card-bg);
-  --color-input-bg: var(--color-bg);
+  --color-input-bg: var(--color-card-bg);
+  --color-select-bg: var(--color-bg);
   --color-card-border: var(--color-grey-bg);
   --color-popover-border: transparent;
 }

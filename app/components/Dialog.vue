@@ -104,9 +104,16 @@ body:has(.dialog[open]) {
   overflow: hidden;
 }
 
+.light-mode {
+  .dialog {
+    --color-select-bg: var(--color-bg);
+  }
+}
+
 .dialog {
   --dialog-padding-inline: 1.5rem;
   --dialog-padding-block: var(--dialog-padding-inline, 1.5rem);
+  --color-input-bg: transparent;
 
   @media (min-width: 768px) {
     --dialog-padding-inline: 2rem;

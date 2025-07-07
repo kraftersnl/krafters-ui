@@ -7,6 +7,17 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.4.8" date="2025-07-07">
+      <ul>
+        <li>
+          Add color swatch plugin to MarkdownPreview and MarkdownEditor
+          components
+        </li>
+        <li>Add <code>is</code> prop to Ellipsis component</li>
+        <li>Update dark theme colors</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.4.7" date="2025-06-30">
       <ul>
         <li>Update color design tokens</li>

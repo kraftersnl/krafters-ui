@@ -149,7 +149,7 @@ const emit = defineEmits<{
 .textarea-wrapper {
   .textarea {
     background-color: var(--color-input-bg);
-    min-height: 8rem;
+    min-height: 7.5rem;
     padding-inline-end: 1.5rem;
 
     &.autoresize {
