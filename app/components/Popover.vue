@@ -255,7 +255,7 @@ const emit = defineEmits<{
   border-color: var(--color-grey-bg);
 
   &:not(:disabled):hover {
-    background-color: var(--color-bg);
+    background-color: var(--color-off-white);
   }
 }
 

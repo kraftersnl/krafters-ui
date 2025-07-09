@@ -27,7 +27,6 @@ useHead({ title: 'Changelog' });
           components
         </li>
         <li>Feature: add <code>outline</code> variant to Button component</li>
-        <li>Feature: add <code>outline</code> variant to Button component</li>
         <li>Feature: add <code>diableEscape</code> prop to Dialog component</li>
         <li>
           Fix: prevent side effects when closing MultiSelect with

@@ -5,7 +5,7 @@ const {
   teleportTo = '#teleports',
   width = 360,
   position = 'inline-start',
-  buttonVariant = 'secondary',
+  buttonVariant = 'ghost',
   buttonSize = 'md',
   buttonIconSize = 'lg',
   menuButtonSize = 'xl',
@@ -141,8 +141,8 @@ const emit = defineEmits<{
             <Button
               v-if="!hideCloseButton"
               :icon="closeIcon"
-              icon-size="lg"
-              variant="outline"
+              variant="ghost"
+              radius="full"
               :label="$t('aria.close-menu')"
               hide-label
               class="close-button"
@@ -184,10 +184,6 @@ body:has(.mobile-dialog[open]) {
   border: none;
   background-color: var(--color-card-bg);
 
-  .menu-list {
-    padding-block-start: 3rem;
-  }
-
   &::backdrop {
     background-color: rgb(0 0 0 / 50%);
   }
@@ -203,6 +199,10 @@ body:has(.mobile-dialog[open]) {
     display: grid;
     min-height: 100svh;
     align-content: start;
+  }
+
+  .dialog-content {
+    padding-block: 3rem;
   }
 
   .nav-label {

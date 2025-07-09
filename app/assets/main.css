@@ -14,6 +14,7 @@
   --color-grey-bg: hsl(280 27% 17%);
   --color-bg: hsl(280 26% 9%);
   --color-card-bg: hsl(280 27% 12%);
+  --color-off-white: hsl(280 27% 17%);
   --color-white: hsl(280 41% 7%);
 
   --color-red: hsl(0 100% 60%);
@@ -74,7 +75,8 @@
   --color-text: hsl(21 13% 20%);
   --color-grey-text: hsl(0 0% 40%);
   --color-grey-graphic: hsl(0 0% 55%);
-  --color-grey-bg: hsl(0 0% 90%);
+  --color-grey-bg: hsl(0 0% 92%);
+  --color-off-white: hsl(0 0% 96%);
   --color-bg: hsl(280 0% 98%);
   --color-card-bg: white;
   --color-white: white;
