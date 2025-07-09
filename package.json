@@ -19,11 +19,7 @@
     "format": "prettier . --write"
   },
   "devDependencies": {
-    "@iconify-json/heroicons-solid": "^1.2.1",
-    "@iconify-json/hugeicons": "^1.2.5",
     "@iconify-json/material-symbols": "^1.2.29",
-    "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/solar": "^1.2.2",
     "@mdit/plugin-attrs": "^0.23.1",
     "@mdit/plugin-mark": "^0.22.1",
     "@nuxt/eslint": "^1.5.2",

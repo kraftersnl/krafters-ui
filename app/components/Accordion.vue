@@ -62,7 +62,7 @@ defineExpose({ toggleAccordion });
     >
       <Icon
         v-if="arrow"
-        name="heroicons-solid:chevron-right"
+        name="material-symbols:chevron-right-rounded"
         class="accordion-arrow"
         aria-hidden
       />

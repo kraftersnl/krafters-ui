@@ -43,6 +43,7 @@ useHead({ title: 'Buttons & Links' });
       <div class="flex-wrapper">
         <Button variant="primary" label="Primary" />
         <Button variant="secondary" label="Secondary" />
+        <Button variant="outline" label="Outline" />
         <Button variant="danger" label="Danger" />
         <Button variant="green" label="Green" />
         <Button variant="ghost" label="Ghost" />
@@ -53,11 +54,11 @@ useHead({ title: 'Buttons & Links' });
 
       <h2>Sizes</h2>
       <div class="flex-wrapper">
-        <Button icon="face-smile" size="xl" label="Extra Large" />
-        <Button icon="face-smile" size="lg" label="Large" />
-        <Button icon="face-smile" size="md" label="Medium" />
-        <Button icon="face-smile" size="sm" label="Small" />
-        <Button icon="face-smile" size="xs" label="Extra Small" />
+        <Button icon="material-symbols:accessibility-new-rounded" size="xl" label="Extra Large" />
+        <Button icon="material-symbols:accessibility-new-rounded" size="lg" label="Large" />
+        <Button icon="material-symbols:accessibility-new-rounded" size="md" label="Medium" />
+        <Button icon="material-symbols:accessibility-new-rounded" size="sm" label="Small" />
+        <Button icon="material-symbols:accessibility-new-rounded" size="xs" label="Extra Small" />
       </div>
 
       <Spacer size="xl" />
@@ -75,11 +76,11 @@ useHead({ title: 'Buttons & Links' });
 
       <h2>Icon sizes</h2>
       <div class="flex-wrapper" style="--gap: 1rem">
-        <Button icon="check-circle" icon-pos="end" icon-size="lg" label="Large icon" />
-        <Button icon="check-circle" icon-pos="end" icon-size="md" label="Medium icon" />
-        <Button icon="check-circle" icon-pos="end" icon-size="sm" label="Small icon" />
-        <Button icon="check-circle" icon-pos="end" icon-size="xs" label="XS icon" />
-        <Button icon="check-circle" icon-pos="end" icon-size="xxs" label="XXS icon" />
+        <Button icon="material-symbols:check-circle-rounded" icon-pos="end" icon-size="lg" label="Large icon" />
+        <Button icon="material-symbols:check-circle-rounded" icon-pos="end" icon-size="md" label="Medium icon" />
+        <Button icon="material-symbols:check-circle-rounded" icon-pos="end" icon-size="sm" label="Small icon" />
+        <Button icon="material-symbols:check-circle-rounded" icon-pos="end" icon-size="xs" label="XS icon" />
+        <Button icon="material-symbols:check-circle-rounded" icon-pos="end" icon-size="xxs" label="XXS icon" />
       </div>
 
       <Spacer size="xl" />
@@ -87,15 +88,15 @@ useHead({ title: 'Buttons & Links' });
       <h2>Icons</h2>
       <div class="flex-wrapper">
         <Button
-          icon="solar:cloud-download-line-duotone"
+          icon="material-symbols:download-rounded"
           icon-size="xl"
           label="Download"
           variant="primary"
           hide-label
         />
-        <Button icon="arrow-left" label="Previous" />
-        <Button icon="arrow-right" icon-pos="end" label="Next" />
-        <Button variant="ghost" icon="chevron-left" label="Back" />
+        <Button icon="material-symbols:chevron-left-rounded" label="Previous" />
+        <Button icon="material-symbols:chevron-right-rounded" icon-pos="end" label="Next" />
+        <Button variant="ghost" icon="material-symbols:arrow-left-alt-rounded" label="Back" />
         <Button
           variant="link"
           to="https://krafters.nl"
@@ -111,14 +112,14 @@ useHead({ title: 'Buttons & Links' });
         <Button
           radius="full"
           size="xl"
-          icon="solar:cloud-download-line-duotone"
+          icon="material-symbols:download-rounded"
           label="Download"
         />
         <Button
           radius="full"
           size="xl"
           icon-size="xl"
-          icon="solar:cloud-download-line-duotone"
+          icon="material-symbols:download-rounded"
           hide-label
           label="Download"
         />
@@ -126,7 +127,7 @@ useHead({ title: 'Buttons & Links' });
           radius="md"
           size="xl"
           icon-size="xxl"
-          icon="solar:cloud-download-line-duotone"
+          icon="material-symbols:download-rounded"
           hide-label
           label="Download"
         />
@@ -134,7 +135,7 @@ useHead({ title: 'Buttons & Links' });
           radius="sm"
           size="lg"
           icon-size="xl"
-          icon="solar:cloud-download-line-duotone"
+          icon="material-symbols:download-rounded"
           hide-label
           label="Download"
         />
@@ -142,7 +143,7 @@ useHead({ title: 'Buttons & Links' });
           radius="xs"
           size="sm"
           icon-size="lg"
-          icon="solar:cloud-download-line-duotone"
+          icon="material-symbols:download-rounded"
           hide-label
           label="Download"
         />

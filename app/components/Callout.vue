@@ -23,19 +23,14 @@ const computedStyle = computed(() => ({
 }));
 
 const computedIcon = computed(() => {
-  if (icon) {
-    if (icon?.includes(':')) {
-      return icon;
-    }
-    return `heroicons-solid:${icon}`;
-  }
+  if (icon) return icon;
 
-  if (color === 'blue') return 'heroicons-solid:information-circle';
-  if (color === 'green') return 'heroicons-solid:check-circle';
-  if (color === 'red') return 'heroicons-solid:x-circle';
-  if (color === 'orange') return 'heroicons-solid:exclamation-circle';
+  if (color === 'blue') return 'material-symbols:info-outline-rounded';
+  if (color === 'green') return 'material-symbols:check-circle-outline-rounded';
+  if (color === 'red') return 'material-symbols:cancel-outline-rounded';
+  if (color === 'orange') return 'material-symbols:warning-outline-rounded';
 
-  return `heroicons-solid:${icon}`;
+  return icon;
 });
 
 const computedAriaLabel = computed(() => {
@@ -55,7 +50,7 @@ const computedAriaLabel = computed(() => {
     :style="computedStyle"
   >
     <div class="callout-content">
-      <Icon :name="computedIcon" />
+      <Icon v-if="computedIcon" :name="computedIcon" />
 
       <div v-if="content">{{ content }}</div>
 
@@ -70,15 +65,14 @@ const computedAriaLabel = computed(() => {
 .callout-wrapper {
   display: inline-block;
   padding-inline: 0.75rem;
-  padding-block: 0.75rem;
-  border: 1px solid var(--color-grey-bg);
+  padding-block: 0.5rem;
   border-radius: var(--radius-sm);
   font-size: var(--font-size);
 
   .callout-content {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75em;
 
     .iconify {
       flex-shrink: 0;
@@ -88,7 +82,7 @@ const computedAriaLabel = computed(() => {
 }
 
 .callout-color--accent {
-  border-color: var(--color-accent);
+  background-color: var(--color-accent-bg);
   color: var(--color-accent-text);
 
   .iconify {
@@ -97,7 +91,7 @@ const computedAriaLabel = computed(() => {
 }
 
 .callout-color--red {
-  border-color: var(--color-red);
+  background-color: var(--color-red-bg);
   color: var(--color-red-text);
 
   .iconify {
@@ -106,7 +100,7 @@ const computedAriaLabel = computed(() => {
 }
 
 .callout-color--orange {
-  border-color: var(--color-orange);
+  background-color: var(--color-orange-bg);
   color: var(--color-orange-text);
 
   .iconify {
@@ -115,7 +109,7 @@ const computedAriaLabel = computed(() => {
 }
 
 .callout-color--green {
-  border-color: var(--color-green);
+  background-color: var(--color-green-bg);
   color: var(--color-green-text);
 
   .iconify {
@@ -124,7 +118,7 @@ const computedAriaLabel = computed(() => {
 }
 
 .callout-color--blue {
-  border-color: var(--color-blue);
+  background-color: var(--color-blue-bg);
   color: var(--color-blue-text);
 
   .iconify {

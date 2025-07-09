@@ -31,7 +31,9 @@ async function handleClick() {
   <Button
     :label="copied ? $t('general.copied') : $t('general.copy')"
     :icon="
-      copied ? 'solar:clipboard-check-line-duotone' : 'solar:copy-line-duotone'
+      copied
+        ? 'material-symbols:content-paste-go-rounded'
+        : 'material-symbols:content-paste-rounded'
     "
     :hide-label="hideLabel"
     :variant="variant"

@@ -23,6 +23,15 @@ defineProps<{
   position: relative;
   list-style: none;
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: inline-block;
+  }
+
   /* Hide marker in Firefox and Chrome */
   &::marker {
     /* content: none; */
@@ -34,10 +43,8 @@ defineProps<{
 
   &::before {
     content: '▶' / '';
-    font-size: var(--font-size-xs);
-    position: absolute;
-    top: 0.25em;
-    left: -1rem;
+    font-size: smaller;
+    padding-inline-end: 0.5em;
   }
 
   &:focus-visible {

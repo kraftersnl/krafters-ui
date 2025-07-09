@@ -3,6 +3,7 @@ useHead({ title: 'Modal dialog pattern' });
 
 const dialogRef = useTemplateRef<DialogComponent>('dialog');
 const position = ref<DialogPosition>('center');
+const date = ref();
 </script>
 
 <template>
@@ -165,6 +166,16 @@ const position = ref<DialogPosition>('center');
           nesciunt quam. Totam iste quasi nemo saepe a distinctio architecto?
           Maxime odio nam a placeat qui illo iure cupiditate et.
         </p>
+
+        <Tooltip />
+
+        <MultiSelect
+          label="MultiSelect"
+          :options="['Lorem ipsum test long text']"
+          style="min-width: 240px"
+        />
+
+        <DatePicker v-model="date" label="DatePicker" />
       </div>
     </Dialog>
   </div>

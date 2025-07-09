@@ -50,7 +50,7 @@ const emit = defineEmits<{
         v-model="model"
         type="search"
         size="lg"
-        :icon="hideLabel ? 'search' : undefined"
+        :icon="hideLabel ? 'material-symbols:search-rounded' : undefined"
         :placeholder="placeholder"
         :label="label || $t('general.search')"
         :hide-label="hideLabel"
@@ -77,7 +77,7 @@ const emit = defineEmits<{
       :disabled="!model"
       variant="secondary"
       :label="$t('general.submit')"
-      icon="search"
+      icon="material-symbols:search-rounded"
       size="lg"
       icon-size="lg"
       hide-label

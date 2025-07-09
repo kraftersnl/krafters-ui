@@ -128,7 +128,7 @@ const computedErrorMessage = computed(() => {
       aria-live="polite"
     >
       <div class="error">
-        <Icon name="heroicons-solid:exclamation" />
+        <Icon name="material-symbols:warning-rounded" />
 
         <span>{{ computedErrorMessage }}</span>
       </div>
@@ -199,6 +199,7 @@ const computedErrorMessage = computed(() => {
   }
 
   .select {
+    border-radius: var(--radius-sm);
     border-width: 1.5px;
     border-color: var(--color-grey-text);
     box-shadow: 0 1.5px 0 0 var(--color-grey-text);

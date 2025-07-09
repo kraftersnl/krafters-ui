@@ -45,13 +45,6 @@ const computedStyle = computed(() => ({
   '--icon-size': iconSize && `var(--font-size-${iconSize})`,
 }));
 
-const computedIcon = computed(() => {
-  if (icon?.includes(':')) {
-    return icon;
-  }
-  return `heroicons-solid:${icon}`;
-});
-
 function handleClick() {
   emit('click');
 }
@@ -95,7 +88,7 @@ const emit = defineEmits<{
   >
     <slot name="icon" />
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
-    <Icon v-else-if="icon" :name="computedIcon" />
+    <Icon v-else-if="icon" :name="icon" />
 
     <span v-if="label" :class="['button-text', hideLabel && 'visuallyhidden']">
       {{ label }}
@@ -128,7 +121,7 @@ const emit = defineEmits<{
   >
     <slot name="icon" />
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
-    <Icon v-else-if="icon" :name="computedIcon" />
+    <Icon v-else-if="icon" :name="icon" />
 
     <span v-if="label" :class="['button-text', hideLabel && 'visuallyhidden']">
       {{ label }}
@@ -142,7 +135,7 @@ const emit = defineEmits<{
 
 <style>
 .button {
-  border-radius: var(--radius, var(--radius-sm));
+  border-radius: var(--radius, var(--radius-md));
   -webkit-tap-highlight-color: transparent;
   position: relative;
   display: inline-flex;
@@ -399,6 +392,21 @@ const emit = defineEmits<{
   }
 }
 
+.button-variant--outline {
+  color: var(--color-text);
+  background-color: transparent;
+  border-color: var(--color-grey-bg);
+
+  &:not(:disabled, .disabled):hover {
+    background-color: var(--color-bg);
+  }
+
+  &.router-link-active {
+    text-decoration: underline;
+    color: var(--color-accent-text);
+  }
+}
+
 .button-variant--link {
   --radius: 0 !important;
   overflow-wrap: anywhere;
@@ -506,7 +514,6 @@ const emit = defineEmits<{
 
   &.router-link-exact-active {
     text-decoration: underline;
-    font-weight: var(--font-weight-bold);
 
     .iconify {
       color: var(--color-grey-text);

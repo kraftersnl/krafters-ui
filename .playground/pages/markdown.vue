@@ -39,7 +39,7 @@ const fontSizeOptions: { value: FontSize; label: string }[] = [
       <div class="section-topbar">
         <h2>Markdown Preview</h2>
 
-        <Popover icon="solar:settings-bold">
+        <Popover icon="material-symbols:settings-rounded">
           <div class="popover-settings-content">
             <h2 class="mbe-1">Props</h2>
 

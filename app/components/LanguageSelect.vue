@@ -76,7 +76,7 @@ const userLang = computed({
       min-width: 75px;
       justify-content: center;
       border: 1px solid var(--color-accent-bg);
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-md);
       color: var(--color-grey-text);
 
       &:hover {

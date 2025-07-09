@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({ title: 'Form inputs' });
 
-const inputVariant = ref('krafters');
+const inputVariant = ref('default');
 const singleSelection = ref('');
 const multiSelection = ref<string | string[]>();
 const rangeValue = ref(6);
@@ -136,7 +136,7 @@ function handleSubmit(formData: FormData) {
       <h1>Form inputs</h1>
 
       <Popover
-        icon="solar:settings-bold"
+        icon="material-symbols:settings-rounded"
         :max-width="480"
         class="range-input-props"
       >
@@ -258,7 +258,10 @@ function handleSubmit(formData: FormData) {
             <div class="section-topbar">
               <h2>MultiSelect</h2>
 
-              <Popover icon="solar:settings-bold" :max-width="480">
+              <Popover
+                icon="material-symbols:settings-rounded"
+                :max-width="480"
+              >
                 <div class="popover-settings-content">
                   <h2>Props</h2>
 
@@ -352,14 +355,15 @@ function handleSubmit(formData: FormData) {
             <Switch
               v-model="disabled"
               label="Disable form inputs"
+              variant="outline"
               class="demo-switch"
-              :disabled="disabled"
             />
             <Switch
-              v-if="disabled"
               v-model="disabled"
               label="Disable form inputs"
               class="demo-switch"
+              variant="outline"
+              disabled
             />
           </section>
 
@@ -373,7 +377,7 @@ function handleSubmit(formData: FormData) {
           <div class="button-group">
             <Button
               type="submit"
-              icon="check"
+              icon="material-symbols:check-rounded"
               :loading="disabled"
               variant="primary"
               label="Submit"
@@ -415,5 +419,9 @@ function handleSubmit(formData: FormData) {
 
 .demo-datepicker {
   max-width: 240px;
+}
+
+.demo-switch + .demo-switch {
+  margin-block-start: 1rem;
 }
 </style>

@@ -33,7 +33,7 @@ export function downloadCSV({ data, name }: { data: any[]; name: string }) {
 }
 
 export function fileTypeIcon(file?: File) {
-  if (!file) return 'solar:add-square-linear';
+  if (!file) return 'material-symbols:note-stack-add-outline-rounded';
   if (getFileExtension(file?.name) === 'vue')
     return 'vscode-icons:file-type-vue';
   if (getFileExtension(file?.name) === 'md')
@@ -58,5 +58,5 @@ export function fileTypeIcon(file?: File) {
     return 'vscode-icons:file-type-photoshop';
   if (file?.type.includes('video')) return 'vscode-icons:file-type-video';
   if (file?.type.includes('image')) return 'vscode-icons:file-type-image';
-  return 'heroicons-solid:document';
+  return 'material-symbols:unknown-document-outline-rounded';
 }

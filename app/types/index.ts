@@ -101,6 +101,7 @@ declare global {
     | 'primary'
     | 'secondary'
     | 'ghost'
+    | 'outline'
     | 'cta'
     | 'black'
     | 'white'

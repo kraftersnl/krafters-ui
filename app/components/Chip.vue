@@ -25,13 +25,6 @@ const computedStyle = computed(() => ({
   '--icon-size': iconSize && `var(--font-size-${iconSize})`,
 }));
 
-const computedIcon = computed(() => {
-  if (icon?.includes(':')) {
-    return icon;
-  }
-  return `heroicons-solid:${icon}`;
-});
-
 const formattedLabel = computed(() =>
   typeof label === 'number' ? label.toLocaleString(locale.value) : label,
 );
@@ -49,7 +42,7 @@ const formattedLabel = computed(() =>
     ]"
     :style="computedStyle"
   >
-    <Icon v-if="icon" :name="computedIcon" />
+    <Icon v-if="icon" :name="icon" />
 
     <span v-if="label !== undefined" class="chip-text">{{
       formattedLabel
@@ -66,7 +59,7 @@ const formattedLabel = computed(() =>
   justify-content: center;
   vertical-align: middle;
   gap: 0.25rem;
-  border-radius: var(--radius, var(--radius-sm));
+  border-radius: var(--radius, var(--radius-md));
   border: 1px solid transparent;
   font-weight: var(--font-weight-medium);
   font-variant-numeric: tabular-nums;
@@ -106,7 +99,7 @@ const formattedLabel = computed(() =>
 }
 
 .chip-size--lg {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   padding-inline: 0.5rem;
   padding-block: 0.25rem;
 }
@@ -174,7 +167,6 @@ const formattedLabel = computed(() =>
 .chip-variant--outline {
   color: var(--color-text);
   border-color: var(--color-grey-graphic);
-  background-color: var(--color-white);
 }
 
 .chip-variant--outline.chip-color--accent {

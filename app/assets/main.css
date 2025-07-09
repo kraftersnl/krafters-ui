@@ -3,7 +3,7 @@
   --color-scheme: dark;
 
   --color-accent: hsl(294 50% 70%);
-  --color-accent-bg: hsl(294 16% 22%);
+  --color-accent-bg: hsl(294 25% 25%);
   --color-accent-text: hsl(294 40% 80%);
   --color-accent-graphic: hsl(294 50% 70%);
 
@@ -37,8 +37,8 @@
   --color-green-graphic: hsl(150 100% 33%);
 
   --color-blue: hsl(220 53% 58%);
-  --color-blue-bg: hsl(240 100% 25%);
-  --color-blue-text: hsl(220 100% 80%);
+  --color-blue-bg: hsl(240 60% 30%);
+  --color-blue-text: hsl(220 100% 75%);
   --color-blue-graphic: hsl(220 100% 60%);
 
   --color-purple: hsl(280 100% 70%);
@@ -66,16 +66,16 @@
   --color-scheme: light;
 
   --color-accent: hsl(294 16% 37%);
-  --color-accent-bg: hsl(294 35% 91%);
-  --color-accent-text: hsl(294 16% 37%);
-  --color-accent-graphic: hsl(294 16% 37%);
+  --color-accent-bg: hsl(294 25% 94%);
+  --color-accent-text: hsl(294 25% 40%);
+  --color-accent-graphic: hsl(294 25% 40%);
 
   --color-black: black;
   --color-text: hsl(21 13% 20%);
   --color-grey-text: hsl(0 0% 40%);
-  --color-grey-graphic: hsl(0 0% 50%);
+  --color-grey-graphic: hsl(0 0% 55%);
   --color-grey-bg: hsl(0 0% 90%);
-  --color-bg: hsl(281 16% 97%);
+  --color-bg: hsl(280 0% 98%);
   --color-card-bg: white;
   --color-white: white;
 
@@ -334,7 +334,7 @@
   padding-inline-start: 1.25rem;
 
   > p {
-    margin-block-srtart: 0;
+    margin-block-start: 0;
     font-style: italic;
     text-wrap: balance;
   }
@@ -356,7 +356,7 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6, button, input, label, .label, legend) {
-  line-height: var(--line-height-heading, 1.2);
+  line-height: var(--line-height-heading, 1.25);
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
@@ -384,7 +384,7 @@
 
 :where(ol) {
   list-style-position: outside;
-  padding-inline-start: 2rem;
+  padding-inline-start: 1.5rem;
 
   li > p {
     margin-block: 0rem 0.35rem;
@@ -393,7 +393,7 @@
 
 :where(ul) {
   list-style-position: outside;
-  padding-inline-start: 1.25rem;
+  padding-inline-start: 1.5rem;
 
   li > p {
     margin-block: 0rem 0.35rem;
@@ -412,6 +412,7 @@
 
 :where(ol) > li::marker {
   color: var(--color-accent-graphic);
+  font-variant-numeric: tabular-nums;
 }
 
 :where(code) {
@@ -432,6 +433,7 @@
 }
 
 :where(pre code) {
+  border-radius: var(--radius-md);
   display: inline-block;
   padding: 0.75rem 1rem;
 }
@@ -493,7 +495,7 @@
   thead tr {
     border-color: var(--color-grey-bg);
     border-style: solid;
-    border-width: 0 0 1px 0;
+    border-width: 0 0 0 0;
   }
 
   tbody tr {
@@ -599,7 +601,7 @@
     font-size: 16px;
     width: 100%;
     border: 1px solid var(--color-grey-graphic);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
 
     &::placeholder {
       color: var(--color-grey-graphic);
@@ -671,6 +673,12 @@
   border: 1px solid var(--color-popover-border);
 
   --arrow-color: var(--color-card-border);
+}
+
+.light-mode {
+  .tippy-box[data-theme~='krafters'] {
+    --arrow-color: var(--color-card-bg);
+  }
 }
 
 [data-theme~='krafters'] .tippy-content {
@@ -745,7 +753,7 @@
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.5em;
 
   > .iconify {
     flex-shrink: 0;

@@ -18,7 +18,7 @@ const {
   hideLabel = true,
   hideOnClick = true,
   interactive = true,
-  icon = 'question-mark-circle',
+  icon = 'material-symbols:help-rounded',
   id = useId(),
 } = defineProps<{
   label?: string;
@@ -54,14 +54,19 @@ function handleHide() {
   isExpanded.value = false;
 }
 
-const computedIcon = computed(() => {
-  if (icon?.includes(':')) {
-    return icon;
-  }
-  return `heroicons-solid:${icon}`;
+const wrapperRef = useTemplateRef<HTMLElement>('toggletipWrapper');
+
+onMounted(() => {
+  document.addEventListener('keydown', (event) => preventEscape(event));
 });
 
-const wrapperRef = useTemplateRef<HTMLElement>('toggletipWrapper');
+onUnmounted(() => document.removeEventListener('keydown', preventEscape));
+
+function preventEscape(event: KeyboardEvent) {
+  if (event.key === 'Escape' && isExpanded.value) {
+    event.preventDefault();
+  }
+}
 
 function closeToggletip() {
   document
@@ -113,7 +118,7 @@ function closeToggletip() {
           <span
             v-if="label && hideLabel"
             :id="'tooltip-label-' + id"
-            class="visuallyhidden"
+            class="icon-only visuallyhidden"
           >
             {{ $t('aria.more-info-about', { label }) }}
           </span>
@@ -125,7 +130,7 @@ function closeToggletip() {
 
           <span v-else class="visuallyhidden">{{ $t('aria.more-info') }}</span>
 
-          <Icon :name="computedIcon" />
+          <Icon :name="icon" />
         </template>
       </template>
 
@@ -180,18 +185,26 @@ function closeToggletip() {
 
   &:focus-visible {
     border-radius: var(--radius-sm);
+
+    &:has(.icon-only.visuallyhidden) {
+      border-radius: var(--radius-full);
+    }
     outline-offset: 2px;
   }
 
   .iconify {
     flex-shrink: 0;
-    color: var(--icon-color, inherit);
+    color: var(--icon-color, var(--color-grey-graphic));
     font-size: var(--icon-size, inherit);
     transition: color var(--duration-sm);
   }
 
   &:hover {
     cursor: help;
+
+    .iconify {
+      color: var(--color-text);
+    }
   }
 }
 </style>

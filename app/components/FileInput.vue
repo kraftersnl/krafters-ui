@@ -193,7 +193,7 @@ watch(
       aria-live="polite"
     >
       <div class="error">
-        <Icon name="heroicons-solid:exclamation" />
+        <Icon name="material-symbols:warning-rounded" />
 
         <span v-if="!validity">{{ computedErrorMessage }}</span>
       </div>
@@ -221,6 +221,9 @@ watch(
   border-radius: var(--radius-md);
   background-color: transparent;
   outline: 2px solid transparent;
+  transition:
+    color var(--duration-sm),
+    border-color var(--duration-sm);
 
   .iconify {
     margin-inline: 6rem;

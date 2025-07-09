@@ -30,11 +30,36 @@ const {
   id?: string;
 }>();
 
+const datepickerRef = useTemplateRef('datepicker');
 const colorMode = useColorMode();
 const isMounted = ref(false);
 const isDark = computed(() => isMounted.value && colorMode.value === 'dark');
 
-onMounted(() => (isMounted.value = true));
+const isExpanded = ref(false);
+
+function handleOpen() {
+  isExpanded.value = true;
+}
+
+function handleClose() {
+  isExpanded.value = false;
+}
+
+function preventEscape(event: KeyboardEvent) {
+  if (event.key === 'Escape' && isExpanded.value) {
+    console.log('prevent');
+    event.preventDefault();
+    datepickerRef.value?.closeMenu();
+    isExpanded.value = false;
+  }
+}
+
+onMounted(() => {
+  isMounted.value = true;
+  document.addEventListener('keydown', (event) => preventEscape(event));
+});
+
+onUnmounted(() => document.removeEventListener('keydown', preventEscape));
 </script>
 
 <template>
@@ -47,9 +72,11 @@ onMounted(() => (isMounted.value = true));
 
     <VueDatePicker
       :id="id"
+      ref="datepicker"
       v-model="model"
       v-bind="$attrs"
       auto-apply
+      :esc-close="false"
       :text-input="textInput"
       :utc="utc"
       :enable-time-picker="enableTimePicker"
@@ -82,9 +109,11 @@ onMounted(() => (isMounted.value = true));
         prevYear: $t('datepicker.prevYear'),
       }"
       class="krafters-datepicker"
+      @open="handleOpen"
+      @closed="handleClose"
     >
       <template #input-icon>
-        <Icon name="heroicons-solid:calendar-days" />
+        <Icon name="material-symbols:calendar-month-outline-rounded" />
       </template>
     </VueDatePicker>
 
@@ -95,7 +124,7 @@ onMounted(() => (isMounted.value = true));
       aria-live="polite"
     >
       <div class="error">
-        <Icon name="heroicons-solid:exclamation" />
+        <Icon name="material-symbols:warning-rounded" />
 
         <span>{{ $t('form.missing-value', { item: label }) }}</span>
       </div>
@@ -116,7 +145,7 @@ onMounted(() => (isMounted.value = true));
 
 .dp__theme_light,
 .dp__theme_dark {
-  --dp-background-color: var(--color-white);
+  --dp-background-color: var(--color-select-bg);
   --dp-text-color: var(--color-text);
   --dp-hover-color: var(--color-grey-bg);
   --dp-hover-text-color: var(--color-text);
@@ -143,7 +172,7 @@ onMounted(() => (isMounted.value = true));
 
 :root {
   --dp-font-family: system-ui, sans-serif;
-  --dp-border-radius: var(--radius-sm);
+  --dp-border-radius: var(--radius-md);
   --dp-input-padding: 0;
 }
 
@@ -162,7 +191,6 @@ onMounted(() => (isMounted.value = true));
 
 .dp__input {
   min-height: 2.5rem;
-  background-color: var(--color-input-bg);
 
   &::placeholder {
     opacity: 1;

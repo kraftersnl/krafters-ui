@@ -55,7 +55,7 @@ const roleOptions = [
         <div class="section-topbar mbe-2">
           <h2>Progress Meter</h2>
 
-          <Popover icon="solar:settings-bold">
+          <Popover icon="material-symbols:settings-rounded">
             <div class="popover-settings-content">
               <h2 class="mbe-1">Props</h2>
 

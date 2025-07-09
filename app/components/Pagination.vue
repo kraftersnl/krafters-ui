@@ -35,7 +35,7 @@ function goToPage(pageNumber: number) {
   <div class="pagination-wrapper">
     <nav class="pagination-nav" :aria-label="$t('pagination.heading')">
       <Button
-        icon="chevron-double-left"
+        icon="material-symbols:keyboard-double-arrow-left-rounded"
         :label="$t('pagination.first-page')"
         hide-label
         size="sm"
@@ -45,7 +45,7 @@ function goToPage(pageNumber: number) {
       />
 
       <Button
-        icon="chevron-left"
+        icon="material-symbols:chevron-left-rounded"
         :label="$t('pagination.prev-page')"
         hide-label
         size="sm"
@@ -71,7 +71,7 @@ function goToPage(pageNumber: number) {
       </div>
 
       <Button
-        icon="chevron-right"
+        icon="material-symbols:chevron-right-rounded"
         :label="$t('pagination.next-page')"
         hide-label
         size="sm"
@@ -81,7 +81,7 @@ function goToPage(pageNumber: number) {
       />
 
       <Button
-        icon="chevron-double-right"
+        icon="material-symbols:keyboard-double-arrow-right-rounded"
         :label="$t('pagination.last-page')"
         hide-label
         size="sm"

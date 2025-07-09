@@ -64,9 +64,21 @@ defineExpose({
   focusElement,
 });
 
+const isExpanded = ref(false);
+
 onMounted(() => {
   if (autofocus) setTimeout(() => focusElement(), 200);
+
+  document.addEventListener('keydown', (event) => preventEscape(event));
 });
+
+onUnmounted(() => document.removeEventListener('keydown', preventEscape));
+
+function preventEscape(event: KeyboardEvent) {
+  if (event.key === 'Escape' && isExpanded.value) {
+    event.preventDefault();
+  }
+}
 
 // https://github.com/vueform/multiselect#events
 </script>
@@ -111,6 +123,8 @@ onMounted(() => {
         ${id ? `error-${id}` : ''}
       `"
       :multiple-label="formatMultipleLabels"
+      @open="isExpanded = true"
+      @close="isExpanded = false"
     >
       <!-- https://github.com/vueform/multiselect#slots -->
       <template #spinner>
@@ -127,7 +141,7 @@ onMounted(() => {
 
       <template #clear="{ clear }">
         <button type="button" class="clear-button" @mousedown="clear">
-          <Icon name="heroicons-solid:x" />
+          <Icon name="material-symbols:close-rounded" />
           <span class="visuallyhidden">{{ $t('general.clear') }}</span>
         </button>
 
@@ -161,7 +175,7 @@ onMounted(() => {
             class="clear-button"
             @click="(e) => handleTagRemove(option, e)"
           >
-            <Icon name="heroicons-solid:x" />
+            <Icon name="material-symbols:close-rounded" />
             <span class="visuallyhidden">{{ $t('general.clear') }}</span>
           </button>
         </div>
@@ -180,7 +194,7 @@ onMounted(() => {
       aria-live="polite"
     >
       <div class="error">
-        <Icon name="heroicons-solid:exclamation" />
+        <Icon name="material-symbols:warning-rounded" />
         <span>{{ $t('form.missing-value', { item: label }) }}</span>
       </div>
     </div>
@@ -203,7 +217,7 @@ onMounted(() => {
   --ms-border-width: 1px;
   --ms-border-color-active: var(--focus-color);
   /* --ms-border-width-active: 1px; */
-  --ms-radius: var(--radius-sm);
+  --ms-radius: var(--radius-md);
   --ms-py: 0.5rem;
   --ms-px: 0.65rem;
   --ms-ring-width: 1px;
@@ -238,7 +252,7 @@ onMounted(() => {
   --ms-dropdown-bg: var(--color-card-bg);
   --ms-dropdown-border-color: var(--focus-color);
   --ms-dropdown-border-width: 1px;
-  --ms-dropdown-radius: var(--radius-sm);
+  --ms-dropdown-radius: var(--radius-md);
 
   /* --ms-group-label-py: 0.3rem; */
   /* --ms-group-label-px: 0.75rem; */

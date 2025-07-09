@@ -1,10 +1,11 @@
 <script setup lang="ts">
 const model = defineModel<boolean>();
 
-const { id = useId() } = defineProps<{
+const { id = useId(), variant = 'default' } = defineProps<{
   label: string;
   disabled?: boolean;
   id?: string;
+  variant?: string;
 }>();
 
 function handleClick() {
@@ -17,7 +18,7 @@ function handleClick() {
     :id="id"
     type="button"
     role="switch"
-    class="switch-button"
+    :class="['switch-button', `switch-button-variant--${variant}`]"
     :aria-checked="model"
     :disabled="disabled"
     :value="String(model)"
@@ -46,9 +47,10 @@ function handleClick() {
   font: inherit;
   border: none;
   padding-inline: 0;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-full);
   outline: 2px solid transparent;
   transition:
+    border-color var(--duration-sm),
     background-color var(--duration-sm),
     opacity var(--duration-sm),
     outline-offset var(--duration-sm),
@@ -58,18 +60,18 @@ function handleClick() {
     padding-block: 3px;
     padding-inline: 3px;
     background-color: var(--color-grey-graphic);
-    width: 40px;
-    height: 22px;
+    width: 32px;
+    height: 18px;
     border-radius: var(--radius-full);
     transition: background-color var(--duration-sm);
   }
 
   .switch-thumb {
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     border-radius: var(--radius-full);
-    background-color: var(--color-white);
+    background-color: var(--color-bg);
     transform: translateX(0);
     transition-property: transform;
     transition-duration: var(--duration-md);
@@ -78,15 +80,8 @@ function handleClick() {
   .switch-label {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
-    /* padding-inline: 2px; */
     transition-property: color, font-weight;
     transition-duration: var(--duration-sm);
-  }
-
-  &:hover {
-    .switch {
-      background-color: var(--color-grey-text);
-    }
   }
 
   &:disabled {
@@ -100,14 +95,25 @@ function handleClick() {
 
   &[aria-checked='true'] {
     .switch-thumb {
-      transform: translateX(18px);
+      transform: translateX(14px);
     }
+
     .switch-label {
       color: var(--focus-color);
     }
+
     .switch {
-      background-color: var(--color-accent);
+      background-color: var(--color-cta, var(--color-accent));
     }
+  }
+}
+
+.switch-button-variant--outline {
+  border: 1px solid var(--color-grey-bg);
+  padding: 0.5rem;
+
+  &:not(:disabled):hover {
+    border-color: var(--color-grey-graphic);
   }
 }
 </style>

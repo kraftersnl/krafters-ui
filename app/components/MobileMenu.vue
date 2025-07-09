@@ -47,13 +47,6 @@ const dialogElementRef = useTemplateRef<HTMLDialogElement>('dialogElement');
 const isVisible = ref(false);
 const isMounted = ref(false);
 
-const computedIcon = computed(() => {
-  if (icon?.includes(':')) {
-    return icon;
-  }
-  return `heroicons-solid:${icon}`;
-});
-
 onMounted(() => (isMounted.value = true));
 
 function handleDialogClick(event: MouseEvent) {
@@ -118,7 +111,7 @@ const emit = defineEmits<{
 
     <Button
       v-else
-      :icon="computedIcon"
+      :icon="icon"
       class="mobile-nav-toggle"
       :size="buttonSize"
       :font-size="buttonFontSize"
@@ -148,9 +141,8 @@ const emit = defineEmits<{
             <Button
               v-if="!hideCloseButton"
               :icon="closeIcon"
-              icon-size="xl"
-              radius="full"
-              variant="ghost"
+              icon-size="lg"
+              variant="outline"
               :label="$t('aria.close-menu')"
               hide-label
               class="close-button"

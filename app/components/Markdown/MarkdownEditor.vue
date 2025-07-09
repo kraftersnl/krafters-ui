@@ -133,7 +133,7 @@ const emit = defineEmits<{
         aria-live="polite"
       >
         <div class="error">
-          <Icon name="heroicons-solid:exclamation" />
+          <Icon name="material-symbols:warning-rounded" />
 
           <span>{{ computedErrorMessage }}</span>
         </div>
@@ -238,7 +238,7 @@ const emit = defineEmits<{
 
 .md-editor {
   height: auto;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .md-editor-content {

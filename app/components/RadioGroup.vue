@@ -71,7 +71,7 @@ const {
       aria-live="polite"
     >
       <div class="error">
-        <Icon name="heroicons-solid:exclamation" />
+        <Icon name="material-symbols:warning-rounded" />
 
         <span>{{ $t('form.missing-value', { item: label }) }}</span>
       </div>

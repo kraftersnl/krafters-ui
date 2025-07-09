@@ -87,7 +87,7 @@ defineExpose({
       <p>{{ $t('general.sign-out-confirm') }}</p>
       <Button
         :label="$t('general.sign-out')"
-        icon="hugeicons:logout-02"
+        icon="material-symbols:logout"
         variant="danger"
         @click="handleLogout"
       />

@@ -33,7 +33,7 @@ const computedStyle = computed(() => ({
   width: var(--width, 100%);
   height: var(--size);
   border-radius: var(--radius-sm);
-  background-color: var(--color-accent-bg);
+  background-color: var(--color-grey-bg);
 }
 
 .skeleton-variant--circle {

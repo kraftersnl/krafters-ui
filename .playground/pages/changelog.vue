@@ -7,6 +7,48 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.0" date="2025-07-09">
+      <ul>
+        <li>
+          Breaking: remove heroicons-solid as fallback icon set in components:
+          <ul>
+            <li>Button</li>
+            <li>Chip</li>
+            <li>Callout</li>
+            <li>Input</li>
+            <li>Popover</li>
+            <li>Tooltip</li>
+            <li>MobileMenu</li>
+          </ul>
+        </li>
+        <li>Change: update icons to material-symbols set</li>
+        <li>
+          Change: increase default border-radius for Button, Chip and Input
+          components
+        </li>
+        <li>Feature: add <code>outline</code> variant to Button component</li>
+        <li>Feature: add <code>outline</code> variant to Button component</li>
+        <li>Feature: add <code>diableEscape</code> prop to Dialog component</li>
+        <li>
+          Fix: prevent side effects when closing MultiSelect with
+          <kbd>Escape</kbd>
+        </li>
+        <li>
+          Fix: prevent side effects when closing DatePicker with
+          <kbd>Escape</kbd>
+        </li>
+        <li>
+          Fix: prevent side effects when closing Popover with <kbd>Escape</kbd>
+        </li>
+        <li>
+          Fix: prevent side effects when closing Tooltip with <kbd>Escape</kbd>
+        </li>
+        <li>Fix: align indenting for unordered and numbered lists</li>
+        <li>Fix: arrow color of Tooltip component</li>
+        <li>Fix: arrow position for AccordionDetails component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.4.8" date="2025-07-07">
       <ul>
         <li>

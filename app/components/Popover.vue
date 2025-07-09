@@ -9,11 +9,11 @@ const {
   label = undefined,
   maxWidth = undefined,
   list = undefined,
-  borderRadius = 'sm',
+  borderRadius = 'md',
   hideLabel = true,
-  icon = 'dots-horizontal',
+  icon = 'material-symbols:more-horiz',
   iconPos = 'start',
-  buttonVariant = 'ghost',
+  buttonVariant = 'outline',
   size = 'sm',
   placement = 'auto-start',
   offset = undefined,
@@ -52,13 +52,6 @@ const computedStyle = computed(() => ({
   '--radius': `var(--radius-${borderRadius})`,
 }));
 
-const computedIcon = computed(() => {
-  if (icon?.includes(':')) {
-    return icon;
-  }
-  return `heroicons-solid:${icon}`;
-});
-
 const isExpanded = ref(false);
 
 function handleShow() {
@@ -86,6 +79,18 @@ function focusElement() {
 }
 
 defineExpose({ triggerRef, focusElement });
+
+onMounted(() => {
+  document.addEventListener('keydown', (event) => preventEscape(event));
+});
+
+onUnmounted(() => document.removeEventListener('keydown', preventEscape));
+
+function preventEscape(event: KeyboardEvent) {
+  if (event.key === 'Escape' && isExpanded.value) {
+    event.preventDefault();
+  }
+}
 
 const emit = defineEmits<{
   click: [event: MenuItem];
@@ -134,7 +139,7 @@ const emit = defineEmits<{
 
         <template v-else>
           <Icon v-if="loading" name="svg-spinners:90-ring" />
-          <Icon v-else :name="computedIcon" />
+          <Icon v-else :name="icon" />
 
           <span
             v-if="label"
@@ -246,8 +251,12 @@ const emit = defineEmits<{
 }
 
 .popover-trigger-variant--outline {
-  background-color: var(--color-grey-bg);
-  border-color: var(--color-grey-graphic);
+  background-color: var(--color-card-bg);
+  border-color: var(--color-grey-bg);
+
+  &:not(:disabled):hover {
+    background-color: var(--color-bg);
+  }
 }
 
 .popover-trigger-variant--primary {

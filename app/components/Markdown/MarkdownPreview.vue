@@ -72,6 +72,14 @@ const preview = computed(() => md.render(content));
 </template>
 
 <style>
+.dark-mode {
+  .krafters-markdown-preview {
+    pre code {
+      border-color: var(--color-grey-bg);
+    }
+  }
+}
+
 .krafters-markdown-preview {
   &.ellipsis {
     overflow: hidden;
@@ -101,8 +109,12 @@ const preview = computed(() => md.render(content));
     }
   }
 
-  pre code.hljs {
-    display: inline-block;
+  pre code {
+    border: 1px solid transparent;
+
+    &.hljs {
+      display: inline-block;
+    }
   }
 
   blockquote,

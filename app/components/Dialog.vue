@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const {
   id = useId(),
+  disableEscape = false,
   clickOutside = true,
   position = 'center',
   label = undefined,
@@ -12,6 +13,7 @@ const {
   ariaLabel?: string;
   ariaLabelledby?: string;
   id?: string;
+  disableEscape?: boolean;
   clickOutside?: boolean;
   modal?: boolean;
   position?: DialogPosition;
@@ -50,6 +52,22 @@ function closeDialog() {
   );
 }
 
+function preventEscape(event: Event) {
+  if (disableEscape) {
+    event.preventDefault();
+  }
+}
+
+onMounted(() => {
+  dialogTemplateRef.value?.addEventListener('cancel', (event) =>
+    preventEscape(event),
+  );
+});
+
+onUnmounted(() =>
+  dialogTemplateRef.value?.removeEventListener('cancel', preventEscape),
+);
+
 defineExpose({
   openDialog,
   closeDialog,
@@ -76,8 +94,7 @@ defineExpose({
         <Button
           icon="material-symbols:close-rounded"
           size="sm"
-          variant="ghost"
-          radius="full"
+          variant="outline"
           :label="$t('general.close')"
           hide-label
           class="close-button"

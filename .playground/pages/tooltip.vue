@@ -7,14 +7,14 @@ const popoverActions = [
   {
     id: 'edit',
     label: t('general.edit'),
-    icon: 'pencil',
+    icon: 'material-symbols:edit-outline-rounded',
     disabled: true,
     tooltip: 'Tooltip content to explain why the option is disabled.',
   },
   {
     id: 'duplicate',
     label: t('general.duplicate'),
-    icon: 'duplicate',
+    icon: 'material-symbols:content-copy-outline-rounded',
     divider: true,
     disabled: true,
     tooltip: 'Tooltip content to explain why the option is disabled.',
@@ -22,7 +22,7 @@ const popoverActions = [
   {
     id: 'delete',
     label: t('general.delete'),
-    icon: 'trash',
+    icon: 'material-symbols:delete-outline-rounded',
   },
 ];
 </script>
@@ -199,7 +199,6 @@ const popoverActions = [
           </Popover>
 
           <Popover
-            icon="hugeicons:popcorn"
             label="Popover label"
             size="lg"
             button-variant="secondary"

@@ -63,13 +63,6 @@ const computedErrorMessage = computed(() => {
   return t('form.invalid-value');
 });
 
-const computedIcon = computed(() => {
-  if (icon?.includes(':')) {
-    return icon;
-  }
-  return `heroicons-solid:${icon}`;
-});
-
 const inputMode = computed(() => {
   if (type === 'email') return 'email';
   if (type === 'tel') return 'tel';
@@ -165,7 +158,7 @@ const emit = defineEmits<{
       @input="handleInput"
     />
 
-    <Icon v-if="icon" :name="computedIcon" />
+    <Icon v-if="icon" :name="icon" />
 
     <div
       :id="id ? `error-${id}` : undefined"
@@ -173,7 +166,7 @@ const emit = defineEmits<{
       aria-live="polite"
     >
       <div class="error">
-        <Icon name="heroicons-solid:exclamation" />
+        <Icon name="material-symbols:warning-rounded" />
 
         <span>{{ computedErrorMessage }}</span>
       </div>
@@ -209,7 +202,7 @@ const emit = defineEmits<{
     padding-inline: 0.5rem;
 
     + .iconify {
-      top: 2em;
+      top: 1.875em;
     }
   }
 
@@ -226,7 +219,7 @@ const emit = defineEmits<{
     padding-inline: 0.5rem;
 
     + .iconify {
-      top: 2.125em;
+      top: 2em;
     }
   }
 
@@ -243,7 +236,7 @@ const emit = defineEmits<{
     padding-inline: 0.65rem;
 
     + .iconify {
-      top: 2.3em;
+      top: 2.125em;
     }
   }
 
@@ -260,7 +253,7 @@ const emit = defineEmits<{
     padding-inline: 0.75rem;
 
     + .iconify {
-      top: 2em;
+      top: 2.375em;
     }
   }
 
@@ -283,6 +276,7 @@ const emit = defineEmits<{
   }
 
   .input {
+    border-radius: var(--radius-sm);
     border-width: 1.5px;
     border-color: var(--color-grey-text);
     box-shadow: 0 1.5px 0 0 var(--color-grey-text);
