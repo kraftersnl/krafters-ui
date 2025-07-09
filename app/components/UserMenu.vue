@@ -58,7 +58,7 @@ defineExpose({
       :aria-label="$t('aria.user-menu')"
       :aria-expanded="showMenu"
       size="lg"
-      icon-size="xl"
+      icon-size="lg"
       radius="full"
       aria-controls="user-menu"
       @click="toggleMenu"
@@ -106,6 +106,11 @@ defineExpose({
     width: 2.5rem;
     height: 2.5rem;
     font-weight: var(--font-weight-bold);
+    background-color: var(--color-off-white);
+
+    &:hover {
+      background-color: var(--color-grey-bg);
+    }
   }
 }
 

@@ -105,7 +105,7 @@ const colorMode = useColorMode();
 
       &:hover {
         color: var(--color-text);
-        border-color: var(--color-accent-graphic);
+        border-color: var(--color-grey-graphic);
       }
     }
 

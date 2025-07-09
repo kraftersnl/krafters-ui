@@ -383,7 +383,7 @@ const emit = defineEmits<{
   background-color: transparent;
 
   &:not(:disabled, .disabled):hover {
-    background-color: var(--color-grey-bg);
+    background-color: var(--color-off-white);
   }
 
   &.router-link-active {
@@ -472,16 +472,16 @@ const emit = defineEmits<{
   }
 
   &:not(:disabled, .disabled):hover {
-    color: var(--color-accent-text);
-    background-color: var(--color-accent-bg);
+    background-color: var(--color-off-white);
 
     .iconify {
-      color: var(--color-accent-graphic);
+      color: var(--color-grey-text);
     }
   }
 
   &.router-link-active {
     font-weight: var(--font-weight-bold);
+    background-color: var(--color-accent-bg);
     color: var(--color-accent-text);
 
     .iconify {
