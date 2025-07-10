@@ -207,6 +207,7 @@ watch(
 
   &:has(input:disabled) {
     opacity: 35%;
+    pointer-events: none;
   }
 }
 
