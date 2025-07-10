@@ -7,7 +7,7 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <ChangelogEntry v="1.5.0" date="2025-07-09">
+    <ChangelogEntry v="1.5.0" date="2025-07-10">
       <ul>
         <li>
           Breaking: remove heroicons-solid as fallback icon set in components:
@@ -37,10 +37,10 @@ useHead({ title: 'Changelog' });
           <kbd>Escape</kbd>
         </li>
         <li>
-          Fix: prevent side effects when closing Popover with <kbd>Escape</kbd>
+          Fix: prevent side effects when closing Tooltip with <kbd>Escape</kbd>
         </li>
         <li>
-          Fix: prevent side effects when closing Tooltip with <kbd>Escape</kbd>
+          Fix: prevent side effects when closing Popover with <kbd>Escape</kbd>
         </li>
         <li>Fix: align indenting for unordered and numbered lists</li>
         <li>Fix: arrow color of Tooltip component</li>

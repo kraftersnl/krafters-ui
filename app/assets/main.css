@@ -12,7 +12,6 @@
   --color-grey-text: hsl(280 20% 65%);
   --color-grey-graphic: hsl(280 16% 45%);
   --color-grey-bg: hsl(280 27% 17%);
-  --color-off-white: hsl(280 26% 9%);
   --color-bg: hsl(280 26% 9%);
   --color-card-bg: hsl(280 27% 12%);
   --color-white: hsl(280 41% 7%);
@@ -34,7 +33,7 @@
 
   --color-green: hsl(150 100% 28%);
   --color-green-bg: hsl(150 50% 15%);
-  --color-green-text: hsl(150 48% 59%);
+  --color-green-text: hsl(150 50% 55%);
   --color-green-graphic: hsl(150 100% 33%);
 
   --color-blue: hsl(220 53% 58%);
@@ -75,8 +74,7 @@
   --color-text: hsl(21 13% 20%);
   --color-grey-text: hsl(0 0% 40%);
   --color-grey-graphic: hsl(0 0% 55%);
-  --color-grey-bg: hsl(0 0% 90%);
-  --color-off-white: hsl(0 0% 95%);
+  --color-grey-bg: hsl(0 0% 94%);
   --color-bg: hsl(280 0% 98%);
   --color-card-bg: white;
   --color-white: white;

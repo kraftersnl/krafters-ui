@@ -106,11 +106,7 @@ defineExpose({
     width: 2.5rem;
     height: 2.5rem;
     font-weight: var(--font-weight-bold);
-    background-color: var(--color-off-white);
-
-    &:hover {
-      background-color: var(--color-grey-bg);
-    }
+    background-color: var(--color-grey-bg);
   }
 }
 

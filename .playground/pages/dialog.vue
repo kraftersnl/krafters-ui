@@ -167,6 +167,15 @@ const date = ref();
           Maxime odio nam a placeat qui illo iure cupiditate et.
         </p>
 
+        <Popover>
+          <template #default>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+            nesciunt dolor quae at. Omnis, officia ipsam. Corrupti aut dolor
+            provident reprehenderit. Explicabo, repellat molestiae! Amet unde
+            laboriosam tempora ut reprehenderit.
+          </template>
+        </Popover>
+
         <Tooltip />
 
         <MultiSelect
@@ -183,12 +192,13 @@ const date = ref();
 
 <style>
 .demo-page.dialog-demo {
-  .flex-wrapper {
-    /* margin-block-end: 1.5rem; */
-  }
 }
 
 .demo-dialog-content {
   max-width: 360px;
+
+  p {
+    font-size: var(--font-size-sm);
+  }
 }
 </style>

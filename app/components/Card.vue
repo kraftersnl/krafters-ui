@@ -34,7 +34,7 @@ const computedStyle = computed(() => ({
 </template>
 
 <style>
-.card {
+:where(.card) {
   position: relative;
   padding: var(--mobile-padding);
   background-color: var(--color-card-bg);

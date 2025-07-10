@@ -155,7 +155,14 @@ useHead({ title: 'Buttons & Links' });
       <div class="flex-wrapper">
         <Button size="lg" loading label="Loading" />
         <Button size="lg" disabled label="Disabled button" />
-        <Button size="lg" to="https://www.krafters.nl" target="_blank" disabled label="Disabled link" />
+        <Button
+          size="lg"
+          disabled
+          label="Disabled link"
+          to="https://www.krafters.nl"
+          icon-pos="end"
+          icon="material-symbols:open-in-new-rounded"
+        />
         <CopyButton size="lg" text="Demo Text" />
       </div>
     </Card>

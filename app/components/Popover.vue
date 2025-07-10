@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Tippy } from 'vue-tippy';
+import type { TippyComponent } from 'vue-tippy';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 
@@ -65,6 +66,12 @@ function handleHide() {
   focusElement();
 }
 
+function closePopover() {
+  document
+    ?.querySelectorAll('[data-tippy-root]')
+    ?.forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
+}
+
 function handleMenuClick(item: MenuItem, hide: () => void) {
   emit('click', item);
   hide();
@@ -89,6 +96,7 @@ onUnmounted(() => document.removeEventListener('keydown', preventEscape));
 function preventEscape(event: KeyboardEvent) {
   if (event.key === 'Escape' && isExpanded.value) {
     event.preventDefault();
+    closePopover();
   }
 }
 
@@ -161,7 +169,7 @@ const emit = defineEmits<{
           :id="'popover-content-' + id"
           :is-visible="enableFocusLoop"
           :modal="modal"
-          @keyup.esc="hide"
+          @keyup.esc="closePopover"
         >
           <slot name="default" />
 
@@ -255,7 +263,7 @@ const emit = defineEmits<{
   border-color: var(--color-grey-bg);
 
   &:not(:disabled):hover {
-    background-color: var(--color-off-white);
+    background-color: var(--color-grey-bg);
   }
 }
 
