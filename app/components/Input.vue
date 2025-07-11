@@ -36,7 +36,7 @@ const {
   pattern?: string;
   placeholder?: string;
   icon?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: InputSize;
   minlength?: number;
   maxlength?: number;
   hideLabel?: boolean;

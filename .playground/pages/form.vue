@@ -182,6 +182,12 @@ function handleSubmit(formData: FormData) {
       </Popover>
     </div>
 
+    <Card class="grid-wrapper">
+      <Search size="lg" />
+      <Search size="md" />
+      <Search size="sm" />
+    </Card>
+
     <Card>
       <Form @submit="handleSubmit" @reset="raw = ''">
         <Input

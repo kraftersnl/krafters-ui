@@ -8,12 +8,14 @@ const {
   label = undefined,
   placeholder = undefined,
   autocomplete = undefined,
+  size = 'lg',
 } = defineProps<{
   label?: string;
   placeholder?: string;
   autocomplete?: string;
   autofocus?: boolean;
   hideLabel?: boolean;
+  size?: InputSize;
   hideSubmitButton?: boolean;
 }>();
 
@@ -36,6 +38,13 @@ defineExpose({
   focusElement,
 });
 
+const computedSize = computed(() => {
+  if (size === 'lg') return 'sm';
+  if (size === 'md') return 'xs';
+  if (size === 'sm') return 'xs';
+  return 'sm';
+});
+
 const emit = defineEmits<{
   submit: [value?: string | number];
   reset: [value: string | number];
@@ -49,7 +58,7 @@ const emit = defineEmits<{
         ref="searchInput"
         v-model="model"
         type="search"
-        size="lg"
+        :size="size"
         :icon="hideLabel ? 'material-symbols:search-rounded' : undefined"
         :placeholder="placeholder"
         :label="label || $t('general.search')"
@@ -63,7 +72,7 @@ const emit = defineEmits<{
         type="reset"
         :title="$t('general.reset')"
         icon="material-symbols:close-rounded"
-        size="sm"
+        :size="computedSize"
         icon-size="md"
         hide-label
         variant="ghost"
@@ -75,10 +84,9 @@ const emit = defineEmits<{
       v-if="!hideSubmitButton"
       type="submit"
       :disabled="!model"
-      variant="secondary"
       :label="$t('general.submit')"
       icon="material-symbols:search-rounded"
-      size="lg"
+      :size="size"
       icon-size="lg"
       hide-label
     />
@@ -87,11 +95,12 @@ const emit = defineEmits<{
 
 <style>
 .search-form {
+  --column-gap: 0rem;
   flex-grow: 1;
   flex-basis: 240px;
   display: grid;
+  align-content: start;
   align-items: end;
-  gap: 0.5rem;
 
   &:has(.button[type='submit']) {
     grid-template-columns: 1fr auto;
@@ -109,9 +118,29 @@ const emit = defineEmits<{
     &::-webkit-search-cancel-button {
       appearance: none;
     }
+    /* border-inline-end-color: transparent; */
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+    z-index: 1;
+
+    &:focus-visible {
+      outline-color: transparent;
+      border-color: var(--color-accent);
+      /* border-inline-end-color: transparent; */
+    }
   }
 
   .button {
+    &[type='submit'] {
+      /* color: var(--color-white); */
+      /* background-color: var(--color-accent); */
+      border-color: var(--color-grey-graphic);
+      min-width: 2rem;
+      border-end-start-radius: 0;
+      border-start-start-radius: 0;
+      margin-inline-start: -1px;
+    }
+
     &[type='reset'] {
       z-index: 1;
       position: absolute;

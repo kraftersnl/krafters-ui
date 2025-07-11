@@ -26,7 +26,7 @@ const {
   options?: any[];
   placeholder?: string;
   placeholderValue?: string | number;
-  size?: 'sm' | 'md' | 'lg';
+  size?: InputSize;
   valueKey?: string;
   labelKey?: string;
   disabledKey?: string;

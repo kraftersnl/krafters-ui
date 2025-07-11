@@ -39,7 +39,7 @@ const {
   disabledKey?: string;
   itemsSelectedLabel?: string;
   instruction?: string;
-  size?: 'md' | 'lg';
+  size?: InputSize;
 }>();
 
 const multiSelectRef = useTemplateRef('multiselect');

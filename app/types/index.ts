@@ -116,6 +116,8 @@ declare global {
   type TabsVariant = 'default' | 'minimal';
   type TabsSize = 'xs' | 'sm' | 'md';
 
+  type InputSize = 'sm' | 'md' | 'lg';
+
   type TableSize = 'xs' | 'sm' | 'md' | 'lg';
 
   type ChipSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
