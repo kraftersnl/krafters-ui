@@ -199,7 +199,7 @@ const emit = defineEmits<{
 .input-size--sm {
   .input {
     height: 2rem;
-    padding-inline: 0.5rem;
+    padding-inline: 0.5em;
 
     + .iconify {
       top: 1.875em;
@@ -216,7 +216,7 @@ const emit = defineEmits<{
 .input-size--md {
   .input {
     height: 2.25rem;
-    padding-inline: 0.5rem;
+    padding-inline: 0.5em;
 
     + .iconify {
       top: 2em;
@@ -233,7 +233,7 @@ const emit = defineEmits<{
 .input-size--lg {
   .input {
     height: 2.5rem;
-    padding-inline: 0.65rem;
+    padding-inline: 0.65em;
 
     + .iconify {
       top: 2.125em;
@@ -250,7 +250,7 @@ const emit = defineEmits<{
 .input-size--xl {
   .input {
     height: 3rem;
-    padding-inline: 0.75rem;
+    padding-inline: 0.75em;
 
     + .iconify {
       top: 2.375em;

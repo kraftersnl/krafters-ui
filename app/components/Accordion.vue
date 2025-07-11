@@ -143,8 +143,7 @@ defineExpose({ toggleAccordion });
   }
 
   .accordion-arrow {
-    position: absolute;
-    left: -1.25rem;
+    margin-inline-end: 0.25em;
     transition:
       rotate var(--duration-md),
       color var(--duration-sm);

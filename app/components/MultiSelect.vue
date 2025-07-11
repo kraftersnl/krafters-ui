@@ -218,8 +218,8 @@ function preventEscape(event: KeyboardEvent) {
   --ms-border-color-active: var(--focus-color);
   /* --ms-border-width-active: 1px; */
   --ms-radius: var(--radius-md);
-  --ms-py: 0.5rem;
-  --ms-px: 0.65rem;
+  --ms-py: 0.35em;
+  --ms-px: 0.5em;
   --ms-ring-width: 1px;
   --ms-ring-color: var(--focus-color);
   --ms-placeholder-color: var(--color-grey-text);
@@ -439,6 +439,10 @@ function preventEscape(event: KeyboardEvent) {
 }
 
 /* Sizes */
+.multi-select-size--sm .multiselect-wrapper {
+  --height: calc(2rem - 2px);
+}
+
 .multi-select-size--md .multiselect-wrapper {
   --height: calc(2.25rem - 2px);
 }

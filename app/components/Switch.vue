@@ -94,6 +94,8 @@ function handleClick() {
   }
 
   &[aria-checked='true'] {
+    --color-accent: var(--color-green-graphic);
+
     .switch-thumb {
       transform: translateX(14px);
     }
@@ -109,8 +111,10 @@ function handleClick() {
 }
 
 .switch-button-variant--outline {
+  background-color: var(--color-card-bg);
   border: 1px solid var(--color-grey-bg);
-  padding: 0.5rem;
+  padding-block: 0.35rem;
+  padding-inline: 0.35rem 0.5rem;
 
   &:not(:disabled):hover {
     border-color: var(--color-grey-graphic);

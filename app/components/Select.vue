@@ -146,17 +146,17 @@ const computedErrorMessage = computed(() => {
 
 .select-size--sm .select {
   height: 2rem;
-  padding-inline: 0.5rem;
+  padding-inline: 0.5em;
 }
 
 .select-size--md .select {
   height: 2.25rem;
-  padding-inline: 0.5rem;
+  padding-inline: 0.5em;
 }
 
 .select-size--lg .select {
   height: 2.5rem;
-  padding-inline: 0.65rem;
+  padding-inline: 0.65em;
 }
 
 .select-color--blue .select {
