@@ -59,6 +59,8 @@ const {
 <style>
 .radio-wrapper {
   display: flex;
+  align-items: center;
+  gap: 0.25rem;
   transition-property: opacity;
   transition-duration: var(--duration-sm);
 
@@ -72,20 +74,10 @@ const {
   }
 
   input[type='radio'] {
-    margin: 0;
-    width: 1.1rem;
-    height: 1rem;
-  }
-}
-
-.radio-variant--krafters {
-  align-items: center;
-  gap: 0.25rem;
-
-  input[type='radio'] {
     appearance: none;
-    width: 1.5rem;
-    height: 1.5rem;
+    margin: 0;
+    width: 1.25rem;
+    height: 1.25rem;
     position: relative;
     border-radius: var(--radius-full);
 
@@ -94,7 +86,7 @@ const {
       content: '';
       width: 100%;
       height: 100%;
-      border: 1.5px solid var(--color-grey-text);
+      border: 1px solid var(--color-grey-text);
       border-radius: inherit;
       background-color: var(--color-card-bg);
       outline: 2px solid transparent;
@@ -115,15 +107,31 @@ const {
       position: absolute;
       inset: 0;
       margin: auto;
-      width: 1rem;
-      height: 1rem;
+      width: 0.875rem;
+      height: 0.875rem;
       box-shadow: inset 0 0 0 0 transparent;
       border-radius: var(--radius-full);
       transition-property: box-shadow;
       transition-duration: var(--duration-sm);
     }
+
     &:checked::after {
       box-shadow: inset 0 0 0 8px var(--color-accent);
+    }
+  }
+}
+
+.radio-variant--krafters {
+  input[type='radio'] {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    &::before {
+      border-width: 1.5px;
+    }
+    &::after {
+      width: 1rem;
+      height: 1rem;
     }
   }
 }
