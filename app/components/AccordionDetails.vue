@@ -21,7 +21,6 @@ defineProps<{
 .details-summary {
   cursor: default;
   position: relative;
-  list-style: none;
 
   h1,
   h2,
@@ -33,32 +32,17 @@ defineProps<{
     display: inline-block;
   }
 
-  /* Hide marker in Firefox and Chrome */
-  &::marker {
-    /* content: none; */
-  }
-  /* Hide marker in Safari */
-  &::-webkit-details-marker {
-    display: none;
-  }
-
-  &::before {
-    content: '▶' / '';
-    font-size: smaller;
-    padding-inline-end: 0.5em;
-  }
-
   &:focus-visible {
     outline-offset: 2px;
     border-radius: var(--radius-xs);
     outline: 1px dotted var(--focus-color);
   }
-}
 
-.details-wrapper {
-  &[open] {
-    > .details-summary::before {
-      content: '▼' / '';
+  &:hover {
+    color: var(--color-accent);
+
+    &::marker {
+      color: var(--color-accent-graphic);
     }
   }
 }

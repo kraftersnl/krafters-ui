@@ -154,7 +154,8 @@ body:has(.dialog[open]) {
   }
 
   .dialog-header {
-    padding-block: var(--dialog-padding-block);
+    padding-block-start: var(--dialog-padding-block);
+    padding-block-end: 1.5rem;
     padding-inline: var(--dialog-padding-inline);
     display: flex;
     align-items: center;

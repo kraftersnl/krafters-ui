@@ -314,6 +314,7 @@ function preventEscape(event: KeyboardEvent) {
 
 .krafters-multiselect {
   flex-basis: var(--col-width, 240px);
+  flex-shrink: 0;
 
   .clear-button {
     padding: 0.25rem;

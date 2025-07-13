@@ -95,6 +95,7 @@ const emit = defineEmits<{
 
 <style>
 .search-form {
+  position: relative;
   --column-gap: 0rem;
   flex-grow: 1;
   flex-basis: 240px;
@@ -115,37 +116,74 @@ const emit = defineEmits<{
   }
 
   input[type='search'] {
+    padding-inline-end: 4.25rem;
+
     &::-webkit-search-cancel-button {
       appearance: none;
-    }
-    /* border-inline-end-color: transparent; */
-    border-start-end-radius: 0;
-    border-end-end-radius: 0;
-    z-index: 1;
-
-    &:focus-visible {
-      outline-color: transparent;
-      border-color: var(--color-accent);
-      /* border-inline-end-color: transparent; */
     }
   }
 
   .button {
     &[type='submit'] {
-      /* color: var(--color-white); */
-      /* background-color: var(--color-accent); */
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      bottom: 0;
+      color: var(--color-white);
+      background-color: var(--color-grey-graphic);
       border-color: var(--color-grey-graphic);
       min-width: 2rem;
       border-end-start-radius: 0;
       border-start-start-radius: 0;
       margin-inline-start: -1px;
+      outline-offset: -1px;
+      transition-duration: 0s;
+
+      &:focus-visible {
+        z-index: 1;
+      }
+
+      &:disabled {
+        opacity: 1;
+        color: var(--color-grey-graphic);
+        background-color: var(--color-grey-bg);
+      }
     }
 
     &[type='reset'] {
       z-index: 1;
       position: absolute;
-      right: 0.25rem;
+      right: 2.75rem;
       bottom: 0.25rem;
+    }
+  }
+
+  &:has(input[type='search']:focus-visible) {
+    .button[type='submit'] {
+      border-color: var(--focus-color);
+
+      &:not(:disabled) {
+        background-color: var(--focus-color);
+      }
+    }
+  }
+
+  .input-size--sm {
+    + .button[type='reset'] {
+      bottom: 0.25rem;
+      right: 2.25rem;
+    }
+  }
+  .input-size--md {
+    + .button[type='reset'] {
+      bottom: 0.375rem;
+      right: 2.5rem;
+    }
+  }
+  .input-size--lg {
+    + .button[type='reset'] {
+      bottom: 0.25rem;
+      right: 2.75rem;
     }
   }
 }
