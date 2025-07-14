@@ -48,7 +48,7 @@ function handleClick() {
   border: none;
   padding-inline: 0;
   border-radius: var(--radius-full);
-  outline: 2px solid transparent;
+  outline: 1px solid transparent;
   transition:
     border-color var(--duration-sm),
     background-color var(--duration-sm),
@@ -89,8 +89,9 @@ function handleClick() {
   }
 
   &:focus-visible {
-    outline-offset: 2px;
+    /* outline-offset: 2px; */
     outline-color: var(--focus-color);
+    border-color: var(--focus-color);
   }
 
   &[aria-checked='true'] {
@@ -116,7 +117,7 @@ function handleClick() {
   padding-block: 0.35rem;
   padding-inline: 0.35rem 0.5rem;
 
-  &:not(:disabled):hover {
+  &:not(:disabled, :focus-visible):hover {
     border-color: var(--color-grey-graphic);
   }
 }

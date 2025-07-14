@@ -47,7 +47,7 @@ const {
   instruction?: string;
   errorMessage?: string;
   tabindex?: string;
-  variant?: 'default' | 'krafters';
+  variant?: InputVariant;
 }>();
 
 const { t } = useI18n();

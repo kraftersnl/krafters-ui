@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({ title: 'Form inputs' });
 
-const inputVariant = ref('default');
+const inputVariant = ref<InputVariant>('default');
 const singleSelection = ref('');
 const multiSelection = ref<string | string[]>();
 const rangeValue = ref(6);

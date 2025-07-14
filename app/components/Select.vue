@@ -43,7 +43,7 @@ const {
   tabindex?: string;
   color?: BaseColor;
   id?: string;
-  variant?: 'default' | 'krafters';
+  variant?: InputVariant;
 }>();
 
 const { t } = useI18n();

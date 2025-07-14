@@ -29,7 +29,7 @@ const {
   readonly?: boolean;
   autofocus?: boolean;
   autoresize?: boolean;
-  variant?: 'default' | 'krafters';
+  variant?: InputVariant;
 }>();
 
 const { t } = useI18n();

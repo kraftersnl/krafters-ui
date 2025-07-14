@@ -114,9 +114,10 @@ declare global {
     | 'topbar';
 
   type TabsVariant = 'default' | 'minimal';
-  type TabsSize = 'xs' | 'sm' | 'md';
+  type InputVariant = 'default' | 'krafters';
 
   type InputSize = 'sm' | 'md' | 'lg';
+  type TabsSize = 'xs' | 'sm' | 'md';
 
   type TableSize = 'xs' | 'sm' | 'md' | 'lg';
 

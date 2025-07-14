@@ -91,18 +91,18 @@ const {
 
       border-radius: inherit;
       background-color: var(--color-card-bg);
-      outline: 2px solid transparent;
-      transition-property:
-        box-shadow, border-color, outline-offset, outline-color;
-      transition-duration: var(--duration-sm);
     }
 
     &:checked::before {
       border-color: var(--color-accent);
     }
 
-    &:focus-visible::before {
-      border-color: var(--color-accent);
+    &:focus-visible {
+      outline: 1px solid var(--focus-color);
+
+      &::before {
+        border-color: var(--focus-color);
+      }
     }
 
     &:checked::after {
@@ -128,15 +128,23 @@ const {
 
     &::before {
       border-width: 1.5px;
-      box-shadow: 0 1.5px 0 0 var(--color-grey-text);
+      box-shadow: 1.5px 1.5px 0 0 var(--color-grey-text);
+      transition-property: border-color, outline-color, box-shadow;
+      transition-duration: var(--duration-sm);
     }
 
-    &:focus-visible::before {
-      box-shadow: 0 1.5px 0 0 var(--color-accent);
+    &:focus-visible {
+      &::before {
+        box-shadow: 1.5px 1.5px 0 0 var(--focus-color);
+      }
+
+      &:checked:before {
+        box-shadow: 1.5px 1.5px 0 0 var(--focus-color);
+      }
     }
 
     &:checked::before {
-      box-shadow: 0 1.5px 0 0 var(--color-accent);
+      box-shadow: 1.5px 1.5px 0 0 var(--color-accent);
     }
 
     &:checked::after {

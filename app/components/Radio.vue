@@ -89,17 +89,18 @@ const {
       border: 1px solid var(--color-grey-text);
       border-radius: inherit;
       background-color: var(--color-card-bg);
-      outline: 2px solid transparent;
-      transition-property: border-color, outline-offset, outline-color;
-      transition-duration: var(--duration-sm);
     }
 
     &:checked::before {
       border-color: var(--color-accent);
     }
 
-    &:focus-visible::before {
-      border-color: var(--color-accent);
+    &:focus-visible {
+      outline: 1px solid var(--focus-color);
+
+      &::before {
+        border-color: var(--focus-color);
+      }
     }
 
     &::after {

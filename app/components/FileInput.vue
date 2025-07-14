@@ -217,14 +217,10 @@ watch(
   width: 100%;
   padding: 0;
   color: var(--color-grey-graphic);
-  border-color: var(--color-grey-graphic);
-  border-style: dashed;
+  border: 1.5px dashed var(--color-grey-graphic);
   border-radius: var(--radius-md);
   background-color: transparent;
-  outline: 2px solid transparent;
-  transition:
-    color var(--duration-sm),
-    border-color var(--duration-sm);
+  outline: 1px solid transparent;
 
   .iconify {
     margin-inline: 6rem;
@@ -278,19 +274,36 @@ watch(
     width: 100%;
     height: 100%;
 
-    &:hover:not(:disabled) + .file-input-button {
-      color: var(--color-accent);
-      border-color: var(--color-accent);
+    &:focus-visible {
+      + .file-input-button {
+        outline-color: var(--focus-color);
+        border-color: var(--focus-color);
+        border-style: solid;
+
+        .iconify {
+          color: var(--focus-color);
+        }
+      }
+    }
+
+    &:hover:not(:disabled) {
+      + .file-input-button {
+        color: var(--color-accent-graphic);
+        border-color: var(--color-accent-graphic);
+      }
+
+      &:focus-visible + .file-input-button {
+        outline-color: var(--color-accent-graphic);
+
+        .iconify {
+          color: var(--focus-accent-graphic);
+        }
+      }
     }
 
     &:hover:not(:disabled) + .has-image-preview {
-      outline: 2px dashed var(--color-black);
-    }
-
-    &:focus-visible + .file-input-button {
-      border-color: transparent;
-      outline-offset: 2px;
-      outline-color: var(--focus-color);
+      outline: 1.5px dashed var(--color-black);
+      outline-offset: 1.5px;
     }
   }
 }

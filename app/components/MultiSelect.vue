@@ -333,6 +333,7 @@ function preventEscape(event: KeyboardEvent) {
   .multiselect-multiple-label,
   .multiselect-placeholder,
   .multiselect-single-label {
+    padding-inline-end: calc(1.5rem + var(--ms-px, 0.875rem) * 3);
     line-height: var(--height);
     overflow: hidden;
     text-overflow: ellipsis;
@@ -340,6 +341,10 @@ function preventEscape(event: KeyboardEvent) {
     display: block;
     -webkit-user-select: none;
     user-select: none;
+  }
+
+  .multiselect-spinner {
+    margin-inline-end: 0.25em;
   }
 
   .tag-wrapper {

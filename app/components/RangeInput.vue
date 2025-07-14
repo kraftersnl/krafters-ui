@@ -108,7 +108,7 @@ const ticksList = computed(
   --thumb-width: 1.5rem;
   --thumb-height: 1.5rem;
   --thumb-border-size: 2px;
-  --thumb-border-color: var(--color-white);
+  --thumb-border-color: var(--color-card-bg);
   --thumb-radius: var(--radius-full);
 
   --track-bg-color: var(--color-accent-bg);

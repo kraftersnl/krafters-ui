@@ -95,8 +95,8 @@ const emit = defineEmits<{
 
 <style>
 .search-form {
-  position: relative;
   --column-gap: 0rem;
+  position: relative;
   flex-grow: 1;
   flex-basis: 240px;
   display: grid;
@@ -112,7 +112,7 @@ const emit = defineEmits<{
   }
 
   .search-input-wrapper {
-    position: relative;
+    display: flex;
   }
 
   input[type='search'] {
