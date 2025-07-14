@@ -112,7 +112,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
             <li>
               When the Tab List is focussed, the
               <kbd>
-                <Icon name="material-symbols:arrow-right-alt" />
+                <Icon name="material-symbols:arrow-right-alt-rounded" />
               </kbd>
               key moves focus to the next tab.
             </li>
@@ -120,7 +120,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
             <li>
               When the Tab List is focussed, the
               <kbd>
-                <Icon name="material-symbols:arrow-left-alt" />
+                <Icon name="material-symbols:arrow-left-alt-rounded" />
               </kbd>
               key moves focus to the previous tab.
             </li>

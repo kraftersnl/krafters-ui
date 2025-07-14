@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({ title: 'Text components' });
+useHead({ title: 'Text & Icons' });
 
 const lines = ref(1);
 const text = ref(
@@ -344,6 +344,38 @@ const sizeOptions: { value: FontSize; label: string }[] = [
         </div>
       </div>
     </Card>
+
+    <Card class="icons-card">
+      <h2>Icons</h2>
+      <p>
+        Icons used in components are from
+        <Button
+          href="https://icones.js.org/collection/material-symbols"
+          label="Material Symbols at Iconify"
+          variant="link"
+          target="_blank"
+          external
+        />, powered by
+        <Button
+          href="https://nuxt.com/modules/icon"
+          label="Nuxt Icon"
+          variant="link"
+          target="_blank"
+          external
+        />.
+      </p>
+
+      <h3 class="default-icons-title">Default icons</h3>
+      <ul role="list" class="icon-grid">
+        <li v-for="icon in defaultIcons" :key="icon">
+          <Icon :name="icon" />
+          <div class="name">
+            <span class="visuallyhidden">material-symbols:</span>
+            <span>{{ icon.replace('material-symbols:', '') }}</span>
+          </div>
+        </li>
+      </ul>
+    </Card>
   </div>
 </template>
 
@@ -389,5 +421,39 @@ const sizeOptions: { value: FontSize; label: string }[] = [
 
 .ellipsis-demo {
   color: var(--color-grey-text);
+}
+
+.icons-card {
+  .default-icons-title {
+    margin-block: 2.5rem 1.5rem;
+  }
+
+  .icon-grid {
+    display: grid;
+    column-gap: 0.25rem;
+    row-gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+
+    > * {
+      display: grid;
+      align-content: start;
+      min-height: 5rem;
+
+      .iconify {
+        margin-block-end: 0.5em;
+        font-size: var(--font-size-xxl);
+      }
+    }
+
+    .name {
+      user-select: all;
+      font-size: var(--font-size-xxxs);
+      color: var(--color-grey-text);
+    }
+  }
+
+  .form-field-wrapper {
+    max-width: 480px;
+  }
 }
 </style>

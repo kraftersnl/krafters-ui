@@ -23,7 +23,7 @@ export const navList: MenuItem[] = [
   {
     id: 'text',
     to: '/text',
-    label: 'Text components',
+    label: 'Text & Icons',
   },
   {
     id: 'buttons',

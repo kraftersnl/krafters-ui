@@ -197,9 +197,7 @@
     1.6px 3.3px 4.6px -0.3px hsl(var(--shadow-color) / 0.22),
     3px 6px 8.4px -0.5px hsl(var(--shadow-color) / 0.24),
     4.9px 9.8px 13.7px -0.8px hsl(var(--shadow-color) / 0.27),
-    7.8px 15.6px 21.8px -1.1px hsl(var(--shadow-color) / 0.3),
-    12.2px 24.5px 34.3px -1.4px hsl(var(--shadow-color) / 0.33),
-    18.8px 37.5px 52.5px -1.6px hsl(var(--shadow-color) / 0.35);
+    7.8px 15.6px 21.8px -1.1px hsl(var(--shadow-color) / 0.3);
 
   /* Animation design tokens */
   --animation-rotate: rotateLeft var(--duration-xl) linear infinite;
@@ -479,7 +477,7 @@
   font-variant-numeric: tabular-nums;
 
   thead th {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
     color: var(--color-grey-text);
   }
 
