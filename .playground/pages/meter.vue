@@ -38,7 +38,7 @@ const roleOptions = [
         instead."
       </p>
 
-      <p class="fs-xxs mbe-2">
+      <p class="fs-xs mbe-2">
         Source:
         <Button
           to="https://www.w3.org/WAI/ARIA/apg/patterns/meter"

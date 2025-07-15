@@ -173,9 +173,9 @@ body:has(.dialog[open]) {
   }
 
   .dialog-buttons {
+    padding-inline: var(--dialog-padding-inline);
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 0.65rem;
   }
 }

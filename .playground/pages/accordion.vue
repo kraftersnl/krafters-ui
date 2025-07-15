@@ -17,7 +17,7 @@ const isAccordionOpen = ref(false);
       hide their associated sections of content."
     </p>
 
-    <p class="fs-xxs mbe-2">
+    <p class="fs-xs mbe-2">
       Source:
       <Button
         label="ARIA Design Patterns"
@@ -33,9 +33,9 @@ const isAccordionOpen = ref(false);
       <Card>
         <h2>AccordionDetails</h2>
 
-        <p class="c-grey-text">This component uses the native <code>{{ `<details>` }}</code> element.</p>
+        <p class="c-grey-text">This component uses the native <code>{{ `<details>` }}</code> and <code>{{ `<summary>` }}</code> elements.</p>
 
-        <AccordionDetails :open="isAccordionDetailsOpen">
+        <AccordionDetails :open="isAccordionDetailsOpen" name="demo-panels">
           <template #trigger>Accordion with HTML</template>
           <template #content>
             <p>
@@ -49,12 +49,45 @@ const isAccordionOpen = ref(false);
             </p>
           </template>
         </AccordionDetails>
+
+        <AccordionDetails :open="isAccordionDetailsOpen" name="demo-panels">
+          <template #trigger>Accordion with HTML</template>
+          <template #content>
+            <p>
+              An accordion is a vertically stacked set of interactive headings
+              that each contain a title, content snippet, or thumbnail
+              representing a section of content. The headings function as
+              controls that enable users to reveal or hide their associated
+              sections of content. Accordions are commonly used to reduce the
+              need to scroll when presenting multiple sections of content on a
+              single page.
+            </p>
+          </template>
+        </AccordionDetails>
+
+        <AccordionDetails :open="isAccordionDetailsOpen" name="demo-panels">
+          <template #trigger>Accordion with HTML</template>
+          <template #content>
+            <p>
+              An accordion is a vertically stacked set of interactive headings
+              that each contain a title, content snippet, or thumbnail
+              representing a section of content. The headings function as
+              controls that enable users to reveal or hide their associated
+              sections of content. Accordions are commonly used to reduce the
+              need to scroll when presenting multiple sections of content on a
+              single page.
+            </p>
+          </template>
+        </AccordionDetails>
+
+        <p class="c-grey-text">Give multiple components the same <code>name</code> attribute to only open one at a time.</p>
       </Card>
 
       <Card>
         <h2>Accordion</h2>
 
         <p class="c-grey-text">Custom accordion component that uses CSS for smooth animations.</p>
+
 
         <Accordion v-model="isAccordionOpen" arrow>
           <template #trigger>Accordion with CSS</template>
@@ -102,6 +135,10 @@ const isAccordionOpen = ref(false);
 
 <style>
 .demo-page.details {
+  .details-wrapper {
+    margin-block-end: 1rem;
+  }
+
   .details-panel,
   .accordion-panel {
     p {

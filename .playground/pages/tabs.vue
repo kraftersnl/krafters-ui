@@ -77,7 +77,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
         displayed panel, most commonly the top edge."
       </p>
 
-      <p class="fs-xxs mbe-2">
+      <p class="fs-xs mbe-2">
         Source:
         <Button
           label="ARIA Design Patterns"

@@ -4,6 +4,15 @@ useHead({ title: 'Modal dialog pattern' });
 const dialogRef = useTemplateRef<DialogComponent>('dialog');
 const position = ref<DialogPosition>('center');
 const date = ref();
+
+function makeToast() {
+  const { createToast } = useToast();
+
+  createToast({
+    color: 'green',
+    label: 'De gevonden URL is aangevinkt in de steekproef',
+  });
+}
 </script>
 
 <template>
@@ -20,7 +29,7 @@ const date = ref();
         attempts to interact with the inert content cause the dialog to close."
       </p>
 
-      <p class="fs-xxs mbe-2">
+      <p class="fs-xs mbe-2">
         Source:
         <NuxtLink
           to="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal"
@@ -161,6 +170,15 @@ const date = ref();
       class="demo-dialog"
     >
       <div class="demo-dialog-content">
+        <DevOnly>
+          <Button
+            icon="material-symbols:add-circle-rounded"
+            variant="outline"
+            label="Add Toast"
+            @click="makeToast"
+          />
+        </DevOnly>
+
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quos
           nesciunt quam. Totam iste quasi nemo saepe a distinctio architecto?

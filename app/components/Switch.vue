@@ -115,7 +115,7 @@ function handleClick() {
   background-color: var(--color-select-bg);
   border: 1px solid var(--color-grey-bg);
   padding-block: 0.35rem;
-  padding-inline: 0.35rem 0.5rem;
+  padding-inline: 0.35rem 0.65rem;
 
   &:not(:disabled, :focus-visible):hover {
     border-color: var(--color-grey-graphic);

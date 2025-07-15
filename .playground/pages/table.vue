@@ -154,7 +154,7 @@ function handleFilter() {
         is used to make an interactive widget that has a tabular structure."
       </p>
 
-      <p class="fs-xxs mbe-2">
+      <p class="fs-xs mbe-2">
         Source:
         <Button
           to="https://www.w3.org/WAI/ARIA/apg/patterns/table"

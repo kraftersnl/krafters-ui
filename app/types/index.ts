@@ -12,6 +12,20 @@ import type Tabs from '../components/Tabs.vue';
 import type UserMenu from '../components/UserMenu.vue';
 
 declare global {
+  type Toast = {
+    role?: 'status' | 'alert';
+    color?: ToastColor;
+    icon?: string;
+    label?: string;
+    text?: string;
+    id?: string;
+    timeout?: number;
+    lines?: number;
+    hideTimer?: boolean;
+  };
+
+  type ToastColor = 'blue' | 'green' | 'red' | 'orange' | 'accent';
+
   type TabOption = {
     value: string;
     label: string;
@@ -113,6 +127,7 @@ declare global {
     | 'sidebar'
     | 'topbar';
 
+  type ChipVariant = 'flat' | 'outline' | 'soft';
   type TabsVariant = 'default' | 'minimal';
   type InputVariant = 'default' | 'krafters';
 

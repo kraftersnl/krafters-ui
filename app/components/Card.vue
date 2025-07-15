@@ -4,7 +4,7 @@ const {
   borderRadius = 'md',
   borderColor = 'card-border',
   borderWidth = 1,
-  padding = '1.5rem 2rem',
+  padding = '1.5rem 1.75rem',
   mobilePadding = '1.25rem 1.5rem',
   shadow = false,
 } = defineProps<{

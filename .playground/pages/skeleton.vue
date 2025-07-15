@@ -27,7 +27,7 @@ const skeletonAnimations = [
         page will ultimately look."
       </p>
 
-      <p class="fs-xxs mbe-2">
+      <p class="fs-xs mbe-2">
         Source:
         <NuxtLink
           to="https://www.nngroup.com/articles/skeleton-screens"

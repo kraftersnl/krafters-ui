@@ -85,12 +85,14 @@ defineExpose({
       @close="focusMenu"
     >
       <p>{{ $t('general.sign-out-confirm') }}</p>
-      <Button
-        :label="$t('general.sign-out')"
-        icon="material-symbols:logout"
-        variant="danger"
-        @click="handleLogout"
-      />
+      <template #buttons>
+        <Button
+          :label="$t('general.sign-out')"
+          icon="material-symbols:logout"
+          variant="danger"
+          @click="handleLogout"
+        />
+      </template>
     </Dialog>
   </div>
 </template>

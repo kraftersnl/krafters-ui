@@ -132,6 +132,7 @@
   --duration-lg: 0.65s;
   --duration-xl: 1.35s;
   --duration-xxl: 2s;
+  --cubic-bezier: cubic-bezier(0.215, 0.61, 0.355, 1);
 
   @media (prefers-reduced-motion: prefers-reduced-motion) {
     --duration-xs: 0s;
@@ -752,8 +753,9 @@
   gap: 0.5em;
 
   > .iconify {
+    font-size: inherit;
     flex-shrink: 0;
-    color: var(--color-grey-graphic);
+    color: var(--color-grey-text);
   }
 
   h1,
@@ -938,6 +940,12 @@
 }
 
 /* Animations */
+@keyframes scale-x {
+  to {
+    transform: scaleX(0);
+  }
+}
+
 @keyframes rotateLeft {
   to {
     rotate: -1turn;
@@ -998,6 +1006,80 @@
   }
   100% {
     translate: 0px 0;
+  }
+}
+
+@keyframes bounceInBottom {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: var(--cubic-bezier);
+  }
+  from {
+    transform: translateY(1000px);
+  }
+  60% {
+    transform: translateY(-16px);
+  }
+  75% {
+    transform: translateY(8px);
+  }
+  90% {
+    transform: translateY(-4px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes bounceInRight {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: var(--cubic-bezier);
+  }
+  from {
+    transform: translateX(1000px);
+  }
+  60% {
+    transform: translateX(-16px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+  90% {
+    transform: translateX(-4px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes bounceOutBottom {
+  from {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-16px);
+  }
+  to {
+    transform: translateY(1000px);
+  }
+}
+
+@keyframes bounceOutRight {
+  from {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(-16px);
+  }
+  to {
+    transform: translateX(1000px);
   }
 }
 

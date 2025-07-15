@@ -15,7 +15,7 @@ const {
   icon?: string;
   fontSize?: FontSize;
   iconSize?: FontSize;
-  variant?: 'flat' | 'outline';
+  variant?: ChipVariant;
   color?: BaseColor;
   size?: ChipSize;
   radius?: BorderRadius;
@@ -25,7 +25,7 @@ const {
 const computedStyle = computed(() => ({
   '--chip-radius': radius && `var(--radius-${radius})`,
   '--chip-font-size': fontSize && `var(--font-size-${fontSize})`,
-  '--chip-icon-size': iconSize && `var(--icon-size-${iconSize})`,
+  '--chip-icon-size': iconSize && `var(--font-size-${iconSize})`,
 }));
 
 const formattedLabel = computed(() =>
@@ -165,11 +165,62 @@ const formattedLabel = computed(() =>
   background-color: var(--color-pink-bg);
 }
 
+/* Soft Chip */
+.chip-variant--soft {
+  border-color: var(--color-grey-bg);
+}
+
+.chip-variant--soft.chip-color--accent {
+  color: var(--color-accent-text);
+  border-color: var(--color-accent-bg);
+}
+
+.chip-variant--soft.chip-color--grey {
+  color: var(--color-grey-text);
+  border-color: var(--color-grey-bg);
+}
+
+.chip-variant--soft.chip-color--red {
+  color: var(--color-red-text);
+  border-color: var(--color-red-bg);
+}
+
+.chip-variant--soft.chip-color--orange {
+  color: var(--color-orange-text);
+  border-color: var(--color-orange-bg);
+}
+
+.chip-variant--soft.chip-color--yellow {
+  color: var(--color-yellow-text);
+  border-color: var(--color-yellow-bg);
+}
+
+.chip-variant--soft.chip-color--green {
+  color: var(--color-green-text);
+  border-color: var(--color-green-bg);
+}
+
+.chip-variant--soft.chip-color--blue {
+  color: var(--color-blue-text);
+  border-color: var(--color-blue-bg);
+}
+
+.chip-variant--soft.chip-color--purple {
+  color: var(--color-purple-text);
+  border-color: var(--color-purple-bg);
+}
+
+.chip-variant--soft.chip-color--pink {
+  color: var(--color-pink-text);
+  border-color: var(--color-pink-bg);
+}
+
 /* Outline Chip */
 
 .chip-variant--outline {
   color: var(--color-text);
   border-color: var(--color-grey-graphic);
+  background-color: var(--color-bg);
 }
 
 .chip-variant--outline.chip-color--accent {

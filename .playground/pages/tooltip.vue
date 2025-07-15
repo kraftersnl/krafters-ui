@@ -89,7 +89,7 @@ const popoverActions = [
             keyboard controls.
           </p>
 
-          <p class="c-grey-text fs-xxs">
+          <p class="c-grey-text fs-xs">
             Note: the
             <Button
               label="Tooltip design pattern"

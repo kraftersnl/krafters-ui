@@ -6,9 +6,13 @@ const text = ref(
   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi est, amet quae placeat odit officia inventore rerum ad pariatur a minima quos ut deleniti aperiam qui eligendi id dolores distinctio. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa consectetur corrupti ad blanditiis ratione tempora modi labore, esse facilis in eos distinctio aperiam repellendus ab earum qui commodi officiis eveniet. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore similique ex quisquam ab eum deserunt odit ipsum, natus maiores dignissimos ratione nemo. Ab rem laborum ratione nobis nihil dolor quia.',
 );
 
-const size = ref<ChipSize>('md');
-const fontSize = ref<FontSize>('xs');
-const iconSize = ref<FontSize>('md');
+const chipSize = ref<ChipSize>('md');
+const chipFontSize = ref<FontSize>('xs');
+const chipIconSize = ref<FontSize>('sm');
+
+const calloutFontSize = ref<FontSize>('xs');
+const calloutIconSize = ref<FontSize>('md');
+
 const sizeOptions: { value: FontSize; label: string }[] = [
   {
     value: 'xl',
@@ -31,11 +35,327 @@ const sizeOptions: { value: FontSize; label: string }[] = [
     label: 'xs',
   },
 ];
+
+function makeToast() {
+  const { createToast } = useToast();
+
+  createToast({
+    color: 'green',
+    label: 'De gevonden URL is aangevinkt in de steekproef',
+  });
+}
 </script>
 
 <template>
   <div class="demo-page text-components-page">
-    <h1>Text components</h1>
+    <h1>Text components & icons</h1>
+
+    <Card>
+      <div class="section-topbar">
+        <h2>Chip</h2>
+
+        <Popover icon="material-symbols:settings-rounded">
+          <div class="popover-settings-content">
+            <h2 class="mbe-1">Props</h2>
+
+            <div class="props-wrapper">
+              <Select
+                v-model="chipSize"
+                :options="sizeOptions"
+                label="size"
+                size="sm"
+              />
+              <Select
+                v-model="chipFontSize"
+                :options="sizeOptions"
+                label="fontSize"
+                size="sm"
+              />
+              <Select
+                v-model="chipIconSize"
+                :options="sizeOptions"
+                label="iconSize"
+                size="sm"
+              />
+
+              <code
+                >{{`<Chip
+                  :size="${chipSize}"
+                  :font-size="${chipFontSize}"
+                  :icon-size="${chipIconSize}"
+                />`}}</code
+              >
+            </div>
+          </div>
+        </Popover>
+      </div>
+
+      <div class="chips-grid">
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Default"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Grey"
+          color="grey"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Accent"
+          color="accent"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Red"
+          color="red"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Orange"
+          color="orange"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Yellow"
+          color="yellow"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Green"
+          color="green"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Blue"
+          color="blue"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Purple"
+          color="purple"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          label="Pink"
+          color="pink"
+        />
+      </div>
+
+      <div class="chips-grid">
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Default"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Grey"
+          color="grey"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Accent"
+          color="accent"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Red"
+          color="red"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Orange"
+          color="orange"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Yellow"
+          color="yellow"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Green"
+          color="green"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Blue"
+          color="blue"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Purple"
+          color="purple"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="outline"
+          label="Pink"
+          color="pink"
+        />
+      </div>
+
+      <div class="chips-grid">
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Default"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Grey"
+          color="grey"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Accent"
+          color="accent"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Red"
+          color="red"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Orange"
+          color="orange"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Yellow"
+          color="yellow"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Green"
+          color="green"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Blue"
+          color="blue"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Purple"
+          color="purple"
+        />
+        <Chip
+          :size="chipSize"
+          :font-size="chipFontSize"
+          :icon-size="chipIconSize"
+          icon="material-symbols:check-rounded"
+          variant="soft"
+          label="Pink"
+          color="pink"
+        />
+      </div>
+    </Card>
 
     <div class="card-cols">
       <Card>
@@ -48,13 +368,14 @@ const sizeOptions: { value: FontSize; label: string }[] = [
 
               <div class="props-wrapper">
                 <Select
-                  v-model="fontSize"
+                  v-model="calloutFontSize"
                   :options="sizeOptions"
                   label="fontSize"
                   size="sm"
                 />
+
                 <Select
-                  v-model="iconSize"
+                  v-model="calloutIconSize"
                   :options="sizeOptions"
                   label="iconSize"
                   size="sm"
@@ -62,8 +383,8 @@ const sizeOptions: { value: FontSize; label: string }[] = [
 
                 <code
                   >{{`<Callout
-                    :font-size="${fontSize}"
-                    :icon-size="${iconSize}"
+                    :font-size="${calloutFontSize}"
+                    :icon-size="${calloutIconSize}"
                   />`}}</code
                 >
               </div>
@@ -73,29 +394,41 @@ const sizeOptions: { value: FontSize; label: string }[] = [
 
         <div class="callouts-grid">
           <Callout
-            :font-size="fontSize"
-            :icon-size="iconSize"
+            :font-size="calloutFontSize"
+            :icon-size="calloutIconSize"
             color="red"
             role="alert"
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </Callout>
 
-          <Callout :font-size="fontSize" :icon-size="iconSize" color="orange">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </Callout>
-
-          <Callout :font-size="fontSize" :icon-size="iconSize" color="green">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </Callout>
-
-          <Callout :font-size="fontSize" :icon-size="iconSize" color="blue">
+          <Callout
+            :font-size="calloutFontSize"
+            :icon-size="calloutIconSize"
+            color="orange"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </Callout>
 
           <Callout
-            :font-size="fontSize"
-            :icon-size="iconSize"
+            :font-size="calloutFontSize"
+            :icon-size="calloutIconSize"
+            color="green"
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </Callout>
+
+          <Callout
+            :font-size="calloutFontSize"
+            :icon-size="calloutIconSize"
+            color="blue"
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </Callout>
+
+          <Callout
+            :font-size="calloutFontSize"
+            :icon-size="calloutIconSize"
             color="accent"
             icon="material-symbols:lightbulb-outline-rounded"
           >
@@ -104,161 +437,30 @@ const sizeOptions: { value: FontSize; label: string }[] = [
         </div>
       </Card>
 
-      <Card
-        ><div class="section-topbar">
-          <h2>Chip</h2>
+      <Card>
+        <div class="section-topbar">
+          <h2>Toast</h2>
 
-          <Popover icon="material-symbols:settings-rounded">
-            <div class="popover-settings-content">
-              <h2 class="mbe-1">Props</h2>
-
-              <div class="props-wrapper">
-                <Select
-                  v-model="size"
-                  :options="sizeOptions"
-                  label="size"
-                  size="sm"
-                />
-
-                <code>{{`<Chip :size="${fontSize}" />`}}</code>
-              </div>
-            </div>
-          </Popover>
-        </div>
-
-        <div class="chips-grid">
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Default"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Grey"
-            color="grey"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Accent"
-            color="accent"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Red"
-            color="red"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Orange"
-            color="orange"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Yellow"
-            color="yellow"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Green"
-            color="green"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Blue"
-            color="blue"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Purple"
-            color="purple"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            label="Pink"
-            color="pink"
+          <Button
+            icon="material-symbols:add-circle-rounded"
+            variant="outline"
+            label="Add Toast"
+            @click="makeToast"
           />
         </div>
 
-        <div class="chips-grid">
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Default"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Grey"
-            color="grey"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Accent"
-            color="accent"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Red"
-            color="red"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Orange"
-            color="orange"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Yellow"
-            color="yellow"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Green"
-            color="green"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Blue"
-            color="blue"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Purple"
-            color="purple"
-          />
-          <Chip
-            :size="size"
-            icon="material-symbols:check-rounded"
-            variant="outline"
-            label="Pink"
-            color="pink"
-          />
-        </div>
+        <Toast label="Error message in a toast notification" color="red" />
+        <Toast label="Warning message in a toast notification" color="orange" />
+        <Toast label="Success message in a toast notification" color="green" />
+        <Toast
+          label="Information message in a toast notification"
+          color="blue"
+        />
+        <Toast
+          label="Brand message in a toast notification"
+          color="accent"
+          icon="material-symbols:lightbulb-outline-rounded"
+        />
       </Card>
     </div>
 
@@ -403,9 +605,10 @@ const sizeOptions: { value: FontSize; label: string }[] = [
 }
 
 .chips-grid {
-  margin-inline-end: 2rem;
+  margin-block-end: 1.5rem;
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.5rem;
 
   > * {

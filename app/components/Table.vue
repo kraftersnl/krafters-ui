@@ -95,46 +95,59 @@ const {
 }
 
 .table-size--xs {
-  tbody tr {
-    height: 2rem;
-  }
-  th,
-  td {
-    padding-block: 0.4rem;
-    padding-inline: 0.35rem;
+  tbody,
+  tfoot {
+    tr {
+      height: 2rem;
+    }
+    th,
+    td {
+      padding-block: 0.4rem;
+      padding-inline: 0.35rem;
+    }
   }
 }
 
 .table-size--sm {
-  tbody tr {
-    height: 3rem;
-  }
-  th,
-  td {
-    padding-block: 0.5rem;
-    padding-inline: 0.5rem;
+  tbody,
+  tfoot {
+    tr {
+      height: 3rem;
+    }
+    th,
+    td {
+      padding-block: 0.5rem;
+      padding-inline: 0.5rem;
+    }
   }
 }
 
 .table-size--md {
-  tbody tr {
-    height: 3.25rem;
-  }
-  th,
-  td {
-    padding-block: 0.6rem;
-    padding-inline: 0.5rem;
+  tbody,
+  tfoot {
+    tr {
+      height: 3.25rem;
+    }
+
+    th,
+    td {
+      padding-block: 0.6rem;
+      padding-inline: 0.5rem;
+    }
   }
 }
 
 .table-size--lg {
-  tbody tr {
-    height: 3.5rem;
-  }
-  th,
-  td {
-    padding-block: 0.6rem;
-    padding-inline: 0.5rem;
+  tbody,
+  tfoot {
+    tr {
+      height: 3.5rem;
+    }
+    th,
+    td {
+      padding-block: 0.6rem;
+      padding-inline: 0.5rem;
+    }
   }
 }
 </style>
