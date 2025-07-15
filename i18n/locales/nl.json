@@ -47,7 +47,7 @@
     "403": "geen toegang",
     "404": "niet gevonden",
     "heading": "Foutmelding",
-    "page-not-found": "Pagina niet gevonden.",
+    "page-not-found": "Pagina niet gevonden",
     "unauthorized": "Je hebt geen rechten om deze pagina te openen."
   },
 
@@ -80,6 +80,7 @@
   "general": {
     "about": "Over",
     "actions": "Acties",
+    "add": "Toevoegen",
     "address": "Adres",
     "admin": "Beheer",
     "app": "App",

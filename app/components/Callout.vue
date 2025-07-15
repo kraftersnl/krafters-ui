@@ -79,6 +79,10 @@ const computedAriaLabel = computed(() => {
       font-size: var(--icon-size);
     }
   }
+
+  .default-slot {
+    flex-grow: 1;
+  }
 }
 
 .callout-color--accent {

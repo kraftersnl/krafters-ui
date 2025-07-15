@@ -145,7 +145,7 @@ const emit = defineEmits<{
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size, var(--font-size-sm));
   border: 1px solid transparent;
-  transition-property: color, background-color, opacity;
+  transition-property: color, border-color, background-color, opacity;
   transition-duration: var(--duration-sm);
   text-decoration: none;
   outline: 2px solid transparent;

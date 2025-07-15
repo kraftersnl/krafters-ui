@@ -8,10 +8,12 @@ const {
   radius = undefined,
   variant = 'flat',
   size = 'md',
+  fontSize = undefined,
   iconSize = undefined,
 } = defineProps<{
   label?: string | number;
   icon?: string;
+  fontSize?: FontSize;
   iconSize?: FontSize;
   variant?: 'flat' | 'outline';
   color?: BaseColor;
@@ -22,7 +24,8 @@ const {
 
 const computedStyle = computed(() => ({
   '--radius': radius && `var(--radius-${radius})`,
-  '--icon-size': iconSize && `var(--font-size-${iconSize})`,
+  '--font-size': fontSize && `var(--font-size-${fontSize})`,
+  '--icon-size': iconSize && `var(--icon-size-${iconSize})`,
 }));
 
 const formattedLabel = computed(() =>
@@ -66,7 +69,7 @@ const formattedLabel = computed(() =>
 
   .krafters-tooltip-content {
     font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size, var(--font-size-xs));
   }
 
   .iconify {
@@ -80,26 +83,26 @@ const formattedLabel = computed(() =>
 
 /* Chip sizes */
 .chip-size--xs {
-  font-size: var(--font-size-xxxs);
+  font-size: var(--font-size, var(--font-size-xxxs));
   padding-inline: 0.2rem;
   padding-block: 0.03125rem;
   gap: 0.125rem;
 }
 
 .chip-size--sm {
-  font-size: var(--font-size-xxs);
+  font-size: var(--font-size, var(--font-size-xxs));
   padding-inline: 0.3rem;
   padding-block: 0.0625rem;
 }
 
 .chip-size--md {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size, var(--font-size-xs));
   padding-inline: 0.35rem;
   padding-block: 0.125rem;
 }
 
 .chip-size--lg {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size, var(--font-size-sm));
   padding-inline: 0.5rem;
   padding-block: 0.25rem;
 }
@@ -107,7 +110,7 @@ const formattedLabel = computed(() =>
 .chip-size--xl {
   --radius: var(--radius-md);
   border-width: 2px;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size, var(--font-size-lg));
   padding-inline: 0.75rem;
   padding-block: 0.25rem;
 }

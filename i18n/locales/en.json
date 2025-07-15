@@ -47,7 +47,7 @@
     "403": "unauthorized",
     "404": "not found",
     "heading": "Error",
-    "page-not-found": "Page not found.",
+    "page-not-found": "Page not found",
     "unauthorized": "You are unauthorized to view this page."
   },
 
@@ -80,6 +80,7 @@
   "general": {
     "about": "About",
     "actions": "Actions",
+    "add": "Add",
     "address": "Address",
     "admin": "Admin",
     "app": "App",

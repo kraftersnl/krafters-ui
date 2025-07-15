@@ -31,6 +31,7 @@ useHead({ title: 'Changelog' });
           Feature: add <code>size</code> prop to Search and MultiSelect
           components
         </li>
+        <li>Feature: add <code>fontSize</code> prop to Chip component</li>
         <li>Feature: add <code>diableEscape</code> prop to Dialog component</li>
         <li>
           Fix: prevent side effects when closing MultiSelect with
