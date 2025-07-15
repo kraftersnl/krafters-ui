@@ -12,12 +12,20 @@ export function isValidUrl(url?: string): boolean {
   }
 }
 
-export function normalizeUrl(url?: string) {
-  return url?.replace(/^https?:\/\//, '').replace(/\/$/, '');
-}
-
 export function removeHttp(url?: string) {
   return url?.replace(/^https?:\/\//, '')?.replace('www.', '');
+}
+
+export function trimUrl(url: string) {
+  return url.replace(/[.,]+$/, '')?.replace(/\/$/, '');
+}
+
+export function stripUrl(url?: string) {
+  return url
+    ?.replace(/^https?:\/\//, '')
+    ?.replace('www./', '')
+    ?.replace(/[.,]+$/, '')
+    ?.replace(/\/$/, '');
 }
 
 export function stripTrailingSlash(str?: string) {
