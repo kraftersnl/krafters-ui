@@ -71,7 +71,7 @@ function handleClick() {
     width: 12px;
     height: 12px;
     border-radius: var(--radius-full);
-    background-color: var(--color-bg);
+    background-color: var(--color-white);
     transform: translateX(0);
     transition-property: transform;
     transition-duration: var(--duration-md);
@@ -112,7 +112,7 @@ function handleClick() {
 }
 
 .switch-button-variant--outline {
-  background-color: var(--color-select-bg);
+  background-color: var(--color-input-bg);
   border: 1px solid var(--color-grey-bg);
   padding-block: 0.35rem;
   padding-inline: 0.35rem 0.65rem;

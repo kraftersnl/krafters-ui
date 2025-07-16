@@ -394,7 +394,7 @@ const emit = defineEmits<{
 
 .button-variant--outline {
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-color: var(--color-input-bg);
   border-color: var(--color-grey-bg);
 
   &:not(:disabled, .disabled):hover {

@@ -168,6 +168,7 @@ const formattedLabel = computed(() =>
 /* Soft Chip */
 .chip-variant--soft {
   border-color: var(--color-grey-bg);
+  background-color: var(--color-white);
 }
 
 .chip-variant--soft.chip-color--accent {
@@ -220,7 +221,7 @@ const formattedLabel = computed(() =>
 .chip-variant--outline {
   color: var(--color-text);
   border-color: var(--color-grey-graphic);
-  background-color: var(--color-bg);
+  background-color: var(--color-white);
 }
 
 .chip-variant--outline.chip-color--accent {
@@ -270,5 +271,14 @@ const formattedLabel = computed(() =>
 .chip-variant--outline.chip-color--pink {
   color: var(--color-pink-text);
   border-color: var(--color-pink-graphic);
+}
+
+.dark-mode {
+  .card {
+    .chip-variant--outline,
+    .chip-variant--soft {
+      background-color: var(--color-bg);
+    }
+  }
 }
 </style>

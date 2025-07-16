@@ -47,7 +47,7 @@ const {
 </template>
 
 <style>
-.table-wrapper {
+:where(.table-wrapper) {
   padding-block-end: 1rem;
   overflow-x: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -94,60 +94,59 @@ const {
   }
 }
 
-.table-size--xs {
+:where(.table-size--xs) {
   tbody,
   tfoot {
     tr {
       height: 2rem;
     }
-    th,
-    td {
-      padding-block: 0.4rem;
-      padding-inline: 0.35rem;
-    }
+  }
+  th,
+  td {
+    padding-block: 0.4rem;
+    padding-inline: 0.35rem;
   }
 }
 
-.table-size--sm {
+:where(.table-size--sm) {
   tbody,
   tfoot {
     tr {
       height: 3rem;
     }
-    th,
-    td {
-      padding-block: 0.5rem;
-      padding-inline: 0.5rem;
-    }
+  }
+  th,
+  td {
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
   }
 }
 
-.table-size--md {
+:where(.table-size--md) {
   tbody,
   tfoot {
     tr {
       height: 3.25rem;
     }
-
-    th,
-    td {
-      padding-block: 0.6rem;
-      padding-inline: 0.5rem;
-    }
+  }
+  th,
+  td {
+    padding-block: 0.6rem;
+    padding-inline: 0.5rem;
   }
 }
 
-.table-size--lg {
+:where(.table-size--lg) {
   tbody,
   tfoot {
     tr {
       height: 3.5rem;
     }
-    th,
-    td {
-      padding-block: 0.6rem;
-      padding-inline: 0.5rem;
-    }
+  }
+  th,
+  td {
+    padding-block: 0.6rem;
+    padding-inline: 0.5rem;
   }
 }
 </style>
