@@ -523,7 +523,7 @@ const emit = defineEmits<{
 
 .button-variant--topbar {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.5em;
   width: 100%;
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
@@ -533,7 +533,13 @@ const emit = defineEmits<{
   transition-duration: 0s;
 
   .iconify {
-    color: var(--color-grey-graphic);
+    color: var(--color-grey-text);
+  }
+
+  &:hover {
+    .iconify {
+      color: var(--color-text);
+    }
   }
 
   @media (prefers-reduced-motion: no-preference) {
