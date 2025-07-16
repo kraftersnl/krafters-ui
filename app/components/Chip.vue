@@ -167,6 +167,7 @@ const formattedLabel = computed(() =>
 
 /* Soft Chip */
 .chip-variant--soft {
+  color: var(--color-text);
   border-color: var(--color-grey-bg);
   background-color: var(--color-white);
 }
