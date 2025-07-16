@@ -100,7 +100,7 @@ const emit = defineEmits<{
   flex-grow: 1;
   flex-basis: 240px;
   display: grid;
-  align-content: start;
+  align-content: end;
   align-items: end;
 
   &:has(.button[type='submit']) {
