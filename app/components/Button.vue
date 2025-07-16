@@ -522,6 +522,8 @@ const emit = defineEmits<{
 }
 
 .button-variant--topbar {
+  --button-color: var(--color-text);
+
   display: flex;
   gap: 0.5em;
   width: 100%;
@@ -538,13 +540,13 @@ const emit = defineEmits<{
 
   &:hover {
     .iconify {
-      color: var(--color-text);
+      color: var(--button-color);
     }
   }
 
   @media (prefers-reduced-motion: no-preference) {
     text-decoration: none;
-    background-image: linear-gradient(var(--color-text));
+    background-image: linear-gradient(var(--button-color));
     background-repeat: no-repeat;
     background-size: 0% 1px;
     background-position: calc(100% - 1rem) bottom;
@@ -561,6 +563,14 @@ const emit = defineEmits<{
       transition:
         background-size var(--duration-md),
         border-color var(--duration-sm);
+    }
+
+    &.router-link-exact-active {
+      color: var(--button-color);
+
+      .iconify {
+        color: var(--button-color);
+      }
     }
   }
 }

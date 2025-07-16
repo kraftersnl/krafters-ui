@@ -94,11 +94,25 @@ const {
   }
 }
 
+:where(.table-size--xxs) {
+  tbody,
+  tfoot {
+    tr {
+      height: 2.5rem;
+    }
+  }
+  th,
+  td {
+    padding-block: 0.4rem;
+    padding-inline: 0.35rem;
+  }
+}
+
 :where(.table-size--xs) {
   tbody,
   tfoot {
     tr {
-      height: 2rem;
+      height: 2.75rem;
     }
   }
   th,
