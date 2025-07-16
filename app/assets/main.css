@@ -52,14 +52,20 @@
   --color-pink-graphic: hsl(320 100% 75%);
 
   --rgb-app-nav: 0 0 0;
+  --hsl-app-nav: 280 26% 9%;
 
   --shadow-color: 282deg 42% 2%;
 
   --color-dialog-bg: var(--color-white);
   --color-input-bg: var(--color-card-bg);
-  --color-select-bg: var(--color-bg);
   --color-card-border: var(--color-grey-bg);
   --color-popover-border: var(--color-grey-bg);
+  --color-select-bg: var(--color-bg);
+
+  .card {
+    --color-input-bg: var(--color-bg);
+    --color-select-bg: var(--color-white);
+  }
 }
 
 :where(.light-mode) {
@@ -115,6 +121,7 @@
   --color-pink-graphic: hsl(320 70% 40%);
 
   --rgb-app-nav: 255 255 255;
+  --hsl-app-nav: 280 0% 98%;
 
   --shadow-color: 277deg 8% 60%;
 
