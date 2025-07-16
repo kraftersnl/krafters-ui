@@ -35,11 +35,11 @@ defineProps<{
   &:focus-visible {
     outline-offset: 2px;
     border-radius: var(--radius-xs);
-    outline: 1px dotted var(--focus-color);
+    outline: 2px solid var(--focus-color);
   }
 
   &:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-graphic);
 
     &::marker {
       color: var(--color-accent-graphic);

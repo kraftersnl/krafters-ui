@@ -130,15 +130,18 @@ defineExpose({ toggleAccordion });
   align-items: center;
   outline-offset: 2px;
   transition-property: color, border-color, outline-offset, outline-color;
+  transition-duration: var(--duration-sm);
 
   &:hover {
+    color: var(--color-accent-graphic);
+
     .accordion-arrow {
-      color: var(--color-accent);
+      color: var(--color-accent-graphic);
     }
   }
 
   &:focus-visible {
-    outline: 1px dotted var(--focus-color);
+    outline: 2px solid var(--focus-color);
     border-color: transparent;
   }
 
