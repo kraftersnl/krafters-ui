@@ -523,12 +523,14 @@ const emit = defineEmits<{
 
 .button-variant--topbar {
   --button-color: var(--color-text);
+  --button-hover-color: var(--color-text);
+  --button-active-color: var(--color-text);
 
   display: flex;
   gap: 0.5em;
   width: 100%;
   font-weight: var(--font-weight-medium);
-  color: var(--color-text);
+  color: var(--button-color);
   justify-content: start;
   padding-inline: 1rem;
   background-color: transparent;
@@ -539,14 +541,15 @@ const emit = defineEmits<{
   }
 
   &:hover {
+    color: var(--button-hover-color);
     .iconify {
-      color: var(--button-color);
+      color: var(--button-hover-color);
     }
   }
 
   @media (prefers-reduced-motion: no-preference) {
     text-decoration: none;
-    background-image: linear-gradient(var(--button-color));
+    background-image: linear-gradient(var(--button-hover-color));
     background-repeat: no-repeat;
     background-size: 0% 1px;
     background-position: calc(100% - 1rem) bottom;
@@ -566,10 +569,11 @@ const emit = defineEmits<{
     }
 
     &.router-link-exact-active {
-      color: var(--button-color);
+      color: var(--button-active-color);
+      background-image: linear-gradient(var(--button-active-color));
 
       .iconify {
-        color: var(--button-color);
+        color: var(--button-active-color);
       }
     }
   }
