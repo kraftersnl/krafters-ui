@@ -3,7 +3,9 @@
   --font-family-heading: var(--font-family);
   --font-weight-regular: 400;
   --font-weight-medium: 400;
-  --font-weight-bold: 700; */
+  --font-weight-bold: 700;
+  --line-height: 1.5;
+  --line-height-heading: 1.2; */
 }
 
 .light-mode {
@@ -20,4 +22,18 @@
   /* --color-accent: hsl(219 70% 70%);
   --color-accent-bg: hsl(219 80% 12%);
   --color-accent-text: hsl(219 40% 80%); */
+}
+
+.section-topbar {
+  align-items: center;
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
 }

@@ -21,8 +21,8 @@ const computedStyle = computed(() => ({
   '--border-radius': `var(--radius-${borderRadius})`,
   '--border-color': `var(--color-${borderColor})`,
   '--border-width': `${borderWidth}px`,
-  '--padding': padding,
-  '--mobile-padding': mobilePadding,
+  '--card-padding': padding,
+  '--mobile-card-padding': mobilePadding,
   '--shadow': shadow && `var(--shadow-${shadow})`,
 }));
 </script>
@@ -36,7 +36,7 @@ const computedStyle = computed(() => ({
 <style>
 :where(.card) {
   position: relative;
-  padding: var(--mobile-padding);
+  padding: var(--mobile-card-padding);
   background-color: var(--color-card-bg);
   border: var(--border-width, 1px) solid
     var(--border-color, var(--color-card-border));
@@ -44,7 +44,7 @@ const computedStyle = computed(() => ({
   box-shadow: var(--shadow, none);
 
   @media (min-width: 480px) {
-    padding: var(--padding);
+    padding: var(--card-padding);
   }
 
   h1,
