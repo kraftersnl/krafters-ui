@@ -129,6 +129,7 @@ defineExpose({ toggleAccordion });
   display: flex;
   align-items: center;
   outline-offset: 2px;
+
   transition-property: color, border-color, outline-offset, outline-color;
   transition-duration: var(--duration-sm);
 
@@ -141,7 +142,7 @@ defineExpose({ toggleAccordion });
   }
 
   &:focus-visible {
-    outline: 2px solid var(--focus-color);
+    outline: 2px dotted var(--focus-color);
     border-color: transparent;
   }
 

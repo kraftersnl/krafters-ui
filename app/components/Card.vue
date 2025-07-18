@@ -44,12 +44,12 @@ const computedStyle = computed(() => ({
   border-radius: var(--border-radius);
   border: var(--border-width, 1px) solid
     var(--border-color, var(--color-card-border));
-  padding-block: 1rem;
-  padding-inline: 0.75rem;
+  padding-block: var(--card-padding-block);
+  padding-inline: var(--card-padding-inline);
 
-  @media (min-width: 480px) {
-    padding-block: var(--card-padding-block);
-    padding-inline: var(--card-padding-inline);
+  @media (max-width: 479px) {
+    --card-padding-block: 1.25rem !important;
+    --card-padding-inline: 1rem !important;
   }
 
   h1,

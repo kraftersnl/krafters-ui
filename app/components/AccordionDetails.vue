@@ -35,7 +35,7 @@ defineProps<{
   &:focus-visible {
     outline-offset: 2px;
     border-radius: var(--radius-xs);
-    outline: 2px solid var(--focus-color);
+    outline: 2px dotted var(--focus-color);
   }
 
   &:hover {

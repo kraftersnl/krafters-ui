@@ -62,6 +62,7 @@ const formattedLabel = computed(() =>
   justify-content: center;
   vertical-align: middle;
   gap: 0.25em;
+  padding-inline: 0.5em;
   border-radius: var(--chip-radius, var(--radius-md));
   border: 1px solid transparent;
   font-weight: var(--font-weight-medium);
@@ -84,26 +85,26 @@ const formattedLabel = computed(() =>
 /* Chip sizes */
 .chip-size--xs {
   font-size: var(--chip-font-size, var(--font-size-xxxs));
-  padding-inline: 0.25em;
+
   padding-block: 0.03125rem;
   gap: 0.125rem;
 }
 
 .chip-size--sm {
   font-size: var(--chip-font-size, var(--font-size-xxs));
-  padding-inline: 0.5em;
+
   padding-block: 0.0625rem;
 }
 
 .chip-size--md {
   font-size: var(--chip-font-size, var(--font-size-xs));
-  padding-inline: 0.5em;
+
   padding-block: 0.125rem;
 }
 
 .chip-size--lg {
   font-size: var(--chip-font-size, var(--font-size-sm));
-  padding-inline: 0.5em;
+
   padding-block: 0.25rem;
 }
 
@@ -111,7 +112,7 @@ const formattedLabel = computed(() =>
   border-radius: var(--chip-radius, var(--radius-lg));
   border-width: 2px;
   font-size: var(--chip-font-size, var(--font-size-md));
-  padding-inline: 0.75em;
+
   padding-block: 0.25rem;
 }
 

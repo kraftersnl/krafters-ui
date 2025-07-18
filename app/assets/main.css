@@ -217,7 +217,7 @@
 
   /* Other design token */
   --app-padding-block: 1rem;
-  --app-padding-inline: 1rem;
+  --app-padding-inline: 0.75rem;
 
   --color-accent-darker: color-mix(
     in srgb,
