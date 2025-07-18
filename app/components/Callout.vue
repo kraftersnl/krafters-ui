@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const {
-  color = 'blue',
+  color = 'accent',
   fontSize = 'xs',
   iconSize = 'md',
   icon = undefined,

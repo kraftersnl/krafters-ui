@@ -3,27 +3,30 @@ const {
   is = 'div',
   borderRadius = 'md',
   borderColor = 'card-border',
+  backgroundColor = undefined,
   borderWidth = 1,
-  padding = '1.5rem 1.75rem',
-  mobilePadding = '1.25rem 1.5rem',
+  paddingBlock = '1.25rem',
+  paddingInline = '1.5rem',
   shadow = false,
 } = defineProps<{
   is?: string;
   borderWidth?: number;
   borderRadius?: BorderRadius;
   borderColor?: string;
+  backgroundColor?: string;
   shadow?: false | 1 | 2 | 3;
-  padding?: string;
-  mobilePadding?: string;
+  paddingBlock?: string;
+  paddingInline?: string;
 }>();
 
 const computedStyle = computed(() => ({
   '--border-radius': `var(--radius-${borderRadius})`,
   '--border-color': `var(--color-${borderColor})`,
   '--border-width': `${borderWidth}px`,
-  '--card-padding': padding,
-  '--mobile-card-padding': mobilePadding,
+  '--card-padding-block': paddingBlock,
+  '--card-padding-inline': paddingInline,
   '--shadow': shadow && `var(--shadow-${shadow})`,
+  '--color-card-bg': backgroundColor && `var(--color-${backgroundColor})`,
 }));
 </script>
 
@@ -36,15 +39,17 @@ const computedStyle = computed(() => ({
 <style>
 :where(.card) {
   position: relative;
-  padding: var(--mobile-card-padding);
+  box-shadow: var(--shadow, none);
   background-color: var(--color-card-bg);
+  border-radius: var(--border-radius);
   border: var(--border-width, 1px) solid
     var(--border-color, var(--color-card-border));
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow, none);
+  padding-block: 1rem;
+  padding-inline: 0.75rem;
 
   @media (min-width: 480px) {
-    padding: var(--card-padding);
+    padding-block: var(--card-padding-block);
+    padding-inline: var(--card-padding-inline);
   }
 
   h1,

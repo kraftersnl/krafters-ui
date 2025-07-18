@@ -4,7 +4,7 @@
 
   --color-accent: hsl(294 50% 70%);
   --color-accent-bg: hsl(294 25% 20%);
-  --color-accent-text: hsl(294 40% 80%);
+  --color-accent-text: hsl(294 50% 70%);
   --color-accent-graphic: hsl(294 50% 70%);
 
   --color-black: white;
@@ -71,10 +71,10 @@
 :where(.light-mode) {
   --color-scheme: light;
 
-  --color-accent: hsl(294 16% 37%);
+  --color-accent: hsl(294 20% 40%);
   --color-accent-bg: hsl(294 25% 94%);
   --color-accent-text: hsl(294 20% 40%);
-  --color-accent-graphic: hsl(294 25% 40%);
+  --color-accent-graphic: hsl(294 20% 40%);
 
   --color-black: black;
   --color-text: hsl(21 13% 20%);

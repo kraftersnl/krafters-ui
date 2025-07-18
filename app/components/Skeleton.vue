@@ -2,11 +2,13 @@
 const {
   size = 'md',
   width = '100%',
+  radius = 'sm',
   animation = 'shimmer',
   variant = undefined,
 } = defineProps<{
   size?: string;
   width?: string;
+  radius?: string;
   variant?: string;
   animation?: string;
 }>();
@@ -14,6 +16,7 @@ const {
 const computedStyle = computed(() => ({
   '--size': `var(--size-${size})`,
   '--width': width,
+  '--radius': radius && `var(--radius-${radius})`,
 }));
 </script>
 
@@ -32,7 +35,7 @@ const computedStyle = computed(() => ({
 .skeleton {
   width: var(--width, 100%);
   height: var(--size);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius, var(--radius-sm));
   background-color: var(--color-grey-bg);
 }
 
