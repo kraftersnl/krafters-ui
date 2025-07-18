@@ -13,6 +13,7 @@ const {
   showCancel = true,
   monthChangeOnScroll = false,
   id = useId(),
+  size = 'md',
 } = defineProps<{
   label: string;
   format?: string | ((date: Date) => string) | ((dates: Date[]) => string);
@@ -28,6 +29,7 @@ const {
   teleportCenter?: boolean;
   monthChangeOnScroll?: boolean;
   id?: string;
+  size?: InputSize;
 }>();
 
 const datepickerRef = useTemplateRef('datepicker');
@@ -63,7 +65,12 @@ onUnmounted(() => document.removeEventListener('keydown', preventEscape));
 </script>
 
 <template>
-  <div class="form-field-wrapper krafters-datepicker-container">
+  <div
+    :class="[
+      'form-field-wrapper krafters-datepicker-container',
+      `datepicker-size--${size}`,
+    ]"
+  >
     <label :for="`dp-input-${id}`">
       <span>{{ label }}</span>
 
@@ -190,8 +197,6 @@ onUnmounted(() => document.removeEventListener('keydown', preventEscape));
 }
 
 .dp__input {
-  min-height: 2.5rem;
-
   &::placeholder {
     opacity: 1;
     color: var(--color-grey-text);
@@ -201,7 +206,6 @@ onUnmounted(() => document.removeEventListener('keydown', preventEscape));
 .dp__input_focus {
   outline: 1px solid var(--dp-border-color-focus);
 }
-
 .dp__input_icon {
   display: flex;
   margin-inline-start: 0.5rem;
@@ -229,5 +233,16 @@ onUnmounted(() => document.removeEventListener('keydown', preventEscape));
       display: flex;
     }
   }
+}
+
+/* Sizes */
+.datepicker-size--sm .dp__input {
+  min-height: 2rem;
+}
+.datepicker-size--md .dp__input {
+  min-height: 2.25rem;
+}
+.datepicker-size--lg .dp__input {
+  min-height: 2.5rem;
 }
 </style>

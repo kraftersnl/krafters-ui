@@ -28,8 +28,8 @@ useHead({ title: 'Changelog' });
         </li>
         <li>Feature: add <code>outline</code> variant to Button component</li>
         <li>
-          Feature: add <code>size</code> prop to Search and MultiSelect
-          components
+          Feature: add <code>size</code> prop to Search, MultiSelect and
+          DatePicker components
         </li>
         <li>Feature: add <code>fontSize</code> prop to Chip component</li>
         <li>Feature: add <code>diableEscape</code> prop to Dialog component</li>

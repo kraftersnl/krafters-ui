@@ -18,7 +18,7 @@ const selectedRadio = ref();
 const raw = ref();
 
 const multiselectMode = ref<'single' | 'multiple' | 'tags'>('multiple');
-const multiselectSize = ref<'md' | 'lg'>('lg');
+const inputSize = ref<InputSize>('md');
 
 const selectOptions = [
   {
@@ -102,7 +102,11 @@ const multiselectModes = [
   },
 ];
 
-const multiselectSizes = [
+const inputSizes = [
+  {
+    value: 'sm',
+    label: 'sm',
+  },
   {
     value: 'md',
     label: 'md',
@@ -162,8 +166,8 @@ function handleSubmit(formData: FormData) {
             <Switch v-model="showOutput" label="showOutput" />
 
             <Select
-              v-model="multiselectSize"
-              :options="multiselectSizes"
+              v-model="inputSize"
+              :options="inputSizes"
               label="size"
               size="sm"
             />
@@ -182,10 +186,8 @@ function handleSubmit(formData: FormData) {
       </Popover>
     </div>
 
-    <Card class="grid-wrapper">
-      <Search size="lg" />
-      <Search size="md" />
-      <Search size="sm" />
+    <Card>
+      <Search :size="inputSize" />
     </Card>
 
     <Card>
@@ -195,6 +197,7 @@ function handleSubmit(formData: FormData) {
           name="first-name"
           :variant="inputVariant"
           :disabled="disabled"
+          :size="inputSize"
           style="--col-width: var(--col-width-25)"
         />
 
@@ -204,6 +207,7 @@ function handleSubmit(formData: FormData) {
           name="last-name"
           :variant="inputVariant"
           :disabled="disabled"
+          :size="inputSize"
           style="--col-width: var(--col-width-25)"
         />
 
@@ -218,6 +222,7 @@ function handleSubmit(formData: FormData) {
           :disabled="disabled"
           label-key="name"
           value-key="id"
+          :size="inputSize"
           style="--col-width: var(--col-width-50)"
         />
 
@@ -281,8 +286,8 @@ function handleSubmit(formData: FormData) {
                     />
 
                     <Select
-                      v-model="multiselectSize"
-                      :options="multiselectSizes"
+                      v-model="inputSize"
+                      :options="inputSizes"
                       label="size"
                       size="sm"
                     />
@@ -292,7 +297,7 @@ function handleSubmit(formData: FormData) {
                     <code
                       >{{`<MultiSelect
                         mode="${multiselectMode}"
-                        size="${multiselectSize}"
+                        size="${inputSize}"
                         show-option-icons="${showOptionIcons}"
                       />`}}</code
                     >
@@ -320,7 +325,7 @@ function handleSubmit(formData: FormData) {
               create-option
               :options="multiSelectOptions"
               :mode="multiselectMode"
-              :size="multiselectSize"
+              :size="inputSize"
               :disabled="disabled"
               name="multiselect"
               value-key="id"
@@ -351,6 +356,7 @@ function handleSubmit(formData: FormData) {
               placeholder="Pick a date"
               class="demo-datepicker"
               :disabled="disabled"
+              :size="inputSize"
             />
           </section>
         </div>
