@@ -40,6 +40,10 @@ export function addTrailingSlash(str?: string) {
   return str.endsWith('/') ? str : str + '/';
 }
 
+export function getRandomInt(max = 1) {
+  return Math.ceil(Math.random() * max);
+}
+
 export const xsTransition = 100;
 export const smTransition = 200;
 export const mdTransition = 350;

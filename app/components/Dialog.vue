@@ -107,7 +107,7 @@ defineExpose({
       </div>
 
       <div v-if="$slots.buttons" class="dialog-buttons">
-        <Button :label="$t('general.cancel')" @click="closeDialog" />
+        <Button :label="$t('general.cancel')" size="lg" @click="closeDialog" />
 
         <slot name="buttons" v-bind="{ closeDialog }" />
       </div>
@@ -177,6 +177,10 @@ body:has(.dialog[open]) {
     display: flex;
     flex-wrap: wrap;
     gap: 0.65rem;
+
+    > .button {
+      flex-grow: 1;
+    }
   }
 }
 
