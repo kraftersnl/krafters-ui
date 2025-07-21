@@ -129,12 +129,8 @@ body:has(.dialog[open]) {
 
 .dialog {
   --dialog-padding-inline: 1.5rem;
-  --dialog-padding-block: var(--dialog-padding-inline, 1.5rem);
+  --dialog-padding-block: 1.5rem;
   --color-input-bg: transparent;
-
-  @media (min-width: 768px) {
-    --dialog-padding-inline: 2rem;
-  }
 
   border-radius: 0;
   padding: 0;
@@ -159,7 +155,6 @@ body:has(.dialog[open]) {
     padding-inline: var(--dialog-padding-inline);
     display: flex;
     align-items: center;
-    text-align: center;
 
     .close-button {
       z-index: 9;
@@ -185,8 +180,11 @@ body:has(.dialog[open]) {
 }
 
 .dialog-position--center {
+  --dialog-padding-inline: 1.25rem;
+  --dialog-padding-block: 1.25rem;
+
   border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   padding-block-end: var(--dialog-padding-block);
 
   &[open] {
