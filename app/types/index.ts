@@ -121,7 +121,6 @@ declare global {
     | 'white'
     | 'danger'
     | 'link'
-    | 'purple'
     | 'green'
     | 'menu'
     | 'sidebar'

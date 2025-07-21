@@ -291,19 +291,6 @@ const emit = defineEmits<{
   }
 }
 
-.button-variant--purple {
-  color: var(--color-white);
-  background-color: var(--color-purple);
-
-  &:not(:disabled, .disabled):hover {
-    background-color: color-mix(
-      in srgb,
-      var(--color-purple) 90%,
-      var(--color-white)
-    );
-  }
-}
-
 .button-variant--green {
   color: var(--color-white);
   background-color: var(--color-green);
