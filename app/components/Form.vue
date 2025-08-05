@@ -91,7 +91,6 @@ const emit = defineEmits<{
 
   display: flex;
   flex-wrap: wrap;
-  align-items: end;
   row-gap: var(--row-gap);
   column-gap: var(--column-gap);
   container-type: inline-size;
