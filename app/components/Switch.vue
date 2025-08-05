@@ -112,7 +112,7 @@ function handleClick() {
 }
 
 .switch-button-variant--outline {
-  background-color: var(--color-input-bg);
+  background-color: var(--color-select-bg);
   border: 1px solid var(--color-grey-bg);
   padding-block: 0.35rem;
   padding-inline: 0.35rem 0.65rem;
