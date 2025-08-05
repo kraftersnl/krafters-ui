@@ -133,7 +133,7 @@ declare global {
   type InputSize = 'sm' | 'md' | 'lg';
   type TabsSize = 'xs' | 'sm' | 'md';
 
-  type TableSize = 'xs' | 'sm' | 'md' | 'lg';
+  type TableSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
 
   type ChipSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
