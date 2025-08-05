@@ -531,6 +531,7 @@
 /* Form inputs */
 :where(.label, label) {
   font-weight: var(--font-weight-medium);
+  color: var(--color-grey-text);
 }
 :where(.label, label, legend) {
   -webkit-user-select: none;

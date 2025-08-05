@@ -195,14 +195,16 @@ const emit = defineEmits<{
 </template>
 
 <style>
-.tippy-box {
-  .menu-list {
-    min-width: 240px;
-  }
+.popover-wrapper {
+  .tippy-box {
+    .menu-list {
+      min-width: 240px;
+    }
 
-  .menu-list-item:first-of-type {
-    .button {
-      border-radius: var(--radius-md) var(--radius-md) 0 0;
+    .menu-list-item:first-of-type {
+      .button {
+        border-radius: var(--radius-md) var(--radius-md) 0 0;
+      }
     }
   }
 }

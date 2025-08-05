@@ -182,7 +182,7 @@ watch(
         icon="material-symbols:close-rounded"
         variant="danger"
         radius="full"
-        size="xxs"
+        size="xs"
         @click="removeFile"
       />
     </div>
@@ -227,10 +227,13 @@ watch(
     font-size: var(--font-size-xxxl);
   }
 
+  .preview-image {
+    border-radius: var(--radius-md);
+  }
+
   &.has-image-preview {
     color: white;
     border: none;
-    border-radius: 0;
 
     .iconify {
       display: none;
@@ -246,13 +249,12 @@ watch(
 
 .file-preview {
   word-break: break-all;
-  margin-block: 0.25rem;
+  margin-block: 0.35em;
   font-size: var(--font-size-xs);
   color: var(--color-grey-text);
 
   .button {
-    vertical-align: middle;
-    margin-inline-start: 0.25rem;
+    margin-inline-start: 0.5em;
   }
 
   .file-name {

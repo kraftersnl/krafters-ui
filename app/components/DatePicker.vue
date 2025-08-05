@@ -49,7 +49,6 @@ function handleClose() {
 
 function preventEscape(event: KeyboardEvent) {
   if (event.key === 'Escape' && isExpanded.value) {
-    console.log('prevent');
     event.preventDefault();
     datepickerRef.value?.closeMenu();
     isExpanded.value = false;

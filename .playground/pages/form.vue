@@ -130,7 +130,7 @@ const inputVariants = [
 
 function handleSubmit(formData: FormData) {
   console.log(formData);
-  raw.value = JSON.stringify(Object.fromEntries(formData));
+  raw.value = Object.fromEntries(formData);
 }
 </script>
 
@@ -193,8 +193,8 @@ function handleSubmit(formData: FormData) {
     <Card>
       <Form @submit="handleSubmit" @reset="raw = ''">
         <Input
-          label="First name"
           name="first-name"
+          label="First name"
           :variant="inputVariant"
           :disabled="disabled"
           :size="inputSize"
@@ -203,8 +203,8 @@ function handleSubmit(formData: FormData) {
 
         <Input
           required
-          label="Last name"
           name="last-name"
+          label="Last name"
           :variant="inputVariant"
           :disabled="disabled"
           :size="inputSize"
@@ -214,9 +214,9 @@ function handleSubmit(formData: FormData) {
         <Select
           v-model="singleSelection"
           required
+          name="selection"
           label="Selection"
           placeholder="Choose an option"
-          name="selection"
           :variant="inputVariant"
           :options="selectOptions"
           :disabled="disabled"
@@ -227,8 +227,8 @@ function handleSubmit(formData: FormData) {
         />
 
         <Textarea
-          label="Comments"
           name="comments"
+          label="Comments"
           :variant="inputVariant"
           :disabled="disabled"
         />
@@ -258,6 +258,7 @@ function handleSubmit(formData: FormData) {
           :max="max"
           :step="step"
           label="Range Input"
+          name="range"
           class="demo-range-input"
           :show-ticks="showTicks"
           :show-output="showOutput"
@@ -319,19 +320,20 @@ function handleSubmit(formData: FormData) {
 
             <MultiSelect
               v-model="multiSelection"
-              :show-option-icons="showOptionIcons"
               required
               searchable
               create-option
-              :options="multiSelectOptions"
-              :mode="multiselectMode"
-              :size="inputSize"
-              :disabled="disabled"
+              native-support
               name="multiselect"
               value-key="id"
               label-key="name"
               label="MultiSelect"
               placeholder="Make a selection"
+              :mode="multiselectMode"
+              :options="multiSelectOptions"
+              :show-option-icons="showOptionIcons"
+              :size="inputSize"
+              :disabled="disabled"
               class="demo-multiselect"
             />
           </section>
@@ -352,6 +354,7 @@ function handleSubmit(formData: FormData) {
             <DatePicker
               v-model="date"
               required
+              name="date"
               label="DatePicker"
               placeholder="Pick a date"
               class="demo-datepicker"
@@ -402,7 +405,8 @@ function handleSubmit(formData: FormData) {
 
       <template v-if="raw">
         <hr class="demo-divider" />
-        <MarkdownPreview :content="'```ts\n' + raw + '\n```'" />
+        <pre><code>{{ raw }}</code></pre>
+        <!-- <MarkdownPreview :content="'```ts\n' + raw + '\n```'" /> -->
       </template>
     </Card>
   </div>
