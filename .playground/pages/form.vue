@@ -13,9 +13,10 @@ const step = ref(6);
 const date = ref();
 const selectedCheckboxes = ref(['checkbox-a']);
 const showOptionIcons = ref(true);
-const disabled = ref(false);
 const selectedRadio = ref();
 const raw = ref();
+const disabled = ref(false);
+const required = ref(false);
 
 const multiselectMode = ref<'single' | 'multiple' | 'tags'>('multiple');
 const inputSize = ref<InputSize>('md');
@@ -193,27 +194,18 @@ function handleSubmit(formData: FormData) {
     <Card>
       <Form @submit="handleSubmit" @reset="raw = ''">
         <Input
-          name="first-name"
-          label="First name"
+          :required="required"
+          name="name"
+          label="Name"
           :variant="inputVariant"
           :disabled="disabled"
           :size="inputSize"
-          style="--col-width: var(--col-width-25)"
-        />
-
-        <Input
-          required
-          name="last-name"
-          label="Last name"
-          :variant="inputVariant"
-          :disabled="disabled"
-          :size="inputSize"
-          style="--col-width: var(--col-width-25)"
+          style="--col-width: var(--col-width-60)"
         />
 
         <Select
           v-model="singleSelection"
-          required
+          :required="required"
           name="selection"
           label="Selection"
           placeholder="Choose an option"
@@ -223,10 +215,11 @@ function handleSubmit(formData: FormData) {
           label-key="name"
           value-key="id"
           :size="inputSize"
-          style="--col-width: var(--col-width-50)"
+          style="--col-width: var(--col-width-40)"
         />
 
         <Textarea
+          :required="required"
           name="comments"
           label="Comments"
           :variant="inputVariant"
@@ -235,15 +228,18 @@ function handleSubmit(formData: FormData) {
 
         <CheckboxGroup
           v-model="selectedCheckboxes"
+          :required="required"
           :options="checkboxOptions"
           :variant="inputVariant"
           :disabled="disabled"
           label="Checkbox group"
+          name="checkboxes"
           style="--col-width: var(--col-width-auto)"
         />
 
         <RadioGroup
           v-model="selectedRadio"
+          :required="required"
           :options="radioOptions"
           :variant="inputVariant"
           :disabled="disabled"
@@ -254,6 +250,7 @@ function handleSubmit(formData: FormData) {
 
         <RangeInput
           v-model.number="rangeValue"
+          :required="required"
           :min="min"
           :max="max"
           :step="step"
@@ -320,7 +317,7 @@ function handleSubmit(formData: FormData) {
 
             <MultiSelect
               v-model="multiSelection"
-              required
+              :required="required"
               searchable
               create-option
               native-support
@@ -353,7 +350,7 @@ function handleSubmit(formData: FormData) {
 
             <DatePicker
               v-model="date"
-              required
+              :required="required"
               name="date"
               label="DatePicker"
               placeholder="Pick a date"
@@ -367,6 +364,12 @@ function handleSubmit(formData: FormData) {
         <div class="card-cols">
           <section>
             <h2>Switch</h2>
+            <Switch
+              v-model="required"
+              label="Require form inputs"
+              variant="outline"
+              class="demo-switch"
+            />
             <Switch
               v-model="disabled"
               label="Disable form inputs"

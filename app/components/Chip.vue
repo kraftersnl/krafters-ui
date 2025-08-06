@@ -118,6 +118,7 @@ const formattedLabel = computed(() =>
 
 /* Flat Chip */
 .chip-variant--flat {
+  color: var(--color-text);
   background-color: var(--color-grey-bg);
 }
 

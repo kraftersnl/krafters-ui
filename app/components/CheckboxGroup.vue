@@ -4,8 +4,9 @@ const model = defineModel<(string | number)[]>();
 const {
   valueKey = 'value',
   labelKey = 'label',
-  nameKey = 'value',
   disabledKey = 'disabled',
+  nameKey = undefined,
+  name = undefined,
   variant = 'default',
   titleKey = undefined,
   tabindex = undefined,
@@ -16,8 +17,9 @@ const {
   tabindex?: string;
   valueKey?: string;
   labelKey?: string;
-  nameKey?: string;
   disabledKey?: string;
+  nameKey?: string;
+  name?: string;
   titleKey?: string;
   hideLegend?: boolean;
   disabled?: boolean;
@@ -44,7 +46,7 @@ const {
               :label="option[labelKey]"
               :disabled="disabled || option[disabledKey]"
               :title="titleKey ? option[titleKey] : undefined"
-              :name="option[nameKey]"
+              :name="name || (nameKey ? option[nameKey] : undefined)"
               :hide-label="option.hideLabel"
               :tabindex="tabindex"
               :variant="variant"
