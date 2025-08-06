@@ -388,8 +388,8 @@ function preventEscape(event: KeyboardEvent) {
   user-select: none;
 }
 
-.multiselect-search {
-  /* box-shadow: 0 1.5px 0 0 var(--color-grey-graphic); */
+.multiselect-dropdown {
+  box-shadow: var(--shadow-2);
 }
 
 .show-option-icons {

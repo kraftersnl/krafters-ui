@@ -55,9 +55,5 @@ defineProps<{ fontSize?: FontSize }>();
   &:focus-visible {
     outline-color: var(--focus-color);
   }
-
-  &[aria-pressed='true'] {
-    /* --color-shape: #ffaa00; */
-  }
 }
 </style>

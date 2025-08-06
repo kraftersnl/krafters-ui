@@ -231,10 +231,6 @@ function handleFilter() {
 
 <style>
 .demo-page {
-  .sc-name {
-    /* white-space: nowrap; */
-  }
-
   .topbar-wrapper {
     margin-block: 0.5rem 1rem;
     display: flex;

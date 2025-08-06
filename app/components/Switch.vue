@@ -89,7 +89,6 @@ function handleClick() {
   }
 
   &:focus-visible {
-    /* outline-offset: 2px; */
     outline-color: var(--focus-color);
     border-color: var(--focus-color);
   }

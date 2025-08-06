@@ -197,9 +197,5 @@ const skeletonAnimations = [
 .circle-skeleton-wrapper {
   display: grid;
   gap: 2rem;
-
-  .flex-wrapper {
-    /* width: calc(100% - 5rem); */
-  }
 }
 </style>

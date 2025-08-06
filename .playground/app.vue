@@ -84,7 +84,6 @@ useHead({ titleTemplate: '%s | Krafters UI' });
 h1 {
   margin-block-start: 0;
   font-weight: var(--font-weight-bold);
-  /* color: var(--color-accent-graphic); */
 }
 
 .demo-page {
