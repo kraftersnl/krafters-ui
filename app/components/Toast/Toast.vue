@@ -1,0 +1,240 @@
+<script setup lang="ts">
+import { useWindowFocus } from '@vueuse/core';
+const colorMode = useColorMode();
+const focused = useWindowFocus();
+
+const {
+  color = 'accent',
+  timeout = undefined,
+  icon = undefined,
+  label = undefined,
+  text = undefined,
+  id = undefined,
+} = defineProps<{
+  color?: ToastColor;
+  timeout?: number;
+  icon?: string;
+  label?: string;
+  text?: string;
+  id?: string;
+}>();
+
+const timerElementRef = useTemplateRef('timerElement');
+const toastHover = ref(false);
+
+const computedIcon = computed(() => {
+  if (icon) return icon;
+  if (color === 'blue') return 'material-symbols:info-rounded';
+  if (color === 'green') return 'material-symbols:check-circle-rounded';
+  if (color === 'red') return 'material-symbols:cancel-rounded';
+  if (color === 'orange') return 'material-symbols:warning-rounded';
+  return icon;
+});
+
+const hideTimer = computed(() => {
+  if (timeout) return false;
+  return true;
+});
+
+function handleAnimationEnd() {
+  emit('hide', id);
+}
+
+onMounted(() => {
+  if (hideTimer.value) return;
+  timerElementRef.value?.addEventListener('animationend', handleAnimationEnd);
+});
+
+onUnmounted(() => {
+  if (hideTimer.value) return;
+  timerElementRef.value?.removeEventListener(
+    'animationend',
+    handleAnimationEnd,
+  );
+});
+
+const emit = defineEmits<{
+  hide: [value?: string];
+}>();
+</script>
+
+<template>
+  <section
+    ref="toastElement"
+    :class="[
+      'toast',
+      `toast-color--${color}`,
+      `${hideTimer ? 'hide-toast-timer' : ''}`,
+      colorMode.value === 'dark' ? 'light-mode' : 'dark-mode',
+    ]"
+    @mouseover="toastHover = true"
+    @mouseleave="toastHover = false"
+  >
+    <div class="toast__content">
+      <Icon v-if="computedIcon" :name="computedIcon" class="toast__icon" />
+
+      <div v-if="label || text" class="toast__label">
+        {{ label }}
+      </div>
+
+      <slot />
+    </div>
+
+    <div
+      ref="timerElement"
+      class="toast__timer"
+      :style="[
+        `--animation-duration: ${timeout}ms`,
+        `--animation-play-state: ${toastHover || !focused ? 'paused' : 'running'}`,
+      ]"
+    />
+
+    <Button
+      icon="material-symbols:close-rounded"
+      :label="$t('general.close')"
+      hide-label
+      shape="circle"
+      variant="ghost"
+      @click="emit('hide', id)"
+    />
+  </section>
+</template>
+
+<style>
+.toast {
+  pointer-events: all;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
+  padding-inline: 1rem 0.5rem;
+  margin-block-end: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-grey-bg);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    max-width: 480px;
+  }
+}
+
+.toast__content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toast__timer {
+  position: absolute;
+  inset-inline: 0;
+  inset-block: auto 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--color-grey-bg);
+  transform-origin: left;
+  animation: scale-x linear 1 forwards;
+  animation-delay: var(--duration-xl);
+  animation-duration: var(--animation-duration);
+  animation-play-state: var(--animation-play-state);
+}
+
+.toast__message {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.toast__icon {
+  font-size: var(--font-size-lg);
+}
+
+.toast__label {
+  margin-block: 0;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+/* Toast variants */
+.toast-color--blue {
+  .toast__icon {
+    color: var(--color-blue-text);
+  }
+  .toast__timer {
+    background-color: var(--color-blue);
+  }
+}
+
+.toast-color--green {
+  .toast__icon {
+    color: var(--color-green-graphic);
+  }
+  .toast__timer {
+    background-color: var(--color-green);
+  }
+}
+
+.toast-color--red {
+  .toast__icon {
+    color: var(--color-red-graphic);
+  }
+  .toast__timer {
+    background-color: var(--color-red);
+  }
+}
+
+.toast-color--orange {
+  .toast__icon {
+    color: var(--color-orange-graphic);
+  }
+  .toast__timer {
+    background-color: var(--color-orange);
+  }
+}
+
+.toast-color--accent {
+  .toast__icon {
+    color: var(--color-accent-graphic);
+  }
+  .toast__timer {
+    background-color: var(--color-accent);
+  }
+}
+
+.hide-toast-timer .toast__timer {
+  background-color: transparent;
+}
+
+/* Transitions */
+.toast-move {
+  transition: all var(--duration-md) ease-in-out;
+}
+
+.toast-leave-active,
+.toast-enter-active {
+  animation-fill-mode: both;
+  animation-duration: var(--duration-xl);
+}
+
+.toast-enter-active {
+  animation-name: bounceInBottom;
+
+  @media (min-width: 768px) {
+    animation-name: bounceInRight;
+  }
+}
+
+.toast-leave-active {
+  animation-name: bounceOutBottom;
+
+  @media (min-width: 768px) {
+    animation-name: bounceOutRight;
+  }
+}
+</style>
