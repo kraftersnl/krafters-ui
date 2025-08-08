@@ -64,7 +64,6 @@ defineExpose({ toggleAccordion });
         v-if="arrow"
         name="material-symbols:chevron-right-rounded"
         class="accordion-arrow"
-        aria-hidden
       />
 
       <slot v-if="$slots.trigger" name="trigger" mdc-unwrap="p" />

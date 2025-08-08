@@ -4,19 +4,20 @@ useHead({ title: 'Form inputs' });
 const inputVariant = ref<InputVariant>('default');
 const singleSelection = ref('');
 const multiSelection = ref<string | string[]>();
-const rangeValue = ref(6);
+const rangeValue = ref(0);
+const min = ref(0);
+const max = ref(10);
+const step = ref(1);
 const showTicks = ref(true);
 const showOutput = ref(false);
-const min = ref(6);
-const max = ref(60);
-const step = ref(6);
 const date = ref();
-const selectedCheckboxes = ref(['checkbox-a']);
+const selectedCheckboxes = ref([]);
 const showOptionIcons = ref(true);
 const selectedRadio = ref();
 const raw = ref();
 const disabled = ref(false);
 const required = ref(false);
+const checked = ref(false);
 
 const multiselectMode = ref<'single' | 'multiple' | 'tags'>('multiple');
 const inputSize = ref<InputSize>('md');
@@ -193,61 +194,6 @@ function handleSubmit(formData: FormData) {
 
     <Card>
       <Form @submit="handleSubmit" @reset="raw = ''">
-        <Input
-          :required="required"
-          name="name"
-          label="Name"
-          :variant="inputVariant"
-          :disabled="disabled"
-          :size="inputSize"
-          style="--col-width: var(--col-width-60)"
-        />
-
-        <Select
-          v-model="singleSelection"
-          :required="required"
-          name="selection"
-          label="Selection"
-          placeholder="Choose an option"
-          :variant="inputVariant"
-          :options="selectOptions"
-          :disabled="disabled"
-          label-key="name"
-          value-key="id"
-          :size="inputSize"
-          style="--col-width: var(--col-width-40)"
-        />
-
-        <Textarea
-          :required="required"
-          name="comments"
-          label="Comments"
-          :variant="inputVariant"
-          :disabled="disabled"
-        />
-
-        <CheckboxGroup
-          v-model="selectedCheckboxes"
-          :required="required"
-          :options="checkboxOptions"
-          :variant="inputVariant"
-          :disabled="disabled"
-          label="Checkbox group"
-          name="checkboxes"
-          style="--col-width: var(--col-width-auto)"
-        />
-
-        <RadioGroup
-          v-model="selectedRadio"
-          :required="required"
-          :options="radioOptions"
-          :variant="inputVariant"
-          :disabled="disabled"
-          label="Radio buttons group"
-          name="radio-group"
-          style="--col-width: var(--col-width-50)"
-        />
-
         <RangeInput
           v-model.number="rangeValue"
           :required="required"
@@ -262,9 +208,111 @@ function handleSubmit(formData: FormData) {
           :disabled="disabled"
         />
 
+        <Input
+          :required="required"
+          name="input"
+          label="Input"
+          :variant="inputVariant"
+          :disabled="disabled"
+          :size="inputSize"
+          style="--col-width: var(--col-width-60)"
+        />
+
+        <Select
+          v-model="singleSelection"
+          :required="required"
+          name="select"
+          label="Select"
+          placeholder="Choose an option"
+          :variant="inputVariant"
+          :options="selectOptions"
+          :disabled="disabled"
+          label-key="name"
+          value-key="id"
+          :size="inputSize"
+          style="--col-width: var(--col-width-40)"
+        />
+
+        <Textarea
+          :required="required"
+          name="textarea"
+          label="Textarea"
+          :variant="inputVariant"
+          :disabled="disabled"
+        />
+
+        <Checkbox
+          v-model="checked"
+          :value="checked"
+          :true-value="true"
+          name="checkbox"
+          label="Checkbox"
+        />
+
         <div class="card-cols">
           <section>
-            <div class="section-topbar">
+            <CheckboxGroup
+              :inline="false"
+              v-model="selectedCheckboxes"
+              :required="required"
+              :options="checkboxOptions"
+              :variant="inputVariant"
+              :disabled="disabled"
+              label="Checkbox group"
+              name="checkboxes"
+              style="--col-width: var(--col-width-auto)"
+            />
+          </section>
+          <section>
+            <RadioGroup
+              :inline="false"
+              v-model="selectedRadio"
+              :required="required"
+              :options="radioOptions"
+              :variant="inputVariant"
+              :disabled="disabled"
+              label="Radio buttons group"
+              name="radio-group"
+              style="--col-width: var(--col-width-50)"
+            />
+          </section>
+        </div>
+
+        <section>
+          <h2>Switch</h2>
+          <ul role="list" class="switches-list">
+            <li>
+              <Switch
+                v-model="required"
+                name="switch-required"
+                label="Require form inputs"
+                variant="outline"
+                class="demo-switch"
+              />
+            </li>
+            <li>
+              <Switch
+                v-model="disabled"
+                label="Disable form inputs"
+                variant="outline"
+                class="demo-switch"
+              />
+            </li>
+            <li>
+              <Switch
+                v-model="disabled"
+                label="Disable form inputs"
+                class="demo-switch"
+                variant="outline"
+                disabled
+              />
+            </li>
+          </ul>
+        </section>
+
+        <div class="card-cols">
+          <section>
+            <div class="title-wrapper">
               <h2>MultiSelect</h2>
 
               <Popover
@@ -318,6 +366,7 @@ function handleSubmit(formData: FormData) {
             <MultiSelect
               v-model="multiSelection"
               :required="required"
+              hide-label
               searchable
               create-option
               native-support
@@ -337,6 +386,7 @@ function handleSubmit(formData: FormData) {
 
           <section>
             <h2>DatePicker</h2>
+
             <p class="c-grey-text fs-sm mbe-2">
               Krafters UI uses
               <Button
@@ -361,36 +411,6 @@ function handleSubmit(formData: FormData) {
           </section>
         </div>
 
-        <div class="card-cols">
-          <section>
-            <h2>Switch</h2>
-            <Switch
-              v-model="required"
-              label="Require form inputs"
-              variant="outline"
-              class="demo-switch"
-            />
-            <Switch
-              v-model="disabled"
-              label="Disable form inputs"
-              variant="outline"
-              class="demo-switch"
-            />
-            <Switch
-              v-model="disabled"
-              label="Disable form inputs"
-              class="demo-switch"
-              variant="outline"
-              disabled
-            />
-          </section>
-
-          <section>
-            <h2>File Input</h2>
-            <DemoFileForm :disabled="disabled" />
-          </section>
-        </div>
-
         <div class="form-bottom-row">
           <div class="button-group">
             <Button
@@ -412,6 +432,11 @@ function handleSubmit(formData: FormData) {
         <!-- <MarkdownPreview :content="'```ts\n' + raw + '\n```'" /> -->
       </template>
     </Card>
+
+    <Card>
+      <h2>File Input</h2>
+      <DemoFileForm :disabled="disabled" />
+    </Card>
   </div>
 </template>
 
@@ -422,8 +447,7 @@ function handleSubmit(formData: FormData) {
   }
 
   section {
-    padding-inline: 1rem;
-    padding-block: 2rem;
+    padding-block: 0.75rem;
   }
 
   .form-bottom-row {
@@ -440,7 +464,10 @@ function handleSubmit(formData: FormData) {
   max-width: 240px;
 }
 
-.demo-switch + .demo-switch {
-  margin-block-start: 1rem;
+.switches-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
 }
 </style>

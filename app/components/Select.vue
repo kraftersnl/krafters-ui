@@ -76,46 +76,53 @@ const computedErrorMessage = computed(() => {
       <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
-    <select
-      :id="id"
-      ref="elementRef"
-      v-model="model"
-      class="select"
-      :name="name"
-      :required="required"
-      :disabled="disabled"
-      :autofocus="autofocus"
-      :multiple="multiple"
-      :tabindex="tabindex"
-      :aria-describedby="`
+    <div class="select-wrapper">
+      <select
+        :id="id"
+        ref="elementRef"
+        v-model="model"
+        class="select"
+        :name="name"
+        :required="required"
+        :disabled="disabled"
+        :autofocus="autofocus"
+        :multiple="multiple"
+        :tabindex="tabindex"
+        :aria-describedby="`
         ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}
         ${id && required ? `error-${id}` : ''}
       `"
-    >
-      <template v-if="!options?.length">
-        <option selected disabled :value="placeholderValue">
-          {{ noOptionsLabel || $t('select.no-options') }}
+      >
+        <template v-if="!options?.length">
+          <option selected disabled :value="placeholderValue">
+            {{ noOptionsLabel || $t('select.no-options') }}
+          </option>
+        </template>
+        <option v-else-if="placeholder" hidden :value="placeholderValue">
+          {{ placeholder }}
         </option>
-      </template>
-      <option v-else-if="placeholder" hidden :value="placeholderValue">
-        {{ placeholder }}
-      </option>
 
-      <slot v-if="$slots.default" />
+        <slot v-if="$slots.default" />
 
-      <template v-else>
-        <option
-          v-for="option in options"
-          :key="option[valueKey] + '-' + id"
-          :value="option[valueKey]"
-          :disabled="option[disabledKey]"
-          :lang="option.lang"
-        >
-          {{ option[labelKey] }}
-        </option>
-      </template>
-    </select>
+        <template v-else>
+          <option
+            v-for="option in options"
+            :key="option[valueKey] + '-' + id"
+            :value="option[valueKey]"
+            :disabled="option[disabledKey]"
+            :lang="option.lang"
+          >
+            {{ option[labelKey] }}
+          </option>
+        </template>
+      </select>
+
+      <Icon
+        name="material-symbols:keyboard-arrow-down-rounded"
+        class="select-arrow"
+      />
+    </div>
 
     <p v-if="instruction" :class="`instruction-${id}`">
       {{ instruction }}
@@ -138,9 +145,27 @@ const computedErrorMessage = computed(() => {
 
 <style>
 .form-field-wrapper {
+  .select-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
   .select {
+    appearance: none;
+    margin-inline-end: 1em;
+    grid-row: 1;
+    grid-column: 1 / -1;
     accent-color: var(--color-text);
     background-color: var(--color-select-bg);
+  }
+
+  .select-arrow {
+    color: inherit;
+    pointer-events: none;
+    height: 100%;
+    margin-inline-end: 0.5em;
+    grid-row: 1;
+    grid-column: 2;
   }
 }
 
@@ -159,32 +184,56 @@ const computedErrorMessage = computed(() => {
   padding-inline: 0.65em;
 }
 
-.select-color--blue .select {
-  color: var(--color-blue-text);
-  accent-color: var(--color-blue-text);
-  border-color: var(--color-blue-graphic);
-  background-color: var(--color-blue-bg);
+.select-color--blue {
+  .select {
+    color: var(--color-blue-text);
+    accent-color: var(--color-blue-text);
+    border-color: var(--color-blue-graphic);
+    background-color: var(--color-blue-bg);
+  }
+
+  .select-arrow {
+    color: var(--color-blue-graphic);
+  }
 }
 
-.select-color--green .select {
-  color: var(--color-green-text);
-  accent-color: var(--color-green-text);
-  border-color: var(--color-green-graphic);
-  background-color: var(--color-green-bg);
+.select-color--green {
+  .select {
+    color: var(--color-green-text);
+    accent-color: var(--color-green-text);
+    border-color: var(--color-green-graphic);
+    background-color: var(--color-green-bg);
+  }
+
+  .select-arrow {
+    color: var(--color-green-graphic);
+  }
 }
 
-.select-color--orange .select {
-  color: var(--color-orange-text);
-  accent-color: var(--color-orange-text);
-  border-color: var(--color-orange-graphic);
-  background-color: var(--color-orange-bg);
+.select-color--orange {
+  .select {
+    color: var(--color-orange-text);
+    accent-color: var(--color-orange-text);
+    border-color: var(--color-orange-graphic);
+    background-color: var(--color-orange-bg);
+  }
+
+  .select-arrow {
+    color: var(--color-orange-graphic);
+  }
 }
 
-.select-color--red .select {
-  color: var(--color-red-text);
-  accent-color: var(--color-red-text);
-  border-color: var(--color-red-graphic);
-  background-color: var(--color-red-bg);
+.select-color--red {
+  .select {
+    color: var(--color-red-text);
+    accent-color: var(--color-red-text);
+    border-color: var(--color-red-graphic);
+    background-color: var(--color-red-bg);
+  }
+
+  .select-arrow {
+    color: var(--color-red-graphic);
+  }
 }
 
 .select-variant--krafters {

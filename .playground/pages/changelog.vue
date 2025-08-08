@@ -7,7 +7,7 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <ChangelogEntry v="1.5.0" date="2025-07-10">
+    <ChangelogEntry v="1.5.0" date="2025-08-18">
       <ul>
         <li>
           Breaking: remove heroicons-solid as fallback icon set in components:
@@ -33,6 +33,10 @@ useHead({ title: 'Changelog' });
         </li>
         <li>Feature: add <code>fontSize</code> prop to Chip component</li>
         <li>Feature: add <code>diableEscape</code> prop to Dialog component</li>
+        <li>
+          Feature: add <code>variant</code> and <code>name</code> props to
+          Switch component
+        </li>
         <li>
           Fix: prevent side effects when closing MultiSelect with
           <kbd>Escape</kbd>
