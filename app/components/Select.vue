@@ -151,6 +151,7 @@ const computedErrorMessage = computed(() => {
   }
 
   .select {
+    -webkit-appearance: none;
     appearance: none;
     margin-inline-end: 1em;
     grid-row: 1;
