@@ -616,6 +616,8 @@
   }
 
   .select {
+    color: var(--color-text);
+
     &:focus-visible {
       outline: 1px solid var(--focus-color);
       border-color: var(--focus-color);
