@@ -62,7 +62,44 @@ const emit = defineEmits<{
         :key="'menu-list-item-' + item.id"
         class="menu-list-item"
       >
+        <Popover
+          v-if="item.items?.length && buttonVariant === 'topbar'"
+          :list="item.items"
+          :hide-label="false"
+          :label="item.label"
+          :icon="item.icon"
+          button-variant="ghost"
+          size="md"
+          placement="bottom-start"
+        >
+          <template #menu-list-item="{ item }">
+            <MenuListTooltip :item="item">
+              {{ item.tooltip }}
+            </MenuListTooltip>
+          </template>
+        </Popover>
+
+        <template v-else-if="item.items?.length">
+          <hr />
+
+          <MenuList
+            :list="item.items"
+            :button-size="buttonSize"
+            :font-size="fontSize"
+            :icon-size="iconSize"
+            button-variant="sidebar"
+            @click="emit('click', item)"
+          >
+            <template #menu-list-item="{ item }">
+              <MenuListTooltip :item="item">
+                {{ item.tooltip }}
+              </MenuListTooltip>
+            </template>
+          </MenuList>
+        </template>
+
         <Button
+          v-else
           :label="item.label || item.title"
           :to="item.to || item.href || item.path"
           :icon="item.icon"
@@ -91,10 +128,11 @@ const emit = defineEmits<{
 <style>
 .menu-list-label {
   padding-inline: 1rem 0.25rem;
-  margin-block-end: 1.25rem;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-regular);
   font-size: var(--font-size-lg);
   color: var(--color-grey-text);
+  margin-block-start: 1.5rem;
+  margin-block-end: 1rem;
 
   .label-link {
     display: flex;
@@ -128,6 +166,20 @@ const emit = defineEmits<{
   }
 }
 
+.menu-list-item {
+  > .button {
+    --radius: 0;
+    outline-offset: -2px;
+  }
+
+  &:last-of-type {
+    .button-variant--menu {
+      border-bottom-left-radius: var(--radius-sm);
+      border-bottom-right-radius: var(--radius-sm);
+    }
+  }
+}
+
 .menu-list-nav:has(.button-variant--sidebar) {
   .menu-list-label {
     padding-inline-start: 2rem;
@@ -143,15 +195,8 @@ const emit = defineEmits<{
 }
 
 .menu-list--inline {
-  .menu-list-item {
+  > .menu-list-item {
     display: inline-block;
-  }
-}
-
-.menu-list-item {
-  > .button {
-    --radius: 0 !important;
-    outline-offset: -2px;
   }
 }
 
@@ -180,14 +225,14 @@ const emit = defineEmits<{
     }
   }
 
-  &:has(.button-variant--menu) {
+  > :has(.button-variant--menu) {
     .menu-list-item:has(.menu-list-tooltip) {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
 
       .tooltip-trigger-button {
-        margin-inline-end: 1.25rem;
+        margin-inline-end: 1.25em;
       }
 
       > .button {
@@ -201,13 +246,6 @@ const emit = defineEmits<{
       hr {
         grid-column: span 2;
       }
-    }
-  }
-
-  .menu-list-item:last-of-type {
-    .button-variant--menu {
-      border-bottom-left-radius: var(--radius-md) !important;
-      border-bottom-right-radius: var(--radius-md) !important;
     }
   }
 }

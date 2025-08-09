@@ -458,7 +458,7 @@ const emit = defineEmits<{
     }
   }
 
-  &:not(:disabled, .disabled):hover {
+  &:not(:disabled, .disabled, .router-link-active):hover {
     background-color: var(--color-grey-bg);
 
     .iconify {
@@ -524,11 +524,12 @@ const emit = defineEmits<{
   transition-duration: 0s;
 
   .iconify {
-    color: var(--color-grey-text);
+    color: var(--color-text);
   }
 
   &:hover {
     color: var(--button-hover-color);
+
     .iconify {
       color: var(--button-hover-color);
     }

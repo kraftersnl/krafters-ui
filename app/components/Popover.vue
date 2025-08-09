@@ -176,7 +176,7 @@ const emit = defineEmits<{
           <MenuList
             v-if="list?.length"
             :list="list"
-            button-size="xl"
+            button-size="lg"
             font-size="sm"
             icon-size="lg"
             :aria-labelledby="'popover-label-' + id"
@@ -195,20 +195,6 @@ const emit = defineEmits<{
 </template>
 
 <style>
-.popover-wrapper {
-  .tippy-box {
-    .menu-list {
-      min-width: 240px;
-    }
-
-    .menu-list-item:first-of-type {
-      .button {
-        border-radius: var(--radius-md) var(--radius-md) 0 0;
-      }
-    }
-  }
-}
-
 .popover-trigger {
   flex-grow: 1;
   display: inline-flex;
@@ -248,6 +234,28 @@ const emit = defineEmits<{
     }
     &:last-child {
       margin-block-end: 0;
+    }
+  }
+
+  .menu-list-nav {
+    padding: 0.25rem;
+
+    .menu-list {
+      min-width: 240px;
+    }
+
+    .menu-list-item {
+      > .button {
+        border-radius: var(--radius-md);
+      }
+
+      + .menu-list-item {
+        margin-block-start: 0.25rem;
+      }
+
+      hr {
+        margin-block: 0.25rem;
+      }
     }
   }
 }

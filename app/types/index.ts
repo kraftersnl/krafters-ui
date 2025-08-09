@@ -57,6 +57,7 @@ declare global {
     hideExternalIcon?: boolean;
     target?: string;
     onClick?: CallableFunction;
+    items?: MenuItem[];
   };
 
   type DialogComponent = InstanceType<typeof Dialog>;
