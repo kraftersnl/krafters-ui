@@ -172,7 +172,7 @@ const emit = defineEmits<{
       </div>
     </div>
 
-    <p v-if="instruction" :class="`instruction-${id}`">
+    <p v-if="instruction" class="instruction" :id="`instruction-${id}`">
       {{ instruction }}
     </p>
   </div>

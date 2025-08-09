@@ -124,7 +124,7 @@ const computedErrorMessage = computed(() => {
       />
     </div>
 
-    <p v-if="instruction" :class="`instruction-${id}`">
+    <p v-if="instruction" class="instruction" :id="`instruction-${id}`">
       {{ instruction }}
     </p>
 

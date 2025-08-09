@@ -18,10 +18,3 @@ defineProps<{
     <slot />
   </Tooltip>
 </template>
-
-<style>
-.menu-list-tooltip {
-  .tooltip-trigger-button {
-  }
-}
-</style>

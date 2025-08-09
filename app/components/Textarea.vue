@@ -104,6 +104,8 @@ const emit = defineEmits<{
       <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
+    <slot />
+
     <textarea
       :id="id"
       ref="textarea"
@@ -126,7 +128,7 @@ const emit = defineEmits<{
       @paste="emit('paste', $event)"
     />
 
-    <p v-if="instruction" :class="`instruction-${id}`">
+    <p v-if="instruction" class="instruction" :id="`instruction-${id}`">
       {{ instruction }}
     </p>
 
