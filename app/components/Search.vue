@@ -83,7 +83,6 @@ const emit = defineEmits<{
     <Button
       v-if="!hideSubmitButton"
       type="submit"
-      :disabled="!model"
       :label="$t('general.submit')"
       icon="material-symbols:search-rounded"
       :size="size"
