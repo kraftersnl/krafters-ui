@@ -68,8 +68,9 @@ const emit = defineEmits<{
           :hide-label="false"
           :label="item.label"
           :icon="item.icon"
+          :icon-pos="item.iconPos"
+          :size="buttonSize"
           button-variant="ghost"
-          size="md"
           placement="bottom-start"
         >
           <template #menu-list-item="{ item }">
@@ -195,6 +196,10 @@ const emit = defineEmits<{
 }
 
 .menu-list--inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+
   > .menu-list-item {
     display: inline-block;
   }

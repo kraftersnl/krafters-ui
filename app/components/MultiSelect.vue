@@ -272,14 +272,14 @@ function preventEscape(event: KeyboardEvent) {
 
   --ms-option-font-size: var(--font-size-sm);
   /* --ms-option-line-height: 1.375; */
-  --ms-option-bg-pointed: var(--color-grey-bg);
+  --ms-option-bg-pointed: var(--color-card-bg);
   --ms-option-color-pointed: var(--color-text);
-  --ms-option-bg-selected: var(--color-accent);
-  --ms-option-color-selected: var(--color-white);
+  --ms-option-bg-selected: var(--color-green-bg);
+  --ms-option-color-selected: var(--color-green-text);
   --ms-option-bg-disabled: var(--color-grey-bg);
   --ms-option-color-disabled: var(--color-grey-graphic);
-  --ms-option-bg-selected-pointed: var(--color-accent);
-  --ms-option-color-selected-pointed: var(--color-white);
+  --ms-option-bg-selected-pointed: var(--color-green-bg);
+  --ms-option-color-selected-pointed: var(--color-green-text);
   --ms-option-bg-selected-disabled: var(--color-grey-bg);
   --ms-option-color-selected-disabled: var(--color-grey-graphic);
   /* --ms-option-py: 0.5rem; */
@@ -386,10 +386,14 @@ function preventEscape(event: KeyboardEvent) {
 .multiselect-option {
   -webkit-user-select: none;
   user-select: none;
+
+  + .multiselect-option {
+    border-block-start: 2px solid var(--color-card-bg);
+  }
 }
 
 .multiselect-dropdown {
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow);
 }
 
 .show-option-icons {

@@ -114,7 +114,7 @@ const emit = defineEmits<{
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-grey-bg);
   background-color: var(--color-bg);
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--shadow);
   overflow: hidden;
   max-width: 100%;
 

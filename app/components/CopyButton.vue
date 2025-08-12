@@ -33,7 +33,7 @@ async function handleClick() {
     :icon="
       copied
         ? 'material-symbols:content-paste-go-rounded'
-        : 'material-symbols:content-paste-rounded'
+        : 'material-symbols:content-copy-outline-rounded'
     "
     :hide-label="hideLabel"
     :variant="variant"

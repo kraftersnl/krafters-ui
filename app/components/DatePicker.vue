@@ -149,6 +149,10 @@ onUnmounted(() => document.removeEventListener('keydown', preventEscape));
   }
 }
 
+.dp__menu {
+  box-shadow: var(--shadow);
+}
+
 .dp__theme_light,
 .dp__theme_dark {
   --dp-background-color: var(--color-select-bg);
