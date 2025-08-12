@@ -1,7 +1,13 @@
 <script setup lang="ts">
 const model = defineModel<boolean>();
 
-const { id = useId(), variant = 'default' } = defineProps<{
+const {
+  id = useId(),
+  variant = 'default',
+  name = undefined,
+  trueValue = undefined,
+  falseValue = undefined,
+} = defineProps<{
   label: string;
   disabled?: boolean;
   id?: string;

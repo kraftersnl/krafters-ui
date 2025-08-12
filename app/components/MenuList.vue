@@ -73,9 +73,9 @@ const emit = defineEmits<{
           button-variant="ghost"
           placement="bottom-start"
         >
-          <template #menu-list-item="{ item }">
-            <MenuListTooltip :item="item">
-              {{ item.tooltip }}
+          <template #menu-list-item="{ item: subItem }">
+            <MenuListTooltip :item="subItem">
+              {{ subItem.tooltip }}
             </MenuListTooltip>
           </template>
         </Popover>
@@ -91,9 +91,9 @@ const emit = defineEmits<{
             button-variant="sidebar"
             @click="emit('click', item)"
           >
-            <template #menu-list-item="{ item }">
-              <MenuListTooltip :item="item">
-                {{ item.tooltip }}
+            <template #menu-list-item="{ item: subItem }">
+              <MenuListTooltip :item="subItem">
+                {{ subItem.tooltip }}
               </MenuListTooltip>
             </template>
           </MenuList>

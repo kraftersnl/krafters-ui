@@ -252,8 +252,8 @@ function handleSubmit(formData: FormData) {
         <div class="card-cols">
           <section>
             <CheckboxGroup
-              :inline="false"
               v-model="selectedCheckboxes"
+              :inline="false"
               :required="required"
               :options="checkboxOptions"
               :variant="inputVariant"
@@ -265,8 +265,8 @@ function handleSubmit(formData: FormData) {
           </section>
           <section>
             <RadioGroup
-              :inline="false"
               v-model="selectedRadio"
+              :inline="false"
               :required="required"
               :options="radioOptions"
               :variant="inputVariant"
