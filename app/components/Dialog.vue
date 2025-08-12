@@ -211,7 +211,7 @@ body:has(.dialog[open]) {
   border-inline-end: 1px solid var(--color-card-border);
   padding-block-end: var(--dialog-padding-block);
   width: 100%;
-  max-width: 800px;
+  max-width: min(100vw, 800px);
   min-height: 100dvh;
 
   &[open] {
@@ -238,7 +238,7 @@ body:has(.dialog[open]) {
   border-inline-start: 1px solid var(--color-card-border);
   padding-block-end: var(--dialog-padding-block);
   width: 100%;
-  max-width: 800px;
+  max-width: min(100vw, 800px);
   min-height: 100dvh;
 
   &[open] {
