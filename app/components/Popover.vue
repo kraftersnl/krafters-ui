@@ -254,7 +254,7 @@ const emit = defineEmits<{
       }
 
       hr {
-        margin-block: 0.25rem;
+        margin-block-start: 0.25rem;
       }
     }
   }

@@ -60,7 +60,7 @@ const multiSelectOptions = [
 const checkboxOptions = [
   {
     value: 'checkbox-a',
-    label: 'checkbox a',
+    label: 'Checkbox A',
   },
   {
     value: 'checkbox-b',

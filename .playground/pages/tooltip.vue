@@ -32,7 +32,7 @@ const popoverActions = [
     <h1>Non modal dialog pattern</h1>
 
     <p>
-      A common pattern on the web is to show content over top of other content,
+      A common pattern on the web is to show content on top of other content,
       drawing the user's attention to specific important information or actions
       that need to be taken. This pattern can technically be described as a
       non-modal dialog or popover. Krafters UI offers 2 components: Tooltip and

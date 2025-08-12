@@ -230,7 +230,7 @@ const emit = defineEmits<{
     }
   }
 
-  > :has(.button-variant--menu) {
+  &:has(.button-variant--menu) {
     .menu-list-item:has(.menu-list-tooltip) {
       display: grid;
       grid-template-columns: 1fr auto;

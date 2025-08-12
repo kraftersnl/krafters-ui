@@ -507,8 +507,6 @@ function makeToast() {
             <li>This is a list item</li>
             <li>This is a list item</li>
             <li>This is a list item</li>
-            <li>This is a list item</li>
-            <li>This is a list item</li>
           </ul>
         </div>
 
@@ -525,17 +523,12 @@ function makeToast() {
             <li>This is a list item</li>
             <li>This is a list item</li>
             <li>This is a list item</li>
-            <li>This is a list item</li>
-            <li>This is a list item</li>
           </ol>
         </div>
 
         <div>
           <h2 class="lists-title">Definition List</h2>
           <dl class="definition-list">
-            <dt>Definition term</dt>
-            <dd>Definition description</dd>
-
             <dt>Definition term</dt>
             <dd>Definition description</dd>
 

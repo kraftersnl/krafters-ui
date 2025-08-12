@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({ title: 'Video Player' });
 
-const youtube = ref('https://youtube.com/watch?v=pJ0GPI7BMIs');
+const youtube = ref('https://youtube.com/watch?v=PGvgdZuQu6w');
 const vimeo = ref('https://vimeo.com/969786906');
 </script>
 
@@ -23,12 +23,14 @@ const vimeo = ref('https://vimeo.com/969786906');
         <Input v-model="youtube" label="URL" hide-label />
       </Card>
 
-      <Card>
-        <h2>Vimeo</h2>
+      <DevOnly>
+        <Card>
+          <h2>Vimeo</h2>
 
-        <VideoPlayer :url="vimeo" />
-        <Input v-model="vimeo" label="URL" hide-label />
-      </Card>
+          <VideoPlayer :url="vimeo" />
+          <Input v-model="vimeo" label="URL" hide-label />
+        </Card>
+      </DevOnly>
     </div>
   </div>
 </template>

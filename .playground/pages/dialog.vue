@@ -157,7 +157,7 @@ function makeToast() {
             to="https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog"
             target="_blank"
             external
-            >ARIA Design Patterns</NuxtLink
+            >Alert and Message Dialog Pattern</NuxtLink
           >.
         </li>
       </ul>
