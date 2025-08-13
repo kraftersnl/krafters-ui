@@ -139,6 +139,8 @@ const emit = defineEmits<{
       transition-duration: 0s;
 
       &:focus-visible {
+        background-color: var(--color-black);
+        outline-offset: 1px;
         z-index: 1;
       }
 
