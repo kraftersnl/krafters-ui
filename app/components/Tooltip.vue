@@ -18,7 +18,7 @@ const {
   hideLabel = true,
   hideOnClick = true,
   interactive = true,
-  icon = 'material-symbols:help-rounded',
+  icon = 'material-symbols:help-outline-rounded',
   id = useId(),
 } = defineProps<{
   label?: string;

@@ -385,9 +385,11 @@ function handleSubmit(formData: FormData) {
           </section>
 
           <section>
-            <h2>DatePicker</h2>
+            <div class="title-wrapper">
+              <h2>DatePicker</h2>
+            </div>
 
-            <p class="c-grey-text fs-sm mbe-2">
+            <p class="c-grey-text fs-sm mbe-1">
               Krafters UI uses
               <Button
                 to="https://vue3datepicker.com"

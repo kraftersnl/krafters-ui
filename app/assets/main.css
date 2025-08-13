@@ -55,7 +55,7 @@
   --rgb-app-nav: 0 0 0;
   --hsl-app-nav: 280 26% 9%;
 
-  --shadow-color: 282deg 42% 2%;
+  --shadow-color: 282deg 0% 2%;
 
   --color-dialog-bg: var(--color-white);
   --color-input-bg: var(--color-card-bg);
@@ -125,7 +125,7 @@
   --rgb-app-nav: 255 255 255;
   --hsl-app-nav: 280 0% 98%;
 
-  --shadow-color: 277deg 8% 60%;
+  --shadow-color: 277deg 0% 60%;
 
   --color-dialog-bg: var(--color-card-bg);
   --color-input-bg: var(--color-card-bg);
@@ -156,7 +156,7 @@
   --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-lg: 12px;
   --radius-xl: 24px;
   --radius-full: 999px;
 
@@ -767,7 +767,6 @@
   > .iconify {
     font-size: inherit;
     flex-shrink: 0;
-    color: var(--color-grey-text);
   }
 
   h1,

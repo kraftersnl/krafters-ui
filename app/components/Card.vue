@@ -25,7 +25,7 @@ const computedStyle = computed(() => ({
   '--border-width': `${borderWidth}px`,
   '--card-padding-block': paddingBlock,
   '--card-padding-inline': paddingInline,
-  '--shadow': shadow && `var(--shadow-${shadow})`,
+  '--card-shadow': shadow && `var(--shadow-${shadow})`,
   '--color-card-bg': backgroundColor && `var(--color-${backgroundColor})`,
 }));
 </script>
@@ -39,7 +39,7 @@ const computedStyle = computed(() => ({
 <style>
 :where(.card) {
   position: relative;
-  box-shadow: var(--shadow, none);
+  box-shadow: var(--card-shadow, none);
   background-color: var(--color-card-bg);
   border-radius: var(--border-radius);
   border: var(--border-width, 1px) solid

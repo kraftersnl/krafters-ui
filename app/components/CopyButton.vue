@@ -32,7 +32,7 @@ async function handleClick() {
     :label="copied ? $t('general.copied') : $t('general.copy')"
     :icon="
       copied
-        ? 'material-symbols:content-paste-go-rounded'
+        ? 'material-symbols:inventory-rounded'
         : 'material-symbols:content-copy-outline-rounded'
     "
     :hide-label="hideLabel"

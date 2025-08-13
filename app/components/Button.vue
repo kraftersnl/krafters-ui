@@ -438,11 +438,14 @@ const emit = defineEmits<{
   width: 100%;
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
-  flex-direction: row-reverse;
   justify-content: space-between;
   background-color: transparent;
   white-space: nowrap;
   gap: 1.5rem;
+
+  &:has(> .iconify) {
+    flex-direction: row-reverse;
+  }
 
   .iconify {
     font-size: var(--icon-size, inherit);

@@ -129,8 +129,8 @@ const emit = defineEmits<{
       right: 0;
       bottom: 0;
       color: var(--color-white);
-      background-color: var(--color-grey-graphic);
-      border-color: var(--color-grey-graphic);
+      background-color: var(--color-text);
+      border-color: var(--color-text);
       min-width: 2rem;
       border-end-start-radius: 0;
       border-start-start-radius: 0;

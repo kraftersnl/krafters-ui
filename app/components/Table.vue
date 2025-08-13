@@ -56,12 +56,6 @@ const {
   table {
     width: 100%;
   }
-
-  th {
-    &::first-letter {
-      text-transform: capitalize;
-    }
-  }
 }
 
 .table--skeleton tbody tr:not(.table-loader-row) {
