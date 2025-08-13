@@ -232,6 +232,7 @@ watch(
   }
 
   &.has-image-preview {
+    max-width: max-content;
     color: white;
     border: none;
 

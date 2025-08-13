@@ -6,14 +6,14 @@ const {
   size = 'sm',
   fontSize = 'sm',
   variant = 'default',
-  color = 'accent',
+  color = 'text',
   ariaLabel = undefined,
 } = defineProps<{
   tabs: TabOption[];
   size?: TabsSize;
   fontSize?: FontSize;
   variant?: TabsVariant;
-  color?: 'green' | 'accent';
+  color?: 'text' | 'green' | 'accent';
   ariaLabel?: string;
 }>();
 
@@ -241,6 +241,16 @@ defineExpose({
     .tab {
       border-width: 2px;
     }
+  }
+}
+
+.tabs-color--text {
+  .tab {
+    color: var(--color-grey-text);
+  }
+  .tablist .tab[aria-selected='true'] {
+    color: var(--color-text);
+    border-color: var(--color-text);
   }
 }
 

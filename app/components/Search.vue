@@ -188,4 +188,13 @@ const emit = defineEmits<{
     }
   }
 }
+
+.dark-mode {
+  .search-form {
+    .button[type='submit'] {
+      background-color: var(--color-grey-text);
+      border-color: var(--color-grey-text);
+    }
+  }
+}
 </style>
