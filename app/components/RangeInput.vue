@@ -238,7 +238,7 @@ input[type='range']:focus-visible {
 .range-input-ticks {
   width: 100%;
   font-size: var(--font-size-xxxs);
-  color: var(--color-accent-text);
+  color: var(--color-grey-text);
   display: flex;
   justify-content: space-between;
   padding-inline: calc((var(--thumb-width) / 2) - 1px);
