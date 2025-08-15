@@ -86,20 +86,22 @@ defineExpose({
     @close="isVisible = false"
   >
     <FocusLoop :is-visible="isVisible" :modal="modal">
-      <div class="dialog-header">
-        <h1 v-if="label" :id="id">{{ label }}</h1>
+      <div class="dialog-header-wrapper">
+        <div class="dialog-header">
+          <h1 v-if="label" :id="id">{{ label }}</h1>
+
+          <Button
+            icon="material-symbols:close-rounded"
+            size="sm"
+            variant="outline"
+            :label="$t('general.close')"
+            hide-label
+            class="close-button"
+            @click="closeDialog"
+          />
+        </div>
 
         <slot name="header" v-bind="{ closeDialog }" />
-
-        <Button
-          icon="material-symbols:close-rounded"
-          size="sm"
-          variant="outline"
-          :label="$t('general.close')"
-          hide-label
-          class="close-button"
-          @click="closeDialog"
-        />
       </div>
 
       <div v-if="$slots.default" class="dialog-content">
@@ -149,12 +151,15 @@ body:has(.dialog[open]) {
     font-size: var(--font-size-lg);
   }
 
-  .dialog-header {
+  .dialog-header-wrapper {
     padding-block-start: var(--dialog-padding-block);
     padding-block-end: 1.5rem;
     padding-inline: var(--dialog-padding-inline);
-    display: flex;
-    align-items: center;
+
+    .dialog-header {
+      display: flex;
+      align-items: center;
+    }
 
     .close-button {
       z-index: 9;
