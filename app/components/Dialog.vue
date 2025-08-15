@@ -125,11 +125,13 @@ body:has(.dialog[open]) {
 
 .light-mode {
   .dialog {
+    --color-dialog-border: transparent;
     --color-select-bg: var(--color-bg);
   }
 }
 
 .dialog {
+  --color-dialog-border: var(--color-card-border);
   --dialog-padding-inline: 1.5rem;
   --dialog-padding-block: 1.5rem;
   --color-input-bg: transparent;
@@ -189,7 +191,7 @@ body:has(.dialog[open]) {
   --dialog-padding-inline: 1.25rem;
   --dialog-padding-block: 1.25rem;
 
-  border: 1px solid var(--color-card-border);
+  border: 1px solid var(--color-dialog-border);
   border-radius: var(--radius-lg);
   padding-block-end: var(--dialog-padding-block);
 
@@ -214,7 +216,7 @@ body:has(.dialog[open]) {
 .dialog-position--inline-start {
   margin: 0 auto 0 0;
   border: none;
-  border-inline-end: 1px solid var(--color-card-border);
+  border-inline-end: 1px solid var(--color-dialog-border);
   padding-block-end: var(--dialog-padding-block);
   width: 100%;
   max-width: min(100vw, 800px);
@@ -246,7 +248,7 @@ body:has(.dialog[open]) {
 .dialog-position--inline-end {
   margin: 0 0 0 auto;
   border: none;
-  border-inline-start: 1px solid var(--color-card-border);
+  border-inline-start: 1px solid var(--color-dialog-border);
   padding-block-end: var(--dialog-padding-block);
   width: 100%;
   max-width: min(100vw, 800px);
@@ -281,7 +283,7 @@ body:has(.dialog[open]) {
 
   max-width: 100%;
   border: none;
-  border-block-end: 1px solid var(--color-card-border);
+  border-block-end: 1px solid var(--color-dialog-border);
   width: 100%;
 
   &[open] {
@@ -307,7 +309,7 @@ body:has(.dialog[open]) {
   margin: 0;
   max-width: 100%;
   border: none;
-  border-block-start: 1px solid var(--color-card-border);
+  border-block-start: 1px solid var(--color-dialog-border);
   width: 100%;
 
   &[open] {
@@ -326,9 +328,5 @@ body:has(.dialog[open]) {
       animation: fadeOut var(--duration-md) forwards;
     }
   }
-}
-
-.light-mode {
-  --color-card-border: transparent;
 }
 </style>
