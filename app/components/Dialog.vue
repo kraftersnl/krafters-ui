@@ -160,12 +160,13 @@ body:has(.dialog[open]) {
       display: flex;
       align-items: center;
     }
+  }
 
-    .close-button {
-      z-index: 9;
-      float: inline-end;
-      margin-inline-start: auto;
-    }
+  .close-button {
+    z-index: 9;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 
   .dialog-content {
@@ -235,6 +236,11 @@ body:has(.dialog[open]) {
       animation: fadeOut var(--duration-md) forwards;
     }
   }
+
+  .close-button {
+    right: 1.5rem;
+    top: 1.5rem;
+  }
 }
 
 .dialog-position--inline-end {
@@ -261,6 +267,11 @@ body:has(.dialog[open]) {
     &::backdrop {
       animation: fadeOut var(--duration-md) forwards;
     }
+  }
+
+  .close-button {
+    right: 1.5rem;
+    top: 1.5rem;
   }
 }
 
