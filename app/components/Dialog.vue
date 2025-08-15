@@ -327,4 +327,8 @@ body:has(.dialog[open]) {
     }
   }
 }
+
+.light-mode {
+  --color-card-border: transparent;
+}
 </style>
