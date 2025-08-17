@@ -104,7 +104,7 @@ const emit = defineEmits<{
       <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
-    <slot />
+    <slot name="label" />
 
     <textarea
       :id="id"
