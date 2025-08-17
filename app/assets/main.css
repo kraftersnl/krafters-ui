@@ -448,6 +448,7 @@
 }
 
 :where(address) {
+  display: inline;
   font-style: normal;
   white-space: pre-line;
 }
