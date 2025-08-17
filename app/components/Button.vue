@@ -430,7 +430,6 @@ const emit = defineEmits<{
 
   &.router-link-active {
     color: var(--color-accent-text);
-    text-decoration: none;
   }
 }
 

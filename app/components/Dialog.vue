@@ -4,6 +4,7 @@ const {
   disableEscape = false,
   clickOutside = true,
   position = 'center',
+  closeButtonVariant = 'outline',
   label = undefined,
   ariaLabel = undefined,
   ariaLabelledby = undefined,
@@ -17,6 +18,7 @@ const {
   clickOutside?: boolean;
   modal?: boolean;
   position?: DialogPosition;
+  closeButtonVariant?: ButtonVariant;
   role?: 'dialog' | 'alertdialog';
 }>();
 
@@ -93,7 +95,7 @@ defineExpose({
           <Button
             icon="material-symbols:close-rounded"
             size="sm"
-            variant="outline"
+            :variant="closeButtonVariant"
             :label="$t('general.close')"
             hide-label
             class="close-button"
