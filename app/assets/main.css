@@ -340,7 +340,7 @@
   quotes: '“' '”';
   margin: 0;
   border-inline-start: 3px solid var(--color-grey-bg);
-  padding-inline-start: 1.25rem;
+  padding-inline-start: 1.5rem;
 
   > p {
     margin-block-start: 0;
