@@ -9,6 +9,7 @@ useHead({ title: 'Changelog' });
 
     <ChangelogEntry v="1.5.0" date="2025-08-18">
       <ul>
+        <li>Change: update to Nuxt 4</li>
         <li>
           Breaking: remove heroicons-solid as fallback icon set in components:
           <ul>
@@ -21,21 +22,25 @@ useHead({ title: 'Changelog' });
             <li>MobileMenu</li>
           </ul>
         </li>
+        <li>Feature: add <code>diableEscape</code> prop to Dialog component</li>
+        <li>Feature: add <code>outline</code> variant to Button component</li>
+        <li>Feature: add <code>fontSize</code> prop to Chip component</li>
+        <li>
+          Feature: add <code>variant</code> and <code>name</code> props to
+          Switch component
+        </li>
+        <li>
+          Feature: add <code>size</code> prop to Search, MultiSelect and
+          DatePicker components
+        </li>
         <li>Change: update icons to material-symbols set</li>
         <li>
           Change: increase default border-radius for Button, Chip and Input
           components
         </li>
-        <li>Feature: add <code>outline</code> variant to Button component</li>
         <li>
-          Feature: add <code>size</code> prop to Search, MultiSelect and
-          DatePicker components
-        </li>
-        <li>Feature: add <code>fontSize</code> prop to Chip component</li>
-        <li>Feature: add <code>diableEscape</code> prop to Dialog component</li>
-        <li>
-          Feature: add <code>variant</code> and <code>name</code> props to
-          Switch component
+          Change: rename default slot to <code>label</code> in Textarea
+          component
         </li>
         <li>
           Fix: prevent side effects when closing MultiSelect with
