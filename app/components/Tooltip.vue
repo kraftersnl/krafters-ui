@@ -161,7 +161,7 @@ function closeToggletip() {
 .tooltip-trigger-button {
   position: relative;
   display: flex;
-  gap: 0.25rem;
+  gap: 0.35em;
   align-items: center;
   border: none;
   background: transparent;
