@@ -44,8 +44,8 @@ defineExpose({
 });
 
 const computedErrorMessage = computed(() => {
-  if (model.value) {
-    if (model.value.size / 1024 > maxFileSize) {
+  if (fileInputRef.value?.files?.[0]) {
+    if (fileInputRef.value?.files?.[0].size / 1024 > maxFileSize) {
       return t('files.too-big');
     }
   }
@@ -65,6 +65,7 @@ async function handleInput(event: Event) {
   if (!target.files?.length) return;
 
   const file = target.files[0];
+  console.log(file);
 
   imagePreview.value = undefined;
 

@@ -114,7 +114,7 @@ const emit = defineEmits<{
         @blur="emit('blur', $event)"
       />
 
-      <p v-if="instruction" class="instruction" :id="`instruction-${id}`">
+      <p v-if="instruction" :id="`instruction-${id}`" class="instruction">
         {{ instruction }}
       </p>
 

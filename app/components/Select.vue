@@ -89,10 +89,11 @@ const computedErrorMessage = computed(() => {
         :multiple="multiple"
         :tabindex="tabindex"
         :aria-describedby="`
-        ${ariaDescribedby || ''}
-        ${instruction ? `instruction-${id}` : ''}
-        ${id && required ? `error-${id}` : ''}
-      `"
+          ${ariaDescribedby || ''}
+          ${instruction ? `instruction-${id}` : ''}
+          ${id && required ? `error-${id}` : ''}
+        `"
+        size="1"
       >
         <template v-if="!options?.length">
           <option selected disabled :value="placeholderValue">

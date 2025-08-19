@@ -7,6 +7,16 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.1" date="2025-08-19">
+      <ul>
+        <li>
+          Fix: fix error message in FileInput component for images that exceed
+          the file size limit
+        </li>
+        <li>Fix: add <code>size="1"</code> to Select component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.0" date="2025-08-18">
       <ul>
         <li>Change: update to Nuxt 4</li>
