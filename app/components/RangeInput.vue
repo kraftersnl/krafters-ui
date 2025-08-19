@@ -126,6 +126,7 @@ const ticksList = computed(
 
   label {
     margin-block-end: 0.5rem;
+    color: var(--color-text);
   }
 }
 
