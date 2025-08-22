@@ -135,6 +135,8 @@
 }
 
 :where(:root) {
+  scrollbar-gutter: stable;
+
   --duration-xs: 0.1s;
   --duration-sm: 0.2s;
   --duration-md: 0.35s;
@@ -192,6 +194,7 @@
 
   /* Utility design tokens */
   --focus-color: var(--color-black);
+  --color-transparent: transparent;
 
   /* Shadow design token */
   --shadow: 4px 4px 16px rgba(0 0 0 / 0.16);
