@@ -121,7 +121,7 @@ defineExpose({
 
 <style>
 /* disable background scrolling */
-body:has(.dialog[open]) {
+html:has(.dialog[open]) {
   overflow: hidden;
 }
 
