@@ -146,7 +146,7 @@ const emit = defineEmits<{
         <slot v-if="$slots.trigger" name="trigger" />
 
         <template v-else>
-          <Icon v-if="loading" name="svg-spinners:90-ring" />
+          <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
           <Icon v-else :name="icon" />
 
           <span
