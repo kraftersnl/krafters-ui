@@ -7,6 +7,14 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.2" date="2025-08-24">
+      <ul>
+        <li>
+          Fix: layout jump between pages with and without a scrollbar on Windows
+        </li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.1" date="2025-08-19">
       <ul>
         <li>

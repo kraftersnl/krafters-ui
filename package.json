@@ -1,7 +1,7 @@
 {
   "name": "@krafters/ui",
   "type": "module",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "format": "prettier . --write"
   },
   "devDependencies": {
-    "@iconify-json/material-symbols": "^1.2.32",
+    "@iconify-json/material-symbols": "^1.2.33",
     "@mdit/plugin-attrs": "^0.23.1",
     "@mdit/plugin-mark": "^0.22.1",
     "@nuxt/eslint": "^1.9.0",
@@ -38,7 +38,7 @@
     "@vueuse/nuxt": "^13.7.0",
     "axe-core": "^4.10.3",
     "compressorjs": "^1.2.1",
-    "eslint": "^9.33.0",
+    "eslint": "^9.34.0",
     "focus-trap": "^7.6.5",
     "happy-dom": "^18.0.1",
     "highlight.js": "^11.11.1",
