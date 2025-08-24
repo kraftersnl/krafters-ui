@@ -65,7 +65,6 @@ async function handleInput(event: Event) {
   if (!target.files?.length) return;
 
   const file = target.files[0];
-  console.log(file);
 
   imagePreview.value = undefined;
 
