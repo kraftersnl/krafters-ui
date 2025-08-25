@@ -68,6 +68,13 @@ const embedUrl = computed(() => {
   return `https://www.youtube-nocookie.com/embed/${videoKey.value}?autoplay=1&disablekb=1`;
 });
 
+const thumbUrl = computed(() => {
+  if (videoProvider.value === 'vimeo') {
+    return videoData.value?.thumbnail_url;
+  }
+  return `https://img.youtube.com/vi/${videoKey.value}/maxresdefault.jpg`;
+});
+
 function playVideo() {
   started.value = true;
 }
@@ -77,7 +84,7 @@ function playVideo() {
   <figure class="video-player" :style="`--aspect-ratio: ${ratio}`">
     <img
       v-if="!started && videoData"
-      :src="videoData?.thumbnail_url"
+      :src="thumbUrl"
       :alt="videoData?.title || ''"
       loading="lazy"
       @click="playVideo"
