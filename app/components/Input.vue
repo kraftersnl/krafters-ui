@@ -53,11 +53,13 @@ const {
 const { t } = useI18n();
 
 const computedErrorMessage = computed(() => {
-  if (errorMessage) return errorMessage;
-  if (type === 'email') {
+  if (errorMessage) {
+    return errorMessage;
+  } else if (type === 'email') {
     return t('form.invalid-email');
-  }
-  if (required && !modelValue) {
+  } else if (type === 'url') {
+    return t('form.invalid-url');
+  } else if (required && !modelValue) {
     return t('form.missing-value', { item: label });
   }
   return t('form.invalid-value');
