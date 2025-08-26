@@ -54,7 +54,7 @@
   "form": {
     "invalid-email": "Geen geldig e-mailadres",
     "invalid-phone": "Telefoonnummer is ongeldig",
-    "invalid-url": "Website URL is ongeldig",
+    "invalid-url": "Geen geldige URL",
     "invalid-value": "Waarde ongeldig",
     "missing-value": "{item} ontbreekt",
     "required": "vereist"
