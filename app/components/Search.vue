@@ -93,7 +93,7 @@ const emit = defineEmits<{
 </template>
 
 <style>
-.search-form {
+.form[role='search'] {
   --search-color: var(--focus-color);
   --column-gap: 0rem;
 
