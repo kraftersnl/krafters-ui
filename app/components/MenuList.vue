@@ -69,6 +69,7 @@ const emit = defineEmits<{
           :label="item.label"
           :icon="item.icon"
           :icon-pos="item.iconPos"
+          :show-arrow-icon="item.showArrowIcon"
           :size="buttonSize"
           button-variant="ghost"
           placement="bottom-start"

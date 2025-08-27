@@ -39,6 +39,7 @@ const {
   interactive?: boolean;
   arrow?: boolean;
   loading?: boolean;
+  showArrowIcon?: boolean;
   trigger?: string;
   hideOnClick?: boolean | 'toggle';
   maxWidth?: number | 'none';
@@ -149,14 +150,20 @@ const emit = defineEmits<{
           <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
           <Icon v-else :name="icon" />
 
-          <span
-            v-if="label"
-            :id="'popover-label-' + id"
-            :class="hideLabel ? 'visuallyhidden' : undefined"
-            class="popover-label"
-          >
-            {{ label }}
-          </span>
+          <template v-if="label">
+            <span
+              :id="'popover-label-' + id"
+              :class="hideLabel ? 'visuallyhidden' : undefined"
+              class="popover-label"
+            >
+              {{ label }}
+            </span>
+
+            <Icon
+              v-if="!hideLabel && showArrowIcon"
+              name="material-symbols:keyboard-arrow-down-rounded"
+            />
+          </template>
 
           <span v-else :id="'popover-label-' + id" class="visuallyhidden">
             {{ $t('aria.popover') }}
