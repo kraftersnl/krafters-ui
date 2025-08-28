@@ -38,6 +38,7 @@ declare global {
     label?: string;
     icon?: string;
     iconPos?: 'start' | 'end';
+    showArrowIcon?: boolean;
     to?: RouteLocationRaw;
     path?: RouteLocationRaw;
     variant?: ButtonVariant;
