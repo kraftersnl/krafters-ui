@@ -190,7 +190,7 @@ defineExpose({
       }
     }
 
-    &:hover {
+    &:hover:not(:disabled) {
       color: var(--color-text);
       border-color: var(--color-grey-graphic);
 
