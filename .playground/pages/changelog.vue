@@ -7,6 +7,17 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <!-- <ChangelogEntry v="1.5.3" date="2025-08-24">
+      <ul>
+        <li>
+          Disable mermaid and katex in MarkdownEditor component
+        </li>
+        <li>
+          Add <code>showArrowIcon</code> prop to Popover component
+        </li>
+      </ul>
+    </ChangelogEntry> -->
+
     <ChangelogEntry v="1.5.2" date="2025-08-24">
       <ul>
         <li>

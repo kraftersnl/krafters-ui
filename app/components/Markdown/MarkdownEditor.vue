@@ -111,6 +111,8 @@ const emit = defineEmits<{
         :theme="colorMode.value === 'light' ? 'light' : 'dark'"
         code-theme="stackoverflow-dark"
         :aria-describedby="`${instruction ? `instruction-${id}` : ''}`"
+        no-mermaid
+        no-katex
         @blur="emit('blur', $event)"
       />
 
