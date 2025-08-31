@@ -215,8 +215,8 @@
 
   /* Animation design tokens */
   --animation-rotate: rotateLeft var(--duration-xl) linear infinite;
-  --animation-shimmer: shimmer var(--duration-xxl) linear infinite;
-  --animation-pulse: pulse var(--duration-xxl) cubic-bezier(0.4, 0, 0.6, 1)
+  --animation-shimmer: shimmer var(--duration-xl) linear infinite;
+  --animation-pulse: pulse var(--duration-xl) cubic-bezier(0.4, 0, 0.6, 1)
     infinite;
   --animation-shake: shake var(--duration-lg) both;
   --animation-target: highlightTarget var(--duration-xxl) forwards;

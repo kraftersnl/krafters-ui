@@ -50,7 +50,7 @@ const computedStyle = computed(() => ({
 
 .skeleton-animation--shimmer {
   --color-1: var(--color-grey-bg);
-  --color-2: var(--color-bg);
+  --color-2: var(--color-grey-light);
   animation: var(--animation-shimmer);
   background: linear-gradient(
     -45deg,
