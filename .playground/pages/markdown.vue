@@ -35,6 +35,14 @@ const fontSizeOptions: { value: FontSize; label: string }[] = [
     <h1>Markdown components</h1>
     <p>Rich Text Editor and markdown parser component.</p>
 
+    <DevOnly>
+      <Card class="mbs-2">
+        <h2>Tiptap Editor</h2>
+
+        <!-- <TiptapEditor v-model="content" /> -->
+      </Card>
+    </DevOnly>
+
     <Card class="mbs-2">
       <div class="section-topbar">
         <h2>Markdown Preview</h2>
@@ -76,10 +84,8 @@ const fontSizeOptions: { value: FontSize; label: string }[] = [
     </Card>
 
     <Card class="mbs-2">
-      <h2>Markdown Editor</h2>
+      <h2>MarkdownEditor component</h2>
       <MarkdownEditor v-model="content" label="Markdown Editor" hide-label />
     </Card>
   </div>
 </template>
-
-<style></style>
