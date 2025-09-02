@@ -8,12 +8,16 @@ const {
   title = undefined,
   name = undefined,
   value = undefined,
+  trueValue = undefined,
+  falseValue = undefined,
   tabindex = undefined,
 } = defineProps<{
   label?: string;
   title?: string;
   name?: string;
-  value?: string | number;
+  value?: string | number | boolean;
+  trueValue?: string | number | boolean;
+  falseValue?: string | number | boolean;
   required?: boolean;
   disabled?: boolean;
   hideLabel?: boolean;
@@ -31,11 +35,15 @@ const {
       `checkbox-variant--${variant}`,
     ]"
   >
+    <input v-if="!model" type="hidden" :value="falseValue" :name="name" />
+
     <input
       :id="id"
       v-model="model"
       :name="name"
       :value="value"
+      :true-value="trueValue"
+      :false-value="falseValue"
       :disabled="disabled"
       :tabindex="tabindex"
       type="checkbox"
