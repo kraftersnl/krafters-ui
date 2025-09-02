@@ -5,7 +5,7 @@ const {
   valueKey = 'value',
   labelKey = 'label',
   disabledKey = 'disabled',
-  nameKey = undefined,
+  nameKey = 'value',
   name = undefined,
   variant = 'default',
   titleKey = undefined,
@@ -23,6 +23,7 @@ const {
   titleKey?: string;
   hideLegend?: boolean;
   disabled?: boolean;
+  inline?: boolean;
   variant?: 'default' | 'krafters';
 }>();
 </script>
@@ -38,7 +39,7 @@ const {
           {{ label }}
         </legend>
 
-        <ul role="list" class="checkbox-list">
+        <ul role="list" :class="['checkbox-list', inline && 'inline']">
           <li v-for="option in options" :key="'checkbox-' + option.value">
             <Checkbox
               v-model="model"
@@ -46,7 +47,7 @@ const {
               :label="option[labelKey]"
               :disabled="disabled || option[disabledKey]"
               :title="titleKey ? option[titleKey] : undefined"
-              :name="name || (nameKey ? option[nameKey] : undefined)"
+              :name="nameKey ? option[nameKey] : name"
               :hide-label="option.hideLabel"
               :tabindex="tabindex"
               :variant="variant"
@@ -69,6 +70,13 @@ const {
   .checkbox-list {
     display: grid;
     gap: 0.5rem;
+
+    &.inline {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 0.5rem;
+      column-gap: 1rem;
+    }
   }
 }
 </style>
