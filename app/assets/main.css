@@ -61,11 +61,9 @@
   --color-input-bg: var(--color-card-bg);
   --color-card-border: var(--color-grey-bg);
   --color-popover-border: var(--color-grey-bg);
-  --color-select-bg: var(--color-bg);
 
   .card {
     --color-input-bg: var(--color-bg);
-    --color-select-bg: var(--color-white);
   }
 }
 
@@ -129,7 +127,6 @@
 
   --color-dialog-bg: var(--color-card-bg);
   --color-input-bg: var(--color-card-bg);
-  --color-select-bg: var(--color-bg);
   --color-card-border: var(--color-grey-bg);
   --color-popover-border: transparent;
 }

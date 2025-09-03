@@ -147,7 +147,7 @@ html:has(.dialog[open]) {
   outline: 1px solid transparent;
 
   &::backdrop {
-    background-color: rgb(0 0 0 / 50%);
+    background-color: rgb(0 0 0 / 75%);
   }
 
   h1 {
@@ -194,7 +194,7 @@ html:has(.dialog[open]) {
   --dialog-padding-inline: 1.25rem;
   --dialog-padding-block: 1.25rem;
 
-  border: 1px solid var(--color-dialog-border);
+  border: 2px solid var(--color-dialog-border);
   border-radius: var(--radius-lg);
   padding-block-end: var(--dialog-padding-block);
 

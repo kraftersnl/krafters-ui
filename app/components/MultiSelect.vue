@@ -211,7 +211,12 @@ function preventEscape(event: KeyboardEvent) {
 :root {
   --ms-font-size: var(--font-size-md);
   --ms-line-height: 1.125;
-  --ms-bg: var(--color-select-bg);
+  --ms-bg: var(--color-input-bg);
+
+  .card {
+    --ms-bg: var(--color-input-bg);
+  }
+
   --ms-bg-disabled: var(--color-white);
   --ms-border-color: var(--color-grey-graphic);
   --ms-border-width: 1px;

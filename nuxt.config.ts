@@ -27,12 +27,9 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
     defaultLocale: 'nl',
     locales: [
-      { code: 'en', language: 'en', file: 'en.json' },
-      { code: 'nl', language: 'nl', file: 'nl.json' },
+      { code: 'en', language: 'en', file: 'en.json', name: 'English' },
+      { code: 'nl', language: 'nl', file: 'nl.json', name: 'Nederlands' },
     ],
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
   },
 
   app: {

@@ -155,7 +155,7 @@ onUnmounted(() => document.removeEventListener('keydown', preventEscape));
 
 .dp__theme_light,
 .dp__theme_dark {
-  --dp-background-color: var(--color-select-bg);
+  --dp-background-color: var(--color-input-bg);
   --dp-text-color: var(--color-text);
   --dp-hover-color: var(--color-grey-bg);
   --dp-hover-text-color: var(--color-text);

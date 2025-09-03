@@ -158,7 +158,7 @@ const computedErrorMessage = computed(() => {
     grid-row: 1;
     grid-column: 1 / -1;
     accent-color: var(--color-text);
-    background-color: var(--color-select-bg);
+    background-color: var(--color-input-bg);
   }
 
   .select-arrow {
