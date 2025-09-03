@@ -15,6 +15,7 @@ useHead({ title: 'Changelog' });
         <li>Improve thumbnail quality for YouTube videos</li>
         <li>Update computed error message in Input component</li>
         <li>Update submit button label for screen readers in Search component</li>
+        <li>Update CSS variables used in Card component</li>
         <li>Add <code>showArrowIcon</code> prop to Popover component</li>
       </ul>
     </ChangelogEntry> -->

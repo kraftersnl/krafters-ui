@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const {
   is = 'div',
-  borderRadius = 'md',
-  borderColor = 'card-border',
+  borderRadius = undefined,
+  borderColor = undefined,
   backgroundColor = undefined,
-  borderWidth = 1,
+  borderWidth = undefined,
   paddingBlock = '1.25rem',
   paddingInline = '1.5rem',
   shadow = false,
@@ -20,13 +20,13 @@ const {
 }>();
 
 const computedStyle = computed(() => ({
-  '--border-radius': `var(--radius-${borderRadius})`,
-  '--border-color': `var(--color-${borderColor})`,
-  '--border-width': `${borderWidth}px`,
+  '--card-radius': borderRadius && `var(--radius-${borderRadius})`,
+  '--card-border-color': borderColor && `var(--color-${borderColor})`,
+  '--card-border-width': borderWidth && `${borderWidth}px`,
   '--card-padding-block': paddingBlock,
   '--card-padding-inline': paddingInline,
   '--card-shadow': shadow && `var(--shadow-${shadow})`,
-  '--color-card-bg': backgroundColor && `var(--color-${backgroundColor})`,
+  '--card-background': backgroundColor && `var(--color-${backgroundColor})`,
 }));
 </script>
 
@@ -40,10 +40,10 @@ const computedStyle = computed(() => ({
 :where(.card) {
   position: relative;
   box-shadow: var(--card-shadow, none);
-  background-color: var(--color-card-bg);
-  border-radius: var(--border-radius);
-  border: var(--border-width, 1px) solid
-    var(--border-color, var(--color-card-border));
+  background-color: var(--card-background, var(--color-card-bg));
+  border: var(--card-border-width, 1px) solid
+    var(--card-border-color, var(--color-card-border));
+  border-radius: var(--card-radius, var(--radius-md));
   padding-block: var(--card-padding-block);
   padding-inline: var(--card-padding-inline);
 
