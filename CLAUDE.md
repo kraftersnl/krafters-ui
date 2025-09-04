@@ -7,13 +7,13 @@ Accessible Vue component library published as a Nuxt Layer.
 ## Architecture
 
 - **Framework**: Nuxt.js 4 with Vue 3 Composition API
-- **Build Tool**: Vite with Vitest for testing
+- **Build Tool**: Vite
+- **Testing**: Vitest with ESLint and TypeScript strict mode
 - **Package Manager**: pnpm
 - **Language**: TypeScript with strict configuration
 - **Styling**: CSS with custom design system
 - **Features**: i18n (EN/NL), dark mode, responsive design, MCP server
 - **MCP Endpoint**: `http://localhost:3003/__mcp/sse` (development)
-- **Location**: `/Users/martijn/Development/krafters-ui`
 - **Repository**: [GitHub](https://github.com/kraftersnl/krafters-ui) | [NPM](https://www.npmjs.com/package/@krafters/ui)
 - **Focus**: Accessibility-first components with WCAG compliance built-in
 
@@ -80,9 +80,7 @@ Accessible Vue component library published as a Nuxt Layer.
 - **VideoPlayer**: Video playback component to play videos from YouTube or Vimeo
 - **AxePopup**: Accessibility testing integration
 
-## Composables
-
-- **useScreenSize**: Responsive design utilities
+## Additional Features
 
 ## Utilities
 
@@ -91,18 +89,6 @@ Accessible Vue component library published as a Nuxt Layer.
 - **markdown**: Markdown processing
 - **sort**: Sorting algorithms
 - **index**: General utility functions
-
-## Internationalization
-
-- **Supported Languages**: English (en), Dutch (nl)
-- **Location**: `/i18n/locales/`
-
-## Testing & Quality
-
-- **Testing Framework**: Vitest
-- **Linting**: ESLint with custom configuration
-- **Type Checking**: TypeScript strict mode
-- **Accessibility**: WCAG compliance built-in
 
 ## Key Features
 
@@ -154,24 +140,109 @@ function handleClick() {
 </template>
 ```
 
+### Nuxt Layer Usage
+
+Krafters UI can be used in three different ways:
+
+#### 1. Extend from GitHub Repository (Development)
+
+```ts
+defineNuxtConfig({
+  extends: ['github:kraftersnl/krafters-ui'],
+});
+```
+
+#### 2. Extend from NPM Package (Production)
+
+First install the package:
+
+```bash
+pnpm i @krafters/ui
+```
+
+Then configure your `nuxt.config.ts`:
+
+```ts
+defineNuxtConfig({
+  extends: ['@krafters/ui'],
+});
+```
+
+### Local development
+
+Use local Krafters UI repository:
+
+```ts
+defineNuxtConfig({
+  extends: ['../krafters-ui'],
+});
+```
+
+### Documentation
+
+The playground is available at `http://localhost:3003` and serves as interactive documentation with live examples of all components, their props, and external dependencies.
+
+## Icons
+
+Krafters UI components support icons through the `icon` prop, powered by [@nuxt/icon](https://nuxt.com/modules/icon) and Iconify. This provides access to over 200,000 open-source vector icons.
+
+### Icon Library Preference
+
+We primarily use the **Material Symbols** library for consistency across the design system:
+
+- **Preferred**: `material-symbols` with rounded variants
+- **Default Style**: `outline-rounded` (outlined icons with rounded corners)
+- **Alternative**: `rounded` (filled icons with rounded corners) when design requires
+- **Fallback**: Default rounded variant (no suffix) when outline variant is not available
+- **Fallback**: Default variant (no suffix) when both outline and rounded variants are not available
+
+### Usage Examples
+
+```vue
+<template>
+  <!-- Using outline-rounded variant (preferred) -->
+  <Button icon="material-symbols:home-outline-rounded" label="Home" />
+
+  <!-- Using rounded variant (without outline suffix) when the design requires it -->
+  <Button icon="material-symbols:star-rounded" label="Favorite" />
+
+  <!-- Using default variant when no rounded variants are available -->
+  <Button icon="material-symbols:account-circle" label="Profile" />
+
+  <!-- Other components with icon support -->
+  <Input icon="material-symbols:search-rounded" label="Search" />
+  <Chip icon="material-symbols:check-rounded" label="Completed" />
+</template>
+```
+
+### Icon Naming Convention
+
+Material Symbols icons follow this pattern:
+
+- `material-symbols:{icon-name}-{variant}`
+- Common variants: `outline-rounded`, `rounded`, `outline`, `sharp`
+
+### Finding Icons
+
+1. **Browse**: Visit [Material Symbols collection](https://icones.js.org/collection/material-symbols) on icones.js.org
+2. **Search**: Use the search functionality to find specific icons
+3. **Preview**: Hover over icons to see their names and variants
+4. **Filter**: Use the variant filters to find outline-rounded, rounded, or default variants
+
+### Best Practices
+
+- **Consistency**: Stick to Material Symbols library when possible
+- **Accessibility**: Icons should be accompanied by text labels or proper ARIA labels
+- **Size**: Icons automatically scale with the component's size
+- **Performance**: Icons are loaded on-demand to keep bundle size minimal
+- **Layout Shift**: When an icon causes layout shift, add it to the `defaultIcons` array in `utils` (used by `nuxt.config`)
+
 ## Development
 
-### Development Server
-
 ```bash
-pnpm dev
-```
-
-### Linting
-
-```bash
-pnpm run lint
-```
-
-### Testing
-
-```bash
-pnpm run test
+pnpm dev          # Start development server
+pnpm run lint     # Run ESLint
+pnpm run test     # Run tests with Vitest
 ```
 
 ---
