@@ -676,7 +676,7 @@
 /* Tippy classes for Popover and Tooltip components */
 .tippy-box[data-theme~='krafters'] {
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-3);
   color: var(--color-text);
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-popover-border);
