@@ -1,19 +1,17 @@
 <script setup lang="ts">
 useHead({ title: 'Non modal dialog pattern' });
 
-const { t } = useI18n();
-
 const popoverActions = [
   {
     id: 'edit',
-    label: t('general.edit'),
+    label: $t('general.edit'),
     icon: 'material-symbols:edit-outline-rounded',
     disabled: true,
     tooltip: 'Tooltip content to explain why the option is disabled.',
   },
   {
     id: 'duplicate',
-    label: t('general.duplicate'),
+    label: $t('general.duplicate'),
     icon: 'material-symbols:content-copy-outline-rounded',
     divider: true,
     disabled: true,
@@ -21,7 +19,7 @@ const popoverActions = [
   },
   {
     id: 'delete',
-    label: t('general.delete'),
+    label: $t('general.delete'),
     icon: 'material-symbols:delete-outline-rounded',
   },
 ];

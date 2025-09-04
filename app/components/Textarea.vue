@@ -32,14 +32,12 @@ const {
   variant?: InputVariant;
 }>();
 
-const { t } = useI18n();
-
 const computedErrorMessage = computed(() => {
   if (errorMessage) return errorMessage;
   if (required && !model.value) {
-    return t('form.missing-value', { item: label });
+    return $t('form.missing-value', { item: label });
   }
-  return t('form.invalid-value');
+  return $t('form.invalid-value');
 });
 
 const textareaInput = ref('');

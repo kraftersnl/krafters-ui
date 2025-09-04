@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@iconify-json/material-symbols": "^1.2.33",
+    "@iconify-json/svg-spinners": "^1.2.4",
     "@mdit/plugin-attrs": "^0.23.1",
     "@mdit/plugin-mark": "^0.22.1",
     "@nuxt/eslint": "^1.9.0",

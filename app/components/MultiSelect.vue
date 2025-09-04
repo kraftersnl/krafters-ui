@@ -2,8 +2,6 @@
 import Multiselect from '@vueform/multiselect';
 import type MultiselectProps from '@vueform/multiselect';
 
-const { t } = useI18n();
-
 const model = defineModel<MultiselectProps['modelValue']>();
 
 // https://github.com/vueform/multiselect#basic-props
@@ -48,7 +46,7 @@ function formatMultipleLabels(values) {
   if (values.length === 1) {
     return values[0][labelKey];
   }
-  return `${values.length} ${itemsSelectedLabel || t('multiselect.items-selected')}`;
+  return `${values.length} ${itemsSelectedLabel || $t('multiselect.items-selected')}`;
 }
 
 function selectAll() {

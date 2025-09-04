@@ -15,8 +15,6 @@ const {
   ariaLabel?: string;
 }>();
 
-const { t } = useI18n();
-
 const computedStyle = computed(() => ({
   '--font-size': `var(--font-size-${fontSize})`,
   '--icon-size': `var(--font-size-${iconSize})`,
@@ -35,10 +33,10 @@ const computedIcon = computed(() => {
 
 const computedAriaLabel = computed(() => {
   if (ariaLabel) return ariaLabel;
-  if (color === 'blue') return t('aria.callout-info');
-  if (color === 'green') return t('aria.callout-success');
-  if (color === 'red') return t('aria.callout-error');
-  if (color === 'orange') return t('aria.callout-warning');
+  if (color === 'blue') return $t('aria.callout-info');
+  if (color === 'green') return $t('aria.callout-success');
+  if (color === 'red') return $t('aria.callout-error');
+  if (color === 'orange') return $t('aria.callout-warning');
   return ariaLabel;
 });
 </script>

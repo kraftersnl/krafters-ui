@@ -32,8 +32,6 @@ const {
   maxHeight?: number;
 }>();
 
-const { t } = useI18n();
-
 const fileInputRef = useTemplateRef<HTMLInputElement>('fileInput');
 const imagePreview = ref(placeholderUrl);
 const dragover = ref(false);
@@ -46,10 +44,10 @@ defineExpose({
 const computedErrorMessage = computed(() => {
   if (fileInputRef.value?.files?.[0]) {
     if (fileInputRef.value?.files?.[0].size / 1024 > maxFileSize) {
-      return t('files.too-big');
+      return $t('files.too-big');
     }
   }
-  return t('form.missing-value', { item: label });
+  return $t('form.missing-value', { item: label });
 });
 
 function handleDragOver() {
