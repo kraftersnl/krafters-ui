@@ -14,7 +14,7 @@
     "generate": "nuxt generate .playground",
     "preview": "nuxt preview .playground",
     "postinstall": "nuxt prepare .playground",
-    "test": "vitest",
+    "test": "vitest run",
     "lint": "eslint .",
     "format": "prettier . --write"
   },

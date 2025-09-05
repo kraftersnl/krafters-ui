@@ -31,7 +31,7 @@ const {
   hideLabel?: boolean;
   icon?: string;
   iconPos?: 'start' | 'end';
-  buttonVariant?: string;
+  buttonVariant?: ButtonVariant;
   size?: 'sm' | 'md' | 'lg';
   placement?: PopperPlacement;
   offset?: [number, number];

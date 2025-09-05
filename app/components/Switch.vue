@@ -11,7 +11,7 @@ const {
   label: string;
   disabled?: boolean;
   id?: string;
-  variant?: string;
+  variant?: 'default' | 'outline';
   name?: string;
   trueValue?: string | number | boolean;
   falseValue?: string | number | boolean;

@@ -19,7 +19,7 @@ const {
   hideLabel?: boolean;
   tabindex?: string;
   id?: string;
-  variant?: 'default' | 'krafters';
+  variant?: 'default' | 'outline' | 'krafters';
 }>();
 </script>
 
@@ -119,6 +119,27 @@ const {
     &:checked::after {
       box-shadow: inset 0 0 0 8px var(--color-accent);
     }
+  }
+}
+
+.radio-variant--outline {
+  position: relative;
+  border-radius: var(--radius-full);
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-grey-graphic);
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem 1rem;
+
+  label {
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  &:not(:disabled, :focus-visible):hover {
+    border-color: var(--focus-color);
   }
 }
 

@@ -12,6 +12,7 @@ useHead({ title: 'Changelog' });
         <li>Disable mermaid and katex in MarkdownEditor component</li>
         <li>Update value of <code>--size-lg</code> design token to 1.5rem</li>
         <li>Remove <code>--color-select-bg</code> design token</li>
+        <li>Add <code>outline</code> variant to Radio component</li>
         <li>Improve thumbnail quality for YouTube videos</li>
         <li>Update computed error message in Input component</li>
         <li>Update submit button label for screen readers in Search component</li>

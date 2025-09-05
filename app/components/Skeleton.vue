@@ -9,7 +9,7 @@ const {
   size?: string;
   width?: string;
   radius?: string;
-  variant?: string;
+  variant?: 'default' | 'circle';
   animation?: string;
 }>();
 
