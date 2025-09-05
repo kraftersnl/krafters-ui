@@ -4,15 +4,13 @@ import { dirname, join } from 'path';
 const currentDir = dirname(fileURLToPath(import.meta.url));
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  $development: {
+    modules: ['@nuxtjs/html-validator'],
+  },
 
   pages: true,
 
   css: [join(currentDir, './app/assets/main.css')],
-
-  $development: {
-    modules: ['@nuxtjs/html-validator'],
-  },
 
   modules: [
     '@nuxt/eslint',
@@ -56,9 +54,9 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2025-01-08',
-
   future: {
     compatibilityVersion: 4,
   },
+
+  compatibilityDate: '2025-01-08',
 });

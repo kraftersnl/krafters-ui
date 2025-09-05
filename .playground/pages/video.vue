@@ -23,14 +23,12 @@ const vimeo = ref('https://vimeo.com/969786906');
         <Input v-model="youtube" label="URL" hide-label />
       </Card>
 
-      <DevOnly>
-        <Card>
-          <h2>Vimeo</h2>
+      <Card>
+        <h2>Vimeo</h2>
 
-          <VideoPlayer :url="vimeo" />
-          <Input v-model="vimeo" label="URL" hide-label />
-        </Card>
-      </DevOnly>
+        <VideoPlayer :url="vimeo" />
+        <Input v-model="vimeo" label="URL" hide-label />
+      </Card>
     </div>
   </div>
 </template>
