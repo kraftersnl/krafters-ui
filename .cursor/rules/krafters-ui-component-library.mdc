@@ -118,6 +118,10 @@ defineNuxtConfig({
 - **sort**: Sorting algorithms
 - **index**: General utility functions
 
+## 💡 MCP Integration
+
+For real-time, detailed project structure information, connect to the Nuxt MCP endpoint at `http://localhost:3003/__mcp/sse` during development.
+
 ## Documentation
 
 The playground is available at `http://localhost:3003` and serves as interactive documentation with live examples of all components, their props, and external dependencies.
