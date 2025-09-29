@@ -7,19 +7,23 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <!-- <ChangelogEntry v="1.5.3" date="2025-09-08">
+    <ChangelogEntry v="1.5.3" date="2025-09-08">
       <ul>
+        <li>Feature: paste files from clipboard to FileInput component</li>
         <li>Disable mermaid and katex in MarkdownEditor component</li>
         <li>Update value of <code>--size-lg</code> design token to 1.5rem</li>
         <li>Remove <code>--color-select-bg</code> design token</li>
         <li>Add <code>outline</code> variant to Radio component</li>
+        <li>Add CSS utility class for <code>.divider</code></li>
+        <li>Add <code>showArrowIcon</code> prop to Popover component</li>
         <li>Improve thumbnail quality for YouTube videos</li>
         <li>Update computed error message in Input component</li>
-        <li>Update submit button label for screen readers in Search component</li>
+        <li>
+          Update submit button label for screen readers in Search component
+        </li>
         <li>Update CSS variables used in Card component</li>
-        <li>Add <code>showArrowIcon</code> prop to Popover component</li>
       </ul>
-    </ChangelogEntry> -->
+    </ChangelogEntry>
 
     <ChangelogEntry v="1.5.2" date="2025-08-24">
       <ul>

@@ -32,14 +32,44 @@ const {
   maxHeight?: number;
 }>();
 
-const fileInputRef = useTemplateRef<HTMLInputElement>('fileInput');
+const fileInputRef = ref<HTMLInputElement>();
 const imagePreview = ref(placeholderUrl);
 const dragover = ref(false);
 const validity = ref(true);
 
+function handlePaste(event: ClipboardEvent) {
+  const file = event.clipboardData?.files?.[0];
+
+  if (fileInputRef.value?.files && event.clipboardData?.files) {
+    fileInputRef.value.files = event.clipboardData?.files;
+  }
+
+  if (file) {
+    handleFile(file);
+    emit('paste', file);
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('paste', (event: ClipboardEvent) => {
+    handlePaste(event);
+  });
+});
+
+onUnmounted(() => {
+  window.removeEventListener('paste', handlePaste);
+});
+
 defineExpose({
   validity,
+  imagePreview,
+  handleFile,
 });
+
+const emit = defineEmits<{
+  paste: [file: File];
+  'update:model-value': [file: File];
+}>();
 
 const computedErrorMessage = computed(() => {
   if (fileInputRef.value?.files?.[0]) {
@@ -58,45 +88,50 @@ function handleDragLeave() {
   dragover.value = false;
 }
 
-async function handleInput(event: Event) {
-  const target = event.target as HTMLInputElement;
-  if (!target.files?.length) return;
-
-  const file = target.files[0];
-
-  imagePreview.value = undefined;
-
-  if (!file) return;
-
-  if (file.size / 1024 > maxFileSize) {
-    validity.value = false;
-  } else if (file && required) {
-    validity.value = !!file;
-  } else {
-    validity.value = true;
+function compressFile(file: File) {
+  if (!file?.type?.includes('image') || file?.type?.includes('gif')) {
+    emit('update:model-value', file);
+    return file;
   }
 
+  new compressor(file, {
+    quality: quality,
+    maxWidth: maxWidth,
+    maxHeight: maxHeight,
+    convertSize: convertSize,
+
+    success(result: File) {
+      const compressedFile = new File([result], result.name, {
+        type: result.type,
+      });
+
+      emit('update:model-value', compressedFile);
+      return compressedFile;
+    },
+  });
+}
+
+function handleImagePreview(file: File) {
+  if (imagePreview.value) {
+    URL.revokeObjectURL(imagePreview.value);
+  }
   if (file?.type?.includes('image')) {
     imagePreview.value = URL.createObjectURL(file);
   }
+}
 
-  if (file?.type?.includes('image') && !file?.type?.includes('gif')) {
-    new compressor(file, {
-      quality: quality,
-      maxWidth: maxWidth,
-      maxHeight: maxHeight,
-      convertSize: convertSize,
+function handleFile(file?: File) {
+  if (!file) return;
 
-      success(result: File) {
-        const compressedFile = new File([result], result.name, {
-          type: result.type,
-        });
-        model.value = compressedFile;
-      },
-    });
-  } else {
-    model.value = file;
-  }
+  handleImagePreview(file);
+  model.value = compressFile(file);
+}
+
+function handleFileInput(event: Event) {
+  const target = event.target as HTMLInputElement;
+  const file = target.files?.[0];
+
+  handleFile(file);
 }
 
 function removeFile() {
@@ -110,6 +145,7 @@ watch(
   () => {
     if (!model.value) {
       imagePreview.value = undefined;
+
       if (fileInputRef.value?.value) {
         fileInputRef.value.value = '';
       }
@@ -131,7 +167,7 @@ watch(
     <div class="file-input">
       <input
         :id="id"
-        ref="fileInput"
+        ref="fileInputRef"
         type="file"
         :name="name"
         :required="required"
@@ -143,7 +179,7 @@ watch(
         @dragover="handleDragOver"
         @dragleave="handleDragLeave"
         @drop="handleDragLeave"
-        @change="handleInput"
+        @change="handleFileInput"
       />
 
       <button
