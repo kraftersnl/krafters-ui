@@ -81,11 +81,13 @@ const emit = defineEmits<{
   --col-width-auto: auto;
   --col-width-20: calc(20% - calc(var(--column-gap) / 5 * 4));
   --col-width-25: calc(25% - calc(var(--column-gap) / 4 * 3));
+  --col-width-30: calc(30% - calc(var(--column-gap) / 10 * 7));
   --col-width-33: calc(33.333% - calc(var(--column-gap) / 3 * 2));
   --col-width-40: calc(40% - calc(var(--column-gap) / 5 * 3));
   --col-width-50: calc(50% - calc(var(--column-gap) / 2));
   --col-width-60: calc(60% - calc(var(--column-gap) / 5 * 2));
   --col-width-67: calc(66.666% - calc(var(--column-gap) / 3));
+  --col-width-70: calc(70% - calc(var(--column-gap) / 10 * 3));
   --col-width-75: calc(75% - calc(var(--column-gap) / 4));
   --col-width-80: calc(80% - calc(var(--column-gap) / 5));
 
