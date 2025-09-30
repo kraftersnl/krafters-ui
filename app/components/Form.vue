@@ -102,7 +102,7 @@ const emit = defineEmits<{
     flex-grow: 1;
   }
 
-  @container (min-width: 240px) {
+  @container (min-width: 280px) {
     > * {
       flex-basis: var(--col-width, 100%);
     }
