@@ -114,7 +114,9 @@ function compressFile(file: File) {
 function handleImagePreview(file: File) {
   if (imagePreview.value) {
     URL.revokeObjectURL(imagePreview.value);
+    imagePreview.value = undefined;
   }
+
   if (file?.type?.includes('image')) {
     imagePreview.value = URL.createObjectURL(file);
   }
@@ -136,22 +138,14 @@ function handleFileInput(event: Event) {
 
 function removeFile() {
   model.value = undefined;
-  if (imagePreview.value) URL.revokeObjectURL(imagePreview.value);
+
+  if (imagePreview.value) {
+    URL.revokeObjectURL(imagePreview.value);
+    imagePreview.value = placeholderUrl;
+  }
+
   fileInputRef.value?.focus();
 }
-
-watch(
-  () => model.value,
-  () => {
-    if (!model.value) {
-      imagePreview.value = undefined;
-
-      if (fileInputRef.value?.value) {
-        fileInputRef.value.value = '';
-      }
-    }
-  },
-);
 </script>
 
 <template>
@@ -247,7 +241,6 @@ watch(
 
 .file-input-button {
   position: relative;
-  min-height: 8rem;
   width: 100%;
   padding: 0;
   color: var(--color-grey-graphic);
@@ -257,12 +250,15 @@ watch(
   outline: 1px solid transparent;
 
   .iconify {
+    display: block;
     margin-inline: 6rem;
+    padding-block: 3rem;
     font-size: var(--font-size-xxxl);
   }
 
   .preview-image {
-    border-radius: var(--radius-md);
+    object-fit: contain;
+    min-width: 5rem;
   }
 
   &.has-image-preview {
@@ -285,11 +281,14 @@ watch(
 .file-preview {
   word-break: break-all;
   margin-block: 0.35em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.25rem;
   font-size: var(--font-size-xs);
   color: var(--color-grey-text);
 
   .button {
-    margin-inline-start: 0.5em;
   }
 
   .file-name {
@@ -299,6 +298,9 @@ watch(
 
 .file-input {
   position: relative;
+  display: grid;
+  margin-block-start: 0.25rem;
+  width: fit-content;
 
   input[type='file'] {
     -webkit-tap-highlight-color: transparent;
