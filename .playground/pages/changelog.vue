@@ -7,7 +7,7 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <ChangelogEntry v="1.5.3" date="2025-09-08">
+    <ChangelogEntry v="1.5.3" date="2025-10-06">
       <ul>
         <li>Feature: paste files from clipboard to FileInput component</li>
         <li>Disable mermaid and katex in MarkdownEditor component</li>
