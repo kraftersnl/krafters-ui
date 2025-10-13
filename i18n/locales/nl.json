@@ -20,6 +20,13 @@
     "user-menu": "Gebruikersmenu"
   },
 
+  "date": {
+    "just-now": "zojuist",
+    "seconds-ago": "{n} seconde geleden | {n} seconden geleden",
+    "minutes-ago": "{n} minuut geleden | {n} minuten geleden",
+    "hours-ago": "{n} uur geleden | {n} uur geleden"
+  },
+
   "datepicker": {
     "input": "Datumveld",
     "selectText": "Selecteren",

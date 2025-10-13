@@ -7,6 +7,15 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.4" date="2025-10-13">
+      <ul>
+        <li>
+          Feature: add <code>formatDate</code> function to useDate composable
+        </li>
+        <li>Fix: selection color of text in MarkdownEditor</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.3" date="2025-10-06">
       <ul>
         <li>Feature: paste files from clipboard to FileInput component</li>

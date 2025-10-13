@@ -11,9 +11,9 @@ const step = ref(1);
 const showTicks = ref(true);
 const showOutput = ref(false);
 const date = ref();
-const selectedCheckboxes = ref([]);
+const selectedCheckboxes = ref<string[]>([]);
 const showOptionIcons = ref(true);
-const selectedRadio = ref();
+const selectedRadio = ref<string>();
 const raw = ref();
 const disabled = ref(false);
 const required = ref(false);
@@ -244,8 +244,7 @@ function handleSubmit(formData: FormData) {
         <Checkbox
           v-model="checked"
           :value="checked"
-          :true-value="true"
-          name="checkbox"
+          name="single-checkbox"
           label="Checkbox"
         />
 
@@ -259,7 +258,7 @@ function handleSubmit(formData: FormData) {
               :variant="inputVariant"
               :disabled="disabled"
               label="Checkbox group"
-              name="checkboxes"
+              name="checkbox-group[]"
               style="--col-width: var(--col-width-auto)"
             />
           </section>

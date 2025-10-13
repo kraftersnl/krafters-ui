@@ -20,6 +20,13 @@
     "user-menu": "User Menu"
   },
 
+  "date": {
+    "just-now": "just now",
+    "seconds-ago": "{n} second ago | {n} seconds ago",
+    "minutes-ago": "{n} minute ago | {n} minutes ago",
+    "hours-ago": "{n} hour ago | {n} hours ago"
+  },
+
   "datepicker": {
     "input": "Datepicker input",
     "selectText": "Select",
