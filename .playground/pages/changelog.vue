@@ -7,7 +7,7 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <ChangelogEntry v="1.5.4" date="2025-10-13">
+    <ChangelogEntry v="1.5.4" date="2025-10-14">
       <ul>
         <li>
           Feature: add <code>formatDate</code> function to useDate composable
