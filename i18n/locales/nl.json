@@ -198,6 +198,11 @@
     "yes": "ja"
   },
 
+  "language": {
+    "en": "Engels",
+    "nl": "Nederlands"
+  },
+
   "meter": {
     "value-of-max": "{value} van {max}"
   },
