@@ -127,38 +127,40 @@ const emit = defineEmits<{
       <Chip v-if="required" size="xs" :label="$t('form.required')" />
     </label>
 
-    <input
-      :id="id"
-      ref="input"
-      class="input"
-      :value="modelValue"
-      :name="name"
-      :title="title"
-      :type="type || 'text'"
-      :autocomplete="autocomplete"
-      :inputmode="inputMode"
-      :pattern="inputPattern"
-      :required="required"
-      :disabled="disabled"
-      :readonly="readonly"
-      :autofocus="autofocus"
-      :placeholder="placeholder"
-      :minlength="minlength"
-      :maxlength="maxlength"
-      :min="min"
-      :max="max"
-      :tabindex="tabindex"
-      :aria-describedby="`
+    <div class="input-wrapper">
+      <input
+        :id="id"
+        ref="input"
+        class="input"
+        :value="modelValue"
+        :name="name"
+        :title="title"
+        :type="type || 'text'"
+        :autocomplete="autocomplete"
+        :inputmode="inputMode"
+        :pattern="inputPattern"
+        :required="required"
+        :disabled="disabled"
+        :readonly="readonly"
+        :autofocus="autofocus"
+        :placeholder="placeholder"
+        :minlength="minlength"
+        :maxlength="maxlength"
+        :min="min"
+        :max="max"
+        :tabindex="tabindex"
+        :aria-describedby="`
         ${ariaDescribedby || ''}
         ${instruction ? `instruction-${id}` : ''}
         ${id ? `error-${id}` : ''}
       `"
-      @focus="emit('focus', $event)"
-      @blur="emit('blur', $event)"
-      @input="handleInput"
-    />
+        @focus="emit('focus', $event)"
+        @blur="emit('blur', $event)"
+        @input="handleInput"
+      />
 
-    <Icon v-if="icon" :name="icon" />
+      <Icon v-if="icon" :name="icon" />
+    </div>
 
     <div
       :id="id ? `error-${id}` : undefined"
@@ -180,6 +182,10 @@ const emit = defineEmits<{
 
 <style>
 .form-field-wrapper {
+  .input-wrapper {
+    position: relative;
+  }
+
   .input {
     background-color: var(--color-input-bg);
 
@@ -191,6 +197,8 @@ const emit = defineEmits<{
       position: absolute;
       z-index: 1;
       left: 0.5rem;
+      inset-block: 0;
+      margin-block: auto;
       color: var(--color-grey-text);
     }
   }
@@ -200,16 +208,6 @@ const emit = defineEmits<{
   .input {
     height: 2rem;
     padding-inline: 0.5em;
-
-    + .iconify {
-      top: 1.875em;
-    }
-  }
-
-  &:has(label.visuallyhidden) {
-    .input + .iconify {
-      top: 0.5em;
-    }
   }
 }
 
@@ -217,16 +215,6 @@ const emit = defineEmits<{
   .input {
     height: 2.25rem;
     padding-inline: 0.5em;
-
-    + .iconify {
-      top: 2em;
-    }
-  }
-
-  &:has(label.visuallyhidden) {
-    .input + .iconify {
-      top: 0.65em;
-    }
   }
 }
 
@@ -234,16 +222,6 @@ const emit = defineEmits<{
   .input {
     height: 2.5rem;
     padding-inline: 0.65em;
-
-    + .iconify {
-      top: 2.125em;
-    }
-  }
-
-  &:has(label.visuallyhidden) {
-    .input + .iconify {
-      top: 0.75em;
-    }
   }
 }
 
@@ -251,16 +229,6 @@ const emit = defineEmits<{
   .input {
     height: 3rem;
     padding-inline: 0.75em;
-
-    + .iconify {
-      top: 2.375em;
-    }
-  }
-
-  &:has(label.visuallyhidden) {
-    .input + .iconify {
-      top: 0.65em;
-    }
   }
 }
 
