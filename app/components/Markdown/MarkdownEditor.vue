@@ -212,11 +212,6 @@ const emit = defineEmits<{
     --md-theme-quote-bg-color: var(--color-accent-bg);
     --md-theme-quote-border: 5px solid var(--color-accent);
   }
-
-  ::selection {
-    background-color: var(--color-grey-light) !important;
-    color: var(--color-black) !important;
-  }
 }
 
 .md-editor-toolbar-wrapper .md-editor-toolbar-item {
