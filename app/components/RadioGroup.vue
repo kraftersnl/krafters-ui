@@ -25,7 +25,7 @@ const {
   required?: boolean;
   disabled?: boolean;
   inline?: boolean;
-  variant?: 'default' | 'krafters';
+  variant?: 'default' | 'krafters' | 'outline';
 }>();
 </script>
 

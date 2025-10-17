@@ -154,6 +154,7 @@ const emit = defineEmits<{
 
     &[readonly] {
       background-color: var(--color-grey-bg);
+      border-color: transparent;
       caret-color: transparent;
     }
 
