@@ -12,6 +12,10 @@ useHead({ title: 'Changelog' });
         <li>
           Feature: add <code>formatDate</code> function to useDate composable
         </li>
+        <li>
+          Feature: improve <code>readonly</code> styling for Input and Textarea
+          components
+        </li>
         <li>Fix: selection color of text in MarkdownEditor</li>
       </ul>
     </ChangelogEntry>

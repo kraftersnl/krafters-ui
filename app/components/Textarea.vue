@@ -152,6 +152,11 @@ const emit = defineEmits<{
     min-height: 7.5rem;
     padding-inline-end: 1.5rem;
 
+    &[readonly] {
+      background-color: var(--color-grey-bg);
+      caret-color: transparent;
+    }
+
     &.autoresize {
       height: auto;
       overflow: auto;

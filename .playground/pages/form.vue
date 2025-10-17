@@ -16,6 +16,7 @@ const showOptionIcons = ref(true);
 const selectedRadio = ref<string>();
 const raw = ref();
 const disabled = ref(false);
+const readonly = ref(false);
 const required = ref(false);
 const checked = ref(false);
 
@@ -214,6 +215,7 @@ function handleSubmit(formData: FormData) {
           label="Input"
           :variant="inputVariant"
           :disabled="disabled"
+          :readonly="readonly"
           :size="inputSize"
           style="--col-width: var(--col-width-60)"
         />
@@ -239,6 +241,7 @@ function handleSubmit(formData: FormData) {
           label="Textarea"
           :variant="inputVariant"
           :disabled="disabled"
+          :readonly="readonly"
         />
 
         <Checkbox
@@ -285,6 +288,14 @@ function handleSubmit(formData: FormData) {
                 v-model="required"
                 name="switch-required"
                 label="Require form inputs"
+                variant="outline"
+                class="demo-switch"
+              />
+            </li>
+            <li>
+              <Switch
+                v-model="readonly"
+                label="Readonly form inputs"
                 variant="outline"
                 class="demo-switch"
               />

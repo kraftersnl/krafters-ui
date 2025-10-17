@@ -189,6 +189,11 @@ const emit = defineEmits<{
   .input {
     background-color: var(--color-input-bg);
 
+    &[readonly] {
+      background-color: var(--color-grey-bg);
+      caret-color: transparent;
+    }
+
     &:has(+ .iconify) {
       padding-inline-start: 1.75rem;
     }
