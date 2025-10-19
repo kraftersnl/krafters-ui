@@ -17,14 +17,6 @@ const {
   ariaLabel?: string;
 }>();
 
-function computeIcon(tab: TabOption) {
-  if (!tab.icon) return '';
-  if (tab.icon?.includes(':')) {
-    return tab.icon;
-  }
-  return `heroicons-solid:${tab.icon}`;
-}
-
 const tabElements = ref<HTMLButtonElement[]>([]);
 const tabpanelRef = useTemplateRef('tabpanel');
 
@@ -108,7 +100,7 @@ defineExpose({
             aria-hidden="true"
             v-html="tab.icon"
           />
-          <Icon v-else-if="computeIcon(tab)" :name="computeIcon(tab)" />
+          <Icon v-else-if="tab.icon" :name="tab.icon" />
           <span class="tab-text">{{ tab.label }}</span>
         </button>
       </template>
@@ -178,6 +170,8 @@ defineExpose({
 
     .iconify {
       color: var(--color-grey-graphic);
+      font-size: larger;
+      margin-inline-end: 0.125rem;
     }
 
     .html-icon {
@@ -190,7 +184,7 @@ defineExpose({
       }
     }
 
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled, [aria-selected='true']) {
       color: var(--color-text);
       border-color: var(--color-grey-graphic);
 

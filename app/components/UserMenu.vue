@@ -3,6 +3,7 @@ const props = defineProps<{
   label?: string;
   icon?: string;
   logout?: CallableFunction;
+  avatar?: string;
 }>();
 
 const triggerRef = useTemplateRef<ButtonComponent>('menuTrigger');
@@ -51,7 +52,18 @@ defineExpose({
 
 <template>
   <div class="user-menu-wrapper" @keydown.esc="hideMenu">
+    <button
+      v-if="avatar"
+      @click="toggleMenu"
+      type="button"
+      class="avatar-button"
+    >
+      <img :src="avatar" class="avatar-image" />
+      <span class="visuallyhidden">{{ $t('general.avatar') }}</span>
+    </button>
+
     <Button
+      v-else
       ref="menuTrigger"
       :icon="icon"
       :label="label"
@@ -109,6 +121,23 @@ defineExpose({
     height: 2.5rem;
     font-weight: var(--font-weight-bold);
     background-color: var(--color-grey-bg);
+    border-radius: var(--radius-full);
+  }
+
+  .avatar-button {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: var(--radius-full);
+
+    .avatar-image {
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 
