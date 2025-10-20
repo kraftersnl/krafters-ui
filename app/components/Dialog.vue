@@ -9,6 +9,7 @@ const {
   ariaLabel = undefined,
   ariaLabelledby = undefined,
   role = undefined,
+  headerIcon = undefined,
 } = defineProps<{
   label?: string;
   ariaLabel?: string;
@@ -20,6 +21,7 @@ const {
   position?: DialogPosition;
   closeButtonVariant?: ButtonVariant;
   role?: 'dialog' | 'alertdialog';
+  headerIcon?: string;
 }>();
 
 const dialogTemplateRef = useTemplateRef<HTMLDialogElement>('dialog');
@@ -90,7 +92,10 @@ defineExpose({
     <FocusLoop :is-visible="isVisible" :modal="modal">
       <div class="dialog-header-wrapper">
         <div class="dialog-header">
-          <h1 v-if="label" :id="id">{{ label }}</h1>
+          <h1 v-if="label" :id="id" class="dialog-title-wrapper">
+            <Icon v-if="headerIcon" :name="headerIcon" />
+            <span class="dialog-title">{{ label }}</span>
+          </h1>
 
           <Button
             icon="material-symbols:close-rounded"
@@ -111,7 +116,12 @@ defineExpose({
       </div>
 
       <div v-if="$slots.buttons" class="dialog-buttons">
-        <Button :label="$t('general.cancel')" size="lg" @click="closeDialog" />
+        <Button
+          :label="$t('general.cancel')"
+          size="lg"
+          variant="outline"
+          @click="closeDialog"
+        />
 
         <slot name="buttons" v-bind="{ closeDialog }" />
       </div>
@@ -167,6 +177,19 @@ html:has(.dialog[open]) {
     }
   }
 
+  .dialog-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    > .iconify {
+      font-size: larger;
+      flex-shrink: 0;
+    }
+
+    /* > .dialog-title { */
+  }
+
   .close-button {
     z-index: 9;
     position: absolute;
@@ -192,11 +215,11 @@ html:has(.dialog[open]) {
 
 .dialog-position--center {
   --dialog-padding-inline: 1.25rem;
-  --dialog-padding-block: 1.25rem;
+  --dialog-padding-block: 1.5rem 1.25rem;
 
   border: 2px solid var(--color-dialog-border);
   border-radius: var(--radius-lg);
-  padding-block-end: var(--dialog-padding-block);
+  padding-block: var(--dialog-padding-block);
 
   &[open] {
     animation: fadeIn var(--duration-md) forwards;
