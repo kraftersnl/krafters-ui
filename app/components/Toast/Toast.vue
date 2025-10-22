@@ -8,14 +8,12 @@ const {
   timeout = undefined,
   icon = undefined,
   label = undefined,
-  text = undefined,
   id = undefined,
 } = defineProps<{
   color?: ToastColor;
   timeout?: number;
   icon?: string;
   label?: string;
-  text?: string;
   id?: string;
 }>();
 
@@ -73,7 +71,7 @@ const emit = defineEmits<{
     <div class="toast__content">
       <Icon v-if="computedIcon" :name="computedIcon" class="toast__icon" />
 
-      <div v-if="label || text" class="toast__label">
+      <div v-if="label" class="toast__label">
         {{ label }}
       </div>
 
