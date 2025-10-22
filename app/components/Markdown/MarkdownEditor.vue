@@ -94,6 +94,8 @@ const emit = defineEmits<{
         <span>{{ label }}</span>
 
         <Chip v-if="required" size="xs" :label="$t('form.required')" />
+
+        <slot name="label" />
       </div>
 
       <MdEditor
