@@ -209,6 +209,8 @@ html:has(.dialog[open]) {
 
     > .button {
       flex-grow: 1;
+      max-width: none;
+      width: calc(50% - 0.5rem);
     }
   }
 }
