@@ -223,7 +223,7 @@
   },
 
   "password": {
-    "confirm": "Herhaal nieuwe wachtwoord",
+    "confirm": "Herhaal nieuw wachtwoord",
     "current": "Huidig wachtwoord",
     "edit": "Wachtwoord wijzigen",
     "email-sent": "We hebben je een e-mail gestuurd met een reset-link.",

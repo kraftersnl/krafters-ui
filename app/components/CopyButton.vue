@@ -47,5 +47,3 @@ async function handleClick() {
     @click="handleClick"
   />
 </template>
-
-<style></style>
