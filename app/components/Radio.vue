@@ -13,7 +13,7 @@ const {
   label?: string;
   title?: string;
   name?: string;
-  value?: string | number;
+  value?: string | number | boolean;
   required?: boolean;
   disabled?: boolean;
   hideLabel?: boolean;
