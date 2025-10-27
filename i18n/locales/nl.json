@@ -74,7 +74,7 @@
     "no-file-selected": "Geen bestand geselecteerd.",
     "or-drop-file": "of sleep een bestand",
     "thumb": "Thumbnail van {file}",
-    "too-big": "Bestandsgrootte is te groot"
+    "too-big": "Bestand is te groot"
   },
 
   "filters": {
