@@ -7,6 +7,18 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.5" date="2025-10-27">
+      <ul>
+        <li>Feature: add <code>avatar</code> prop to UserMenu component</li>
+        <li>Feature: add <code>headerIcon</code> prop to Dialog component</li>
+        <li>
+          Feature: add <code>label</code> slot to MarkdownEditor component
+        </li>
+        <li>Fix: file size validation for FileInput component</li>
+        <li>Fix: improve styling for Input and Textarea component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.4" date="2025-10-14">
       <ul>
         <li>
