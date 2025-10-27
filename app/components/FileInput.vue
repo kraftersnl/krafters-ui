@@ -41,7 +41,7 @@ function handlePaste(event: ClipboardEvent) {
   const file = event.clipboardData?.files?.[0];
 
   if (fileInputRef.value?.files && event.clipboardData?.files) {
-    fileInputRef.value.files = event.clipboardData?.files;
+    fileInputRef.value.files = event.clipboardData.files;
   }
 
   if (file) {
@@ -71,14 +71,7 @@ const emit = defineEmits<{
   'update:model-value': [file: File];
 }>();
 
-const computedErrorMessage = computed(() => {
-  if (fileInputRef.value?.files?.[0]) {
-    if (fileInputRef.value?.files?.[0].size / 1024 > maxFileSize) {
-      return $t('files.too-big');
-    }
-  }
-  return $t('form.missing-value', { item: label });
-});
+const errorMessage = ref('');
 
 function handleDragOver() {
   dragover.value = true;
@@ -122,9 +115,28 @@ function handleImagePreview(file: File) {
   }
 }
 
+function validateFile(file: File) {
+  if (!file && required) {
+    validity.value = false;
+    errorMessage.value = $t('form.missing-value', { item: label });
+    return;
+  }
+
+  if (file.size > maxFileSize) {
+    validity.value = false;
+    errorMessage.value = $t('files.too-big');
+    return;
+  }
+
+  validity.value = true;
+  errorMessage.value = '';
+  return;
+}
+
 function handleFile(file?: File) {
   if (!file) return;
 
+  validateFile(file);
   handleImagePreview(file);
   model.value = compressFile(file);
 }
@@ -137,7 +149,13 @@ function handleFileInput(event: Event) {
 }
 
 function removeFile() {
+  validity.value = true;
   model.value = undefined;
+  errorMessage.value = '';
+
+  if (fileInputRef.value) {
+    fileInputRef.value.files = null;
+  }
 
   if (imagePreview.value) {
     URL.revokeObjectURL(imagePreview.value);
@@ -223,7 +241,7 @@ function removeFile() {
       <div class="error">
         <Icon name="material-symbols:warning-rounded" />
 
-        <span v-if="!validity">{{ computedErrorMessage }}</span>
+        <span v-if="!validity">{{ errorMessage }}</span>
       </div>
     </div>
   </div>
