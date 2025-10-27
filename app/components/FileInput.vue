@@ -170,7 +170,7 @@ function removeFile() {
   <div class="file-input-wrapper">
     <label :for="id" class="file-input-label">
       <span>
-        {{ label || $t('files.browse') }} (max. {{ maxFileSize / 1000 }} MB)
+        {{ label || $t('files.browse') }} (max. {{ maxFileSize / 1000000 }} MB)
       </span>
 
       <Chip v-if="required" size="xs" :label="$t('form.required')" />
