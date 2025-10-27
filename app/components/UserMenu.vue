@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onClickOutside } from '@vueuse/core';
+
 const props = defineProps<{
   label?: string;
   icon?: string;
@@ -54,9 +56,9 @@ defineExpose({
   <div class="user-menu-wrapper" @keydown.esc="hideMenu">
     <button
       v-if="avatar"
-      @click="toggleMenu"
       type="button"
       class="avatar-button"
+      @click="toggleMenu"
     >
       <img :src="avatar" class="avatar-image" />
       <span class="visuallyhidden">{{ $t('general.avatar') }}</span>
