@@ -230,7 +230,7 @@
     "forgot": "Forgot password?",
     "heading": "Password",
     "new": "New password",
-    "request-reset": "Send code via email",
+    "request-reset": "Request password reset",
     "reset": "Reset password",
     "reset-form-instructions": "Click the link in the password reset email.",
     "save": "Save password",
