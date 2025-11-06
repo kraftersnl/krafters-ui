@@ -70,6 +70,7 @@ const emit = defineEmits<{
     :to="disabled ? undefined : to || href"
     :target="target"
     :external="external"
+    :download="download"
     :aria-label="ariaLabel"
     :class="[
       'button',
