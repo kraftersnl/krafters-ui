@@ -118,6 +118,7 @@ declare global {
     | 'secondary'
     | 'ghost'
     | 'outline'
+    | 'tab'
     | 'cta'
     | 'black'
     | 'white'

@@ -380,6 +380,24 @@ const emit = defineEmits<{
   }
 }
 
+.button-variant--tab {
+  color: var(--color-text);
+  background-color: transparent;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  padding-block: 0.5rem 0.65rem;
+
+  &:not(:disabled, .disabled, .router-link-active):hover {
+    background-color: var(--color-grey-bg);
+  }
+
+  &.router-link-exact-active {
+    background-color: var(--color-card-bg);
+    border-color: var(--color-accent-bg);
+    border-block-end-color: transparent;
+    color: var(--color-accent-text);
+  }
+}
+
 .button-variant--outline {
   color: var(--color-text);
   background-color: var(--color-input-bg);

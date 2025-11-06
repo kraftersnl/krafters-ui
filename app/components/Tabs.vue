@@ -5,6 +5,7 @@ const {
   tabs,
   size = 'sm',
   fontSize = 'sm',
+  iconSize = undefined,
   variant = 'default',
   color = 'text',
   ariaLabel = undefined,
@@ -12,6 +13,7 @@ const {
   tabs: TabOption[];
   size?: TabsSize;
   fontSize?: FontSize;
+  iconSize?: FontSize;
   variant?: TabsVariant;
   color?: 'text' | 'green' | 'accent';
   ariaLabel?: string;
@@ -76,7 +78,7 @@ defineExpose({
       `tabs-color--${color}`,
       `tabs-size--${size}`,
     ]"
-    :style="`--font-size: var(--font-size-${fontSize})`"
+    :style="`--font-size: var(--font-size-${fontSize}); --icon-size: var(--font-size-${iconSize})`"
   >
     <div class="tablist" role="tablist" :aria-label="ariaLabel" v-bind="$attrs">
       <template v-for="tab in tabs" :key="'tab-' + tab.value">
@@ -169,8 +171,8 @@ defineExpose({
     outline-color: transparent;
 
     .iconify {
-      color: var(--color-grey-graphic);
-      font-size: larger;
+      color: var(--color-grey-text);
+      font-size: var(--icon-size, larger);
       margin-inline-end: 0.125rem;
     }
 
@@ -186,19 +188,16 @@ defineExpose({
 
     &:hover:not(:disabled, [aria-selected='true']) {
       color: var(--color-text);
-      border-color: var(--color-grey-graphic);
+      border-color: var(--color-grey-text);
 
       .iconify {
-        color: var(--color-grey-text);
+        color: var(--color-text);
       }
     }
 
     &[aria-selected='true'] {
-      border-color: var(--color-text);
-
       .iconify {
         color: inherit;
-        opacity: 65%;
       }
     }
 
