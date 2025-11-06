@@ -122,7 +122,7 @@ function validateFile(file: File) {
     return;
   }
 
-  if (file.size > maxFileSize) {
+  if (file.size / 1000 > maxFileSize) {
     validity.value = false;
     errorMessage.value = $t('files.too-big');
     return;
