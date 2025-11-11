@@ -12,6 +12,7 @@ const {
   title = undefined,
   target = undefined,
   icon = undefined,
+  download = undefined,
   iconPos = 'start',
   variant = 'secondary',
   size = 'md',
