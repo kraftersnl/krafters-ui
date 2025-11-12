@@ -414,6 +414,21 @@ const emit = defineEmits<{
   }
 }
 
+.button-variant--outline-green {
+  color: var(--color-green-text);
+  background-color: transparent;
+  border-color: var(--color-green-graphic);
+
+  &:not(:disabled, .disabled):hover {
+    background-color: var(--color-green-bg);
+  }
+
+  &.router-link-active {
+    text-decoration: underline;
+    color: var(--color-accent-text);
+  }
+}
+
 .button-variant--link {
   --radius: 0 !important;
   overflow-wrap: anywhere;
