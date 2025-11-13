@@ -117,6 +117,8 @@ declare global {
     | 'primary'
     | 'secondary'
     | 'ghost'
+    | 'ghost-green'
+    | 'ghost-red'
     | 'outline'
     | 'outline-green'
     | 'tab'

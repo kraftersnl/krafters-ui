@@ -381,6 +381,33 @@ const emit = defineEmits<{
   }
 }
 
+.button-variant--ghost-green {
+  padding-inline: 0;
+  color: var(--color-green-text);
+  background-color: transparent;
+
+  &:not(:disabled, .disabled):hover {
+    text-decoration: underline;
+  }
+
+  &.router-link-active {
+    text-decoration: underline;
+  }
+}
+
+.button-variant--ghost-red {
+  color: var(--color-red-text);
+  background-color: transparent;
+
+  &:not(:disabled, .disabled):hover {
+    background-color: var(--color-red-bg);
+  }
+
+  &.router-link-active {
+    text-decoration: underline;
+  }
+}
+
 .button-variant--tab {
   color: var(--color-text);
   background-color: transparent;

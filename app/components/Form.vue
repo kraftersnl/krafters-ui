@@ -73,11 +73,8 @@ const emit = defineEmits<{
 
 <style>
 .form,
-.form-content {
-  --focus-color: var(--color-black);
-
-  --row-gap: 1rem;
-  --column-gap: 0.5rem;
+.form-content,
+.button {
   --col-width-auto: auto;
   --col-width-20: calc(20% - calc(var(--column-gap) / 5 * 4));
   --col-width-25: calc(25% - calc(var(--column-gap) / 4 * 3));
@@ -90,6 +87,13 @@ const emit = defineEmits<{
   --col-width-70: calc(70% - calc(var(--column-gap) / 10 * 3));
   --col-width-75: calc(75% - calc(var(--column-gap) / 4));
   --col-width-80: calc(80% - calc(var(--column-gap) / 5));
+}
+
+.form,
+.form-content {
+  --focus-color: var(--color-black);
+  --row-gap: 1rem;
+  --column-gap: 0.5rem;
 
   display: flex;
   flex-wrap: wrap;

@@ -107,6 +107,13 @@ const emit = defineEmits<{
   focus: [value: Event];
   blur: [value: Event];
 }>();
+
+const chipSize = computed(() => {
+  if (size === 'lg') return 'sm';
+  if (size === 'md') return 'xs';
+  if (size === 'sm') return 'xs';
+  return 'xs';
+});
 </script>
 
 <template>
@@ -124,7 +131,13 @@ const emit = defineEmits<{
     >
       <span>{{ label }}</span>
 
-      <Chip v-if="required" size="xs" :label="$t('form.required')" />
+      <Chip
+        v-if="required"
+        :size="chipSize"
+        radius="sm"
+        color="grey"
+        :label="$t('form.required')"
+      />
     </label>
 
     <div class="input-wrapper">
