@@ -6,6 +6,7 @@ const {
   icon = undefined,
   content = undefined,
   ariaLabel = undefined,
+  radius = undefined,
 } = defineProps<{
   color?: 'accent' | 'blue' | 'green' | 'red' | 'orange';
   fontSize?: FontSize;
@@ -13,11 +14,13 @@ const {
   icon?: string;
   content?: string;
   ariaLabel?: string;
+  radius?: BorderRadius;
 }>();
 
 const computedStyle = computed(() => ({
   '--font-size': `var(--font-size-${fontSize})`,
   '--icon-size': `var(--font-size-${iconSize})`,
+  '--callout-radius': radius && `var(--radius-${radius})`,
 }));
 
 const computedIcon = computed(() => {
@@ -65,7 +68,7 @@ const computedAriaLabel = computed(() => {
   padding-inline: 0.75rem;
   padding-block: 0.5rem;
   border: 1px solid transparent;
-  border-radius: var(--radius-sm);
+  border-radius: var(--callout-radius, var(--radius-sm));
   font-size: var(--font-size);
 
   .callout-content {
