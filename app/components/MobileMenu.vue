@@ -182,7 +182,7 @@ body:has(.mobile-dialog[open]) {
   width: 90vw;
   max-width: var(--width, 360px);
   border: none;
-  background-color: var(--color-card-bg);
+  background-color: var(--color-dialog-bg);
 
   &::backdrop {
     background-color: rgb(0 0 0 / 50%);

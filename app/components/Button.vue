@@ -385,6 +385,7 @@ const emit = defineEmits<{
   padding-inline: 0;
   color: var(--color-green-text);
   background-color: transparent;
+  text-underline-offset: 0.25em;
 
   &:not(:disabled, .disabled):hover {
     text-decoration: underline;
