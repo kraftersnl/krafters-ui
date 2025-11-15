@@ -4,6 +4,7 @@ export const defaultIcons = [
   'material-symbols:dark-mode-outline-rounded',
   'material-symbols:computer-outline-rounded',
   'material-symbols:open-in-new-rounded',
+  'material-symbols:dehaze-rounded',
   'material-symbols:link-rounded',
   'material-symbols:check-rounded',
   'material-symbols:close-rounded',

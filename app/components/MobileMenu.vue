@@ -191,8 +191,8 @@ body:has(.mobile-dialog[open]) {
   .close-button {
     z-index: 1;
     position: absolute;
-    right: 1rem;
-    top: 1rem;
+    right: 1.25rem;
+    top: 1.25rem;
   }
 
   .dialog-content {
