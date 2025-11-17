@@ -33,20 +33,11 @@ const computedIcon = computed(() => {
 
   return icon;
 });
-
-const computedAriaLabel = computed(() => {
-  if (ariaLabel) return ariaLabel;
-  if (color === 'blue') return $t('aria.callout-info');
-  if (color === 'green') return $t('aria.callout-success');
-  if (color === 'red') return $t('aria.callout-error');
-  if (color === 'orange') return $t('aria.callout-warning');
-  return ariaLabel;
-});
 </script>
 
 <template>
   <section
-    :aria-label="computedAriaLabel"
+    :aria-label="ariaLabel"
     :class="['callout-wrapper', `callout-color--${color}`]"
     :style="computedStyle"
   >
