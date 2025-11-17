@@ -173,6 +173,7 @@
     "report": "Report",
     "reset": "Reset",
     "result": "Result | Results",
+    "result-count": "No results found | {n} result | {n} results",
     "review": "Review",
     "save": "Save",
     "screen": "screens | {n} screen | {n} screens",
