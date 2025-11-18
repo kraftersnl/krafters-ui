@@ -141,7 +141,6 @@ function playVideo() {
 
   button {
     background-color: black;
-    padding: 0;
     border: none;
     color: white;
     display: grid;

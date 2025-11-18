@@ -424,6 +424,7 @@ const emit = defineEmits<{
     border-color: var(--color-accent-bg);
     border-block-end-color: transparent;
     color: var(--color-accent-text);
+    font-weight: var(--font-weight-bold);
   }
 }
 
