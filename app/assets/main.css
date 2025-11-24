@@ -59,8 +59,8 @@
 
   --color-dialog-bg: var(--color-white);
   --color-input-bg: var(--color-card-bg);
-  --color-card-border: var(--color-grey-bg);
-  --color-popover-border: var(--color-grey-bg);
+  --card-border-color: var(--color-grey-bg);
+  --popover-border-color: var(--color-grey-bg);
 
   .card {
     --color-input-bg: var(--color-bg);
@@ -127,8 +127,8 @@
 
   --color-dialog-bg: var(--color-card-bg);
   --color-input-bg: var(--color-card-bg);
-  --color-card-border: var(--color-grey-bg);
-  --color-popover-border: transparent;
+  --card-border-color: var(--color-grey-bg);
+  --popover-border-color: transparent;
 }
 
 :where(:root) {
@@ -679,9 +679,9 @@
   box-shadow: var(--shadow-3);
   color: var(--color-text);
   background-color: var(--color-card-bg);
-  border: 1px solid var(--color-popover-border);
+  border: 1px solid var(--popover-border-color);
 
-  --arrow-color: var(--color-card-border);
+  --arrow-color: var(--popover-border-color);
 }
 
 .light-mode {

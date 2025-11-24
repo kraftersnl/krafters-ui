@@ -148,6 +148,8 @@ const emit = defineEmits<{
               :variant="closeButtonVariant"
               :radius="closeButtonRadius"
               :label="$t('aria.close-menu')"
+              size="sm"
+              icon-size="md"
               hide-label
               class="close-button"
               @click="closeDialog"
@@ -179,6 +181,12 @@ body:has(.mobile-dialog[open]) {
   overflow: hidden;
 }
 
+.dark-mode {
+  .mobile-dialog {
+    --color-grey-light: var(--color-grey-bg);
+  }
+}
+
 .mobile-dialog {
   padding: 0;
   overscroll-behavior: contain;
@@ -193,6 +201,7 @@ body:has(.mobile-dialog[open]) {
   }
 
   .close-button {
+    background-color: transparent;
     z-index: 1;
     position: absolute;
     right: 1.25rem;
@@ -217,7 +226,7 @@ body:has(.mobile-dialog[open]) {
 
 .mobile-dialog-position--inline-start {
   margin-inline-start: 0;
-  border-inline-end: 1px solid var(--color-card-border);
+  border-inline-end: 1px solid var(--card-border-color);
 
   &[open] {
     animation: slideInLeft var(--duration-lg) forwards;
@@ -244,7 +253,7 @@ body:has(.mobile-dialog[open]) {
 
 .mobile-dialog-position--inline-end {
   margin-inline-end: 0;
-  border-inline-start: 1px solid var(--color-card-border);
+  border-inline-start: 1px solid var(--card-border-color);
 
   &[open] {
     animation: slideInRight var(--duration-lg) forwards;

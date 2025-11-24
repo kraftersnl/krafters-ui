@@ -5,6 +5,7 @@ const {
   clickOutside = true,
   position = 'center',
   closeButtonVariant = 'outline',
+  closeButtonRadius = 'full',
   label = undefined,
   ariaLabel = undefined,
   ariaLabelledby = undefined,
@@ -20,6 +21,7 @@ const {
   modal?: boolean;
   position?: DialogPosition;
   closeButtonVariant?: ButtonVariant;
+  closeButtonRadius?: BorderRadius;
   role?: 'dialog' | 'alertdialog';
   headerIcon?: string;
 }>();
@@ -99,10 +101,12 @@ defineExpose({
 
           <Button
             icon="material-symbols:close-rounded"
-            size="sm"
             :variant="closeButtonVariant"
+            :radius="closeButtonRadius"
             :label="$t('general.close')"
             hide-label
+            size="sm"
+            icon-size="md"
             class="close-button"
             @click="closeDialog"
           />
@@ -142,8 +146,14 @@ html:has(.dialog[open]) {
   }
 }
 
+.dark-mode {
+  .dialog {
+    --color-grey-light: var(--color-grey-bg);
+  }
+}
+
 .dialog {
-  --color-dialog-border: var(--color-card-border);
+  --color-dialog-border: var(--card-border-color);
   --dialog-padding-inline: 1.5rem;
   --dialog-padding-block: 1.5rem;
   --color-input-bg: transparent;

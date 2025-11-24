@@ -277,7 +277,7 @@ const emit = defineEmits<{
 
 .popover-trigger-variant--outline {
   background-color: var(--color-input-bg);
-  border-color: var(--color-grey-bg);
+  border-color: var(--popover-border-color);
 
   &:not(:disabled):hover {
     background-color: var(--color-grey-bg);
