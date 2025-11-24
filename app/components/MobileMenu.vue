@@ -20,6 +20,8 @@ const {
   navLabel = undefined,
   list = undefined,
   closeIcon = 'material-symbols:close-rounded',
+  closeButtonVariant = 'ghost',
+  closeButtonRadius = 'full',
   hideCloseButton = false,
 } = defineProps<{
   teleportTo?: string;
@@ -40,6 +42,8 @@ const {
   list?: MenuItem[];
   id?: string;
   closeIcon?: string;
+  closeButtonVariant?: ButtonVariant;
+  closeButtonRadius?: BorderRadius;
   hideCloseButton?: boolean;
 }>();
 
@@ -141,8 +145,8 @@ const emit = defineEmits<{
             <Button
               v-if="!hideCloseButton"
               :icon="closeIcon"
-              variant="ghost"
-              radius="full"
+              :variant="closeButtonVariant"
+              :radius="closeButtonRadius"
               :label="$t('aria.close-menu')"
               hide-label
               class="close-button"
