@@ -263,7 +263,7 @@ function removeFile() {
   padding: 0;
   color: var(--color-grey-graphic);
   border: 1.5px dashed var(--color-grey-graphic);
-  border-radius: var(--radius-md);
+  /* border-radius: var(--radius-md); */
   background-color: transparent;
   outline: 1px solid transparent;
 
@@ -333,9 +333,8 @@ function removeFile() {
 
     &:focus-visible {
       + .file-input-button {
-        outline-color: var(--focus-color);
-        border-color: var(--focus-color);
-        border-style: solid;
+        outline: 2px solid var(--focus-color);
+        outline-offset: 2px;
 
         .iconify {
           color: var(--focus-color);
@@ -350,8 +349,6 @@ function removeFile() {
       }
 
       &:focus-visible + .file-input-button {
-        outline-color: var(--color-accent-graphic);
-
         .iconify {
           color: var(--focus-accent-graphic);
         }
