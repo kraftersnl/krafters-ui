@@ -215,7 +215,11 @@ body:has(.mobile-dialog[open]) {
   }
 
   .dialog-content {
-    padding-block: 3rem;
+    padding-block: 4rem;
+  }
+
+  .mobile-nav {
+    padding-inline: var(--app-padding-inline);
   }
 
   .nav-label {
