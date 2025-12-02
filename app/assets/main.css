@@ -491,6 +491,7 @@
   thead th {
     font-weight: var(--font-weight-medium);
     color: var(--color-grey-text);
+    vertical-align: bottom;
   }
 
   tbody th {
