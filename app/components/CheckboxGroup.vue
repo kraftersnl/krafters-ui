@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const model = defineModel<(string | number)[]>();
+const model = defineModel<boolean | (string | number)[]>();
 
 const {
   valueKey = 'value',

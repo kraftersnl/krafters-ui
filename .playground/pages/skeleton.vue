@@ -178,8 +178,8 @@ const skeletonAnimations = [
     flex-grow: 9;
   }
 
-  h2 {
-    margin-block-end: 2rem;
+  .section-topbar {
+    margin-block-end: 2.5rem;
   }
 
   .popover-content {

@@ -33,9 +33,9 @@ useHead({ titleTemplate: '%s | Krafters UI' });
 
   <AxePopup />
 
-  <DevOnly>
+  <ClientOnly>
     <ToastManager />
-  </DevOnly>
+  </ClientOnly>
 </template>
 
 <style>

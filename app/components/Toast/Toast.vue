@@ -63,7 +63,6 @@ const emit = defineEmits<{
       'toast',
       `toast-color--${color}`,
       `${hideTimer ? 'hide-toast-timer' : ''}`,
-      colorMode.value === 'dark' ? 'light-mode' : 'dark-mode',
     ]"
     @mouseover="toastHover = true"
     @mouseleave="toastHover = false"

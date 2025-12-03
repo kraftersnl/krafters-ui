@@ -20,6 +20,10 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
 
+  colorMode: {
+    classSuffix: '-mode',
+  },
+
   i18n: {
     strategy: 'no_prefix',
     detectBrowserLanguage: false,
@@ -34,7 +38,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         lang: 'nl',
-        style: 'background-color: #000',
+        style: 'color-scheme: dark',
       },
     },
   },
