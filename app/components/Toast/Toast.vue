@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useWindowFocus } from '@vueuse/core';
-const colorMode = useColorMode();
 const focused = useWindowFocus();
 
 const {
