@@ -20,6 +20,13 @@
     "user-menu": "Gebruikersmenu"
   },
 
+  "cookies": {
+    "accept": "Accepteren",
+    "deny": "Weigeren",
+    "description": "We gebruiken cookies om de gebruikerservaring te verbeteren.",
+    "heading": "Cookies"
+  },
+
   "date": {
     "just-now": "zojuist",
     "seconds-ago": "{n} seconde geleden | {n} seconden geleden",

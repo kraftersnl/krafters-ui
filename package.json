@@ -26,6 +26,7 @@
     "@nuxt/eslint": "^1.11.0",
     "@nuxt/fonts": "^0.12.1",
     "@nuxt/icon": "^2.1.0",
+    "@nuxt/scripts": "^0.13.0",
     "@nuxtjs/color-mode": "^4.0.0",
     "@nuxtjs/html-validator": "^2.1.0",
     "@nuxtjs/i18n": "^10.2.1",
@@ -41,6 +42,7 @@
     "focus-trap": "^7.6.6",
     "happy-dom": "^20.0.11",
     "highlight.js": "^11.11.1",
+    "js-cookie": "^3.0.5",
     "markdown-it": "^14.1.0",
     "md-editor-v3": "^6.2.0",
     "nuxt": "4.2.1",
@@ -50,5 +52,9 @@
     "vue-axe": "^3.1.2",
     "vue-router": "^4.6.3",
     "vue-tippy": "^6.7.1"
+  },
+  "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6",
+  "dependencies": {
+    "-": "^0.0.1"
   }
 }

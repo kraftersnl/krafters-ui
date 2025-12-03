@@ -20,6 +20,13 @@
     "user-menu": "User Menu"
   },
 
+  "cookies": {
+    "accept": "Accept",
+    "deny": "Deny",
+    "description": "We use cookies to improve your experience.",
+    "heading": "Cookies"
+  },
+
   "date": {
     "just-now": "just now",
     "seconds-ago": "{n} second ago | {n} seconds ago",

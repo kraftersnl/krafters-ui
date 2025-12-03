@@ -26,6 +26,8 @@ export default defineNuxtConfig({
 
   css: ['~/assets/playground.css'],
 
+  modules: ['@nuxt/scripts'],
+
   devtools: { enabled: false },
 
   icon: {
