@@ -23,7 +23,7 @@ export function useCookiesDialog() {
   const consentTrigger = useScriptTriggerConsent();
 
   const gtm = useScriptGoogleTagManager({
-    id: useRuntimeConfig().public.gtmId,
+    id: useRuntimeConfig().public.gtmId as string,
 
     onBeforeGtmStart: (gtag) => {
       gtag('consent', 'default', {
@@ -42,14 +42,16 @@ export function useCookiesDialog() {
   });
 
   function gtag() {
-    gtm.proxy.dataLayer.push(arguments);
+    gtm.proxy.dataLayer.push(arguments as any);
   }
 
   onMounted(() => {
     const consent = Cookies.get('cookieConsent');
+
     if (consent) {
       cookieConsent.value = JSON.parse(consent);
     }
+
     if (
       cookieConsent.value?.necessary === true &&
       cookieConsent.value?.analytics === true &&
@@ -68,10 +70,6 @@ export function useCookiesDialog() {
   });
 
   function acceptCookies() {
-    cookiesDialogRef.value?.closeDialog();
-
-    consentTrigger.accept();
-
     gtag('consent', 'update', {
       ad_user_data: 'granted',
       ad_personalization: 'granted',
@@ -93,13 +91,13 @@ export function useCookiesDialog() {
     cookieConsent.value.necessary = true;
     cookieConsent.value.analytics = true;
     cookieConsent.value.marketing = true;
+
+    consentTrigger.accept();
+
+    cookiesDialogRef.value?.closeDialog();
   }
 
   function denyCookies() {
-    cookiesDialogRef.value?.closeDialog();
-
-    gtm.remove();
-
     gtag('consent', 'update', {
       ad_user_data: 'denied',
       ad_personalization: 'denied',
@@ -122,6 +120,10 @@ export function useCookiesDialog() {
     cookieConsent.value.necessary = true;
     cookieConsent.value.analytics = false;
     cookieConsent.value.marketing = false;
+
+    gtm.remove();
+
+    cookiesDialogRef.value?.closeDialog();
   }
 
   return {

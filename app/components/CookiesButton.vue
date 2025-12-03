@@ -20,6 +20,7 @@ const {
   iconSize?: FontSize;
   hideLabel?: boolean;
 }>();
+
 const { cookiesDialogRef, hasConsent } = useCookiesDialog();
 </script>
 

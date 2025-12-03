@@ -4,6 +4,8 @@ const {
   position = 'block-end',
   closeButtonVariant = 'ghost',
   closeButtonRadius = 'full',
+  acceptButtonVariant = 'primary',
+  denyButtonVariant = 'ghost',
   ariaLabel = undefined,
   description = undefined,
   acceptButtonLabel = undefined,
@@ -13,6 +15,8 @@ const {
   position?: DialogPosition;
   closeButtonVariant?: ButtonVariant;
   closeButtonRadius?: BorderRadius;
+  acceptButtonVariant?: ButtonVariant;
+  denyButtonVariant?: ButtonVariant;
   ariaLabel?: string;
   description?: string;
   acceptButtonLabel?: string;
@@ -42,7 +46,7 @@ const { cookiesDialogRef, acceptCookies, denyCookies } = useCookiesDialog();
           <Button
             class="accept-button"
             aria-describedby="cookiesDescription"
-            variant="primary"
+            :variant="acceptButtonVariant"
             size="lg"
             :label="acceptButtonLabel || $t('cookies.accept')"
             @click="acceptCookies"
@@ -51,7 +55,7 @@ const { cookiesDialogRef, acceptCookies, denyCookies } = useCookiesDialog();
           <Button
             class="deny-button"
             aria-describedby="cookiesDescription"
-            variant="ghost"
+            :variant="denyButtonVariant"
             size="lg"
             :label="denyButtonLabel || $t('cookies.deny')"
             @click="denyCookies"
