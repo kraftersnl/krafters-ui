@@ -3,6 +3,7 @@ const {
   label = 'Cookies',
   icon = 'material-symbols:cookie-outline',
   iconOff = 'material-symbols:cookie-off-outline',
+  iconPos = 'end',
   buttonVariant = 'ghost',
   radius = 'full',
   size = 'sm',
@@ -12,6 +13,7 @@ const {
   label?: string;
   icon?: string;
   iconOff?: string;
+  iconPos?: 'start' | 'end';
   buttonVariant?: ButtonVariant;
   radius?: BorderRadius;
   size?: ButtonSize;
@@ -31,6 +33,7 @@ const { cookiesDialogRef, hasConsent } = useCookiesDialog();
     :size="size"
     :icon-size="iconSize"
     :icon="hasConsent ? icon : iconOff"
+    :icon-pos="iconPos"
     @click="cookiesDialogRef?.openDialog()"
   />
 </template>

@@ -65,7 +65,7 @@ const { cookiesDialogRef, acceptCookies, denyCookies } = useCookiesDialog();
 <style>
 .cookies-dialog {
   .dialog-header-wrapper {
-    padding-inline-end: var(--dialog-padding-inline);
+    padding-inline-end: calc(var(--dialog-padding-inline) + 1.5rem);
   }
 
   .cookies-dialog-content {
@@ -91,8 +91,8 @@ const { cookiesDialogRef, acceptCookies, denyCookies } = useCookiesDialog();
     right: 0.5em;
 
     @media (min-width: 768px) {
-      top: 3em;
-      right: 2em;
+      top: 1.75rem;
+      right: 1.5em;
     }
   }
 }
