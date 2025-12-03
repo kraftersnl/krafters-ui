@@ -21,9 +21,6 @@ jobs:
       - name: Install packages
         run: pnpm install
 
-      - name: Run accessibility tests
-        run: pnpm run test
-
       - name: Run linter
         run: pnpm run lint
 

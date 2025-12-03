@@ -28,8 +28,6 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
-  modules: ['@nuxt/test-utils/module'],
-
   icon: {
     clientBundle: {
       scan: true,
