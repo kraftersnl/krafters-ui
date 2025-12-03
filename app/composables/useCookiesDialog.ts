@@ -23,7 +23,7 @@ export function useCookiesDialog() {
   const consentTrigger = useScriptTriggerConsent();
 
   const gtm = useScriptGoogleTagManager({
-    id: import.meta.env.NUXT_PUBLIC_GTM_ID,
+    id: useRuntimeConfig().public.gtmId,
 
     onBeforeGtmStart: (gtag) => {
       gtag('consent', 'default', {
