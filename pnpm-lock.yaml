@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '-':
-        specifier: ^0.0.1
-        version: 0.0.1
     devDependencies:
       '@iconify-json/material-symbols':
         specifier: ^1.2.48
@@ -116,9 +112,6 @@ importers:
         version: 6.7.1(vue@3.5.25(typescript@5.9.3))
 
 packages:
-
-  '-@0.0.1':
-    resolution: {integrity: sha512-3HfneK3DGAm05fpyj20sT3apkNcvPpCuccOThOPdzz8sY7GgQGe0l93XH9bt+YzibcTIgUAIMoyVJI740RtgyQ==}
 
   '@antfu/install-pkg@1.1.0':
     resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
@@ -5115,8 +5108,6 @@ packages:
     engines: {node: '>= 14'}
 
 snapshots:
-
-  '-@0.0.1': {}
 
   '@antfu/install-pkg@1.1.0':
     dependencies:
