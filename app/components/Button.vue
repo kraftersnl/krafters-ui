@@ -348,8 +348,12 @@ const emit = defineEmits<{
   background-color: var(--color-accent);
   font-size: var(--font-size-sm);
   min-height: 2.5rem;
-  padding-inline: 1rem;
   font-weight: var(--font-weight-medium);
+
+  .icon svg {
+    width: 1.25em;
+    height: 1.25em;
+  }
 
   &:not(:disabled, .disabled):hover {
     background-color: color-mix(in srgb, var(--color-accent) 85%, black);
