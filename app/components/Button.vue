@@ -307,6 +307,7 @@ const emit = defineEmits<{
 }
 
 .button-variant--black {
+  --radius: var(--radius-xl);
   color: var(--color-white);
   background-color: var(--color-black);
   transition-property: background-color, box-shadow;
@@ -341,13 +342,14 @@ const emit = defineEmits<{
 }
 
 .button-variant--cta {
+  --radius: var(--radius-xl);
   --focus-color: var(--color-accent-graphic);
   color: white;
   background-color: var(--color-accent);
   font-size: var(--font-size-sm);
-  min-height: 3.5rem;
-  padding-inline: 1.5rem;
-  font-weight: var(--font-weight-bold);
+  min-height: 2.5rem;
+  padding-inline: 1rem;
+  font-weight: var(--font-weight-medium);
 
   &:not(:disabled, .disabled):hover {
     background-color: color-mix(in srgb, var(--color-accent) 85%, black);
