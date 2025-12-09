@@ -284,7 +284,7 @@
 }
 
 :where(html) {
-  color-scheme: var(--color-scheme, dark light);
+  color-scheme: var(--color-scheme, dark light) !important;
   accent-color: var(--color-accent, inherit);
 
   -webkit-text-size-adjust: none;
