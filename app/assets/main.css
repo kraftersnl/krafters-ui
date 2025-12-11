@@ -1213,30 +1213,6 @@
   }
 }
 
-@keyframes viewportFadeInOut {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes viewportFadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 @keyframes viewportFadeUp {
   0% {
     transform: translateY(25%);
