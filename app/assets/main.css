@@ -744,6 +744,14 @@
   border-width: 0;
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome and Safari */
+  }
+}
+
 :where(.flex-wrapper) {
   --gap: 0.5rem;
   --flex-grow: 1;
