@@ -178,7 +178,7 @@ const emit = defineEmits<{
     background-color: transparent;
     border-color: transparent;
     border-block-end-color: var(--color-grey-graphic);
-    min-height: 0;
+    min-height: 2.5rem;
     resize: none;
 
     &:focus {
