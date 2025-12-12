@@ -165,11 +165,35 @@ const emit = defineEmits<{
   }
 }
 
+.textarea-variant--minimal {
+  label {
+    font-size: var(--font-size-sm);
+  }
+
+  .textarea {
+    padding-inline: 0;
+    padding-block-end: 0.5em;
+    line-height: var(--line-height);
+    border-radius: 0;
+    background-color: transparent;
+    border-color: transparent;
+    border-block-end-color: var(--color-grey-graphic);
+    min-height: 0;
+    resize: none;
+
+    &:focus {
+      border-block-end-color: var(--color-accent);
+      outline-color: transparent;
+    }
+  }
+}
+
 .textarea-variant--krafters {
   label {
     color: var(--color-grey-text);
     font-weight: var(--font-weight-bold);
   }
+
   &:focus-within {
     label {
       color: var(--color-text);

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const isExpanded = defineModel<boolean>();
-
 const {
   id = useId(),
   minHeight = 0,
@@ -8,6 +6,7 @@ const {
   icon = 'material-symbols:chevron-right-rounded',
   ariaLabel = undefined,
   tabindex = undefined,
+  open = undefined,
 } = defineProps<{
   minHeight?: number;
   id?: string;
@@ -15,8 +14,10 @@ const {
   ariaLabel?: string;
   tabindex?: string;
   arrow?: boolean;
+  open?: boolean;
 }>();
 
+const isExpanded = ref(open);
 const panelRef = useTemplateRef<HTMLElement>('accordionPanel');
 
 function toggleAccordion() {

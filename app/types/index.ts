@@ -134,7 +134,7 @@ declare global {
 
   type ChipVariant = 'flat' | 'outline' | 'soft';
   type TabsVariant = 'default' | 'minimal';
-  type InputVariant = 'default' | 'krafters';
+  type InputVariant = 'default' | 'minimal' | 'krafters';
 
   type InputSize = 'sm' | 'md' | 'lg';
   type TabsSize = 'xs' | 'sm' | 'md';
