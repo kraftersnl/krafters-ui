@@ -275,13 +275,4 @@ const formattedLabel = computed(() =>
   color: var(--color-pink-text);
   border-color: var(--color-pink-graphic);
 }
-
-.dark-mode {
-  .card {
-    .chip-variant--outline,
-    .chip-variant--soft {
-      background-color: var(--color-bg);
-    }
-  }
-}
 </style>
