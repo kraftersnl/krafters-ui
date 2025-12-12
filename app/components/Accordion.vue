@@ -5,11 +5,13 @@ const {
   id = useId(),
   minHeight = 0,
   arrow = true,
+  icon = 'material-symbols:chevron-right-rounded',
   ariaLabel = undefined,
   tabindex = undefined,
 } = defineProps<{
   minHeight?: number;
   id?: string;
+  icon?: string;
   ariaLabel?: string;
   tabindex?: string;
   arrow?: boolean;
@@ -60,11 +62,7 @@ defineExpose({ toggleAccordion });
       class="accordion-trigger"
       @click.stop="toggleAccordion"
     >
-      <Icon
-        v-if="arrow"
-        name="material-symbols:chevron-right-rounded"
-        class="accordion-arrow"
-      />
+      <Icon v-if="arrow" :name="icon" class="accordion-arrow" />
 
       <slot v-if="$slots.trigger" name="trigger" mdc-unwrap="p" />
 
@@ -93,10 +91,6 @@ defineExpose({ toggleAccordion });
 </template>
 
 <style>
-.accordion-wrapper {
-  border-radius: var(--radius-sm);
-}
-
 .accordion-panel-wrapper {
   display: grid;
   grid-template-rows: 0fr;
@@ -110,7 +104,7 @@ defineExpose({ toggleAccordion });
 
 .accordion-trigger[aria-expanded='true'] {
   .accordion-arrow {
-    rotate: 0.25turn;
+    rotate: 0.5turn;
   }
   ~ .accordion-panel-wrapper {
     grid-template-rows: 1fr;
