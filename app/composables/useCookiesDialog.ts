@@ -42,7 +42,7 @@ export function useCookiesDialog() {
   });
 
   function gtag() {
-    gtm.proxy.dataLayer.push(arguments as any);
+    gtm.proxy.dataLayer.push(arguments);
   }
 
   onMounted(() => {
