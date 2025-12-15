@@ -191,7 +191,7 @@ body:has(.mobile-dialog[open]) {
   padding: 0;
   overscroll-behavior: contain;
   min-height: 100dvh;
-  width: 90vw;
+  width: 100%;
   max-width: var(--width, 360px);
   border: none;
   background-color: var(--color-dialog-bg);
