@@ -564,7 +564,6 @@ const emit = defineEmits<{
   gap: 0.5rem;
   font-weight: var(--font-weight-medium);
   justify-content: start;
-  padding-inline-start: 2rem;
   background-color: transparent;
   transition-duration: 0s;
 

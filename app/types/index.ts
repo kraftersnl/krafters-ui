@@ -85,7 +85,7 @@ declare global {
     | 'purple'
     | 'pink';
 
-  type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'full';
+  type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full';
 
   type Size =
     | 'xxxs'
