@@ -313,6 +313,11 @@ const emit = defineEmits<{
   transition-property: background-color, box-shadow;
   box-shadow: 4px 4px 0 0 var(--color-accent);
 
+  .icon svg {
+    width: 1.25em;
+    height: 1.25em;
+  }
+
   &:not(:focus-visible, :disabled, .disabled):hover {
     box-shadow: 6px 6px 0px 0 var(--color-accent);
     background-color: color-mix(
@@ -335,6 +340,11 @@ const emit = defineEmits<{
   color: var(--color-text);
   background-color: var(--color-white);
 
+  .icon svg {
+    width: 1.25em;
+    height: 1.25em;
+  }
+
   &:not(:disabled, .disabled):hover {
     color: var(--color-white);
     background-color: var(--color-text);
@@ -347,7 +357,6 @@ const emit = defineEmits<{
   color: white;
   background-color: var(--color-accent);
   font-size: var(--font-size-sm);
-  min-height: 2.5rem;
   font-weight: var(--font-weight-medium);
 
   .icon svg {
