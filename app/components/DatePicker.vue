@@ -29,7 +29,7 @@ const {
   alwaysClearable = false,
 } = defineProps<{
   label: string;
-  formats?: FormatsConfig;
+  formats?: Partial<FormatsConfig>;
   disabled?: boolean;
   required?: boolean;
   name?: string;
