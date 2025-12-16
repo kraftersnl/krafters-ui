@@ -7,6 +7,12 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.8" date="2025-12-16">
+      <ul>
+        <li>Move <code>date-fns</code> to dev dependencies</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.7" date="2025-12-16">
       <ul>
         <li>
