@@ -129,6 +129,10 @@ const inputVariants = [
     value: 'krafters',
     label: 'krafters',
   },
+  {
+    value: 'minimal',
+    label: 'Minimal',
+  },
 ];
 
 function handleSubmit(formData: FormData) {

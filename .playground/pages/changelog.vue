@@ -7,6 +7,23 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.6" date="2025-12-16">
+      <ul>
+        <li>Update DatePicker component and improve accessibility</li>
+        <li>Add new and update existing Button variants</li>
+        <li>
+          Add <code>minimal</code> variant to Input, Textarea and Select
+          components
+        </li>
+        <li>Add <code>radius</code> prop to Callout component</li>
+        <li>
+          Rename <code>--color-card-border</code> design token to
+          <code>--card-border-color</code>
+        </li>
+        <li>Fix display of file size limit in FileInput component</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.5" date="2025-10-27">
       <ul>
         <li>Feature: add <code>avatar</code> prop to UserMenu component</li>

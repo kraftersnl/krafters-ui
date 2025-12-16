@@ -236,6 +236,25 @@ const computedErrorMessage = computed(() => {
   }
 }
 
+.select-variant--minimal {
+  label {
+    font-size: var(--font-size-sm);
+  }
+
+  .select {
+    padding-inline: 0;
+    border-radius: 0;
+    background-color: transparent;
+    border-color: transparent;
+    border-block-end-color: var(--color-grey-graphic);
+
+    &:focus {
+      border-block-end-color: var(--color-accent);
+      outline-color: transparent;
+    }
+  }
+}
+
 .select-variant--krafters {
   label {
     color: var(--color-grey-text);
