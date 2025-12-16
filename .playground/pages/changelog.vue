@@ -7,6 +7,15 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.7" date="2025-12-16">
+      <ul>
+        <li>
+          Migrate <code>@vuepic/vue-datepicker</code> dependency to v12 for
+          DatePicker component
+        </li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.6" date="2025-12-16">
       <ul>
         <li>Update DatePicker component and improve accessibility</li>

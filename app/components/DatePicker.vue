@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { VueDatePicker } from '@vuepic/vue-datepicker';
-import type { ModelValue } from '@vuepic/vue-datepicker';
+import type { ModelValue, FormatsConfig } from '@vuepic/vue-datepicker';
 import { nl, enGB } from 'date-fns/locale';
 import '@vuepic/vue-datepicker/dist/main.css';
 
@@ -13,7 +13,7 @@ const computedLocale = computed(() => {
 
 // https://vue3datepicker.com/props/modes/
 const {
-  format = 'yyyy-MM-dd',
+  formats = { input: 'yyyy-MM-dd', preview: 'yyyy-MM-dd' },
   enableTimePicker = false,
   showSelect = true,
   showCancel = true,
@@ -21,11 +21,22 @@ const {
   id = useId(),
   size = 'md',
   ariaLabels = undefined,
+  required = false,
+  name = undefined,
+  autocomplete = undefined,
+  clearable = true,
+  hideInputIcon = false,
+  alwaysClearable = false,
 } = defineProps<{
   label: string;
-  format?: string | ((date: Date) => string) | ((dates: Date[]) => string);
-  required?: boolean;
+  formats?: FormatsConfig;
   disabled?: boolean;
+  required?: boolean;
+  name?: string;
+  autocomplete?: string;
+  clearable?: boolean;
+  alwaysClearable?: boolean;
+  hideInputIcon?: boolean;
   utc?: boolean;
   textInput?: boolean;
   enableTimePicker?: boolean;
@@ -33,12 +44,23 @@ const {
   showCancel?: boolean;
   showNow?: boolean;
   showPreview?: boolean;
-  teleportCenter?: boolean;
+  centered?: boolean;
   monthChangeOnScroll?: boolean;
   id?: string;
   size?: InputSize;
   ariaLabels?: DatePickerAriaLabels;
 }>();
+
+const computedInputAttrs = computed(() => {
+  return {
+    required: required,
+    name: name,
+    autocomplete: autocomplete,
+    clearable: clearable,
+    alwaysClearable: alwaysClearable,
+    hideInputIcon: hideInputIcon,
+  };
+});
 
 const datepickerRef = useTemplateRef('datepicker');
 const colorMode = useColorMode();
@@ -111,18 +133,23 @@ const computedAriaLabels = computed(() => {
       auto-apply
       :esc-close="false"
       :text-input="textInput"
-      :utc="utc"
-      :enable-time-picker="enableTimePicker"
-      :format="format"
-      :required="required"
+      :timezone="utc ? 'utc' : undefined"
+      :time-config="{ enableTimePicker: enableTimePicker }"
+      :formats="formats"
+      :input-attrs="computedInputAttrs"
       :disabled="disabled"
       :month-change-on-scroll="monthChangeOnScroll"
-      :action-row="{ showSelect, showCancel, showNow, showPreview }"
+      :action-row="{
+        showSelect,
+        showCancel,
+        showNow,
+        showPreview,
+        selectBtnLabel: $t('datepicker.selectText'),
+        cancelBtnLabel: $t('datepicker.cancelText'),
+        nowBtnLabel: $t('datepicker.nowButtonLabel'),
+      }"
       :dark="isDark"
       :locale="computedLocale"
-      :select-text="$t('datepicker.selectText')"
-      :cancel-text="$t('datepicker.cancelText')"
-      :now-button-label="$t('datepicker.nowButtonLabel')"
       aria-live="polite"
       :aria-describedby="id && required ? `error-${id}` : ''"
       :aria-labels="computedAriaLabels"
