@@ -24,9 +24,9 @@ watch(
       <NuxtLink to="/" class="home-link">Krafters UI {{ version }}</NuxtLink>
 
       <div class="flex-wrapper" style="max-width: max-content">
-        <ClientOnly>
+        <!-- <ClientOnly>
           <CookiesButton />
-        </ClientOnly>
+        </ClientOnly> -->
         <ThemeToggle font-size="lg" />
       </div>
     </div>

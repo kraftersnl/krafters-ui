@@ -29,9 +29,9 @@ useHead({ titleTemplate: '%s | Krafters UI' });
         <NuxtPage />
       </main>
 
-      <CookiesDialog
+      <!-- <CookiesDialog
         description="This cookies dialog is for demo purposes only."
-      />
+      /> -->
     </div>
   </div>
 
