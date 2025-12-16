@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import { VueDatePicker } from '@vuepic/vue-datepicker';
 import type { ModelValue } from '@vuepic/vue-datepicker';
+import { nl, enGB } from 'date-fns/locale';
 import '@vuepic/vue-datepicker/dist/main.css';
 
 const model = defineModel<ModelValue>();
+
+const { locale } = useI18n();
+const computedLocale = computed(() => {
+  return locale.value === 'nl' ? nl : enGB;
+});
 
 // https://vue3datepicker.com/props/modes/
 const {
@@ -14,6 +20,7 @@ const {
   monthChangeOnScroll = false,
   id = useId(),
   size = 'md',
+  ariaLabels = undefined,
 } = defineProps<{
   label: string;
   format?: string | ((date: Date) => string) | ((dates: Date[]) => string);
@@ -30,6 +37,7 @@ const {
   monthChangeOnScroll?: boolean;
   id?: string;
   size?: InputSize;
+  ariaLabels?: DatePickerAriaLabels;
 }>();
 
 const datepickerRef = useTemplateRef('datepicker');
@@ -61,6 +69,25 @@ onMounted(() => {
 });
 
 onUnmounted(() => document.removeEventListener('keydown', preventEscape));
+
+const computedAriaLabels = computed(() => {
+  return {
+    input: $t('datepicker.input'),
+    clearInput: $t('datepicker.clearInput'),
+    toggleOverlay: $t('datepicker.toggleOverlay'),
+    calendarWrap: $t('datepicker.calendarWrap'),
+    calendarDays: $t('datepicker.calendarDays'),
+    openTimePicker: $t('datepicker.openTimePicker'),
+    closeTimePicker: $t('datepicker.closeTimePicker'),
+    openYearsOverlay: $t('datepicker.openYearsOverlay'),
+    openMonthsOverlay: $t('datepicker.openMonthsOverlay'),
+    nextMonth: $t('datepicker.nextMonth'),
+    prevMonth: $t('datepicker.prevMonth'),
+    nextYear: $t('datepicker.nextYear'),
+    prevYear: $t('datepicker.prevYear'),
+    ...ariaLabels,
+  };
+});
 </script>
 
 <template>
@@ -86,34 +113,19 @@ onUnmounted(() => document.removeEventListener('keydown', preventEscape));
       :text-input="textInput"
       :utc="utc"
       :enable-time-picker="enableTimePicker"
-      :uid="id"
       :format="format"
       :required="required"
       :disabled="disabled"
       :month-change-on-scroll="monthChangeOnScroll"
       :action-row="{ showSelect, showCancel, showNow, showPreview }"
       :dark="isDark"
-      :locale="$i18n.locale"
+      :locale="computedLocale"
       :select-text="$t('datepicker.selectText')"
       :cancel-text="$t('datepicker.cancelText')"
       :now-button-label="$t('datepicker.nowButtonLabel')"
       aria-live="polite"
       :aria-describedby="id && required ? `error-${id}` : ''"
-      :aria-labels="{
-        input: $t('datepicker.input'),
-        clearInput: $t('datepicker.clearInput'),
-        toggleOverlay: $t('datepicker.toggleOverlay'),
-        calendarWrap: $t('datepicker.calendarWrap'),
-        calendarDays: $t('datepicker.calendarDays'),
-        openTimePicker: $t('datepicker.openTimePicker'),
-        closeTimePicker: $t('datepicker.closeTimePicker'),
-        openYearsOverlay: $t('datepicker.openYearsOverlay'),
-        openMonthsOverlay: $t('datepicker.openMonthsOverlay'),
-        nextMonth: $t('datepicker.nextMonth'),
-        prevMonth: $t('datepicker.prevMonth'),
-        nextYear: $t('datepicker.nextYear'),
-        prevYear: $t('datepicker.prevYear'),
-      }"
+      :aria-labels="computedAriaLabels"
       class="krafters-datepicker"
       @open="handleOpen"
       @closed="handleClose"
