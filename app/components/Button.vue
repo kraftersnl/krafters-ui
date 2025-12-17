@@ -593,6 +593,7 @@ const emit = defineEmits<{
   --button-color: var(--color-text);
   --button-hover-color: var(--color-text);
   --button-active-color: var(--color-text);
+  --button-underline-color: var(--color-text);
   --button-underline-thickness: 1.5px;
 
   display: flex;
@@ -619,7 +620,7 @@ const emit = defineEmits<{
   @media (prefers-reduced-motion: no-preference) {
     text-decoration: none;
     border-radius: 0;
-    background-image: linear-gradient(var(--button-hover-color));
+    background-image: linear-gradient(var(--button-underline-color));
     background-repeat: no-repeat;
     background-size: 0% var(--button-underline-thickness);
     background-position: calc(100% - 0.25rem) bottom;
@@ -640,7 +641,7 @@ const emit = defineEmits<{
 
     &.router-link-exact-active {
       color: var(--button-active-color);
-      background-image: linear-gradient(var(--button-active-color));
+      background-image: linear-gradient(var(--button-underline-color));
 
       .iconify {
         color: var(--button-active-color);

@@ -52,6 +52,7 @@
   --color-pink-text: hsl(320 100% 75%);
   --color-pink-graphic: hsl(320 100% 75%);
 
+  --color-semi-transparent: hsl(0 0 0 / 35%);
   --rgb-app-nav: 0 0 0;
   --hsl-app-nav: 280 26% 9%;
 
@@ -120,6 +121,7 @@
   --color-pink-text: hsl(320 70% 40%);
   --color-pink-graphic: hsl(320 70% 40%);
 
+  --color-semi-transparent: hsl(0 0% 100% / 35%);
   --rgb-app-nav: 255 255 255;
   --hsl-app-nav: 280 0% 98%;
 
