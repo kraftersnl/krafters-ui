@@ -596,6 +596,7 @@ const emit = defineEmits<{
 
   display: flex;
   width: 100%;
+  padding-inline: 0;
   font-weight: var(--font-weight-medium);
   color: var(--button-color);
   justify-content: start;
@@ -616,10 +617,11 @@ const emit = defineEmits<{
 
   @media (prefers-reduced-motion: no-preference) {
     text-decoration: none;
+    border-radius: 0;
     background-image: linear-gradient(var(--button-hover-color));
     background-repeat: no-repeat;
     background-size: 0% 1px;
-    background-position: calc(100% - 0.75rem) bottom;
+    background-position: calc(100%) bottom;
 
     transition-timing-function: ease-in-out;
     transition:
@@ -628,8 +630,8 @@ const emit = defineEmits<{
 
     &:hover,
     &.router-link-exact-active {
-      background-position: 0.75rem bottom;
-      background-size: calc(100% - 1.5rem) 1px;
+      background-position: 0 bottom;
+      background-size: calc(100%) 1px;
       transition:
         background-size var(--duration-md),
         border-color var(--duration-sm);
@@ -642,6 +644,10 @@ const emit = defineEmits<{
       .iconify {
         color: var(--button-active-color);
       }
+    }
+
+    &:focus-visible {
+      border-radius: var(--radius-xs);
     }
   }
 }
