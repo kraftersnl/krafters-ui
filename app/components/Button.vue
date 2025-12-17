@@ -595,12 +595,10 @@ const emit = defineEmits<{
   --button-active-color: var(--color-text);
 
   display: flex;
-  gap: 0.5em;
   width: 100%;
   font-weight: var(--font-weight-medium);
   color: var(--button-color);
   justify-content: start;
-  padding-inline: 1rem;
   background-color: transparent;
   transition-duration: 0s;
 
@@ -621,7 +619,7 @@ const emit = defineEmits<{
     background-image: linear-gradient(var(--button-hover-color));
     background-repeat: no-repeat;
     background-size: 0% 1px;
-    background-position: calc(100% - 1rem) bottom;
+    background-position: calc(100% - 0.75rem) bottom;
 
     transition-timing-function: ease-in-out;
     transition:
@@ -630,8 +628,8 @@ const emit = defineEmits<{
 
     &:hover,
     &.router-link-exact-active {
-      background-position: 1rem bottom;
-      background-size: calc(100% - 2rem) 1px;
+      background-position: 0.75rem bottom;
+      background-size: calc(100% - 1.5rem) 1px;
       transition:
         background-size var(--duration-md),
         border-color var(--duration-sm);
