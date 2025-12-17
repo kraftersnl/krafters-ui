@@ -593,7 +593,7 @@ const emit = defineEmits<{
   --button-color: var(--color-text);
   --button-hover-color: var(--color-text);
   --button-active-color: var(--color-text);
-  --button-underline-thickness: 1px;
+  --button-underline-thickness: 1.5px;
 
   display: flex;
   width: 100%;
