@@ -241,6 +241,12 @@ const computedErrorMessage = computed(() => {
     font-size: var(--font-size-sm);
   }
 
+  &:focus-within {
+    label {
+      color: var(--color-text);
+    }
+  }
+
   .select {
     padding-inline: 0;
     border-radius: 0;

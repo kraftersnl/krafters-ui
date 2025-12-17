@@ -170,6 +170,12 @@ const emit = defineEmits<{
     font-size: var(--font-size-sm);
   }
 
+  &:focus-within {
+    label {
+      color: var(--color-text);
+    }
+  }
+
   .textarea {
     padding-inline: 0;
     padding-block-end: 0.5em;

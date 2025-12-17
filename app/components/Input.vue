@@ -256,6 +256,12 @@ const chipSize = computed(() => {
     font-size: var(--font-size-sm);
   }
 
+  &:focus-within {
+    label {
+      color: var(--color-text);
+    }
+  }
+
   .input {
     padding-inline: 0;
     border-radius: 0;
