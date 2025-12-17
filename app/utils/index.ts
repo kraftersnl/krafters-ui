@@ -1,3 +1,13 @@
+export async function fixBoldText(text?: string) {
+  if (!text) return;
+  return text.replaceAll('<strong>', '<b>').replaceAll('</strong>', '</b>');
+}
+
+export async function fixItalicText(text?: string) {
+  if (!text) return;
+  return text.replaceAll('<em>', '<i>').replaceAll('</em>', '</i>');
+}
+
 export async function copyText(text?: string) {
   if (!text) return;
   return await navigator?.clipboard?.writeText(text);
