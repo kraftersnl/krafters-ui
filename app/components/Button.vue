@@ -593,6 +593,7 @@ const emit = defineEmits<{
   --button-color: var(--color-text);
   --button-hover-color: var(--color-text);
   --button-active-color: var(--color-text);
+  --button-underline-thickness: 2px;
 
   display: flex;
   width: 100%;
@@ -620,20 +621,20 @@ const emit = defineEmits<{
     border-radius: 0;
     background-image: linear-gradient(var(--button-hover-color));
     background-repeat: no-repeat;
-    background-size: 0% 1px;
+    background-size: 0% var(--button-underline-thickness);
     background-position: calc(100% - 0.25rem) bottom;
 
     transition-timing-function: ease-in-out;
     transition:
-      background-size var(--duration-md),
+      background-size var(--duration-sm),
       border-color var(--duration-sm) var(--duration-sm);
 
     &:hover,
     &.router-link-exact-active {
       background-position: 0.25rem bottom;
-      background-size: calc(100% - 0.5rem) 1px;
+      background-size: calc(100% - 0.5rem) var(--button-underline-thickness);
       transition:
-        background-size var(--duration-md),
+        background-size var(--duration-sm),
         border-color var(--duration-sm);
     }
 
