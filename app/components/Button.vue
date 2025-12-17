@@ -353,7 +353,7 @@ const emit = defineEmits<{
 
 .button-variant--cta {
   --radius: var(--radius-xl);
-  --focus-color: var(--color-accent-graphic);
+  --focus-color: var(--color-accent-text);
   color: white;
   background-color: var(--color-accent);
   font-size: var(--font-size-sm);
