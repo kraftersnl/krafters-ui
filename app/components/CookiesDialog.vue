@@ -81,6 +81,10 @@ const { cookiesDialogRef, acceptCookies, denyCookies } = useCookiesDialog();
     row-gap: 2rem;
     column-gap: 3rem;
 
+    p {
+      margin-block: 1em;
+    }
+
     .button-group {
       display: flex;
       flex-wrap: wrap;
