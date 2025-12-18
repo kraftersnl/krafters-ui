@@ -640,8 +640,8 @@ const emit = defineEmits<{
     }
 
     &.router-link-exact-active {
+      --button-underline-color: var(--button-active-color);
       color: var(--button-active-color);
-      background-image: linear-gradient(var(--button-underline-color));
 
       .iconify {
         color: var(--button-active-color);
