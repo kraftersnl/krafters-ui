@@ -7,6 +7,12 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.5.10" date="2025-12-18">
+      <ul>
+        <li>Revert update to initial dark mode configuration</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.9" date="2025-12-16">
       <ul>
         <li>Remove <code>@nuxt/scripts</code></li>
