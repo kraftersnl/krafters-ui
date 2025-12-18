@@ -286,12 +286,9 @@
   box-sizing: border-box;
 }
 
-html {
-  color-scheme: var(--color-scheme, dark light) !important;
-  accent-color: var(--color-accent, inherit);
-}
-
 :where(html) {
+  color-scheme: var(--color-scheme, dark light);
+  accent-color: var(--color-accent, inherit);
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   text-size-adjust: none;

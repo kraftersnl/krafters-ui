@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         lang: 'nl',
-        style: 'color-scheme: dark',
+        style: 'background-color: #000;',
       },
     },
   },
