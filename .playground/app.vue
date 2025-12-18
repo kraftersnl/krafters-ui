@@ -53,7 +53,8 @@ useHead({ titleTemplate: '%s | Krafters UI' });
 }
 
 .app-layout {
-  padding: 2rem;
+  padding-block: var(--app-padding-block);
+  padding-inline: var(--app-padding-inline);
   max-width: var(--app-max-width);
   margin-inline: auto;
   min-height: calc(100dvh - 3.5rem - 1px);
@@ -78,9 +79,6 @@ useHead({ titleTemplate: '%s | Krafters UI' });
     nav {
       position: sticky;
       top: 6rem;
-    }
-    .button-variant--sidebar {
-      padding-inline-start: 0.5rem;
     }
   }
 }

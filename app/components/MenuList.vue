@@ -129,7 +129,7 @@ const emit = defineEmits<{
 
 <style>
 .menu-list-label {
-  padding-inline: 1rem 0.25rem;
+  padding-inline: 0.5em 0.25rem;
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-lg);
   color: var(--color-grey-text);
@@ -183,10 +183,6 @@ const emit = defineEmits<{
 }
 
 .menu-list-nav:has(.button-variant--sidebar) {
-  .menu-list-label {
-    padding-inline-start: 2rem;
-  }
-
   .menu-list-item {
     margin-bottom: 0.5rem;
 

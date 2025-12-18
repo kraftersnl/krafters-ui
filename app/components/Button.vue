@@ -562,6 +562,7 @@ const emit = defineEmits<{
 .button-variant--sidebar {
   display: flex;
   gap: 0.5rem;
+  padding-inline: 0;
   font-weight: var(--font-weight-medium);
   justify-content: start;
   background-color: transparent;

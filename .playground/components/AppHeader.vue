@@ -88,7 +88,7 @@ watch(
 .app-header-content {
   max-width: var(--app-max-width);
   margin-inline: auto;
-  padding-inline: 1.25rem;
+  padding-inline: var(--app-padding-inline);
   min-height: 3.5rem;
   width: 100%;
   height: 100%;
