@@ -71,6 +71,7 @@ const emit = defineEmits<{
           :icon-pos="item.iconPos"
           :show-arrow-icon="item.showArrowIcon"
           :size="buttonSize"
+          :font-size="fontSize"
           button-variant="ghost"
           placement="bottom-start"
         >
@@ -129,8 +130,7 @@ const emit = defineEmits<{
 
 <style>
 .menu-list-label {
-  padding-inline: 0.5em 0.25rem;
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-medium);
   font-size: var(--font-size-lg);
   color: var(--color-grey-text);
   margin-block-start: 1.5rem;
