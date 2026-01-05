@@ -24,7 +24,9 @@
     "accept": "Accept",
     "deny": "Deny",
     "description": "We use cookies to improve your experience.",
-    "heading": "Cookies"
+    "heading": "Cookies",
+    "has-consent": "Cookies are accepted",
+    "no-consent": "Cookies are not accepted"
   },
 
   "date": {

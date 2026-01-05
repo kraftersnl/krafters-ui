@@ -24,7 +24,9 @@
     "accept": "Accepteren",
     "deny": "Weigeren",
     "description": "We gebruiken cookies om de gebruikerservaring te verbeteren.",
-    "heading": "Cookies"
+    "heading": "Cookies",
+    "has-consent": "Cookies zijn geaccepteerd",
+    "no-consent": "Cookies zijn niet geaccepteerd"
   },
 
   "date": {

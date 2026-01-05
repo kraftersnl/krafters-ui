@@ -36,5 +36,13 @@ const { cookiesDialogRef, hasConsent } = useCookiesDialog();
     :icon="hasConsent ? icon : iconOff"
     :icon-pos="iconPos"
     @click="cookiesDialogRef?.openDialog()"
-  />
+  >
+    <template #default>
+      <span class="visuallyhidden">
+        ({{
+          hasConsent ? $t('cookies.has-consent') : $t('cookies.no-consent')
+        }})
+      </span>
+    </template>
+  </Button>
 </template>
