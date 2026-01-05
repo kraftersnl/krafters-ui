@@ -143,7 +143,7 @@ const preview = computed(() => md.render(content));
     overflow-wrap: anywhere;
 
     &[target='_blank']::after {
-      content: '';
+      content: '' / '(open in nieuw venster)';
       display: inline-block;
       vertical-align: middle;
       width: 1em;

@@ -47,6 +47,7 @@ const {
   hideCloseButton?: boolean;
 }>();
 
+const dialogTriggerRef = useTemplateRef<ButtonComponent>('dialogTrigger');
 const dialogElementRef = useTemplateRef<HTMLDialogElement>('dialogElement');
 const isVisible = ref(false);
 const isMounted = ref(false);
@@ -85,6 +86,12 @@ function openDialog() {
   isVisible.value = true;
 }
 
+function focusDialogTrigger() {
+  setTimeout(() => {
+    dialogTriggerRef.value?.focusElement();
+  }, lgTransition);
+}
+
 defineExpose({
   openDialog,
   closeDialog,
@@ -115,6 +122,7 @@ const emit = defineEmits<{
 
     <Button
       v-else
+      ref="dialogTrigger"
       :icon="icon"
       class="mobile-nav-toggle"
       :size="buttonSize"
@@ -138,7 +146,12 @@ const emit = defineEmits<{
         :aria-label="label || $t('aria.mobile-menu')"
         :style="`--width: ${width}px`"
         @click="handleDialogClick"
-        @close="isVisible = false"
+        @close="
+          () => {
+            isVisible = false;
+            focusDialogTrigger();
+          }
+        "
       >
         <FocusLoop :is-visible="isVisible">
           <div class="dialog-content">
