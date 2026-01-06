@@ -345,12 +345,14 @@
 
   p {
     quotes: '“' '”';
-  }
-  p::before {
-    content: open-quote;
-  }
-  p::after {
-    content: close-quote;
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
   }
 
   > p {
