@@ -339,10 +339,19 @@
 }
 
 :where(blockquote) {
-  quotes: '“' '”';
   margin: 0;
   border-inline-start: 3px solid var(--color-grey-bg);
   padding-inline-start: 1.35em;
+
+  p {
+    quotes: '“' '”';
+  }
+  p::before {
+    content: open-quote;
+  }
+  p::after {
+    content: close-quote;
+  }
 
   > p {
     margin-block-start: 0;
