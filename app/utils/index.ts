@@ -6,6 +6,11 @@ export function fixItalicText(text?: string) {
   return text?.replaceAll('<em>', '<i>')?.replaceAll('</em>', '</i>');
 }
 
+export function fixBoldAndItalicText(text?: string) {
+  const fixedBoldText = fixBoldText(text);
+  return fixItalicText(fixedBoldText);
+}
+
 export async function copyText(text?: string) {
   if (!text) return;
   return await navigator?.clipboard?.writeText(text);
