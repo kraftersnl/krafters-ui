@@ -18,6 +18,7 @@ const {
   instruction = undefined,
   tabindex = undefined,
   variant = 'default',
+  list = undefined,
   type = 'text',
   size = 'md',
   id = useId(),
@@ -31,6 +32,7 @@ const {
   disabled?: boolean;
   readonly?: boolean;
   autofocus?: boolean;
+  list?: string;
   type?: string;
   autocomplete?: string;
   pattern?: string;
@@ -148,6 +150,7 @@ const chipSize = computed(() => {
         :value="modelValue"
         :name="name"
         :title="title"
+        :list="list"
         :type="type || 'text'"
         :autocomplete="autocomplete"
         :inputmode="inputMode"

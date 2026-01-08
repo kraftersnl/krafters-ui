@@ -8,6 +8,7 @@ const {
   label = undefined,
   placeholder = undefined,
   autocomplete = undefined,
+  list = undefined,
   size = 'lg',
 } = defineProps<{
   label?: string;
@@ -17,6 +18,7 @@ const {
   hideLabel?: boolean;
   size?: InputSize;
   hideSubmitButton?: boolean;
+  list?: string;
 }>();
 
 function handleSearch() {
@@ -59,6 +61,7 @@ const emit = defineEmits<{
         v-model="model"
         type="search"
         :size="size"
+        :list="list"
         :icon="hideSubmitButton ? 'material-symbols:search-rounded' : undefined"
         :placeholder="placeholder"
         :label="label || $t('general.search')"
