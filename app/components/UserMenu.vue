@@ -60,7 +60,7 @@ defineExpose({
       class="avatar-button"
       @click="toggleMenu"
     >
-      <img :src="avatar" class="avatar-image" />
+      <img :src="avatar" class="avatar-image" alt="" />
       <span class="visuallyhidden">{{ $t('general.avatar') }}</span>
     </button>
 
