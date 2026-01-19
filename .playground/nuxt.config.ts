@@ -26,8 +26,6 @@ export default defineNuxtConfig({
 
   css: ['~/assets/playground.css'],
 
-  devtools: { enabled: false },
-
   icon: {
     clientBundle: {
       scan: true,

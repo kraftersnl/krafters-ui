@@ -42,6 +42,7 @@ export function useCookiesDialog() {
   });
 
   function gtag() {
+    // eslint-disable-next-line prefer-rest-params
     gtm.proxy.dataLayer.push(arguments);
   }
 
