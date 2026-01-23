@@ -96,7 +96,7 @@ defineExpose({
           @keyup.right="handleNextTab(tab)"
           @click="setActiveTab(tab)"
         >
-          <div
+          <span
             v-if="tab.icon?.startsWith('<svg')"
             class="html-icon"
             aria-hidden="true"
@@ -110,7 +110,12 @@ defineExpose({
 
     <slot name="top" />
 
-    <div ref="tabpanel" class="tabpanel-wrapper" tabindex="-1">
+    <div
+      v-if="!$slots.top"
+      ref="tabpanel"
+      class="tabpanel-wrapper"
+      tabindex="-1"
+    >
       <template v-for="tab in tabs" :key="tab.value">
         <div
           v-show="tab.value === activeTab"
