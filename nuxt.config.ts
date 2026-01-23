@@ -5,7 +5,7 @@ const currentDir = dirname(fileURLToPath(import.meta.url));
 
 export default defineNuxtConfig({
   $development: {
-    modules: ['@nuxtjs/html-validator'],
+    modules: ['@nuxt/a11y', '@nuxtjs/html-validator'],
   },
 
   pages: true,
