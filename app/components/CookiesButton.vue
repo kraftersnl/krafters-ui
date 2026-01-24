@@ -22,6 +22,14 @@ const {
 }>();
 
 const { cookiesDialogRef, hasConsent } = useCookiesDialog();
+
+const computedLabel = computed(
+  () =>
+    label +
+    ' (' +
+    (hasConsent.value ? $t('cookies.has-consent') : $t('cookies.no-consent')) +
+    ')',
+);
 </script>
 
 <template>
@@ -35,14 +43,7 @@ const { cookiesDialogRef, hasConsent } = useCookiesDialog();
     :icon-size="iconSize"
     :icon="hasConsent ? icon : iconOff"
     :icon-pos="iconPos"
+    :aria-label="computedLabel"
     @click="cookiesDialogRef?.openDialog()"
-  >
-    <template #default>
-      <span class="visuallyhidden">
-        ({{
-          hasConsent ? $t('cookies.has-consent') : $t('cookies.no-consent')
-        }})
-      </span>
-    </template>
-  </Button>
+  />
 </template>
