@@ -21,15 +21,6 @@ const {
   hideLabel?: boolean;
 }>();
 
-const computedLabel = computed(() => {
-  return (
-    label +
-    ' (' +
-    (hasConsent.value ? $t('cookies.has-consent') : $t('cookies.no-consent')) +
-    ')'
-  );
-});
-
 const { cookiesDialogRef, hasConsent } = useCookiesDialog();
 </script>
 
@@ -38,12 +29,20 @@ const { cookiesDialogRef, hasConsent } = useCookiesDialog();
     class="cookies-button"
     :variant="buttonVariant"
     :radius="radius"
-    :label="computedLabel"
+    :label="label"
     :hide-label="hideLabel"
     :size="size"
     :icon-size="iconSize"
     :icon="hasConsent ? icon : iconOff"
     :icon-pos="iconPos"
     @click="cookiesDialogRef?.openDialog()"
-  />
+  >
+    <template #default>
+      <span class="visuallyhidden">
+        ({{
+          hasConsent ? $t('cookies.has-consent') : $t('cookies.no-consent')
+        }})
+      </span>
+    </template>
+  </Button>
 </template>
