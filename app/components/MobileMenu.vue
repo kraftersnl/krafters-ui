@@ -25,6 +25,7 @@ const {
   closeButtonSize = 'sm',
   closeButtonIconSize = 'md',
   hideCloseButton = false,
+  closeOnDesktop = true,
 } = defineProps<{
   teleportTo?: string;
   width?: number;
@@ -49,6 +50,7 @@ const {
   closeButtonSize?: ButtonSize;
   closeButtonIconSize?: FontSize;
   hideCloseButton?: boolean;
+  closeOnDesktop?: boolean;
 }>();
 
 const dialogTriggerRef = useTemplateRef<ButtonComponent>('dialogTrigger');
@@ -105,7 +107,7 @@ defineExpose({
 watch(
   () => isLargeScreen.value,
   (value) => {
-    if (value && isVisible.value) {
+    if (closeOnDesktop && value && isVisible.value) {
       closeDialog();
     }
   },
