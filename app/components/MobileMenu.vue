@@ -22,6 +22,8 @@ const {
   closeIcon = 'material-symbols:close-rounded',
   closeButtonVariant = 'ghost',
   closeButtonRadius = 'full',
+  closeButtonSize = 'sm',
+  closeButtonIconSize = 'md',
   hideCloseButton = false,
 } = defineProps<{
   teleportTo?: string;
@@ -44,6 +46,8 @@ const {
   closeIcon?: string;
   closeButtonVariant?: ButtonVariant;
   closeButtonRadius?: BorderRadius;
+  closeButtonSize?: ButtonSize;
+  closeButtonIconSize?: FontSize;
   hideCloseButton?: boolean;
 }>();
 
@@ -161,8 +165,8 @@ const emit = defineEmits<{
               :variant="closeButtonVariant"
               :radius="closeButtonRadius"
               :label="$t('aria.close-menu')"
-              size="sm"
-              icon-size="md"
+              :size="closeButtonSize"
+              :icon-size="closeButtonIconSize"
               hide-label
               class="close-button"
               @click="closeDialog"
@@ -269,6 +273,7 @@ body:has(.mobile-dialog[open]) {
 }
 
 .mobile-dialog-position--inline-end {
+  margin-inline-start: auto;
   margin-inline-end: 0;
   border-inline-start: 1px solid var(--card-border-color);
 
