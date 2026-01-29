@@ -110,8 +110,10 @@ defineExpose({
 
     <slot name="top" />
 
+    <slot name="tabpanel" />
+
     <div
-      v-if="!$slots.top"
+      v-if="!$slots.tabpanel"
       ref="tabpanel"
       class="tabpanel-wrapper"
       tabindex="-1"
