@@ -2,20 +2,20 @@
 :where(.dark-mode) {
   --color-scheme: dark;
 
-  --color-accent: hsl(294 50% 70%);
-  --color-accent-bg: hsl(294 25% 20%);
-  --color-accent-text: hsl(294 50% 70%);
-  --color-accent-graphic: hsl(294 50% 70%);
+  --color-accent: hsl(232 100% 67%);
+  --color-accent-bg: hsl(232 79% 15%);
+  --color-accent-text: hsl(232 79% 66%);
+  --color-accent-graphic: hsl(232 100% 66%);
 
   --color-black: white;
-  --color-text: hsl(280 25% 90%);
-  --color-grey-text: hsl(280 20% 65%);
-  --color-grey-graphic: hsl(280 26% 46%);
-  --color-grey-light: hsl(280 24% 23%);
-  --color-grey-bg: hsl(280 27% 17%);
-  --color-bg: hsl(280 26% 9%);
-  --color-card-bg: hsl(280 27% 12%);
-  --color-white: hsl(280 41% 7%);
+  --color-text: hsl(220 50% 96%);
+  --color-grey-text: hsl(132 4% 76%);
+  --color-grey-graphic: hsl(140 3% 28%);
+  --color-grey-light: hsl(140 3% 15%);
+  --color-grey-bg: hsl(220 25% 5%);
+  --color-bg: hsl(220 20% 9%);
+  --color-card-bg: hsl(0 0% 3%);
+  --color-white: hsl(0 0% 0%);
 
   --color-red: hsl(0 100% 60%);
   --color-red-bg: hsl(0 33% 19%);
@@ -71,18 +71,18 @@
 :where(.light-mode) {
   --color-scheme: light;
 
-  --color-accent: hsl(294 20% 40%);
-  --color-accent-bg: hsl(294 25% 94%);
-  --color-accent-text: hsl(294 20% 40%);
-  --color-accent-graphic: hsl(294 20% 40%);
+  --color-accent: hsl(232 100% 58%);
+  --color-accent-bg: hsl(232 79% 92%);
+  --color-accent-text: hsl(232 79% 49%);
+  --color-accent-graphic: hsl(232 100% 58%);
 
   --color-black: black;
-  --color-text: hsl(21 13% 20%);
-  --color-grey-text: hsl(0 0% 40%);
-  --color-grey-graphic: hsl(0 0% 55%);
-  --color-grey-light: hsl(0 0% 88%);
-  --color-grey-bg: hsl(0 0% 94%);
-  --color-bg: hsl(280 0% 98%);
+  --color-text: hsl(220 25% 5%);
+  --color-grey-text: hsl(225 7% 32%);
+  --color-grey-graphic: hsl(144 3% 65%);
+  --color-grey-light: hsl(144 3% 80%);
+  --color-grey-bg: hsl(132 11% 91%);
+  --color-bg: hsl(132 8% 98%);
   --color-card-bg: white;
   --color-white: white;
 

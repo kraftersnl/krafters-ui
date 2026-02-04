@@ -89,7 +89,7 @@ watch(
   max-width: var(--app-max-width);
   margin-inline: auto;
   padding-inline: var(--app-padding-inline);
-  min-height: 3.5rem;
+  min-height: var(--app-header-height);
   width: 100%;
   height: 100%;
   display: flex;

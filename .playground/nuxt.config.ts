@@ -24,6 +24,8 @@ export default defineNuxtConfig({
     },
   },
 
+  modules: ['@nuxt/fonts'],
+
   css: ['~/assets/playground.css'],
 
   icon: {

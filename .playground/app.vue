@@ -43,11 +43,6 @@ useHead({ titleTemplate: '%s | Krafters UI' });
 </template>
 
 <style>
-:root {
-  --app-max-width: 1280px;
-  --app-header-height: 3.5rem;
-}
-
 .app-focus-wrapper {
   outline: 1px solid transparent;
 }
@@ -68,10 +63,6 @@ useHead({ titleTemplate: '%s | Krafters UI' });
 
 .app-sidebar {
   display: none;
-
-  hr {
-    max-width: 180px;
-  }
 
   @media (min-width: 1024px) {
     display: block;
