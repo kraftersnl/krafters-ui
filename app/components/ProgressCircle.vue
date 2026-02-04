@@ -118,14 +118,14 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
 }
 
 .progress-circle-color--accent {
-  --progress-label-color: var(--color-accent);
-  --progress-stroke-color: var(--color-accent);
+  --progress-label-color: var(--color-accent-text);
+  --progress-stroke-color: var(--color-accent-graphic);
   --progress-stroke-bg: var(--color-accent-bg);
 }
 
 .progress-circle-color--green {
   --progress-label-color: var(--color-green-text);
-  --progress-stroke-color: var(--color-green);
+  --progress-stroke-color: var(--color-green-graphic);
   --progress-stroke-bg: var(--color-green-bg);
 }
 
@@ -137,7 +137,7 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
 
 .progress-circle-color--red {
   --progress-label-color: var(--color-red-text);
-  --progress-stroke-color: var(--color-red);
+  --progress-stroke-color: var(--color-red-graphic);
   --progress-stroke-bg: var(--color-red-bg);
 }
 

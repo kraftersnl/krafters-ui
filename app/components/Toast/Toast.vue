@@ -89,7 +89,8 @@ const emit = defineEmits<{
       icon="material-symbols:close-rounded"
       :label="$t('general.close')"
       hide-label
-      shape="circle"
+      radius="full"
+      size="sm"
       variant="ghost"
       @click="emit('hide', id)"
     />

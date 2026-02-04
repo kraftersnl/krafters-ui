@@ -128,7 +128,7 @@ defineExpose({ toggleAccordion });
   transition-duration: var(--duration-sm);
 
   &:hover {
-    color: var(--color-accent-graphic);
+    /* color: var(--color-accent-graphic); */
 
     .accordion-arrow {
       color: var(--color-accent-graphic);
