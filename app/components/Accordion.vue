@@ -20,6 +20,13 @@ const {
 const isExpanded = ref(open);
 const panelRef = useTemplateRef<HTMLElement>('accordionPanel');
 
+watch(
+  () => open,
+  (newVal) => {
+    isExpanded.value = newVal;
+  },
+);
+
 function toggleAccordion() {
   isExpanded.value = !isExpanded.value;
 }
