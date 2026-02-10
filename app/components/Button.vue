@@ -598,7 +598,7 @@ const emit = defineEmits<{
   --button-underline-thickness: 1.5px;
 
   display: flex;
-  width: 100%;
+  max-width: max-content;
   padding-inline: 0;
   font-weight: var(--font-weight-medium);
   color: var(--button-color);
@@ -619,38 +619,46 @@ const emit = defineEmits<{
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    text-decoration: none;
-    border-radius: 0;
-    background-image: linear-gradient(var(--button-underline-color));
-    background-repeat: no-repeat;
-    background-size: 0% var(--button-underline-thickness);
-    background-position: calc(100% - 0.25rem) bottom;
+    @media (pointer: coarse) {
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+    }
 
-    transition-timing-function: ease-in-out;
-    transition:
-      background-size var(--duration-sm),
-      border-color var(--duration-sm) var(--duration-sm);
+    @media (pointer: fine) {
+      border-radius: 0;
+      background-image: linear-gradient(var(--button-underline-color));
+      background-repeat: no-repeat;
+      background-size: 0% var(--button-underline-thickness);
+      background-position: calc(100% - 0.25rem) bottom;
 
-    &:hover,
-    &.router-link-exact-active {
-      background-position: 0.25rem bottom;
-      background-size: calc(100% - 0.5rem) var(--button-underline-thickness);
+      transition-timing-function: ease-in-out;
       transition:
+        color var(--duration-sm),
         background-size var(--duration-sm),
-        border-color var(--duration-sm);
-    }
+        border-color var(--duration-sm) var(--duration-sm);
 
-    &.router-link-exact-active {
-      --button-underline-color: var(--button-active-color);
-      color: var(--button-active-color);
-
-      .iconify {
-        color: var(--button-active-color);
+      &:hover {
+        background-position: 0.25rem bottom;
+        background-size: calc(100% - 0.5rem) var(--button-underline-thickness);
+        transition:
+          color var(--duration-sm),
+          background-size var(--duration-sm),
+          border-color var(--duration-sm);
       }
-    }
 
-    &:focus-visible {
-      border-radius: var(--radius-xs);
+      &.router-link-exact-active {
+        --button-underline-color: var(--button-active-color);
+        color: var(--button-active-color);
+        background-size: calc(100% - 0.5rem) var(--button-underline-thickness);
+
+        .iconify {
+          color: var(--button-active-color);
+        }
+      }
+
+      &:focus-visible {
+        border-radius: var(--radius-xs);
+      }
     }
   }
 }
