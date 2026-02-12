@@ -20,6 +20,10 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
 
+  typescript: {
+    includeWorkspace: true,
+  },
+
   colorMode: {
     classSuffix: '-mode',
   },
