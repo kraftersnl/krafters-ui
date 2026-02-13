@@ -351,10 +351,10 @@ html:has(.dialog[open]) {
   width: 100%;
 
   &[open] {
-    animation: slideInBottom var(--duration-md) forwards;
+    animation: slideInBottom var(--duration-sm) forwards;
 
     &::backdrop {
-      animation: fadeIn var(--duration-md) forwards;
+      animation: fadeIn var(--duration-sm) forwards;
     }
   }
 

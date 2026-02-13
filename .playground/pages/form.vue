@@ -487,4 +487,14 @@ function handleSubmit(formData: FormData) {
   row-gap: 0.5rem;
   column-gap: 1rem;
 }
+
+:where(.button-group) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  > .button {
+    flex-grow: 1;
+  }
+}
 </style>

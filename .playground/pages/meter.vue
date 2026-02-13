@@ -188,5 +188,11 @@ const roleOptions = [
   .progress-meter-card {
     max-width: 420px;
   }
+
+  .grid-wrapper {
+    --gap: 1rem;
+    display: grid;
+    gap: var(--gap);
+  }
 }
 </style>
