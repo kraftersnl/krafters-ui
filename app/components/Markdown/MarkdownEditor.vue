@@ -128,23 +128,39 @@ const emit = defineEmits<{
         aria-hidden="true"
       />
 
-      <div
-        v-if="required"
-        :id="id && required ? `error-${id}` : undefined"
-        class="error-wrapper"
-        aria-live="polite"
-      >
-        <div class="error">
-          <Icon name="material-symbols:warning-rounded" />
-
-          <span>{{ computedErrorMessage }}</span>
-        </div>
-      </div>
+      <InputError v-if="required" :id="id" :error-text="computedErrorMessage" />
     </div>
   </ClientOnly>
 </template>
 
 <style>
+:where(.markdown-editor) {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  align-content: start;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  label,
+  .label {
+    display: inline-flex;
+    gap: 0.35rem;
+    min-height: 1.25rem;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    margin-block-end: 0.125rem;
+    color: var(--color-grey-text);
+  }
+
+  .instruction {
+    margin-block-start: 0.25rem;
+    margin-block-end: 0;
+    font-size: var(--font-size-xxs);
+    color: var(--color-grey-text);
+  }
+}
+
 .md-editor-preview {
   font-size: var(--font-size) !important;
   word-break: break-word !important;

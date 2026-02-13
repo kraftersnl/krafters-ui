@@ -130,22 +130,76 @@ const emit = defineEmits<{
       {{ instruction }}
     </p>
 
-    <div
-      v-if="required"
-      :id="id && required ? `error-${id}` : undefined"
-      class="error-wrapper"
-      aria-live="polite"
-    >
-      <div class="error">
-        <Icon name="material-symbols:warning-rounded" />
-
-        <span>{{ computedErrorMessage }}</span>
-      </div>
-    </div>
+    <InputError v-if="required" :id="id" :error-text="computedErrorMessage" />
   </div>
 </template>
 
 <style>
+:where(label) {
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  &.disabled {
+    opacity: 25%;
+  }
+}
+
+:where(textarea) {
+  padding: 0.5rem;
+  resize: vertical;
+}
+
+:where(.form-field-wrapper) {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  align-content: start;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  label,
+  .label {
+    display: inline-flex;
+    gap: 0.35rem;
+    min-height: 1.25rem;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    margin-block-end: 0.125rem;
+    color: var(--color-grey-text);
+  }
+
+  .instruction {
+    margin-block-start: 0.25rem;
+    margin-block-end: 0;
+    font-size: var(--font-size-xxs);
+    color: var(--color-grey-text);
+  }
+
+  &:has(.textarea:disabled) {
+    opacity: 35%;
+  }
+
+  .textarea {
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid var(--color-grey-graphic);
+    border-radius: var(--radius-md);
+
+    &::placeholder {
+      color: var(--color-grey-graphic);
+    }
+
+    &:focus {
+      outline: 1px solid var(--focus-color);
+      border-color: var(--focus-color);
+    }
+  }
+}
+
 .textarea-wrapper {
   .textarea {
     background-color: var(--color-input-bg);

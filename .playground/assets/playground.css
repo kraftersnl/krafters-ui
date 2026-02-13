@@ -1,34 +1,99 @@
+.dark-mode {
+  --color-bg: hsl(232 22% 5%);
+  --color-card-bg: hsl(220 20% 8%);
+}
+
 :root {
-  --font-family: 'Atkinson Hyperlegible', sans-serif;
-  --font-weight-regular: 400;
-  --font-weight-medium: 400;
-  --font-weight-bold: 700;
-  --line-height: 1.5;
-  --line-height-heading: 1.2;
+  --color-accent-darker: color-mix(
+    in srgb,
+    var(--color-accent) 20%,
+    var(--color-black)
+  );
 
-  --app-max-width: 1280px;
-  --app-header-height: 4rem;
+  --color-accent-lighter: color-mix(
+    in srgb,
+    var(--color-accent) 20%,
+    var(--color-white)
+  );
+
+  --gradient-accent-bg: linear-gradient(
+    to bottom in oklch,
+    var(--color-accent-bg),
+    var(--color-accent-lighter)
+  );
+
+  --gradient-accent-text: linear-gradient(
+    to right in oklch,
+    var(--color-accent),
+    var(--color-accent-bg)
+  );
+
+  --gradient-accent-graphic: linear-gradient(
+    to right in oklch,
+    var(--color-accent),
+    var(--color-accent-bg)
+  );
+
+  .gradient-text {
+    color: transparent;
+    background-clip: text;
+    background-image: var(--gradient-accent-text);
+  }
+
+  .gradient-link {
+    text-decoration: none;
+    background-image: var(--gradient-accent-graphic);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0% 2px;
+    transition: background-size var(--duration-md);
+
+    &:hover {
+      background-size: 100% 2px;
+    }
+  }
 }
 
-.section-topbar {
-  align-items: center;
+.c-grey-bg {
+  color: var(--color-grey-bg);
+}
+.c-grey-graphic {
+  color: var(--color-grey-graphic);
+}
+.c-grey-text {
+  color: var(--color-grey-text);
+}
+.c-accent {
+  color: var(--color-accent);
+}
+.c-accent-text {
+  color: var(--color-accent-text);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-family-heading);
+.mbs-0 {
+  margin-block-start: 0;
+}
+.mbs-1 {
+  margin-block-start: 1rem;
+}
+.mbs-2 {
+  margin-block-start: 2rem;
 }
 
-h2 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
+.mbe-0 {
+  margin-block-end: 0;
+}
+.mbe-1 {
+  margin-block-end: 1rem;
+}
+.mbe-2 {
+  margin-block-end: 2rem;
 }
 
-h3 {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
+:where(hr, .divider) {
+  border: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-grey-light);
+  margin-block: 0;
 }

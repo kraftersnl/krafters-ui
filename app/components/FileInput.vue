@@ -233,21 +233,37 @@ function removeFile() {
       />
     </div>
 
-    <div
-      :id="id ? `error-${id}` : undefined"
-      class="error-wrapper"
-      aria-live="polite"
-    >
-      <div class="error">
-        <Icon name="material-symbols:warning-rounded" />
-
-        <span v-if="!validity">{{ errorMessage }}</span>
-      </div>
-    </div>
+    <InputError :id="id" :error-text="errorMessage" />
   </div>
 </template>
 
 <style>
+:where(label) {
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:where(.file-input-wrapper) {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  align-content: start;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  label,
+  .label {
+    display: inline-flex;
+    gap: 0.35rem;
+    min-height: 1.25rem;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    margin-block-end: 0.125rem;
+    color: var(--color-grey-text);
+  }
+}
+
 .file-input-wrapper {
   max-width: 100%;
 

@@ -251,6 +251,7 @@ function handleSubmit(formData: FormData) {
         <Checkbox
           v-model="checked"
           :value="checked"
+          :disabled="disabled"
           name="single-checkbox"
           label="Checkbox"
         />

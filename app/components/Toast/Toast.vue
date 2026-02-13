@@ -234,4 +234,84 @@ const emit = defineEmits<{
     animation-name: bounceOutRight;
   }
 }
+
+@keyframes scale-x {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes bounceInBottom {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: var(--cubic-bezier);
+  }
+  from {
+    transform: translateY(1000px);
+  }
+  60% {
+    transform: translateY(-16px);
+  }
+  75% {
+    transform: translateY(8px);
+  }
+  90% {
+    transform: translateY(-4px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes bounceInRight {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: var(--cubic-bezier);
+  }
+  from {
+    transform: translateX(1000px);
+  }
+  60% {
+    transform: translateX(-16px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+  90% {
+    transform: translateX(-4px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes bounceOutBottom {
+  from {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-16px);
+  }
+  to {
+    transform: translateY(1000px);
+  }
+}
+
+@keyframes bounceOutRight {
+  from {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(-16px);
+  }
+  to {
+    transform: translateX(1000px);
+  }
+}
 </style>

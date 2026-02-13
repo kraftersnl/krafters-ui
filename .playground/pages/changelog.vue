@@ -7,6 +7,14 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
+    <ChangelogEntry v="1.6.0" date="2026-02-13">
+      <ul>
+        <li>Remove utility classes from CSS reset</li>
+        <li>Remove keyframes and transitions from CSS reset</li>
+        <li>Remove global CSS from CSS reset</li>
+      </ul>
+    </ChangelogEntry>
+
     <ChangelogEntry v="1.5.10" date="2025-12-18">
       <ul>
         <li>Revert update to initial dark mode configuration</li>

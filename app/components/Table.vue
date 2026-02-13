@@ -47,6 +47,39 @@ const {
 </template>
 
 <style>
+:where(table) {
+  border-collapse: collapse;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+
+  thead th {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-grey-text);
+    vertical-align: bottom;
+  }
+
+  tbody th {
+    font-weight: var(--font-weight-medium);
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+
+  thead tr {
+    border-color: var(--color-grey-light);
+    border-style: solid;
+    border-width: 0 0 0 0;
+  }
+
+  tbody tr {
+    border-color: var(--color-grey-light);
+    border-style: solid;
+    border-width: 1px 0;
+  }
+}
+
 :where(.table-wrapper) {
   padding-block-end: 1rem;
   overflow-x: auto;
@@ -74,7 +107,7 @@ const {
     tr {
       --color-1: var(--color-card-bg);
       --color-2: var(--color-bg);
-      animation: var(--animation-shimmer);
+      animation: shimmer var(--duration-xl) linear infinite;
       animation-duration: var(--duration-xxl);
       background: linear-gradient(
         -45deg,
@@ -155,6 +188,15 @@ const {
   td {
     padding-block: 0.6rem;
     padding-inline: 0.5rem;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }
 </style>

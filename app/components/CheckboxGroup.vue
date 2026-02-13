@@ -59,6 +59,25 @@ const {
 </template>
 
 <style>
+:where(legend) {
+  padding: 0;
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  &.disabled {
+    opacity: 25%;
+  }
+}
+
+:where(fieldset) {
+  border: none;
+  padding: 0;
+  margin-inline: 0;
+}
+
 .checkboxes-wrapper {
   legend {
     font-weight: var(--font-weight-bold);

@@ -22,7 +22,7 @@ useHead({ titleTemplate: '%s | Krafters UI' });
 
     <div class="app-layout">
       <aside class="app-sidebar">
-        <MenuList :list="navList" button-size="sm" button-variant="sidebar" />
+        <MenuList :list="navList" button-size="md" button-variant="sidebar" />
       </aside>
 
       <main id="main">
@@ -43,13 +43,60 @@ useHead({ titleTemplate: '%s | Krafters UI' });
 </template>
 
 <style>
+:root {
+  --font-family: 'Atkinson Hyperlegible', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 400;
+  --font-weight-bold: 700;
+  --line-height: 1.5;
+  --line-height-heading: 1.2;
+
+  /* Layout design tokens */
+  --app-max-width: 1280px;
+  --app-header-height: 4rem;
+  --app-padding-block: 2.5rem;
+  --app-padding-inline: 0.75rem;
+
+  @media (min-width: 480px) {
+    --app-padding-inline: 1.5rem;
+  }
+}
+
+main {
+  container-type: inline-size;
+  scroll-margin-block: var(--app-header-height);
+}
+
+.section-topbar {
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
 .app-focus-wrapper {
   outline: 1px solid transparent;
 }
 
 .app-layout {
-  padding-block: var(--app-padding-block);
   padding-inline: var(--app-padding-inline);
+  padding-block: var(--app-padding-block);
   max-width: var(--app-max-width);
   margin-inline: auto;
   min-height: calc(100dvh - 3.5rem - 1px);
@@ -66,11 +113,6 @@ useHead({ titleTemplate: '%s | Krafters UI' });
 
   @media (min-width: 1024px) {
     display: block;
-
-    nav {
-      position: sticky;
-      top: 6rem;
-    }
   }
 }
 

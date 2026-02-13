@@ -57,6 +57,18 @@ const {
 </template>
 
 <style>
+:where(label) {
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  &.disabled {
+    opacity: 25%;
+  }
+}
+
 .radio-wrapper {
   display: flex;
   align-items: center;

@@ -8,7 +8,7 @@ useHead({ title: 'Buttons & Links' });
 
     <blockquote>
       <p>
-        "A
+        A
         <Button
           label="button"
           to="https://www.w3.org/WAI/ARIA/apg/patterns/button"
@@ -19,9 +19,10 @@ useHead({ title: 'Buttons & Links' });
         is a widget that enables users to trigger an action or event, such as
         submitting a form, opening a dialog, canceling an action, or performing
         a delete operation.
-      </p>
 
-      <p>
+      <br/>
+      <br/>
+
         A
         <Button
           label="link"
@@ -32,7 +33,7 @@ useHead({ title: 'Buttons & Links' });
         />
         provides an interactive reference to a resource. The target resource can
         be either external or local, i.e., either outside or within the current
-        page or application."
+        page or application.
       </p>
     </blockquote>
 

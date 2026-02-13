@@ -185,17 +185,11 @@ function preventEscape(event: KeyboardEvent) {
       </template>
     </Multiselect>
 
-    <div
+    <InputError
       v-if="required"
-      :id="id ? `error-${id}` : undefined"
-      class="error-wrapper"
-      aria-live="polite"
-    >
-      <div class="error">
-        <Icon name="material-symbols:warning-rounded" />
-        <span>{{ $t('form.missing-value', { item: label }) }}</span>
-      </div>
-    </div>
+      :id="id"
+      :error-text="$t('form.missing-value', { item: label })"
+    />
 
     <p v-if="instruction" :id="`instruction-${id}`" class="instruction">
       {{ instruction }}
@@ -205,6 +199,45 @@ function preventEscape(event: KeyboardEvent) {
 
 <style>
 @import '@vueform/multiselect/themes/default.css';
+
+:where(label) {
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  &.disabled {
+    opacity: 25%;
+  }
+}
+
+:where(.form-field-wrapper) {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  align-content: start;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  label,
+  .label {
+    display: inline-flex;
+    gap: 0.35rem;
+    min-height: 1.25rem;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    margin-block-end: 0.125rem;
+    color: var(--color-grey-text);
+  }
+
+  .instruction {
+    margin-block-start: 0.25rem;
+    margin-block-end: 0;
+    font-size: var(--font-size-xxs);
+    color: var(--color-grey-text);
+  }
+}
 
 :root {
   --ms-font-size: var(--font-size-md);

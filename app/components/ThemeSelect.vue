@@ -21,6 +21,7 @@ const colorMode = useColorMode();
 
           <label for="color-theme-light">
             <Icon name="material-symbols:light-mode-outline-rounded" />
+
             <span>
               {{ $t('theme.light') }}
             </span>
@@ -38,6 +39,7 @@ const colorMode = useColorMode();
 
           <label for="color-theme-dark">
             <Icon name="material-symbols:dark-mode-outline-rounded" />
+
             <span>
               {{ $t('theme.dark') }}
             </span>
@@ -52,8 +54,10 @@ const colorMode = useColorMode();
             value="system"
             type="radio"
           />
+
           <label for="color-theme-system">
             <Icon name="material-symbols:computer-outline-rounded" />
+
             <span>
               {{ $t('theme.system') }}
             </span>
@@ -65,6 +69,25 @@ const colorMode = useColorMode();
 </template>
 
 <style>
+:where(label) {
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:where(legend) {
+  padding: 0;
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:where(fieldset) {
+  border: none;
+  padding: 0;
+  margin-inline: 0;
+}
+
 .color-theme-fieldset {
   legend {
     width: 100%;
@@ -72,7 +95,6 @@ const colorMode = useColorMode();
     font-weight: var(--font-weight-regular);
     color: var(--color-grey-text);
     margin-block-end: 0.5rem;
-    user-select: none;
   }
 }
 

@@ -103,6 +103,45 @@ const ticksList = computed(
 </template>
 
 <style>
+:where(label) {
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  &.disabled {
+    opacity: 25%;
+  }
+}
+
+:where(.form-field-wrapper) {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  align-content: start;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  label,
+  .label {
+    display: inline-flex;
+    gap: 0.35rem;
+    min-height: 1.25rem;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    margin-block-end: 0.125rem;
+    color: var(--color-grey-text);
+  }
+
+  .instruction {
+    margin-block-start: 0.25rem;
+    margin-block-end: 0;
+    font-size: var(--font-size-xxs);
+    color: var(--color-grey-text);
+  }
+}
+
 .range-input-wrapper {
   --thumb-color: var(--color-accent);
   --thumb-width: 1.5rem;

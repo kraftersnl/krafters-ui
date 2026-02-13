@@ -8,7 +8,7 @@ const wcagLevel = ref<string[]>(['A', 'AA']);
 const page = ref(1);
 const pageSize = ref(10);
 const tableSize = ref<TableSize>('md');
-const tableFontSize = ref<FontSize>('xs');
+const tableFontSize = ref<FontSize>('sm');
 const loading = ref(false);
 const skeleton = ref(false);
 
@@ -141,7 +141,7 @@ function handleFilter() {
 
     <blockquote>
       <p>
-        "A table is a static tabular structure containing one or more rows that
+        A table is a static tabular structure containing one or more rows that
         each contain one or more cells. It is not an interactive widget. Thus,
         its cells are not focusable or selectable. The
         <Button
@@ -151,7 +151,7 @@ function handleFilter() {
           target="_blank"
           external
         />
-        is used to make an interactive widget that has a tabular structure."
+        is used to make an interactive widget that has a tabular structure.
       </p>
 
       <p class="fs-xs mbe-2">

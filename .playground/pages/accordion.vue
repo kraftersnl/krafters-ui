@@ -11,10 +11,10 @@ const isAccordionOpen = ref(false);
 
     <blockquote>
     <p>
-      "An accordion is a vertically stacked set of interactive headings that each
+      An accordion is a vertically stacked set of interactive headings that each
       contain a title, content snippet, or thumbnail representing a section of
       content. The headings function as controls that enable users to reveal or
-      hide their associated sections of content."
+      hide their associated sections of content.
     </p>
 
     <p class="fs-xs mbe-2">

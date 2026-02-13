@@ -201,4 +201,14 @@ defineExpose({
     }
   }
 }
+
+.stretch-fade-enter-active,
+.stretch-fade-leave-active {
+  transition: all var(--duration-sm) ease-in-out;
+}
+.stretch-fade-enter-from,
+.stretch-fade-leave-to {
+  transform: scaleY(95%);
+  opacity: 0;
+}
 </style>

@@ -45,13 +45,13 @@ const computedStyle = computed(() => ({
 }
 
 .skeleton-animation--pulse {
-  animation: var(--animation-pulse);
+  animation: pulse var(--duration-xl) cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .skeleton-animation--shimmer {
   --color-1: var(--color-grey-bg);
   --color-2: var(--color-grey-light);
-  animation: var(--animation-shimmer);
+  animation: shimmer var(--duration-xl) linear infinite;
   background: linear-gradient(
     -45deg,
     var(--color-1) 30%,
@@ -60,5 +60,20 @@ const computedStyle = computed(() => ({
     var(--color-1) 70%
   );
   background-size: 400% 400%;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 </style>

@@ -42,6 +42,24 @@ const userLang = computed({
 </template>
 
 <style>
+:where(label) {
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:where(fieldset) {
+  border: none;
+  padding: 0;
+  margin-inline: 0;
+}
+
+:where(legend) {
+  padding: 0;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .language-fieldset {
   legend {
     width: 100%;
@@ -49,7 +67,6 @@ const userLang = computed({
     font-weight: var(--font-weight-regular);
     color: var(--color-grey-text);
     margin-block-end: 0.5rem;
-    user-select: none;
   }
 }
 

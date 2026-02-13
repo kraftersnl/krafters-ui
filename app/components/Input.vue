@@ -178,17 +178,7 @@ const chipSize = computed(() => {
       <Icon v-if="icon" :name="icon" />
     </div>
 
-    <div
-      :id="id ? `error-${id}` : undefined"
-      class="error-wrapper"
-      aria-live="polite"
-    >
-      <div class="error">
-        <Icon name="material-symbols:warning-rounded" />
-
-        <span>{{ computedErrorMessage }}</span>
-      </div>
-    </div>
+    <InputError :id="id" :error-text="computedErrorMessage" />
 
     <p v-if="instruction" :id="`instruction-${id}`" class="instruction">
       {{ instruction }}
@@ -197,6 +187,76 @@ const chipSize = computed(() => {
 </template>
 
 <style>
+:where(label) {
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  &.disabled {
+    opacity: 25%;
+  }
+}
+
+:where(input) {
+  background-color: transparent;
+  filter: none;
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: var(--color-accent-text);
+    box-shadow: 0 0 0 100px var(--color-accent-bg) inset;
+  }
+}
+
+:where(.form-field-wrapper) {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  align-content: start;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  label,
+  .label {
+    display: inline-flex;
+    gap: 0.35rem;
+    min-height: 1.25rem;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    margin-block-end: 0.125rem;
+    color: var(--color-grey-text);
+  }
+
+  .instruction {
+    margin-block-start: 0.25rem;
+    margin-block-end: 0;
+    font-size: var(--font-size-xxs);
+    color: var(--color-grey-text);
+  }
+
+  &:has(.input:disabled) {
+    opacity: 35%;
+  }
+
+  .input {
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid var(--color-grey-graphic);
+    border-radius: var(--radius-md);
+
+    &::placeholder {
+      color: var(--color-grey-graphic);
+    }
+
+    &:focus {
+      outline: 1px solid var(--focus-color);
+      border-color: var(--focus-color);
+    }
+  }
+}
+
 .form-field-wrapper {
   .input-wrapper {
     position: relative;

@@ -10,7 +10,7 @@ function makeToast() {
 
   createToast({
     color: 'green',
-    label: 'De gevonden URL is aangevinkt in de steekproef',
+    label: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
   });
 }
 </script>
@@ -21,12 +21,12 @@ function makeToast() {
 
     <blockquote>
       <p>
-        "A dialog is a window overlaid on either the primary window or another
+        A dialog is a window overlaid on either the primary window or another
         dialog window. Windows under a modal dialog are inert. That is, users
         cannot interact with content outside an active dialog window. Inert
         content outside an active dialog is typically visually obscured or
         dimmed so it is difficult to discern, and in some implementations,
-        attempts to interact with the inert content cause the dialog to close."
+        attempts to interact with the inert content cause the dialog to close.
       </p>
 
       <p class="fs-xs mbe-2">
@@ -99,8 +99,9 @@ function makeToast() {
           :list="navList"
           :hide-button-label="false"
           button-label="Open left menu"
-          menu-button-size="sm"
+          menu-button-size="lg"
           position="inline-start"
+          class="demo-mobile-menu"
         />
 
         <MobileMenu
@@ -108,8 +109,9 @@ function makeToast() {
           :hide-button-label="false"
           button-label="Open right menu"
           button-icon-pos="end"
-          menu-button-size="sm"
+          menu-button-size="lg"
           position="inline-end"
+          class="demo-mobile-menu"
         />
       </div>
     </Card>
@@ -209,7 +211,16 @@ function makeToast() {
 </template>
 
 <style>
-.demo-page.dialog-demo {
+.demo-dialog {
+  .dialog-content {
+    padding: 1.5rem;
+  }
+}
+
+.demo-mobile-menu {
+  .dialog-content {
+    padding-inline: 1.5rem;
+  }
 }
 
 .demo-dialog-content {

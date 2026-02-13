@@ -41,7 +41,7 @@ function makeToast() {
 
   createToast({
     color: 'green',
-    label: 'De gevonden URL is aangevinkt in de steekproef',
+    label: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
   });
 }
 </script>

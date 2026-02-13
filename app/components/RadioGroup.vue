@@ -65,21 +65,33 @@ const {
       </ul>
     </fieldset>
 
-    <div
-      :id="id ? `error-${id}` : undefined"
-      class="error-wrapper"
-      aria-live="polite"
-    >
-      <div class="error">
-        <Icon name="material-symbols:warning-rounded" />
-
-        <span>{{ $t('form.missing-value', { item: label }) }}</span>
-      </div>
-    </div>
+    <InputError
+      :id="id"
+      :error-text="$t('form.missing-value', { item: label })"
+    />
   </div>
 </template>
 
 <style>
+:where(legend) {
+  padding: 0;
+  font-weight: var(--font-weight-medium);
+  -webkit-user-select: none;
+  user-select: none;
+  transition-property: opacity;
+  transition-duration: var(--duration-sm);
+
+  &.disabled {
+    opacity: 25%;
+  }
+}
+
+:where(fieldset) {
+  border: none;
+  padding: 0;
+  margin-inline: 0;
+}
+
 .radios-wrapper {
   legend {
     margin-block-end: 1rem;

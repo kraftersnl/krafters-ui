@@ -21,10 +21,10 @@ const skeletonAnimations = [
 
     <blockquote>
       <p>
-        "A skeleton screen is used as a placeholder while users wait for a page
+        A skeleton screen is used as a placeholder while users wait for a page
         to load. This progress indicator is used for full page loads and reduces
         the perception of a long loading time by providing clues for how the
-        page will ultimately look."
+        page will ultimately look.
       </p>
 
       <p class="fs-xs mbe-2">

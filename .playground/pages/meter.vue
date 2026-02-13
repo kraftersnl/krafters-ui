@@ -19,11 +19,13 @@ const roleOptions = [
 
     <blockquote>
       <p>
-        "A meter is a graphical display of a numeric value that varies within a
+        A meter is a graphical display of a numeric value that varies within a
         defined range. For example, a meter could be used to depict a device's
         current battery percentage or a car's fuel level.
-      </p>
-      <p>
+
+        <br />
+        <br />
+
         Note: a meter should not be used to represent a value like the current
         world population since it does not have a meaningful maximum limit. The
         meter should not be used to indicate progress, such as loading or
@@ -35,7 +37,7 @@ const roleOptions = [
           target="_blank"
           external
         />
-        instead."
+        instead.
       </p>
 
       <p class="fs-xs mbe-2">
