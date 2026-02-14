@@ -72,7 +72,8 @@ const thumbUrl = computed(() => {
   if (videoProvider.value === 'vimeo') {
     return videoData.value?.thumbnail_url;
   }
-  return `https://img.youtube.com/vi/${videoKey.value}/maxresdefault.jpg`;
+  return `https://i.ytimg.com/vi_webp/${videoKey.value}/hq720.webp`;
+  // return `https://img.youtube.com/vi/${videoKey.value}/maxresdefault.jpg`;
 });
 
 function playVideo() {

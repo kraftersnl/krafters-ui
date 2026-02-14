@@ -17,7 +17,9 @@
     "popover": "Meer opties",
     "more-info": "Meer info",
     "more-info-about": "Meer info over {label}",
-    "user-menu": "Gebruikersmenu"
+    "user-menu": "Gebruikersmenu",
+    "yes": "Ja",
+    "no": "Nee"
   },
 
   "cookies": {
@@ -64,7 +66,8 @@
     "404": "niet gevonden",
     "heading": "Foutmelding",
     "page-not-found": "Pagina niet gevonden",
-    "unauthorized": "Je hebt geen rechten om deze pagina te openen."
+    "unauthorized": "Je hebt geen rechten om deze pagina te openen.",
+    "youtube": "YouTube player is niet geladen"
   },
 
   "form": {
@@ -180,6 +183,7 @@
     "project": "Project",
     "publish": "Publiceren",
     "published": "Gepubliceerd",
+    "recommended": "Aanbevolen",
     "report": "Rapport | Rapporten",
     "reset": "Resetten",
     "result": "Resultaat | Resultaten",
@@ -260,6 +264,11 @@
     "of": "van",
     "per-page": "items per pagina",
     "prev-page": "Vorige pagina"
+  },
+
+  "pricing": {
+    "per-month": "Per maand",
+    "price-on-request": "Prijs op aanvraag"
   },
 
   "select": {

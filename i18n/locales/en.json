@@ -17,7 +17,9 @@
     "popover": "More options",
     "more-info": "More info",
     "more-info-about": "More info about {label}",
-    "user-menu": "User Menu"
+    "user-menu": "User Menu",
+    "yes": "Yes",
+    "no": "No"
   },
 
   "cookies": {
@@ -64,7 +66,8 @@
     "404": "not found",
     "heading": "Error",
     "page-not-found": "Page not found",
-    "unauthorized": "You are unauthorized to view this page."
+    "unauthorized": "You are unauthorized to view this page.",
+    "youtube": "YouTube player failed to load"
   },
 
   "form": {
@@ -180,6 +183,7 @@
     "project": "Project",
     "publish": "Publish",
     "published": "Published",
+    "recommended": "Recommended",
     "report": "Report",
     "reset": "Reset",
     "result": "Result | Results",
@@ -260,6 +264,11 @@
     "of": "of",
     "per-page": "items per page",
     "prev-page": "Previous page"
+  },
+
+  "pricing": {
+    "per-month": "Per month",
+    "price-on-request": "Price on request"
   },
 
   "select": {

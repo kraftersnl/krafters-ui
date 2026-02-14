@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// import { ScriptYouTubePlayer } from '@nuxt/scripts';
 useHead({ title: 'Video Player' });
 
 const youtube = ref('https://youtube.com/watch?v=PGvgdZuQu6w');
@@ -16,6 +17,12 @@ const vimeo = ref('https://vimeo.com/969786906');
     </p>
 
     <div class="card-cols">
+      <Card>
+        <h2>YouTube - Nuxt Scripts</h2>
+
+        <YouTube :url="youtube" />
+        <Input v-model="youtube" label="ID" hide-label />
+      </Card>
       <Card>
         <h2>YouTube</h2>
 
@@ -37,6 +44,7 @@ const vimeo = ref('https://vimeo.com/969786906');
 .demo-page.video {
   .card {
     display: grid;
+    align-content: start;
     gap: 1rem;
     max-width: 640px;
 
