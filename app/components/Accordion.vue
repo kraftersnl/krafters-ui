@@ -112,7 +112,7 @@ defineExpose({ toggleAccordion });
 
 .accordion-trigger[aria-expanded='true'] {
   .accordion-arrow {
-    rotate: 0.5turn;
+    rotate: 0.25turn;
   }
   ~ .accordion-panel-wrapper {
     grid-template-rows: 1fr;
