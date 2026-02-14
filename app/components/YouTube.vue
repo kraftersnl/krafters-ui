@@ -42,6 +42,14 @@ const youtubeKey = computed(() => {
       </div>
     </template>
 
+    <template #loading>
+      <div
+        :aria-label="$t('general.loading')"
+        aria-live="polite"
+        class="visuallyhidden"
+      />
+    </template>
+
     <template #error>
       <Callout color="red">{{ $t('error.youtube') }}</Callout>
     </template>

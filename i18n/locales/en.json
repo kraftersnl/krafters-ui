@@ -285,5 +285,9 @@
       "light": "Light mode",
       "system": "System theme"
     }
+  },
+
+  "video": {
+    "play": "Play video"
   }
 }

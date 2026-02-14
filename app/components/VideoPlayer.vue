@@ -2,6 +2,7 @@
 const props = defineProps<{
   url: string;
   caption?: string;
+  loading?: 'lazy' | 'eager';
 }>();
 
 const started = ref(false);
@@ -83,11 +84,13 @@ function playVideo() {
 
 <template>
   <figure class="video-player" :style="`--aspect-ratio: ${ratio}`">
-    <img
+    <NuxtImg
       v-if="!started && videoData"
       :src="thumbUrl"
       :alt="videoData?.title || ''"
-      loading="lazy"
+      :loading="loading"
+      :preload="loading === 'eager' ? { fetchPriority: 'high' } : undefined"
+      format="webp"
       @click="playVideo"
     />
 
@@ -103,7 +106,10 @@ function playVideo() {
           aria-hidden="true"
         />
       </svg>
-      <span class="visuallyhidden">Speel video af: {{ videoData?.title }}</span>
+
+      <span class="visuallyhidden"
+        >{{ $t('video.play') }}: {{ videoData?.title }}</span
+      >
     </button>
 
     <figcaption v-if="!started && caption">{{ caption }}</figcaption>

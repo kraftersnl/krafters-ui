@@ -285,5 +285,9 @@
       "light": "Lichte modus",
       "system": "Systeemthema"
     }
+  },
+
+  "video": {
+    "play": "Video afspelen"
   }
 }

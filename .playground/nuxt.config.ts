@@ -7,6 +7,10 @@ export default defineNuxtConfig({
     app: {
       baseURL: '/krafters-ui/',
     },
+
+    image: {
+      domains: ['i.ytimg.com'],
+    },
   },
 
   i18n: {
