@@ -5,15 +5,14 @@ const { url } = defineProps<{
 }>();
 
 const youtubeKey = computed(() => {
-  let match: string[] | null;
-
-  match = url?.match(
+  const match: string[] | null = url?.match(
     /:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/)?([a-zA-Z0-9-_]+)(?:(?:&t=|\?t=|\?start=)(\d+))?/,
   );
 
   if (match?.length === 3) {
     return match[1];
   }
+  return '';
 });
 </script>
 
@@ -22,7 +21,6 @@ const youtubeKey = computed(() => {
     v-if="youtubeKey"
     :video-id="youtubeKey"
     :above-the-fold="aboveTheFold"
-    placeholderObjectFit="cover"
     class="youtube-player"
   >
     <template #awaitingLoad>
