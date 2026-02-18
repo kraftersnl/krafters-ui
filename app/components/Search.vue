@@ -54,7 +54,11 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <Form role="search" class="search-form" @submit="handleSearch">
+  <Form
+    role="search"
+    :class="['search-form', hideSubmitButton && 'hide-submit-button']"
+    @submit="handleSearch"
+  >
     <div class="search-input-wrapper">
       <Input
         ref="searchInput"
@@ -96,7 +100,7 @@ const emit = defineEmits<{
 </template>
 
 <style>
-.form[role='search'] {
+.search-form {
   --search-color: var(--focus-color);
   --column-gap: 0rem;
 
@@ -113,24 +117,26 @@ const emit = defineEmits<{
   .form-field-wrapper {
     position: relative;
     width: 100%;
+  }
 
+  input[type='search'] ::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
+  &:not(.hide-submit-button) {
     .input {
       border-start-end-radius: 0;
       border-end-end-radius: 0;
+    }
+
+    input[type='search'] {
+      border-inline-end: 0;
     }
   }
 
   .search-input-wrapper {
     display: flex;
     position: relative;
-  }
-
-  input[type='search'] {
-    border-inline-end: 0;
-
-    &::-webkit-search-cancel-button {
-      appearance: none;
-    }
   }
 
   .button {
