@@ -139,7 +139,7 @@ function preventEscape(event: KeyboardEvent) {
       </template>
 
       <template #clear="{ clear }">
-        <button type="button" class="clear-button" @mousedown="clear">
+        <button type="button" class="clear-button" @click="clear">
           <Icon name="material-symbols:close-rounded" />
           <span class="visuallyhidden">{{ $t('general.clear') }}</span>
         </button>
