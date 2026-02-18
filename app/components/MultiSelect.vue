@@ -308,7 +308,7 @@ function preventEscape(event: KeyboardEvent) {
 
   --ms-option-font-size: var(--font-size-sm);
   /* --ms-option-line-height: 1.375; */
-  --ms-option-bg-pointed: var(--color-card-bg);
+  --ms-option-bg-pointed: var(--color-grey-light);
   --ms-option-color-pointed: var(--color-text);
   --ms-option-bg-selected: var(--color-green-bg);
   --ms-option-color-selected: var(--color-green-text);
