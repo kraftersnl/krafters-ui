@@ -40,6 +40,16 @@ const computedErrorMessage = computed(() => {
   return $t('form.invalid-value');
 });
 
+const computedAriaDescribedby = computed(() =>
+  [
+    ariaDescribedby,
+    instruction && `instruction-${id}`,
+    id && required && `error-${id}`,
+  ]
+    .filter(Boolean)
+    .join(' '),
+);
+
 const textareaInput = ref('');
 const textareaRef = useTemplateRef<HTMLTextAreaElement>('textarea');
 
@@ -116,11 +126,7 @@ const emit = defineEmits<{
       :pattern="pattern"
       :autofocus="autofocus"
       :name="name"
-      :aria-describedby="`
-        ${ariaDescribedby || ''}
-        ${instruction ? `instruction-${id}` : ''}
-        ${id && required ? `error-${id}` : ''}
-      `"
+      :aria-describedby="computedAriaDescribedby"
       @input="handleInput"
       @blur="emit('blur', $event)"
       @paste="emit('paste', $event)"

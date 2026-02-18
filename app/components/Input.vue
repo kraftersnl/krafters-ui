@@ -79,6 +79,19 @@ const inputPattern = computed(() => {
   return undefined;
 });
 
+const chipSize = computed(() => {
+  if (size === 'lg') return 'sm';
+  if (size === 'md') return 'xs';
+  if (size === 'sm') return 'xs';
+  return 'xs';
+});
+
+const computedAriaDescribedby = computed(() =>
+  [ariaDescribedby, instruction && `instruction-${id}`, id && `error-${id}`]
+    .filter(Boolean)
+    .join(' '),
+);
+
 function handleInput(event: Event) {
   const target = event.target as HTMLInputElement;
 
@@ -109,13 +122,6 @@ const emit = defineEmits<{
   focus: [value: Event];
   blur: [value: Event];
 }>();
-
-const chipSize = computed(() => {
-  if (size === 'lg') return 'sm';
-  if (size === 'md') return 'xs';
-  if (size === 'sm') return 'xs';
-  return 'xs';
-});
 </script>
 
 <template>
@@ -165,11 +171,7 @@ const chipSize = computed(() => {
         :min="min"
         :max="max"
         :tabindex="tabindex"
-        :aria-describedby="`
-        ${ariaDescribedby || ''}
-        ${instruction ? `instruction-${id}` : ''}
-        ${id ? `error-${id}` : ''}
-      `"
+        :aria-describedby="computedAriaDescribedby"
         @focus="emit('focus', $event)"
         @blur="emit('blur', $event)"
         @input="handleInput"

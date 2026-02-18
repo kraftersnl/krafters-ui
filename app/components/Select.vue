@@ -53,6 +53,16 @@ const computedErrorMessage = computed(() => {
   }
   return $t('form.invalid-value');
 });
+
+const computedAriaDescribedby = computed(() =>
+  [
+    ariaDescribedby,
+    instruction && `instruction-${id}`,
+    id && required && `error-${id}`,
+  ]
+    .filter(Boolean)
+    .join(' '),
+);
 </script>
 
 <template>
@@ -86,11 +96,7 @@ const computedErrorMessage = computed(() => {
         :autofocus="autofocus"
         :multiple="multiple"
         :tabindex="tabindex"
-        :aria-describedby="`
-          ${ariaDescribedby || ''}
-          ${instruction ? `instruction-${id}` : ''}
-          ${id && required ? `error-${id}` : ''}
-        `"
+        :aria-describedby="computedAriaDescribedby"
         size="1"
       >
         <template v-if="!options?.length">
