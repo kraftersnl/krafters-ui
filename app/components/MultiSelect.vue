@@ -14,6 +14,7 @@ const {
   disabledKey = 'disabled',
   size = 'md',
   autofocus,
+  showOptionIcons = true,
   placeholder = undefined,
   tabindex = undefined,
   itemsSelectedLabel = undefined,
