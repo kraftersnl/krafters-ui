@@ -66,8 +66,11 @@ function goToPage(pageNumber: number) {
           hide-label
           size="sm"
           class="pagination-input"
+          aria-describedby="pagination-of"
         />
-        <span>{{ $t('pagination.of') }} {{ lastPage?.toLocaleString() }}</span>
+        <span id="pagination-of">
+          {{ $t('pagination.of') }} {{ lastPage?.toLocaleString() }}
+        </span>
       </div>
 
       <Button
