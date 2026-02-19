@@ -55,12 +55,12 @@ const {
 const computedErrorMessage = computed(() => {
   if (errorMessage) {
     return errorMessage;
+  } else if (required && !modelValue) {
+    return $t('form.missing-value', { item: label });
   } else if (type === 'email') {
     return $t('form.invalid-email');
   } else if (type === 'url') {
     return $t('form.invalid-url');
-  } else if (required && !modelValue) {
-    return $t('form.missing-value', { item: label });
   }
   return $t('form.invalid-value');
 });
