@@ -58,10 +58,12 @@ defineExpose({
       v-if="avatar"
       type="button"
       class="avatar-button"
+      aria-controls="user-menu"
+      :aria-expanded="showMenu"
+      :aria-label="$t('aria.open-user-menu')"
       @click="toggleMenu"
     >
-      <img :src="avatar" class="avatar-image" alt="" />
-      <span class="visuallyhidden">{{ $t('general.avatar') }}</span>
+      <img :src="avatar" class="avatar-image" :alt="$t('general.avatar')" />
     </button>
 
     <Button
@@ -69,7 +71,7 @@ defineExpose({
       ref="menuTrigger"
       :icon="icon"
       :label="label"
-      :aria-label="$t('aria.user-menu')"
+      :aria-label="$t('aria.open-user-menu')"
       :aria-expanded="showMenu"
       size="lg"
       icon-size="lg"
