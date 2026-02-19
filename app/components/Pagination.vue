@@ -63,12 +63,11 @@ function goToPage(pageNumber: number) {
           :min="1"
           :max="lastPage"
           :disabled="loading"
-          hide-label
           size="sm"
           class="pagination-input"
           aria-describedby="pagination-of"
         />
-        <span id="pagination-of">
+        <span id="pagination-of" class="pagination-of-text">
           {{ $t('pagination.of') }} {{ lastPage?.toLocaleString() }}
         </span>
       </div>
@@ -148,18 +147,19 @@ function goToPage(pageNumber: number) {
   }
 
   .pagination-input {
-    input[type='number'] {
-      appearance: textfield;
-      -moz-appearance: textfield;
-      max-width: 3rem;
-    }
+    &.form-field-wrapper {
+      display: flex;
 
-    input[type='number']::-webkit-outer-spin-button,
-    input[type='number']::-webkit-inner-spin-button {
-      appearance: none;
-      -webkit-appearance: none;
-      margin: 0;
+      label {
+        font-weight: var(--font-weight-regular);
+        font-size: var(--font-size-sm);
+        margin-inline-end: 0.65rem;
+      }
     }
+  }
+
+  .pagination-of-text {
+    font-size: var(--font-size-sm);
   }
 
   .pagination-page-size {
