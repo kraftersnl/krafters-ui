@@ -103,4 +103,10 @@ watch(
     color: var(--color-accent-text);
   }
 }
+
+.mobile-dialog {
+  .dialog-content {
+    padding-inline: var(--app-padding-inline);
+  }
+}
 </style>
