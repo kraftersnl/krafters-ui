@@ -9,6 +9,7 @@ const {
   name = undefined,
   value = undefined,
   tabindex = undefined,
+  lang = undefined,
 } = defineProps<{
   label?: string;
   title?: string;
@@ -18,6 +19,7 @@ const {
   disabled?: boolean;
   hideLabel?: boolean;
   tabindex?: string;
+  lang?: string;
   id?: string;
   variant?: 'default' | 'outline' | 'krafters';
 }>();
@@ -45,6 +47,7 @@ const {
     <label
       :for="id"
       :title="title"
+      :lang="lang"
       :class="[hideLabel && 'visuallyhidden', disabled && 'disabled']"
     >
       <slot name="label" />

@@ -55,6 +55,7 @@ const {
             :label="option[labelKey]"
             :disabled="disabled || option.disabled"
             :title="titleKey ? option[titleKey] : undefined"
+            :lang="option.lang"
             :name="name"
             :tabindex="tabindex"
             :required="required"
