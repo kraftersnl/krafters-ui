@@ -121,6 +121,10 @@ function preventEscape(event: KeyboardEvent) {
         ${instruction ? `instruction-${id}` : ''}
         ${id ? `error-${id}` : ''}
       `"
+      :aria="{
+        'aria-placeholder': null,
+        'aria-multiselectable': null,
+      }"
       :multiple-label="formatMultipleLabels"
       @open="isExpanded = true"
       @close="isExpanded = false"
