@@ -1,5 +1,8 @@
 <script setup lang="ts">
-defineProps<{ disabled?: boolean }>();
+defineProps<{
+  disabled?: boolean;
+  required?: boolean;
+}>();
 
 const file = ref<File>();
 const fileInputRef = useTemplateRef<FileInputComponent>('fileInput');
@@ -37,7 +40,7 @@ async function uploadFile(formData: FormData) {
     <FileInput
       ref="fileInput"
       v-model="file"
-      required
+      :required="required"
       :label="$t('general.files')"
       :show-invalid="showInvalid"
       name="file"

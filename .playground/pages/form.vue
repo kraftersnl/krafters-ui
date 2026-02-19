@@ -367,7 +367,7 @@ function handleSubmit(formData: FormData) {
               </Popover>
             </div>
 
-            <p class="c-grey-text fs-sm mbe-2">
+            <p>
               Krafters UI uses
               <Button
                 to="https://vueform.com/reference/multiselect-element"
@@ -381,7 +381,6 @@ function handleSubmit(formData: FormData) {
             <MultiSelect
               v-model="multiSelection"
               :required="required"
-              hide-label
               searchable
               create-option
               native-support
@@ -404,7 +403,7 @@ function handleSubmit(formData: FormData) {
               <h2>DatePicker</h2>
             </div>
 
-            <p class="c-grey-text fs-sm mbe-1">
+            <p>
               Krafters UI uses
               <Button
                 to="https://vue3datepicker.com"
@@ -452,7 +451,7 @@ function handleSubmit(formData: FormData) {
 
     <Card>
       <h2>File Input</h2>
-      <DemoFileForm :disabled="disabled" />
+      <DemoFileForm :disabled="disabled" :required="required" />
     </Card>
   </div>
 </template>
