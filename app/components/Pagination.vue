@@ -54,22 +54,8 @@ function goToPage(pageNumber: number) {
         @click="goToPage(page - 1)"
       />
 
-      <div :class="['current-page-wrapper', loading && 'disabled']">
-        <Input
-          v-model.number="page"
-          type="number"
-          input-mode="numeric"
-          :label="$t('pagination.current-page')"
-          :min="1"
-          :max="lastPage"
-          :disabled="loading"
-          size="sm"
-          class="pagination-input"
-          aria-describedby="pagination-of"
-        />
-        <span id="pagination-of" class="pagination-of-text">
-          {{ $t('pagination.of') }} {{ lastPage?.toLocaleString() }}
-        </span>
+      <div class="current-page-wrapper">
+        {{ $t('pagination.page-x-of-total', { page, total: lastPage }) }}
       </div>
 
       <Button
@@ -129,37 +115,11 @@ function goToPage(pageNumber: number) {
   }
 
   .current-page-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-size: var(--font-size-sm);
     color: var(--color-grey-text);
     margin-inline: 1rem;
     user-select: none;
     -webkit-user-select: none;
-
-    span {
-      white-space: nowrap;
-    }
-
-    &.disabled {
-      color: var(--color-grey-graphic);
-    }
-  }
-
-  .pagination-input {
-    &.form-field-wrapper {
-      display: flex;
-
-      label {
-        font-weight: var(--font-weight-regular);
-        font-size: var(--font-size-sm);
-        margin-inline-end: 0.65rem;
-      }
-    }
-  }
-
-  .pagination-of-text {
-    font-size: var(--font-size-sm);
   }
 
   .pagination-page-size {

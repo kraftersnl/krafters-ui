@@ -256,6 +256,7 @@
   },
 
   "pagination": {
+    "page-x-of-total": "pagina {page} van {total}",
     "current-page": "pagina",
     "first-page": "Eerste pagina",
     "heading": "Paginering",

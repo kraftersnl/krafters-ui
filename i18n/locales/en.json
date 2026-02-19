@@ -256,6 +256,7 @@
   },
 
   "pagination": {
+    "page-x-of-total": "page {page} of {total}",
     "current-page": "page",
     "first-page": "First page",
     "heading": "Pagination",
