@@ -4,6 +4,7 @@
     "callout-info": "Ter informatie",
     "callout-success": "Succes",
     "callout-warning": "Waarschuwing",
+    "choose-language": "Kies taal",
     "close-menu": "Menu sluiten",
     "logo-cardan": "Cardan voor iedereen",
     "main-content": "Hoofdcontent",
@@ -168,7 +169,6 @@
     "move-down": "Verplaats omlaag",
     "move-up": "Verplaats omhoog",
     "name": "Naam",
-    "no": "nee",
     "next": "Volgende",
     "new": "Nieuw",
     "previous": "Vorige",
@@ -221,8 +221,7 @@
     "url": "URL | URLs",
     "version": "Versie",
     "website": "Website",
-    "year": "{n} jaar | {n} jaar",
-    "yes": "ja"
+    "year": "{n} jaar | {n} jaar"
   },
 
   "language": {
