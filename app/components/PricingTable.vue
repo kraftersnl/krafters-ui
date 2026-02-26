@@ -1,7 +1,3 @@
-<script setup lang="ts">
-const {} = defineProps<{}>();
-</script>
-
 <template>
   <Table class="pricing-table-wrapper" size="md" font-size="sm">
     <slot />
