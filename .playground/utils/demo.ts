@@ -66,6 +66,11 @@ export const navList: MenuItem[] = [
     label: 'Meter',
   },
   {
+    id: 'pricing',
+    to: '/pricing',
+    label: 'Pricing Card',
+  },
+  {
     id: 'md',
     to: '/markdown',
     label: 'Markdown',

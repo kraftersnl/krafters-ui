@@ -7,11 +7,15 @@ useHead({ title: 'Changelog' });
     <h1>Changelog</h1>
     <p class="mbe-2">Release notes for new features and bug fixes.</p>
 
-    <ChangelogEntry v="1.6.0" date="2026-02-13">
+    <ChangelogEntry v="1.6.0" date="2026-02-19">
       <ul>
         <li>Remove utility classes from CSS reset</li>
         <li>Remove keyframes and transitions from CSS reset</li>
         <li>Remove global CSS from CSS reset</li>
+        <li>Feature: add PricingCard component</li>
+        <li>Feature: add YouTube component</li>
+        <li>Improve accessibility and performance for VideoPlayer component</li>
+        <li>Add <code>loading</code> prop to VideoPlayer component</li>
       </ul>
     </ChangelogEntry>
 

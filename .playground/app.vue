@@ -47,7 +47,7 @@ useHead({ titleTemplate: '%s | Krafters UI' });
   --font-family: 'Atkinson Hyperlegible', sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 400;
-  --font-weight-bold: 700;
+  --font-weight-bold: 600;
   --line-height: 1.5;
   --line-height-heading: 1.2;
 

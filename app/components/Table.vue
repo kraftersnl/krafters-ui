@@ -14,6 +14,10 @@ const {
   skeletonRows?: number;
   skeletonCols?: number;
 }>();
+
+const computedStyle = computed(() => ({
+  '--table-font-size': `var(--font-size-${fontSize})`,
+}));
 </script>
 
 <template>
@@ -24,7 +28,7 @@ const {
       loading && 'table--loading',
       skeleton && 'table--skeleton',
     ]"
-    :style="`--font-size: var(--font-size-${fontSize})`"
+    :style="computedStyle"
   >
     <table>
       <caption v-if="ariaLabel" class="visuallyhidden" v-text="ariaLabel" />
@@ -48,6 +52,8 @@ const {
 
 <style>
 :where(table) {
+  --table-border-color: var(--color-grey-light);
+
   border-collapse: collapse;
   text-align: left;
   font-variant-numeric: tabular-nums;
@@ -68,13 +74,13 @@ const {
   }
 
   thead tr {
-    border-color: var(--color-grey-light);
+    border-color: var(--table-border-color);
     border-style: solid;
     border-width: 0 0 0 0;
   }
 
   tbody tr {
-    border-color: var(--color-grey-light);
+    border-color: var(--table-border-color);
     border-style: solid;
     border-width: 1px 0;
   }
@@ -84,7 +90,7 @@ const {
   padding-block-end: 1rem;
   overflow-x: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  font-size: var(--font-size);
+  font-size: var(--table-font-size);
 
   table {
     width: 100%;

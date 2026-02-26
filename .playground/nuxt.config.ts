@@ -13,6 +13,13 @@ export default defineNuxtConfig({
     },
   },
 
+  fonts: {
+    defaults: {
+      weights: [400, 600],
+      styles: ['normal', 'italic'],
+    },
+  },
+
   i18n: {
     baseUrl: 'https://kraftersnl.github.io/krafters-ui/',
     defaultLocale: 'en',
