@@ -40,7 +40,6 @@ const emit = defineEmits<{
           :label="$t('general.recommended')"
           :aria-label="`(${$t('general.recommended')})`"
           size="md"
-          variant="outline"
           color="accent"
           class="recommended-chip"
         />
