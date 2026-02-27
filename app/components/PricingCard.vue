@@ -6,6 +6,7 @@ const {
   priceText = undefined,
   perText = undefined,
   recommended = false,
+  buttonLink = undefined,
   featureList = [],
 } = defineProps<{
   title: string;
@@ -17,6 +18,7 @@ const {
   buttonLabel?: string;
   recommended?: boolean;
   hTag?: string;
+  buttonLink?: string;
 }>();
 
 const emit = defineEmits<{
@@ -85,6 +87,7 @@ const emit = defineEmits<{
     <Button
       :label="buttonLabel"
       :variant="recommended ? 'primary' : 'outline'"
+      :to="buttonLink"
       @click="emit('click')"
     />
   </Card>

@@ -109,6 +109,7 @@ useHead({ title: 'Pricing' });
 
             <th scope="col">
               <div class="title">Monitor</div>
+
               <div class="description">
                 Vanaf €500 per maand,<br />jaarlijks gefactureerd
               </div>
@@ -120,6 +121,7 @@ useHead({ title: 'Pricing' });
                 Govern
                 <Chip label="Aanbevolen" color="accent" />
               </div>
+
               <div class="description">
                 Vanaf €1.500 per maand,<br />jaarlijks gefactureerd
               </div>
@@ -128,6 +130,7 @@ useHead({ title: 'Pricing' });
 
             <th scope="col">
               <div class="title">Partner</div>
+
               <div class="description">
                 Vanaf €4.000 per maand,<br />jaarlijks gefactureerd
               </div>

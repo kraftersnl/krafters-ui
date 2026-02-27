@@ -15,7 +15,7 @@
     font-size: var(--font-size-md);
   }
 
-  tbody:not(:first-of-type) th[scope='rowgroup'] {
+  tbody + tbody th[scope='rowgroup'] {
     padding-block-start: 2.5rem;
   }
 
