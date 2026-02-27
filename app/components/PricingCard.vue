@@ -149,7 +149,7 @@ const emit = defineEmits<{
     .list-item {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 0.5rem;
+      gap: 1rem;
       margin-block-end: 0.75rem;
 
       .iconify {
