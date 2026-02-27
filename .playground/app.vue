@@ -167,7 +167,7 @@ h1 {
 
   .a11y-list {
     > li {
-      margin-bottom: 0.125rem;
+      margin-block-end: 0.125rem;
 
       &::marker {
         color: var(--color-accent);

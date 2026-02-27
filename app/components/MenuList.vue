@@ -184,7 +184,7 @@ const emit = defineEmits<{
 
 .menu-list-nav:has(.button-variant--sidebar) {
   .menu-list-item {
-    margin-bottom: 0.5rem;
+    margin-block-end: 0.5rem;
 
     hr {
       margin-block: 0.75rem;

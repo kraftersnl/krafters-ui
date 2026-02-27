@@ -270,7 +270,7 @@ body:has(.mobile-dialog[open]) {
 
   .dialog-content {
     display: grid;
-    padding-left: calc(1.25rem + env(safe-area-inset-left));
+    padding-inline-start: calc(1.25rem + env(safe-area-inset-left));
   }
 }
 
@@ -298,7 +298,7 @@ body:has(.mobile-dialog[open]) {
 
   .dialog-content {
     display: grid;
-    padding-right: calc(1.25rem + env(safe-area-inset-right));
+    padding-inline-end: calc(1.25rem + env(safe-area-inset-right));
   }
 }
 

@@ -10,7 +10,7 @@ import { VueAxePopup } from 'vue-axe';
 
 <style>
 .va-pt-1 {
-  padding-top: 0.5rem !important;
+  padding-block-start: 0.5rem !important;
 }
 
 .va-popup-btn {

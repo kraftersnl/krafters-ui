@@ -206,7 +206,9 @@ input[type='range']::-moz-range-track {
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  margin-top: calc((var(--track-height) / 2) - (var(--thumb-height) / 2));
+  margin-block-start: calc(
+    (var(--track-height) / 2) - (var(--thumb-height) / 2)
+  );
   will-change: scale;
   transition: scale var(--duration-xs);
   background-color: var(--thumb-color);
