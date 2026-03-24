@@ -78,6 +78,7 @@ const { cookiesDialogRef, acceptCookies, denyCookies } = useCookiesDialog();
     flex-wrap: wrap;
     margin-inline: auto;
     justify-content: center;
+    text-align: center;
     row-gap: 2rem;
     column-gap: 3rem;
 
