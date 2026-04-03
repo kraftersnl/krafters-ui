@@ -7,9 +7,9 @@ defineProps<{ fontSize?: FontSize }>();
 <template>
   <ClientOnly>
     <button
-      id="theme-toggle"
+      id="theme-switch"
       type="button"
-      class="theme-switch"
+      class="theme-switch-button"
       :aria-pressed="colorMode.value === 'dark'"
       :style="[fontSize && `--font-size: var(--font-size-${fontSize})`]"
       @click.stop="
@@ -25,7 +25,7 @@ defineProps<{ fontSize?: FontSize }>();
 </template>
 
 <style>
-.theme-switch {
+.theme-switch-button {
   --color-shape: var(--color-grey-text);
   position: relative;
   background-color: transparent;
@@ -81,7 +81,7 @@ defineProps<{ fontSize?: FontSize }>();
 }
 
 .dark-mode {
-  .theme-switch {
+  .theme-switch-button {
     &::after {
       transform: translateX(100%);
     }
