@@ -1,16 +1,9 @@
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-const currentDir = dirname(fileURLToPath(import.meta.url));
-
 export default defineNuxtConfig({
   $development: {
     modules: ['@nuxtjs/html-validator'],
   },
 
   pages: true,
-
-  css: [join(currentDir, './app/assets/main.css')],
 
   modules: [
     '@nuxt/eslint',
@@ -66,5 +59,5 @@ export default defineNuxtConfig({
     enabled: false,
   },
 
-  compatibilityDate: '2025-01-08',
+  compatibilityDate: '2026-04-03',
 });
