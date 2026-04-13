@@ -100,7 +100,7 @@ function goToPage(pageNumber: number) {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
   margin-block-start: 1rem;
   justify-content: center;
