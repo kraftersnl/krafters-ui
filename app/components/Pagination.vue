@@ -79,6 +79,8 @@ function goToPage(pageNumber: number) {
       />
     </nav>
 
+    <slot name="default" />
+
     <div v-if="!hidePageSizes" class="pagination-page-size">
       <Select
         v-model.number="perPage"
