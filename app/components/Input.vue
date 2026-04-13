@@ -6,6 +6,7 @@ const {
   errorMessage = undefined,
   min = undefined,
   max = undefined,
+  step = undefined,
   pattern = undefined,
   icon = undefined,
   name = undefined,
@@ -45,6 +46,7 @@ const {
   showInvalid?: boolean;
   min?: number | string;
   max?: number | string;
+  step?: number | string;
   ariaDescribedby?: string;
   instruction?: string;
   errorMessage?: string;
@@ -170,6 +172,7 @@ const emit = defineEmits<{
         :maxlength="maxlength"
         :min="min"
         :max="max"
+        :step="step"
         :tabindex="tabindex"
         :aria-describedby="computedAriaDescribedby"
         @focus="emit('focus', $event)"
