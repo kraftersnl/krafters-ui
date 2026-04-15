@@ -227,7 +227,8 @@
 
   "language": {
     "en": "Engels",
-    "nl": "Nederlands"
+    "nl": "Nederlands",
+    "toggle": "Taal wisselen"
   },
 
   "meter": {
@@ -245,6 +246,7 @@
     "edit": "Wachtwoord wijzigen",
     "email-sent": "We hebben je een e-mail gestuurd met een reset-link.",
     "forgot": "Wachtwoord vergeten?",
+    "forgot-cta": "Herstel hier",
     "heading": "Wachtwoord",
     "new": "Nieuw wachtwoord",
     "request-reset": "Nieuw wachtwoord aanvragen",
@@ -282,6 +284,7 @@
     "heading": "Thema",
     "light": "Licht",
     "system": "Systeem",
+    "toggle": "Kleurthema wisselen",
     "sr": {
       "dark": "Donkere modus",
       "light": "Lichte modus",

@@ -229,7 +229,8 @@
 
   "language": {
     "en": "English",
-    "nl": "Dutch"
+    "nl": "Dutch",
+    "toggle": "Toggle language"
   },
 
   "meter": {
@@ -247,6 +248,7 @@
     "edit": "Update password",
     "email-sent": "We have emailed your password reset link.",
     "forgot": "Forgot password?",
+    "forgot-cta": "Reset here",
     "heading": "Password",
     "new": "New password",
     "request-reset": "Request password reset",
@@ -284,6 +286,7 @@
     "heading": "Theme",
     "light": "Light",
     "system": "System",
+    "toggle": "Toggle color theme",
     "sr": {
       "dark": "Dark mode",
       "light": "Light mode",
