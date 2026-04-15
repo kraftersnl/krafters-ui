@@ -14,7 +14,6 @@ useHead({ title: 'Buttons & Links' });
           to="https://www.w3.org/WAI/ARIA/apg/patterns/button"
           variant="link"
           target="_blank"
-          external
         />
         is a widget that enables users to trigger an action or event, such as
         submitting a form, opening a dialog, canceling an action, or performing
@@ -29,7 +28,6 @@ useHead({ title: 'Buttons & Links' });
           to="https://www.w3.org/WAI/ARIA/apg/patterns/link"
           variant="link"
           target="_blank"
-          external
         />
         provides an interactive reference to a resource. The target resource can
         be either external or local, i.e., either outside or within the current

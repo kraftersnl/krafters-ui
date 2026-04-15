@@ -24,7 +24,6 @@ const isAccordionOpen = ref(false);
         to="https://www.w3.org/WAI/ARIA/apg/patterns/accordion"
         variant="link"
         target="_blank"
-        external
       />
     </p>
     </blockquote>

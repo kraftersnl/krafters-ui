@@ -32,7 +32,6 @@ const skeletonAnimations = [
         <NuxtLink
           to="https://www.nngroup.com/articles/skeleton-screens"
           target="_blank"
-          external
           >Nielsen Norman Group</NuxtLink
         >
       </p>

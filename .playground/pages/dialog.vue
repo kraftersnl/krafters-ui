@@ -34,7 +34,6 @@ function makeToast() {
         <NuxtLink
           to="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal"
           target="_blank"
-          external
           >ARIA Design Patterns</NuxtLink
         >
       </p>
@@ -158,7 +157,6 @@ function makeToast() {
           <NuxtLink
             to="https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog"
             target="_blank"
-            external
             >Alert and Message Dialog Pattern</NuxtLink
           >.
         </li>

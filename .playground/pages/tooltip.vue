@@ -44,7 +44,6 @@ const popoverActions = [
         label="VueTippy"
         variant="link"
         target="_blank"
-        external
       />
       for these components. In the future this package could be replaced with
       the
@@ -53,7 +52,6 @@ const popoverActions = [
         label="Popover API"
         variant="link"
         target="_blank"
-        external
       />
       when
       <Button
@@ -61,7 +59,6 @@ const popoverActions = [
         label="anchor positioning"
         variant="link"
         target="_blank"
-        external
       />
       will be supported in all modern browsers.
     </p>
@@ -79,7 +76,6 @@ const popoverActions = [
               to="https://inclusive-components.design/tooltips-toggletips"
               label="Toggletips with live regions"
               target="_blank"
-              external
               variant="link"
             />
             instead. Toggletips are revealed by click rather than by hover and
@@ -92,7 +88,6 @@ const popoverActions = [
             <Button
               label="Tooltip design pattern"
               to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip"
-              external
               target="_blank"
               variant="link"
             />
@@ -210,7 +205,6 @@ const popoverActions = [
                   to="https://hidde.blog/popover-accessibility/"
                   variant="link"
                   target="_blank"
-                  external
                 />.
               </p>
             </template>

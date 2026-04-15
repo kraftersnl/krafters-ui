@@ -374,7 +374,6 @@ function handleSubmit(formData: FormData) {
                 label="@vueform/multiselect"
                 variant="link"
                 target="_blank"
-                external
               />
             </p>
 
@@ -410,7 +409,6 @@ function handleSubmit(formData: FormData) {
                 label="@vuepic/vue-datepicker"
                 variant="link"
                 target="_blank"
-                external
               />
             </p>
 

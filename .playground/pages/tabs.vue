@@ -84,7 +84,6 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
           to="https://www.w3.org/WAI/ARIA/apg/patterns/tabs"
           variant="link"
           target="_blank"
-          external
         />
       </p>
     </blockquote>

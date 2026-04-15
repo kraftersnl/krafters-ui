@@ -557,14 +557,12 @@ function makeToast() {
           label="Material Symbols at Iconify"
           variant="link"
           target="_blank"
-          external
         />, powered by
         <Button
           href="https://nuxt.com/modules/icon"
           label="Nuxt Icon"
           variant="link"
           target="_blank"
-          external
         />.
       </p>
 

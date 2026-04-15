@@ -35,7 +35,6 @@ const roleOptions = [
           label="progressbar role"
           variant="link"
           target="_blank"
-          external
         />
         instead.
       </p>
@@ -47,7 +46,6 @@ const roleOptions = [
           label="ARIA Design Patterns"
           variant="link"
           target="_blank"
-          external
         />
       </p>
     </blockquote>

@@ -149,7 +149,6 @@ function handleFilter() {
           label="Grid Pattern"
           variant="link"
           target="_blank"
-          external
         />
         is used to make an interactive widget that has a tabular structure.
       </p>
@@ -161,7 +160,6 @@ function handleFilter() {
           label="ARIA Design Patterns"
           variant="link"
           target="_blank"
-          external
         />
       </p>
     </blockquote>

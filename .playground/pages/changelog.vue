@@ -753,7 +753,6 @@ useHead({ title: 'Changelog' });
           <NuxtLink
             to="https://www.npmjs.com/package/@krafters/ui"
             target="_blank"
-            external
             >NPM</NuxtLink
           >
         </li>
