@@ -95,7 +95,7 @@ function openDialog() {
 function focusDialogTrigger() {
   setTimeout(() => {
     dialogTriggerRef.value?.focusElement();
-  }, lgTransition);
+  }, mdTransition);
 }
 
 defineExpose({
@@ -252,10 +252,10 @@ body:has(.mobile-dialog[open]) {
   border-inline-end: 1px solid var(--card-border-color);
 
   &[open] {
-    animation: slideInLeft var(--duration-lg) forwards;
+    animation: slideInLeft var(--duration-md) forwards;
 
     &::backdrop {
-      animation: fadeIn var(--duration-md) forwards;
+      animation: fadeIn var(--duration-sm) forwards;
     }
   }
 
@@ -264,7 +264,7 @@ body:has(.mobile-dialog[open]) {
     animation: slideOutLeft var(--duration-md) forwards;
 
     &::backdrop {
-      animation: fadeOut var(--duration-md) forwards;
+      animation: fadeOut var(--duration-sm) forwards;
     }
   }
 
@@ -280,10 +280,10 @@ body:has(.mobile-dialog[open]) {
   border-inline-start: 1px solid var(--card-border-color);
 
   &[open] {
-    animation: slideInRight var(--duration-lg) forwards;
+    animation: slideInRight var(--duration-md) forwards;
 
     &::backdrop {
-      animation: fadeIn var(--duration-md) forwards;
+      animation: fadeIn var(--duration-sm) forwards;
     }
   }
 
@@ -292,7 +292,7 @@ body:has(.mobile-dialog[open]) {
     animation: slideOutRight var(--duration-md) forwards;
 
     &::backdrop {
-      animation: fadeOut var(--duration-md) forwards;
+      animation: fadeOut var(--duration-sm) forwards;
     }
   }
 
