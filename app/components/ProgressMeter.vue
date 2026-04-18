@@ -49,7 +49,6 @@ const percentage = computed(() => (value / (max - min)) * 100);
     </div>
 
     <div
-      v-bind="$attrs"
       :class="['meter', `meter-size--${size}`]"
       :style="`--width: ${percentage}%`"
     />
