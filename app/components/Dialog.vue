@@ -6,6 +6,7 @@ const {
   position = 'center',
   closeButtonVariant = 'outline',
   closeButtonRadius = 'full',
+  closeButtonIconSize = 'md',
   label = undefined,
   ariaLabel = undefined,
   role = undefined,
@@ -20,6 +21,7 @@ const {
   position?: DialogPosition;
   closeButtonVariant?: ButtonVariant;
   closeButtonRadius?: BorderRadius;
+  closeButtonIconSize?: FontSize;
   role?: 'dialog' | 'alertdialog';
   headerIcon?: string;
 }>();
@@ -100,10 +102,10 @@ defineExpose({
             icon="material-symbols:close-rounded"
             :variant="closeButtonVariant"
             :radius="closeButtonRadius"
+            :icon-size="closeButtonIconSize"
+            size="sm"
             :label="$t('general.close')"
             hide-label
-            size="sm"
-            icon-size="md"
             class="close-button"
             @click="closeDialog"
           />
