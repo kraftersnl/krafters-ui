@@ -8,13 +8,11 @@ const {
   closeButtonRadius = 'full',
   label = undefined,
   ariaLabel = undefined,
-  ariaLabelledby = undefined,
   role = undefined,
   headerIcon = undefined,
 } = defineProps<{
   label?: string;
   ariaLabel?: string;
-  ariaLabelledby?: string;
   id?: string;
   disableEscape?: boolean;
   clickOutside?: boolean;
@@ -85,7 +83,6 @@ defineExpose({
   <dialog
     ref="dialog"
     :aria-label="ariaLabel"
-    :aria-labelledby="ariaLabelledby || id"
     :class="['dialog', `dialog-position--${position}`]"
     :role="role"
     @click="handleDialogClick"
