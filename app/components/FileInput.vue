@@ -204,16 +204,16 @@ function removeFile() {
           dragover && 'dragover',
         ]"
       >
-        <div class="file-input-icon-wrapper">
+        <span class="file-input-icon-wrapper">
           <Icon :name="fileTypeIcon(model)" />
-        </div>
+        </span>
 
-        <div class="button-text">
+        <span class="button-text">
           <span>
             {{ $t('files.button-text') }}
           </span>
           <span>(max. {{ maxFileSize / 1000 }} MB) </span>
-        </div>
+        </span>
 
         <img
           v-if="imagePreview"
