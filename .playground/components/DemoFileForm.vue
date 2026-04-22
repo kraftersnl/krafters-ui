@@ -41,7 +41,7 @@ async function uploadFile(formData: FormData) {
       ref="fileInput"
       v-model="file"
       :required="required"
-      :label="$t('general.files')"
+      :label="$t('general.upload-file')"
       :show-invalid="showInvalid"
       name="file"
       :disabled="disabled"

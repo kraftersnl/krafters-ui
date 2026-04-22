@@ -170,7 +170,7 @@ function removeFile() {
   <div class="file-input-wrapper">
     <label :for="id" class="file-input-label">
       <span>
-        {{ label || $t('files.browse') }} (max. {{ maxFileSize / 1000 }} MB)
+        {{ label || $t('files.browse') }}
       </span>
 
       <Chip v-if="required" size="xs" :label="$t('form.required')" />
@@ -204,9 +204,16 @@ function removeFile() {
           dragover && 'dragover',
         ]"
       >
-        <Icon :name="fileTypeIcon(model)" />
+        <div class="file-input-icon-wrapper">
+          <Icon :name="fileTypeIcon(model)" />
+        </div>
 
-        <span class="visuallyhidden">{{ label }}</span>
+        <div class="button-text">
+          <span>
+            {{ $t('files.button-text') }}
+          </span>
+          <span>(max. {{ maxFileSize / 1000 }} MB) </span>
+        </div>
 
         <img
           v-if="imagePreview"
@@ -218,9 +225,11 @@ function removeFile() {
     </div>
 
     <div v-if="model" class="file-preview" :aria-describedby="id">
-      <span class="file-name">{{ model.name }}</span>
+      <div>
+        <span class="file-name">{{ model.name }}</span>
 
-      <span class="file-size"> ({{ formatFileSize(model.size) }})</span>
+        <span class="file-size"> ({{ formatFileSize(model.size) }})</span>
+      </div>
 
       <Button
         :label="$t('general.delete')"
@@ -246,7 +255,7 @@ function removeFile() {
 
 :where(.file-input-wrapper) {
   position: relative;
-  display: inline-grid;
+  display: grid;
   align-items: center;
   align-content: start;
   transition-property: opacity;
@@ -277,17 +286,36 @@ function removeFile() {
   position: relative;
   width: 100%;
   padding: 0;
-  color: var(--color-grey-graphic);
+  /* color: var(--color-grey-text); */
   border: 1.5px dashed var(--color-grey-graphic);
-  /* border-radius: var(--radius-md); */
-  background-color: transparent;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
   outline: 1px solid transparent;
+  padding-block: 2rem;
 
-  .iconify {
-    display: block;
-    margin-inline: 6rem;
-    padding-block: 3rem;
-    font-size: var(--font-size-xxxl);
+  .button-text {
+    font-weight: var(--font-weight-regular);
+    color: var(--color-grey-text);
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .file-input-icon-wrapper {
+    display: grid;
+    place-content: center;
+    margin-block-end: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-inline: auto;
+    border: 1px solid var(--color-grey-light);
+    border-radius: var(--radius-md);
+    color: var(--color-grey-text);
+    background-color: var(--color-card-bg);
+
+    .iconify {
+      display: block;
+      font-size: var(--font-size-xl);
+    }
   }
 
   .preview-image {
@@ -299,8 +327,11 @@ function removeFile() {
     max-width: max-content;
     color: white;
     border: none;
+    padding-block: 0;
+    border-radius: 0;
 
-    .iconify {
+    .file-input-icon-wrapper,
+    .button-text {
       display: none;
     }
   }
@@ -314,16 +345,13 @@ function removeFile() {
 
 .file-preview {
   word-break: break-all;
-  margin-block: 0.35em;
+  margin-block: 0.75em;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  column-gap: 0.25rem;
+  column-gap: 0.5em;
   font-size: var(--font-size-xs);
   color: var(--color-grey-text);
-
-  .button {
-  }
 
   .file-name {
     color: var(--color-text);
@@ -334,7 +362,6 @@ function removeFile() {
   position: relative;
   display: grid;
   margin-block-start: 0.25rem;
-  width: fit-content;
 
   input[type='file'] {
     -webkit-tap-highlight-color: transparent;
@@ -359,9 +386,18 @@ function removeFile() {
     }
 
     &:hover:not(:disabled) {
+      cursor: pointer;
+
       + .file-input-button {
-        color: var(--color-accent-graphic);
-        border-color: var(--color-accent-graphic);
+        border-color: var(--color-text);
+
+        .file-input-icon-wrapper {
+          color: var(--color-text);
+        }
+
+        .button-text {
+          color: var(--color-text);
+        }
       }
 
       &:focus-visible + .file-input-button {

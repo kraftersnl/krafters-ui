@@ -33,7 +33,7 @@ export function downloadCSV({ data, name }: { data: any[]; name: string }) {
 }
 
 export function fileTypeIcon(file?: File) {
-  if (!file) return 'material-symbols:note-stack-add-outline-rounded';
+  if (!file) return 'material-symbols:upload-file-outline';
   if (getFileExtension(file?.name) === 'vue')
     return 'vscode-icons:file-type-vue';
   if (getFileExtension(file?.name) === 'md')

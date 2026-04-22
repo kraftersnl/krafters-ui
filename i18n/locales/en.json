@@ -88,7 +88,8 @@
     "no-file-selected": "No file selected.",
     "or-drop-file": "or drop a file here",
     "thumb": "Thumbnail of {file}",
-    "too-big": "File size is too big"
+    "too-big": "File size is too big",
+    "button-text": "Click to upload or drop a file"
   },
 
   "filters": {
