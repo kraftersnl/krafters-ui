@@ -151,7 +151,7 @@
     "files": "Bestand | Bestanden",
     "heading": "Algemeen",
     "home": "Home",
-    "hour": "uur",
+    "hour": "{n} uur",
     "image": "Afbeelding | Afbeeldingen",
     "import": "Importeren",
     "init": "Initialiseren",

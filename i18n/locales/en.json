@@ -151,7 +151,7 @@
     "files": "File | Files",
     "heading": "General",
     "home": "Home",
-    "hour": "hour | hours",
+    "hour": "{n} hour | {n} hours",
     "image": "Image | Images",
     "import": "Import",
     "init": "Initialize",
