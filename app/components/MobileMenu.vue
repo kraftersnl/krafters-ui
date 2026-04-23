@@ -143,7 +143,7 @@ const emit = defineEmits<{
       @click="openDialog"
     />
 
-    <Teleport :to="teleportTo">
+    <Teleport v-if="isMounted" :to="teleportTo">
       <dialog
         :id="id"
         ref="dialogElement"
