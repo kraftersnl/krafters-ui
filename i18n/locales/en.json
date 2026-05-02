@@ -244,12 +244,15 @@
   },
 
   "password": {
+    "back-to-login": "Back to",
+    "back-to-login-cta": "login",
     "confirm": "Confirm new password",
     "current": "Current password",
     "edit": "Update password",
     "email-sent": "We have emailed your password reset link.",
     "forgot": "Forgot password?",
     "forgot-cta": "Reset here",
+    "forgot-instructions": "Enter your email to reset your password.",
     "heading": "Password",
     "new": "New password",
     "request-reset": "Request password reset",

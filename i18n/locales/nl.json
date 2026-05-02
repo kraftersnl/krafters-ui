@@ -242,12 +242,15 @@
   },
 
   "password": {
+    "back-to-login": "Terug naar",
+    "back-to-login-cta": "inloggen",
     "confirm": "Herhaal nieuw wachtwoord",
     "current": "Huidig wachtwoord",
     "edit": "Wachtwoord wijzigen",
     "email-sent": "We hebben je een e-mail gestuurd met een reset-link.",
     "forgot": "Wachtwoord vergeten?",
     "forgot-cta": "Herstel hier",
+    "forgot-instructions": "Vul je e-mailadres in om een reset-link te krijgen.",
     "heading": "Wachtwoord",
     "new": "Nieuw wachtwoord",
     "request-reset": "Nieuw wachtwoord aanvragen",
