@@ -222,6 +222,8 @@
     "upload-file": "Upload file",
     "upload-image": "Upload image",
     "url": "URL | URLs",
+    "valid": "Valid",
+    "invalid": "Invalid",
     "version": "Version",
     "website": "Website",
     "year": "{n} year | {n} years",
@@ -256,7 +258,8 @@
     "heading": "Password",
     "new": "New password",
     "request-reset": "Request password reset",
-    "reset": "Reset password",
+    "reset": "Update password",
+    "reset-description": "Are you sure you want to update your password? Enter a new strong password.",
     "reset-form-instructions": "Click the link in the password reset email.",
     "save": "Save password",
     "show": "Show password",
@@ -264,9 +267,21 @@
     "updated": "Your password has been updated. You will be signed in automatically.",
     "requirements": {
       "description": "Password must meet the following criteria:",
-      "8-characters": "Must be at least 8 characters long",
-      "1-number": "Must contain at least 1 number",
-      "1-special-character": "Must contain at least 1 special character"
+      "length": "Must be at least {n} characters long",
+      "length-valid": "Password meets length requirement",
+      "length-invalid": "Password does not meet length requirement",
+      "numbers": "Must contain at least 1 number",
+      "numbers-valid": "Password meets number requirement",
+      "numbers-invalid": "Password does not meet number requirement",
+      "symbols": "Must contain at least 1 special character",
+      "symbols-valid": "Password meets special character requirement",
+      "symbols-invalid": "Password does not meet special character requirement",
+      "uppercase": "Must contain at least 1 uppercase letter",
+      "uppercase-valid": "Password meets uppercase letter requirement",
+      "uppercase-invalid": "Password does not meet uppercase letter requirement",
+      "lowercase": "Must contain at least 1 lowercase letter",
+      "lowercase-invalid": "Password does not meet lowercase letter requirement",
+      "lowercase-valid": "Password meets lowercase letter requirement"
     }
   },
 
