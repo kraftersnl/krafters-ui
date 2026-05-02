@@ -244,10 +244,10 @@
   "password": {
     "back-to-login": "Terug naar",
     "back-to-login-cta": "inloggen",
-    "confirm": "Herhaal nieuw wachtwoord",
+    "confirm": "Herhaal wachtwoord",
     "current": "Huidig wachtwoord",
     "edit": "Wachtwoord wijzigen",
-    "email-sent": "We hebben je een e-mail gestuurd met een reset-link.",
+    "email-sent": "We hebben een resetlink naar je gemaild.",
     "forgot": "Wachtwoord vergeten?",
     "forgot-cta": "Herstel hier",
     "forgot-instructions": "Vul je e-mailadres in om een reset-link te krijgen.",
@@ -259,7 +259,13 @@
     "save": "Wachtwoord opslaan",
     "show": "Toon wachtwoord",
     "update": "Wachtwoord wijzigen",
-    "updated": "Je wachtwoord is gewijzigd. Je wordt automatisch ingelogd."
+    "updated": "Je wachtwoord is gewijzigd. Je wordt automatisch ingelogd.",
+    "requirements": {
+      "description": "Wachtwoord moet voldoen aan de volgende criteria:",
+      "8-characters": "Moet minimaal 8 tekens bevatten",
+      "1-number": "Moet minimaal 1 getal bevatten",
+      "1-special-character": "Moet minimaal 1 speciaal teken bevatten"
+    }
   },
 
   "pagination": {
