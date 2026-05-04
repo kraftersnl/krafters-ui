@@ -95,7 +95,7 @@ const emit = defineEmits<{
   >
     <slot v-if="!showExternalIcon" name="icon" />
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
-    <Icon v-else-if="icon && showExternalIcon" :name="icon" />
+    <Icon v-else-if="icon" :name="icon" />
 
     <span v-if="label" :class="['button-text', hideLabel && 'visuallyhidden']">
       {{ label }}
