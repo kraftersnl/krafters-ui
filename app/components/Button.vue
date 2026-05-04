@@ -13,6 +13,7 @@ const {
   target = undefined,
   icon = undefined,
   download = undefined,
+  hideExternalIcon = false,
   iconPos = 'start',
   variant = 'secondary',
   size = 'md',
@@ -45,6 +46,10 @@ const computedStyle = computed(() => ({
   '--font-size': fontSize && `var(--font-size-${fontSize})`,
   '--icon-size': iconSize && `var(--font-size-${iconSize})`,
 }));
+
+const showExternalIcon = computed(() => {
+  return !hideExternalIcon && target === '_blank';
+});
 
 function handleClick() {
   emit('click');
@@ -88,15 +93,15 @@ const emit = defineEmits<{
     "
     @click="handleClick"
   >
-    <slot name="icon" />
+    <slot v-if="!showExternalIcon" name="icon" />
     <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
-    <Icon v-else-if="icon" :name="icon" />
+    <Icon v-else-if="icon && showExternalIcon" :name="icon" />
 
     <span v-if="label" :class="['button-text', hideLabel && 'visuallyhidden']">
       {{ label }}
     </span>
 
-    <template v-if="!hideExternalIcon && target === '_blank'">
+    <template v-if="showExternalIcon">
       <Icon name="material-symbols:open-in-new-rounded" class="external-link" />
     </template>
 
