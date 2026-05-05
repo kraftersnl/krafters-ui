@@ -64,8 +64,8 @@
   },
 
   "error": {
-    "403": "geen toegang",
-    "404": "niet gevonden",
+    "403": "Geen toegang",
+    "404": "Niet gevonden",
     "heading": "Foutmelding",
     "page-not-found": "Pagina niet gevonden",
     "unauthorized": "Je hebt geen rechten om deze pagina te openen.",

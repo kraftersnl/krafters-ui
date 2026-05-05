@@ -64,8 +64,8 @@
   },
 
   "error": {
-    "403": "unauthorized",
-    "404": "not found",
+    "403": "Unauthorized",
+    "404": "Not found",
     "heading": "Error",
     "page-not-found": "Page not found",
     "unauthorized": "You are unauthorized to view this page.",
