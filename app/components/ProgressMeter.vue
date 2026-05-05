@@ -23,7 +23,7 @@ const {
   id?: string;
 }>();
 
-const percentage = computed(() => (value / (max - min)) * 100);
+const percentage = computed(() => ((value / (max - min)) * 100)?.toFixed(0));
 </script>
 
 <template>
