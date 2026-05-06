@@ -45,6 +45,8 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
     ]"
     :style="computedStyle"
   >
+    <slot />
+
     <div :id="id" class="progress-circle-label">
       {{ showValue ? value : percentage + '%' }}
     </div>
@@ -162,7 +164,7 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
 }
 
 .progress-circle-size--xs {
-  --size: 2rem;
-  --progress-stroke-width: 1px;
+  --size: 2.5rem;
+  --progress-stroke-width: 3px;
 }
 </style>
