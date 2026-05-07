@@ -4,6 +4,7 @@ useHead({ title: 'Video Player' });
 
 const youtube = ref('https://youtube.com/watch?v=PGvgdZuQu6w');
 const vimeo = ref('https://vimeo.com/969786906');
+const vimeoPrivate = ref('https://vimeo.com/706156113/91b6e7682f');
 </script>
 
 <template>
@@ -35,6 +36,13 @@ const vimeo = ref('https://vimeo.com/969786906');
 
         <VideoPlayer :url="vimeo" />
         <Input v-model="vimeo" label="URL" hide-label />
+      </Card>
+
+      <Card>
+        <h2>Vimeo (private)</h2>
+
+        <VideoPlayer :url="vimeoPrivate" />
+        <Input v-model="vimeoPrivate" label="URL" hide-label />
       </Card>
     </div>
   </div>

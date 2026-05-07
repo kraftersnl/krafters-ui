@@ -14,18 +14,55 @@ const videoProvider = computed(() => {
   return 'youtube';
 });
 
-const videoKey = computed(() => {
-  let match: string[] | undefined | null;
-
-  if (videoProvider.value === 'vimeo') {
-    match = props.url?.match(
-      /:\/\/(?:player\.)?vimeo\.com\/(?:video\/)?(\d+)(?:#t=(\d+?)s)?/,
-    );
-  } else {
-    match = props.url?.match(
-      /:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/)?([a-zA-Z0-9-_]+)(?:(?:&t=|\?t=|\?start=)(\d+))?/,
-    );
+/** Vimeo video id and optional privacy hash (path or `h` query). */
+function parseVimeoUrl(url: string | undefined): { id: string; hash?: string } {
+  if (!url) {
+    return { id: 'e' };
   }
+
+  try {
+    const parsed = new URL(url);
+    const hFromQuery = parsed.searchParams.get('h') ?? undefined;
+    const segments = parsed.pathname.split('/').filter(Boolean);
+    const videoIndex =
+      segments[0] === 'video' && segments.length >= 2 ? 1 : 0;
+    const idSegment = segments[videoIndex];
+    if (idSegment && /^\d+$/.test(idSegment)) {
+      const next = segments[videoIndex + 1];
+      const hashFromPath =
+        next && /^[a-zA-Z0-9]+$/.test(next) ? next : undefined;
+      return {
+        id: idSegment,
+        hash: hashFromPath ?? hFromQuery,
+      };
+    }
+  } catch {
+    /* relative or malformed URL */
+  }
+
+  const legacy = url.match(
+    /:\/\/(?:player\.)?vimeo\.com\/(?:video\/)?(\d+)(?:#t=(\d+?)s)?/,
+  );
+  if (legacy?.[1]) {
+    const hParam = url.match(/[?&]h=([a-zA-Z0-9]+)/);
+    return { id: legacy[1], hash: hParam?.[1] };
+  }
+
+  return { id: 'e' };
+}
+
+const vimeoParsed = computed(() =>
+  videoProvider.value === 'vimeo' ? parseVimeoUrl(props.url) : null,
+);
+
+const videoKey = computed(() => {
+  if (videoProvider.value === 'vimeo') {
+    return vimeoParsed.value?.id ?? 'e';
+  }
+
+  const match = props.url?.match(
+    /:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/)?([a-zA-Z0-9-_]+)(?:(?:&t=|\?t=|\?start=)(\d+))?/,
+  );
 
   if (match?.length === 3) {
     return match[1];
@@ -34,9 +71,14 @@ const videoKey = computed(() => {
   return 'e';
 });
 
+const vimeoPrivacyHash = computed(() => vimeoParsed.value?.hash);
+
 const metadataUrl = computed(() => {
   if (videoProvider.value === 'vimeo') {
-    return `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoKey.value}&width=960&height=540`;
+    const pageUrl = vimeoPrivacyHash.value
+      ? `https://vimeo.com/${videoKey.value}/${vimeoPrivacyHash.value}`
+      : `https://vimeo.com/${videoKey.value}`;
+    return `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(pageUrl)}&width=960&height=540`;
   }
   return `https://youtube.com/oembed?url=https://youtube.com/watch?v=${videoKey.value}&format=json`;
 });
@@ -64,7 +106,10 @@ const ratio = computed(() => {
 
 const embedUrl = computed(() => {
   if (videoProvider.value === 'vimeo') {
-    return `https://player.vimeo.com/video/${videoKey.value}?autoplay=1&keyboard=0`;
+    const h =
+      vimeoPrivacyHash.value &&
+      `&h=${encodeURIComponent(vimeoPrivacyHash.value)}`;
+    return `https://player.vimeo.com/video/${videoKey.value}?autoplay=1&keyboard=0${h ?? ''}`;
   }
   return `https://www.youtube-nocookie.com/embed/${videoKey.value}?autoplay=1&disablekb=1`;
 });
