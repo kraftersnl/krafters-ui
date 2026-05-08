@@ -287,7 +287,6 @@ function removeFile() {
   position: relative;
   width: 100%;
   padding: 0;
-  /* color: var(--color-grey-text); */
   border: 1.5px dashed var(--color-grey-graphic);
   border-radius: var(--radius-lg);
   background-color: var(--color-bg);
@@ -295,6 +294,7 @@ function removeFile() {
   padding-block: 2rem;
 
   .button-text {
+    padding-inline: 1rem;
     font-weight: var(--font-weight-regular);
     color: var(--color-grey-text);
     display: grid;
@@ -411,6 +411,12 @@ function removeFile() {
       outline: 1.5px dashed var(--color-black);
       outline-offset: 1.5px;
     }
+  }
+}
+
+.file-input-wrapper:has(.has-image-preview) {
+  .file-input {
+    max-width: max-content;
   }
 }
 
