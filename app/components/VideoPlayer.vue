@@ -24,8 +24,7 @@ function parseVimeoUrl(url: string | undefined): { id: string; hash?: string } {
     const parsed = new URL(url);
     const hFromQuery = parsed.searchParams.get('h') ?? undefined;
     const segments = parsed.pathname.split('/').filter(Boolean);
-    const videoIndex =
-      segments[0] === 'video' && segments.length >= 2 ? 1 : 0;
+    const videoIndex = segments[0] === 'video' && segments.length >= 2 ? 1 : 0;
     const idSegment = segments[videoIndex];
     if (idSegment && /^\d+$/.test(idSegment)) {
       const next = segments[videoIndex + 1];
@@ -130,7 +129,7 @@ function playVideo() {
 <template>
   <figure class="video-player" :style="`--aspect-ratio: ${ratio}`">
     <NuxtImg
-      v-if="!started && videoData"
+      v-if="!started"
       :src="thumbUrl"
       :alt="videoData?.title || ''"
       :loading="loading"
