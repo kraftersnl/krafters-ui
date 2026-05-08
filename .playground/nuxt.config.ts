@@ -47,6 +47,27 @@ export default defineNuxtConfig({
     },
   },
 
+  vite: {
+    optimizeDeps: {
+      include: [
+        'markdown-it',
+        'highlight.js/lib/core',
+        'highlight.js/lib/languages/css',
+        'highlight.js/lib/languages/javascript',
+        'highlight.js/lib/languages/typescript',
+        'highlight.js/lib/common',
+        '@mdit/plugin-attrs',
+        '@mdit/plugin-mark',
+        'vue-axe',
+        'vue-tippy',
+        'date-fns/locale',
+        '@vuepic/vue-datepicker',
+        '@vueform/multiselect',
+        'compressorjs',
+      ],
+    },
+  },
+
   devServer: {
     port: 3003,
   },
