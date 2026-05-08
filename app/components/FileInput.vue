@@ -218,7 +218,8 @@ function removeFile() {
         <img
           v-if="imagePreview"
           :src="imagePreview"
-          :alt="$t('files.example', { file: model?.name || label })"
+          alt=""
+          :aria-label="$t('files.example', { file: model?.name || label })"
           class="preview-image"
         />
       </button>
@@ -325,7 +326,6 @@ function removeFile() {
 
   &.has-image-preview {
     max-width: max-content;
-    color: white;
     border: none;
     padding-block: 0;
     border-radius: 0;
