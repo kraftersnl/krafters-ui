@@ -209,17 +209,20 @@ const computedAriaLabels = computed(() => {
   transition-property: opacity;
   transition-duration: var(--duration-sm);
 
-  &:has(.dp__disabled) {
+  &:has(.dp__disabled, .dp--disabled) {
     opacity: 35%;
   }
 }
 
-.dp__menu {
+.dp__menu,
+.dp--menu {
   box-shadow: var(--shadow);
 }
 
 .dp__theme_light,
-.dp__theme_dark {
+.dp__theme_dark,
+.dp--theme-light,
+.dp--theme-dark {
   --dp-background-color: var(--color-card-bg);
   --dp-text-color: var(--color-text);
   --dp-hover-color: var(--color-grey-bg);
@@ -251,7 +254,8 @@ const computedAriaLabels = computed(() => {
   --dp-input-padding: 0;
 }
 
-.dp__button {
+.dp__button,
+.dp--button {
   color: var(--color-text);
 
   &:hover {
@@ -264,17 +268,20 @@ const computedAriaLabels = computed(() => {
   }
 }
 
-.dp__input {
+.dp__input,
+.dp--input {
   &::placeholder {
     opacity: 1;
     color: var(--color-grey-text);
   }
 }
 
-.dp__input_focus {
+.dp__input_focus,
+.dp--input_focus {
   outline: 1px solid var(--dp-border-color-focus);
 }
-.dp__input_icon {
+.dp__input_icon,
+.dp--input-icon {
   display: flex;
   margin-inline-start: 0.5rem;
 
@@ -284,12 +291,14 @@ const computedAriaLabels = computed(() => {
   }
 }
 
-.dp__input_icons {
+.dp__input_icons,
+.dp--input-icons {
   padding: 6px;
 }
 
 .show-invalid {
-  .dp__input {
+  .dp__input,
+  .dp--input {
     &:invalid {
       border-color: var(--color-red-graphic);
       outline: 1px solid var(--color-red-graphic);
@@ -304,13 +313,16 @@ const computedAriaLabels = computed(() => {
 }
 
 /* Sizes */
-.datepicker-size--sm .dp__input {
+.datepicker-size--sm .dp__input,
+.datepicker-size--sm .dp--input {
   min-height: 2rem;
 }
-.datepicker-size--md .dp__input {
+.datepicker-size--md .dp__input,
+.datepicker-size--md .dp--input {
   min-height: 2.25rem;
 }
-.datepicker-size--lg .dp__input {
+.datepicker-size--lg .dp__input,
+.datepicker-size--lg .dp--input {
   min-height: 2.5rem;
 }
 </style>
