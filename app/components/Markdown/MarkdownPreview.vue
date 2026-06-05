@@ -117,26 +117,8 @@ const preview = computed(() => md.render(content));
     }
   }
 
-  blockquote,
-  pre,
-  p,
-  ul,
-  ol {
-    &:has(+ h2) {
-      margin-block-end: 3rem;
-    }
-    &:has(+ h3) {
-      margin-block-end: 2.5rem;
-    }
-    &:has(+ h4) {
-      margin-block-end: 2rem;
-    }
-    &:has(+ h5) {
-      margin-block-end: 1.5rem;
-    }
-    &:has(+ h6) {
-      margin-block-end: 1rem;
-    }
+  > * + * {
+    margin-block-start: 1.25em;
   }
 
   a {
