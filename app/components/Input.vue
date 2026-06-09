@@ -174,6 +174,7 @@ const emit = defineEmits<{
         :max="max"
         :step="step"
         :tabindex="tabindex"
+        :data-1p-ignore="autocomplete === 'off'"
         :aria-describedby="computedAriaDescribedby"
         @focus="emit('focus', $event)"
         @blur="emit('blur', $event)"
