@@ -121,7 +121,7 @@ const preview = computed(() => md.render(content));
     margin-block-start: 1em;
   }
   > * + :is(h1, h2, h3, h4, h5, h6) {
-    margin-block-start: 2em;
+    margin-block-start: 1.5em;
   }
 
   a {
