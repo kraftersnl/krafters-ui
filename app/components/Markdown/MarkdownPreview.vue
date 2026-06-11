@@ -118,7 +118,7 @@ const preview = computed(() => md.render(content));
   }
 
   > * + * {
-    margin-block-start: 1.25em;
+    margin-block-start: 1em;
   }
 
   a {
