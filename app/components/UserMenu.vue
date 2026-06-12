@@ -2,7 +2,7 @@
 import { onClickOutside } from '@vueuse/core';
 
 const props = defineProps<{
-  label?: string;
+  initials?: string;
   icon?: string;
   logout?: CallableFunction;
   avatar?: string;
@@ -54,29 +54,14 @@ defineExpose({
 
 <template>
   <div class="user-menu-wrapper" @keydown.esc="hideMenu">
-    <button
-      v-if="avatar"
-      type="button"
-      class="avatar-button"
-      aria-controls="user-menu"
-      :aria-expanded="showMenu"
-      :aria-label="$t('aria.open-user-menu')"
-      @click="toggleMenu"
-    >
-      <img :src="avatar" class="avatar-image" :alt="$t('general.avatar')" />
-    </button>
-
-    <Button
-      v-else
+    <AvatarButton
       ref="menuTrigger"
-      :icon="icon"
-      :label="label"
-      :aria-label="$t('aria.open-user-menu')"
-      :aria-expanded="showMenu"
-      size="lg"
-      icon-size="lg"
-      radius="full"
       aria-controls="user-menu"
+      :aria-expanded="showMenu"
+      :aria-label="$t('aria.open-user-menu')"
+      :icon="icon"
+      :avatar="avatar"
+      :initials="initials"
       @click="toggleMenu"
     />
 
@@ -119,30 +104,6 @@ defineExpose({
   display: grid;
   place-content: center;
   position: relative;
-
-  > .button {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-weight: var(--font-weight-bold);
-    background-color: var(--color-grey-bg);
-    border-radius: var(--radius-full);
-  }
-
-  .avatar-button {
-    border: none;
-    padding: 0;
-    background-color: transparent;
-    overflow: hidden;
-    cursor: pointer;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: var(--radius-full);
-
-    .avatar-image {
-      height: 100%;
-      width: 100%;
-    }
-  }
 }
 
 .user-menu-popover {
