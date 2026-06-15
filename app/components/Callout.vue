@@ -33,6 +33,15 @@ const computedIcon = computed(() => {
 
   return icon;
 });
+
+const computedIconLabel = computed(() => {
+  if (color === 'blue') return $t('aria.callout-info');
+  if (color === 'green') return $t('aria.callout-success');
+  if (color === 'red') return $t('aria.callout-error');
+  if (color === 'orange') return $t('aria.callout-warning');
+
+  return undefined;
+});
 </script>
 
 <template>
@@ -43,6 +52,9 @@ const computedIcon = computed(() => {
   >
     <div class="callout-content">
       <Icon v-if="computedIcon" :name="computedIcon" />
+      <strong v-if="computedIconLabel" class="visuallyhidden">
+        {{ computedIconLabel }}
+      </strong>
 
       <div v-if="content">{{ content }}</div>
 
