@@ -277,7 +277,7 @@ const computedAriaLabels = computed(() => {
 }
 
 .dp__input_focus,
-.dp--input_focus {
+.dp--input-focus {
   outline: 1px solid var(--dp-border-color-focus);
 }
 .dp__input_icon,
