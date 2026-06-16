@@ -27,7 +27,7 @@ watch(
         <!-- <ClientOnly>
           <CookiesButton />
         </ClientOnly> -->
-        <ThemeToggle font-size="lg" />
+        <ThemeSwitch font-size="lg" />
       </div>
     </div>
 
