@@ -87,6 +87,7 @@
     "name": "File name",
     "no-file-selected": "No file selected.",
     "or-drop-file": "or drop a file here",
+    "open": "Open file",
     "thumb": "Thumbnail of {file}",
     "too-big": "File size is too big",
     "button-text": "Click to upload or drop a file"
