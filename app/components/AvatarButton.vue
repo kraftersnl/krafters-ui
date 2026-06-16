@@ -37,7 +37,7 @@ defineExpose({
       :src="avatar"
       :initials="initials"
       :size="size"
-      :fontSize="fontSize"
+      :font-size="fontSize"
     />
   </button>
 </template>
