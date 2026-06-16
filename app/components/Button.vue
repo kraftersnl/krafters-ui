@@ -91,10 +91,18 @@ const emit = defineEmits<{
     :title="
       !download && target === '_blank' ? $t('aria.open-new-window') : undefined
     "
+    aria-live="polite"
     @click="handleClick"
   >
     <slot v-if="!showExternalIcon" name="icon" />
-    <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
+
+    <template v-if="loading">
+      <Icon name="svg-spinners:90-ring-with-bg" />
+      <span class="visuallyhidden">
+        {{ $t('aria.loading') }}
+      </span>
+    </template>
+
     <Icon v-else-if="icon" :name="icon" />
 
     <span v-if="label" :class="['button-text', hideLabel && 'visuallyhidden']">
@@ -124,10 +132,18 @@ const emit = defineEmits<{
     ]"
     :style="computedStyle"
     :title="disabled ? undefined : title"
+    aria-live="polite"
     @click="handleClick"
   >
     <slot name="icon" />
-    <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
+
+    <template v-if="loading">
+      <Icon name="svg-spinners:90-ring-with-bg" />
+      <span class="visuallyhidden">
+        {{ $t('aria.loading') }}
+      </span>
+    </template>
+
     <Icon v-else-if="icon" :name="icon" />
 
     <span v-if="label" :class="['button-text', hideLabel && 'visuallyhidden']">
