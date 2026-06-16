@@ -134,9 +134,7 @@ const emit = defineEmits<{
       {{ label }}
     </span>
 
-    <span v-if="$slots.default">
-      <slot name="default" />
-    </span>
+    <slot name="default" />
   </button>
 </template>
 
