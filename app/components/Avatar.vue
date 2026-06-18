@@ -40,6 +40,7 @@ const computedStyle = computed(() => ({
   font-size: var(--avatar-font-size, var(--font-size-sm));
   border: 1px solid var(--avatar-border-color, transparent);
   border-radius: var(--radius-full);
+  overflow: clip;
   display: grid;
   place-items: center;
   font-weight: var(--font-weight-medium);
@@ -48,5 +49,9 @@ const computedStyle = computed(() => ({
   transition:
     color var(--duration-sm),
     background-color var(--duration-sm);
+}
+
+.avatar-image {
+  height: 100%;
 }
 </style>
