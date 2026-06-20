@@ -117,7 +117,7 @@
     "close": "Close",
     "code": "Code",
     "collapse": "Collapse",
-    "completed": "Completed",
+    "completed": "completed",
     "confirm": "Confirm",
     "confirm-number": "Confirm number",
     "confirm-number-description": "Type {n} to confirm.",
