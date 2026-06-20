@@ -208,6 +208,12 @@ function playVideo() {
       padding-inline-start: 0.35rem;
     }
 
+    &:focus-visible {
+      outline: 2px solid black;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 2px white;
+    }
+
     &:hover {
       scale: 1;
     }

@@ -25,7 +25,7 @@ useHead({ titleTemplate: '%s | Krafters UI' });
         <MenuList :list="navList" button-size="md" button-variant="sidebar" />
       </aside>
 
-      <main id="main">
+      <main id="main" tabindex="-1">
         <NuxtPage />
       </main>
 
