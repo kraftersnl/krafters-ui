@@ -99,7 +99,7 @@ const emit = defineEmits<{
     <template v-if="loading">
       <Icon name="svg-spinners:90-ring-with-bg" />
       <span class="visuallyhidden">
-        {{ $t('aria.loading') }}
+        {{ $t('general.loading') }}
       </span>
     </template>
 
@@ -140,7 +140,7 @@ const emit = defineEmits<{
     <template v-if="loading">
       <Icon name="svg-spinners:90-ring-with-bg" />
       <span class="visuallyhidden">
-        {{ $t('aria.loading') }}
+        {{ $t('general.loading') }}
       </span>
     </template>
 
