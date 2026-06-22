@@ -27,6 +27,7 @@ const {
   clearable = true,
   hideInputIcon = false,
   alwaysClearable = false,
+  escClose = false,
 } = defineProps<{
   label: string;
   formats?: Partial<FormatsConfig>;
@@ -36,6 +37,7 @@ const {
   autocomplete?: string;
   clearable?: boolean;
   alwaysClearable?: boolean;
+  escClose?: boolean;
   hideInputIcon?: boolean;
   utc?: boolean;
   textInput?: boolean;
@@ -131,7 +133,7 @@ const computedAriaLabels = computed(() => {
       v-model="model"
       v-bind="$attrs"
       auto-apply
-      :esc-close="false"
+      :esc-close="escClose"
       :text-input="textInput"
       :timezone="utc ? 'utc' : undefined"
       :time-config="{ enableTimePicker: enableTimePicker }"
