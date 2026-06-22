@@ -24,20 +24,20 @@ jobs:
       - name: Run linter
         run: pnpm run lint
 
-  publish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
+  # publish:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: pnpm/action-setup@v4
+  #       with:
+  #         version: 10
 
-      - name: Publish to NPM
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.KRAFTERS_UI_NPM_TOKEN }}
-          access: public
+  #     - name: Publish to NPM
+  #       uses: JS-DevTools/npm-publish@v3
+  #       with:
+  #         token: ${{ secrets.KRAFTERS_UI_NPM_TOKEN }}
+  #         access: public
 
   deploy:
     needs: test
