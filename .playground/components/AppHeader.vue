@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { version } from '../../package.json';
-
 const route = useRoute();
 const mobileMenuRef = useTemplateRef<DialogComponent>('mobileMenu');
 
@@ -21,7 +19,7 @@ watch(
         <MenuList :list="navList" button-variant="sidebar" label="Menu" />
       </MobileMenu>
 
-      <NuxtLink to="/" class="home-link">Krafters UI {{ version }}</NuxtLink>
+      <NuxtLink to="/" class="home-link">Krafters UI</NuxtLink>
 
       <div class="flex-wrapper" style="max-width: max-content">
         <!-- <ClientOnly>
