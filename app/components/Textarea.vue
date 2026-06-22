@@ -221,6 +221,7 @@ const emit = defineEmits<{
     &.autoresize {
       height: auto;
       overflow: auto;
+      min-height: 0;
     }
   }
 }
