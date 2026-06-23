@@ -1,7 +1,20 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
 
-defineProps<{ fontSize?: FontSize }>();
+defineProps<{
+  fontSize?: FontSize;
+  disabled?: boolean;
+}>();
+
+function handleClick() {
+  const newColorMode = colorMode.value == 'light' ? 'dark' : 'light';
+  colorMode.preference = newColorMode;
+  emit('click', newColorMode);
+}
+
+const emit = defineEmits<{
+  click: [colorMode: string];
+}>();
 </script>
 
 <template>
@@ -12,9 +25,8 @@ defineProps<{ fontSize?: FontSize }>();
       class="theme-switch-button"
       :aria-pressed="colorMode.value === 'dark'"
       :style="[fontSize && `--font-size: var(--font-size-${fontSize})`]"
-      @click.stop="
-        colorMode.preference = colorMode.value == 'light' ? 'dark' : 'light'
-      "
+      :disabled="disabled"
+      @click.stop="handleClick"
     >
       <Icon name="material-symbols:light-mode-outline-rounded" />
       <Icon name="material-symbols:dark-mode-outline-rounded" />
@@ -39,7 +51,7 @@ defineProps<{ fontSize?: FontSize }>();
   height: 2rem;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  transition-property: color, background-color;
+  transition-property: opacity, color, background-color;
   transition-duration: var(--duration-sm);
 
   &::after {
@@ -61,17 +73,25 @@ defineProps<{ fontSize?: FontSize }>();
     z-index: 1;
     color: var(--color-shape);
     font-size: var(--font-size, var(--font-size-md));
+
+    &[class*='material-symbols:light-mode-outline-rounded'] {
+      color: var(--color-white);
+    }
   }
 
-  .iconify[class*='material-symbols:light-mode-outline-rounded'] {
-    color: var(--color-white);
+  &:disabled {
+    opacity: 0.5;
   }
 
-  &:hover {
-    border-color: var(--color-text);
+  &:not(:disabled) {
+    cursor: pointer;
 
-    .iconify {
-      filter: contrast(2);
+    &:hover {
+      border-color: var(--color-text);
+
+      .iconify {
+        filter: contrast(2);
+      }
     }
   }
 
