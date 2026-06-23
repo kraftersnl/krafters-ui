@@ -67,38 +67,36 @@ const computedAriaDescribedby = computed(() =>
 </template>
 
 <style>
-.switch-button-wrapper {
-  .switch-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    max-width: max-content;
-    -webkit-tap-highlight-color: transparent;
-    background: transparent;
-    text-align: left;
-    color: inherit;
-    font: inherit;
-    border: none;
-    padding-inline: 0;
-    border-radius: var(--radius-full);
-    outline: 1px solid transparent;
-    transition:
-      border-color var(--duration-sm),
-      background-color var(--duration-sm),
-      opacity var(--duration-sm),
-      outline-offset var(--duration-sm),
-      outline-color var(--duration-sm);
+.switch-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: max-content;
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  border: none;
+  padding-inline: 0;
+  border-radius: var(--radius-full);
+  outline: 1px solid transparent;
+  transition:
+    border-color var(--duration-sm),
+    background-color var(--duration-sm),
+    opacity var(--duration-sm),
+    outline-offset var(--duration-sm),
+    outline-color var(--duration-sm);
 
-    &[aria-checked='true'] {
-      --color-accent: var(--color-green-graphic);
+  &[aria-checked='true'] {
+    --color-accent: var(--color-green-graphic);
 
-      .switch-thumb {
-        transform: translateX(14px);
-      }
+    .switch-thumb {
+      transform: translateX(14px);
+    }
 
-      .switch {
-        background-color: var(--color-cta, var(--color-accent));
-      }
+    .switch {
+      background-color: var(--color-cta, var(--color-accent));
     }
   }
 
