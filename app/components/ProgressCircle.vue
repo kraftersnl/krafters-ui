@@ -80,7 +80,6 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
   place-content: center;
 
   .progress-circle-label {
-    z-index: 1;
     color: var(--progress-label-color);
   }
 
