@@ -82,7 +82,7 @@ defineExpose({ toggleAccordion });
     <section
       :id="`accordion-panel-${id}`"
       :aria-labelledby="`accordion-trigger-${id}`"
-      :aria-hidden="!isExpanded"
+      :inert="!isExpanded"
       class="accordion-panel-wrapper"
       @transitionrun="handleTransitionRun"
       @transitionend="handleTransitionEnd"
