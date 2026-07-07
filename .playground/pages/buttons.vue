@@ -19,7 +19,7 @@ useHead({ title: 'Buttons & Links' });
         submitting a form, opening a dialog, canceling an action, or performing
         a delete operation.
 
-      <div class="spacer" style="min-height:16px" />
+      <span class="spacer" style="min-height:16px" />
 
         A
         <Button
