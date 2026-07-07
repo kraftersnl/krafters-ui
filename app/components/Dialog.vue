@@ -85,6 +85,7 @@ defineExpose({
   <dialog
     ref="dialog"
     :aria-label="ariaLabel"
+    :aria-labelledby="label ? id : undefined"
     :class="['dialog', `dialog-position--${position}`]"
     :role="role"
     @click="handleDialogClick"
