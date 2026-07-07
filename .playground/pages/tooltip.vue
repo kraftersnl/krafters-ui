@@ -6,7 +6,7 @@ const popoverActions = [
     id: 'edit',
     label: $t('general.edit'),
     icon: 'material-symbols:edit-outline-rounded',
-    disabled: true,
+    // disabled: true,
     tooltip: 'Tooltip content to explain why the option is disabled.',
   },
   {
@@ -14,7 +14,7 @@ const popoverActions = [
     label: $t('general.duplicate'),
     icon: 'material-symbols:content-copy-outline-rounded',
     divider: true,
-    disabled: true,
+    // disabled: true,
     tooltip: 'Tooltip content to explain why the option is disabled.',
   },
   {
@@ -29,69 +29,62 @@ const popoverActions = [
   <div class="demo-page">
     <h1>Non modal dialog pattern</h1>
 
-    <p>
+    <p class="fs-md">
       A common pattern on the web is to show content on top of other content,
       drawing the user's attention to specific important information or actions
       that need to be taken. This pattern can technically be described as a
-      non-modal dialog or popover. Krafters UI offers 2 components: Tooltip and
-      Popover.
-    </p>
-
-    <p class="c-grey-text fs-xs mbe-2">
-      Krafters UI uses
-      <Button
-        to="https://vue-tippy.netlify.app"
-        label="VueTippy"
-        variant="link"
-        target="_blank"
-      />
-      for these components. In the future this package could be replaced with
-      the
+      non-modal dialog or popover. Krafters UI uses the
       <Button
         to="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API"
         label="Popover API"
         variant="link"
         target="_blank"
       />
-      when
+      and
       <Button
-        to="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning"
-        label="anchor positioning"
+        to="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning"
+        label="CSS anchor positioning"
         variant="link"
         target="_blank"
       />
-      will be supported in all modern browsers.
+      for the Tooltip and Popover components.
+    </p>
+
+    <h2 class="mbs-2">Tooltip vs. Toggletip</h2>
+
+    <p class="fs-md">
+      A Tooltip is a popup that displays information related to an element when
+      the element receives keyboard focus or the mouse hovers over it. Krafters
+      UI uses
+      <Button
+        to="https://inclusive-components.design/tooltips-toggletips"
+        label="Toggletips with live regions"
+        target="_blank"
+        variant="link"
+      />
+      instead. Toggletips are revealed by click rather than by hover and focus.
+      This pattern is more consistent across touch, mouse and keyboard controls.
+    </p>
+
+    <p class="c-grey-text mbe-2 fs-sm">
+      Note: the
+      <Button
+        label="Tooltip design pattern"
+        to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip"
+        target="_blank"
+        variant="link"
+      />
+      is work in progress; it does not yet have task force consensus.
     </p>
 
     <div class="demo-page-cols">
       <Card>
         <div class="text-content">
-          <h2>Tooltip vs. Toggletip</h2>
+          <h2>Tooltip</h2>
 
-          <p class="c-grey-text">
-            A Tooltip is a popup that displays information related to an element
-            when the element receives keyboard focus or the mouse hovers over
-            it. Krafters UI uses
-            <Button
-              to="https://inclusive-components.design/tooltips-toggletips"
-              label="Toggletips with live regions"
-              target="_blank"
-              variant="link"
-            />
-            instead. Toggletips are revealed by click rather than by hover and
-            focus. This pattern is more consistent across touch, mouse and
-            keyboard controls.
-          </p>
-
-          <p class="c-grey-text fs-xs">
-            Note: the
-            <Button
-              label="Tooltip design pattern"
-              to="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip"
-              target="_blank"
-              variant="link"
-            />
-            is work in progress; it does not yet have task force consensus.
+          <p>
+            Krafters UI offers a <code>{{ `<Tooltip />`}}</code> component for
+            toggletips with static content.
           </p>
         </div>
 
@@ -101,7 +94,7 @@ const popoverActions = [
             after a web page has loaded.
           </Tooltip>
 
-          <Tooltip label="Live regions" :hide-label="false">
+          <Tooltip label="Live regions" placement="right" :hide-label="false">
             Live regions are used to present changes in web content that occur
             after a web page has loaded. Typical uses include presenting news
             feeds, feedback and error messages, or live chat output to screen
@@ -121,13 +114,36 @@ const popoverActions = [
             </li>
 
             <li>
-              The trigger element has the <code>aria-expanded</code> attribute.
-              The value should align with the open state of the toggletip.
+              <s>
+                The trigger element has the
+                <code>aria-expanded</code> attribute. The value should align
+                with the open state of the toggletip.
+              </s>
+
+              <ul>
+                <li>
+                  When a popover is associated with a button with the
+                  <code>popovertarget</code> attribute, the browser
+                  automatically conveys and updates the expanded/collapsed
+                  state.
+                </li>
+              </ul>
             </li>
 
             <li>
-              The trigger element has the <code>aria-controls</code> attribute.
-              The value should refer to the ID of the toggletip.
+              <s>
+                The trigger element has the
+                <code>aria-controls</code> attribute. The value should refer to
+                the ID of the toggletip.
+              </s>
+
+              <ul>
+                <li>
+                  The <code>popovertarget</code> attribute establishes the
+                  relationship (an implicit <code>aria-details</code>) between
+                  the trigger and the toggletip.
+                </li>
+              </ul>
             </li>
 
             <li>
@@ -179,6 +195,8 @@ const popoverActions = [
         <div class="flex-wrapper">
           <Popover
             hide-label
+            placement="bottom"
+            span="right"
             size="lg"
             button-variant="secondary"
             :max-width="480"
@@ -193,6 +211,8 @@ const popoverActions = [
 
           <Popover
             label="Popover label"
+            placement="top"
+            span="right"
             size="lg"
             button-variant="secondary"
             :hide-label="false"
@@ -226,13 +246,26 @@ const popoverActions = [
             </li>
 
             <li>
-              The trigger element has <code>aria-expanded</code> attribute. The
-              value should align with the open state of the toggletip.
+              <s>
+                The trigger element has an <code>aria-controls</code> attribute.
+                The value should refer to the ID of the menu.
+              </s>
             </li>
 
             <li>
-              The trigger element has an <code>aria-controls</code> attribute.
-              The value should refer to the ID of the menu.
+              <s>
+                The trigger element has <code>aria-expanded</code> attribute.
+                The value should align with the open state of the toggletip.
+              </s>
+
+              <ul>
+                <li>
+                  When a popover is associated with a button with the
+                  <code>popovertarget</code> attribute, the browser will
+                  automatically convey whether the popover is expanded or
+                  collapsed.
+                </li>
+              </ul>
             </li>
 
             <li>Keyboard focus is trapped inside the menu.</li>
@@ -241,6 +274,8 @@ const popoverActions = [
           </ul>
         </div>
       </Card>
+
+      <div style="min-height: 500px" />
     </div>
   </div>
 </template>

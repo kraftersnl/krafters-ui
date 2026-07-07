@@ -33,7 +33,7 @@ const fontSizeOptions: { value: FontSize; label: string }[] = [
 <template>
   <div class="demo-page markdown">
     <h1>Markdown components</h1>
-    <p>Rich Text Editor and markdown parser component.</p>
+    <p class="fs-md">Rich Text Editor and markdown parser component.</p>
 
     <Card class="mbs-2">
       <div class="section-topbar">

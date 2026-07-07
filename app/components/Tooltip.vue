@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { Tippy } from 'vue-tippy';
-import type { TippyComponent } from 'vue-tippy';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-toward.css';
-
 const {
   label = undefined,
   fontSize = undefined,
@@ -11,13 +6,10 @@ const {
   iconColor = undefined,
   tabindex = undefined,
   title = undefined,
-  maxWidth = undefined,
-  offset = undefined,
-  placement = 'auto',
-  trigger = 'click',
+  maxWidth = 400,
+  placement = 'top',
+  span = undefined,
   hideLabel = true,
-  hideOnClick = true,
-  interactive = true,
   icon = 'material-symbols:help-outline-rounded',
   id = useId(),
 } = defineProps<{
@@ -25,11 +17,8 @@ const {
   fontSize?: string;
   iconSize?: string;
   iconColor?: string;
-  trigger?: string;
-  interactive?: boolean;
-  hideOnClick?: boolean | 'toggle';
-  placement?: PopperPlacement;
-  offset?: [number, number];
+  placement?: 'bottom' | 'top' | 'left' | 'right';
+  span?: 'bottom' | 'top' | 'left' | 'right';
   icon?: string;
   hideLabel?: boolean;
   tabindex?: string;
@@ -44,162 +33,117 @@ const computedStyle = computed(() => ({
   '--icon-color': iconColor && `var(--color-${iconColor})`,
 }));
 
-const isExpanded = ref(false);
+const contentStyle = computed(() => ({
+  '--max-width':
+    maxWidth === undefined
+      ? undefined
+      : maxWidth === 'none'
+        ? 'none'
+        : `${maxWidth}px`,
+}));
 
-function handleShow() {
-  isExpanded.value = true;
+const tooltipContentRef = useTemplateRef<HTMLDivElement | null>(
+  'tooltipContent',
+);
+
+// Mirror the native popover's open state into a reactive ref. `@toggle` fires
+// *after* the popover is shown, so gating the content with `v-if="isOpen"` adds
+// the text into the (already visible) aria-live region on open — which is what
+// makes a screen reader announce the toggletip. Focus stays on the trigger.
+const isOpen = ref(false);
+
+function onToggle(event: Event) {
+  isOpen.value = (event as ToggleEvent).newState === 'open';
 }
 
-function handleHide() {
-  isExpanded.value = false;
-}
-
-const wrapperRef = useTemplateRef<HTMLElement>('toggletipWrapper');
-
-onMounted(() => {
-  document.addEventListener('keydown', (event) => preventEscape(event));
-});
-
-onUnmounted(() => document.removeEventListener('keydown', preventEscape));
-
-function preventEscape(event: KeyboardEvent) {
-  if (event.key === 'Escape' && isExpanded.value) {
-    event.preventDefault();
-  }
-}
-
-function closeToggletip() {
-  document
-    ?.querySelectorAll('[data-tippy-root]')
-    ?.forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
+// Native `popover=auto` dismisses on Escape / outside-click but not on focus
+// leaving the trigger, so close it on blur to avoid a lingering bubble.
+function onTriggerBlur() {
+  if (isOpen.value) tooltipContentRef.value?.hidePopover();
 }
 </script>
 
 <template>
-  <div
-    ref="toggletipWrapper"
-    class="tooltip-wrapper"
-    aria-live="polite"
-    @keyup.esc="closeToggletip"
-  >
-    <Tippy
-      :trigger="trigger"
-      :placement="placement"
-      :interactive="interactive"
-      :hide-on-click="hideOnClick"
-      :max-width="maxWidth"
-      :offset="offset"
-      :aria="{
-        // disable in favor of own solution
-        content: null,
-        expanded: false,
-      }"
-      :aria-expanded="isExpanded"
-      :aria-controls="'tooltip-content-' + id"
-      role=""
-      tag="button"
+  <div class="tooltip-wrapper" aria-live="polite">
+    <button
       type="button"
-      content-tag="div"
-      content-class="tooltip-content"
-      theme="krafters"
-      animation="shift-toward"
       class="tooltip-trigger-button"
-      :append-to="wrapperRef ?? undefined"
+      :popovertarget="id"
+      :style="computedStyle"
       :tabindex="tabindex"
       :title="title"
-      :style="computedStyle"
-      @show="handleShow"
-      @hide="handleHide"
+      @blur="onTriggerBlur"
     >
-      <template #default>
-        <slot v-if="$slots.trigger" name="trigger" />
+      <span
+        v-if="label && hideLabel"
+        :id="'tooltip-label-' + id"
+        class="icon-only visuallyhidden"
+      >
+        {{ $t('aria.more-info-about', { label }) }}
+      </span>
 
-        <template v-else>
-          <span
-            v-if="label && hideLabel"
-            :id="'tooltip-label-' + id"
-            class="icon-only visuallyhidden"
-          >
-            {{ $t('aria.more-info-about', { label }) }}
-          </span>
+      <span v-else-if="label && !hideLabel" :id="'tooltip-label-' + id">
+        {{ label }}
+        <span class="visuallyhidden">({{ $t('aria.more-info') }})</span>
+      </span>
 
-          <span v-else-if="label && !hideLabel" :id="'tooltip-label-' + id">
-            {{ label }}
-            <span class="visuallyhidden">({{ $t('aria.more-info') }})</span>
-          </span>
+      <span v-else class="visuallyhidden">{{ $t('aria.more-info') }}</span>
 
-          <span v-else class="visuallyhidden">{{ $t('aria.more-info') }}</span>
+      <Icon :name="icon" />
+    </button>
 
-          <Icon :name="icon" />
-        </template>
-      </template>
-
-      <template #content>
-        <div :id="'tooltip-content-' + id">
-          <slot />
-        </div>
-      </template>
-    </Tippy>
+    <div
+      :id="id"
+      ref="tooltipContent"
+      popover
+      class="tooltip-content-wrapper"
+      :data-placement="placement"
+      :data-span="span"
+      :style="contentStyle"
+      @toggle="onToggle"
+    >
+      <div v-if="isOpen" class="tooltip-content">
+        <slot />
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
-/* Tippy classes for Popover and Tooltip components */
-.tippy-box[data-theme~='krafters'] {
+.tooltip-content-wrapper {
+  --gap: 1rem;
+
+  position-area: var(--placement, block-start);
+  position-try-fallbacks:
+    flip-block,
+    flip-inline,
+    flip-block flip-inline;
+  position-try-order: most-block-size;
+  margin: 0;
+  inset: auto;
+  max-inline-size: var(--max-width, none);
+  border: 1px solid var(--popover-border-color);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-3);
   color: var(--color-text);
   background-color: var(--color-card-bg);
-  border: 1px solid var(--popover-border-color);
+  transition-property: display, overlay, opacity, translate;
+  transition-duration: 0s;
+  transition-behavior: allow-discrete;
 
-  --arrow-color: var(--popover-border-color);
-}
+  &:popover-open {
+    opacity: 1;
+    translate: 0 0;
+    transition-duration: var(--duration-sm);
 
-.light-mode {
-  .tippy-box[data-theme~='krafters'] {
-    --arrow-color: var(--color-card-bg);
+    @starting-style {
+      opacity: 0;
+    }
   }
 }
 
-[data-theme~='krafters'] .tippy-content {
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-md);
-  padding: 0;
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='top']
-  > .tippy-arrow::before {
-  border-block-start-color: var(--arrow-color);
-  bottom: -8px;
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='bottom']
-  > .tippy-arrow:before {
-  border-block-end-color: var(--arrow-color);
-  top: -8px;
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='left']
-  > .tippy-arrow::before {
-  border-inline-start-color: var(--arrow-color);
-  right: -8px;
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='right']
-  > .tippy-arrow::before {
-  border-inline-end-color: var(--arrow-color);
-  left: -8px;
-}
-
-.tippy-box[data-theme~='krafters'] > .tippy-backdrop {
-  background-color: var(--color-card-bg);
-}
-
-.tippy-box[data-theme~='krafters'] > .tippy-svg-arrow {
-  fill: var(--color-card-bg);
-}
-
 .tooltip-content {
+  font-size: var(--font-size-sm);
   padding-block: 1rem;
   padding-inline: 1.35rem;
 
@@ -210,6 +154,78 @@ function closeToggletip() {
     &:last-child {
       margin-block-end: 0;
     }
+  }
+}
+
+.tooltip-content-wrapper[data-placement='top'] {
+  --placement: block-start;
+  margin-block-end: var(--gap);
+
+  &:popover-open {
+    @starting-style {
+      translate: 0 0.5rem;
+    }
+  }
+
+  &[data-span='left'] {
+    position-area: var(--placement) span-inline-start;
+  }
+  &[data-span='right'] {
+    position-area: var(--placement) span-inline-end;
+  }
+}
+
+.tooltip-content-wrapper[data-placement='bottom'] {
+  --placement: block-end;
+  margin-block-start: var(--gap);
+
+  &:popover-open {
+    @starting-style {
+      translate: 0 -0.5rem;
+    }
+  }
+
+  &[data-span='left'] {
+    position-area: var(--placement) span-inline-start;
+  }
+  &[data-span='right'] {
+    position-area: var(--placement) span-inline-end;
+  }
+}
+
+.tooltip-content-wrapper[data-placement='left'] {
+  --placement: inline-start;
+  margin-inline-end: var(--gap);
+
+  &:popover-open {
+    @starting-style {
+      translate: 0.5rem 0;
+    }
+  }
+
+  &[data-span='top'] {
+    position-area: var(--placement) span-block-start;
+  }
+  &[data-span='bottom'] {
+    position-area: var(--placement) span-block-end;
+  }
+}
+
+.tooltip-content-wrapper[data-placement='right'] {
+  --placement: inline-end;
+  margin-inline-start: var(--gap);
+
+  &:popover-open {
+    @starting-style {
+      translate: -0.5rem 0;
+    }
+  }
+
+  &[data-span='top'] {
+    position-area: var(--placement) span-block-start;
+  }
+  &[data-span='bottom'] {
+    position-area: var(--placement) span-block-end;
   }
 }
 

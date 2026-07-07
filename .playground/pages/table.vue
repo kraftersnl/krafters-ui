@@ -140,7 +140,7 @@ function handleFilter() {
     </div>
 
     <blockquote>
-      <p>
+      <p class="fs-md">
         A table is a static tabular structure containing one or more rows that
         each contain one or more cells. It is not an interactive widget. Thus,
         its cells are not focusable or selectable. The
@@ -153,7 +153,7 @@ function handleFilter() {
         is used to make an interactive widget that has a tabular structure.
       </p>
 
-      <p class="fs-xs mbe-2">
+      <p class="fs-sm mbe-2 c-grey-text">
         Source:
         <Button
           to="https://www.w3.org/WAI/ARIA/apg/patterns/table"

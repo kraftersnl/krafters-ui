@@ -20,14 +20,14 @@ const skeletonAnimations = [
     <h1>Skeleton screens</h1>
 
     <blockquote>
-      <p>
+      <p class="fs-md">
         A skeleton screen is used as a placeholder while users wait for a page
         to load. This progress indicator is used for full page loads and reduces
         the perception of a long loading time by providing clues for how the
         page will ultimately look.
       </p>
 
-      <p class="fs-xs mbe-2">
+      <p class="mbe-2 fs-sm c-grey-text">
         Source:
         <NuxtLink
           to="https://www.nngroup.com/articles/skeleton-screens"

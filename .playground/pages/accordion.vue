@@ -10,14 +10,14 @@ const isAccordionOpen = ref(false);
     <h1>Accordion pattern</h1>
 
     <blockquote>
-    <p>
+    <p class="fs-lg">
       An accordion is a vertically stacked set of interactive headings that each
       contain a title, content snippet, or thumbnail representing a section of
       content. The headings function as controls that enable users to reveal or
       hide their associated sections of content.
     </p>
 
-    <p class="fs-xs mbe-2">
+    <p class="fs-sm mbe-2 c-grey-text">
       Source:
       <Button
         label="ARIA Design Patterns"

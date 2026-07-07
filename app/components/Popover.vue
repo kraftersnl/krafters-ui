@@ -1,27 +1,19 @@
 <script setup lang="ts">
-import { Tippy } from 'vue-tippy';
-import type { TippyComponent } from 'vue-tippy';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-away.css';
-
 const {
   fontSize = undefined,
   iconSize = undefined,
   label = undefined,
-  maxWidth = undefined,
+  hideLabel = true,
   list = undefined,
   borderRadius = 'md',
-  hideLabel = true,
   icon = 'material-symbols:more-horiz',
   iconPos = 'start',
   buttonVariant = 'outline',
   size = 'sm',
-  placement = 'auto-start',
-  offset = undefined,
-  interactive = true,
-  trigger = 'click',
-  hideOnClick = true,
-  modal = false,
+  placement = 'bottom',
+  span = undefined,
+  maxWidth = 400,
+  ariaDescribedby = undefined,
   id = useId(),
 } = defineProps<{
   fontSize?: string;
@@ -29,23 +21,19 @@ const {
   borderRadius?: string;
   label?: string;
   hideLabel?: boolean;
+  list?: MenuItem[];
   icon?: string;
   iconPos?: 'start' | 'end';
   buttonVariant?: ButtonVariant;
   size?: 'sm' | 'md' | 'lg';
-  placement?: PopperPlacement;
-  offset?: [number, number];
+  placement?: 'bottom' | 'top' | 'left' | 'right';
+  span?: 'bottom' | 'top' | 'left' | 'right';
+  maxWidth?: number | 'none';
   disabled?: boolean;
-  interactive?: boolean;
-  arrow?: boolean;
   loading?: boolean;
   showArrowIcon?: boolean;
-  trigger?: string;
-  hideOnClick?: boolean | 'toggle';
-  maxWidth?: number | 'none';
-  modal?: boolean;
+  ariaDescribedby?: string;
   id?: string;
-  list?: MenuItem[];
 }>();
 
 const computedStyle = computed(() => ({
@@ -54,52 +42,41 @@ const computedStyle = computed(() => ({
   '--radius': `var(--radius-${borderRadius})`,
 }));
 
-const isExpanded = ref(false);
+const contentStyle = computed(() => ({
+  '--max-width':
+    maxWidth === undefined
+      ? undefined
+      : maxWidth === 'none'
+        ? 'none'
+        : `${maxWidth}px`,
+}));
 
-function handleShow() {
-  isExpanded.value = true;
-  enableFocusLoop.value = true;
+const isOpen = ref(false);
+
+function onToggle(event: Event) {
+  isOpen.value = (event as ToggleEvent).newState === 'open';
 }
 
-function handleHide() {
-  enableFocusLoop.value = false;
-  isExpanded.value = false;
-  focusElement();
-}
+const popoverContentRef = useTemplateRef<HTMLDivElement | null>(
+  'popoverContent',
+);
 
-function closePopover() {
-  document
-    ?.querySelectorAll('[data-tippy-root]')
-    ?.forEach((el: Element & { _tippy?: TippyComponent }) => el._tippy?.hide());
-}
-
-function handleMenuClick(item: MenuItem, hide: () => void) {
+function handleMenuClick(item: MenuItem) {
   emit('click', item);
-  hide();
+  hidePopover();
 }
 
-const enableFocusLoop = ref(false);
-const wrapperRef = useTemplateRef<HTMLElement>('popoverWrapper');
-const triggerRef = useTemplateRef<{ elem: HTMLElement }>('popoverTrigger');
+function hidePopover() {
+  popoverContentRef.value?.hidePopover();
+}
+
+const triggerRef = useTemplateRef<HTMLButtonElement>('popoverTrigger');
 
 function focusElement() {
-  triggerRef.value?.elem?.focus();
+  triggerRef.value?.focus();
 }
 
-defineExpose({ triggerRef, focusElement });
-
-onMounted(() => {
-  document.addEventListener('keydown', (event) => preventEscape(event));
-});
-
-onUnmounted(() => document.removeEventListener('keydown', preventEscape));
-
-function preventEscape(event: KeyboardEvent) {
-  if (event.key === 'Escape' && isExpanded.value) {
-    event.preventDefault();
-    closePopover();
-  }
-}
+defineExpose({ triggerRef, focusElement, hidePopover });
 
 const emit = defineEmits<{
   click: [event: MenuItem];
@@ -107,31 +84,11 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div ref="popoverWrapper" class="popover-wrapper">
-    <Tippy
+  <div class="popover-wrapper">
+    <button
       ref="popoverTrigger"
-      :arrow="arrow"
-      :trigger="trigger"
-      :placement="placement"
-      :interactive="interactive"
-      :hide-on-click="hideOnClick"
-      :max-width="maxWidth"
-      :offset="offset"
-      :aria="{
-        // disable in favor of own solution
-        content: null,
-        expanded: false,
-      }"
-      :aria-expanded="isExpanded"
-      :aria-controls="'popover-content-' + id"
-      role=""
-      tag="button"
       type="button"
-      content-tag="div"
-      content-class="popover-content"
-      theme="krafters"
-      animation="shift-away"
-      :append-to="wrapperRef ?? undefined"
+      :popovertarget="id"
       :disabled="loading || disabled"
       :class="[
         'popover-trigger',
@@ -140,44 +97,43 @@ const emit = defineEmits<{
         `popover-icon-position--${iconPos}`,
       ]"
       :style="computedStyle"
-      @show="handleShow"
-      @hide="handleHide"
+      :aria-describedby="ariaDescribedby"
     >
-      <template #default>
-        <slot v-if="$slots.trigger" name="trigger" />
+      <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
+      <Icon v-else :name="icon" />
 
-        <template v-else>
-          <Icon v-if="loading" name="svg-spinners:90-ring-with-bg" />
-          <Icon v-else :name="icon" />
+      <template v-if="label">
+        <span
+          :id="'popover-label-' + id"
+          :class="hideLabel ? 'visuallyhidden' : undefined"
+          class="popover-label"
+        >
+          {{ label }}
+        </span>
 
-          <template v-if="label">
-            <span
-              :id="'popover-label-' + id"
-              :class="hideLabel ? 'visuallyhidden' : undefined"
-              class="popover-label"
-            >
-              {{ label }}
-            </span>
-
-            <Icon
-              v-if="!hideLabel && showArrowIcon"
-              name="material-symbols:keyboard-arrow-down-rounded"
-            />
-          </template>
-
-          <span v-else :id="'popover-label-' + id" class="visuallyhidden">
-            {{ $t('aria.popover') }}
-          </span>
-        </template>
+        <Icon
+          v-if="!hideLabel && showArrowIcon"
+          name="material-symbols:keyboard-arrow-down-rounded"
+        />
       </template>
 
-      <template #content="{ hide }">
-        <FocusLoop
-          :id="'popover-content-' + id"
-          :is-visible="enableFocusLoop"
-          :modal="modal"
-          @keyup.esc="closePopover"
-        >
+      <span v-else :id="'popover-label-' + id" class="visuallyhidden">
+        {{ $t('aria.popover') }}
+      </span>
+    </button>
+
+    <div
+      :id="id"
+      ref="popoverContent"
+      popover
+      class="popover-content-wrapper"
+      :data-placement="placement"
+      :data-span="span"
+      :style="contentStyle"
+      @beforetoggle="onToggle"
+    >
+      <div class="popover-content">
+        <FocusLoop :is-visible="isOpen" :modal="false">
           <slot name="default" />
 
           <MenuList
@@ -187,76 +143,21 @@ const emit = defineEmits<{
             font-size="sm"
             icon-size="lg"
             :aria-labelledby="'popover-label-' + id"
-            @click="handleMenuClick($event, hide)"
+            @click="handleMenuClick($event)"
           >
             <template #menu-list-item="{ item }">
               <slot name="menu-list-item" :item="item" />
             </template>
           </MenuList>
 
-          <slot name="content" v-bind="{ hide }" />
+          <slot name="content" />
         </FocusLoop>
-      </template>
-    </Tippy>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
-/* Tippy classes for Popover and Tooltip components */
-.tippy-box[data-theme~='krafters'] {
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-3);
-  color: var(--color-text);
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--popover-border-color);
-
-  --arrow-color: var(--popover-border-color);
-}
-
-.light-mode {
-  .tippy-box[data-theme~='krafters'] {
-    --arrow-color: var(--color-card-bg);
-  }
-}
-
-[data-theme~='krafters'] .tippy-content {
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-md);
-  padding: 0;
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='top']
-  > .tippy-arrow::before {
-  border-block-start-color: var(--arrow-color);
-  bottom: -8px;
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='bottom']
-  > .tippy-arrow:before {
-  border-block-end-color: var(--arrow-color);
-  top: -8px;
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='left']
-  > .tippy-arrow::before {
-  border-inline-start-color: var(--arrow-color);
-  right: -8px;
-}
-
-.tippy-box[data-theme~='krafters'][data-placement^='right']
-  > .tippy-arrow::before {
-  border-inline-end-color: var(--arrow-color);
-  left: -8px;
-}
-
-.tippy-box[data-theme~='krafters'] > .tippy-backdrop {
-  background-color: var(--color-card-bg);
-}
-
-.tippy-box[data-theme~='krafters'] > .tippy-svg-arrow {
-  fill: var(--color-card-bg);
-}
-
 .popover-trigger {
   flex-grow: 1;
   display: inline-flex;
@@ -289,7 +190,34 @@ const emit = defineEmits<{
   }
 }
 
-.popover-content {
+.popover-content-wrapper {
+  position-area: var(--placement, block-end);
+  position-try-fallbacks:
+    flip-block,
+    flip-inline,
+    flip-block flip-inline;
+  position-try-order: most-block-size;
+  margin: 0;
+  inset: auto;
+  max-inline-size: var(--max-width, none);
+  border: 1px solid var(--popover-border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-3);
+  background-color: var(--color-card-bg);
+  transition-property: display, overlay, opacity, translate;
+  transition-duration: 0s;
+  transition-behavior: allow-discrete;
+
+  &:popover-open {
+    opacity: 1;
+    translate: 0 0;
+    transition-duration: var(--duration-sm);
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
   p {
     &:first-child {
       margin-block-start: 0;
@@ -319,6 +247,78 @@ const emit = defineEmits<{
         margin-block-start: 0.25rem;
       }
     }
+  }
+}
+
+.popover-content-wrapper[data-placement='top'] {
+  --placement: block-start;
+  margin-block: 0.5rem;
+
+  &:popover-open {
+    @starting-style {
+      translate: 0 0.5rem;
+    }
+  }
+
+  &[data-span='left'] {
+    position-area: var(--placement) span-inline-start;
+  }
+  &[data-span='right'] {
+    position-area: var(--placement) span-inline-end;
+  }
+}
+
+.popover-content-wrapper[data-placement='bottom'] {
+  --placement: block-end;
+  margin-block: 0.5rem;
+
+  &:popover-open {
+    @starting-style {
+      translate: 0 -0.5rem;
+    }
+  }
+
+  &[data-span='left'] {
+    position-area: var(--placement) span-inline-start;
+  }
+  &[data-span='right'] {
+    position-area: var(--placement) span-inline-end;
+  }
+}
+
+.popover-content-wrapper[data-placement='left'] {
+  --placement: inline-start;
+  margin-inline-end: 0.5rem;
+
+  &:popover-open {
+    @starting-style {
+      translate: 0.5rem 0;
+    }
+  }
+
+  &[data-span='top'] {
+    position-area: var(--placement) span-block-start;
+  }
+  &[data-span='bottom'] {
+    position-area: var(--placement) span-block-end;
+  }
+}
+
+.popover-content-wrapper[data-placement='right'] {
+  --placement: inline-end;
+  margin-inline-start: 0.5rem;
+
+  &:popover-open {
+    @starting-style {
+      translate: -0.5rem 0;
+    }
+  }
+
+  &[data-span='top'] {
+    position-area: var(--placement) span-block-start;
+  }
+  &[data-span='bottom'] {
+    position-area: var(--placement) span-block-end;
   }
 }
 
@@ -375,6 +375,22 @@ const emit = defineEmits<{
       var(--color-grey-bg) 95%,
       var(--color-black)
     );
+  }
+}
+
+.popover-trigger-size--xs {
+  --radius: var(--radius-sm) !important;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  font-size: var(--font-size, var(--font-size-xs));
+  padding-inline: 0.25rem;
+
+  .popover-label {
+    padding-inline: 0.75rem;
+  }
+
+  .iconify {
+    font-size: var(--icon-size, var(--font-size-md));
   }
 }
 

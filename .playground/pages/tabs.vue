@@ -69,7 +69,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
     </div>
 
     <blockquote>
-      <p>
+      <p class="fs-md">
         Tabs are a set of layered sections of content, known as tab panels, that
         display one panel of content at a time. Each tab panel has an associated
         tab element, that when activated, displays the panel. The list of tab
@@ -77,7 +77,7 @@ const tabsVariants: { value: TabsVariant; label: string }[] = [
         most commonly the top edge.
       </p>
 
-      <p class="fs-xs mbe-2">
+      <p class="fs-sm mbe-2 c-grey-text">
         Source:
         <Button
           label="ARIA Design Patterns"

@@ -320,15 +320,18 @@
   border-inline-start: 3px solid var(--color-grey-light);
   padding-inline-start: 1.35em;
 
-  p:first-child {
-    quotes: '“' '”';
+  p {
+    &:first-child {
+      quotes: '“' '”';
+      hanging-punctuation: first last;
 
-    &::before {
-      content: open-quote;
-    }
+      &::before {
+        content: open-quote;
+      }
 
-    &::after {
-      content: close-quote;
+      &::after {
+        content: close-quote;
+      }
     }
   }
 

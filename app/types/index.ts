@@ -151,24 +151,6 @@ declare global {
     | 'block-end';
   type MobileMenuPosition = 'inline-start' | 'inline-end';
 
-  // External packages
-  type PopperPlacement =
-    | 'auto'
-    | 'auto-start'
-    | 'auto-end'
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end';
-
   type DatePickerAriaLabels = {
     toggleOverlay?: string;
     menu?: string;

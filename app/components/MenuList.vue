@@ -73,7 +73,8 @@ const emit = defineEmits<{
           :size="buttonSize"
           :font-size="fontSize"
           button-variant="ghost"
-          placement="bottom-start"
+          placement="bottom"
+          span="right"
         >
           <template #menu-list-item="{ item: subItem }">
             <MenuListTooltip :item="subItem">

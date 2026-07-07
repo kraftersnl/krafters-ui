@@ -59,7 +59,6 @@ export default defineNuxtConfig({
         '@mdit/plugin-attrs',
         '@mdit/plugin-mark',
         'vue-axe',
-        'vue-tippy',
         'date-fns/locale',
         '@vuepic/vue-datepicker',
         '@vueform/multiselect',

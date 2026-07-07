@@ -7,7 +7,7 @@ useHead({ title: 'Buttons & Links' });
     <h1>Buttons & Links</h1>
 
     <blockquote>
-      <p>
+      <p class="fs-md">
         A
         <Button
           label="button"
@@ -19,8 +19,7 @@ useHead({ title: 'Buttons & Links' });
         submitting a form, opening a dialog, canceling an action, or performing
         a delete operation.
 
-      <br/>
-      <br/>
+      <div class="spacer" style="min-height:16px" />
 
         A
         <Button
@@ -35,7 +34,7 @@ useHead({ title: 'Buttons & Links' });
       </p>
     </blockquote>
 
-    <p class="bold mbe-2">If you set the <code>to</code> or <code>href</code> prop, the <code>{{`<Button>`}}</code> component will be rendered as a <code>{{`<NuxtLink>`}}</code> component.</p>
+    <p class="mbs-2 mbe-2">Note: when you set the <code>to</code> or <code>href</code> prop, the <code>{{`<Button>`}}</code> component will be rendered as a <code>{{`<NuxtLink>`}}</code> component.</p>
 
     <Card>
       <h2>Variants</h2>
@@ -49,7 +48,7 @@ useHead({ title: 'Buttons & Links' });
         <Button variant="link" label="Link" />
       </div>
 
-      <Spacer size="xl" />
+      <Spacer size="xxl" />
 
       <h2>Sizes</h2>
       <div class="flex-wrapper">
@@ -60,7 +59,7 @@ useHead({ title: 'Buttons & Links' });
         <Button icon="material-symbols:accessibility-new-rounded" size="xs" label="Extra Small" />
       </div>
 
-      <Spacer size="xl" />
+      <Spacer size="xxl" />
 
       <h2>Font sizes</h2>
       <div class="flex-wrapper" style="--gap: 1rem">
@@ -71,7 +70,7 @@ useHead({ title: 'Buttons & Links' });
         <Button variant="link" font-size="xxs" label="XXS link" />
       </div>
 
-      <Spacer size="xl" />
+      <Spacer size="xxl" />
 
       <h2>Icon sizes</h2>
       <div class="flex-wrapper" style="--gap: 1rem">
@@ -82,7 +81,7 @@ useHead({ title: 'Buttons & Links' });
         <Button icon="material-symbols:check-circle-rounded" icon-pos="end" icon-size="xxs" label="XXS icon" />
       </div>
 
-      <Spacer size="xl" />
+      <Spacer size="xxl" />
 
       <h2>Icons</h2>
       <div class="flex-wrapper">
@@ -104,7 +103,7 @@ useHead({ title: 'Buttons & Links' });
         />
       </div>
 
-      <Spacer size="xl" />
+      <Spacer size="xxl" />
 
       <h2>Border radius</h2>
       <div class="flex-wrapper">
@@ -148,7 +147,7 @@ useHead({ title: 'Buttons & Links' });
         />
       </div>
 
-      <Spacer size="xl" />
+      <Spacer size="xxl" />
 
       <h2>States</h2>
       <div class="flex-wrapper">
@@ -168,4 +167,3 @@ useHead({ title: 'Buttons & Links' });
   </div>
 </template>
 
-<style></style>

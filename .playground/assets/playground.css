@@ -13,8 +13,8 @@
   --color-grey-graphic: hsl(140 3% 28%);
   --color-grey-light: hsl(140 3% 15%);
   --color-grey-bg: hsl(232 4% 4%);
-  --color-bg: hsl(220 20% 9%);
-  --color-card-bg: hsl(0 0% 3%);
+  --color-bg: hsl(232 25% 6%);
+  --color-card-bg: hsl(220 20% 10%);
   --color-white: hsl(0 0% 0%);
 
   --color-red: hsl(0 100% 60%);
@@ -146,7 +146,7 @@
   --font-size-xxl: 2rem;
   --font-size-xl: 1.5rem;
   --font-size-lg: 1.25rem;
-  --font-size-md: 1rem;
+  --font-size-md: 1.125rem;
   --font-size-sm: 0.875rem;
   --font-size-xs: 0.75rem;
   --font-size-xxs: 0.6875rem;
@@ -244,6 +244,7 @@
   line-height: var(--line-height, 1.5);
   overflow-wrap: break-word;
   color: var(--color-text);
+  /* font-size: var(--font-size-md); */
 }
 
 :where(img) {
@@ -446,11 +447,6 @@
 
 /* Playground */
 
-.dark-mode {
-  --color-bg: hsl(232 25% 6%);
-  --color-card-bg: hsl(220 20% 8%);
-}
-
 :root {
   --color-accent-darker: color-mix(
     in srgb,
@@ -538,6 +534,22 @@
   margin-block-end: 2rem;
 }
 
+.fs-xl {
+  font-size: var(--font-size-xl);
+}
+.fs-lg {
+  font-size: var(--font-size-lg);
+}
+.fs-md {
+  font-size: var(--font-size-md);
+}
+.fs-sm {
+  font-size: var(--font-size-sm);
+}
+.fs-xs {
+  font-size: var(--font-size-xs);
+}
+
 :where(hr, .divider) {
   border: 0;
   width: 100%;
@@ -605,4 +617,13 @@
   flex-grow: var(--flex-grow);
   flex-wrap: wrap;
   align-items: center;
+}
+
+/* Strikethrough */
+s {
+  color: var(--color-grey-text);
+
+  code {
+    color: var(--color-grey-text);
+  }
 }

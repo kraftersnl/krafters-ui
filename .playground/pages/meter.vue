@@ -18,7 +18,7 @@ const roleOptions = [
     <h1>Meter pattern</h1>
 
     <blockquote>
-      <p>
+      <p class="fs-md">
         A meter is a graphical display of a numeric value that varies within a
         defined range. For example, a meter could be used to depict a device's
         current battery percentage or a car's fuel level.
@@ -39,7 +39,7 @@ const roleOptions = [
         instead.
       </p>
 
-      <p class="fs-xs mbe-2">
+      <p class="fs-sm mbe-2 c-grey-text">
         Source:
         <Button
           to="https://www.w3.org/WAI/ARIA/apg/patterns/meter"

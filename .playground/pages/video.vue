@@ -11,7 +11,7 @@ const vimeoPrivate = ref('https://vimeo.com/706156113/91b6e7682f');
   <div class="demo-page video">
     <h1>Video</h1>
 
-    <p class="mbe-2">
+    <p class="mbe-2 fs-lg">
       Component for embedding external videos from YouTube or Vimeo. Initially,
       the component will only load the thumbnail. The actual video will be
       loaded after the user clicks on the play button.

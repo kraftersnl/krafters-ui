@@ -20,7 +20,7 @@ function makeToast() {
     <h1>Modal dialog pattern</h1>
 
     <blockquote>
-      <p>
+      <p class="fs-md">
         A dialog is a window overlaid on either the primary window or another
         dialog window. Windows under a modal dialog are inert. That is, users
         cannot interact with content outside an active dialog window. Inert
@@ -29,7 +29,7 @@ function makeToast() {
         attempts to interact with the inert content cause the dialog to close.
       </p>
 
-      <p class="fs-xs mbe-2">
+      <p class="fs-sm mbe-2 c-grey-text">
         Source:
         <NuxtLink
           to="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal"

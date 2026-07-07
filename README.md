@@ -9,7 +9,7 @@ Krafters UI is a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers) in a
 - Run `pnpm i` to install dependencies
 - Run `pnpm run dev` to start the development server on [localhost:3003](http://localhost:3003)
 
-## How toextend from Krafters UI layer in your project
+## How to extend from Krafters UI layer in your project
 
 ### Extend from GitHub repository
 

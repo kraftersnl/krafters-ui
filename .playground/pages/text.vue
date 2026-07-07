@@ -649,7 +649,7 @@ function makeToast() {
 
     .name {
       user-select: all;
-      font-size: var(--font-size-xxxs);
+      font-size: var(--font-size-xs);
       color: var(--color-grey-text);
     }
   }
