@@ -5,8 +5,15 @@ const { locale, setLocale } = useI18n();
 
 const userLang = computed({
   get: () => locale.value,
-  set: (value: Locale) => setLocale(value),
+  set: (value: Locale) => {
+    setLocale(value);
+    emit('change', value);
+  },
 });
+
+const emit = defineEmits<{
+  change: [string];
+}>();
 </script>
 
 <template>
