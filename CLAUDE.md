@@ -1,16 +1,13 @@
----
-description: Accessible Vue 3 component library for Nuxt 4 in TypeScript
-globs:
-  - "**/*.vue"
-  - "**/*.ts"
-alwaysApply: true
----
+# Krafters UI
 
-# Krafters UI Component Library
+Accessible Vue 3 component library for Nuxt 4 in TypeScript, distributed as a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers).
+
+Base frontend guidelines (architecture, CSS design system, WCAG 2.2 requirements) live in the parent `../CLAUDE.md` and apply here too.
 
 ## Component Categories
 
 ### Form Components
+
 - **Input**: Text input with accessibility features
 - **Textarea**: Multi-line text input
 - **Select**: Dropdown selection component
@@ -27,6 +24,7 @@ alwaysApply: true
 - **Form**: Form wrapper with validation support
 
 ### Layout & Navigation
+
 - **Card**: Content container component
 - **Accordion**: Collapsible content sections
 - **AccordionDetails**: Accordion content wrapper
@@ -39,6 +37,7 @@ alwaysApply: true
 - **SkipLink**: Accessibility skip navigation
 
 ### Interactive Elements
+
 - **Button**: Primary button component
 - **CopyButton**: Copy-to-clipboard functionality
 - **Dialog**: Modal dialog component
@@ -49,6 +48,7 @@ alwaysApply: true
 - **Skeleton**: Loading state placeholder
 
 ### Data Display
+
 - **Table**: Data table component
 - **Chip**: Tag/label component
 - **Ellipsis**: Text truncation with expand
@@ -58,6 +58,7 @@ alwaysApply: true
   - MarkdownPreview: Markdown display (uses [markdown-it](https://markdown-it.github.io/) and [highlight.js](https://highlightjs.org/))
 
 ### Utility Components
+
 - **FocusLoop**: Keyboard navigation management to trap focus inside a container
 - **LanguageSelect**: Language switcher to switch between English and Dutch
 - **ThemeSelect**: Theme selection
@@ -76,6 +77,7 @@ alwaysApply: true
 ## Usage Patterns
 
 ### Basic Component Usage
+
 ```vue
 <script setup>
 import { Button } from '@krafters/ui';
@@ -91,19 +93,23 @@ function handleClick() {
 ```
 
 ## CSS Variables
-All global CSS variables for color, spacing, typography, etc. are declared in [main.css](https://github.com/kraftersnl/krafters-ui/blob/main/app/assets/main.css).
 
-### Nuxt Layer Integration
+All global CSS variables for color, spacing, typography, etc. are declared in [main.css](app/assets/main.css).
+
+## Nuxt Layer Integration
+
 Krafters UI can be used in three different ways:
 
-#### 2. Extend from Local folder (Development)
+### 1. Extend from local folder (Development)
+
 ```ts
 defineNuxtConfig({
   extends: ['../krafters-ui'],
 });
 ```
 
-#### 2. Extend from GitHub Repository (Development / Production)
+### 2. Extend from GitHub repository (Development / Production)
+
 [GitHub repository](https://github.com/kraftersnl/krafters-ui)
 
 ```ts
@@ -112,30 +118,100 @@ defineNuxtConfig({
 });
 ```
 
-#### 3. Extend from NPM Package (Production)
+### 3. Extend from NPM package (Production)
+
 [@krafters/ui](https://www.npmjs.com/package/@krafters/ui)
 
 ```bash
 pnpm i @krafters/ui
 ```
+
 ```ts
 defineNuxtConfig({
   extends: ['@krafters/ui'],
 });
 ```
 
+## Icon Usage Guidelines
+
+Krafters UI components support icons through the `icon` prop, powered by [@nuxt/icon](https://nuxt.com/modules/icon) and Iconify. This provides access to over 200,000 open-source vector icons.
+
+### Icon Library Preference
+
+We primarily use the **Material Symbols** library for consistency across the design system:
+
+- **Preferred**: `material-symbols` with rounded variants
+- **Default Style**: `outline-rounded` (outlined icons with rounded corners)
+- **Alternative**: `rounded` (filled icons with rounded corners) when design requires
+- **Fallback**: Default rounded variant (no suffix) when outline variant is not available
+- **Fallback**: Default variant (no suffix) when both outline and rounded variants are not available
+
+### Icon Usage Examples
+
+```vue
+<template>
+  <!-- Using outline-rounded variant (preferred) -->
+  <Button icon="material-symbols:home-outline-rounded" label="Home" />
+
+  <!-- Using rounded variant (without outline suffix) when the design requires it -->
+  <Button icon="material-symbols:star-rounded" label="Favorite" />
+
+  <!-- Using default variant when no rounded variants are available -->
+  <Button icon="material-symbols:account-circle" label="Profile" />
+
+  <!-- Other components with icon support -->
+  <Input icon="material-symbols:search-rounded" label="Search" />
+  <Chip icon="material-symbols:check-rounded" label="Completed" />
+</template>
+```
+
+### Icon Naming Convention
+
+Material Symbols icons follow this pattern:
+
+- `material-symbols:{icon-name}-{variant}`
+- Common variants: `outline-rounded`, `rounded`, `outline`, `sharp`
+
+### Finding Icons
+
+1. **Browse**: Visit [Material Symbols collection](https://icones.js.org/collection/material-symbols) on icones.js.org
+2. **Search**: Use the search functionality to find specific icons
+3. **Preview**: Hover over icons to see their names and variants
+4. **Filter**: Use the variant filters to find outline-rounded, rounded, or default variants
+
+### Icon Best Practices
+
+- **Consistency**: Stick to Material Symbols library when possible
+- **Accessibility**: Icons are usually used to support text labels, because by default they are hidden from screen readers. They should be accompanied by text labels or proper ARIA labels.
+- **Size**: Icons automatically scale with the component's size
+- **Performance**: Icons are loaded on-demand to keep bundle size minimal
+- **Layout Shift**: When an icon causes layout shift, add it to the `defaultIcons` array in [.playground/utils/defaultIcons.ts](.playground/utils/defaultIcons.ts) (used by [.playground/nuxt.config.ts](.playground/nuxt.config.ts))
+
+### Icon Selection Process
+
+When suggesting an icon:
+
+1. First check Material Symbols collection on icones.js.org
+2. Prefer outline-rounded variants
+3. Use rounded variants when design requires filled icons
+4. Fall back to default variants when rounded options aren't available
+5. Always consider accessibility implications
+
 ## Documentation
-The playground is available at `http://localhost:3003` and serves as interactive documentation with live examples of nearly all components showcasing most of their props. For detailed information about external libraries used by specific components, see the [External Dependencies & Documentation](#external-dependencies--documentation) section below.
+
+The playground is available at `http://localhost:3003` and serves as interactive documentation with live examples of nearly all components showcasing most of their props.
 
 ### External Dependencies & Documentation
 
 #### UI & Interaction
+
 - **[vue-tippy](https://github.com/KABBOUCHI/vue-tippy)**: Core functionality for Tooltip and Popover components
 - **[@vueform/multiselect](https://vueform.com/multiselect/)**: Multi-select dropdown component
 - **[Vue DatePicker](https://vue3datepicker.com/)**: Date picker component used in DatePicker
 - **[compressorjs](https://github.com/fengyuanchen/compressorjs)**: Image compression utility for FileInput component
 
 #### Markdown Extensions
+
 - **[markdown-it](https://markdown-it.github.io/)**: Markdown parser used in MarkdownPreview component
 - **[highlight.js](https://highlightjs.org/)**: Syntax highlighting for code blocks in MarkdownPreview
 - **[md-editor-v3](https://imzbf.github.io/md-editor-v3/)**: Rich markdown editor used in MarkdownEditor component
@@ -143,13 +219,10 @@ The playground is available at `http://localhost:3003` and serves as interactive
 - **[@mdit/plugin-mark](https://github.com/mdit-vue/mdit-plugin-mark)**: Mark syntax support
 
 #### Accessibility Testing
+
 - **[axe-core](https://github.com/dequelabs/axe-core)**: Accessibility testing
 - **[vue-axe](https://github.com/vue-a11y/vue-axe)**: Vue.js accessibility testing integration for playground
 
+## MCP Integration
 
-## 💡 MCP Integration
 For real-time, detailed project structure information, connect to the Nuxt MCP endpoint at `http://localhost:3003/__mcp/sse` during development.
-
----
-
-_This component library is designed to provide accessible, reusable UI components for modern Vue.js applications with a focus on user experience and developer productivity. Use this component library for all coding projects._
