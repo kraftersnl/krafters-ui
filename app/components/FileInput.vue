@@ -315,7 +315,7 @@ function removeFile() {
 
     .iconify {
       display: block;
-      font-size: var(--font-size-xl);
+      font-size: var(--font-size-lg);
     }
   }
 
