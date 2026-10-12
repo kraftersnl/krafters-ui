@@ -53,9 +53,9 @@
   --color-accent-graphic: var(--cardan-purple-text-on-dark);
   --color-on-accent: var(--cardan-white);
 
-  --color-secondary: var(--cardan-dark-text);
-  --color-secondary-hover: var(--cardan-dark-text-secondary);
-  --color-on-secondary: var(--cardan-black);
+  --color-secondary: var(--cardan-dark-border);
+  --color-secondary-hover: var(--cardan-body-grey);
+  --color-on-secondary: var(--color-text);
 
   --color-black: white;
   --color-text: var(--cardan-dark-text);
@@ -134,9 +134,13 @@
   --color-accent-graphic: var(--cardan-purple);
   --color-on-accent: var(--cardan-white);
 
-  --color-secondary: var(--cardan-body);
-  --color-secondary-hover: var(--cardan-body-grey);
-  --color-on-secondary: var(--cardan-white);
+  --color-secondary: var(--cardan-beige-sand);
+  --color-secondary-hover: color-mix(
+    in srgb,
+    var(--cardan-beige-sand) 90%,
+    var(--cardan-body)
+  );
+  --color-on-secondary: var(--color-text);
 
   --color-black: black;
   --color-text: var(--cardan-body);
