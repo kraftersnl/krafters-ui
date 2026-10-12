@@ -458,7 +458,7 @@ const emit = defineEmits<{
     border-color: var(--color-accent-bg);
     border-block-end-color: transparent;
     color: var(--color-accent-text);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold, var(--font-weight-bold));
   }
 }
 
@@ -568,7 +568,7 @@ const emit = defineEmits<{
   }
 
   &.router-link-active {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold, var(--font-weight-bold));
     background-color: var(--color-accent-bg);
     color: var(--color-accent-text);
 

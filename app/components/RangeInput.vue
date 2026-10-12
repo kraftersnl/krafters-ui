@@ -304,7 +304,7 @@ input[type='range']:focus-visible {
     }
 
     &.active {
-      font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-semibold, var(--font-weight-bold));
       color: var(--color-accent);
 
       &::before {
@@ -331,7 +331,7 @@ input[type='range']:focus-visible {
     text-align: center;
     transform: translateX(-50%);
     font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold, var(--font-weight-bold));
     border-radius: var(--radius-sm);
     color: var(--color-accent);
     background-color: var(--track-bg-color);
