@@ -44,12 +44,6 @@ useHead({ titleTemplate: '%s | Cardan UI' });
 
 <style>
 :root {
-  --font-weight-regular: 400;
-  --font-weight-medium: 400;
-  --font-weight-bold: 600;
-  --line-height: 1.5;
-  --line-height-heading: 1.2;
-
   /* Layout design tokens */
   --app-max-width: 1280px;
   --app-header-height: 4rem;
@@ -70,23 +64,12 @@ main {
   align-items: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-family-heading);
-}
-
 h2 {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
 }
 
 h3 {
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
 }
 
 .app-focus-wrapper {
@@ -113,11 +96,6 @@ h3 {
   @media (min-width: 1024px) {
     display: block;
   }
-}
-
-h1 {
-  margin-block-start: 0;
-  font-weight: var(--font-weight-bold);
 }
 
 .demo-page {

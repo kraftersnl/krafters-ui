@@ -201,6 +201,12 @@
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 600;
+  --font-weight-heading: 700;
+
+  /* Line height design tokens */
+  --line-height: 1.55;
+  --line-height-heading: 1.15;
+  --line-height-ui: 1.25;
 
   /* Font size design tokens */
   --font-size-xxxxxl: 4rem;
@@ -260,11 +266,11 @@
   /* Transition duration design tokens */
   --duration-xs: 0.1s;
   --duration-sm: 0.2s;
-  --duration-md: 0.35s;
+  --duration-md: 0.4s;
   --duration-lg: 0.65s;
   --duration-xl: 1.35s;
   --duration-xxl: 2s;
-  --cubic-bezier: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --cubic-bezier: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   @media (prefers-reduced-motion: reduce) {
     --duration-xs: 0s;
@@ -304,7 +310,7 @@
   min-height: 100svh;
   background-color: var(--color-bg);
   font-family: var(--font-family, system-ui, sans-serif);
-  line-height: var(--line-height, 1.5);
+  line-height: var(--line-height, 1.55);
   overflow-wrap: break-word;
   color: var(--color-text);
 }
@@ -355,18 +361,29 @@
   }
 }
 
-:where(h1) {
-  margin-block-start: 0;
-}
-
-:where(h1, h2, h3, h4, h5, h6, button, input, label, .label, legend) {
-  line-height: var(--line-height-heading, 1.25);
+:where(button, input, label, .label, legend) {
+  line-height: var(--line-height-ui, 1.25);
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
+  line-height: var(--line-height-heading, 1.15);
+  font-weight: var(--font-weight-heading, 700);
   text-wrap: balance;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+:where(h1) {
+  margin-block-start: 0;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+}
+
+:where(h2) {
+  font-size: var(--font-size-xxl);
+}
+
+:where(h3) {
+  font-size: var(--font-size-xl);
 }
 
 :where(p) {
