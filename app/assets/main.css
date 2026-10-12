@@ -245,6 +245,11 @@
   --size-xxs: 0.5rem; /* 8px */
   --size-xxxs: 0.25rem; /* 4px */
 
+  /* Button design tokens, for the default (md) size */
+  --button-height: 2.5rem; /* 40px */
+  --button-padding-inline: 0.8rem; /* 16px including the label padding */
+  --button-font-size: var(--font-size-md);
+
   /* Border radius design tokens */
   --radius-xs: 2px;
   --radius-sm: 4px;
