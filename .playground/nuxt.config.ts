@@ -4,10 +4,6 @@ export default defineNuxtConfig({
   extends: ['..'],
 
   $production: {
-    app: {
-      baseURL: '/cardan-ui/',
-    },
-
     image: {
       domains: ['i.ytimg.com'],
     },
@@ -21,7 +17,6 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    baseUrl: 'https://cardan-international-bv.github.io/cardan-ui/',
     defaultLocale: 'en',
   },
 

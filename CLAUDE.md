@@ -98,7 +98,7 @@ All global CSS variables for color, spacing, typography, etc. are declared in [m
 
 ## Nuxt Layer Integration
 
-Cardan UI can be used in three different ways:
+Cardan UI can be used in two different ways:
 
 ### 1. Extend from local folder (Development)
 
@@ -115,20 +115,6 @@ defineNuxtConfig({
 ```ts
 defineNuxtConfig({
   extends: ['github:Cardan-International-BV/cardan-ui'],
-});
-```
-
-### 3. Extend from NPM package (Production)
-
-[@cardan/ui](https://www.npmjs.com/package/@cardan/ui)
-
-```bash
-pnpm i @cardan/ui
-```
-
-```ts
-defineNuxtConfig({
-  extends: ['@cardan/ui'],
 });
 ```
 
