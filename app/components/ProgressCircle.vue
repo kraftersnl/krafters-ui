@@ -75,7 +75,7 @@ const percentage = computed(() => ((value / max) * 100)?.toFixed());
   width: var(--size);
   height: var(--size);
   font-size: var(--font-size);
-  font-weight: var(--font-weight-semibold, var(--font-weight-bold));
+  font-weight: var(--font-weight-semibold);
   display: grid;
   place-content: center;
 

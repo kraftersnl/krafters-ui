@@ -321,7 +321,7 @@ const computedAriaDescribedby = computed(() =>
 .select-variant--krafters {
   label {
     color: var(--color-grey-text);
-    font-weight: var(--font-weight-semibold, var(--font-weight-bold));
+    font-weight: var(--font-weight-semibold);
   }
   &:focus-within {
     label {

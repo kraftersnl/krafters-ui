@@ -100,7 +100,7 @@ const {
   }
 
   legend {
-    font-weight: var(--font-weight-semibold, var(--font-weight-bold));
+    font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-md);
 
     .tooltip-content {
