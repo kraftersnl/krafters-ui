@@ -252,7 +252,7 @@ const computedAriaLabels = computed(() => {
 }
 
 :root {
-  --dp-font-family: system-ui, sans-serif;
+  --dp-font-family: var(--font-family-input, system-ui, sans-serif);
   --dp-border-radius: var(--radius-md);
   --dp-input-padding: 0;
 }

@@ -193,6 +193,10 @@
 }
 
 :where(:root) {
+  /* Font family design tokens */
+  --font-family: 'Hanken Grotesk', Arial, system-ui, sans-serif;
+  --font-family-input: var(--font-family);
+
   /* Font weight design tokens */
   --font-weight-regular: 400;
   --font-weight-medium: 500;

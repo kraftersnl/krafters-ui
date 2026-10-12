@@ -44,7 +44,6 @@ useHead({ titleTemplate: '%s | Cardan UI' });
 
 <style>
 :root {
-  --font-family: 'Atkinson Hyperlegible', sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 400;
   --font-weight-bold: 600;

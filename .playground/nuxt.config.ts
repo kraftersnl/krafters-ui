@@ -9,13 +9,6 @@ export default defineNuxtConfig({
     },
   },
 
-  fonts: {
-    defaults: {
-      weights: [400, 600],
-      styles: ['normal', 'italic'],
-    },
-  },
-
   i18n: {
     defaultLocale: 'en',
   },
@@ -30,7 +23,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxt/fonts', '@nuxt/image', '@nuxt/scripts'],
+  modules: ['@nuxt/image', '@nuxt/scripts'],
 
   css: ['~/assets/playground.css'],
 
