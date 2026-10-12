@@ -1,15 +1,15 @@
-# Krafters UI
+# Cardan UI
 
 Accessible Vue component library for [Nuxt](https://nuxt.com) in TypeScript.
 
-Krafters UI is a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers) in a public repository. You can extend from the [GitHub repository](https://github.com/kraftersnl/krafters-ui).
+Cardan UI is a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers) in a public repository. You can extend from the [GitHub repository](https://github.com/Cardan-International-BV/cardan-ui).
 
 ## Development
 
 - Run `pnpm i` to install dependencies
 - Run `pnpm run dev` to start the development server on [localhost:3003](http://localhost:3003)
 
-## How to extend from Krafters UI layer in your project
+## How to extend from Cardan UI layer in your project
 
 ### Extend from GitHub repository
 
@@ -17,6 +17,6 @@ Configuration below extends from main branch of repository:
 
 ```ts
 defineNuxtConfig({
-  extends: ['github:kraftersnl/krafters-ui'],
+  extends: ['github:Cardan-International-BV/cardan-ui'],
 });
 ```

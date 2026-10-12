@@ -1,4 +1,4 @@
-# Krafters UI
+# Cardan UI
 
 Accessible Vue 3 component library for Nuxt 4 in TypeScript, distributed as a [Nuxt Layer](https://nuxt.com/docs/getting-started/layers).
 
@@ -80,7 +80,7 @@ Base frontend guidelines (architecture, CSS design system, WCAG 2.2 requirements
 
 ```vue
 <script setup>
-import { Button } from '@krafters/ui';
+import { Button } from '@cardan/ui';
 
 function handleClick() {
   console.log('Button clicked');
@@ -98,43 +98,43 @@ All global CSS variables for color, spacing, typography, etc. are declared in [m
 
 ## Nuxt Layer Integration
 
-Krafters UI can be used in three different ways:
+Cardan UI can be used in three different ways:
 
 ### 1. Extend from local folder (Development)
 
 ```ts
 defineNuxtConfig({
-  extends: ['../krafters-ui'],
+  extends: ['../cardan-ui'],
 });
 ```
 
 ### 2. Extend from GitHub repository (Development / Production)
 
-[GitHub repository](https://github.com/kraftersnl/krafters-ui)
+[GitHub repository](https://github.com/Cardan-International-BV/cardan-ui)
 
 ```ts
 defineNuxtConfig({
-  extends: ['github:kraftersnl/krafters-ui'],
+  extends: ['github:Cardan-International-BV/cardan-ui'],
 });
 ```
 
 ### 3. Extend from NPM package (Production)
 
-[@krafters/ui](https://www.npmjs.com/package/@krafters/ui)
+[@cardan/ui](https://www.npmjs.com/package/@cardan/ui)
 
 ```bash
-pnpm i @krafters/ui
+pnpm i @cardan/ui
 ```
 
 ```ts
 defineNuxtConfig({
-  extends: ['@krafters/ui'],
+  extends: ['@cardan/ui'],
 });
 ```
 
 ## Icon Usage Guidelines
 
-Krafters UI components support icons through the `icon` prop, powered by [@nuxt/icon](https://nuxt.com/modules/icon) and Iconify. This provides access to over 200,000 open-source vector icons.
+Cardan UI components support icons through the `icon` prop, powered by [@nuxt/icon](https://nuxt.com/modules/icon) and Iconify. This provides access to over 200,000 open-source vector icons.
 
 ### Icon Library Preference
 

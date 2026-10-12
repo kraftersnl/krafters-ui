@@ -192,8 +192,7 @@ const emit = defineEmits<{
   }
 }
 
-.md-editor,
-.md-editor-preview.krafters-theme {
+.md-editor {
   --md-color: var(--color-text) !important;
   --md-bk-color-outstand: var(--color-grey-bg) !important;
   --md-border-color: var(--color-grey-graphic) !important;

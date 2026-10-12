@@ -19,7 +19,7 @@ watch(
         <MenuList :list="navList" button-variant="sidebar" label="Menu" />
       </MobileMenu>
 
-      <NuxtLink to="/" class="home-link">Krafters UI</NuxtLink>
+      <NuxtLink to="/" class="home-link">Cardan UI</NuxtLink>
 
       <div class="flex-wrapper" style="max-width: max-content">
         <!-- <ClientOnly>

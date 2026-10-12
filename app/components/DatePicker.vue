@@ -117,7 +117,7 @@ const computedAriaLabels = computed(() => {
 <template>
   <div
     :class="[
-      'form-field-wrapper krafters-datepicker-container',
+      'form-field-wrapper cardan-datepicker-container krafters-datepicker-container',
       `datepicker-size--${size}`,
     ]"
   >
@@ -155,7 +155,7 @@ const computedAriaLabels = computed(() => {
       aria-live="polite"
       :aria-describedby="id && required ? `error-${id}` : ''"
       :aria-labels="computedAriaLabels"
-      class="krafters-datepicker"
+      class="cardan-datepicker krafters-datepicker"
       @open="handleOpen"
       @closed="handleClose"
     >
@@ -206,7 +206,8 @@ const computedAriaLabels = computed(() => {
   }
 }
 
-.krafters-datepicker-container {
+/* .krafters-datepicker(-container) is deprecated: still on the elements as styling hooks for consumers, use .cardan-datepicker(-container) */
+.cardan-datepicker-container {
   display: grid;
   transition-property: opacity;
   transition-duration: var(--duration-sm);
@@ -307,7 +308,7 @@ const computedAriaLabels = computed(() => {
     }
   }
 
-  .krafters-datepicker-container:has(:invalid) {
+  .cardan-datepicker-container:has(:invalid) {
     .error-wrapper .error {
       display: flex;
     }

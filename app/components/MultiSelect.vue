@@ -86,6 +86,7 @@ function preventEscape(event: KeyboardEvent) {
   <div
     :class="[
       'form-field-wrapper',
+      'cardan-multiselect',
       'krafters-multiselect',
       `multi-select-size--${size}`,
       showInvalid && 'show-invalid',
@@ -353,7 +354,8 @@ function preventEscape(event: KeyboardEvent) {
   }
 }
 
-.krafters-multiselect {
+/* .krafters-multiselect is deprecated: still on the element as a styling hook for consumers, use .cardan-multiselect */
+.cardan-multiselect {
   flex-basis: var(--col-width, 240px);
   flex-shrink: 0;
 
@@ -481,7 +483,7 @@ function preventEscape(event: KeyboardEvent) {
   }
 }
 
-.show-invalid .krafters-multiselect:has(:invalid) {
+.show-invalid .cardan-multiselect:has(:invalid) {
   .error-wrapper .error {
     display: flex;
   }

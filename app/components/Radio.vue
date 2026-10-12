@@ -21,6 +21,7 @@ const {
   tabindex?: string;
   lang?: string;
   id?: string;
+  /** The 'krafters' variant is deprecated: it was designed for the Krafters website and will be removed in a future major version. */
   variant?: 'default' | 'outline' | 'krafters';
 }>();
 </script>

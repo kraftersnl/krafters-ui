@@ -9,7 +9,7 @@ watch(
   },
 );
 
-useHead({ titleTemplate: '%s | Krafters UI' });
+useHead({ titleTemplate: '%s | Cardan UI' });
 </script>
 
 <template>

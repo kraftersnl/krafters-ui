@@ -23,6 +23,7 @@ const {
   titleKey?: string;
   hideLegend?: boolean;
   disabled?: boolean;
+  /** The 'krafters' variant is deprecated: it was designed for the Krafters website and will be removed in a future major version. */
   variant?: 'default' | 'krafters';
 }>();
 </script>

@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   $production: {
     app: {
-      baseURL: '/krafters-ui/',
+      baseURL: '/cardan-ui/',
     },
 
     image: {
@@ -21,13 +21,13 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    baseUrl: 'https://kraftersnl.github.io/krafters-ui/',
+    baseUrl: 'https://cardan-international-bv.github.io/cardan-ui/',
     defaultLocale: 'en',
   },
 
   app: {
     head: {
-      title: 'Krafters UI',
+      title: 'Cardan UI',
       link: [{ rel: 'icon', href: 'favicon.svg', type: 'image/svg+xml' }],
       htmlAttrs: {
         lang: 'en',

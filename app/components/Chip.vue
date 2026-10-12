@@ -68,11 +68,6 @@ const formattedLabel = computed(() =>
   font-weight: var(--font-weight-medium);
   font-variant-numeric: tabular-nums;
 
-  .krafters-tooltip-content {
-    font-weight: var(--font-weight-regular);
-    font-size: var(--chip-font-size, var(--font-size-xs));
-  }
-
   .iconify {
     font-size: var(--chip-icon-size, larger);
   }
