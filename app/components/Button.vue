@@ -290,15 +290,11 @@ const emit = defineEmits<{
 }
 
 .button-variant--primary {
-  color: var(--color-white);
+  color: var(--color-on-accent);
   background-color: var(--color-accent);
 
   &:not(:disabled, .disabled):hover {
-    background-color: color-mix(
-      in srgb,
-      var(--color-accent) 90%,
-      var(--color-white)
-    );
+    background-color: var(--color-accent-hover);
   }
 }
 
@@ -330,7 +326,7 @@ const emit = defineEmits<{
   color: var(--color-white);
   background-color: var(--color-black);
   transition-property: background-color, box-shadow;
-  box-shadow: 4px 4px 0 0 var(--color-accent);
+  box-shadow: var(--shadow-offset);
 
   .icon svg {
     width: 1.25em;
@@ -338,7 +334,7 @@ const emit = defineEmits<{
   }
 
   &:not(:focus-visible, :disabled, .disabled):hover {
-    box-shadow: 6px 6px 0px 0 var(--color-accent);
+    box-shadow: var(--shadow-offset-hover);
     background-color: color-mix(
       in srgb,
       var(--color-black) 90%,
@@ -373,7 +369,7 @@ const emit = defineEmits<{
 .button-variant--cta {
   --radius: var(--radius-xl);
   --focus-color: var(--color-accent-text);
-  color: white;
+  color: var(--color-on-accent);
   background-color: var(--color-accent);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
@@ -384,20 +380,16 @@ const emit = defineEmits<{
   }
 
   &:not(:disabled, .disabled):hover {
-    background-color: color-mix(in srgb, var(--color-accent) 85%, black);
+    background-color: var(--color-accent-hover);
   }
 }
 
 .button-variant--secondary {
-  color: var(--color-text);
-  background-color: var(--color-grey-bg);
+  color: var(--color-on-secondary);
+  background-color: var(--color-secondary);
 
   &:not(:disabled, .disabled):hover {
-    background-color: color-mix(
-      in srgb,
-      var(--color-grey-bg) 95%,
-      var(--color-black)
-    );
+    background-color: var(--color-secondary-hover);
   }
 }
 

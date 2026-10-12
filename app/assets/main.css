@@ -53,6 +53,10 @@
   --color-accent-graphic: var(--cardan-purple-text-on-dark);
   --color-on-accent: var(--cardan-white);
 
+  --color-secondary: var(--cardan-dark-text);
+  --color-secondary-hover: var(--cardan-dark-text-secondary);
+  --color-on-secondary: var(--cardan-black);
+
   --color-black: white;
   --color-text: var(--cardan-dark-text);
   --color-grey-text: var(--cardan-dark-text-secondary);
@@ -129,6 +133,10 @@
   --color-accent-text: var(--cardan-purple);
   --color-accent-graphic: var(--cardan-purple);
   --color-on-accent: var(--cardan-white);
+
+  --color-secondary: var(--cardan-body);
+  --color-secondary-hover: var(--cardan-body-grey);
+  --color-on-secondary: var(--cardan-white);
 
   --color-black: black;
   --color-text: var(--cardan-body);
@@ -262,6 +270,8 @@
     3px 6px 8.4px -0.5px hsl(var(--shadow-color) / 0.24),
     4.9px 9.8px 13.7px -0.8px hsl(var(--shadow-color) / 0.27),
     7.8px 15.6px 21.8px -1.1px hsl(var(--shadow-color) / 0.3);
+  --shadow-offset: 4px 4px 0 0 var(--color-accent);
+  --shadow-offset-hover: 6px 6px 0 0 var(--color-accent);
 
   /* Transition duration design tokens */
   --duration-xs: 0.1s;
