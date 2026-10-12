@@ -254,7 +254,7 @@ const emit = defineEmits<{
     border-radius: var(--radius-md);
 
     &::placeholder {
-      color: var(--color-grey-graphic);
+      color: var(--color-grey-text);
     }
 
     &:focus {

@@ -306,22 +306,23 @@ function preventEscape(event: KeyboardEvent) {
   --ms-group-label-bg-disabled: var(--color-grey-bg);
   --ms-group-label-color-disabled: var(--color-grey-graphic);
   --ms-group-label-bg-selected: var(--color-accent);
-  --ms-group-label-color-selected: var(--color-white);
+  --ms-group-label-color-selected: var(--color-on-accent);
   --ms-group-label-bg-selected-pointed: var(--color-accent);
-  --ms-group-label-color-selected-pointed: var(--color-white);
+  --ms-group-label-color-selected-pointed: var(--color-on-accent);
   /* --ms-group-label-bg-selected-disabled: #75cfb1; */
   /* --ms-group-label-color-selected-disabled: #d1fae5; */
 
   --ms-option-font-size: var(--font-size-sm);
   /* --ms-option-line-height: 1.375; */
-  --ms-option-bg-pointed: var(--color-grey-light);
-  --ms-option-color-pointed: var(--color-text);
+  /* The pointed (hovered or keyboard-highlighted) option needs a 3:1 contrast change */
+  --ms-option-bg-pointed: var(--color-accent);
+  --ms-option-color-pointed: var(--color-on-accent);
   --ms-option-bg-selected: var(--color-green-bg);
   --ms-option-color-selected: var(--color-green-text);
   --ms-option-bg-disabled: var(--color-grey-bg);
   --ms-option-color-disabled: var(--color-grey-graphic);
-  --ms-option-bg-selected-pointed: var(--color-green-bg);
-  --ms-option-color-selected-pointed: var(--color-green-text);
+  --ms-option-bg-selected-pointed: var(--color-green);
+  --ms-option-color-selected-pointed: var(--color-white);
   --ms-option-bg-selected-disabled: var(--color-grey-bg);
   --ms-option-color-selected-disabled: var(--color-grey-graphic);
   /* --ms-option-py: 0.5rem; */

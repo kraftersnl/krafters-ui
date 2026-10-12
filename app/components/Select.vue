@@ -190,7 +190,7 @@ const computedAriaDescribedby = computed(() =>
     color: var(--color-text);
 
     &::placeholder {
-      color: var(--color-grey-graphic);
+      color: var(--color-grey-text);
     }
 
     &:focus-visible {
