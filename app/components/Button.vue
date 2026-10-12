@@ -16,7 +16,7 @@ const {
   hideExternalIcon = false,
   iconPos = 'start',
   variant = 'secondary',
-  size = 'md',
+  size = 'lg',
   type = 'button',
 } = defineProps<{
   label?: string;
@@ -248,7 +248,7 @@ const emit = defineEmits<{
 }
 
 .button-size--lg {
-  font-size: var(--font-size, var(--font-size-sm));
+  font-size: var(--font-size, var(--font-size-md));
   min-height: 2.5rem;
   padding-inline: 0.85rem;
 
