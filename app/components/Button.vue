@@ -200,7 +200,7 @@ const emit = defineEmits<{
 }
 
 .button-size--xs {
-  font-size: var(--font-size, var(--font-size-xxs));
+  font-size: var(--font-size, var(--button-font-size-xs));
   min-height: 1.5rem;
   padding-inline: 0.5rem;
 
@@ -220,7 +220,7 @@ const emit = defineEmits<{
 }
 
 .button-size--sm {
-  font-size: var(--font-size, var(--font-size-xs));
+  font-size: var(--font-size, var(--button-font-size-sm));
   min-height: 2rem;
   padding-inline: 0.65rem;
 
@@ -235,7 +235,7 @@ const emit = defineEmits<{
 
 .button-size--md {
   font-size: var(--font-size, var(--button-font-size));
-  min-height: var(--button-height);
+  min-height: var(--control-height);
   padding-inline: var(--button-padding-inline);
 
   .button-text {
@@ -248,8 +248,8 @@ const emit = defineEmits<{
 }
 
 .button-size--lg {
-  font-size: var(--font-size, var(--font-size-sm));
-  min-height: 2.5rem;
+  font-size: var(--font-size, var(--button-font-size));
+  min-height: var(--control-height-lg);
   padding-inline: 0.85rem;
 
   .button-text {
@@ -262,7 +262,7 @@ const emit = defineEmits<{
 }
 
 .button-size--xl {
-  font-size: var(--font-size, var(--font-size-sm));
+  font-size: var(--font-size, var(--button-font-size));
   min-height: 3rem;
   padding-inline: 1.25rem;
 

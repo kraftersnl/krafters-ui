@@ -245,10 +245,15 @@
   --size-xxs: 0.5rem; /* 8px */
   --size-xxxs: 0.25rem; /* 4px */
 
-  /* Button design tokens, for the default (md) size */
-  --button-height: 2.5rem; /* 40px */
+  /* Control height design tokens, for the md (default) and lg sizes of Button, Input, Select, MultiSelect and DatePicker */
+  --control-height: 2.5rem; /* 40px */
+  --control-height-lg: 2.75rem; /* 44px */
+
+  /* Button design tokens, font sizes for xs to xl */
   --button-padding-inline: 0.8rem; /* 16px including the label padding */
   --button-font-size: var(--font-size-md);
+  --button-font-size-sm: var(--font-size-sm);
+  --button-font-size-xs: var(--font-size-xs);
 
   /* Border radius design tokens */
   --radius-xs: 2px;

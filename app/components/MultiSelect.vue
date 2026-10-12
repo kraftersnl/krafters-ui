@@ -466,8 +466,8 @@ function preventEscape(event: KeyboardEvent) {
     &.is-selected {
       &::after {
         content: '';
-        color: var(--ms-option-bg-selected-pointed);
-        background-color: var(--ms-option-color-selected-pointed);
+        color: var(--ms-option-bg-selected);
+        background-color: var(--ms-option-color-selected);
         mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L8 12.586l7.293-7.293a1 1 0 0 1 1.414 0" clip-rule="evenodd"/></svg>');
       }
 
@@ -478,6 +478,8 @@ function preventEscape(event: KeyboardEvent) {
 
       &.is-pointed::after {
         content: '';
+        color: var(--ms-option-bg-selected-pointed);
+        background-color: var(--ms-option-color-selected-pointed);
         mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M4.293 4.293a1 1 0 0 1 1.414 0L10 8.586l4.293-4.293a1 1 0 1 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L8.586 10L4.293 5.707a1 1 0 0 1 0-1.414" clip-rule="evenodd"/></svg>');
       }
     }
@@ -498,10 +500,10 @@ function preventEscape(event: KeyboardEvent) {
 }
 
 .multi-select-size--md .multiselect-wrapper {
-  --height: calc(2.25rem - 2px);
+  --height: calc(var(--control-height) - 2px);
 }
 
 .multi-select-size--lg .multiselect-wrapper {
-  --height: calc(2.5rem - 2px);
+  --height: calc(var(--control-height-lg) - 2px);
 }
 </style>

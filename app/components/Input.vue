@@ -302,14 +302,14 @@ const emit = defineEmits<{
 
 .input-size--md {
   .input {
-    height: 2.25rem;
+    height: var(--control-height);
     padding-inline: 0.5em;
   }
 }
 
 .input-size--lg {
   .input {
-    height: 2.5rem;
+    height: var(--control-height-lg);
     padding-inline: 0.65em;
   }
 }
